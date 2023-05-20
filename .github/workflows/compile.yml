@@ -104,21 +104,3 @@ jobs:
           git add *.html || true
           git commit -m "Updated aux, pdf and html files" || echo "No changes to commit"
           git push -f
-
-  convert_tex_to_html:
-    needs: [latexmk]
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        emacs_version:
-          - snapshot
-    steps:
-      - name: Checkout pages
-        uses: actions/checkout@v3
-        with:
-          ref: deploy
-          fetch-depth: 0
-      - name: Install jq
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y jq
