@@ -40,9 +40,6 @@ jobs:
           git rebase origin/main
       - name: Run latexmk
         run: |
-          echo "blah $(date)" > testitup.txt
-          echo "Modified .tex files:" >> testitup.txt
-          git diff --name-only ${{ github.event.before }} ${{ github.event.after }} >> testitup.txt
           EXCLUDE_FILES=$(jq -r '.exclude[]' config.json)
           if [[ "${{ github.event_name }}" == "push" ]]; then          
             git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep .tex | grep -v $EXCLUDE_FILES | while read file; do
@@ -61,6 +58,35 @@ jobs:
           echo "Current directory is $(pwd)"
           echo "Listing files in the current directory:"
           ls -al
+      - uses: purcell/setup-emacs@master
+        with:
+          version: ${{ matrix.emacs_version }}
+      - name: Convert to html
+        run: |
+          EXCLUDE_FILES=$(jq -r '.exclude[]' config.json)
+          if [[ "${{ github.event_name }}" == "push" ]]; then          
+            git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep .tex | grep -v $EXCLUDE_FILES | while read file; do
+              echo "Converting $file to html"
+              do
+                docker run --volume "`pwd`:`pwd`" --workdir "`pwd`" pandoc/core:2.9 --standalone "$file" -o "${file%.tex}.html"
+                emacs --batch "${file%.tex}.html" -l ./tex2html.el --eval "(tex2html-postprocess-html-buffer)" -f save-buffer
+              done
+            done
+          elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            find . -maxdepth 1 -name "*.tex" | grep -v $EXCLUDE_FILES | while read file; do
+              echo "Converting $file to html"
+              do
+                docker run --volume "`pwd`:`pwd`" --workdir "`pwd`" pandoc/core:2.9 --standalone "$file" -o "${file%.tex}.html"
+                emacs --batch "${file%.tex}.html" -l ./tex2html.el --eval "(tex2html-postprocess-html-buffer)" -f save-buffer
+              done
+            done
+          fi            
+      - name: Debugging shell        
+        working-directory: ${{ env.DIR }}
+        run: |
+          echo "Current directory is $(pwd)"
+          echo "Listing files in the current directory:"
+          ls -al
       - name: Commit and push
         run: |
           git config --local user.email "action@github.com"
@@ -68,7 +94,8 @@ jobs:
           git add *.txt
           git add *.aux || true
           git add *.pdf || true
-          git commit -m "Compiled aux and pdf files" || echo "No changes to commit"
+          git add *.html || true
+          git commit -m "Updated aux, pdf and html files" || echo "No changes to commit"
           git push -f
 
   convert_tex_to_html:
@@ -88,31 +115,3 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y jq
-      - uses: purcell/setup-emacs@master
-        with:
-          version: ${{ matrix.emacs_version }}
-      - name: Convert Tex files to HTML
-        run: |
-          EXCLUDE_FILES=$(jq -r '.exclude[]' config.json)
-          for file in $(ls *.tex | grep -vFf <(printf '%s\n' $EXCLUDE_FILES))
-          do
-            docker run --volume "`pwd`:`pwd`" --workdir "`pwd`" pandoc/core:2.9 --standalone "$file" -o "${file%.tex}.html"
-            emacs --batch "${file%.tex}.html" -l tex2html --eval "(tex2html-postprocess-html-buffer)" -f save-buffer
-          done
-      - name: Debugging shell        
-        working-directory: ${{ env.DIR }}
-        run: |
-          echo "Current directory is $(pwd)"
-          echo "Listing files in the current directory:"
-          ls -al
-          echo "Git status:"
-          git status
-          echo "Git branch:"
-          git branch
-      - name: Commit and push
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add *.html || true
-          git commit -m "Updated html files" || echo "No changes to commit"
-          git push -f
