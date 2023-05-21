@@ -5,6 +5,13 @@ on:
     workflows: ["build-html", "compile"]
     types:
       - completed
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.html'
+      - '**/*.org'
+      - '**/*.el'
 permissions:
   contents: write
 jobs:          
@@ -33,6 +40,11 @@ jobs:
       - uses: purcell/setup-emacs@master
         with:
           version: ${{ matrix.emacs_version }}
+      - name: Rebase from main
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git rebase origin/main
       - name: Call Emacs to make index
         run: |
           emacs --batch -l ./tex2html.el --eval "(tex2html-make-index)"
