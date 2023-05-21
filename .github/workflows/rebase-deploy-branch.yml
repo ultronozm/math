@@ -9,7 +9,7 @@ on:
 permissions:
   contents: write
 jobs:          
-  latexmk:
+  rebase:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout pages
