@@ -1,0 +1,48 @@
+name: make-index
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["build-html", "compile"]
+    types:
+      - completed
+permissions:
+  contents: write
+jobs:          
+  rebase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout pages
+        uses: actions/checkout@v3
+        with:
+          ref: deploy
+          fetch-depth: 0
+      - name: Debugging shell        
+        working-directory: ${{ env.DIR }}
+        run: |
+          echo "Current directory is $(pwd)"
+          echo "Listing files in the current directory:"
+          ls -al
+          echo "Git status:"
+          git status
+          echo "Git branch:"
+          git branch
+      - uses: purcell/setup-emacs@master
+        with:
+          version: ${{ matrix.emacs_version }}
+      - name: Call Emacs to make index
+        run: |
+          emacs --batch -l ./tex2html.el --eval "(tex2html-make-index)"
+      - name: Debugging shell        
+        working-directory: ${{ env.DIR }}
+        run: |
+          echo "Current directory is $(pwd)"
+          echo "Listing files in the current directory:"
+          ls -al
+      - name: Push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add listing.json || true
+          git add index.html || true
+          git commit -m "Updated listing.json and index.html" || echo "No changes to commit"
+          git push -f
