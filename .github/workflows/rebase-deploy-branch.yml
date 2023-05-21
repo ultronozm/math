@@ -1,4 +1,4 @@
-name: compile
+name: rebase-deploy-branch
 on:
   workflow_dispatch:
   push:
