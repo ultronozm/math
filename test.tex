@@ -1,6 +1,13 @@
 \documentclass[reqno]{amsart} \input{common.tex}
 
+
+\usepackage{xr}
+\externaldocument{test2}
+
 \begin{document}
+
+
+External reference to \href{test2.pdf}{Other File}, Theorem \ref{theorem:35ac204d35}
 
 Oh hey, what's up.  We could take $x = y$, or we could solve
 \begin{equation}\label{eqn:35ac136ef8}
