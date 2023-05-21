@@ -7,6 +7,7 @@ on:
     paths:
       - '**/*.html'
       - '**/*.md'
+      - '**/*.el'
 permissions:
   contents: write
 jobs:          
