@@ -5,7 +5,6 @@ permissions:
   contents: write
 jobs:          
   convert_tex_to_html:
-    needs: [latexmk]
     runs-on: ubuntu-latest
     strategy:
       matrix:
