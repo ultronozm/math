@@ -1,0 +1,814 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\begin{document}
+
+\section{Introduction}
+\label{sec:org2573665}
+
+We recall some definitions and background, record proofs of some
+of the main theorems regarding Krull dimension, and give some of
+their geometric interpretations.
+We mainly follow the course reference by Bosch.
+
+\section{Basic definitions}
+\label{sec:orgdb2d3a0}
+
+Let \(A\) be a ring (always commutative and with identity).
+In what follows,
+the symbols \(\mathfrak{p}\) or \(\mathfrak{p}_i\)
+always denote prime ideals.
+We set
+\[
+    \dim(A) :=
+    \sup \{n \geq 0 : \exists \mathfrak{p}_0 \subsetneq \dotsb \subsetneq \mathfrak{p}_n \}.
+  \]
+
+For a prime ideal \(\mathfrak{p}\) of \(A\),
+we set
+\[
+    \height(\mathfrak{p}) :=
+    \sup \{n \geq 0 : \exists \mathfrak{p}_0 \subsetneq \dotsb \subsetneq \mathfrak{p}_n \subseteq \mathfrak{p}\},
+  \]
+\[
+    \coheight(\mathfrak{p}) :=
+    \sup \{n \geq 0 : \exists \mathfrak{p} \subseteq \mathfrak{p}_0 \subsetneq \dotsb \subsetneq \mathfrak{p}_n \}.
+  \]
+For a general ideal \(\mathfrak{a}\),
+we set
+\[
+    \height(\mathfrak{a}) := \inf_{\mathfrak{p} \supseteq
+      \mathfrak{a}} \height(\mathfrak{p}),
+  \]
+\[
+    \coheight(\mathfrak{a}) := \sup_{\mathfrak{p} \supseteq
+      \mathfrak{a}} \coheight(\mathfrak{p})
+    = \sup \{n \geq 0 : \exists \mathfrak{a} \subseteq \mathfrak{p}_0 \subsetneq \dotsb \subsetneq \mathfrak{p}_n \}.
+  \]
+Since prime ideals in the localization \(A_\mathfrak{p}\)
+correspond to the primes in \(A\) contained in \(\mathfrak{p}\),
+we have
+\[
+    \height(\mathfrak{p}) = \dim(A_\mathfrak{p}).
+  \]
+Since prime ideals in the quotient \(A/\mathfrak{a}\)
+correspond to the primes in \(A\) containing \(\mathfrak{a}\),
+we have
+\[
+    \coheight(\mathfrak{a}) = \dim(A/\mathfrak{a}).
+  \]
+We note the following easy inequality:
+\begin{lemma}\label{lem:easy-dimension-inequality}
+  $\height(\mathfrak{a}) + \dim(A/\mathfrak{a}) \leq \dim(A)$.
+\end{lemma}
+\begin{proof}
+  It suffices to show that
+  if $\height(\mathfrak{a}) \geq r$
+  and $\dim(A/\mathfrak{a}) \geq s$,
+  then $\dim(A) \geq r + s$.
+  By hypothesis,
+  we may find primes
+  $\mathfrak{a} \subseteq \mathfrak{q}_0 \subsetneq \dotsb
+  \subsetneq \mathfrak{q}_s$.
+  Then $\height(\mathfrak{q}_0) \geq \height(\mathfrak{a}) \geq
+  r$,
+  so we may find primes
+  $\mathfrak{p}_0 \subsetneq \dotsb \subsetneq \mathfrak{p}_r =
+  \mathfrak{q}_0$.
+  Then
+  \[
+    \mathfrak{p}_0 \subsetneq \dotsb \subsetneq \mathfrak{p}_r =
+    \mathfrak{q}_0
+    \subsetneq \mathfrak{q}_1 \subsetneq \dotsb \subsetneq
+    \mathfrak{q}_s
+  \]
+  is a chain of primes in  $A$ of length $r+s$.
+\end{proof}
+We also note:
+\begin{lemma}\label{lem:local-ring-height-equals-dim}
+  Let $(A,\mathfrak{m})$ be a local ring.
+  Then $\dim(A) = \height(\mathfrak{m})$.
+\end{lemma}
+\begin{proof}
+  Let $\mathfrak{p}_0 \subsetneq \dotsb \subsetneq
+  \mathfrak{p}_r$ be a chain of primes in $A$.
+  By enlarging this chain if necessary, we may assume that
+  $\mathfrak{p}_r = \mathfrak{m}$.
+  Thus the suprema in the definitions of
+  $\dim(A)$ and $\height(\mathfrak{m})$
+  may be taken over the same chains of primes.
+\end{proof}
+
+
+\section{Geometric interpretations}
+\label{sec:org60bbe56}
+
+Reference for this section: exercises in Chapter 1 of Atiyah--Macdonald.
+
+Let \(A\) be a ring.  Recall that \(\Spec(A)\) denotes the set of
+prime ideals \(\mathfrak{p}\) in \(A\).
+Each \(f \in A\) defines a function
+\[
+  f|_{\Spec(A)} : \Spec(A) \rightarrow
+  \bigsqcup_{\mathfrak{p} \in \Spec(A)} A/\mathfrak{p}
+  \]
+sending \(\mathfrak{p}\) to the class of \(f\) in the quotient ring \(A/\mathfrak{p}\).
+For \(f \in A\) and any subset \(X\) of \(\Spec(A)\),
+we may form the restriction
+\(f|_X\) of \(f\) to \(X\).
+For the sake of illustration,
+note that \(f|_{\Spec(A)} = 0\) (i.e., \(f|_{\Spec(A)}\)
+maps each \(\mathfrak{p}\) to the zero class in \(A / \mathfrak{p}\))
+if and only if \(f\) belongs
+to the nilradical of \(A\).
+
+For example, we have seen (using the Nullstellensatz) that if
+\(A = \mathbb{C}[X_1,\dotsc,X_n]/I\) for some ideal
+\(I \subseteq \mathbb{C}[X_1,\dotsc,X_n]\), then the set
+\(\Specm(A)\) of maximal ideals in \(A\) is in natural bijection
+with
+\(V := \{(x_1,\dotsc,x_n) \in \mathbb{C}^n : f(x_1,\dotsc,x_n) = 0
+  \text{ for all } f \in I \}\).
+For each such maximal ideal \(\mathfrak{m}\) we may identify
+\(A/\mathfrak{m}\) with \(\mathbb{C}\).
+For \(f \in A\),
+the function
+\(f|_{\Specm(A)}\) then identifies with the obvious map
+\(V \ni (x_1,\dotsc,x_n) \mapsto f(x_1,\dotsc,x_n) \in
+  \mathbb{C}\).
+
+For a subset \(S\) of \(A\), we set
+\[
+  V(S) := \{\mathfrak{p} \in \Spec(A) : \mathfrak{p} \supseteq
+  S\}
+  = \{\mathfrak{p} \in \Spec(A) : f(\mathfrak{p}) = 0 \text{ for
+    each }
+  f \in S
+  \}.
+  \]
+For finite sets \(S = \{f_1,\dotsc,f_n\}\)
+we write simply \(V(f_1,\dotsc,f_n) := V(S)\).
+Note that if \(S\) generates an ideal \(\mathfrak{a}\), then
+\(V(S) = V(\mathfrak{a})\).
+Given any subset \(X\) of \(\Spec(A)\),
+we set
+\[
+  I(X)
+  := \cap_{\mathfrak{p} \in X} \mathfrak{p}
+  = \{f \in A : f|_X = 0\}.
+  \]
+Recall that a subset of \(\Spec(A)\) is
+called \emph{closed} if it is of the form \(V(S)\) for some \(S\);
+this defines
+a topology on \(\Spec(A)\).
+Recall that an ideal \(\mathfrak{a}\) is \emph{radical}
+if \(\rad(\mathfrak{a}) = \mathfrak{a}\).
+\begin{lemma}~
+  \begin{enumerate}[(i)]
+  \item For each ideal $\mathfrak{a}$ of $A$,
+    we have $I(V(\mathfrak{a})) = \rad(\mathfrak{a})$.
+  \item For each subset $X$ of $\Spec(A)$,
+    we have $V(I(X)) = \overline{X}$ (the closure of $X$).
+  \item The maps $V$ and $I$ define mutually-inverse
+    inclusion-reversing
+    bijections between the set of radical ideals of $A$ and the
+    set of closed subsets of $\Spec(A)$.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  The maps $I$ and $V$ are readily seen to be inclusion-reversing
+  (cf. Exercise Sheet \#1).
+  \begin{enumerate}[(i)]
+  \item By definition, $I(V(\mathfrak{a})) = \cap_{\mathfrak{p} \in
+      V(\mathfrak{a})} \mathfrak{p}
+    = \cap_{\mathfrak{p} \supseteq \mathfrak{a}} \mathfrak{p} =
+    \rad(\mathfrak{a})$.
+  \item The set $V(I(X))$ is closed and contains $X$, so it will suffice to
+    verify for each closed set $V(\mathfrak{a})$ containing $X$
+    that $V(\mathfrak{a}) \supseteq V(I(X))$.  From
+    $V(\mathfrak{a}) \supseteq X$ we see that $f|_X = 0$ for all
+    $f \in \mathfrak{a}$, thus $\mathfrak{a} \subseteq I(X)$.
+    Applying the inclusion-reversing map $V$, we obtain
+    $V(\mathfrak{a}) \supseteq V(I(X))$, as required.
+  \item Immediate by the above.
+  \end{enumerate}
+\end{proof}
+\begin{lemma}
+  Let $X$ be a closed subset of $\Spec(A)$.
+  The following are equivalent:
+  \begin{enumerate}[(i)]
+  \item 
+    $X = V(\mathfrak{p})$ for some prime ideal
+    $\mathfrak{p}$ of $A$.
+  \item $I(X)$ is a prime ideal of $A$.
+  \item $X$ is nonempty
+    and may not be written as $X = X_1 \cup X_2$ for closed subsets
+    $X_1, X_2$ of $\Spec(A)$ except in the trivial case that either
+    $X \subseteq X_1$ or $X \subseteq X_2$.
+  \end{enumerate}
+\end{lemma}
+We say that a closed
+subset \(X\) of \(\Spec(A)\)
+is \emph{irreducible}
+if it satisfies the equivalent conditions of the preceeding
+lemma.
+The irreducible closed subsets of \(\Spec(A)\)
+correspond bijectively to the prime ideals of \(A\).
+
+We note that for any ideal \(\mathfrak{a}\),
+we may identify
+\[
+  V(\mathfrak{a}) = \Spec(A/\mathfrak{a}).
+  \]
+We note also that if \(\mathfrak{p}\) is a prime of \(A\),
+then the primes of the localization \(A_\mathfrak{p}\)
+correspond to the primes of \(A\) contained in \(\mathfrak{p}\),
+hence the spectrum of \(A_\mathfrak{p}\)
+identifies with the set of closed irreducible subsets
+of \(\Spec(A)\) that \emph{contain} \(\mathfrak{p}\):
+\[
+  \Spec(A_\mathfrak{p})
+  =
+  \{\mathfrak{q} \in \Spec(A) : \mathfrak{q} \subseteq \mathfrak{p} \}
+  =
+  \{\mathfrak{q} \in \Spec(A) : \mathfrak{p} \in V(\mathfrak{q}) \}.
+  \]
+
+By an \emph{irreducible component} of a closed subset \(X\) of
+\(\Spec(A)\), we shall mean a maximal closed irreducible subset of
+\(X\), i.e., a closed irreducible subset \(Z \subseteq X\) with the
+property that if \(Z' \subseteq X\) is any closed irreducible
+subset with \(Z' \supseteq Z\), then \(Z' = Z\).  Using the inclusion-reversing bijections
+noted above, we verify readily
+that for any ideal \(\mathfrak{a}\), the irreducible components of
+\(X = V(\mathfrak{a})\) correspond bijectively to the set (denoted
+\(\Ass'(\mathfrak{a})\) in lecture) of minimal prime ideals
+\(\mathfrak{p} \supseteq \mathfrak{a}\).  
+
+We assume henceforth that \(A\) is Noetherian.
+Then the set of minimal primes of any ideal is finite, and any prime containing an ideal contains a minimal prime of that ideal.
+It follows that the set
+of irreducible components of any closed subset \(X\) of \(\Spec(A)\) is
+a finite set \(\{Z_1,\dotsc,Z_n\}\) for which \(X = Z_1 \cup \dotsb \cup Z_n\).
+
+We define the \emph{dimension}
+of a closed subset \(X\) of \(\Spec(A)\)
+to be
+\[
+  \dim(X) = \sup \{n \geq 0 : \exists \text{ closed irreducible
+    subsets }
+  Z_n \subsetneq \dotsb \subsetneq Z_0 \subseteq X
+  \}
+  \]
+and the \emph{codimension}
+in the special case
+that \(Z\) is closed irreducible
+to be
+\[
+  \codim(Z) :=
+  \sup \{n \geq 0 : \exists \text{ closed irreducible
+    subsets }
+  Z_0 \supsetneq \dotsb \supsetneq Z_n \supset Z \}
+  \]
+and then in general by
+\[
+  \codim(X) :=
+  \inf_{\substack{Z \subseteq X : \text{closed irreducible}}}
+  \codim(Z).
+  \]
+Equivalently, \(\codim(X)\) is the smallest codimension
+of any irreducible component of \(X\).
+We note also that \(\dim(X)\) coincides with the largest
+dimension of any irreducible component of \(X\).
+We might write \(\codim(X)\) as \(\codim_{\Spec(A)}(X)\)
+when we wish to emphasize the reference space \(\Spec(A)\).
+
+Using the inclusion-reversing bijections noted above,
+we see that
+\[
+  \dim \Spec A = \dim A
+  \]
+and more generally
+that
+\[
+  \dim V(\mathfrak{a}) = \coheight \mathfrak{a} = \dim A/\mathfrak{a},
+  \quad
+  \dim X = \coheight I(X) = \dim A/I(X),
+  \]
+\[
+  \codim V(\mathfrak{a}) = \height \mathfrak{a},
+  \quad
+  \codim X = \height I(X)
+  \]
+for any ideal \(\mathfrak{a}\) and any closed \(X \subseteq
+  \Spec(A)\).
+Lemma \ref{lem:easy-dimension-inequality}
+says that \(\dim X + \codim X \leq \dim \Spec A\).
+
+
+\section{Prime avoidance lemma\label{sec:prime-avoidance}}
+\label{sec:org9d9ed7c}
+
+\begin{lemma}
+  Let $A$ be a ring, let $\mathfrak{p}_1,\dotsc,\mathfrak{p}_n$
+  be prime ideals, and let $\mathfrak{a}$ be an ideal contained
+  in the union $\cup \mathfrak{p}_j$.  Then there exists an index $j$
+  for which $\mathfrak{a} \subseteq \mathfrak{p}_j$.
+  Equivalently, if $\mathfrak{a} \not\subseteq \mathfrak{p}_j$
+  for each $j$, then
+  $\mathfrak{a} \not\subseteq \cup \mathfrak{p}_j$.
+
+  In ``geometric'' terms,
+  let $Z_1,\dotsc,Z_n \subseteq \Spec(A)$
+  be closed irreducible subsets,
+  and
+  let $X = V(\mathfrak{a})$
+  be a closed irreducible subset
+  of $\Spec(A)$,
+  defined by an ideal $\mathfrak{a}$,
+  with the property that $X \not\supseteq Z_j$ for all $j$.
+  Then there exists $f \in \mathfrak{a}$
+  with $f|_{Z_j} \neq 0$ for all $j$.
+  In particular, we may find $f \in A$ with $f|_{X} = 0$
+  but $f|_{Z_j} \neq 0$ for all $j$.
+\end{lemma}
+\begin{proof}
+  We verify 
+  that if $\mathfrak{a}$ is not contained in any of the
+  $\mathfrak{p}_j$,
+  then it is not contained in their union.
+  For this we may induct on $n$.
+  The case $n = 1$ is trivial,
+  so suppose $n > 2$.
+  By our inductive hypothesis,
+  we may find for each $i=1..n$ an element $a_i \in
+  \mathfrak{a}$
+  with $a_i \notin \mathfrak{p}_j$
+  whenever $j \neq i$.
+  If moreover $a_i \notin \mathfrak{p}_i$
+  for some $i$,
+  then we are done,
+  so suppose otherwise that $a_i \in \mathfrak{p}_i$ for all
+  $i$.
+  Set $b_i := \prod_{j : j \neq i} a_j$.
+  Then $b_i \notin \mathfrak{p}_i$ (using that $\mathfrak{p}_i$
+  is prime)
+  but $b_i \in \mathfrak{p}_j$ for all $j \neq i$.
+  It follows that $x := b_1 + \dotsb + b_n$
+  belongs to $\mathfrak{a}$
+  but not to $\mathfrak{p}_i$ for any $i$,
+  hence $\mathfrak{a}$ is not contained in the union of the $\mathfrak{p}_i$.
+\end{proof}
+
+\section{Artin rings}
+\label{sec:org49d017a}
+
+\begin{theorem}\label{thm:artin-vs-noeth-dim0}
+  Let $A$ be a ring.
+  The following are equivalent:
+  \begin{enumerate}[(i)]
+  \item $A$ is an Artin ring.
+  \item $A$ is a Noetherian ring of dimension zero.
+  \end{enumerate}
+\end{theorem}
+
+
+\section{Krull intersection theorem}
+\label{sec:orgd90b421}
+
+\begin{theorem}\label{thm:krull-intersection}
+  Let $\mathfrak{a}$ be an ideal contained in the Jacobson
+  radical $\Jac(A)$ of a Noetherian ring
+  $A$.
+  Then
+  \[
+    \cap_{n \geq 0} \mathfrak{a}^n = 0.
+  \]
+\end{theorem}
+\begin{corollary}\label{cor:krull-intersection1}
+  With $A, \mathfrak{a}$ as before, let $M$ be a finitely-generated module.
+  Then $\cap_{n \geq 0} \mathfrak{a}^n M = 0$.
+\end{corollary}
+\begin{corollary}\label{cor:krull-intersection2}
+  Let $(A,\mathfrak{m})$ be a  Noetherian local ring.
+  Then $\cap_{n \geq 0} \mathfrak{m}^n =0$.
+\end{corollary}
+For the proof of Theorem \ref{thm:krull-intersection}, the fact that \(\mathfrak{a}\) is contained in the Jacobson
+radical
+suggests an application of Nakayama's lemma to the ideal
+\(M' := \cap_{n \geq 0} \mathfrak{a}^n\),
+for which it
+is clear
+that \(\mathfrak{a} M' \subseteq M'\)
+and
+plausible but non-obvious that \(\mathfrak{a} M' = M'\).
+The key tool in establishing  the latter is the following:
+\begin{lemma}[Artin--Rees lemma]
+  Let $A$ be Noetherian,
+  let $\mathfrak{a}$ be an ideal,
+  let $M$ be a finitely-generated module,
+  and let $M' \leq M$ be a submodule.
+  There exists $n \geq 0$ so that for all $k \geq 0$,
+  \[
+    \mathfrak{a}^k (\mathfrak{a}^n M \cap M')
+    = \mathfrak{a}^{n+k} M \cap M'.
+  \]
+\end{lemma}
+Taking
+\(M := A, M' := \cap_{n \geq 0} \mathfrak{a}^n\),
+\(k := 1\)
+in the Artin--Rees lemma
+gives \(\mathfrak{a}^n M \cap M' = \mathfrak{a}^{n+k} M \cap M' =
+  M'\)
+and hence \(\mathfrak{a} M' = M'\);
+we then conclude  the proof of Theorem
+\ref{thm:krull-intersection}
+by Nakayama, as indicated above.
+
+The proof of Artin--Rees reduces formally
+to the case \(k = 1\),
+and the containment
+\[
+    \mathfrak{a} (\mathfrak{a}^n M \cap M')
+    \subseteq \mathfrak{a}^{n+1} M \cap M'
+  \]
+is clear.
+The proof of the trickier reverse containment
+is expressed
+most transparently using the graded ring
+\[\tilde{A}
+    := \boxplus_{i \geq 0} A_i = \{a = (a_i)_{i \geq 0} : a_i \in
+    A_i\}, \quad A_i := \mathfrak{a}^i,
+  \]
+where the multiplication law extends
+the bilinear maps \(\mathfrak{a}^i \times \mathfrak{a}^j \rightarrow \mathfrak{a}^{i+j}\):
+\[
+    (a \cdot b)_k = \sum_{i+j=k} a_i b_j.
+  \]
+This graded ring acts by the rule
+\((a \cdot m)_k := \sum_{i+j=k} a_i m_j\)
+on the graded module
+\[\tilde{M}
+    := \boxplus_{i \geq 0} M_i,
+    \quad M_i := \mathfrak{a}^i M,
+  \]
+and its graded submodule
+\[\tilde{M'}
+    := \boxplus_{i \geq 0} M'_i,
+    \quad M'_i := \mathfrak{a}^i M \cap M'.
+  \]
+Since \(\mathfrak{a}\) is finitely-generated as a module over \(A\),
+\(\tilde{A}\) is finitely-generated as an algebra over \(A_0 = A\);
+by the Hilbert basis theorem,
+it follows that \(\tilde{A}\) is Noetherian.
+The module \(M\) is finitely-generated over \(A\),
+from which it follows readily that the graded module \(\tilde{M}\)
+is finitely-generated over \(\tilde{A}\);
+since the ring \(\tilde{A}\) is Noetherian,
+so is the module \(\tilde{M}\),
+hence its submodule \(\tilde{M'}\) is finitely-generated.
+Choose \(n\) large enough that
+the module \(\tilde{M'}\) is generated by \(\boxplus_{0 \leq i \leq
+    n} M'_i\),
+thus
+\[
+    \tilde{M'}
+    =
+    \tilde{A} \boxplus_{0 \leq i \leq
+      n} M'_i.
+  \]
+By taking the degree \(n+1\) homogeneous  component of this identity,
+we see that
+\begin{align*}
+  \mathfrak{a}^{n+1} M \cap M'
+  &=
+  \tilde{M'_{n+1}}
+  =
+  \sum_{0 \leq i \leq n}
+  A_{n+1-i} M'_i
+  =
+  \sum_{0 \leq i \leq n}
+  \mathfrak{a}^{n+1-i} (\mathfrak{a}^i M \cap M')
+  \\
+  &\subseteq
+    \sum_{0 \leq i \leq n}
+    \mathfrak{a} (\mathfrak{a}^n M \cap \mathfrak{a}^{n-i} M')
+    \subseteq \mathfrak{a} (\mathfrak{a}^n M \cap M'),
+\end{align*}
+giving the required reverse containment.
+The proof of Artin--Rees and hence of the Krull intersection
+theorem is then complete.
+
+
+\section{Kernel of localization with respect to a prime\label{sec:kernel-localize}}
+\label{sec:org762c52a}
+
+Let \(\mathfrak{p}\) be a prime ideal in a Noetherian ring \(A\).
+Let \(\mathfrak{p}^{(n)}\) denote the $n$th symbolic power;
+it is the $\mathfrak{p}$-primary ideal
+given by \(A \cap \mathfrak{p}^n A_\mathfrak{p} := \iota^*(
+  (\iota_* \mathfrak{p} )^n)\),
+where \(\iota : A \rightarrow A_\mathfrak{p}\) denotes the
+localization map.
+\begin{theorem}
+  $\ker(\iota) = \cap_{n \geq 0} \mathfrak{p}^{(n)}$.
+\end{theorem}
+\begin{proof}
+  Set $\mathfrak{m} := \iota_* \mathfrak{p}$.  We have
+  $\ker(\iota) = \iota^{(-1)}(0)$ and
+  $\iota^{-1}(\cap_{n \geq 0} \mathfrak{m}^n) = \cap_{n \geq 0}
+  \mathfrak{p}^{(n)}$, so it suffices to show that
+  $\cap_{n \geq 0} \mathfrak{m}^n = 0$, which is the content of
+  Corollary \ref{cor:krull-intersection2} of the Krull
+  intersection theorem applied to the Noetherian local ring
+  $(A_\mathfrak{p},\mathfrak{m})$.
+\end{proof}
+
+
+\section{Krull's theorems on heights and dimensions}
+\label{sec:orgd3770e5}
+\subsection{Principal ideal theorem}
+\label{sec:orgb8870ab}
+
+We start with the special case to which the general one will eventually be reduced:
+\begin{lemma}
+  Let $(A,\mathfrak{m})$ be a local Noetherian integral domain.
+  Suppose that $\mathfrak{m}$ is a minimal prime of
+  some principal ideal $(f)$, with $f \in \mathfrak{m}$.
+  Then $\mathfrak{m}$ and $(0)$ are the only primes
+  of $A$.
+
+  In ``geometric'' terms: suppose
+  that $\{\mathfrak{m}\} = V(f)$ for some $f \in \mathfrak{m}$.
+  Then $\Spec(A) = \{\mathfrak{m}, (0)\}$.
+\end{lemma}
+\begin{proof}
+  Let $\mathfrak{p}$ be any prime in $A$ other than
+  $\mathfrak{m}$.  Necessarily
+  $\mathfrak{p} \subsetneq \mathfrak{m}$; our task is to show
+  that $\mathfrak{p} = (0)$.
+  Since $A$ is a domain, it will suffice to show
+  for some $n$ that $\mathfrak{p}^n = (0)$.
+  Recall that $\mathfrak{p}^{(n)}$
+  denotes the $n$th symbolic power of $\mathfrak{p}$,
+  given here with respect
+  to the injective localization map
+  $A \hookrightarrow  A_\mathfrak{p}$
+  by $\mathfrak{p}^{(n)} = A \cap \mathfrak{p}^n
+  A_\mathfrak{p}$;
+  it is a $\mathfrak{p}$-primary ideal which contains
+  $\mathfrak{p}^n$.
+  It will then suffice to verify that
+  $\mathfrak{p}^{(n)} = (0)$ for some $n$.
+  By \S\ref{sec:kernel-localize},
+  we have $\cap_{n \geq 0} \mathfrak{p}^{(n)} = \ker(A
+  \rightarrow A_\mathfrak{p}) = (0)$,
+  so it will suffice to verify that
+  the chain of ideals $\mathfrak{p}^{(n)}$
+  stabilizes,
+  i.e.,
+  that
+  $\mathfrak{p}^{(n)} = \mathfrak{p}^{(n+1)}$ for large $n$.
+
+
+  Set $\overline{A} := A/(f)$,
+  $\overline{\mathfrak{m} } := \mathfrak{m}/(f)$.  Our
+  hypotheses imply that $\overline{\mathfrak{m}}$ is the only
+  prime ideal of $\overline{A}$.  Thus $\overline{A}$ is a Noetherian ring of dimension $0$.
+  By Theorem \ref{thm:artin-vs-noeth-dim0}, it follows
+  that $\overline{A}$ is an Artin
+  ring.
+  Thus the descending chain of ideals
+  $\mathfrak{p}^{(n)} + (f)$
+  must stabilize;
+  in particular,
+  \[
+  \mathfrak{p}^{(n)} \subseteq \mathfrak{p}^{(n+1)} + (f)
+  \]
+  for
+  large $n$.
+  This says that any $x \in \mathfrak{p}^{(n)}$
+  may be written
+  $x = y + z f$
+  for some $y \in \mathfrak{p}^{(n+1)}$ and $z \in A$.
+  In that case, $x-y \in \mathfrak{p}^{(n)}$,
+  and so
+  $z \in (\mathfrak{p}^{(n)} : f)$.
+  Since $\mathfrak{p}^{(n)}$ is $\mathfrak{p}$-primary
+  and $f \notin \mathfrak{p}$,
+  we have $(\mathfrak{p}^{(n)} : f) = \mathfrak{p}^{(n)}$,
+  and so in fact $z \in \mathfrak{p}^{(n)}$.
+  Thus
+  \[
+  \mathfrak{p}^{(n)} \subseteq \mathfrak{p}^{(n+1)} + \mathfrak{p}^{(n)} f,
+  \]
+  and in fact equality holds,
+  with the reverse containment being clear.
+  This says that $f M = M$
+  for the finitely-generated module
+  $M := \mathfrak{p}^{(n)} / \mathfrak{p}^{(n+1)}$.
+  Since $f \in \mathfrak{m} = \Jac(A)$,
+  it follows from Nakayama's lemma that $M = 0$.
+  Thus $\mathfrak{p}^{(n)} = \mathfrak{p}^{(n+1)}$ for large
+  $n$,
+  as was to be shown.
+\end{proof}
+
+\begin{theorem}\label{thm:krull-principal-ideal}
+  Let $A$ be a Noetherian ring, and let $f \in A$.  
+  \begin{enumerate}[(i)]
+  \item Every
+    minimal prime $\mathfrak{p}$ of $(f)$ satisfies
+    $\height(\mathfrak{p}) \leq 1$.
+  \item If $f$ is a non-zerodivisor,
+    then every minimal prime $\mathfrak{p}$ of $(f)$
+    satisfies $\height(\mathfrak{p}) = 1$.
+  \end{enumerate}
+
+  In ``geometric'' terms,
+  $\codim(Z) \leq 1$ for each irreducible component $Z$
+  of $V(f) \subseteq \Spec(A)$;
+  if $f$ is a non-zerodivisor,
+  then $\codim(Z) = 1$ for each such $Z$.
+  (This ``generalizes''
+  the fact from linear algebra
+  that the kernel of a linear functional has codimension $\leq 1$,
+  with equality whenever the functional is nonzero.)
+\end{theorem}
+\begin{proof}
+  To deduce (ii) from (i), suppose that some minimal prime $\mathfrak{p}$
+  of $(f)$ has $\height(\mathfrak{p}) = 0$.  Then $\mathfrak{p}$
+  is a minimal prime of $(0)$, hence consists of zero-divisors,
+  and so $f$ is a zerodivisor.
+
+  Our main task is thus to establish (i).  We must verify that
+  if $\mathfrak{p}_2$ is a minimal prime of $(f)$ and if
+  $\mathfrak{p}_0 \subseteq \mathfrak{p}_1 \subsetneq
+  \mathfrak{p}_2$
+  are inclusions of prime ideals, then
+  $\mathfrak{p}_0 = \mathfrak{p}_1$.  After replacing $A$ by its
+  quotient $A/\mathfrak{p}_0$, we may reduce to the case that
+  $\mathfrak{p}_0 = (0)$; in particular, $A$ is a local
+  Noetherian domain.  After then replacing $A$ by its
+  localization $A_{\mathfrak{p}_2}$, we reduce further to the
+  case that $A$ is a local Noetherian domain whose maximal ideal
+  $\mathfrak{p}_2$ is a minimal prime of $(f)$.
+  We now appeal to the previous lemma.
+\end{proof}
+
+We will often apply the above result in a local
+context:
+\begin{corollary}\label{cor:krull-pith-local}
+  Let $(A,\mathfrak{m})$ be a Noetherian local ring.
+  Suppose there exists $f \in A$ for which
+  $\mathfrak{m}$ is the unique prime containing $f$,
+  thus
+  $V(f) = \{\mathfrak{m} \}$.
+  Then
+  $\dim(A) = \height(\mathfrak{m}) \leq 1$.
+\end{corollary}
+\begin{proof}
+  Given that $\mathfrak{m}$ is maximal,
+  our assumption is equivalent
+  to requiring that $\mathfrak{m}$ be a minimal
+  prime of $(f)$.
+\end{proof}
+
+For the sake of illustration,
+let's reformulate Theorem \ref{thm:krull-principal-ideal} in the contrapositive.
+Let \(A\) be a Noetherian ring.
+Let \(\mathfrak{p}_0 \subsetneq \mathfrak{p}_2\)
+be an inclusion of primes in \(A\).
+By an \emph{intermediary prime}
+we will mean a prime \(\mathfrak{p}_1\)
+for which
+\(\mathfrak{p}_0 \subsetneq \mathfrak{p}_1 \subsetneq
+  \mathfrak{p}_2\).
+\begin{corollary}
+  \label{cor:}
+  The following are equivalent:
+  \begin{enumerate}[(i)]
+  \item There exists an intermediary prime.
+  \item For each $f \in \mathfrak{p}_2$ there exists an
+    intermediary
+    prime containing $f$.
+  \end{enumerate}
+
+  In ``geometric'' terms,
+  let $Y_2 \subsetneq Y_0$ be irreducible closed subsets
+  of $\Spec(A)$.
+  Then either there are no irreducible closed subsets
+  $Y_1$ contained strictly between $Y_2$ and $Y_0$,
+  or for each $f \in I(Y_2)$
+  there exists an irreducible closed
+  subset $Y_2 \subsetneq Y_1 \subsetneq Y_0$
+  with $Y_1 \subseteq Z(f)$.
+\end{corollary}
+\begin{proof}
+  We need only show that (i) implies (ii).
+  If (ii) fails,
+  then we may find $f \in \mathfrak{p}_2$
+  not contained in any intermediary primes.
+  In other words, after replacing $A$ with $A/\mathfrak{p}_0$ as
+  necessary
+  to reduce to the case that $\mathfrak{p}_0$ is a minimal prime
+  of $A$,
+  we are given that $\mathfrak{p}_2$ is a minimal prime of
+  $(f)$.
+  By Krull's principal ideal theorem,
+  it follows that
+  $\height(\mathfrak{p}_2) \leq 1$;
+  thus there exist no intermediary primes,
+  and so (i) fails.
+\end{proof}
+
+\subsection{Dimension theorem}
+\label{sec:orgbe18c9e}
+
+\begin{theorem}\label{thm:krull-dimn-thm}
+  Let $A$ be a Noetherian ring,
+  and let $f_1,\dotsc,f_n \in A$.
+  Then each minimal prime $\mathfrak{p}$ of $(f_1,\dotsc,f_r)$
+  satisfies $\height(\mathfrak{p}) \leq r$.
+  In particular,
+  $\height(f_1,\dotsc,f_r) \leq r$.
+
+  In ``geometric'' terms,
+  $\codim(Z) \leq r$
+  for each irreducible component $Z$ of $V(f_1,\dotsc,f_r)
+  \subseteq \Spec(A)$.
+  (This ``generalizes'' the fact from linear algebra
+  that the solution set to a system of $r$ linear equations
+  has codimension $\leq r$.)
+\end{theorem}
+
+Here's a lemma that I think clarifies the key step in the proof.
+\begin{lemma}\label{lem:key-step-krull-dimn}
+  Let $(A,\mathfrak{m})$ be a Noetherian local ring, and let $f_1,\dotsc,f_r \in \mathfrak{m}$ with $V(f_1,\dotsc,f_r) = \{\mathfrak{m}\}$.  Let $\mathfrak{p} \subsetneq \mathfrak{m}$ be a prime with no prime strictly contained between $\mathfrak{p}$ and $\mathfrak{m}$.  Then there exist $g_1,\dotsc,g_r \in \mathfrak{m}$ for which
+  \begin{enumerate}
+  \item $V(g_1,\dotsc,g_r) = \{\mathfrak{m}\}$ and
+  \item $\mathfrak{p}$ contains and is a minimal prime of $(g_1,\dotsc,g_{r-1})$.
+  \end{enumerate}
+
+  In ``geometric'' terms, let $Z$ be a closed irreducible subset of $\Spec(A)$ that is minimal among the closed irreducible sets that properly contain $\{\mathfrak{m}\}$.  Then we may find $g_1,\dotsc,g_r$ for which $V(g_1,\dotsc,g_r) = \{\mathfrak{m}\}$ and for which $Z$ is an irreducible component of $V(g_1,\dotsc,g_{r-1})$.
+\end{lemma}
+\begin{proof}
+  Since $\mathfrak{m}$ is the unique prime ideal containing $(f_1,\dotsc,f_r)$, we may assume after reindexing $f_1,\dotsc,f_r$ as necessary that $f_r \notin \mathfrak{p}$.  Then the ideal $\mathfrak{p} + (f_r)$ strictly contains $\mathfrak{p}$ and is contained in $\mathfrak{m}$; our hypotheses on $\mathfrak{p}$ imply that $\mathfrak{m}$ is the only prime ideal containing $\mathfrak{p} + (f_r)$, i.e., that $V(\mathfrak{p} + (f_r)) = \{\mathfrak{m}\}$, or that $\rad(\mathfrak{p} + (f_r)) = \mathfrak{m}$.  In particular, for each $1 \leq i \leq r-1$ we may find $n_i$ for which $f_i^{n_i} \in \mathfrak{p} + (f_r)$, say
+  \[
+    f_i^{n_i} = g_i + z_i f_r
+    \text{ with } g_i \in \mathfrak{p}, z_i \in A.
+  \]
+  We claim that the conclusion of the lemma is now satisfied
+  with $g_1,\dotsc,g_{r-1}$ as above and $g_r := f_r$:
+  \begin{enumerate}
+  \item The above equation
+    shows that any prime $\mathfrak{q}$ that contains
+    $g_1,\dotsc,g_{r-1},f_r$
+    also contains $f_i^{n_i}$ and hence $f_i$ for $1 \leq i \leq r$,
+    hence $\mathfrak{q} = \mathfrak{m}$.
+    Thus $V(g_1,\dotsc,g_r) = \{\mathfrak{m}\}$.
+  \item It's clear by construction that $\mathfrak{p}$ contains
+    $(g_1,\dotsc,g_{r-1})$.  There is thus a minimal prime
+    $\mathfrak{p}'$ of $(g_1,\dotsc,g_{r-1})$ contained in
+    $\mathfrak{p}$; we must verify that
+    $\mathfrak{p} = \mathfrak{p} '$.  (Geometrically,
+    $\mathfrak{p}'$ corresponds to an irreducible component $Z'$
+    of $V(g_1,\dotsc,g_{r-1})$ containing $Z$.)  To see this,
+    consider the quotient ring $\overline{A} := A/(g_1,\dotsc,g_{r-1})$.
+    Let
+    \begin{equation}\label{eq:prime-chain-in-quotient-for-key-lemma-of-dimn-thm}
+            \overline{\mathfrak{m}} \supsetneq
+      \overline{\mathfrak{p}} \supseteq \overline{\mathfrak{p}'}
+    \end{equation}
+    denote the chain of primes in $\overline{A}$
+    given by the image of
+    $\mathfrak{m} \supsetneq \mathfrak{p} \supseteq
+    \mathfrak{p}' \supseteq (g_1,\dotsc,g_{r-1})$.
+    Then $(\overline{A},\overline{\mathfrak{m}})$ is a
+    Noetherian local ring,
+    and our task is equivalent to showing that
+    $\overline{\mathfrak{p} } = \overline{\mathfrak{p} '}$.
+    Let
+    $f \in \overline{A}$ denote the image of $f_r$.  The primes
+    of $\overline{A}$ containing $f$ are in bijection with the
+    primes of $A$ containing $g_1,\dotsc,g_{r-1},f_r$, so
+    $V_{\overline{A}}(f)
+    = \{\overline{\mathfrak{m}}\}$.    
+    By Krull's principal
+    ideal theorem (in the form of Corollary \ref{cor:krull-pith-local}),
+    it follows that $\height(\overline{\mathfrak{m} }) \leq 1$.
+    From
+    \eqref{eq:prime-chain-in-quotient-for-key-lemma-of-dimn-thm}
+    we then deduce that $\overline{\mathfrak{p} } =
+    \overline{\mathfrak{p}'}$,
+    as required.
+    (Intuitively, by choosing $f_r$ not to vanish on any irreducible component
+    of $V(f_1,\dotsc,f_{r-1})$,
+    we guarantee that appending it to the set of generators has the effect
+    of knocking down the dimension of each such component by $1$.)
+  \end{enumerate}
+\end{proof}
+
+We now deduce Theorem \ref{thm:krull-dimn-thm}.  We must show that if \(\mathfrak{p}\) is a minimal prime of \((f_1,\dotsc,f_r)\), then \(\height(\mathfrak{p}) \leq r\).  We may assume without loss of generality (replacing \(A\) with \(A_\mathfrak{p}\) and \(\mathfrak{p}\) with \(\mathfrak{p}_\mathfrak{p}\), which doesn't change the height of or minimality assumption on the latter) that \((A,\mathfrak{p})\) is a Noetherian local ring with \(V(f_1,\dotsc,f_r) = \{\mathfrak{p}\}\); we must show then that \(\height(\mathfrak{p}) \leq r\).  We do this by induction on \(r\).  The case \(r = 1\) is given by Krull's principal ideal theorem, so suppose \(r > 1\).  Let \(\mathfrak{q} \subsetneq \mathfrak{p}\) be a maximal element of the set of primes strictly contained in \(\mathfrak{p}\); it will suffice then to show that \(\height(\mathfrak{q}) \leq r-1\).  By Lemma \ref{lem:key-step-krull-dimn}, we may assume without loss of generality that \(\mathfrak{q}\) is a minimal prime of \((f_1,\dotsc,f_{r-1})\); the required inequality then follows from our inductive hypothesis.
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
