@@ -33,7 +33,10 @@ jobs:
             ls -al
             sudo chown runner:docker "${file%.tex}.html"
             ls -al
+            echo "Running emacs:"
             emacs --batch "${file%.tex}.html" -l ./tex2html.el --eval "(tex2html-postprocess-html-buffer)" -f save-buffer
+            echo "Done running emacs"
+            ls -al
           done
       - name: Debugging shell        
         working-directory: ${{ env.DIR }}
