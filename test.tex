@@ -5,8 +5,20 @@
 \usepackage{xr}
 \externaldocument{test2}
 
+\title{Doesn't matter}
+
 \begin{document}
 
+\begin{abstract}
+  We achieve very little.  More specifically, we consider the equations
+  \(a^2 + b^2 = c^2\) and
+  \begin{equation*}
+a x^2 + b x + c = 0,
+\end{equation*}
+yet manage to say nothing interesting about either.
+\end{abstract}
+
+\maketitle
 
 External reference to \href{test2.pdf}{Other File}, Theorem \ref{theorem:35ac204d35}
 
@@ -26,6 +38,60 @@ Let's add one more equation:
 
 Just touching.
 
+\setlength{\unitlength}{1.5cm}
+\begin{figure}
+  \begin{picture}(4,3)
+
+    \put(-1,0){\vector(1,0){6}}
+    \put(-1,0){\vector(0,1){1.5}}
+
+    {%
+      \thicklines
+      \color{black}%
+    }
+
+
+    {%
+      \thicklines
+      \color{black}%
+
+      {%
+        \thicklines
+        \color{black}%
+        \qbezier(0,1)(2,0)(4,1)
+        \put(-0.6,1.1){$\mathcal{O}_\pi$}
+      }
+
+      \color{black}
+      \put(-1.4,1.4){$\xi''$}
+      \put(4.9,-0.25){$\xi'$}
+      \put(2,0.35){$\tau$}
+      \put(1.95,0.5){\circle*{0.1}}
+    }
+
+    {%
+      \thicklines
+      \color{black}%
+      \multiput(0.9,0.3)(0,0.1){4}{\line(0,1){0.05}}
+      \multiput(2.8,0.3)(0,0.1){4}{\line(0,1){0.05}}
+    }
+
+
+    {%
+      \thicklines
+      \color{black}%
+      \multiput(0.8,0.3)(0.1,0){20}{\line(1,0){0.05}}
+      \multiput(0.8,0.7)(0.1,0){20}{\line(1,0){0.05}}
+      \put(2.9, 0.4){$T^{\eps}$}
+      \put(1.5,0.8){$T^{1/2+\eps}$}
+    }
+
+
+
+  \end{picture}
+  \caption{ The coadjoint orbit $\mathcal{O}_\pi$ near $\tau$.  The dotted rectangle indicates the support of $a$.  }
+  \label{fig:tau-coordinates-intro-0}
+\end{figure}
 
 
 \bibliography{refs}{} \bibliographystyle{plain}
