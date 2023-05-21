@@ -42,10 +42,31 @@
     hash))
 
 
+(defun tex2html-collect-external-auxfiles-in-tex-buffer ()
+  "Collect names of .aux files referenced in current buffer."
+  (save-restriction
+    (widen)
+    (save-excursion
+      (goto-char (point-min))
+      (let ((files nil))
+	(while (re-search-forward "\\\\externaldocument\\(\\[[^]]+\\]\\)?{\\([^}]+\\)}" nil t)
+	  (let ((file (concat (match-string 2) ".aux")))
+	    (unless (file-exists-p file)
+	      (error "External .aux file %s does not exist" file))
+	    (push file files))
+	  )
+	files))))
+
 (defun tex2html-postprocess-html-buffer (&optional auxfile external-auxfiles)
   "Update an HTML buffer with MathJax code created using pandoc from a LaTeX file."
   (if (not auxfile)
       (setq auxfile (concat (file-name-sans-extension (buffer-file-name)) ".aux")))
+  (if (not external-auxfiles)
+      (setq external-auxfiles
+	    ;; open corresponding tex file and look for \externaldocument
+	    (with-temp-buffer
+	      (insert-file-contents (concat (file-name-sans-extension auxfile) ".tex"))
+	      (tex2html-collect-external-auxfiles-in-tex-buffer))))
   (let
       ((label-number-hash (label-number-hash-table auxfile))
        ;; construct a list of pairs consisting of the html file
@@ -150,6 +171,8 @@
 	       (html-file (concat (file-name-sans-extension pdf-file) ".html")))
 	  (replace-match html-file t t nil 1))))))
 
+
+
 (defun tex2html-convert-file (&optional filename out-dir out-filename)
   "Converts a LaTeX file to HTML using pandoc and applies postprocessing.
 If no FILENAME is provided, uses the current buffer's file name. 
@@ -169,18 +192,8 @@ The output directory and output filename can be optionally specified."
   (let* ((basename (file-name-sans-extension filename))
 	 (auxfile (concat basename ".aux"))
 	 (external-auxfiles
-	  (save-restriction
-	    (widen)
-	    (save-excursion
-	      (goto-char (point-min))
-	      (let ((files nil))
-		(while (re-search-forward "\\\\externaldocument\\(\\[[^]]+\\]\\)?{\\([^}]+\\)}" nil t)
-		  (let ((file (concat (match-string 2) ".aux")))
-		    (unless (file-exists-p file)
-		      (error "External .aux file %s does not exist" file))
-		    (push file files))
-		  )
-		files)))))
+	  (tex2html-collect-external-auxfiles-in-tex-buffer)
+	  ))
     (unless (file-exists-p auxfile)
       (error "Associated .aux file does not exist"))
     (let ((tex-mod-time (nth 5 (file-attributes filename)))
