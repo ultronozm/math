@@ -1,6 +1,11 @@
 name: compile
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.html'
 permissions:
   contents: write
 jobs:          
