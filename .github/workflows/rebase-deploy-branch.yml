@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - '**/*.html'
+      - '**/*.md'
 permissions:
   contents: write
 jobs:          
