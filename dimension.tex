@@ -37,6 +37,11 @@
 \maketitle
 \tableofcontents
 
+Testing:
+\begin{theorem}\label{theorem:35ac21f5ab}
+test
+\end{theorem}
+By Theorem \ref{theorem:35ac21f5ab}, we have blah.
 
 \section{Introduction}
 \label{sec:org2573665}
@@ -779,47 +784,16 @@ for which
 
 Here's a lemma that I think clarifies the key step in the proof.
 \begin{lemma}\label{lem:key-step-krull-dimn}
-  Let $(A,\mathfrak{m})$ be a Noetherian local ring, and
-  let $f_1,\dotsc,f_r \in \mathfrak{m}$
-  with $V(f_1,\dotsc,f_r) = \{\mathfrak{m}\}$.
-  Let
-  $\mathfrak{p} \subsetneq \mathfrak{m}$ be
-  a prime with no prime strictly
-  contained between $\mathfrak{p}$ and $\mathfrak{m}$.
-  Then there exist $g_1,\dotsc,g_r \in \mathfrak{m}$
-  for which
+  Let $(A,\mathfrak{m})$ be a Noetherian local ring, and let $f_1,\dotsc,f_r \in \mathfrak{m}$ with $V(f_1,\dotsc,f_r) = \{\mathfrak{m}\}$.  Let $\mathfrak{p} \subsetneq \mathfrak{m}$ be a prime with no prime strictly contained between $\mathfrak{p}$ and $\mathfrak{m}$.  Then there exist $g_1,\dotsc,g_r \in \mathfrak{m}$ for which
   \begin{enumerate}
   \item $V(g_1,\dotsc,g_r) = \{\mathfrak{m}\}$ and
   \item $\mathfrak{p}$ contains and is a minimal prime of $(g_1,\dotsc,g_{r-1})$.
   \end{enumerate}
 
-  In ``geometric'' terms,
-  let $Z$ be a closed irreducible subset of $\Spec(A)$
-  that is minimal among the closed irreducible sets that properly contain $\{\mathfrak{m}\}$.
-  Then we may find $g_1,\dotsc,g_r$
-  for which $V(g_1,\dotsc,g_r) = \{\mathfrak{m}\}$
-  and for which $Z$ is an
-  irreducible component of $V(g_1,\dotsc,g_{r-1})$.
+  In ``geometric'' terms, let $Z$ be a closed irreducible subset of $\Spec(A)$ that is minimal among the closed irreducible sets that properly contain $\{\mathfrak{m}\}$.  Then we may find $g_1,\dotsc,g_r$ for which $V(g_1,\dotsc,g_r) = \{\mathfrak{m}\}$ and for which $Z$ is an irreducible component of $V(g_1,\dotsc,g_{r-1})$.
 \end{lemma}
 \begin{proof}
-  Since $\mathfrak{m}$ is the unique prime ideal containing
-  $(f_1,\dotsc,f_r)$,
-  we may assume after reindexing $f_1,\dotsc,f_r$ as necessary
-  that $f_r \notin \mathfrak{p}$.
-  Then the ideal $\mathfrak{p} + (f_r)$ strictly contains
-  $\mathfrak{p}$
-  and is contained in $\mathfrak{m}$;
-  our hypotheses on $\mathfrak{p}$ imply that
-  $\mathfrak{m}$ is the only prime ideal
-  containing $\mathfrak{p}  + (f_r)$,
-  i.e., that
-  $V(\mathfrak{p} + (f_r)) = \{\mathfrak{m}\}$,
-  or that $\rad(\mathfrak{p} + (f_r)) = \mathfrak{m}$.
-  In particular,
-  for each $1 \leq i \leq r-1$
-  we may find $n_i$
-  for which $f_i^{n_i} \in \mathfrak{p} + (f_r)$,
-  say
+  Since $\mathfrak{m}$ is the unique prime ideal containing $(f_1,\dotsc,f_r)$, we may assume after reindexing $f_1,\dotsc,f_r$ as necessary that $f_r \notin \mathfrak{p}$.  Then the ideal $\mathfrak{p} + (f_r)$ strictly contains $\mathfrak{p}$ and is contained in $\mathfrak{m}$; our hypotheses on $\mathfrak{p}$ imply that $\mathfrak{m}$ is the only prime ideal containing $\mathfrak{p} + (f_r)$, i.e., that $V(\mathfrak{p} + (f_r)) = \{\mathfrak{m}\}$, or that $\rad(\mathfrak{p} + (f_r)) = \mathfrak{m}$.  In particular, for each $1 \leq i \leq r-1$ we may find $n_i$ for which $f_i^{n_i} \in \mathfrak{p} + (f_r)$, say
   \[
     f_i^{n_i} = g_i + z_i f_r
     \text{ with } g_i \in \mathfrak{p}, z_i \in A.
@@ -875,24 +849,7 @@ Here's a lemma that I think clarifies the key step in the proof.
   \end{enumerate}
 \end{proof}
 
-We now deduce Theorem \ref{thm:krull-dimn-thm}.  We must show
-that if \(\mathfrak{p}\) is a minimal prime of \((f_1,\dotsc,f_r)\),
-then \(\height(\mathfrak{p}) \leq r\).  We may assume without loss
-of generality (replacing \(A\) with \(A_\mathfrak{p}\) and
-\(\mathfrak{p}\) with \(\mathfrak{p}_\mathfrak{p}\), which doesn't
-change the height of or minimality assumption on the latter)
-that \((A,\mathfrak{p})\) is a Noetherian local ring with
-\(V(f_1,\dotsc,f_r) = \{\mathfrak{p}\}\); we must show then that
-\(\height(\mathfrak{p}) \leq r\).  We do this by induction on \(r\).
-The case \(r = 1\) is given by Krull's principal ideal theorem, so
-suppose \(r > 1\).  Let \(\mathfrak{q} \subsetneq \mathfrak{p}\) be
-a maximal element of the set of primes strictly contained in
-\(\mathfrak{p}\); it will suffice then to show that
-\(\height(\mathfrak{q}) \leq r-1\).  By Lemma
-\ref{lem:key-step-krull-dimn}, we may assume without loss of
-generality that \(\mathfrak{q}\) is a minimal prime of
-\((f_1,\dotsc,f_{r-1})\); the required inequality then follows from our
-inductive hypothesis.
+We now deduce Theorem \ref{thm:krull-dimn-thm}.  We must show that if \(\mathfrak{p}\) is a minimal prime of \((f_1,\dotsc,f_r)\), then \(\height(\mathfrak{p}) \leq r\).  We may assume without loss of generality (replacing \(A\) with \(A_\mathfrak{p}\) and \(\mathfrak{p}\) with \(\mathfrak{p}_\mathfrak{p}\), which doesn't change the height of or minimality assumption on the latter) that \((A,\mathfrak{p})\) is a Noetherian local ring with \(V(f_1,\dotsc,f_r) = \{\mathfrak{p}\}\); we must show then that \(\height(\mathfrak{p}) \leq r\).  We do this by induction on \(r\).  The case \(r = 1\) is given by Krull's principal ideal theorem, so suppose \(r > 1\).  Let \(\mathfrak{q} \subsetneq \mathfrak{p}\) be a maximal element of the set of primes strictly contained in \(\mathfrak{p}\); it will suffice then to show that \(\height(\mathfrak{q}) \leq r-1\).  By Lemma \ref{lem:key-step-krull-dimn}, we may assume without loss of generality that \(\mathfrak{q}\) is a minimal prime of \((f_1,\dotsc,f_{r-1})\); the required inequality then follows from our inductive hypothesis.
 
 \begin{corollary}
   Let $\mathfrak{a}$ be an ideal in a Noetherian ring $A$.
