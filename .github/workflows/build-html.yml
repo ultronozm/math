@@ -34,7 +34,7 @@ jobs:
             sudo chown runner:docker "${file%.tex}.html"
             ls -al
             echo "Running emacs:"
-            emacs --batch "${file%.tex}.html" -l ./tex2html.el --eval "(tex2html-postprocess-html-buffer)" -f save-buffer
+            emacs --batch "${file%.tex}.html" -l ./tex2html.el --eval "(progn (tex2html-postprocess-html-buffer) (tex2html-add-comment-script))" -f save-buffer
             echo "Done running emacs"
             ls -al
           done

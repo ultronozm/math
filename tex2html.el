@@ -171,6 +171,31 @@
 	       (html-file (concat (file-name-sans-extension pdf-file) ".html")))
 	  (replace-match html-file t t nil 1))))))
 
+(defcustom giscus-comment-script
+  "<script src=\"https://giscus.app/client.js\"
+        data-repo=\"Ultronozm/math\"
+        data-repo-id=\"R_kgDOJlhjqQ\"
+        data-category=\"Announcements\"
+        data-category-id=\"DIC_kwDOJlhjqc4CWo21\"
+        data-mapping=\"pathname\"
+        data-strict=\"0\"
+        data-reactions-enabled=\"1\"
+        data-emit-metadata=\"0\"
+        data-input-position=\"bottom\"
+        data-theme=\"preferred_color_scheme\"
+        data-lang=\"en\"
+        crossorigin=\"anonymous\"
+        async>
+</script>"
+  "Script to add comments to HTML files (specific to my repo)."
+  :type 'string)
+
+(defun tex2html-add-comment-script ()
+  "Add script to HTML buffer that allows users to add comments."
+  (interactive)
+  (goto-char (point-min))
+  (when (re-search-forward "</body>" nil t)
+    (replace-match (concat giscus-comment-script "\n</body>"))))
 
 
 (defun tex2html-convert-file (&optional filename out-dir out-filename)
