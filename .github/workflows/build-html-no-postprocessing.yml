@@ -21,7 +21,7 @@ jobs:
           EXCLUDE_FILES=$(jq -r '.exclude[]' config.json)
           for file in $(ls *.tex | grep -vFf <(printf '%s\n' $EXCLUDE_FILES))
           do
-            docker run --volume "`pwd`:`pwd`" --workdir "`pwd`" pandoc/core:2.14.1 --standalone "$file" -o "${file%.tex}.html" --mathjax --citeproc
+            docker run --volume "`pwd`:`pwd`" --workdir "`pwd`" pandoc/core:3.1 --standalone "$file" -o "${file%.tex}.html" --mathjax --citeproc
             echo "Listing files in the current directory:"
             ls -al
             sudo chown runner:docker "${file%.tex}.html"
