@@ -93,14 +93,15 @@
 		   (concat "" tag-number "")
 		 (concat "\\((" tag-number ")\\)"))))
 	  (replace-match
-	   (if external-html
-	       (concat "["
-		       ;; take substring up to first underscore
-		       (let ((name (file-name-sans-extension external-html)))
-			 (substring name 0 (string-match "_" name)))
-		       ", " new-content
-		       "]")
-	     new-content)
+	   new-content
+	   ;; (if external-html
+	   ;;     (concat "["
+	   ;; 	       ;; take substring up to first underscore
+	   ;; 	       (let ((name (file-name-sans-extension external-html)))
+	   ;; 		 (substring name 0 (string-match "_" name)))
+	   ;; 	       ", " new-content
+	   ;; 	       "]")
+	   ;;   new-content)
 	   t t nil 4)
 	  (if external-html
 	      (replace-match (concat external-html link) t t nil 1)))))
@@ -137,8 +138,17 @@
     (goto-char (point-min))
     (while (search-forward-regexp "\\\\end{aligned}" nil t)
       (replace-match "\\end{align}" t t nil 0))
-    
-    ))
+
+    ;; Step 7: adjust hyperlinks *.pdf -> *.html, where * is anything
+    ;; that appears as *.aux inside external-auxfiles
+    (goto-char (point-min))
+    (let* ((auxfiles-base (mapcar 'file-name-sans-extension external-auxfiles))
+	   (auxfiles-regexp (regexp-opt auxfiles-base)))
+      ;; search for a href="blah.pdf" where blah is in auxfiles-base
+      (while (re-search-forward (concat "href=\"\\(" auxfiles-regexp "\\.pdf\\)\"") nil t)
+	(let* ((pdf-file (match-string 1))
+	       (html-file (concat (file-name-sans-extension pdf-file) ".html")))
+	  (replace-match html-file t t nil 1))))))
 
 (defun tex2html-convert-file (&optional filename out-dir out-filename)
   "Converts a LaTeX file to HTML using pandoc and applies postprocessing.
