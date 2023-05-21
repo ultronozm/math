@@ -8,8 +8,12 @@ on:
 permissions:
   contents: write
 jobs:          
-  rebase:
+  make-index:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        emacs_version:
+          - snapshot
     steps:
       - name: Checkout pages
         uses: actions/checkout@v3
