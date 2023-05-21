@@ -1,0 +1,46 @@
+name: build-html-no-postprocessing
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:          
+  convert_tex_to_html:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        emacs_version:
+          - snapshot
+    steps:
+      - name: Checkout pages
+        uses: actions/checkout@v3
+        with:
+          ref: deploy
+          fetch-depth: 0
+      - name: Convert Tex files to HTML
+        run: |
+          EXCLUDE_FILES=$(jq -r '.exclude[]' config.json)
+          for file in $(ls *.tex | grep -vFf <(printf '%s\n' $EXCLUDE_FILES))
+          do
+            docker run --volume "`pwd`:`pwd`" --workdir "`pwd`" pandoc/core:2.14.1 --standalone "$file" -o "${file%.tex}.html" --mathjax --citeproc
+            echo "Listing files in the current directory:"
+            ls -al
+            sudo chown runner:docker "${file%.tex}.html"
+            ls -al
+          done
+      - name: Debugging shell        
+        working-directory: ${{ env.DIR }}
+        run: |
+          echo "Current directory is $(pwd)"
+          echo "Listing files in the current directory:"
+          ls -al
+          echo "Git status:"
+          git status
+          echo "Git branch:"
+          git branch
+      - name: Commit and push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add *.html || true
+          git commit -m "Updated html files" || echo "No changes to commit"
+          git push -f
