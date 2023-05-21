@@ -348,7 +348,7 @@ file to .html and apply postprocessing."
 (defun populate-listing-json ()
   (interactive)
   (cl-flet ((format-git-time-string (str)
-	      (let ((substr (substring str 0 16)))
+	      (let ((substr (substring str 0 19)))
 		;; replace T by space in substr
 		(replace-regexp-in-string "T" " " substr))))
     (let* ((exclude-file "config.json")
