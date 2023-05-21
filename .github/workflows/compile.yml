@@ -74,18 +74,14 @@ jobs:
           if [[ "${{ github.event_name }}" == "push" ]]; then          
             git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep .tex | grep -v $EXCLUDE_FILES | while read file; do
               echo "Converting $file to html"
-              do
-                docker run --volume "`pwd`:`pwd`" --workdir "`pwd`" pandoc/core:2.9 --standalone "$file" -o "${file%.tex}.html"
-                emacs --batch "${file%.tex}.html" -l ./tex2html.el --eval "(tex2html-postprocess-html-buffer)" -f save-buffer
-              done
+              docker run --volume "`pwd`:`pwd`" --workdir "`pwd`" pandoc/core:2.9 --standalone "$file" -o "${file%.tex}.html"
+              emacs --batch "${file%.tex}.html" -l ./tex2html.el --eval "(tex2html-postprocess-html-buffer)" -f save-buffer
             done
           elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             find . -maxdepth 1 -name "*.tex" | grep -v $EXCLUDE_FILES | while read file; do
               echo "Converting $file to html"
-              do
-                docker run --volume "`pwd`:`pwd`" --workdir "`pwd`" pandoc/core:2.9 --standalone "$file" -o "${file%.tex}.html"
-                emacs --batch "${file%.tex}.html" -l ./tex2html.el --eval "(tex2html-postprocess-html-buffer)" -f save-buffer
-              done
+              docker run --volume "`pwd`:`pwd`" --workdir "`pwd`" pandoc/core:2.9 --standalone "$file" -o "${file%.tex}.html"
+              emacs --batch "${file%.tex}.html" -l ./tex2html.el --eval "(tex2html-postprocess-html-buffer)" -f save-buffer
             done
           fi            
       - name: Debugging shell        
