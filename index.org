@@ -1,0 +1,13 @@
+#+TITLE: my cool index page
+#+AUTHOR: Paul D. Nelson
+#+EMAIL: ultrono@gmail.com
+
+* Recent updates
+- [[test.html][test]] <2023-05-21 Sun>
+- [[test2.html][test2]] <2023-05-21 Sun>
+
+
+* Course notes
+- Testing display math: $(x+y)$.
+
+  
