@@ -7,6 +7,9 @@
   <title>test-dimension</title>
   <style>
     html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
       color: #1a1a1a;
       background-color: #fdfdfd;
     }
@@ -25,16 +28,10 @@
     @media (max-width: 600px) {
       body {
         font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
+        padding: 1em;
       }
     }
     @media print {
-      html {
-        background-color: white;
-      }
       body {
         background-color: transparent;
         color: black;
@@ -84,10 +81,9 @@
       color: #606060;
     }
     code {
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
       font-size: 85%;
       margin: 0;
-      hyphens: manual;
     }
     pre {
       margin: 1em 0;
@@ -138,31 +134,17 @@
     #TOC li {
       list-style: none;
     }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
     #TOC a:not(:hover) {
       text-decoration: none;
     }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
   </style>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
-  type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -170,157 +152,27 @@
 <body>
 <p>Here’s a lemma that I think clarifies the key step in the proof.</p>
 <div id="lem:key-step-krull-dimn" class="lemma">
-<p><strong>Lemma 1</strong>. Let <span
-class="math inline">\((A,\mathfrak{m})\)</span> be a Noetherian local
-ring, and let <span class="math inline">\(f_1,\dotsc,f_r \in
-\mathfrak{m}\)</span> with <span class="math inline">\(V(f_1,\dotsc,f_r)
-= \{\mathfrak{m}\}\)</span>. Let <span
-class="math inline">\(\mathfrak{p} \subsetneq \mathfrak{m}\)</span> be a
-prime with no prime strictly contained between <span
-class="math inline">\(\mathfrak{p}\)</span> and <span
-class="math inline">\(\mathfrak{m}\)</span>. Then there exist <span
-class="math inline">\(g_1,\dotsc,g_r \in \mathfrak{m}\)</span> for
-which</p>
+<p><strong>Lemma 1</strong>.  Let <span class="math inline">\((A,\mathfrak{m})\)</span> be a Noetherian local ring, and let <span class="math inline">\(f_1,\dotsc,f_r \in \mathfrak{m}\)</span> with <span class="math inline">\(V(f_1,\dotsc,f_r) = \{\mathfrak{m}\}\)</span>. Let <span class="math inline">\(\mathfrak{p} \subsetneq \mathfrak{m}\)</span> be a prime with no prime strictly contained between <span class="math inline">\(\mathfrak{p}\)</span> and <span class="math inline">\(\mathfrak{m}\)</span>. Then there exist <span class="math inline">\(g_1,\dotsc,g_r \in \mathfrak{m}\)</span> for which</p>
 <ol>
-<li><p><span class="math inline">\(V(g_1,\dotsc,g_r) =
-\{\mathfrak{m}\}\)</span> and</p></li>
-<li><p><span class="math inline">\(\mathfrak{p}\)</span> contains and is
-a minimal prime of <span
-class="math inline">\((g_1,\dotsc,g_{r-1})\)</span>.</p></li>
+<li><p><span class="math inline">\(V(g_1,\dotsc,g_r) = \{\mathfrak{m}\}\)</span> and</p></li>
+<li><p><span class="math inline">\(\mathfrak{p}\)</span> contains and is a minimal prime of <span class="math inline">\((g_1,\dotsc,g_{r-1})\)</span>.</p></li>
 </ol>
-<p>In “geometric” terms, let <span class="math inline">\(Z\)</span> be a
-closed irreducible subset of <span
-class="math inline">\(\mathop{\mathrm{Spec}}(A)\)</span> that is minimal
-among the closed irreducible sets that properly contain <span
-class="math inline">\(\{\mathfrak{m}\}\)</span>. Then we may find <span
-class="math inline">\(g_1,\dotsc,g_r\)</span> for which <span
-class="math inline">\(V(g_1,\dotsc,g_r) = \{\mathfrak{m}\}\)</span> and
-for which <span class="math inline">\(Z\)</span> is an irreducible
-component of <span
-class="math inline">\(V(g_1,\dotsc,g_{r-1})\)</span>.</p>
+<p>In “geometric” terms, let <span class="math inline">\(Z\)</span> be a closed irreducible subset of <span class="math inline">\(\mathop{\mathrm{Spec}}(A)\)</span> that is minimal among the closed irreducible sets that properly contain <span class="math inline">\(\{\mathfrak{m}\}\)</span>. Then we may find <span class="math inline">\(g_1,\dotsc,g_r\)</span> for which <span class="math inline">\(V(g_1,\dotsc,g_r) = \{\mathfrak{m}\}\)</span> and for which <span class="math inline">\(Z\)</span> is an irreducible component of <span class="math inline">\(V(g_1,\dotsc,g_{r-1})\)</span>.</p>
 </div>
 <div class="proof">
-<p><em>Proof.</em> Since <span
-class="math inline">\(\mathfrak{m}\)</span> is the unique prime ideal
-containing <span class="math inline">\((f_1,\dotsc,f_r)\)</span>, we may
-assume after reindexing <span
-class="math inline">\(f_1,\dotsc,f_r\)</span> as necessary that <span
-class="math inline">\(f_r \notin \mathfrak{p}\)</span>. Then the ideal
-<span class="math inline">\(\mathfrak{p} + (f_r)\)</span> strictly
-contains <span class="math inline">\(\mathfrak{p}\)</span> and is
-contained in <span class="math inline">\(\mathfrak{m}\)</span>; our
-hypotheses on <span class="math inline">\(\mathfrak{p}\)</span> imply
-that <span class="math inline">\(\mathfrak{m}\)</span> is the only prime
-ideal containing <span class="math inline">\(\mathfrak{p} +
-(f_r)\)</span>, i.e., that <span class="math inline">\(V(\mathfrak{p} +
-(f_r)) = \{\mathfrak{m}\}\)</span>, or that <span
-class="math inline">\(\mathop{\mathrm{rad}}(\mathfrak{p} + (f_r)) =
-\mathfrak{m}\)</span>. In particular, for each <span
-class="math inline">\(1 \leq i \leq r-1\)</span> we may find <span
-class="math inline">\(n_i\)</span> for which <span
-class="math inline">\(f_i^{n_i} \in \mathfrak{p} + (f_r)\)</span>, say
-<span class="math display">\[f_i^{n_i} = g_i + z_i f_r
-    \text{ with } g_i \in \mathfrak{p}, z_i \in A.\]</span> We claim
-that the conclusion of the lemma is now satisfied with <span
-class="math inline">\(g_1,\dotsc,g_{r-1}\)</span> as above and <span
-class="math inline">\(g_r := f_r\)</span>:</p>
+<p><em>Proof.</em> Since <span class="math inline">\(\mathfrak{m}\)</span> is the unique prime ideal containing <span class="math inline">\((f_1,\dotsc,f_r)\)</span>, we may assume after reindexing <span class="math inline">\(f_1,\dotsc,f_r\)</span> as necessary that <span class="math inline">\(f_r \notin \mathfrak{p}\)</span>. Then the ideal <span class="math inline">\(\mathfrak{p} + (f_r)\)</span> strictly contains <span class="math inline">\(\mathfrak{p}\)</span> and is contained in <span class="math inline">\(\mathfrak{m}\)</span>; our hypotheses on <span class="math inline">\(\mathfrak{p}\)</span> imply that <span class="math inline">\(\mathfrak{m}\)</span> is the only prime ideal containing <span class="math inline">\(\mathfrak{p} + (f_r)\)</span>, i.e., that <span class="math inline">\(V(\mathfrak{p} + (f_r)) = \{\mathfrak{m}\}\)</span>, or that <span class="math inline">\(\mathop{\mathrm{rad}}(\mathfrak{p} + (f_r)) = \mathfrak{m}\)</span>. In particular, for each <span class="math inline">\(1 \leq i \leq r-1\)</span> we may find <span class="math inline">\(n_i\)</span> for which <span class="math inline">\(f_i^{n_i} \in \mathfrak{p} + (f_r)\)</span>, say <span class="math display">\[f_i^{n_i} = g_i + z_i f_r
+    \text{ with } g_i \in \mathfrak{p}, z_i \in A.\]</span> We claim that the conclusion of the lemma is now satisfied with <span class="math inline">\(g_1,\dotsc,g_{r-1}\)</span> as above and <span class="math inline">\(g_r := f_r\)</span>:</p>
 <ol>
-<li><p>The above equation shows that any prime <span
-class="math inline">\(\mathfrak{q}\)</span> that contains <span
-class="math inline">\(g_1,\dotsc,g_{r-1},f_r\)</span> also contains
-<span class="math inline">\(f_i^{n_i}\)</span> and hence <span
-class="math inline">\(f_i\)</span> for <span class="math inline">\(1
-\leq i \leq r\)</span>, hence <span class="math inline">\(\mathfrak{q} =
-\mathfrak{m}\)</span>. Thus <span
-class="math inline">\(V(g_1,\dotsc,g_r) =
-\{\mathfrak{m}\}\)</span>.</p></li>
-<li><p>It’s clear by construction that <span
-class="math inline">\(\mathfrak{p}\)</span> contains <span
-class="math inline">\((g_1,\dotsc,g_{r-1})\)</span>. There is thus a
-minimal prime <span class="math inline">\(\mathfrak{p}&#39;\)</span> of
-<span class="math inline">\((g_1,\dotsc,g_{r-1})\)</span> contained in
-<span class="math inline">\(\mathfrak{p}\)</span>; we must verify that
-<span class="math inline">\(\mathfrak{p} = \mathfrak{p} &#39;\)</span>.
-(Geometrically, <span class="math inline">\(\mathfrak{p}&#39;\)</span>
-corresponds to an irreducible component <span
-class="math inline">\(Z&#39;\)</span> of <span
-class="math inline">\(V(g_1,\dotsc,g_{r-1})\)</span> containing <span
-class="math inline">\(Z\)</span>.) To see this, consider the quotient
-ring <span class="math inline">\(\overline{A} :=
-A/(g_1,\dotsc,g_{r-1})\)</span>. Let <span
-class="math display">\[\label{eq:prime-chain-in-quotient-for-key-lemma-of-dimn-thm}
+<li><p>The above equation shows that any prime <span class="math inline">\(\mathfrak{q}\)</span> that contains <span class="math inline">\(g_1,\dotsc,g_{r-1},f_r\)</span> also contains <span class="math inline">\(f_i^{n_i}\)</span> and hence <span class="math inline">\(f_i\)</span> for <span class="math inline">\(1 \leq i \leq r\)</span>, hence <span class="math inline">\(\mathfrak{q} = \mathfrak{m}\)</span>. Thus <span class="math inline">\(V(g_1,\dotsc,g_r) = \{\mathfrak{m}\}\)</span>.</p></li>
+<li><p>It’s clear by construction that <span class="math inline">\(\mathfrak{p}\)</span> contains <span class="math inline">\((g_1,\dotsc,g_{r-1})\)</span>. There is thus a minimal prime <span class="math inline">\(\mathfrak{p}&#39;\)</span> of <span class="math inline">\((g_1,\dotsc,g_{r-1})\)</span> contained in <span class="math inline">\(\mathfrak{p}\)</span>; we must verify that <span class="math inline">\(\mathfrak{p} = \mathfrak{p} &#39;\)</span>. (Geometrically, <span class="math inline">\(\mathfrak{p}&#39;\)</span> corresponds to an irreducible component <span class="math inline">\(Z&#39;\)</span> of <span class="math inline">\(V(g_1,\dotsc,g_{r-1})\)</span> containing <span class="math inline">\(Z\)</span>.) To see this, consider the quotient ring <span class="math inline">\(\overline{A} := A/(g_1,\dotsc,g_{r-1})\)</span>. Let <span class="math display">\[\label{eq:prime-chain-in-quotient-for-key-lemma-of-dimn-thm}
             \overline{\mathfrak{m}} \supsetneq
-      \overline{\mathfrak{p}} \supseteq
-\overline{\mathfrak{p}&#39;}\]</span> denote the chain of primes in
-<span class="math inline">\(\overline{A}\)</span> given by the image of
-<span class="math inline">\(\mathfrak{m} \supsetneq \mathfrak{p}
-\supseteq
-    \mathfrak{p}&#39; \supseteq (g_1,\dotsc,g_{r-1})\)</span>. Then
-<span
-class="math inline">\((\overline{A},\overline{\mathfrak{m}})\)</span> is
-a Noetherian local ring, and our task is equivalent to showing that
-<span class="math inline">\(\overline{\mathfrak{p} } =
-\overline{\mathfrak{p} &#39;}\)</span>. Let <span
-class="math inline">\(f \in \overline{A}\)</span> denote the image of
-<span class="math inline">\(f_r\)</span>. The primes of <span
-class="math inline">\(\overline{A}\)</span> containing <span
-class="math inline">\(f\)</span> are in bijection with the primes of
-<span class="math inline">\(A\)</span> containing <span
-class="math inline">\(g_1,\dotsc,g_{r-1},f_r\)</span>, so <span
-class="math inline">\(V_{\overline{A}}(f)
-    = \{\overline{\mathfrak{m}}\}\)</span>. By Krull’s principal ideal
-theorem (in the form of Corollary <a href="#cor:krull-pith-local"
-data-reference-type="ref"
-data-reference="cor:krull-pith-local">[cor:krull-pith-local]</a>), it
-follows that <span
-class="math inline">\(\mathop{\mathrm{height}}(\overline{\mathfrak{m} })
-\leq 1\)</span>. From <a
-href="#eq:prime-chain-in-quotient-for-key-lemma-of-dimn-thm"
-data-reference-type="eqref"
-data-reference="eq:prime-chain-in-quotient-for-key-lemma-of-dimn-thm">[eq:prime-chain-in-quotient-for-key-lemma-of-dimn-thm]</a>
-we then deduce that <span class="math inline">\(\overline{\mathfrak{p} }
-=
-    \overline{\mathfrak{p}&#39;}\)</span>, as required. (Intuitively, by
-choosing <span class="math inline">\(f_r\)</span> not to vanish on any
-irreducible component of <span
-class="math inline">\(V(f_1,\dotsc,f_{r-1})\)</span>, we guarantee that
-appending it to the set of generators has the effect of knocking down
-the dimension of each such component by <span
-class="math inline">\(1\)</span>.)</p></li>
+      \overline{\mathfrak{p}} \supseteq \overline{\mathfrak{p}&#39;}\]</span> denote the chain of primes in <span class="math inline">\(\overline{A}\)</span> given by the image of <span class="math inline">\(\mathfrak{m} \supsetneq \mathfrak{p} \supseteq
+    \mathfrak{p}&#39; \supseteq (g_1,\dotsc,g_{r-1})\)</span>. Then <span class="math inline">\((\overline{A},\overline{\mathfrak{m}})\)</span> is a Noetherian local ring, and our task is equivalent to showing that <span class="math inline">\(\overline{\mathfrak{p} } = \overline{\mathfrak{p} &#39;}\)</span>. Let <span class="math inline">\(f \in \overline{A}\)</span> denote the image of <span class="math inline">\(f_r\)</span>. The primes of <span class="math inline">\(\overline{A}\)</span> containing <span class="math inline">\(f\)</span> are in bijection with the primes of <span class="math inline">\(A\)</span> containing <span class="math inline">\(g_1,\dotsc,g_{r-1},f_r\)</span>, so <span class="math inline">\(V_{\overline{A}}(f)
+    = \{\overline{\mathfrak{m}}\}\)</span>. By Krull’s principal ideal theorem (in the form of Corollary <a href="#cor:krull-pith-local" data-reference-type="ref" data-reference="cor:krull-pith-local">[cor:krull-pith-local]</a>), it follows that <span class="math inline">\(\mathop{\mathrm{height}}(\overline{\mathfrak{m} }) \leq 1\)</span>. From <a href="#eq:prime-chain-in-quotient-for-key-lemma-of-dimn-thm" data-reference-type="eqref" data-reference="eq:prime-chain-in-quotient-for-key-lemma-of-dimn-thm">[eq:prime-chain-in-quotient-for-key-lemma-of-dimn-thm]</a> we then deduce that <span class="math inline">\(\overline{\mathfrak{p} } =
+    \overline{\mathfrak{p}&#39;}\)</span>, as required. (Intuitively, by choosing <span class="math inline">\(f_r\)</span> not to vanish on any irreducible component of <span class="math inline">\(V(f_1,\dotsc,f_{r-1})\)</span>, we guarantee that appending it to the set of generators has the effect of knocking down the dimension of each such component by <span class="math inline">\(1\)</span>.)</p></li>
 </ol>
 <p> ◻</p>
 </div>
-<p>We now deduce Theorem <a href="#thm:krull-dimn-thm"
-data-reference-type="ref"
-data-reference="thm:krull-dimn-thm">[thm:krull-dimn-thm]</a>. We must
-show that if <span class="math inline">\(\mathfrak{p}\)</span> is a
-minimal prime of <span class="math inline">\((f_1,\dotsc,f_r)\)</span>,
-then <span class="math inline">\(\mathop{\mathrm{height}}(\mathfrak{p})
-\leq r\)</span>. We may assume without loss of generality (replacing
-<span class="math inline">\(A\)</span> with <span
-class="math inline">\(A_\mathfrak{p}\)</span> and <span
-class="math inline">\(\mathfrak{p}\)</span> with <span
-class="math inline">\(\mathfrak{p}_\mathfrak{p}\)</span>, which doesn’t
-change the height of or minimality assumption on the latter) that <span
-class="math inline">\((A,\mathfrak{p})\)</span> is a Noetherian local
-ring with <span class="math inline">\(V(f_1,\dotsc,f_r) =
-\{\mathfrak{p}\}\)</span>; we must show then that <span
-class="math inline">\(\mathop{\mathrm{height}}(\mathfrak{p}) \leq
-r\)</span>. We do this by induction on <span
-class="math inline">\(r\)</span>. The case <span class="math inline">\(r
-= 1\)</span> is given by Krull’s principal ideal theorem, so suppose
-<span class="math inline">\(r &gt; 1\)</span>. Let <span
-class="math inline">\(\mathfrak{q} \subsetneq \mathfrak{p}\)</span> be a
-maximal element of the set of primes strictly contained in <span
-class="math inline">\(\mathfrak{p}\)</span>; it will suffice then to
-show that <span
-class="math inline">\(\mathop{\mathrm{height}}(\mathfrak{q}) \leq
-r-1\)</span>. By Lemma <a href="#lem:key-step-krull-dimn"
-data-reference-type="ref"
-data-reference="lem:key-step-krull-dimn">1</a>, we may assume without
-loss of generality that <span
-class="math inline">\(\mathfrak{q}\)</span> is a minimal prime of <span
-class="math inline">\((f_1,\dotsc,f_{r-1})\)</span>; the required
-inequality then follows from our inductive hypothesis.</p>
+<p>We now deduce Theorem <a href="#thm:krull-dimn-thm" data-reference-type="ref" data-reference="thm:krull-dimn-thm">[thm:krull-dimn-thm]</a>. We must show that if <span class="math inline">\(\mathfrak{p}\)</span> is a minimal prime of <span class="math inline">\((f_1,\dotsc,f_r)\)</span>, then <span class="math inline">\(\mathop{\mathrm{height}}(\mathfrak{p}) \leq r\)</span>. We may assume without loss of generality (replacing <span class="math inline">\(A\)</span> with <span class="math inline">\(A_\mathfrak{p}\)</span> and <span class="math inline">\(\mathfrak{p}\)</span> with <span class="math inline">\(\mathfrak{p}_\mathfrak{p}\)</span>, which doesn’t change the height of or minimality assumption on the latter) that <span class="math inline">\((A,\mathfrak{p})\)</span> is a Noetherian local ring with <span class="math inline">\(V(f_1,\dotsc,f_r) = \{\mathfrak{p}\}\)</span>; we must show then that <span class="math inline">\(\mathop{\mathrm{height}}(\mathfrak{p}) \leq r\)</span>. We do this by induction on <span class="math inline">\(r\)</span>. The case <span class="math inline">\(r = 1\)</span> is given by Krull’s principal ideal theorem, so suppose <span class="math inline">\(r &gt; 1\)</span>. Let <span class="math inline">\(\mathfrak{q} \subsetneq \mathfrak{p}\)</span> be a maximal element of the set of primes strictly contained in <span class="math inline">\(\mathfrak{p}\)</span>; it will suffice then to show that <span class="math inline">\(\mathop{\mathrm{height}}(\mathfrak{q}) \leq r-1\)</span>. By Lemma <a href="#lem:key-step-krull-dimn" data-reference-type="ref" data-reference="lem:key-step-krull-dimn">Lemma 1</a>, we may assume without loss of generality that <span class="math inline">\(\mathfrak{q}\)</span> is a minimal prime of <span class="math inline">\((f_1,\dotsc,f_{r-1})\)</span>; the required inequality then follows from our inductive hypothesis.</p>
 </body>
 </html>
