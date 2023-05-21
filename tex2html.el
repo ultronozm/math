@@ -365,8 +365,8 @@ file to .html and apply postprocessing."
 (defun tex2html-make-index ()
   (populate-listing-json)
   (find-file "index.org")
-  (let ((org-html-validation-link nil))
-    (org-html-export-to-html))
+  (setq org-html-validation-link nil)
+  (org-html-export-to-html)
   )
 
 
