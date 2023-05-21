@@ -316,5 +316,58 @@ file to .html and apply postprocessing."
 	(tex2html-convert-file file))
       (message "Done processing %d files" (length files)))))
 
+
+(require 'json)
+(require 'seq)
+
+(defun populate-listing-json ()
+  (interactive)
+  (let* ((exclude-file "config.json")
+	 (data-file "listing.json")
+	 (exclude-list (with-temp-buffer
+			 (insert-file-contents exclude-file)
+			 (cdr (assoc 'exclude (json-read)))))
+	 (tex-files (seq-filter (lambda (filename)
+				  (and (string-suffix-p ".tex" filename)
+				       (not (seq-contains-p exclude-list filename))))
+				(split-string
+				 (shell-command-to-string "git ls-files *.tex") "\n")))
+	 (data-list (mapcar (lambda (filename)
+			      (let* ((title (with-temp-buffer
+					      (insert-file-contents filename)
+					      (goto-char (point-min))
+					      (if (re-search-forward "\\\\title\\(\\[.*?\\]\\)?{\\(.*?\\)}" nil t)
+						  (match-string 2)
+						filename)))
+				     (abstract (with-temp-buffer
+						 (insert-file-contents filename)
+						 (goto-char (point-min))
+						 (when (re-search-forward "\\\\begin{abstract}[[:space:]]+" nil t)
+						   (let ((beg (match-end 0)))
+						     (when (re-search-forward "[[:space:]]+\\\\end{abstract}" nil t)
+						       (buffer-substring-no-properties beg (match-beginning 0)))))))
+				     (created (substring (shell-command-to-string
+							  (concat "git log --format=%aI -- " filename
+								  " | tail -1"))
+							 0 16))
+				     (modified (substring (shell-command-to-string
+							   (concat "git log -1 --format=%aI -- " filename))
+							  0 16)))
+				`((title . ,title)
+				  (abstract . ,abstract)
+				  (dateCreated . ,created)
+				  (dateModified . ,modified)
+				  (file . ,(file-name-sans-extension filename)))))
+			    tex-files)))
+    (with-temp-file data-file
+      (insert (json-encode data-list)))))
+
+(defun tex2html-make-index ()
+  (populate-listing-json)
+  (find-file "index.org")
+  (org-html-export-to-html)
+  )
+
+
 (provide 'tex2html)
 ;;; tex2html.el ends here

@@ -1,13 +1,75 @@
-#+TITLE: my cool index page
+#+TITLE: my cool math notes
 #+AUTHOR: Paul D. Nelson
 #+EMAIL: ultrono@gmail.com
 
-* Recent updates
-- [[test.html][test]] <2023-05-21 Sun>
-- [[test2.html][test2]] <2023-05-21 Sun>
+#+HTML_HEAD:    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
+#+HTML_HEAD:    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+#+HTML_HEAD:    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
+#+HTML_HEAD:    <style> table.dataTable thead th { text-align: left; } </style>
+
+# #+HTML_HEAD:        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/jszip-2.5.0/dt-1.10.18/af-2.3.2/b-1.5.2/b-html5-1.5.2/b-print-1.5.2/r-2.2.2/sl-1.2.6/datatables.min.css"/>
+ 
+# #+HTML_HEAD:    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/jszip-2.5.0/dt-1.10.18/af-2.3.2/b-1.5.2/b-html5-1.5.2/b-print-1.5.2/r-2.2.2/sl-1.2.6/datatables.min.js"></script>
+
+* Updates
+#+BEGIN_EXPORT html
+<table id="myTable" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Abstract</th>
+            <th>Created</th>
+            <th>Modified</th>
+            <th>Files</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Data will be inserted here by JavaScript -->
+    </tbody>
+</table>
+
+<script>
+$(document).ready(function() {
+    var table = $('#myTable').DataTable({
+        columns: [
+            { width: "35%" },
+            { width: "35%" },
+            { width: "10%" },
+            { width: "10%" },
+            { width: "10%" },
+        ],
+	order: [[2, 'desc']]	
+    });
+
+    fetch('listing.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);  // Log the data to the console
+            data.forEach(item => {
+                table.row.add([
+		    `<a href="${item.file}.html">${item.title}</a>`,
+                    item.abstract,
+                    item.dateCreated,
+                    item.dateModified,
+                    `<a href="${item.file}.tex">tex</a> <a href="${item.file}.pdf">pdf</a>`
+		    ]).draw();
+            });
+        })
+        .catch(e => {
+            console.log('There was a problem with the fetch operation: ' + e.message);
+        });
+});
+</script>
+#+END_EXPORT
 
 
 * Course notes
 - Testing display math: $(x+y)$.
+- lskdjfladsjfklsj
 
   
