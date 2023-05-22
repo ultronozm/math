@@ -15,7 +15,7 @@ jobs:
       with:
         node-version: '14'
     - name: Install dependencies
-      run: npm install
+      run: npm install axios
     - name: Generate recent comments page
       run: node generate-comments-page.js
       env:
