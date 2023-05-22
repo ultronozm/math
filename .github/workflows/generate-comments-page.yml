@@ -19,11 +19,11 @@ jobs:
         node-version: '14'
     - name: Install dependencies
       run: npm install axios
-      - name: Rebase from main
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git rebase origin/main
+    - name: Rebase from main
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git rebase origin/main
     - name: Generate recent comments page
       run: node generate-comments-page.js
       env:
