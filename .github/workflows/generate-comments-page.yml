@@ -8,30 +8,41 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-      with:
-        ref: deploy
-        fetch-depth: 0
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-    - name: Install dependencies
-      run: npm install axios
-    - name: Rebase from main
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git rebase origin/main
-    - name: Generate recent comments page
-      run: node generate-comments-page.js
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Commit and push
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add recent-discussions.html
-        git commit -m "Update recent comments page" || exit 0
-        git push
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: deploy
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        run: npm install axios
+      - name: Rebase from main
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git rebase origin/main
+      - name: Generate recent comments page
+        run: node generate-comments-page.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Debugging shell        
+        working-directory: ${{ env.DIR }}
+        run: |
+          echo "Current directory is $(pwd)"
+          echo "Listing files in the current directory:"
+          ls -al
+          echo "Git status:"
+          git status
+          echo "Git branch:"
+          git branch
+      - name: Commit and push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add recent-discussions.html
+          git commit -m "Update recent comments page" || exit 0
+          git push
