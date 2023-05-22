@@ -1,0 +1,40 @@
+name: rebase-deploy-branch
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  rebase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout pages
+        uses: actions/checkout@v3
+        with:
+          ref: deploy
+          fetch-depth: 0
+      - name: Debugging shell
+        working-directory: ${{ env.DIR }}
+        run: |
+          echo "Current directory is $(pwd)"
+          echo "Listing files in the current directory:"
+          ls -al
+          echo "Git status:"
+          git status
+          echo "Git branch:"
+          git branch
+      - name: Rebase from main
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git rebase origin/main
+      - name: Debugging shell
+        working-directory: ${{ env.DIR }}
+        run: |
+          echo "Current directory is $(pwd)"
+          echo "Listing files in the current directory:"
+          ls -al
+      - name: Push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git push -f
