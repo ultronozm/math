@@ -1,0 +1,325 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\title{Kuznetsov heuristic for analytic newvector families}
+
+\author{PN, TH}
+
+\begin{document}
+
+\begin{abstract}
+  Writing down the shape of the Kuznetsov formula for analytic newvector families.
+\end{abstract}
+
+We consider the family of all $\pi$ on $\PGL_2(\mathbb{Z}) \backslash \PGL_2(\mathbb{R})$ with $C(\pi) \leq Q$, and aim to write down the shape of the Kuznetsov formula for
+\begin{equation*}
+  \frac{1}{Q}\sum _{C(\pi) \leq Q} \lambda(m) \lambda(n)
+\end{equation*}
+in the range
+\begin{equation*}
+m, n \asymp T,
+\end{equation*}
+where $T$ and $Q$ are parameters at our disposal.
+
+We pick off the family using $f_0$, the normalized characteristic function of the archimedean variant $K_0(Q)$ of the standard congruence subgroup, like \cite{JN19a}:
+\begin{equation*}
+  K_0(Q)
+  = \left\{
+    \begin{pmatrix}
+a & b \\
+c & d \\
+    \end{pmatrix}
+    :
+    a = 1 + o(1), \quad
+    b = 1 + o(1),
+    \quad
+    c \lll 1/Q,
+    \quad
+    d = 1 + o(1)
+  \right\}.
+\end{equation*}
+Then we have the pretrace formula
+\begin{equation*}
+  \sum _{\gamma \in \Gamma } f_0 (x  ^{-1} \gamma y)
+  =
+  \sum _{C(\pi) \leq Q } \sum _{
+    \substack{
+      \varphi \in \mathcal{B}(\pi) :  \\
+      \text{analytic newvector}
+    }
+  } \varphi(x) \overline{\varphi(y)}.
+\end{equation*}
+Each such $\varphi$ will have roughly the Fourier expansion
+\begin{equation*}
+  \varphi( n(x) a(y)) = \sum _{n \geq 1} \frac{\lambda(n)}{ \sqrt{n} } W(n y) e(n x).
+\end{equation*}
+Here the test function $W(n y)$ roughly detects $n y \asymp 1$, i.e., $n \asymp 1/y$.  So if we integrate the above against $e(-m x)$ over $x \in \mathbb{R} / \mathbb{Z}$, we get
+\begin{equation*}
+  \int _{x \in \mathbb{R} / \mathbb{Z} } \varphi(n(x) a(y)) e(-n x) \, d x
+  =
+  1 _{n \asymp 1/y} \frac{\lambda(n)}{ \sqrt{n}}.
+\end{equation*}
+We choose $y := 1/T$.  Then we have the following:
+\begin{equation*}
+  \int _{u, v \in \Gamma_N \backslash N} \varphi(u a(1/T)) e(-m u) \overline{\varphi(v a(1/T)) e(-n v)}
+  \approx
+  1 _{m, n \asymp T} \frac{1}{ \sqrt{m n}} \lambda(m) \lambda(n).  
+\end{equation*}
+Thus for $m, n \asymp T$,
+\begin{equation*}
+  \sum _{C(\pi) \leq Q} \frac{\lambda(m) \lambda(n)}{\sqrt{m n}}
+  \approx \int _{u , v \in \Gamma_N \backslash N} e(-m u + n v) \sum _{\gamma \in \Gamma } f _0 (a(T) u ^{-1} \gamma v a(1/T)) \, d u \, d v.
+\end{equation*}
+Here we think
+\begin{equation*}
+  u \leftrightarrow
+  \begin{pmatrix}
+    1 & u \\
+    0 & 1
+  \end{pmatrix},
+  \quad
+  v \leftrightarrow
+  \begin{pmatrix}
+    1 & v \\
+    0 & 1
+  \end{pmatrix}.
+\end{equation*}
+Now we do the Bruhat decomposition.  First, let's consider the diagonal contribution from $\gamma \in \Gamma _N$.  This unfolds to
+\begin{equation*}
+  1 _{m = n} \int _{u \in N} f _0 (a(T) u a(1/T)) e(m u) \, d u,
+\end{equation*}
+which for our $f_0$, which we recall has the shape
+\begin{equation*}
+  f_0 \approx Q 1 _{K_0(Q)}, \quad K_0(Q) = G \cap \left( 1 +
+    \begin{pmatrix}
+      o(1) & o(1) \\
+      o(1/Q) & o(1)
+    \end{pmatrix} \right).
+\end{equation*}
+should have size $\asymp Q/T$, because the upper-right entry of the following is $o(1/T)$:
+\begin{equation*}
+  J := a(1/T) K_0(Q) a(T) \subseteq \left( 1 +
+    \begin{pmatrix}
+      o(1) & o(1/T) \\
+      o(T/Q) & o(1)
+    \end{pmatrix} \right).
+\end{equation*}
+This is as expected, because for $n \asymp T$,
+\begin{equation*}
+  \sum _{C(\pi) \leq Q} \frac{|\lambda(n)|^2}{n} \approx \frac{Q}{T}.
+\end{equation*}
+
+Next we consider the off-diagonal.  So we write, for $\gamma \in \SL_2(\mathbb{Z})$ with
+\begin{equation*}
+  \gamma =
+  \begin{pmatrix}
+    a & b \\
+    c & d
+  \end{pmatrix} \text{ with } c \neq 0,
+\end{equation*}
+\begin{equation*}
+  \gamma =
+  \begin{pmatrix}
+    1 & a/c \\
+    0 & 1
+  \end{pmatrix}
+  \begin{pmatrix}
+    0 & -1/c \\
+    c & 0
+  \end{pmatrix}
+  \begin{pmatrix}
+    1 & d/c \\
+    0 & 1
+  \end{pmatrix}
+  =:
+  n(a/c) w(c) n(d/c).
+\end{equation*}
+The off-diagonal contribution is
+\begin{equation*}
+  Q
+  \sum _{c \neq 0}
+  \sum _{a, d \in \mathbb{Z} : a d \equiv 1(c)}
+  \int _{u, v \in \mathbb{R} / \mathbb{Z} }
+  e (- m u + n v )
+  1 _{
+    n(a/c+u) w(c) n(d/c + v)
+    \in
+    J
+  }
+  \,d u \, d v.
+\end{equation*}
+We want to recognize Kloosterman sums and then evaluate everything else.  To that end, we split the sum over $a$ and $d$ into arithmetic progressions modulo $c$:
+\begin{itemize}
+\item $a = a_0 + c a_1$,
+\item $d = d_0 + c d_1$,
+\end{itemize}
+where $a_0, d_0 \in (\mathbb{Z} / c)^\times$ and $a_1, d_1 \in \mathbb{Z}$.  Then the above is rewritten as
+\begin{equation*}
+  Q \sum _{c \neq 0} \sum _{
+    \substack{
+      a_0, d_0 \in (\mathbb{Z} / c)^\times :  \\
+       a_0 d_0 \equiv  1(c)
+    }
+  }
+  \sum _{a_1, d_1 \in \mathbb{Z} }
+  \int _{u, v \in \mathbb{R} / \mathbb{Z} }
+  e (- mu + n v )
+  1 _{n (a_0/c +  a_1 - u) w(c) n(d_0/c + d_1 + v) \in J
+  }
+  \, d u \, d v.
+\end{equation*}
+Now we substitute $u \mapsto u - a_0/c$ and $v \mapsto v - d_0/c$:
+\begin{equation*}
+  Q \sum _{c \neq 0} \sum _{
+    \substack{
+      a_0, d_0 \in (\mathbb{Z} / c)^\times :  \\
+       a_0 d_0 \equiv  1(c)
+    }
+  }
+  e_c(-m a_0 - n d_0)
+  \sum _{a_1, d_1 \in \mathbb{Z} }
+  \int _{u, v \in \mathbb{R} / \mathbb{Z} }
+  e (- mu + n v )
+  1 _{n (a_1 + u) w(c) n(d_1 + v) \in J
+  }
+  \, d u \, d v.
+\end{equation*}
+Now for this last integral, we unfold $(a_1,u)$ and $(d_1,v)$:
+\begin{equation*}
+  Q \sum _{c \neq 0} \sum _{
+    \substack{
+      a_0, d_0 \in (\mathbb{Z} / c)^\times :  \\
+       a_0 d_0 \equiv  1(c)
+    }
+  }
+  e_c(-m a_0 - n d_0)
+  \int _{u, v \in \mathbb{R}}
+  e (- mu + n v )
+  1 _{n (u) w(c) n(v) \in J
+  }
+  \, d u \, d v.
+\end{equation*}
+Now we rewrite this as
+\begin{equation*}
+  Q \sum _{c \neq 0}
+  S(m,n,c)
+  I(m,n,c),
+\end{equation*}
+where
+\begin{equation}\label{eqn:20230522164836}
+  I(m,n,c) :=
+  \int _{u, v \in \mathbb{R}}
+  e (- mu + n v )
+  1 _{n (u) w(c) n(v) \in J
+  }
+  \, d u \, d v.
+\end{equation}
+So in summary, we have shown thus far that for $m, n \asymp T$,
+\begin{equation*}
+  \sum _{C(\pi) \leq Q}
+  \frac{\lambda(m) \lambda(n)}{ \sqrt{m n }}
+  \approx
+  1 _{m = n} \frac{Q}{T}
+  + Q \sum _{c \neq 0} S (m, n, c) I (m,n ,c).
+\end{equation*}
+In other words,
+\begin{equation}\label{eqn:20230522165006}
+  \frac{1}{Q}
+  \sum _{C(\pi) \leq Q}
+  \lambda(m) \lambda(n)
+  \approx
+  1 _{m = n}
+  + T \sum _{c \neq 0} S (m, n, c) I (m,n ,c).
+\end{equation}
+
+
+To study \eqref{eqn:20230522164836}, we apply the matrix multiplication identity
+\begin{equation*}
+\begin{pmatrix}
+1 & u/c \\
+0 & 1 \\
+\end{pmatrix}
+\begin{pmatrix}
+0 & -1/c \\
+c & 0 \\
+\end{pmatrix}
+\begin{pmatrix}
+1 & v/c \\
+0 & 1 \\
+\end{pmatrix}
+=\begin{pmatrix}u & \frac{u v}{c} - \frac{1}{c}\\c & v\end{pmatrix}.
+\end{equation*}
+For this to lie in $J$, we should have
+\begin{equation*}
+u = o(1), \quad v = o(1), \quad c \lll T/Q,
+\end{equation*}
+say $c \asymp T / Q$, and then
+\begin{equation*}
+u v - 1 \ll 1/Q.
+\end{equation*}
+This essentially detects $v = 1 / u$ but we save a factor of $1/Q$ from the volume of the set of relevant $v$.  We arrive at, for $c \asymp T/Q$,
+\begin{equation*}
+  I(m,n,c)
+  =
+  \frac{1}{c^2 Q}
+  \int_{u = 1  + o(1)}^{\text{smooth}}
+  e \left( \frac{m u + n /u }{ c } \right) \, d u \, d v.
+\end{equation*}
+We have, as functions of $u$,
+\begin{equation*}
+(m u + n u^{-1} ) ' = m - n u^{-2}. 
+\end{equation*}
+The stationary points are
+\begin{equation*}
+  u_0 = \pm \sqrt{n/m}.
+\end{equation*}
+Near that point, we can approximate the phase using its second degree Taylor expansion.  The second derivative is
+\begin{equation*}
+(m u + n u^{-1} )'' = \frac{1}{2} n u^{-3}.
+\end{equation*}
+The value of the phase is
+\begin{equation*}
+  \frac{m u_0 + n u_0^{-1} }{c}
+  =
+  \pm \frac{m \sqrt{n / m } + n \sqrt{m / n} }{c}
+  =
+  \pm 2 \frac{\sqrt{m n }}{c}.
+\end{equation*}
+The second degree Taylor expansion then looks like
+\begin{equation*}
+  \frac{m u + n u^{-1} }{c}
+  \approx
+  \pm 2 \frac{\sqrt{m n }}{c}
+  \pm \frac{1}{2} \frac{n u_0^{-3}}{2 c} (u - u_0)^2.
+\end{equation*}
+So we're reduced to the Fresnel integral
+\begin{equation*}
+\int_{u} e \left( \frac{1}{2} \frac{n u_0^{-3}}{2 c} u^2 \right) \, d u.
+\end{equation*}
+Doing $u \mapsto u (c/n)^{1/2}$ gets rid of the part of the phase that is not $\asymp 1$, so the above has size
+\begin{equation*}
+\asymp (c / n)^{1/2}.
+\end{equation*}
+So we arrive at
+\begin{equation*}
+I(m,n,c) \approx \frac{1}{c^2 Q} \frac{c^{1/2} }{ n^{1/2} } e \left( \pm 2 \frac{\sqrt{m n }}{c} \right).
+\end{equation*}
+For $c \asymp T/Q$ and $n \asymp T$, the above has magnitude
+\begin{equation*}
+\frac{1}{(T/Q)^2 Q^{3/2}} = \frac{ Q^{1/2}}{T^2}.
+\end{equation*}
+Substituting back into \eqref{eqn:20230522165006} gives now
+\begin{equation*}
+ \frac{1}{Q}
+  \sum _{C(\pi) \leq Q}
+  \lambda(m) \lambda(n)
+  \approx
+  1 _{m = n}
+  +
+  \frac{ Q^{1/2}}{T }
+  \sum_{c \asymp T/Q}
+  S(m,n,c) e \left( \pm 2 \frac{\sqrt{m n} }{c} \right).
+\end{equation*}
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
