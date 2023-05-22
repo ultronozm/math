@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="TH, PN" />
+  <title>Shrinking archimedean families: second moment for {\mathop{\mathrm{GL}}}_2</title>
+  <style>
+    html {
+line-height: 1.5;
+font-family: Georgia, serif;
+font-size: 20px;
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Shrinking archimedean families: second moment for
+<span class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span></h1>
+<p class="author">TH, PN</p>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>We attempt, unsuccessfully, to estimate certain second moments for
+<span class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span> involving
+conductor-truncated families.</p>
+</div>
+</header>
+<h1 id="sec:20230522180023">§1. Overview</h1>
+<p>We consider <span class="math inline">\(\pi\)</span> on <span
+class="math inline">\({\mathop{\mathrm{PGL}}}_2(\mathbb{Z}) \backslash
+{\mathop{\mathrm{PGL}}}_2(\mathbb{Q})\)</span> and try to estimate <span
+class="math display">\[\sum_{C(\pi) \leq Q} \left\lvert L (\pi,
+\tfrac{1}{2} + i T ) \right\rvert^2.\]</span> Here <span
+class="math inline">\(Q\)</span> and <span
+class="math inline">\(T\)</span> are asymptotic parameters. We have in
+mind the range <span class="math inline">\(Q \ll T\)</span>. In this
+range (or indeed, for <span class="math inline">\(Q \lll T^2\)</span>),
+the analytic conductors for the individual <span
+class="math inline">\(L\)</span>-functions are <span
+class="math inline">\(\asymp T^2\)</span>, so the convexity bound for
+the the squared <span class="math inline">\(L\)</span>-function is <span
+class="math inline">\(\ll T\)</span>. It is straightforward to obtain an
+asymptotic formula for the above moment in the range where <span
+class="math inline">\(Q \ggg T\)</span>. We would like to obtain an
+essentially sharp upper bound for some <span class="math inline">\(Q
+\lll T\)</span>, ideally <span class="math inline">\(Q \ll
+T^{1-\delta}\)</span>. This seems hard.</p>
+<h1 id="sec:20230522180025">§2. Test functions</h1>
+<p>Let’s set things up. We take a test function <span
+class="math inline">\(f_0\)</span> to be a normalized smoothened
+characteristic function of <span class="math inline">\(K_0(Q)\)</span>,
+the archimedean variant of the standard congruence subgroup, like in
+<a href="#ref-JN19a" class="citation" data-cites="JN19a">(Jana and Nelson 2019)</a>:
+<span class="math display">\[K_0(Q)
+  = \left\{
+    \begin{pmatrix}
+a &amp; b \\
+c &amp; d \\
+    \end{pmatrix}
+    :
+    a = 1 + o(1), \quad
+    b = o(1),
+    \quad
+    c \lll 1/Q,
+    \quad
+    d = 1 + o(1)
+  \right\}.\]</span></p>
+<p>This should typically pick off something like an “analytic newvector”
+<span class="math inline">\(W_0 \in \pi\)</span> for <span
+class="math inline">\(\pi\)</span> with <span
+class="math inline">\(C(\pi) \leq Q\)</span>. In the Kirillov model,
+<span class="math inline">\(W_0\)</span> could be taken to look like a
+smooth bump supported near <span class="math inline">\(1\)</span>: <span
+class="math display">\[W_0(y) \approx 1_{y \asymp
+Y}^{\text{smooth}}.\]</span> We then defined <span
+class="math inline">\(f\)</span> to be the conjugate of <span
+class="math inline">\(f_0\)</span> by <span
+class="math inline">\(n(T)\)</span>. On the spectral side, the
+contribution from <span class="math inline">\(\pi\)</span> will be <span
+class="math display">\[\left\lvert L(\pi, \tfrac{1}{2} + i t)
+\right\rvert^2
+  \sum _{W_0 \in \mathcal{B}(\pi)}
+  \left\lvert
+    \int _{y \in \mathbb{R} ^\times }
+    \pi(f) W_0(y)
+    |y|^{i T}
+    \, d^\times y
+  \right\rvert^2.\]</span> Now consider the contribution from an
+“analytic newvector” <span class="math inline">\(W_0\)</span> as above.
+The local weight will be, with <span class="math display">\[W := n(T)
+W_0, \quad W(y) = e(T y) W_0(y),\]</span> <span
+class="math display">\[\left\lvert \int _{y \in \mathbb{R}^\times } W
+(y) |y|^{i T} \, d^\times y \right\rvert^2 \asymp T^{-1}.\]</span> So
+far, so good.</p>
+<h1 id="sec:20230522180027">§3. Geometric approximate functional
+equation</h1>
+<p>The problem is that we’re looking at the global period integral: for
+<span class="math inline">\(\varphi \in \pi\)</span>, <span
+class="math display">\[\int _{y \in \mathbb{R}^\times / \mathbb{Z}
+^\times }
+  \varphi(a(y)) |y|^{i T} \, d^\times y, \quad
+  a(y) :=
+  \begin{pmatrix}
+    y &amp; 0 \\
+    0 &amp; 1
+  \end{pmatrix}.\]</span> We really want to replace this with an
+integral over a compact subset of <span
+class="math inline">\(\mathbb{R}^\times / \mathbb{Z}^\times\)</span>, so
+that we can later apply Cauchy—Schwarz productively. We argue like in
+<a href="#ref-michel-2009" class="citation" data-cites="michel-2009">(Michel and Venkatesh
+2010, sec. 5.1.4)</a> (see also <a href="#ref-2021arXiv210915230N" class="citation"
+data-cites="2021arXiv210915230N">(Nelson 2021, sec. 5.3)</a>). The
+idea is that if we smoothen this integral out, then we get quite bounds
+away from some critical dyadic range, and then we focus on that
+range.</p>
+<p>Let’s get started by fixing <span class="math inline">\(h \in
+C_c^\infty(\mathbb{R}^\times_+)\)</span>. We Mellin expand <span
+class="math inline">\(h\)</span>: <span class="math display">\[h(t) =
+\int _{(\sigma)} H(s) t^s \, \frac{d s }{ 2 \pi i}.\]</span> We assume
+<span class="math inline">\(h\)</span> normalized to have integral one,
+so that <span class="math inline">\(H(0) = 1\)</span>.</p>
+<p>For each positive parameter <span class="math inline">\(Y \in
+\mathbb{R}^\times_+\)</span>, consider <span class="math display">\[I(Y)
+:=
+  \int _{y \in \mathbb{R}^\times / \mathbb{Z} ^\times }
+  h \left( \frac{\lvert y \rvert}{Y} \right)
+  \varphi(a(y)) |y|^{i T} \, d^\times y.\]</span> Then we aim to bound
+<span class="math inline">\(I(Y)\)</span> using the convexity bound for
+<span class="math inline">\(L(\pi,s)\)</span>. We have <span id="eqn:cool-integral-rep-of-I-of-Y" class="math display">\[\label{eqn:cool-integral-rep-of-I-of-Y}\tag{1}
+  I (Y) = \int _{(\sigma)} Y^{-s} \tilde{I}(s)
+  \, \frac{d s}{2 \pi i},\]</span> where <span
+class="math display">\[\tilde{I}(s)
+  :=H(s)
+    Z(\varphi,\tfrac{1}{2} + s+ iT),\]</span> <span
+class="math display">\[Z(\varphi,\tfrac{1}{2} + s) := \int _{y \in
+\mathbb{R}^\times / \mathbb{Z}^\times } \varphi (a (y)) \lvert y \rvert
+^s \, d^\times y.\]</span> <span class="math inline">\(H(s)\)</span>
+decays rapidly, so we can think of it informally as truncating to <span
+class="math inline">\(s = O(1)\)</span>.</p>
+<p>Strategy: eventually we will bound <span
+class="math inline">\(\tilde{I}(0) = Z(\varphi, \tfrac{1}{2} + i
+T)\)</span> by applying Cauchy’s theorem: <span
+class="math display">\[\tilde{I}(0)
+  =
+  \oint \frac{\tilde{I}(s)}{s} \, \frac{d s }{2 \pi i},\]</span> where,
+since <span class="math inline">\(\tilde{I}\)</span> decays rapidly, we
+can take the contour to consist of a vertical line at <span
+class="math inline">\(\Re(s) = \varepsilon\)</span> going up followed by
+a vertical line at <span class="math inline">\(\Re(s) = -
+\varepsilon\)</span> going down, i.e., we consider the “box” <span
+class="math display">\[\varepsilon- i \infty \rightarrow \varepsilon+ i
+\infty \rightarrow - \varepsilon+ i \infty \rightarrow - \varepsilon- i
+\infty \rightarrow \varepsilon- i \infty.\]</span> Here we will have
+<span class="math inline">\(s \gg 1\)</span>, and also <span
+class="math inline">\(\tilde{I}(s)\)</span> will decay rapidly, so the
+main point is to bound, for <span class="math inline">\(\Re(s) = \pm
+\varepsilon\)</span>, <span class="math display">\[\tilde{I}(s) = \int
+_{Y \in \mathbb{R}^\times_+} Y^{-s} I(Y) \, \frac{d Y }{ Y},\]</span>
+which, by the triangle inequality, satisfies <span
+class="math display">\[\left\lvert \tilde{I}(s) \right\rvert \leq \int
+_{Y \in \mathbb{R}^\times_+}
+  \max(Y,1/Y)^{\varepsilon} \lvert I(Y) \rvert \, \frac{d Y
+}{Y}.\]</span></p>
+<p>Note: the bound that we seek for <span
+class="math inline">\(\tilde{I}(0)\)</span> should be compared to the
+trivial bound following from convexity, which is <span
+class="math display">\[\tilde{I}(0) \asymp T^{-1/2} L(\pi, \tfrac{1}{2}
++ iT) \prec 1.\]</span></p>
+<p>We need to bound <span class="math inline">\(Z(\varphi,s)\)</span>.
+We do this via interpolation. In general, <span
+class="math display">\[Z(\varphi,\tfrac{1}{2} + s) = L(\pi, \tfrac{1}{2}
++ s) Z(W, \tfrac{1}{2} + s),\]</span> where <span
+class="math inline">\(W = W_\varphi\)</span> is as constructed above and
+<span class="math display">\[Z(W, \tfrac{1}{2} + s) = \int
+_{\mathbb{R}^\times } W_0(y) e(T y) \lvert y \rvert ^s \, d ^\times
+y.\]</span> For <span class="math inline">\(\Re(s) \ll 1\)</span>, since
+<span class="math inline">\(W\)</span> is a bump near <span
+class="math inline">\(1\)</span>, we have <span
+class="math display">\[Z(W,\tfrac{1}{2} + s) \approx T^{-1/2 - \Im(s)}
+1_{\Im(s) \asymp T}.\]</span> So if we take <span
+class="math inline">\(\Re(s) = 1/2 + \varepsilon\)</span>, then we get a
+bound of <span class="math inline">\(\ll T^{-1/2}\)</span>. On the other
+hand, by the convexity bound, <span class="math display">\[L(\pi,
+\tfrac{1}{2} + s) \prec 1 \text{ for } \Re(s) = 1/2 +
+\varepsilon.\]</span> So this tells us that <span
+class="math display">\[Z(\varphi, \tfrac{1}{2} + s) \prec T^{-1/2}
+\text{ for } \Re(s) = 1/2 + \varepsilon.\]</span></p>
+<p>What does this tell us concretely? Look back at the integral
+representation <a href="#eqn:cool-integral-rep-of-I-of-Y"
+data-reference-type="eqref"
+data-reference="eqn:cool-integral-rep-of-I-of-Y">\((1)\)</a>.
+If we shift to <span class="math inline">\(\sigma = 1/2 +
+\varepsilon\)</span>, then the function <span
+class="math inline">\(H(s)\)</span> will truncate us to <span
+class="math inline">\(s \ll 1\)</span>, so we can bound the integral by
+something like its pointwise values at <span class="math inline">\(s \ll
+1\)</span>, which will be <span class="math display">\[\prec Y^{-1/2}
+T^{-1/2}.\]</span> What this is saying is that if <span
+class="math inline">\(Y\)</span> is a bit larger than <span
+class="math inline">\(T^{-1}\)</span>, then the “trivial bound” for
+<span class="math inline">\(I(Y)\)</span> that we just sketched is
+stronger than <span class="math inline">\(1\)</span>. So it suggests
+that the main range to consider will be when <span
+class="math inline">\(Y \lessapprox T^{-1}\)</span>.</p>
+<p>Now we should do the same thing but shifting in the opposite
+direction to find a complementary upper bound on the range of <span
+class="math inline">\(Y\)</span> that we need to consider. Let’s shift
+to <span class="math inline">\(\Re(s) = -1/2 - \varepsilon\)</span> for
+small <span class="math inline">\(\varepsilon&gt; 0\)</span>. Then we
+have, for <span class="math inline">\(s \ll 1\)</span>, <span
+class="math display">\[L(\pi, \tfrac{1}{2} + s + i T) \prec T,\]</span>
+while we get the same bound <span class="math inline">\(Z(W,
+\tfrac{1}{2} + s + iT) \prec T^{-1/2}\)</span> as before. Thus <span
+class="math display">\[Z(\varphi, \tfrac{1}{2} + s) \prec T^{1/2} \text{
+for } \Re(s) = -1/2 - \varepsilon.\]</span> Now again shifting to <span
+class="math inline">\(\sigma = -1/2 - \varepsilon\)</span> in <a
+href="#eqn:cool-integral-rep-of-I-of-Y" data-reference-type="eqref"
+data-reference="eqn:cool-integral-rep-of-I-of-Y">\((1)\)</a>,
+we get <span class="math display">\[I(Y) \prec Y ^{1/2} T
+^{1/2}.\]</span> This bound will be stronger than “<span
+class="math inline">\(\prec 1\)</span>” if <span
+class="math inline">\(Y\)</span> is a bit smaller than <span
+class="math inline">\(T^{-1}\)</span>.</p>
+<p>Thus, the moral is that if we just want a subconvex bound for <span
+class="math inline">\(L(\pi,\tfrac{1}{2} + i T)\)</span>, then it
+suffices to nontrivially estimate <span
+class="math inline">\(I(Y)\)</span> for <span class="math inline">\(Y
+\approx 1/T\)</span>, i.e., up to <span
+class="math inline">\(T^\varepsilon\)</span> factors. Of course to
+actually recover the Weyl bound we need to consider a wider range of
+<span class="math inline">\(Y\)</span> and make the analysis uniform in
+that. We would have had to do the same thing in the “classical”
+approach; the corresponding feature there is that the approximate
+functional equation has smaller dyadic ranges than the main one, i.e.,
+we have <span class="math display">\[L(\pi, \tfrac{1}{2} + i T)
+  \approx \sum _{n \ll T}
+  \frac{\lambda(n) }{n ^{1/2 + i T}},\]</span> which we can’t altogether
+approximate by the contribution from <span class="math inline">\(n
+\asymp T\)</span>.</p>
+<h1 id="sec:20230522180028">§4. Applying relative trace formula</h1>
+<p>So we should now, I think, study <span
+class="math inline">\(I(Y)\)</span>, for <span class="math inline">\(Y
+\approx 1/T\)</span>, via relative trace formula whatever stuff. That
+means we should write down the double integral (<span
+class="math inline">\(H = {\mathop{\mathrm{GL}}}_1 \hookrightarrow
+{\mathop{\mathrm{PGL}}}_2\)</span>) <span class="math display">\[\int _{
+    \substack{
+      x, y \in H :  \\
+       x, y \asymp 1/T
+    }
+  }
+  \lvert x/y \rvert ^{i T}
+  \sum _{\gamma \in \Gamma }
+  f (x ^{-1} \gamma y) \, d x \, d y.\]</span> Here <span
+class="math inline">\(d x\)</span> and <span class="math inline">\(d
+y\)</span> denote Haar measures on <span
+class="math inline">\(H\)</span>, i.e., of the form <span
+class="math inline">\(d t / |t|\)</span> with respect to Lebesgue
+measure, so that the integral over <span
+class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> is roughly a probability measure. This
+sum should correspond very roughly to <span class="math display">\[\sum
+_{C(\pi) \leq Q}
+  T^{-1} \left\lvert L(\pi, \tfrac{1}{2} + i T) \right\rvert^2,\]</span>
+or at least the “main dyadic part” of those <span
+class="math inline">\(L\)</span>-values. It may be useful to write <span
+class="math inline">\(x, y\)</span> as multiples by <span
+class="math inline">\(a(1/T)\)</span> over elements in <span
+class="math inline">\(H\)</span> of size <span
+class="math inline">\(\asymp 1\)</span>, so that the main thing to
+consider becomes <span class="math display">\[\int _{
+    \substack{
+      x, y \in H :  \\
+       x, y \asymp 1
+    }
+  }
+  \lvert x/y \rvert ^{i T}
+  \sum _{\gamma \in \Gamma }
+  f (a(T) x ^{-1}  \gamma y a(1/T) ) \, d x \, d y.\]</span> We want to
+bound this by <span class="math inline">\(\ll Q/T\)</span>.</p>
+<div class="remark">
+<p><strong>Remark 1</strong>. More precisely, here an expression like
+<span class="math display">\[\int_{
+    \substack{
+      x \in H :  \\
+       x \asymp 1
+    }
+  }
+  f(x) \, d x\]</span> means <span class="math display">\[\int_{x \in H
+\cong \mathbb{R}^\times }
+  f(x) V(x) \, d x,\]</span> where <span
+class="math inline">\(V\)</span> lies in some fixed bounded subset of
+<span class="math inline">\(C_c^\infty(\mathbb{R}^\times)\)</span>. For
+example, we could take <span class="math inline">\(V\)</span> to be a
+fixed element of that space, such as a smooth bump function supported on
+the interval <span class="math inline">\((1,2)\)</span>.</p>
+</div>
+<h1 id="sec:20230522180029">§5. Writing stuff out</h1>
+<p>We remember that <span class="math display">\[f (g) = f _0 (n (- T) g
+n (T)).\]</span> Thus <span class="math display">\[f (a(T) x
+^{-1}  \gamma y a(1/T) )
+  =
+  f_0 (n(-T) a(T) x ^{-1}  \gamma y a(1/T)  n(T)).\]</span> We can do
+some conjugation: <span class="math display">\[n(-T) a(T) x
+^{-1}  \gamma y a(1/T)  n(T)
+  =
+  a(T) n(-1) x ^{-1}  \gamma y n(1) a(1/T).\]</span> <span
+class="math inline">\(f_0\)</span> should detect when this lands in
+<span class="math inline">\(K_0(Q)\)</span>. <span
+class="math display">\[K_0(Q) =
+  G \cap
+  \left( 1 + \begin{pmatrix}
+    o(1) &amp; o(1) \\
+    o(1/Q) &amp; o(1)
+  \end{pmatrix}  \right),\]</span> so <span
+class="math display">\[a(1/T) K_0(Q) a(T) =
+  K_0(Q) =
+  G \cap
+  \left( 1 +
+    \begin{pmatrix}
+      o(1) &amp; o(1/T) \\
+      o(T/Q) &amp; o(1)
+    \end{pmatrix}  \right).\]</span> So the main condition to work with
+is now that <span class="math display">\[n(-1) x ^{-1} \gamma y n (1)
+\in
+  1 +
+  \begin{pmatrix}
+    o(1) &amp; o(1/T) \\
+    o(T/Q) &amp; o(1)
+  \end{pmatrix} =: J.\]</span></p>
+<p>There’s the contribution from <span class="math inline">\(\gamma \in
+\Gamma_H \cong \{\pm 1\}\)</span>. For this, we’re basically looking at
+<span class="math display">\[Q
+  \int _{
+    \substack{
+      x \in H :  \\
+       x \asymp  1
+    }
+  }
+  1 _{n(-1) x n (1) \in J} \, d x.\]</span> We have <span
+class="math display">\[n (-1) x n (1)
+  =
+  \begin{pmatrix}
+    x &amp; x-1 \\
+    0 &amp; 1
+  \end{pmatrix}.\]</span> This lies in <span
+class="math inline">\(J\)</span> only if <span class="math inline">\(x =
+1 + o(1/T)\)</span>, which happens with probability <span
+class="math inline">\(\lll T\)</span>, so we get the required bound
+<span class="math inline">\(Q/T\)</span>.</p>
+<p>It remains to estimate the contribution of the off-diagonal: <span
+class="math display">\[Q
+  \sum _{\gamma \in \Gamma - \Gamma_H}
+  \int _{
+    \substack{
+      x, y \in H :  \\
+       x, y \asymp 1
+    }
+  }
+  \lvert x/y \rvert^{i T}
+  1 _{n (- 1 ) x ^{-1} \gamma y n (1) \in J} \, d x \, d y.\]</span>
+We’ll see below that we’re in a range where it’s not possible to extract
+oscillation from the integrals over <span
+class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span>.</p>
+<h1 id="sec:20230522180034">§6. Matrices</h1>
+<p>Thus <span class="math display">\[f (a(T) x ^{-1}  \gamma y a(1/T) )
+  =
+  f_0 (n(-T) a(T) x ^{-1}  \gamma y a(1/T)  n(T)).\]</span> We can do
+some conjugation: <span class="math display">\[n(-T) a(T) x
+^{-1}  \gamma y a(1/T)  n(T)
+  =
+  a(T) n(-1) x ^{-1}  \gamma y n(1) a(1/T).\]</span> <span
+class="math inline">\(f_0\)</span> should detect when this lands in
+<span class="math inline">\(K_0(Q)\)</span>. <span
+class="math display">\[K_0(Q) =
+  G \cap
+  \left( 1 + \begin{pmatrix}
+    o(1) &amp; o(1) \\
+    o(1/Q) &amp; o(1)
+  \end{pmatrix}  \right),\]</span> so <span
+class="math display">\[a(1/T) K_0(Q) a(T)
+  =
+  G \cap
+  \left( 1 +
+    \begin{pmatrix}
+      o(1) &amp; o(1/T) \\
+      o(T/Q) &amp; o(1)
+    \end{pmatrix}  \right).\]</span> So the main condition to work with
+is now that <span class="math display">\[n(-1) x ^{-1} \gamma y n (1)
+\in
+  1 +
+  \begin{pmatrix}
+    o(1) &amp; o(1/T) \\
+    o(T/Q) &amp; o(1)
+  \end{pmatrix} =: J.\]</span></p>
+<p>There’s the contribution from <span class="math inline">\(\gamma \in
+\Gamma_H \cong \{\pm 1\}\)</span>. For this, we’re basically looking at
+<span class="math display">\[Q
+  \int _{
+    \substack{
+      x \in H :  \\
+       x \asymp  1
+    }
+  }
+  1 _{n(-1) x n (1) \in J} \, d x.\]</span> We have <span
+class="math display">\[n (-1) x n (1)
+  =
+  \begin{pmatrix}
+    x &amp; x-1 \\
+    0 &amp; 1
+  \end{pmatrix}.\]</span> This lies in <span
+class="math inline">\(J\)</span> only if <span class="math inline">\(x =
+1 + o(1/T)\)</span>, which happens with probability <span
+class="math inline">\(\lll T\)</span>, so we get the required bound
+<span class="math inline">\(Q/T\)</span>.</p>
+<p>It remains to estimate the contribution of the off-diagonal: <span
+class="math display">\[Q
+  \sum _{\gamma \in \Gamma - \Gamma_H}
+  \int _{
+    \substack{
+      x, y \in H :  \\
+       x, y \asymp 1
+    }
+  }
+  \lvert x / y \rvert^{i T}
+  1 _{n (- 1 ) x ^{-1} \gamma y n (1) \in J} \, d x \, d y.\]</span> We
+want to bound this by <span class="math inline">\(\ll Q/T\)</span>? The
+convexity bound for <span class="math inline">\(\lvert L
+\rvert^2\)</span> is <span class="math inline">\(\ll T\)</span>, so we
+need to bound the sum by <span class="math inline">\(\lll 1\)</span> to
+improve upon convexity. So we really need to show <span
+class="math display">\[\sum _{\gamma \in \Gamma - \Gamma_H}
+  \int _{
+    \substack{
+      x, y \in H :  \\
+       x, y \asymp 1
+    }
+  }
+  \lvert x / y \rvert^{i T}
+  1 _{n (- 1 ) x ^{-1} \gamma y n (1) \in J} \, d x \, d y \lll
+1/Q\]</span> but we might hope to be able to show (for certain ranges of
+<span class="math inline">\(Q\)</span>) <span
+class="math display">\[\sum _{\gamma \in \Gamma - \Gamma_H}
+  \int _{
+    \substack{
+      x, y \in H :  \\
+       x, y \asymp 1
+    }
+  }
+  \lvert x / y \rvert^{i T}
+  1 _{n (- 1 ) x ^{-1} \gamma y n (1) \in J} \, d x \, d y \ll
+1/T.\]</span> We recall that, writing <span
+class="math display">\[\gamma =
+  \begin{pmatrix}
+    a &amp; b \\
+    c &amp; d
+  \end{pmatrix},\]</span> we have <span class="math display">\[x ^{-1}
+\gamma y =
+  \begin{pmatrix}
+    a y/x &amp; b/x \\
+    c y &amp; d
+  \end{pmatrix},\]</span> hence <span class="math display">\[n (-1) x
+^{-1} \gamma y n (1)
+  =
+  \begin{pmatrix}
+    a y/x - c y &amp; b/x - d + a y / x - c y \\
+    c y &amp; d + c y
+  \end{pmatrix}.\]</span> We arrive at the following conditions:</p>
+<ol type="i">
+<li><p><span id="enumerate:20230522174144"
+label="enumerate:20230522174144"></span> <span class="math inline">\(c y
+= o(T/Q)\)</span>, or equivalently, <span class="math inline">\(c  \lll
+T/Q\)</span> (because <span class="math inline">\(y \asymp
+1\)</span>),</p></li>
+<li><p><span id="enumerate:20230522174157"
+label="enumerate:20230522174157"></span> <span class="math inline">\(ay
+/ x - c y = 1 + o(1)\)</span>, which determines <span
+class="math inline">\(a\)</span> up to <span
+class="math inline">\(o(1)\)</span> if we know <span
+class="math inline">\((x,y,c)\)</span>,</p></li>
+<li><p><span id="enumerate:20230522174208"
+label="enumerate:20230522174208"></span> <span class="math inline">\(d +
+c y = 1 + o(1)\)</span>, which determines <span
+class="math inline">\(d\)</span> up to <span
+class="math inline">\(o(1)\)</span> if we know <span
+class="math inline">\((x,y,c)\)</span>,</p></li>
+<li><p><span class="math inline">\(b /x - d + a y / x - c y =
+o(1/T)\)</span>, which should be satisfied about a proportion <span
+class="math inline">\(1/T\)</span> of the time.</p></li>
+</ol>
+<p>So that would lead to an overall bound of <span
+class="math inline">\(1 / Q\)</span>. We need to do a bit better than
+that. Seems tough!</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="list">
+<div id="ref-JN19a" class="csl-entry" role="listitem">
+Jana, Subhajit, and Paul D. Nelson. 2019. <span>“<span
+class="nocase">Analytic newvectors for <span
+class="math inline">\(\mathrm{GL}_n(\mathbb{R})\)</span></span>.”</span>
+<em>arXiv e-Prints</em>, November, arXiv:1911.01880. <a
+href="https://arxiv.org/abs/1911.01880">https://arxiv.org/abs/1911.01880</a>.
+</div>
+<div id="ref-michel-2009" class="csl-entry" role="listitem">
+Michel, Philippe, and Akshay Venkatesh. 2010. <span>“The Subconvexity
+Problem for <span><span class="math inline">\({\rm
+GL}_2\)</span></span>.”</span> <em>Publ. Math. Inst. Hautes Études
+Sci.</em>, no. 111: 171–271. <a
+href="https://doi.org/10.1007/s10240-010-0025-8">https://doi.org/10.1007/s10240-010-0025-8</a>.
+</div>
+<div id="ref-2021arXiv210915230N" class="csl-entry" role="listitem">
+Nelson, Paul D. 2021. <span>“<span class="nocase">Bounds for standard
+<span><span
+class="math inline">\(L\)</span></span>-functions</span>.”</span>
+<em>arXiv e-Prints</em>, September, arXiv:2109.15230. <a
+href="https://arxiv.org/abs/2109.15230">https://arxiv.org/abs/2109.15230</a>.
+</div>
+</div>
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
