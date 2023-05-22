@@ -5,15 +5,15 @@ const owner = 'ultronozm';
 const repo = 'math';
 
 async function fetchRecentComments() {
-  try {
-    const response = await axios({
-      url: 'https://api.github.com/graphql',
-      method: 'post',
-      headers: {
-        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-      },
-      data: {
-        query: `
+    try {
+	const response = await axios({
+	    url: 'https://api.github.com/graphql',
+	    method: 'post',
+	    headers: {
+		Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+	    },
+	    data: {
+		query: `
           query RecentDiscussions($owner: String!, $repo: String!) {
             repository(owner: $owner, name: $repo) {
               discussions(first: 10, orderBy: {field: UPDATED_AT, direction: DESC}) {
@@ -33,28 +33,37 @@ async function fetchRecentComments() {
             }
           }
         `,
-        variables: { owner, repo },
-      },
-    });
+		variables: { owner, repo },
+	    },
+	});
 
-    if (response.data.errors) {
-      console.error('Error while fetching discussions:', response.data.errors);
-      return [];
+	if (response.data.errors) {
+	    console.error('Error while fetching discussions:', response.data.errors);
+	    return [];
+	}
+	
+	return response.data.data.repository.discussions.nodes.map(discussion => ({
+	    title: discussion.title,
+	    url: discussion.url,
+	    recentComments: discussion.comments.nodes.map(comment => ({
+		author: comment.author.login,
+		createdAt: comment.createdAt,
+	    })),
+	}));
+    } catch (err) {
+	console.error('Error while executing GraphQL query:', err);
+	return [];
     }
-
-    return response.data.data.repository.discussions.nodes.map(discussion => ({
-      title: discussion.title,
-      url: discussion.url,
-      recentComment: discussion.comments.nodes[0] ? {
-        author: discussion.comments.nodes[0].author.login,
-        createdAt: discussion.comments.nodes[0].createdAt,
-      } : null,
-    }));
-  } catch (err) {
-    console.error('Error while executing GraphQL query:', err);
-    return [];
-  }
 }
+
+    // return response.data.data.repository.discussions.nodes.map(discussion => ({
+    //   title: discussion.title,
+    //   url: discussion.url,
+    //   recentComment: discussion.comments.nodes[0] ? {
+    //     author: discussion.comments.nodes[0].author.login,
+    //     createdAt: discussion.comments.nodes[0].createdAt,
+    //   } : null,
+    // }));
 
 fetchRecentComments().then(comments => {
   fs.writeFileSync('recent-discussions.json', JSON.stringify(comments, null, 2));
