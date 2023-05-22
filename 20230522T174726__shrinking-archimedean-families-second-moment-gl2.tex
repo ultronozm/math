@@ -1,0 +1,457 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\title{Shrinking archimedean families: second moment for $\GL_2$}
+\author{TH, PN}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\begin{abstract}
+  We attempt, unsuccessfully, to estimate certain second moments for $\GL_2$ involving conductor-truncated families.
+\end{abstract}
+
+\section{Overview}\label{sec:20230522180023}
+We consider $\pi $ on $\PGL_2(\mathbb{Z}) \backslash \PGL_2(\mathbb{Q})$ and try to estimate
+\begin{equation*}
+\sum_{C(\pi) \leq Q} \left\lvert L (\pi, \tfrac{1}{2} + i T ) \right\rvert^2.
+\end{equation*}
+Here $Q$ and $T$ are asymptotic parameters.  We have in mind the range $Q \ll T$.  In this range (or indeed, for $Q \lll T^2$), the analytic conductors for the individual $L$-functions are $\asymp T^2$, so the convexity bound for the the squared $L$-function is $\ll T$.  It is straightforward to obtain an asymptotic formula for the above moment in the range where $Q \ggg T$.  We would like to obtain an essentially sharp upper bound for some $Q \lll T$, ideally $Q \ll T^{1-\delta}$.  This seems hard.
+
+\section{Test functions}\label{sec:20230522180025}
+Let's set things up.  We take a test function $f_0$ to be a normalized smoothened characteristic function of $K_0(Q)$, the archimedean variant of the standard congruence subgroup, like in \cite{JN19a}:
+\begin{equation*}
+  K_0(Q)
+  = \left\{
+    \begin{pmatrix}
+a & b \\
+c & d \\
+    \end{pmatrix}
+    :
+    a = 1 + o(1), \quad
+    b = o(1),
+    \quad
+    c \lll 1/Q,
+    \quad
+    d = 1 + o(1)
+  \right\}.
+\end{equation*}
+
+This should typically pick off something like an ``analytic newvector'' $W_0 \in \pi$ for $\pi$ with $C(\pi) \leq Q$.  In the Kirillov model, $W_0$ could be taken to look like a smooth bump supported near $1$:
+\begin{equation*}
+  W_0(y) \approx 1_{y \asymp Y}^{\text{smooth}}.
+\end{equation*}
+We then defined $f$ to be the conjugate of $f_0$ by $n(T)$.  On the spectral side, the contribution from $\pi$ will be
+\begin{equation*}
+  \left\lvert L(\pi, \tfrac{1}{2} + i t) \right\rvert^2
+  \sum _{W_0 \in \mathcal{B}(\pi)} 
+  \left\lvert
+    \int _{y \in \mathbb{R} ^\times }
+    \pi(f) W_0(y)
+    |y|^{i T}
+    \, d^\times y
+  \right\rvert^2.
+\end{equation*}
+Now consider the contribution from an ``analytic newvector'' $W_0$ as above.  The local weight will be, with
+\begin{equation*}
+  W := n(T) W_0, \quad W(y) = e(T y) W_0(y),
+\end{equation*}
+\begin{equation*}
+  \left\lvert \int _{y \in \mathbb{R}^\times } W (y) |y|^{i T} \, d^\times y \right\rvert^2 \asymp T^{-1}.
+\end{equation*}
+So far, so good.
+
+\section{Geometric approximate functional equation}\label{sec:20230522180027}
+The problem is that we're looking at the global period integral: for $\varphi \in \pi$,
+\begin{equation*}
+  \int _{y \in \mathbb{R}^\times / \mathbb{Z} ^\times }
+  \varphi(a(y)) |y|^{i T} \, d^\times y, \quad
+  a(y) :=
+  \begin{pmatrix}
+    y & 0 \\
+    0 & 1
+  \end{pmatrix}.
+\end{equation*}
+We really want to replace this with an integral over a compact subset of $\mathbb{R}^\times / \mathbb{Z}^\times$, so that we can later apply Cauchy---Schwarz productively.  We argue like in \cite[\S5.1.4]{michel-2009} (see also \cite[\S5.3]{2021arXiv210915230N}).  The idea is that if we smoothen this integral out, then we get quite bounds away from some critical dyadic range, and then we focus on that range.
+
+Let's get started by fixing $h \in C_c^\infty(\mathbb{R}^\times_+)$.  We Mellin expand $h$:
+\begin{equation*}
+  h(t) = \int _{(\sigma)} H(s) t^s \, \frac{d s }{ 2 \pi i}.
+\end{equation*}
+We assume $h$ normalized to have integral one, so that $H(0) = 1$.
+
+For each positive parameter $Y \in \mathbb{R}^\times_+$, consider
+\begin{equation*}
+  I(Y) :=
+  \int _{y \in \mathbb{R}^\times / \mathbb{Z} ^\times }
+  h \left( \frac{\lvert y \rvert}{Y} \right)
+  \varphi(a(y)) |y|^{i T} \, d^\times y.
+\end{equation*}
+Then we aim to bound $I(Y)$ using the convexity bound for $L(\pi,s)$.  We have
+\begin{equation}\label{eqn:cool-integral-rep-of-I-of-Y}
+  I (Y) = \int _{(\sigma)} Y^{-s} \tilde{I}(s)
+  \, \frac{d s}{2 \pi i},
+\end{equation}
+where
+\begin{equation*}
+  \tilde{I}(s)
+  :=H(s)
+    Z(\varphi,\tfrac{1}{2} + s+ iT),
+\end{equation*}
+\begin{equation*}
+  Z(\varphi,\tfrac{1}{2} + s) := \int _{y \in \mathbb{R}^\times / \mathbb{Z}^\times } \varphi (a (y)) \lvert y \rvert ^s \, d^\times y.
+\end{equation*}
+$H(s)$ decays rapidly, so we can think of it informally as truncating to $s = O(1)$.
+
+Strategy: eventually we will bound $\tilde{I}(0) = Z(\varphi, \tfrac{1}{2} + i T)$ by applying Cauchy's theorem:
+\begin{equation*}
+  \tilde{I}(0)
+  =
+  \oint \frac{\tilde{I}(s)}{s} \, \frac{d s }{2 \pi i},
+\end{equation*}
+where, since $\tilde{I}$ decays rapidly, we can take the contour to consist of a vertical line at $\Re(s) = \eps$ going up followed by a vertical line at $\Re(s) = - \eps$ going down, i.e., we consider the ``box''
+\begin{equation*}
+  \eps - i \infty \rightarrow \eps + i \infty \rightarrow - \eps + i \infty \rightarrow - \eps - i \infty \rightarrow \eps - i \infty.
+\end{equation*}
+Here we will have $s \gg 1$, and also $\tilde{I}(s)$ will decay rapidly, so the main point is to bound, for $\Re(s) = \pm \eps$,
+\begin{equation*}
+  \tilde{I}(s) = \int _{Y \in \mathbb{R}^\times_+} Y^{-s} I(Y) \, \frac{d Y }{ Y},
+\end{equation*}
+which, by the triangle inequality, satisfies
+\begin{equation*}
+  \left\lvert \tilde{I}(s) \right\rvert \leq \int _{Y \in \mathbb{R}^\times_+}
+  \max(Y,1/Y)^{\eps} \lvert I(Y) \rvert \, \frac{d Y }{Y}.
+\end{equation*}
+
+Note: the bound that we seek for $\tilde{I}(0)$ should be compared to the trivial bound following from convexity, which is
+\begin{equation*}
+  \tilde{I}(0) \asymp T^{-1/2} L(\pi, \tfrac{1}{2} + iT) \prec 1.
+\end{equation*}
+
+
+We need to bound $Z(\varphi,s)$.  We do this via interpolation.  In general,
+\begin{equation*}
+  Z(\varphi,\tfrac{1}{2} + s) = L(\pi, \tfrac{1}{2} + s) Z(W, \tfrac{1}{2} + s),
+\end{equation*}
+where $W = W_\varphi$ is as constructed above and
+\begin{equation*}
+  Z(W, \tfrac{1}{2} + s) = \int _{\mathbb{R}^\times } W_0(y) e(T y) \lvert y \rvert ^s \, d ^\times y.
+\end{equation*}
+For $\Re(s) \ll 1$, since $W$ is a bump near $1$, we have
+\begin{equation*}
+  Z(W,\tfrac{1}{2} + s) \approx T^{-1/2 - \Im(s)} 1_{\Im(s) \asymp T}.
+\end{equation*}
+So if we take $\Re(s) = 1/2 + \eps$, then we get a bound of $\ll T^{-1/2}$.  On the other hand, by the convexity bound,
+\begin{equation*}
+  L(\pi, \tfrac{1}{2} + s) \prec 1 \text{ for } \Re(s) = 1/2 + \eps.
+\end{equation*}
+So this tells us that
+\begin{equation*}
+  Z(\varphi, \tfrac{1}{2} + s) \prec T^{-1/2} \text{ for } \Re(s) = 1/2 + \eps.
+\end{equation*}
+
+What does this tell us concretely?  Look back at the integral representation \eqref{eqn:cool-integral-rep-of-I-of-Y}.  If we shift to $\sigma = 1/2 + \eps$, then the function $H(s)$ will truncate us to $s \ll 1$, so we can bound the integral by something like its pointwise values at $s \ll 1$, which will be
+\begin{equation*}
+  \prec Y^{-1/2} T^{-1/2}.
+\end{equation*}
+What this is saying is that if $Y$ is a bit larger than $T^{-1}$, then the ``trivial bound'' for $I(Y)$ that we just sketched is stronger than $1$.  So it suggests that the main range to consider will be when $Y \lessapprox T^{-1}$.
+
+Now we should do the same thing but shifting in the opposite direction to find a complementary upper bound on the range of $Y$ that we need to consider.  Let's shift to $\Re(s) = -1/2 - \eps$ for small $\eps > 0$.  Then we have, for $s \ll 1$,
+\begin{equation*}
+  L(\pi, \tfrac{1}{2} + s + i T) \prec T,
+\end{equation*}
+while we get the same bound $Z(W, \tfrac{1}{2} + s + iT) \prec T^{-1/2}$ as before.  Thus 
+\begin{equation*}
+  Z(\varphi, \tfrac{1}{2} + s) \prec T^{1/2} \text{ for } \Re(s) = -1/2 - \eps.
+\end{equation*}
+Now again shifting to $\sigma = -1/2 - \eps$ in \eqref{eqn:cool-integral-rep-of-I-of-Y}, we get
+\begin{equation*}
+  I(Y) \prec Y ^{1/2} T ^{1/2}.
+\end{equation*}
+This bound will be stronger than ``$\prec 1$'' if $Y$ is a bit smaller than $T^{-1}$.
+
+Thus, the moral is that if we just want a subconvex bound for $L(\pi,\tfrac{1}{2} + i T)$, then it suffices to nontrivially estimate $I(Y)$ for $Y \approx 1/T$, i.e., up to $T^\eps$ factors.  Of course to actually recover the Weyl bound we need to consider a wider range of $Y$ and make the analysis uniform in that.  We would have had to do the same thing in the ``classical'' approach; the corresponding feature there is that the approximate functional equation has smaller dyadic ranges than the main one, i.e., we have
+\begin{equation*}
+  L(\pi, \tfrac{1}{2} + i T)
+  \approx \sum _{n \ll T}
+  \frac{\lambda(n) }{n ^{1/2 + i T}},
+\end{equation*}
+which we can't altogether approximate by the contribution from $n \asymp T$.
+
+\section{Applying relative trace formula}\label{sec:20230522180028}
+So we should now, I think, study $I(Y)$, for $Y \approx 1/T$, via relative trace formula whatever stuff.  That means we should write down the double integral ($H = \GL_1 \hookrightarrow \PGL_2$)
+\begin{equation*}
+  \int _{
+    \substack{
+      x, y \in H :  \\
+       x, y \asymp 1/T
+    }
+  }
+  \lvert x/y \rvert ^{i T}
+  \sum _{\gamma \in \Gamma }
+  f (x ^{-1} \gamma y) \, d x \, d y.
+\end{equation*}
+Here $d x$ and $d y$ denote Haar measures on $H$, i.e., of the form $d t / |t|$ with respect to Lebesgue measure, so that the integral over $x$ and $y$ is roughly a probability measure.  This sum should correspond very roughly to
+\begin{equation*}
+  \sum _{C(\pi) \leq Q}
+  T^{-1} \left\lvert L(\pi, \tfrac{1}{2} + i T) \right\rvert^2,
+\end{equation*}
+or at least the ``main dyadic part'' of those $L$-values.  It may be useful to write $x, y$ as multiples by $a(1/T)$ over elements in $H$ of size $\asymp 1$, so that the main thing to consider becomes
+\begin{equation*}
+  \int _{
+    \substack{
+      x, y \in H :  \\
+       x, y \asymp 1
+    }
+  }
+  \lvert x/y \rvert ^{i T}
+  \sum _{\gamma \in \Gamma }
+  f (a(T) x ^{-1}  \gamma y a(1/T) ) \, d x \, d y.
+\end{equation*}
+We want to bound this by $\ll Q/T$.
+
+\begin{remark}
+More precisely, here an expression like
+\begin{equation*}
+  \int_{
+    \substack{
+      x \in H :  \\
+       x \asymp 1
+    }
+  }
+  f(x) \, d x
+\end{equation*}
+means
+\begin{equation*}
+  \int_{x \in H \cong \mathbb{R}^\times }
+  f(x) V(x) \, d x,
+\end{equation*}
+where $V$ lies in some fixed bounded subset of $C_c^\infty(\mathbb{R}^\times)$.  For example, we could take $V$ to be a fixed element of that space, such as a smooth bump function supported on the interval $(1,2)$.
+\end{remark}
+
+
+\section{Writing stuff out}\label{sec:20230522180029}
+We remember that
+\begin{equation*}
+  f (g) = f _0 (n (- T) g n (T)).
+\end{equation*}
+Thus
+\begin{equation*}
+  f (a(T) x ^{-1}  \gamma y a(1/T) )
+  =
+  f_0 (n(-T) a(T) x ^{-1}  \gamma y a(1/T)  n(T)).
+\end{equation*}
+We can do some conjugation:
+\begin{equation*}
+  n(-T) a(T) x ^{-1}  \gamma y a(1/T)  n(T)
+  =
+  a(T) n(-1) x ^{-1}  \gamma y n(1) a(1/T).
+\end{equation*}
+$f_0$ should detect when this lands in $K_0(Q)$.
+\begin{equation*}
+  K_0(Q) =
+  G \cap 
+  \left( 1 + \begin{pmatrix}
+    o(1) & o(1) \\
+    o(1/Q) & o(1)
+  \end{pmatrix}  \right),
+\end{equation*}
+so
+\begin{equation*}
+  a(1/T) K_0(Q) a(T) =
+  K_0(Q) =
+  G \cap 
+  \left( 1 +
+    \begin{pmatrix}
+      o(1) & o(1/T) \\
+      o(T/Q) & o(1)
+    \end{pmatrix}  \right).
+\end{equation*}
+So the main condition to work with is now that
+\begin{equation*}
+  n(-1) x ^{-1} \gamma y n (1) \in
+  1 +
+  \begin{pmatrix}
+    o(1) & o(1/T) \\
+    o(T/Q) & o(1)
+  \end{pmatrix} =: J.
+\end{equation*}
+
+There's the contribution from $\gamma \in \Gamma_H \cong \{\pm 1\}$.  For this, we're basically looking at
+\begin{equation*}
+  Q
+  \int _{
+    \substack{
+      x \in H :  \\
+       x \asymp  1
+    }
+  }
+  1 _{n(-1) x n (1) \in J} \, d x.
+\end{equation*}
+We have
+\begin{equation*}
+  n (-1) x n (1)
+  =
+  \begin{pmatrix}
+    x & x-1 \\
+    0 & 1
+  \end{pmatrix}.
+\end{equation*}
+This lies in $J$ only if $x = 1 + o(1/T)$, which happens with probability $\lll T$, so we get the required bound $Q/T$.
+
+It remains to estimate the contribution of the off-diagonal:
+\begin{equation*}
+  Q
+  \sum _{\gamma \in \Gamma - \Gamma_H}
+  \int _{
+    \substack{
+      x, y \in H :  \\
+       x, y \asymp 1
+    }
+  }
+  \lvert x/y \rvert^{i T}
+  1 _{n (- 1 ) x ^{-1} \gamma y n (1) \in J} \, d x \, d y.
+\end{equation*}
+We'll see below that we're in a range where it's not possible to extract oscillation from the integrals over $x$ and $y$.
+
+\section{Matrices}\label{sec:20230522180034}
+Thus
+\begin{equation*}
+  f (a(T) x ^{-1}  \gamma y a(1/T) )
+  =
+  f_0 (n(-T) a(T) x ^{-1}  \gamma y a(1/T)  n(T)).
+\end{equation*}
+We can do some conjugation:
+\begin{equation*}
+  n(-T) a(T) x ^{-1}  \gamma y a(1/T)  n(T)
+  =
+  a(T) n(-1) x ^{-1}  \gamma y n(1) a(1/T).
+\end{equation*}
+$f_0$ should detect when this lands in $K_0(Q)$.
+\begin{equation*}
+  K_0(Q) =
+  G \cap 
+  \left( 1 + \begin{pmatrix}
+    o(1) & o(1) \\
+    o(1/Q) & o(1)
+  \end{pmatrix}  \right),
+\end{equation*}
+so
+\begin{equation*}
+  a(1/T) K_0(Q) a(T)
+  =
+  G \cap 
+  \left( 1 +
+    \begin{pmatrix}
+      o(1) & o(1/T) \\
+      o(T/Q) & o(1)
+    \end{pmatrix}  \right).
+\end{equation*}
+So the main condition to work with is now that
+\begin{equation*}
+  n(-1) x ^{-1} \gamma y n (1) \in
+  1 +
+  \begin{pmatrix}
+    o(1) & o(1/T) \\
+    o(T/Q) & o(1)
+  \end{pmatrix} =: J.
+\end{equation*}
+
+There's the contribution from $\gamma \in \Gamma_H \cong \{\pm 1\}$.  For this, we're basically looking at
+\begin{equation*}
+  Q
+  \int _{
+    \substack{
+      x \in H :  \\
+       x \asymp  1
+    }
+  }
+  1 _{n(-1) x n (1) \in J} \, d x.
+\end{equation*}
+We have
+\begin{equation*}
+  n (-1) x n (1)
+  =
+  \begin{pmatrix}
+    x & x-1 \\
+    0 & 1
+  \end{pmatrix}.
+\end{equation*}
+This lies in $J$ only if $x = 1 + o(1/T)$, which happens with probability $\lll T$, so we get the required bound $Q/T$.
+
+It remains to estimate the contribution of the off-diagonal:
+\begin{equation*}
+  Q
+  \sum _{\gamma \in \Gamma - \Gamma_H}
+  \int _{
+    \substack{
+      x, y \in H :  \\
+       x, y \asymp 1
+    }
+  }
+  \lvert x / y \rvert^{i T}
+  1 _{n (- 1 ) x ^{-1} \gamma y n (1) \in J} \, d x \, d y.
+\end{equation*}
+We want to bound this by $\ll Q/T$?  The convexity bound for $\lvert L \rvert^2$ is $\ll T$, so we need to bound the sum by $\lll 1$ to improve upon convexity.  So we really need to show
+\begin{equation*}
+  \sum _{\gamma \in \Gamma - \Gamma_H}
+  \int _{
+    \substack{
+      x, y \in H :  \\
+       x, y \asymp 1
+    }
+  }
+  \lvert x / y \rvert^{i T}
+  1 _{n (- 1 ) x ^{-1} \gamma y n (1) \in J} \, d x \, d y \lll 1/Q
+\end{equation*}
+but we might hope to be able to show (for certain ranges of $Q$)
+\begin{equation*}
+  \sum _{\gamma \in \Gamma - \Gamma_H}
+  \int _{
+    \substack{
+      x, y \in H :  \\
+       x, y \asymp 1
+    }
+  }
+  \lvert x / y \rvert^{i T}
+  1 _{n (- 1 ) x ^{-1} \gamma y n (1) \in J} \, d x \, d y \ll 1/T.
+\end{equation*}
+We recall that, writing
+\begin{equation*}
+  \gamma =
+  \begin{pmatrix}
+    a & b \\
+    c & d
+  \end{pmatrix},
+\end{equation*}
+we have
+\begin{equation*}
+  x ^{-1} \gamma y =
+  \begin{pmatrix}
+    a y/x & b/x \\
+    c y & d
+  \end{pmatrix},
+\end{equation*}
+hence
+\begin{equation*}
+  n (-1) x ^{-1} \gamma y n (1)
+  =
+  \begin{pmatrix}
+    a y/x - c y & b/x - d + a y / x - c y \\
+    c y & d + c y
+  \end{pmatrix}.
+\end{equation*}
+We arrive at the following conditions:
+\begin{enumerate}[(i)]
+\item\label{enumerate:20230522174144} $c y = o(T/Q)$, or equivalently, $c  \lll T/Q$ (because $y \asymp 1$),
+\item\label{enumerate:20230522174157} $ay / x - c y = 1 + o(1)$, which determines $a$ up to $o(1)$ if we know $(x,y,c)$,
+\item\label{enumerate:20230522174208} $d + c y = 1 + o(1)$, which determines $d$ up to $o(1)$ if we know $(x,y,c)$,
+\item $b /x - d + a y / x - c y = o(1/T)$, which should be satisfied about a proportion $1/T$ of the time.
+\end{enumerate}
+So that would lead to an overall bound of $1 / Q$.  We need to do a bit better than that.  Seems tough!
+
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
