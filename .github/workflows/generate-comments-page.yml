@@ -22,8 +22,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Commit and push
       run: |
-        git config user.name "GitHub Actions"
-        git config user.email "actions@github.com"
-        git add .
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add recent-discussions.html
         git commit -m "Update recent comments page" || exit 0
         git push
