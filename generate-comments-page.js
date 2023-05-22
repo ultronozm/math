@@ -47,6 +47,8 @@ async function fetchRecentComments() {
 	    title: discussion.title,
 	    url: discussion.url,
 	    recentComments: discussion.comments.nodes.map(comment => ({
+		id: comment.id,
+		url: `${discussion.url}#discussioncomment-${comment.id}`,
 		author: comment.author.login,
 		createdAt: comment.createdAt,
 	    })),
