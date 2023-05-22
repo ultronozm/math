@@ -48,4 +48,4 @@ jobs:
           git config --local user.name "GitHub Action"
           git add recent-discussions.json
           git commit -m "Update recent comments page" || exit 0
-          git push
+          git push -f
