@@ -22,6 +22,7 @@ async function fetchRecentComments() {
                   url
                   comments(last: 10) {
                     nodes {
+                      id
                       author {
                         login
                       }
