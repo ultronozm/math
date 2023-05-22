@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="PN, TH" />
+  <title>Kuznetsov heuristic for analytic newvector families</title>
+  <style>
+    html {
+line-height: 1.5;
+font-family: Georgia, serif;
+font-size: 20px;
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Kuznetsov heuristic for analytic newvector
+families</h1>
+<p class="author">PN, TH</p>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>Writing down the shape of the Kuznetsov formula for analytic
+newvector families.</p>
+</div>
+</header>
+<p>We consider the family of all <span
+class="math inline">\(\pi\)</span> on <span
+class="math inline">\({\mathop{\mathrm{PGL}}}_2(\mathbb{Z}) \backslash
+{\mathop{\mathrm{PGL}}}_2(\mathbb{R})\)</span> with <span
+class="math inline">\(C(\pi) \leq Q\)</span>, and aim to write down the
+shape of the Kuznetsov formula for <span
+class="math display">\[\frac{1}{Q}\sum _{C(\pi) \leq Q} \lambda(m)
+\lambda(n)\]</span> in the range <span class="math display">\[m, n
+\asymp T,\]</span> where <span class="math inline">\(T\)</span> and
+<span class="math inline">\(Q\)</span> are parameters at our
+disposal.</p>
+<p>We pick off the family using <span
+class="math inline">\(f_0\)</span>, the normalized characteristic
+function of the archimedean variant <span
+class="math inline">\(K_0(Q)\)</span> of the standard congruence
+subgroup, like <a href="#ref-JN19a" class="citation" data-cites="JN19a">(Jana and
+Nelson 2019)</a>: <span class="math display">\[K_0(Q)
+  = \left\{
+    \begin{pmatrix}
+a &amp; b \\
+c &amp; d \\
+    \end{pmatrix}
+    :
+    a = 1 + o(1), \quad
+    b = 1 + o(1),
+    \quad
+    c \lll 1/Q,
+    \quad
+    d = 1 + o(1)
+  \right\}.\]</span> Then we have the pretrace formula <span
+class="math display">\[\sum _{\gamma \in \Gamma } f_0 (x  ^{-1} \gamma
+y)
+  =
+  \sum _{C(\pi) \leq Q } \sum _{
+    \substack{
+      \varphi \in \mathcal{B}(\pi) :  \\
+      \text{analytic newvector}
+    }
+  } \varphi(x) \overline{\varphi(y)}.\]</span> Each such <span
+class="math inline">\(\varphi\)</span> will have roughly the Fourier
+expansion <span class="math display">\[\varphi( n(x) a(y)) = \sum _{n
+\geq 1} \frac{\lambda(n)}{ \sqrt{n} } W(n y) e(n x).\]</span> Here the
+test function <span class="math inline">\(W(n y)\)</span> roughly
+detects <span class="math inline">\(n y \asymp 1\)</span>, i.e., <span
+class="math inline">\(n \asymp 1/y\)</span>. So if we integrate the
+above against <span class="math inline">\(e(-m x)\)</span> over <span
+class="math inline">\(x \in \mathbb{R} / \mathbb{Z}\)</span>, we get
+<span class="math display">\[\int _{x \in \mathbb{R} / \mathbb{Z} }
+\varphi(n(x) a(y)) e(-n x) \, d x
+  =
+  1 _{n \asymp 1/y} \frac{\lambda(n)}{ \sqrt{n}}.\]</span> We choose
+<span class="math inline">\(y := 1/T\)</span>. Then we have the
+following: <span class="math display">\[\int _{u, v \in \Gamma_N
+\backslash N} \varphi(u a(1/T)) e(-m u) \overline{\varphi(v a(1/T)) e(-n
+v)}
+  \approx
+  1 _{m, n \asymp T} \frac{1}{ \sqrt{m n}} \lambda(m)
+\lambda(n).\]</span> Thus for <span class="math inline">\(m, n \asymp
+T\)</span>, <span class="math display">\[\sum _{C(\pi) \leq Q}
+\frac{\lambda(m) \lambda(n)}{\sqrt{m n}}
+  \approx \int _{u , v \in \Gamma_N \backslash N} e(-m u + n v) \sum
+_{\gamma \in \Gamma } f _0 (a(T) u ^{-1} \gamma v a(1/T)) \, d u \, d
+v.\]</span> Here we think <span class="math display">\[u \leftrightarrow
+  \begin{pmatrix}
+    1 &amp; u \\
+    0 &amp; 1
+  \end{pmatrix},
+  \quad
+  v \leftrightarrow
+  \begin{pmatrix}
+    1 &amp; v \\
+    0 &amp; 1
+  \end{pmatrix}.\]</span> Now we do the Bruhat decomposition. First,
+let’s consider the diagonal contribution from <span
+class="math inline">\(\gamma \in \Gamma _N\)</span>. This unfolds to
+<span class="math display">\[1 _{m = n} \int _{u \in N} f _0 (a(T) u
+a(1/T)) e(m u) \, d u,\]</span> which for our <span
+class="math inline">\(f_0\)</span>, which we recall has the shape <span
+class="math display">\[f_0 \approx Q 1 _{K_0(Q)}, \quad K_0(Q) = G \cap
+\left( 1 +
+    \begin{pmatrix}
+      o(1) &amp; o(1) \\
+      o(1/Q) &amp; o(1)
+    \end{pmatrix} \right).\]</span> should have size <span
+class="math inline">\(\asymp Q/T\)</span>, because the upper-right entry
+of the following is <span class="math inline">\(o(1/T)\)</span>: <span
+class="math display">\[J := a(1/T) K_0(Q) a(T) \subseteq \left( 1 +
+    \begin{pmatrix}
+      o(1) &amp; o(1/T) \\
+      o(T/Q) &amp; o(1)
+    \end{pmatrix} \right).\]</span> This is as expected, because for
+<span class="math inline">\(n \asymp T\)</span>, <span
+class="math display">\[\sum _{C(\pi) \leq Q} \frac{|\lambda(n)|^2}{n}
+\approx \frac{Q}{T}.\]</span></p>
+<p>Next we consider the off-diagonal. So we write, for <span
+class="math inline">\(\gamma \in
+{\mathop{\mathrm{SL}}}_2(\mathbb{Z})\)</span> with <span
+class="math display">\[\gamma =
+  \begin{pmatrix}
+    a &amp; b \\
+    c &amp; d
+  \end{pmatrix} \text{ with } c \neq 0,\]</span> <span
+class="math display">\[\gamma =
+  \begin{pmatrix}
+    1 &amp; a/c \\
+    0 &amp; 1
+  \end{pmatrix}
+  \begin{pmatrix}
+    0 &amp; -1/c \\
+    c &amp; 0
+  \end{pmatrix}
+  \begin{pmatrix}
+    1 &amp; d/c \\
+    0 &amp; 1
+  \end{pmatrix}
+  =:
+  n(a/c) w(c) n(d/c).\]</span> The off-diagonal contribution is <span
+class="math display">\[Q
+  \sum _{c \neq 0}
+  \sum _{a, d \in \mathbb{Z} : a d \equiv 1(c)}
+  \int _{u, v \in \mathbb{R} / \mathbb{Z} }
+  e (- m u + n v )
+  1 _{
+    n(a/c+u) w(c) n(d/c + v)
+    \in
+    J
+  }
+  \,d u \, d v.\]</span> We want to recognize Kloosterman sums and then
+evaluate everything else. To that end, we split the sum over <span
+class="math inline">\(a\)</span> and <span
+class="math inline">\(d\)</span> into arithmetic progressions modulo
+<span class="math inline">\(c\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(a = a_0 + c a_1\)</span>,</p></li>
+<li><p><span class="math inline">\(d = d_0 + c d_1\)</span>,</p></li>
+</ul>
+<p>where <span class="math inline">\(a_0, d_0 \in (\mathbb{Z} /
+c)^\times\)</span> and <span class="math inline">\(a_1, d_1 \in
+\mathbb{Z}\)</span>. Then the above is rewritten as <span
+class="math display">\[Q \sum _{c \neq 0} \sum _{
+    \substack{
+      a_0, d_0 \in (\mathbb{Z} / c)^\times :  \\
+       a_0 d_0 \equiv  1(c)
+    }
+  }
+  \sum _{a_1, d_1 \in \mathbb{Z} }
+  \int _{u, v \in \mathbb{R} / \mathbb{Z} }
+  e (- mu + n v )
+  1 _{n (a_0/c +  a_1 - u) w(c) n(d_0/c + d_1 + v) \in J
+  }
+  \, d u \, d v.\]</span> Now we substitute <span
+class="math inline">\(u \mapsto u - a_0/c\)</span> and <span
+class="math inline">\(v \mapsto v - d_0/c\)</span>: <span
+class="math display">\[Q \sum _{c \neq 0} \sum _{
+    \substack{
+      a_0, d_0 \in (\mathbb{Z} / c)^\times :  \\
+       a_0 d_0 \equiv  1(c)
+    }
+  }
+  e_c(-m a_0 - n d_0)
+  \sum _{a_1, d_1 \in \mathbb{Z} }
+  \int _{u, v \in \mathbb{R} / \mathbb{Z} }
+  e (- mu + n v )
+  1 _{n (a_1 + u) w(c) n(d_1 + v) \in J
+  }
+  \, d u \, d v.\]</span> Now for this last integral, we unfold <span
+class="math inline">\((a_1,u)\)</span> and <span
+class="math inline">\((d_1,v)\)</span>: <span class="math display">\[Q
+\sum _{c \neq 0} \sum _{
+    \substack{
+      a_0, d_0 \in (\mathbb{Z} / c)^\times :  \\
+       a_0 d_0 \equiv  1(c)
+    }
+  }
+  e_c(-m a_0 - n d_0)
+  \int _{u, v \in \mathbb{R}}
+  e (- mu + n v )
+  1 _{n (u) w(c) n(v) \in J
+  }
+  \, d u \, d v.\]</span> Now we rewrite this as <span
+class="math display">\[Q \sum _{c \neq 0}
+  S(m,n,c)
+  I(m,n,c),\]</span> where <span id="eqn:20230522164836" class="math display">\[\label{eqn:20230522164836}\tag{1}
+  I(m,n,c) :=
+  \int _{u, v \in \mathbb{R}}
+  e (- mu + n v )
+  1 _{n (u) w(c) n(v) \in J
+  }
+  \, d u \, d v.\]</span> So in summary, we have shown thus far that for
+<span class="math inline">\(m, n \asymp T\)</span>, <span
+class="math display">\[\sum _{C(\pi) \leq Q}
+  \frac{\lambda(m) \lambda(n)}{ \sqrt{m n }}
+  \approx
+  1 _{m = n} \frac{Q}{T}
+  + Q \sum _{c \neq 0} S (m, n, c) I (m,n ,c).\]</span> In other words,
+<span id="eqn:20230522165006" class="math display">\[\label{eqn:20230522165006}\tag{2}
+  \frac{1}{Q}
+  \sum _{C(\pi) \leq Q}
+  \lambda(m) \lambda(n)
+  \approx
+  1 _{m = n}
+  + T \sum _{c \neq 0} S (m, n, c) I (m,n ,c).\]</span></p>
+<p>To study <a href="#eqn:20230522164836" data-reference-type="eqref"
+data-reference="eqn:20230522164836">\((1)\)</a>, we apply
+the matrix multiplication identity <span
+class="math display">\[\begin{pmatrix}
+1 &amp; u/c \\
+0 &amp; 1 \\
+\end{pmatrix}
+\begin{pmatrix}
+0 &amp; -1/c \\
+c &amp; 0 \\
+\end{pmatrix}
+\begin{pmatrix}
+1 &amp; v/c \\
+0 &amp; 1 \\
+\end{pmatrix}
+=\begin{pmatrix}u &amp; \frac{u v}{c} - \frac{1}{c}\\c &amp;
+v\end{pmatrix}.\]</span> For this to lie in <span
+class="math inline">\(J\)</span>, we should have <span
+class="math display">\[u = o(1), \quad v = o(1), \quad c \lll
+T/Q,\]</span> say <span class="math inline">\(c \asymp T / Q\)</span>,
+and then <span class="math display">\[u v - 1 \ll 1/Q.\]</span> This
+essentially detects <span class="math inline">\(v = 1 / u\)</span> but
+we save a factor of <span class="math inline">\(1/Q\)</span> from the
+volume of the set of relevant <span class="math inline">\(v\)</span>. We
+arrive at, for <span class="math inline">\(c \asymp T/Q\)</span>, <span
+class="math display">\[I(m,n,c)
+  =
+  \frac{1}{c^2 Q}
+  \int_{u = 1  + o(1)}^{\text{smooth}}
+  e \left( \frac{m u + n /u }{ c } \right) \, d u \, d v.\]</span> We
+have, as functions of <span class="math inline">\(u\)</span>, <span
+class="math display">\[(m u + n u^{-1} ) &#39; = m - n u^{-2}.\]</span>
+The stationary points are <span class="math display">\[u_0 = \pm
+\sqrt{n/m}.\]</span> Near that point, we can approximate the phase using
+its second degree Taylor expansion. The second derivative is <span
+class="math display">\[(m u + n u^{-1} )&#39;&#39; = \frac{1}{2} n
+u^{-3}.\]</span> The value of the phase is <span
+class="math display">\[\frac{m u_0 + n u_0^{-1} }{c}
+  =
+  \pm \frac{m \sqrt{n / m } + n \sqrt{m / n} }{c}
+  =
+  \pm 2 \frac{\sqrt{m n }}{c}.\]</span> The second degree Taylor
+expansion then looks like <span class="math display">\[\frac{m u + n
+u^{-1} }{c}
+  \approx
+  \pm 2 \frac{\sqrt{m n }}{c}
+  \pm \frac{1}{2} \frac{n u_0^{-3}}{2 c} (u - u_0)^2.\]</span> So we’re
+reduced to the Fresnel integral <span class="math display">\[\int_{u} e
+\left( \frac{1}{2} \frac{n u_0^{-3}}{2 c} u^2 \right) \, d u.\]</span>
+Doing <span class="math inline">\(u \mapsto u (c/n)^{1/2}\)</span> gets
+rid of the part of the phase that is not <span
+class="math inline">\(\asymp 1\)</span>, so the above has size <span
+class="math display">\[\asymp (c / n)^{1/2}.\]</span> So we arrive at
+<span class="math display">\[I(m,n,c) \approx \frac{1}{c^2 Q}
+\frac{c^{1/2} }{ n^{1/2} } e \left( \pm 2 \frac{\sqrt{m n }}{c}
+\right).\]</span> For <span class="math inline">\(c \asymp T/Q\)</span>
+and <span class="math inline">\(n \asymp T\)</span>, the above has
+magnitude <span class="math display">\[\frac{1}{(T/Q)^2 Q^{3/2}} =
+\frac{ Q^{1/2}}{T^2}.\]</span> Substituting back into <a
+href="#eqn:20230522165006" data-reference-type="eqref"
+data-reference="eqn:20230522165006">\((2)\)</a> gives now
+<span class="math display">\[\frac{1}{Q}
+  \sum _{C(\pi) \leq Q}
+  \lambda(m) \lambda(n)
+  \approx
+  1 _{m = n}
+  +
+  \frac{ Q^{1/2}}{T }
+  \sum_{c \asymp T/Q}
+  S(m,n,c) e \left( \pm 2 \frac{\sqrt{m n} }{c} \right).\]</span></p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="list">
+<div id="ref-JN19a" class="csl-entry" role="listitem">
+Jana, Subhajit, and Paul D. Nelson. 2019. <span>“<span
+class="nocase">Analytic newvectors for <span
+class="math inline">\(\mathrm{GL}_n(\mathbb{R})\)</span></span>.”</span>
+<em>arXiv e-Prints</em>, November, arXiv:1911.01880. <a
+href="https://arxiv.org/abs/1911.01880">https://arxiv.org/abs/1911.01880</a>.
+</div>
+</div>
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
