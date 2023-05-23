@@ -1,0 +1,290 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\usepackage{xr-hyper}
+\externaldocument{standard}
+
+\numberwithin{equation}{section}
+\numberwithin{theorem}{section}
+
+\title{Some basics on localized vectors in representations of Lie groups}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\begin{abstract}
+We record some basic properties of localized vectors in representations of Lie groups: existence, uniqueness, approximate projectors, and branching.
+\end{abstract}
+
+\section{Overview}\label{sec:d1a8de613824}
+These are notes from a series of lectures given at Queen Mary University of London in November 2022.  We thank Shaun Stevens for providing us with scans of his handwritten notes.  Those lectures also included a brief motivating overview of the simpler $p$-adic case, which we do not discuss in this version of these notes.
+
+We summarize, without proof, some results of \cite{nelson-venkatesh-1, 2020arXiv201202187N, 2021arXiv210915230N}.  The presentation here differs from that of the cited references in that we favor the language of ``localized vectors'', as in \cite[\S1.7]{nelson-venkatesh-1}, over that of microlocal calculi.  We might later update this note so as to provide proofs bridging the gap from the results of the cited references to their formulations given here.
+
+\section{Preliminaries}\label{sec:d1a8de613e9a}
+\subsection{Asymptotic parameters}\label{sec:d1a8dda545b5}
+We let $T$ be an asymptotic parameter that traverses a sequence $\{T\}$ of positive real numbers tending off to $\infty$.  Most quantities $x$ that we consider are ``$T$-dependent''.  More formally, this means that they are represented by a map $x: T \mapsto x_T$.  We use the word ``fixed'' to mean ``independent of $T$''.
+
+We can speak of $T$-dependent sets $X = X_T$ and $T$-dependent elements $x = x_T$.  The condition $x \in X$ means that $x_T \in X_T$ for all $T$, while $x \notin X$ means that $x_T \notin X_T$ for all $T$.  This notation violates the law of the excluded middle, since we can have $x_T$ in $X_T$ for some $T$, but not for others.  We can restore that law by passing to subsequences of the sequence of parameters $T$, and will do so when necessary without explicit mention.
+
+By a \emph{class}, we mean a fixed collection of $T$-dependent sets.  We say that a $T$-dependent element lies in a given class if it lies in one of the $T$-dependent sets in the given collection.  For example, given a $T$-dependent normed vector space $(V, \lVert . \rVert)$ (possibly $T$-dependent), the class $\O(1)$ inside $V$ is defined to consist of all $T$-dependent subsets $S = S_T$ of $V = V_T$ such that there is a fixed $C \geq 0$ so that for all $T$, we have $\lVert v_T \rVert \leq C$ for all $v_T \in S_T$.  The class $o(1)$ inside $V$ consists of all $T$-dependent subsets $S$ of $V$ such that for each fixed $c > 0$, we have for large enough $T$ that $\lVert v_T \rVert \leq c$ for all $v_T \in S_T$.  An element $v = v_T \in V$ then lies in $\O(1)$ (resp. $o(1)$) if and only if $\lVert v_T \rVert$ is bounded independently of $T$ (resp. converges to zero as $T \rightarrow \infty$).  Similarly, given any $T$-dependent element $u = u_T \in V = V_T$ and scalar $A = A_T \geq 0$, we may define the classes $u + \O(A)$ and $u + o(A)$ inside $V$.
+
+\subsection{Schwartz spaces and bumps}\label{sec:d1a8de614869}
+For a real vector space $V$, recall that the \href{https://en.wikipedia.org/wiki/Schwartz_space}{Schwartz space} $\mathcal{S}(V)$ consists of functions each of whose derivatives decays faster than any polynomial.  We denote by $V^*$ the dual space and write $e(t) := e^{2 \pi i t}$.  Suppose $V$ comes equipped with a Haar measure.  The Fourier transform
+\begin{equation*}
+\mathcal{S}(V) \rightarrow \mathcal{S}(V^*)
+\end{equation*}
+\begin{equation*}
+f \mapsto f^\wedge := \left[ \xi \mapsto \int_{V} f(x) e(- \xi  x) \, d x \right]
+\end{equation*}
+is then an isomorphism of topological vector spaces, with inverse given by
+\begin{equation*}
+\mathcal{S}(V) \rightarrow \mathcal{S}(V)
+\end{equation*}
+\begin{equation*}
+f \mapsto f^\vee := \left[ x \mapsto \int_{V^*} f(\xi) e(\bullet \xi) \, d \xi  \right]
+\end{equation*}
+for a suitable Haar measure on $V^*$.
+
+\begin{definition}
+  Let $V$ be a real vector space.  Let $\alpha = \alpha_T \in V$ and $\beta = \beta_T \in V^*$ be $T$-dependent elements, and let $r = r_T > 0$ be a $T$-dependent positive real.  We say that $T$-dependent Schwartz function $f = f_T \in \mathcal{S}(V)$ is a $\alpha$\emph{-modulated bump on} $\beta + \O(r)$ if there is a fixed bounded subset $\mathfrak{B}$ of $\mathcal{S}(V)$ and a $T$-dependent element $\phi = \phi_T \in \mathfrak{B}$ so that
+  \begin{equation*}
+f(\tau + x) =  e(\alpha x) \phi\left( \frac{x }{r} \right).
+\end{equation*}
+When $\alpha = 0$, we say simply that $f$ is a \emph{bump on } $\beta + \O(r)$ 
+\end{definition}
+
+\begin{lemma}
+  Let $V$ be a real vector space of fixed dimension, let $\alpha$ (resp. $\beta$) be a $T$-dependent of $V$ (resp. $V^*$), and let $r > 0$ be a $T$-dependent positive real.  Then the following are equivalent for a $T$-dependent element $f$ of $\mathcal{S}(V)$.
+\begin{enumerate}[(i)]
+\item $f$ is an  $\alpha$-modulated bump on $\beta + \O(r)$.  
+\item $f^\wedge$ is a $(-\beta)$-modulated bump on $\alpha + \O(1/r)$.
+\end{enumerate}  
+\end{lemma}
+\begin{proof}
+This follows from the fact that the Fourier transform defines a topological automorphism of the Schwartz space, together with standard intertwining properties of the Fourier transform.
+\end{proof}
+
+
+
+\section{Definition of localized vectors}\label{sec:d1a8de614cc9}
+Let $G$ be a fixed real Lie group.  We denote by $\mathfrak{g}$ its Lie algebra and by $\mathfrak{g}^*$ the dual of that Lie algebra.  For example, we might take $G = \GL_r(\mathbb{R})$, so that $\mathfrak{g} = \glLie_r(\mathbb{R})$; then $\mathfrak{g}^*$ identifies with $\glLie_r(\mathbb{R})$ via the trace pairing.
+
+Let
+\begin{equation*}
+  \pi = \pi_T
+\end{equation*}
+be a $T$-dependent representation of $G$.  We assume that $\pi$ is unitary (although it would suffice to assume that it comes with a norm $\lVert . \rVert$ satisfying a certain uniformity in $T$).  We consider $T$-dependent vectors
+\begin{equation*}
+  v = v_T \in \pi.
+\end{equation*}
+\begin{definition}
+  We say that a $T$-dependent vector $v = v_T \in \pi = \pi_T$ is \emph{negligible} if for all fixed $u \in \mathfrak{U}(\mathfrak{g})$ and fixed $k \geq 0$, the element $\pi(u) v$ lies in the class $\O(T^{-k})$ inside $\pi$.  Equivalently, for all fixed $m, k \geq 0$ and $x_1,\dotsc,x_m \in \mathfrak{g}$, there is a fixed $C \geq 0$ so that for all $T$,
+  \begin{equation*}
+    \lVert
+    \pi (x_1 \dotsb x_m ) v
+    \rVert
+    \leq
+    \frac{C}{ T^k }.
+  \end{equation*}
+  We say that a pair of $T$-dependent vectors
+  \begin{equation*}
+    v = v _T, \quad
+    v' = v_T'
+  \end{equation*}
+  in $\pi$ are \emph{asymptotically equivalent}, and write
+  \begin{equation*}
+    v \approx v ',
+  \end{equation*}
+  if their difference is negligible.
+\end{definition}
+
+\begin{definition}
+  We fix a smooth even function $\chi \in C_c^\infty(\mathfrak{g})$, taking the value $1$ in a neighborhood of the origin.  Given $a \in \mathcal{S}(\mathfrak{g}^*)$, we denote by $\Opp(a)$ the operator on $\pi$ given by
+  \begin{equation*}
+    \Opp(a) := \int_{\mathfrak{g} } \chi(x) a^\vee (x) \pi (\exp(x)) \, d x,
+  \end{equation*}
+  with $a^\vee \in \mathcal{S}(\mathfrak{g})$ the inverse Fourier transform of $a$.
+\end{definition}
+
+
+Let
+\begin{equation*}
+  \tau = \tau_T \in \mathfrak{g}^*
+\end{equation*}
+be a $T$-dependent parameter in the dual Lie algebra.  We assume that
+\begin{equation*}
+  \tau = \O(T),
+\end{equation*}
+i.e., that the norm of $\tau$ (taken in any fixed sense) is bounded by a fixed multiple of $T$.  For each fixed  $\eps > 0$, we define the class
+\begin{equation}\label{eqn:d1a8de18355b}
+  B_{\tau,\eps} := \tau + \O \left( T^{1/2 + \eps } \right)
+\end{equation}
+following the general recipe of \S\ref{sec:d1a8dda545b5}.
+
+
+\begin{definition}
+  We say that a $T$-dependent vector $v \in \pi$ is \emph{localized} at the $T$-dependent parameter $\tau = \tau_T \in \mathfrak{g}^*$ if for each fixed $\eps > 0$, there is a $T$-dependent Schwartz function $a = a_T \in \mathcal{S} (\mathfrak{g}^*)$ with the following properties.
+  \begin{enumerate}[(i)]
+  \item $a$ is a bump on $B_{\tau,\eps}$.
+  \item $\Opp(a) v \approx v$.
+  \end{enumerate}
+\end{definition}
+\begin{remark}
+  If $v$ is localized at $\tau$, then one can show that $\Opp(a) v \approx v$ for any bump $a$ on $B_{\tau,\eps}$ with the property that $a$ takes the value $1$ on every set of class $\tau + o(T^{1/2+\eps})$.
+\end{remark}
+
+\section{Existence and uniqueness}\label{sec:d1a8de61510d}
+
+\begin{definition}
+  We say that an element $\xi \in \mathfrak{g}^*$ is \emph{regular} if its $G$-centralizer has smallest possible dimension.  We denote by $\mathfrak{g}^*_{\reg}$ the subset of regular elements.  We say that a $T$-dependent element $\xi = \xi_T$ of $\mathfrak{g}^*$ is \emph{uniformly regular} if $T^{-1} \tau = T^{-1} \tau_T$ lies some fixed compact subset of $\mathfrak{g}^*_{\reg}$.
+\end{definition}
+
+\begin{theorem}\label{theorem:d1a8ddcbd754}
+  Let $\pi = \pi_T$ be a $T$-dependent irreducible unitary representation of $G$.  Assume that either
+  \begin{enumerate}
+  \item\label{enumerate:d1a8ddc751e5} $G$ is reductive and $\pi$ is tempered, or
+  \item\label{enumerate:d1a8ddcc2f30} $G = \GL_n(\mathbb{R})$ and $\pi$ is generic.
+  \end{enumerate}
+  Assume that the infinitesimal character $\lambda_\pi$  has the property that its rescaling $T^{-1} \lambda_\pi$ lies in a fixed compact collection of infinitesimal characters (see \cite[\S9]{nelson-venkatesh-1} for details).  Define the $G$-invariant subset
+  \begin{equation*}
+\mathcal{O}_\pi \subseteq \mathfrak{g}^*,
+\end{equation*}
+as follows.  In the case \eqref{enumerate:d1a8ddc751e5}, let it denote the coadjoint orbit assigned to $\pi$ by the Kirillov formula \cite[\S6]{nelson-venkatesh-1}.  In the second case, let it denote the preimage of $\lambda_\pi$.
+
+Let $\tau = \tau_T \in \mathcal{O}_\pi$ be $\O(T)$ and uniformly regular.  Then:
+  \begin{enumerate}[(i)]
+  \item There is a unit vector $v = v_T \in \pi$ that is localized in $\tau$.
+  \item Let $v_1,\dotsc,v_m$ be any $T$-dependent orthogonal collection of unit vectors that are each localized at $\tau$.  Then $m \leq T^{o(1)}$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{remark}
+  For the existence part of Theorem \ref{theorem:d1a8ddcbd754}, the proof in case \eqref{enumerate:d1a8ddc751e5} is non-constructive: it is obtained by computing the traces of certain approximate projections, using the Kirillov formula.  That formula says that
+  \begin{equation*}
+\trace(\Opp(a)) = \int_{\mathcal{O}_\pi } \mathcal{D} a(\xi) \, d \omega(\xi),
+\end{equation*}
+where $\omega$ is the canonical symplectic measure and $\mathcal{D}$ is an infinite-order differential operator corresponding to the inverse square root of the Jacobian of the exponential map $\mathfrak{g} \rightarrow G$.  For the symbols $a$ that we consider, $\mathcal{D} a$ and $a$ coincides up to lower order terms.  The proof also makes use of an operator calculus to the effect that $\Opp(a) \Opp(b)$ and $\Opp(a b)$ coincide up to lower order terms.
+
+  In case \eqref{enumerate:d1a8ddcc2f30}, the proof is constructive: without loss of generality (conjugating $\tau$ by an element of some fixed compact subset of $G$ if needed), we may assume that $\tau$ is of the form
+\begin{equation*}
+\begin{pmatrix}
+\ast & \ast & \ast & \ast \\
+1 & \ast & \ast & \ast \\
+0 & 1 & \ast & \ast \\
+0 & 0 & 1 & \ast \\
+\end{pmatrix},
+\end{equation*}
+in which case the vector $v$ may be given by a normalized bump in the Kirillov model.  The proof uses the explicit description of the action of the mirabolic subgroup on the Kirillov model and the differential equations coming from the center of the universal enveloping algebra.  See \cite[Part 3]{2021arXiv210915230N} (direct link: Part \ref{part:asympt-analys-kirill}) for details.
+
+The uniqueness part of Theorem \ref{theorem:d1a8ddcbd754} is not used anywhere, but recorded for the sake of illustration.
+\end{remark}
+
+\section{Approximate projectors}\label{sec:d1a8de6154ce}
+Let $G$ be a fixed real reductive group.
+
+\begin{definition}
+  Let $\tau$ be a uniformly regular $T$-dependent element of $\mathfrak{g}^*$.  We choose coordinates $\xi = (\xi ', \xi '')$ on $\mathfrak{g}^*$, where $\xi '$ consists of the directions tangent to $G \cdot \tau$ at $\tau$ and $\xi ''$ consists of the perpendicular directions.  Thus $\xi'$ (resp. $\xi ''$) has dimension $\rank(G)$ (resp. $\dim(G) - \rank(G)$).  See \cite[\S9.4.1]{2020arXiv201202187N} or \cite[\S13.3.4]{2021arXiv210915230N} (direct link: \S\ref{sec:refined-classes}) for details.
+
+  We define the \emph{coin-shaped region} $\mathcal{R} _{\tau,\eps}$ to be the following class in $\mathfrak{g}^*$:
+  \begin{equation*}
+\mathcal{R}_{\tau,\eps} = \left\{ \tau + \xi : \xi ' = \O(T^{1/2+\eps}), \, \xi '' = \O(T^{\eps}) \right\}.
+\end{equation*}
+We say that a $T$-dependent element $a$ of $\mathcal{S}(\mathfrak{g}^*)$ is a \emph{bump on} $\mathcal{R}_{\tau,\eps}$ if there is a fixed bounded subset $\mathfrak{B}$ of $\mathcal{S}(\mathfrak{g}^*)$ and a $T$-dependent element $\phi = \phi_T \in \mathfrak{B}$ so that
+\begin{equation*}
+a(\tau + \xi ) = \phi\left(\frac{\xi ' }{ T^{1/2+\eps}}, \frac{\xi '' }{ T^\eps}\right).
+\end{equation*}
+\end{definition}
+We observe that the coin-shaped region $\mathcal{R}_{\tau,\eps}$ is a subclass of the ball $\mathcal{B}_{\tau,\eps}$ defined in \eqref{eqn:d1a8de18355b}.
+
+\begin{theorem}[Existence of approximate projectors]
+  Let $\pi = \pi_T$ be a $T$-dependent irreducible unitary representation of $G$.  Let $\tau = \tau_T$ be a uniformly regular element of $\mathfrak{g}^*$.  Let $v = v_T$ be a $T$-dependent element of $\pi$ that has norm $\O(1)$ and is localized at $\tau$.  Then for each fixed $\eps > 0$, there is a bump $a$ on the coin-shaped region $\mathcal{R}_{\tau,\eps}$ such that
+  \begin{equation*}
+    \Opp(a) v \approx v.
+  \end{equation*}
+\end{theorem}
+
+\begin{remark}
+  The Fourier transform $a^\vee$ is a $\tau$-modulated Schwartz bump on the ``dual coin-shaped region''
+  \begin{equation*}
+    \mathcal{R}_{\tau,\eps}^\vee = \left\{ x \in \mathfrak{g} : x ' \ll T^{-1/2-\eps}, \, x '' \ll T^{-\eps} \right\},
+  \end{equation*}
+  where $x = (x', x'')$ denote the coordinates dual to $\xi = (\xi ', \xi '')$.
+\end{remark}
+
+\section{Branching}\label{sec:d1a8de615a31}
+Now let $(G,H)$ be a GGP pair over $\mathbb{R}$, i.e.,
+\begin{equation*}
+  (\GL_{n+1}(\mathbb{R}), \GL_n(\mathbb{R})),
+  \quad
+  (\U(p+1,q), \U(p,q))
+  \quad
+  \text{ or } 
+  (\SO(p+1,q), \SO(p,q)).
+\end{equation*}
+Let $(\pi,\sigma)$ be $T$-dependent irreducible unitary representations.  We assume that $\pi$ and $\sigma$ each satisfy the hypotheses of Theorem \ref{theorem:d1a8ddcbd754}, and moreover that either the condition \eqref{enumerate:d1a8ddc751e5} holds for both $\pi$ and $\sigma$, or the condition \eqref{enumerate:d1a8ddcc2f30} does.  We refer to the former case as the ``tempered case'' and the latter as the ``general linear case''.
+
+In the tempered case, we have a direct integral decomposition of the restricted representation $\pi|_{H}$ into tempered irreducible representations of $H$, occurring with multiplicity one; we may use this to normalize an $H$-equivariant linear functional
+\begin{equation*}
+  \ell_\sigma : \pi \rightarrow \sigma
+\end{equation*}
+(see \cite[\S18]{nelson-venkatesh-1}).  The normalization is such that
+\begin{equation}\label{eqn:d1a8de462057}
+  \left\langle \left\lvert \ell_\sigma(v), u \right\rvert \right\rangle^2
+  = \int_{H} \left\langle h v, v \right\rangle \left\langle u , h u  \right\rangle \, d h.
+\end{equation}
+In the general linear case, we may achieve something similar using zeta integrals (see \cite{MR701565} or \cite[\S2.14.4]{2021arXiv210915230N}, direct link: \S\ref{sec:zeta-integrals}).
+
+In either case, we may find, for any uniformly regular $T$-dependent elements
+\begin{equation*}
+  \xi \in \mathcal{O}_\pi, \qquad  \eta \in \mathcal{O}_\sigma
+\end{equation*}
+a pair of $T$-dependent unit vectors
+\begin{equation*}
+  v \in \pi, \qquad u \in \sigma 
+\end{equation*}
+localized at $\xi$ and $\eta$, respectively.  By ``partial integration'', we expect the inner product
+\begin{equation*}
+  \langle \ell_\sigma(v), u \rangle
+\end{equation*}
+to be negligible unless
+\begin{equation*}
+  \xi_H \approx \eta,
+\end{equation*}
+where $\xi_H \in \mathfrak{g}^*$ denotes the restriction of $\xi \in \mathfrak{g}^*$.  This condition holds for some $\eta$ precisely when $\xi$ lies in the set
+\begin{equation*}
+  \mathcal{O}_{\pi,\sigma} := \mathcal{O}_\pi \cap \operatorname{preimage}(\mathcal{O}_\sigma).
+\end{equation*}
+Such sets given a detailed general study in \cite{nelson-venkatesh-1}.  We summarize below some of the basic results.
+
+\begin{definition}
+  We say that a pair of infinitesimal characters $(\lambda,\mu)$ for $(G,H)$ is \emph{stable} if their eigenvalue multisets (see \cite[\S13.4.1]{nelson-venkatesh-1}) are disjoint.  We say that a $T$-dependent pair $(\lambda,\mu) = (\lambda_T, \mu_T)$ is \emph{uniformly stable} if the $T$-rescaled pair $(T^{-1} \lambda, T^{-1} \mu)$ lies in a fixed compact collection of stable pairs.
+\end{definition}
+
+\begin{theorem}
+  Retain the above notation and setting.  Assume that $(\lambda_\pi, \lambda_\sigma)$ is uniformly stable.  Then:
+  \begin{enumerate}[(i)]
+  \item $\mathcal{O}_{\pi,\sigma}$ is either empty, or is an $H$-torsor, i.e., a closed $H$-orbit with trivial stabilizer.
+  \item\label{enumerate:d1a8de41634c} If $\mathcal{O}_{\pi,\sigma}$ is nonempty, then there exists $\tau \in \mathcal{O}_{\pi,\sigma}$ with $\lvert \tau \rvert \asymp T$.
+  \item\label{enumerate:d1a8de433647} Any $\tau$ satisfying the conclusion of \eqref{enumerate:d1a8de41634c} has the further property that both $\tau \in \mathfrak{g}^*$ and $\tau_H \in \mathfrak{g}^*$ are uniformly regular, so that by Theorem \ref{theorem:d1a8ddcbd754}, we may find unit vectors $v \in \sigma$ and $u \in \pi$ localized at $\tau$ and $\tau_H$, respectively.
+  \item\label{enumerate:d1a8de48acf7} The vectors $v$ and $u$ as in \eqref{enumerate:d1a8de433647} may be chosen to have the further property that
+\begin{equation}\label{eqn:d1a8de4497e0}
+\left\lvert \left\langle \ell_\sigma(v), u \right\rangle \right\rvert^2 = T^{-\dim(H)/2 + o(1)}.
+\end{equation}    
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  The general algebraic assertions concerning $\mathcal{O}_{\pi,\sigma}$ will be discussed elsewhere.
+
+  For the proof of \eqref{eqn:d1a8de4497e0}, the basic idea in the tempered case is that in the integral \eqref{eqn:d1a8de462057}, the matrix coefficient $\langle h v, v \rangle$ is very small except when $h \tau = \tau + \O(T^{1/2+\eps})$, in which case the torsor property of $\mathcal{O}_{\pi,\sigma}$ (``stability'') forces $h = 1 + \O(T^{-1/2+\eps})$.  We can bridge the gap from this range for $h$ to the smaller range $h = 1 + \O(T^{-1/2-\eps})$ by averaging over short families of $v$ and $u$; this is where the ``may be chosen'' part of \eqref{enumerate:d1a8de48acf7} comes from.  The contribution to the integral from this smaller range can be evaluated exactly.
+
+  In the general linear case, we argue instead using local zeta integrals and the fact that $v$ can be chosen to be a normalized bump function in the Kirillov model.
+\end{proof}
+
+
+
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
