@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Some basics on localized vectors in representations of Lie groups</title>
+  <style>
+    html {
+line-height: 1.5;
+font-family: Georgia, serif;
+font-size: 20px;
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Some basics on localized vectors in representations of
+Lie groups</h1>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>We record some basic properties of localized vectors in
+representations of Lie groups: existence, uniqueness, approximate
+projectors, and branching.</p>
+</div>
+</header>
+<h1 id="sec:d1a8de613824">§1. Overview</h1>
+<p>These are notes from a series of lectures given at Queen Mary
+University of London in November 2022. We thank Shaun Stevens for
+providing us with scans of his handwritten notes. Those lectures also
+included a brief motivating overview of the simpler <span
+class="math inline">\(p\)</span>-adic case, which we do not discuss in
+this version of these notes.</p>
+<p>We summarize, without proof, some results of <a href="#ref-nelson-venkatesh-1 2020arXiv201202187N 2021arXiv210915230N" class="citation"
+data-cites="nelson-venkatesh-1 2020arXiv201202187N 2021arXiv210915230N">(Nelson
+and Venkatesh 2021; Nelson 2023, 2021)</a>. The presentation here
+differs from that of the cited references in that we favor the language
+of “localized vectors”, as in <a href="#ref-nelson-venkatesh-1" class="citation"
+data-cites="nelson-venkatesh-1">(Nelson and Venkatesh 2021, sec.
+1.7)</a>, over that of microlocal calculi. We might later update this
+note so as to provide proofs bridging the gap from the results of the
+cited references to their formulations given here.</p>
+<h1 id="sec:d1a8de613e9a">§2. Preliminaries</h1>
+<h2 id="sec:d1a8dda545b5">§2.1. Asymptotic parameters</h2>
+<p>We let <span class="math inline">\(T\)</span> be an asymptotic
+parameter that traverses a sequence <span
+class="math inline">\(\{T\}\)</span> of positive real numbers tending
+off to <span class="math inline">\(\infty\)</span>. Most quantities
+<span class="math inline">\(x\)</span> that we consider are “<span
+class="math inline">\(T\)</span>-dependent”. More formally, this means
+that they are represented by a map <span class="math inline">\(x: T
+\mapsto x_T\)</span>. We use the word “fixed” to mean “independent of
+<span class="math inline">\(T\)</span>”.</p>
+<p>We can speak of <span class="math inline">\(T\)</span>-dependent sets
+<span class="math inline">\(X = X_T\)</span> and <span
+class="math inline">\(T\)</span>-dependent elements <span
+class="math inline">\(x = x_T\)</span>. The condition <span
+class="math inline">\(x \in X\)</span> means that <span
+class="math inline">\(x_T \in X_T\)</span> for all <span
+class="math inline">\(T\)</span>, while <span class="math inline">\(x
+\notin X\)</span> means that <span class="math inline">\(x_T \notin
+X_T\)</span> for all <span class="math inline">\(T\)</span>. This
+notation violates the law of the excluded middle, since we can have
+<span class="math inline">\(x_T\)</span> in <span
+class="math inline">\(X_T\)</span> for some <span
+class="math inline">\(T\)</span>, but not for others. We can restore
+that law by passing to subsequences of the sequence of parameters <span
+class="math inline">\(T\)</span>, and will do so when necessary without
+explicit mention.</p>
+<p>By a <em>class</em>, we mean a fixed collection of <span
+class="math inline">\(T\)</span>-dependent sets. We say that a <span
+class="math inline">\(T\)</span>-dependent element lies in a given class
+if it lies in one of the <span
+class="math inline">\(T\)</span>-dependent sets in the given collection.
+For example, given a <span class="math inline">\(T\)</span>-dependent
+normed vector space <span class="math inline">\((V, \lVert .
+\rVert)\)</span> (possibly <span
+class="math inline">\(T\)</span>-dependent), the class <span
+class="math inline">\(\operatorname{O}(1)\)</span> inside <span
+class="math inline">\(V\)</span> is defined to consist of all <span
+class="math inline">\(T\)</span>-dependent subsets <span
+class="math inline">\(S = S_T\)</span> of <span class="math inline">\(V
+= V_T\)</span> such that there is a fixed <span class="math inline">\(C
+\geq 0\)</span> so that for all <span class="math inline">\(T\)</span>,
+we have <span class="math inline">\(\lVert v_T \rVert \leq C\)</span>
+for all <span class="math inline">\(v_T \in S_T\)</span>. The class
+<span class="math inline">\(o(1)\)</span> inside <span
+class="math inline">\(V\)</span> consists of all <span
+class="math inline">\(T\)</span>-dependent subsets <span
+class="math inline">\(S\)</span> of <span
+class="math inline">\(V\)</span> such that for each fixed <span
+class="math inline">\(c &gt; 0\)</span>, we have for large enough <span
+class="math inline">\(T\)</span> that <span class="math inline">\(\lVert
+v_T \rVert \leq c\)</span> for all <span class="math inline">\(v_T \in
+S_T\)</span>. An element <span class="math inline">\(v = v_T \in
+V\)</span> then lies in <span
+class="math inline">\(\operatorname{O}(1)\)</span> (resp. <span
+class="math inline">\(o(1)\)</span>) if and only if <span
+class="math inline">\(\lVert v_T \rVert\)</span> is bounded
+independently of <span class="math inline">\(T\)</span> (resp. converges
+to zero as <span class="math inline">\(T \rightarrow \infty\)</span>).
+Similarly, given any <span class="math inline">\(T\)</span>-dependent
+element <span class="math inline">\(u = u_T \in V = V_T\)</span> and
+scalar <span class="math inline">\(A = A_T \geq 0\)</span>, we may
+define the classes <span class="math inline">\(u +
+\operatorname{O}(A)\)</span> and <span class="math inline">\(u +
+o(A)\)</span> inside <span class="math inline">\(V\)</span>.</p>
+<h2 id="sec:d1a8de614869">§2.2. Schwartz spaces and bumps</h2>
+<p>For a real vector space <span class="math inline">\(V\)</span>,
+recall that the <a
+href="https://en.wikipedia.org/wiki/Schwartz_space">Schwartz space</a>
+<span class="math inline">\(\mathcal{S}(V)\)</span> consists of
+functions each of whose derivatives decays faster than any polynomial.
+We denote by <span class="math inline">\(V^*\)</span> the dual space and
+write <span class="math inline">\(e(t) := e^{2 \pi i t}\)</span>.
+Suppose <span class="math inline">\(V\)</span> comes equipped with a
+Haar measure. The Fourier transform <span
+class="math display">\[\mathcal{S}(V) \rightarrow
+\mathcal{S}(V^*)\]</span> <span class="math display">\[f \mapsto
+f^\wedge := \left[ \xi \mapsto \int_{V} f(x) e(- \xi  x) \, d x
+\right]\]</span> is then an isomorphism of topological vector spaces,
+with inverse given by <span class="math display">\[\mathcal{S}(V)
+\rightarrow \mathcal{S}(V)\]</span> <span class="math display">\[f
+\mapsto f^\vee := \left[ x \mapsto \int_{V^*} f(\xi) e(\bullet \xi) \, d
+\xi  \right]\]</span> for a suitable Haar measure on <span
+class="math inline">\(V^*\)</span>.</p>
+<div class="definition">
+<p><strong>Definition 1</strong>. Let <span
+class="math inline">\(V\)</span> be a real vector space. Let <span
+class="math inline">\(\alpha = \alpha_T \in V\)</span> and <span
+class="math inline">\(\beta = \beta_T \in V^*\)</span> be <span
+class="math inline">\(T\)</span>-dependent elements, and let <span
+class="math inline">\(r = r_T &gt; 0\)</span> be a <span
+class="math inline">\(T\)</span>-dependent positive real. We say that
+<span class="math inline">\(T\)</span>-dependent Schwartz function <span
+class="math inline">\(f = f_T \in \mathcal{S}(V)\)</span> is a <span
+class="math inline">\(\alpha\)</span><em>-modulated bump on</em> <span
+class="math inline">\(\beta + \operatorname{O}(r)\)</span> if there is a
+fixed bounded subset <span class="math inline">\(\mathfrak{B}\)</span>
+of <span class="math inline">\(\mathcal{S}(V)\)</span> and a <span
+class="math inline">\(T\)</span>-dependent element <span
+class="math inline">\(\phi = \phi_T \in \mathfrak{B}\)</span> so that
+<span class="math display">\[f(\tau + x) =  e(\alpha x) \phi\left(
+\frac{x }{r} \right).\]</span> When <span class="math inline">\(\alpha =
+0\)</span>, we say simply that <span class="math inline">\(f\)</span> is
+a <em>bump on</em> <span class="math inline">\(\beta +
+\operatorname{O}(r)\)</span></p>
+</div>
+<div class="lemma">
+<p><strong>Lemma 2</strong>. Let <span class="math inline">\(V\)</span>
+be a real vector space of fixed dimension, let <span
+class="math inline">\(\alpha\)</span> (resp. <span
+class="math inline">\(\beta\)</span>) be a <span
+class="math inline">\(T\)</span>-dependent of <span
+class="math inline">\(V\)</span> (resp. <span
+class="math inline">\(V^*\)</span>), and let <span
+class="math inline">\(r &gt; 0\)</span> be a <span
+class="math inline">\(T\)</span>-dependent positive real. Then the
+following are equivalent for a <span
+class="math inline">\(T\)</span>-dependent element <span
+class="math inline">\(f\)</span> of <span
+class="math inline">\(\mathcal{S}(V)\)</span>.</p>
+<ol type="i">
+<li><p><span class="math inline">\(f\)</span> is an <span
+class="math inline">\(\alpha\)</span>-modulated bump on <span
+class="math inline">\(\beta + \operatorname{O}(r)\)</span>.</p></li>
+<li><p><span class="math inline">\(f^\wedge\)</span> is a <span
+class="math inline">\((-\beta)\)</span>-modulated bump on <span
+class="math inline">\(\alpha + \operatorname{O}(1/r)\)</span>.</p></li>
+</ol>
+</div>
+<div class="proof">
+<p><em>Proof.</em> This follows from the fact that the Fourier transform
+defines a topological automorphism of the Schwartz space, together with
+standard intertwining properties of the Fourier transform. ◻</p>
+</div>
+<h1 id="sec:d1a8de614cc9">§3. Definition of localized vectors</h1>
+<p>Let <span class="math inline">\(G\)</span> be a fixed real Lie group.
+We denote by <span class="math inline">\(\mathfrak{g}\)</span> its Lie
+algebra and by <span class="math inline">\(\mathfrak{g}^*\)</span> the
+dual of that Lie algebra. For example, we might take <span
+class="math inline">\(G = {\mathop{\mathrm{GL}}}_r(\mathbb{R})\)</span>,
+so that <span class="math inline">\(\mathfrak{g} =
+{\mathop{\mathrm{\mathfrak{g}\mathfrak{l}}}}_r(\mathbb{R})\)</span>; then
+<span class="math inline">\(\mathfrak{g}^*\)</span> identifies with
+<span
+class="math inline">\({\mathop{\mathrm{\mathfrak{g}\mathfrak{l}}}}_r(\mathbb{R})\)</span>
+via the trace pairing.</p>
+<p>Let <span class="math display">\[\pi = \pi_T\]</span> be a <span
+class="math inline">\(T\)</span>-dependent representation of <span
+class="math inline">\(G\)</span>. We assume that <span
+class="math inline">\(\pi\)</span> is unitary (although it would suffice
+to assume that it comes with a norm <span class="math inline">\(\lVert .
+\rVert\)</span> satisfying a certain uniformity in <span
+class="math inline">\(T\)</span>). We consider <span
+class="math inline">\(T\)</span>-dependent vectors <span
+class="math display">\[v = v_T \in \pi.\]</span></p>
+<div class="definition">
+<p><strong>Definition 3</strong>. We say that a <span
+class="math inline">\(T\)</span>-dependent vector <span
+class="math inline">\(v = v_T \in \pi = \pi_T\)</span> is
+<em>negligible</em> if for all fixed <span class="math inline">\(u \in
+\mathfrak{U}(\mathfrak{g})\)</span> and fixed <span
+class="math inline">\(k \geq 0\)</span>, the element <span
+class="math inline">\(\pi(u) v\)</span> lies in the class <span
+class="math inline">\(\operatorname{O}(T^{-k})\)</span> inside <span
+class="math inline">\(\pi\)</span>. Equivalently, for all fixed <span
+class="math inline">\(m, k \geq 0\)</span> and <span
+class="math inline">\(x_1,\dotsc,x_m \in \mathfrak{g}\)</span>, there is
+a fixed <span class="math inline">\(C \geq 0\)</span> so that for all
+<span class="math inline">\(T\)</span>, <span
+class="math display">\[\lVert
+    \pi (x_1 \dotsb x_m ) v
+    \rVert
+    \leq
+    \frac{C}{ T^k }.\]</span> We say that a pair of <span
+class="math inline">\(T\)</span>-dependent vectors <span
+class="math display">\[v = v _T, \quad
+    v&#39; = v_T&#39;\]</span> in <span
+class="math inline">\(\pi\)</span> are <em>asymptotically
+equivalent</em>, and write <span class="math display">\[v \approx v
+&#39;,\]</span> if their difference is negligible.</p>
+</div>
+<div class="definition">
+<p><strong>Definition 4</strong>. We fix a smooth even function <span
+class="math inline">\(\chi \in C_c^\infty(\mathfrak{g})\)</span>, taking
+the value <span class="math inline">\(1\)</span> in a neighborhood of
+the origin. Given <span class="math inline">\(a \in
+\mathcal{S}(\mathfrak{g}^*)\)</span>, we denote by <span
+class="math inline">\(\mathop{\mathrm{Op}}(a)\)</span> the operator on
+<span class="math inline">\(\pi\)</span> given by <span
+class="math display">\[\mathop{\mathrm{Op}}(a) := \int_{\mathfrak{g} }
+\chi(x) a^\vee (x) \pi (\exp(x)) \, d x,\]</span> with <span
+class="math inline">\(a^\vee \in \mathcal{S}(\mathfrak{g})\)</span> the
+inverse Fourier transform of <span class="math inline">\(a\)</span>.</p>
+</div>
+<p>Let <span class="math display">\[\tau = \tau_T \in
+\mathfrak{g}^*\]</span> be a <span
+class="math inline">\(T\)</span>-dependent parameter in the dual Lie
+algebra. We assume that <span class="math display">\[\tau =
+\operatorname{O}(T),\]</span> i.e., that the norm of <span
+class="math inline">\(\tau\)</span> (taken in any fixed sense) is
+bounded by a fixed multiple of <span class="math inline">\(T\)</span>.
+For each fixed <span class="math inline">\(\varepsilon&gt; 0\)</span>,
+we define the class <span id="eqn:d1a8de18355b" class="math display">\[\label{eqn:d1a8de18355b}\tag{3.1}
+  B_{\tau,\varepsilon} := \tau + \operatorname{O}\left( T^{1/2 +
+\varepsilon} \right)\]</span> following the general recipe of §<a
+href="#sec:d1a8dda545b5" data-reference-type="ref"
+data-reference="sec:d1a8dda545b5">2.1</a>.</p>
+<div class="definition">
+<p><strong>Definition 5</strong>. We say that a <span
+class="math inline">\(T\)</span>-dependent vector <span
+class="math inline">\(v \in \pi\)</span> is <em>localized</em> at the
+<span class="math inline">\(T\)</span>-dependent parameter <span
+class="math inline">\(\tau = \tau_T \in \mathfrak{g}^*\)</span> if for
+each fixed <span class="math inline">\(\varepsilon&gt; 0\)</span>, there
+is a <span class="math inline">\(T\)</span>-dependent Schwartz function
+<span class="math inline">\(a = a_T \in \mathcal{S}
+(\mathfrak{g}^*)\)</span> with the following properties.</p>
+<ol type="i">
+<li><p><span class="math inline">\(a\)</span> is a bump on <span
+class="math inline">\(B_{\tau,\varepsilon}\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{Op}}(a) v \approx
+v\)</span>.</p></li>
+</ol>
+</div>
+<div class="remark">
+<p><strong>Remark 6</strong>. If <span class="math inline">\(v\)</span>
+is localized at <span class="math inline">\(\tau\)</span>, then one can
+show that <span class="math inline">\(\mathop{\mathrm{Op}}(a) v \approx
+v\)</span> for any bump <span class="math inline">\(a\)</span> on <span
+class="math inline">\(B_{\tau,\varepsilon}\)</span> with the property
+that <span class="math inline">\(a\)</span> takes the value <span
+class="math inline">\(1\)</span> on every set of class <span
+class="math inline">\(\tau + o(T^{1/2+\varepsilon})\)</span>.</p>
+</div>
+<h1 id="sec:d1a8de61510d">§4. Existence and uniqueness</h1>
+<div class="definition">
+<p><strong>Definition 7</strong>. We say that an element <span
+class="math inline">\(\xi \in \mathfrak{g}^*\)</span> is
+<em>regular</em> if its <span
+class="math inline">\(G\)</span>-centralizer has smallest possible
+dimension. We denote by <span
+class="math inline">\(\mathfrak{g}^*_{\mathop{\mathrm{reg}}}\)</span>
+the subset of regular elements. We say that a <span
+class="math inline">\(T\)</span>-dependent element <span
+class="math inline">\(\xi = \xi_T\)</span> of <span
+class="math inline">\(\mathfrak{g}^*\)</span> is <em>uniformly
+regular</em> if <span class="math inline">\(T^{-1} \tau = T^{-1}
+\tau_T\)</span> lies some fixed compact subset of <span
+class="math inline">\(\mathfrak{g}^*_{\mathop{\mathrm{reg}}}\)</span>.</p>
+</div>
+<div id="enumerate:d1a8ddcc2f30" class="theorem">
+<p><strong>Theorem 8</strong>. <em><span id="theorem:d1a8ddcbd754"
+label="theorem:d1a8ddcbd754"></span> Let <span class="math inline">\(\pi
+= \pi_T\)</span> be a <span class="math inline">\(T\)</span>-dependent
+irreducible unitary representation of <span
+class="math inline">\(G\)</span>. Assume that either</em></p>
+<ol>
+<li><p><em><span id="enumerate:d1a8ddc751e5"
+label="enumerate:d1a8ddc751e5"></span> <span
+class="math inline">\(G\)</span> is reductive and <span
+class="math inline">\(\pi\)</span> is tempered, or</em></p></li>
+<li><p><em><span class="math inline">\(G =
+{\mathop{\mathrm{GL}}}_n(\mathbb{R})\)</span> and <span
+class="math inline">\(\pi\)</span> is generic.</em></p></li>
+</ol>
+<p><em>Assume that the infinitesimal character <span
+class="math inline">\(\lambda_\pi\)</span> has the property that its
+rescaling <span class="math inline">\(T^{-1} \lambda_\pi\)</span> lies
+in a fixed compact collection of infinitesimal characters (see <a href="#ref-nelson-venkatesh-1"
+class="citation" data-cites="nelson-venkatesh-1">(Nelson and Venkatesh
+2021, sec. 9)</a> for details). Define the <span
+class="math inline">\(G\)</span>-invariant subset <span
+class="math display">\[\mathcal{O}_\pi \subseteq
+\mathfrak{g}^*,\]</span> as follows. In the case <a
+href="#enumerate:d1a8ddc751e5" data-reference-type="eqref"
+data-reference="enumerate:d1a8ddc751e5">\((1)\)</a>,
+let it denote the coadjoint orbit assigned to <span
+class="math inline">\(\pi\)</span> by the Kirillov formula <a href="#ref-nelson-venkatesh-1"
+class="citation" data-cites="nelson-venkatesh-1">(Nelson and Venkatesh
+2021, sec. 6)</a>. In the second case, let it denote the preimage of
+<span class="math inline">\(\lambda_\pi\)</span>.</em></p>
+<p><em>Let <span class="math inline">\(\tau = \tau_T \in
+\mathcal{O}_\pi\)</span> be <span
+class="math inline">\(\operatorname{O}(T)\)</span> and uniformly
+regular. Then:</em></p>
+<ol type="i">
+<li><p><em>There is a unit vector <span class="math inline">\(v = v_T
+\in \pi\)</span> that is localized in <span
+class="math inline">\(\tau\)</span>.</em></p></li>
+<li><p><em>Let <span class="math inline">\(v_1,\dotsc,v_m\)</span> be
+any <span class="math inline">\(T\)</span>-dependent orthogonal
+collection of unit vectors that are each localized at <span
+class="math inline">\(\tau\)</span>. Then <span class="math inline">\(m
+\leq T^{o(1)}\)</span>.</em></p></li>
+</ol>
+</div>
+<div class="remark">
+<p><strong>Remark 9</strong>. For the existence part of Theorem <a
+href="#theorem:d1a8ddcbd754" data-reference-type="ref"
+data-reference="theorem:d1a8ddcbd754">4.2</a>, the
+proof in case <a href="#enumerate:d1a8ddc751e5"
+data-reference-type="eqref"
+data-reference="enumerate:d1a8ddc751e5">\((1)\)</a> is
+non-constructive: it is obtained by computing the traces of certain
+approximate projections, using the Kirillov formula. That formula says
+that <span
+class="math display">\[\mathop{\mathrm{trace}}(\mathop{\mathrm{Op}}(a))
+= \int_{\mathcal{O}_\pi } \mathcal{D} a(\xi) \, d \omega(\xi),\]</span>
+where <span class="math inline">\(\omega\)</span> is the canonical
+symplectic measure and <span class="math inline">\(\mathcal{D}\)</span>
+is an infinite-order differential operator corresponding to the inverse
+square root of the Jacobian of the exponential map <span
+class="math inline">\(\mathfrak{g} \rightarrow G\)</span>. For the
+symbols <span class="math inline">\(a\)</span> that we consider, <span
+class="math inline">\(\mathcal{D} a\)</span> and <span
+class="math inline">\(a\)</span> coincides up to lower order terms. The
+proof also makes use of an operator calculus to the effect that <span
+class="math inline">\(\mathop{\mathrm{Op}}(a)
+\mathop{\mathrm{Op}}(b)\)</span> and <span
+class="math inline">\(\mathop{\mathrm{Op}}(a b)\)</span> coincide up to
+lower order terms.</p>
+<p>In case <a href="#enumerate:d1a8ddcc2f30" data-reference-type="eqref"
+data-reference="enumerate:d1a8ddcc2f30">\((2)\)</a>,
+the proof is constructive: without loss of generality (conjugating <span
+class="math inline">\(\tau\)</span> by an element of some fixed compact
+subset of <span class="math inline">\(G\)</span> if needed), we may
+assume that <span class="math inline">\(\tau\)</span> is of the form
+<span class="math display">\[\begin{pmatrix}
+\ast &amp; \ast &amp; \ast &amp; \ast \\
+1 &amp; \ast &amp; \ast &amp; \ast \\
+0 &amp; 1 &amp; \ast &amp; \ast \\
+0 &amp; 0 &amp; 1 &amp; \ast \\
+\end{pmatrix},\]</span> in which case the vector <span
+class="math inline">\(v\)</span> may be given by a normalized bump in
+the Kirillov model. The proof uses the explicit description of the
+action of the mirabolic subgroup on the Kirillov model and the
+differential equations coming from the center of the universal
+enveloping algebra. See <a href="#ref-2021arXiv210915230N" class="citation"
+data-cites="2021arXiv210915230N">(Nelson 2021, pt. 3)</a> (direct
+link: Part <a href="standard.html#part:asympt-analys-kirill"
+data-reference-type="ref"
+data-reference="part:asympt-analys-kirill">3</a>)
+for details.</p>
+<p>The uniqueness part of Theorem <a href="#theorem:d1a8ddcbd754"
+data-reference-type="ref"
+data-reference="theorem:d1a8ddcbd754">4.2</a> is not
+used anywhere, but recorded for the sake of illustration.</p>
+</div>
+<h1 id="sec:d1a8de6154ce">§5. Approximate projectors</h1>
+<p>Let <span class="math inline">\(G\)</span> be a fixed real reductive
+group.</p>
+<div class="definition">
+<p><strong>Definition 10</strong>. Let <span
+class="math inline">\(\tau\)</span> be a uniformly regular <span
+class="math inline">\(T\)</span>-dependent element of <span
+class="math inline">\(\mathfrak{g}^*\)</span>. We choose coordinates
+<span class="math inline">\(\xi = (\xi &#39;, \xi &#39;&#39;)\)</span>
+on <span class="math inline">\(\mathfrak{g}^*\)</span>, where <span
+class="math inline">\(\xi &#39;\)</span> consists of the directions
+tangent to <span class="math inline">\(G \cdot \tau\)</span> at <span
+class="math inline">\(\tau\)</span> and <span class="math inline">\(\xi
+&#39;&#39;\)</span> consists of the perpendicular directions. Thus <span
+class="math inline">\(\xi&#39;\)</span> (resp. <span
+class="math inline">\(\xi &#39;&#39;\)</span>) has dimension <span
+class="math inline">\(\mathop{\mathrm{rank}}(G)\)</span> (resp. <span
+class="math inline">\(\dim(G) - \mathop{\mathrm{rank}}(G)\)</span>). See
+<a href="#ref-2020arXiv201202187N" class="citation" data-cites="2020arXiv201202187N">(Nelson 2023,
+sec. 9.4.1)</a> or <a href="#ref-2021arXiv210915230N" class="citation"
+data-cites="2021arXiv210915230N">(Nelson 2021, sec. 13.3.4)</a>
+(direct link: §<a href="standard.html#sec:refined-classes" data-reference-type="ref"
+data-reference="sec:refined-classes">13.3.4</a>) for
+details.</p>
+<p>We define the <em>coin-shaped region</em> <span
+class="math inline">\(\mathcal{R} _{\tau,\varepsilon}\)</span> to be the
+following class in <span class="math inline">\(\mathfrak{g}^*\)</span>:
+<span class="math display">\[\mathcal{R}_{\tau,\varepsilon} = \left\{
+\tau + \xi : \xi &#39; = \operatorname{O}(T^{1/2+\varepsilon}), \, \xi
+&#39;&#39; = \operatorname{O}(T^{\varepsilon}) \right\}.\]</span> We say
+that a <span class="math inline">\(T\)</span>-dependent element <span
+class="math inline">\(a\)</span> of <span
+class="math inline">\(\mathcal{S}(\mathfrak{g}^*)\)</span> is a <em>bump
+on</em> <span
+class="math inline">\(\mathcal{R}_{\tau,\varepsilon}\)</span> if there
+is a fixed bounded subset <span
+class="math inline">\(\mathfrak{B}\)</span> of <span
+class="math inline">\(\mathcal{S}(\mathfrak{g}^*)\)</span> and a <span
+class="math inline">\(T\)</span>-dependent element <span
+class="math inline">\(\phi = \phi_T \in \mathfrak{B}\)</span> so that
+<span class="math display">\[a(\tau + \xi ) = \phi\left(\frac{\xi &#39;
+}{ T^{1/2+\varepsilon}}, \frac{\xi &#39;&#39; }{
+T^\varepsilon}\right).\]</span></p>
+</div>
+<p>We observe that the coin-shaped region <span
+class="math inline">\(\mathcal{R}_{\tau,\varepsilon}\)</span> is a
+subclass of the ball <span
+class="math inline">\(\mathcal{B}_{\tau,\varepsilon}\)</span> defined in
+<a href="#eqn:d1a8de18355b" data-reference-type="eqref"
+data-reference="eqn:d1a8de18355b">\((3.1)\)</a>.</p>
+<div class="theorem">
+<p><strong>Theorem 11</strong> (Existence of approximate projectors).
+<em>Let <span class="math inline">\(\pi = \pi_T\)</span> be a <span
+class="math inline">\(T\)</span>-dependent irreducible unitary
+representation of <span class="math inline">\(G\)</span>. Let <span
+class="math inline">\(\tau = \tau_T\)</span> be a uniformly regular
+element of <span class="math inline">\(\mathfrak{g}^*\)</span>. Let
+<span class="math inline">\(v = v_T\)</span> be a <span
+class="math inline">\(T\)</span>-dependent element of <span
+class="math inline">\(\pi\)</span> that has norm <span
+class="math inline">\(\operatorname{O}(1)\)</span> and is localized at
+<span class="math inline">\(\tau\)</span>. Then for each fixed <span
+class="math inline">\(\varepsilon&gt; 0\)</span>, there is a bump <span
+class="math inline">\(a\)</span> on the coin-shaped region <span
+class="math inline">\(\mathcal{R}_{\tau,\varepsilon}\)</span> such that
+<span class="math display">\[\mathop{\mathrm{Op}}(a) v \approx
+v.\]</span></em></p>
+</div>
+<div class="remark">
+<p><strong>Remark 12</strong>. The Fourier transform <span
+class="math inline">\(a^\vee\)</span> is a <span
+class="math inline">\(\tau\)</span>-modulated Schwartz bump on the “dual
+coin-shaped region” <span
+class="math display">\[\mathcal{R}_{\tau,\varepsilon}^\vee = \left\{ x
+\in \mathfrak{g} : x &#39; \ll T^{-1/2-\varepsilon}, \, x &#39;&#39; \ll
+T^{-\varepsilon} \right\},\]</span> where <span class="math inline">\(x
+= (x&#39;, x&#39;&#39;)\)</span> denote the coordinates dual to <span
+class="math inline">\(\xi = (\xi &#39;, \xi &#39;&#39;)\)</span>.</p>
+</div>
+<h1 id="sec:d1a8de615a31">§6. Branching</h1>
+<p>Now let <span class="math inline">\((G,H)\)</span> be a GGP pair over
+<span class="math inline">\(\mathbb{R}\)</span>, i.e., <span
+class="math display">\[({\mathop{\mathrm{GL}}}_{n+1}(\mathbb{R}),
+{\mathop{\mathrm{GL}}}_n(\mathbb{R})),
+  \quad
+  (\mathop{\mathrm{U}}(p+1,q), \mathop{\mathrm{U}}(p,q))
+  \quad
+  \text{ or }
+  (\mathop{\mathrm{SO}}(p+1,q), \mathop{\mathrm{SO}}(p,q)).\]</span> Let
+<span class="math inline">\((\pi,\sigma)\)</span> be <span
+class="math inline">\(T\)</span>-dependent irreducible unitary
+representations. We assume that <span class="math inline">\(\pi\)</span>
+and <span class="math inline">\(\sigma\)</span> each satisfy the
+hypotheses of Theorem <a href="#theorem:d1a8ddcbd754"
+data-reference-type="ref"
+data-reference="theorem:d1a8ddcbd754">4.2</a>, and
+moreover that either the condition <a href="#enumerate:d1a8ddc751e5"
+data-reference-type="eqref"
+data-reference="enumerate:d1a8ddc751e5">\((1)\)</a>
+holds for both <span class="math inline">\(\pi\)</span> and <span
+class="math inline">\(\sigma\)</span>, or the condition <a
+href="#enumerate:d1a8ddcc2f30" data-reference-type="eqref"
+data-reference="enumerate:d1a8ddcc2f30">\((2)\)</a>
+does. We refer to the former case as the “tempered case” and the latter
+as the “general linear case”.</p>
+<p>In the tempered case, we have a direct integral decomposition of the
+restricted representation <span class="math inline">\(\pi|_{H}\)</span>
+into tempered irreducible representations of <span
+class="math inline">\(H\)</span>, occurring with multiplicity one; we
+may use this to normalize an <span
+class="math inline">\(H\)</span>-equivariant linear functional <span
+class="math display">\[\ell_\sigma : \pi \rightarrow \sigma\]</span>
+(see <a href="#ref-nelson-venkatesh-1" class="citation" data-cites="nelson-venkatesh-1">(Nelson and
+Venkatesh 2021, sec. 18)</a>). The normalization is such that <span id="eqn:d1a8de462057" class="math display">\[\label{eqn:d1a8de462057}\tag{6.1}
+  \left\langle \left\lvert \ell_\sigma(v), u \right\rvert
+\right\rangle^2
+  = \int_{H} \left\langle h v, v \right\rangle \left\langle u , h
+u  \right\rangle \, d h.\]</span> In the general linear case, we may
+achieve something similar using zeta integrals (see <a href="#ref-MR701565"
+class="citation" data-cites="MR701565">(Jacquet, Piatetskii-Shapiro, and
+Shalika 1983)</a> or <a href="#ref-2021arXiv210915230N" class="citation"
+data-cites="2021arXiv210915230N">(Nelson 2021, sec. 2.14.4)</a>,
+direct link: §<a href="standard.html#sec:zeta-integrals" data-reference-type="ref"
+data-reference="sec:zeta-integrals">2.14.4</a>).</p>
+<p>In either case, we may find, for any uniformly regular <span
+class="math inline">\(T\)</span>-dependent elements <span
+class="math display">\[\xi \in \mathcal{O}_\pi, \qquad  \eta \in
+\mathcal{O}_\sigma\]</span> a pair of <span
+class="math inline">\(T\)</span>-dependent unit vectors <span
+class="math display">\[v \in \pi, \qquad u \in \sigma\]</span> localized
+at <span class="math inline">\(\xi\)</span> and <span
+class="math inline">\(\eta\)</span>, respectively. By “partial
+integration”, we expect the inner product <span
+class="math display">\[\langle \ell_\sigma(v), u \rangle\]</span> to be
+negligible unless <span class="math display">\[\xi_H \approx
+\eta,\]</span> where <span class="math inline">\(\xi_H \in
+\mathfrak{g}^*\)</span> denotes the restriction of <span
+class="math inline">\(\xi \in \mathfrak{g}^*\)</span>. This condition
+holds for some <span class="math inline">\(\eta\)</span> precisely when
+<span class="math inline">\(\xi\)</span> lies in the set <span
+class="math display">\[\mathcal{O}_{\pi,\sigma} := \mathcal{O}_\pi \cap
+\operatorname{preimage}(\mathcal{O}_\sigma).\]</span> Such sets given a
+detailed general study in <a href="#ref-nelson-venkatesh-1" class="citation"
+data-cites="nelson-venkatesh-1">(Nelson and Venkatesh 2021)</a>. We
+summarize below some of the basic results.</p>
+<div class="definition">
+<p><strong>Definition 13</strong>. We say that a pair of infinitesimal
+characters <span class="math inline">\((\lambda,\mu)\)</span> for <span
+class="math inline">\((G,H)\)</span> is <em>stable</em> if their
+eigenvalue multisets (see <a href="#ref-nelson-venkatesh-1" class="citation"
+data-cites="nelson-venkatesh-1">(Nelson and Venkatesh 2021, sec.
+13.4.1)</a>) are disjoint. We say that a <span
+class="math inline">\(T\)</span>-dependent pair <span
+class="math inline">\((\lambda,\mu) = (\lambda_T, \mu_T)\)</span> is
+<em>uniformly stable</em> if the <span
+class="math inline">\(T\)</span>-rescaled pair <span
+class="math inline">\((T^{-1} \lambda, T^{-1} \mu)\)</span> lies in a
+fixed compact collection of stable pairs.</p>
+</div>
+<div id="enumerate:d1a8de48acf7" class="theorem">
+<p><strong>Theorem 14</strong>. <em>Retain the above notation and
+setting. Assume that <span class="math inline">\((\lambda_\pi,
+\lambda_\sigma)\)</span> is uniformly stable. Then:</em></p>
+<ol type="i">
+<li><p><em><span class="math inline">\(\mathcal{O}_{\pi,\sigma}\)</span>
+is either empty, or is an <span class="math inline">\(H\)</span>-torsor,
+i.e., a closed <span class="math inline">\(H\)</span>-orbit with trivial
+stabilizer.</em></p></li>
+<li><p><em><span id="enumerate:d1a8de41634c"
+label="enumerate:d1a8de41634c"></span> If <span
+class="math inline">\(\mathcal{O}_{\pi,\sigma}\)</span> is nonempty,
+then there exists <span class="math inline">\(\tau \in
+\mathcal{O}_{\pi,\sigma}\)</span> with <span
+class="math inline">\(\lvert \tau \rvert \asymp
+T\)</span>.</em></p></li>
+<li><p><em><span id="enumerate:d1a8de433647"
+label="enumerate:d1a8de433647"></span> Any <span
+class="math inline">\(\tau\)</span> satisfying the conclusion of <a
+href="#enumerate:d1a8de41634c" data-reference-type="eqref"
+data-reference="enumerate:d1a8de41634c">\((ii)\)</a> has
+the further property that both <span class="math inline">\(\tau \in
+\mathfrak{g}^*\)</span> and <span class="math inline">\(\tau_H \in
+\mathfrak{g}^*\)</span> are uniformly regular, so that by Theorem <a
+href="#theorem:d1a8ddcbd754" data-reference-type="ref"
+data-reference="theorem:d1a8ddcbd754">4.2</a>, we may
+find unit vectors <span class="math inline">\(v \in \sigma\)</span> and
+<span class="math inline">\(u \in \pi\)</span> localized at <span
+class="math inline">\(\tau\)</span> and <span
+class="math inline">\(\tau_H\)</span>, respectively.</em></p></li>
+<li><p><em>The vectors <span class="math inline">\(v\)</span> and <span
+class="math inline">\(u\)</span> as in <a href="#enumerate:d1a8de433647"
+data-reference-type="eqref"
+data-reference="enumerate:d1a8de433647">\((iii)\)</a> may
+be chosen to have the further property that <span id="eqn:d1a8de4497e0" class="math display">\[\label{eqn:d1a8de4497e0}\tag{6.2}
+\left\lvert \left\langle \ell_\sigma(v), u \right\rangle \right\rvert^2
+= T^{-\dim(H)/2 + o(1)}.\]</span></em></p></li>
+</ol>
+</div>
+<div class="proof">
+<p><em>Proof.</em> The general algebraic assertions concerning <span
+class="math inline">\(\mathcal{O}_{\pi,\sigma}\)</span> will be
+discussed elsewhere.</p>
+<p>For the proof of <a href="#eqn:d1a8de4497e0"
+data-reference-type="eqref"
+data-reference="eqn:d1a8de4497e0">\((6.2)\)</a>, the basic idea
+in the tempered case is that in the integral <a href="#eqn:d1a8de462057"
+data-reference-type="eqref"
+data-reference="eqn:d1a8de462057">\((6.1)\)</a>, the matrix
+coefficient <span class="math inline">\(\langle h v, v \rangle\)</span>
+is very small except when <span class="math inline">\(h \tau = \tau +
+\operatorname{O}(T^{1/2+\varepsilon})\)</span>, in which case the torsor
+property of <span
+class="math inline">\(\mathcal{O}_{\pi,\sigma}\)</span> (“stability”)
+forces <span class="math inline">\(h = 1 +
+\operatorname{O}(T^{-1/2+\varepsilon})\)</span>. We can bridge the gap
+from this range for <span class="math inline">\(h\)</span> to the
+smaller range <span class="math inline">\(h = 1 +
+\operatorname{O}(T^{-1/2-\varepsilon})\)</span> by averaging over short
+families of <span class="math inline">\(v\)</span> and <span
+class="math inline">\(u\)</span>; this is where the “may be chosen” part
+of <a href="#enumerate:d1a8de48acf7" data-reference-type="eqref"
+data-reference="enumerate:d1a8de48acf7">\((iv)\)</a>
+comes from. The contribution to the integral from this smaller range can
+be evaluated exactly.</p>
+<p>In the general linear case, we argue instead using local zeta
+integrals and the fact that <span class="math inline">\(v\)</span> can
+be chosen to be a normalized bump function in the Kirillov model. ◻</p>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="list">
+<div id="ref-MR701565" class="csl-entry" role="listitem">
+Jacquet, H., I. I. Piatetskii-Shapiro, and J. A. Shalika. 1983.
+<span>“Rankin-<span>S</span>elberg Convolutions.”</span> <em>Amer. J.
+Math.</em> 105 (2): 367–464. <a
+href="https://doi.org/10.2307/2374264">https://doi.org/10.2307/2374264</a>.
+</div>
+<div id="ref-2021arXiv210915230N" class="csl-entry" role="listitem">
+Nelson, Paul D. 2021. <span>“<span class="nocase">Bounds for standard
+<span><span
+class="math inline">\(L\)</span></span>-functions</span>.”</span>
+<em>arXiv e-Prints</em>, September, arXiv:2109.15230. <a
+href="https://arxiv.org/abs/2109.15230">https://arxiv.org/abs/2109.15230</a>.
+</div>
+<div id="ref-2020arXiv201202187N" class="csl-entry" role="listitem">
+———. 2023. <span>“Spectral Aspect Subconvex Bounds for <span><span
+class="math inline">\(U_{n+1} \times U_n\)</span></span>.”</span>
+<em>Invent. Math.</em> 232 (3): 1273–1438. <a
+href="https://doi.org/10.1007/s00222-023-01180-x">https://doi.org/10.1007/s00222-023-01180-x</a>.
+</div>
+<div id="ref-nelson-venkatesh-1" class="csl-entry" role="listitem">
+Nelson, Paul D., and A. Venkatesh. 2021. <span>“<span class="nocase">The
+orbit method and analysis of automorphic forms</span>.”</span> <em>Acta
+Math.</em> 226 (1): 1–209.
+</div>
+</div>
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
