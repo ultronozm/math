@@ -435,42 +435,5 @@ file to .html and apply postprocessing."
   (org-html-export-to-html))
 
 
-
-
-(require 'magit)
-(require 'f)
-
-(defcustom czm/math-repo "~/math"
-  "Path to the math repository."
-  :type 'string
-  :group 'czm)
-
-(defun czm/publish-file-math (file)
-  "Copy and commit FILE to ~/math repository.
-If FILE is not provided, use the file associated with the current buffer."
-  (interactive "fFile to commit to ~/math: ")
-  (let* ((file (or file (buffer-file-name)))
-         (filename (file-name-nondirectory file))
-         (dest-dir czm/math-repo)
-         (dest-file (concat (file-name-as-directory dest-dir) filename)))
-    ;; check if there are unstaged changes
-    (with-temp-buffer
-      (cd dest-dir)
-      (if (magit-anything-unstaged-p)
-          (message "Warning: There are unstaged changes in the repository.")
-	;; proceed if there are no unstaged changes
-	(progn
-          ;; copy file to destination directory
-          (f-copy file dest-dir)
-          ;; check if file already existed in destination
-          (let ((msg (if (file-exists-p dest-file)
-			 (concat "Update " filename)
-                       (concat "Create " filename))))
-            ;; stage, commit, and push
-            (magit-stage-file dest-file)
-            (magit-commit-create (list "-m" msg))
-            (magit-push-current-to-upstream nil)))))))
-
-
 (provide 'tex2html)
 ;;; tex2html.el ends here
