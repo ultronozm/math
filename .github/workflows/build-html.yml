@@ -23,6 +23,11 @@ jobs:
       - uses: purcell/setup-emacs@master
         with:
           version: ${{ matrix.emacs_version }}
+      - name: Rebase from main
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git rebase origin/main
       - name: Convert Tex files to HTML
         run: |
           EXCLUDE_FILES=$(jq -r '.exclude[]' config.json)
