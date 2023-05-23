@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Spectral aspect subconvexity for {\mathop{\mathrm{PGL}}}_2: a couple approaches</title>
+  <style>
+    html {
+line-height: 1.5;
+font-family: Georgia, serif;
+font-size: 20px;
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Spectral aspect subconvexity for <span
+class="math inline">\({\mathop{\mathrm{PGL}}}_2\)</span>: a couple
+approaches</h1>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>We discuss and compare two approaches for estimating a short second
+moment of <span class="math inline">\(L\)</span>-functions on <span
+class="math inline">\({\mathop{\mathrm{PGL}}}_2\)</span> in the spectral
+aspect: that of Iwaniec <a href="#ref-Iwaniec1992" class="citation"
+data-cites="Iwaniec1992">(Iwaniec 1992)</a>, using the approximate
+functional equation and Kuznetsov formula, and that of <a href="#ref-2021arXiv210915230N"
+class="citation" data-cites="2021arXiv210915230N">(Nelson 2021)</a>
+using period integrals.</p>
+</div>
+</header>
+<div class="remark">
+<p><strong>Remark 1</strong>. This is a lightly edited version of
+“log-2022-03-08-a.tex”. It needs a lot of polishing, but might be useful
+to someone even in its current state.</p>
+</div>
+<h1 id="sec:org64b74bb">§1. Goal</h1>
+<p>Take <span class="math display">\[G :=
+{\mathop{\mathrm{PGL}}}_2(\mathbb{R}),\]</span> <span
+class="math display">\[\Gamma := {\mathop{\mathrm{PGL}}}_2(\mathbb{Z})
+\hookrightarrow G,\]</span> <span class="math display">\[H :=
+{\mathop{\mathrm{GL}}}_1(\mathbb{R}) \cong  \begin{pmatrix} \ast &amp; 0
+\\ 0 &amp; 1 \end{pmatrix} \hookrightarrow G,\]</span> <span
+class="math display">\[\Gamma_H := {\mathop{\mathrm{GL}}}_1(\mathbb{Z}) =
+\{\pm 1\} \hookrightarrow  H.\]</span> Let <span
+class="math inline">\(\pi \subset L^2_{\text{cusp}}(\Gamma \backslash
+G)\)</span> be a cuspidal automorphic representation corresponding to a
+Maass form of eigenvalue <span class="math inline">\(1/4 + T^2\)</span>.
+We aim to show that <span id="eqn:35ac318817" class="math display">\[\label{eqn:35ac318817}\tag{1.1}
+  L(\pi,\tfrac{1}{2}) \ll T^{1/2 - \delta}\]</span> for some fixed <span
+class="math inline">\(\delta &gt; 0\)</span>.</p>
+<p>Such an estimate was first shown by Iwaniec <a href="#ref-Iwaniec1992" class="citation"
+data-cites="Iwaniec1992">(Iwaniec 1992)</a> (in the Maass case, and
+initially under an additional hypothesis, which Iwaniec later observed
+could be removed using identity <span class="math inline">\(\lambda(p)^2
+- \lambda(p^2) = 1\)</span>). Iwaniec’s method consists of estimating an
+amplified second moment over <span class="math inline">\(T\)</span> in
+an interval of length a bit more than <span
+class="math inline">\(1\)</span>. This method was adapted to <span
+class="math inline">\({\mathop{\mathrm{PGL}}}_3\)</span> by
+Blomer–Buttcane <a href="#ref-MR4203038 MR4039487" class="citation"
+data-cites="MR4203038 MR4039487">(Blomer and Buttcane 2020a,
+2020b)</a>, using an amplified fourth moment, and then to <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n\)</span> in <a href="#ref-2021arXiv210915230N"
+class="citation" data-cites="2021arXiv210915230N">(Nelson 2021)</a>
+(<a href="standard.html">direct link</a>), using an amplified <span
+class="math inline">\(2(n-1)\)</span>th moment. In the works of Iwaniec
+and Blomer—Buttcane, the moment is estimated using the approximate
+functional equation, Kuznetsov formula, and several applications of
+Poisson summation. In <a href="#ref-2021arXiv210915230N" class="citation"
+data-cites="2021arXiv210915230N">(Nelson 2021)</a>, the moment is
+estimated implicitly by direct analysis of an integral representation
+for the <span class="math inline">\(L\)</span>-function, with vectors
+chosen as in <a href="#ref-nelson-venkatesh-1" class="citation"
+data-cites="nelson-venkatesh-1">(Nelson and Venkatesh 2021)</a> and
+the averaging implemented via the pretrace formula like in <a href="#ref-iwan-sar"
+class="citation" data-cites="iwan-sar">(Iwaniec and Sarnak
+1995)</a>.</p>
+<div class="remark">
+<p><strong>Remark 2</strong>. The best known bound for <a
+href="#eqn:35ac318817" data-reference-type="eqref"
+data-reference="eqn:35ac318817">\((1.1)\)</a> is to due to Ivic
+<a href="#ref-MR1879668" class="citation" data-cites="MR1879668">(Ivić 2001)</a> , who
+showed (in the Maass case) that <a href="#eqn:35ac318817"
+data-reference-type="eqref"
+data-reference="eqn:35ac318817">\((1.1)\)</a> holds for any fixed
+<span class="math inline">\(\delta &lt; 1/6\)</span>. Ivic’s method
+consists of estimating an unamplified fourth moment over <span
+class="math inline">\(T\)</span> in an interval of length a bit more
+than <span class="math inline">\(T^{1/3}\)</span> (compare with <a href="#ref-michel-2009 Nelson-EisCubic 2021arXiv210112106B balkanova2022weyls"
+class="citation"
+data-cites="michel-2009 Nelson-EisCubic 2021arXiv210112106B balkanova2022weyls">(Michel
+and Venkatesh 2010; Nelson 2019; Blomer, Jana, and Nelson 2023;
+Balkanova, Frolenkov, and Wu 2022)</a>). Such approaches using
+“higher moments” have no known generalization beyond <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span>.</p>
+</div>
+<h1 id="sec:35ac3e5876">§2. Automorphic background</h1>
+<h2 id="sec:35ac3e5878">§2.1. Cuspidal automorphic representations</h2>
+<p>The space <span
+class="math inline">\(L^2_{\mathop{\mathrm{cusp}}}(\Gamma \backslash
+G)\)</span> consists of square-integrable functions on <span
+class="math inline">\(\Gamma \backslash G\)</span> whose constant term
+vanishes. It is simultaneously a representation for the group <span
+class="math inline">\(G\)</span>, acting via right translation, and the
+Hecke algebra, acting via left translation with respect to double cosets
+in <span class="math inline">\(\Gamma \backslash
+{\mathop{\mathrm{PGL}}}_2(\mathbb{Q}) / \Gamma\)</span>. Under these
+actions, it decomposes as a direct sum of irreducible representations,
+each occurring with multiplicity one. We denote by <span
+class="math inline">\(\pi\)</span> the space of smooth vectors inside
+one such representation.</p>
+<h2 id="sec:35ac3e587a">§2.2. Whittaker expansion</h2>
+<p>The Hecke eigenvalues of <span class="math inline">\(\pi\)</span> are
+described by a multiplicative function <span
+class="math inline">\(\lambda_\pi : \mathbb{N} \rightarrow
+\mathbb{C}\)</span>, which specifies the eigenvalues for a spanning set
+of double cosets. For <span class="math inline">\(\varphi \in
+\pi\)</span>, one defines the Whittaker function <span
+class="math inline">\(W_\varphi : G \rightarrow \mathbb{C}\)</span> by
+<span class="math display">\[W_\varphi (g) :=
+  \int_{x \in \mathbb{R} / \mathbb{Z} } \varphi \left(
+    \begin{pmatrix}
+1 &amp; x \\
+0 &amp; 1 \\
+\end{pmatrix} g \right) e(-x) \, d x,\]</span> where we employ the
+standard abbreviation <span class="math inline">\(e(t) := e^{2 \pi i
+t}\)</span>. Conversely, <span class="math inline">\(\varphi\)</span>
+may be recovered from <span class="math inline">\(\lambda_\pi\)</span>
+and <span class="math inline">\(W_\varphi\)</span> via the formula <span id="eqn:35ac31d7c1" class="math display">\[\label{eqn:35ac31d7c1}\tag{2.1}
+  \varphi(g) = \sum _{n \neq 0}
+  \frac{\lambda_{\pi}(|n|)}{|n|^{1/2}}
+  W_\varphi \left( \begin{pmatrix}
+      n &amp; 0 \\
+      0 &amp; 1
+    \end{pmatrix} g \right),\]</span> with the sum taken over all
+nonzero integers <span class="math inline">\(n\)</span>.</p>
+<h2 id="sec:35ac31dd2c">§2.3. Kirillov model</h2>
+<p>The Whittaker model <span
+class="math inline">\(\mathcal{W}(\pi)\)</span> for <span
+class="math inline">\(\pi\)</span> is defined to consist of all
+functions of the form <span class="math inline">\(W_\varphi\)</span>.
+The theory of the Kirillov model implies that the restriction map <span
+class="math display">\[\mathcal{W}(\pi) \rightarrow \{\text{functions }
+H \rightarrow \mathbb{C} \}\]</span> is injective, and that its image
+contains <span class="math inline">\(C_c^\infty(H)\)</span>. Combining
+this fact with <a href="#eqn:35ac31d7c1" data-reference-type="eqref"
+data-reference="eqn:35ac31d7c1">\((2.1)\)</a> tells us that</p>
+<ul>
+<li><p>any <span class="math inline">\(\varphi \in \pi\)</span> is
+determined by <span class="math inline">\(W_\varphi : H \rightarrow
+\mathbb{C}\)</span>, and</p></li>
+<li><p>every smooth compactly-supported function <span
+class="math inline">\(H \rightarrow \mathbb{C}\)</span> determines a
+unique <span class="math inline">\(\varphi \in \pi\)</span>.</p></li>
+</ul>
+<h1 id="sec:org8f5cc20">§3. Integral representation</h1>
+<p>The <span class="math inline">\(L\)</span>-function <span
+class="math inline">\(L(\pi,s)\)</span> may be defined for <span
+class="math inline">\(\Re(s) &gt; 1\)</span> by the absolutely
+convergent Dirichlet series <span class="math inline">\(\sum_{n \in
+\mathbb{N} } \lambda_\pi(n) n^{-s}\)</span> and in general by
+meromorphic continuation. By unfolding <a href="#eqn:35ac31d7c1"
+data-reference-type="eqref"
+data-reference="eqn:35ac31d7c1">\((2.1)\)</a>, one obtains the
+Hecke/Jacquet–Langlands integral representation <span id="eq:int-_h-varphi" class="math display">\[\label{eq:int-_h-varphi}\tag{3.1}
+  \int _{\Gamma_{H} \backslash H} \varphi = L(\pi,\tfrac{1}{2}) \int _H
+W_\varphi.\]</span></p>
+<h1 id="sec:orge4ffe7c">§4. Coadjoint orbits</h1>
+<p>We denote by <span class="math inline">\(\mathfrak{g}\)</span> the
+Lie algebra of <span class="math inline">\(G\)</span> and by <span
+class="math inline">\(\mathfrak{g}^*\)</span> its linear dual. Using the
+trace pairing, we may identify <span
+class="math inline">\(\mathfrak{g}^*\)</span> with <span
+class="math inline">\(\mathfrak{g}\)</span>, which we identify further
+with the space <span
+class="math inline">\({\mathop{\mathrm{\mathfrak{s}\mathfrak{l}}}}_2(\mathbb{R})\)</span>
+of traceless <span class="math inline">\(2 \times 2\)</span> matrices
+<span class="math inline">\(\xi\)</span>. The coadjoint orbit <span
+class="math display">\[\mathcal{O}_\pi \subseteq \mathfrak{g}^*\]</span>
+attached to <span class="math inline">\(\pi\)</span> is the one-sheeted
+hyperboloid cut out by the equation <span
+class="math display">\[\det(\xi) = -T^2.\]</span> (See for instance §<a
+href="var-quat-3-submitted.html#sec:coadjoint-orbits" data-reference-type="ref"
+data-reference="sec:coadjoint-orbits">6.2</a>-§<a
+href="var-quat-3-submitted.html#sec:prelims-representations" data-reference-type="ref"
+data-reference="sec:prelims-representations">6.3</a>
+of <a href="var-quat-3-submitted.html">Quantum variance III</a>. It comes
+with a natural symplectic volume form that describes the character of
+<span class="math inline">\(\pi\)</span> via the Kirillov formula (see
+<a href="#ref-nelson-venkatesh-1" class="citation" data-cites="nelson-venkatesh-1">(Nelson and
+Venkatesh 2021, sec. 6)</a>). We note that in the coordinates <span
+class="math display">\[\xi =
+  \begin{pmatrix}
+    a &amp; b \\
+    c &amp; -a
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  x &amp; y - z \\
+  y + z &amp; -x
+\end{pmatrix},\]</span> we have <span class="math display">\[\det(\xi) =
+-a^2 - b c = z^2 - y^2 - x^2.\]</span> In particular, <span
+class="math inline">\(\mathcal{O}_\pi\)</span> contains the circle <span
+class="math inline">\(\{(x,y,0) : x^2 + y^2 = T^2\}\)</span>. The
+circular strip <span class="math inline">\(\{(x,y,z) \in \mathcal{O}_\pi
+: |z| \leq 1/2\}\)</span> has symplectic volume one; in the orbit method
+heuristic described in <a href="#ref-nelson-venkatesh-1" class="citation"
+data-cites="nelson-venkatesh-1">(Nelson and Venkatesh 2021, sec.
+1.7)</a>, it corresponds to the weight zero vector in <span
+class="math inline">\(\pi\)</span>.</p>
+<p>The integrals <a href="#eq:int-_h-varphi" data-reference-type="eqref"
+data-reference="eq:int-_h-varphi">\((3.1)\)</a> may be
+understood as describing how <span class="math inline">\(\pi\)</span>
+oscillates against the trivial character of <span
+class="math inline">\(H\)</span>. The orbit method suggests <a href="#ref-nelson-venkatesh-1"
+class="citation" data-cites="nelson-venkatesh-1">(Nelson and Venkatesh
+2021, sec. 1.9)</a> that such oscillation may be understood in terms
+of the intersection <span class="math display">\[\mathcal{O}_\pi \cap
+\mathfrak{h}^\perp,\]</span> i.e., the preimage in <span
+class="math inline">\(\mathcal{O}_\pi\)</span> of the trivial element
+<span class="math inline">\(0\)</span> of <span
+class="math inline">\(\mathfrak{h}^*\)</span>. That intersection is
+given in <span class="math inline">\((x,y,z)\)</span> coordinates by
+<span class="math display">\[\{(0,y,z) : y^2 - z^2 = T^2\}\]</span> and
+in <span class="math inline">\((a,b,c)\)</span> coordinates by <span
+class="math display">\[\{(0,b,c) : b c = T^2\}.\]</span> It is a closed
+<span class="math inline">\(H\)</span>-orbit, with trivial
+stabilizer.</p>
+<p>We pick a point <span class="math inline">\(\tau \in \mathcal{O}_\pi
+\cap \mathfrak{h}^\perp\)</span> of size comparable to <span
+class="math inline">\(T\)</span>. For concreteness, let us take <span
+class="math display">\[\tau = \begin{pmatrix}
+    0 &amp; T \\
+    T &amp; 0
+  \end{pmatrix}.\]</span></p>
+<div class="remark">
+<p><strong>Remark 3</strong>. For the variant problem concerning <span
+class="math inline">\(\pi\)</span> attached to a holomorphic form of
+weight <span class="math inline">\(2 k\)</span>, we would take <span
+class="math inline">\(T := k - 1/2\)</span>, we would take <span
+class="math inline">\(\mathcal{O}_\pi\)</span> cut out by <span
+class="math inline">\(\det(\xi) = T^2\)</span>, and we would take <span
+class="math display">\[\tau =
+\begin{pmatrix}
+0 &amp; -T \\
+T &amp; 0 \\
+\end{pmatrix}.\]</span> See for instance §<a
+href="var-quat-3-submitted.html#sec:holomorphic-analogue-1" data-reference-type="ref"
+data-reference="sec:holomorphic-analogue-1">8.4</a>
+of <a href="var-quat-3-submitted.html">Quantum variance III</a>.</p>
+</div>
+<h1 id="sec:org806411a">§5. Choice of vector</h1>
+<p>We seek a unit vector <span class="math inline">\(\varphi \in
+\pi\)</span> that is “localized at <span
+class="math inline">\(\tau\)</span>.” Informally, this means that for
+each fixed Lie algebra element <span class="math inline">\(X \in
+\mathfrak{g}\)</span>, we have <span id="eq:x-varphi-=" class="math display">\[\label{eq:x-varphi-=}\tag{5.1}
+  X \varphi = {i \langle X, \tau  \rangle} \varphi +
+\operatorname{O}(T^{1/2}).\]</span> For further informal discussion of
+this concept, see <a href="#ref-nelson-venkatesh-1" class="citation"
+data-cites="nelson-venkatesh-1">(Nelson and Venkatesh 2021, sec.
+1.7)</a> and <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, sec. 2.5)</a> . For
+some precise definitions, see §<a href="var-quat-3-submitted.html#sec:states-approx-microlocal"
+data-reference-type="ref"
+data-reference="sec:states-approx-microlocal">7.1</a>
+of <a href="var-quat-3-submitted.html">Quantum variance III</a>, or <a href="#ref-2021arXiv210915230N"
+class="citation" data-cites="2021arXiv210915230N">(Nelson 2021, sec.
+14)</a> (direct link: §<a href="standard.html#sec:abstr-study-local"
+data-reference-type="ref"
+data-reference="sec:abstr-study-local">14</a>).</p>
+<p>Such a vector <span class="math inline">\(\varphi\)</span> may be
+described readily in the Kirillov model for <span
+class="math inline">\(\pi\)</span>. Recall (from §<a
+href="#sec:35ac31dd2c" data-reference-type="ref"
+data-reference="sec:35ac31dd2c">2.3</a>) that this consists of
+identifying elements <span class="math inline">\(W\)</span> of the
+Whittaker model <span class="math inline">\(\mathcal{W}(\pi)\)</span>
+their restrictions to <span class="math inline">\(H\)</span>. It will be
+convenient to think of such <span class="math inline">\(W\)</span> as
+function on <span class="math inline">\(\mathbb{R}^\times\)</span> via
+the abbreviation <span class="math display">\[W(y) := W\left(
+  \begin{pmatrix}
+y &amp; 0 \\
+0 &amp; 1 \\
+\end{pmatrix} \right).\]</span> We consider the following basis elements
+for <span class="math inline">\(\mathfrak{g}\)</span>: <span
+class="math display">\[\partial_a =
+  \begin{pmatrix}
+    1 &amp; 0 \\
+    0 &amp; -1
+  \end{pmatrix},
+  \quad
+  \partial_b =
+  \begin{pmatrix}
+    0 &amp; 1 \\
+    0 &amp; 0
+  \end{pmatrix},
+  \quad
+  \partial_c =
+  \begin{pmatrix}
+    0 &amp; 0 \\
+    1 &amp; 0
+  \end{pmatrix}  .\]</span> The action of the first two of these
+elements on the Kirillov model is given very simply: <span
+class="math display">\[\partial_a W(y) = 2 y W&#39;(y),
+  \quad
+  \partial_b W(y) = 2 \pi i y W(y).\]</span> Since <span
+class="math inline">\(\langle \partial_a, \tau \rangle = 0\)</span> and
+<span class="math inline">\(\langle \partial_b, \tau \rangle =
+T\)</span>, the condition <a href="#eq:x-varphi-="
+data-reference-type="eqref"
+data-reference="eq:x-varphi-=">\((5.1)\)</a> says in particular
+that <span class="math display">\[\partial_a W_\varphi =
+\operatorname{O}(T^{1/2}),
+  \quad
+  \partial_b W_\varphi = i T W_\varphi +
+\operatorname{O}(T^{1/2}).\]</span> These formulas suggest taking the
+following smoothened <span class="math inline">\(L^2\)</span>-normalized
+characteristic function: <span id="eqn:35ac3e31cb" class="math display">\[\label{eqn:35ac3e31cb}\tag{5.2}
+  W_\varphi(y) = T^{1/4} 1_{T / 2 \pi +
+\operatorname{O}(T^{1/2})}^{\text{smooth}}(y).\]</span> Using that <span
+class="math inline">\(W_\varphi\)</span> is an eigenfunction under the
+Casimir operator (see <a href="#ref-2021arXiv210915230N" class="citation"
+data-cites="2021arXiv210915230N">(Nelson 2021, sec. 12)</a>, direct
+link: §<a href="standard.html#sec:overview-asymp-kirillov" data-reference-type="ref"
+data-reference="sec:overview-asymp-kirillov">12</a>),
+one can check also that <span class="math display">\[\partial_c
+W_\varphi = i T W_\varphi + \operatorname{O}(T^{1/2}).\]</span> Precise
+forms of all these estimates are established in <a href="#ref-2021arXiv210915230N" class="citation"
+data-cites="2021arXiv210915230N">(Nelson 2021, pt. 3)</a> (direct
+link: Part <a href="standard.html#part:asympt-analys-kirill"
+data-reference-type="ref"
+data-reference="part:asympt-analys-kirill">3</a>).</p>
+<div class="remark">
+<p><strong>Remark 4</strong>. This choice of <span
+class="math inline">\(\varphi\)</span> is closely related to the
+“microlocal lift” of Zelditch <a href="#ref-MR916129" class="citation"
+data-cites="MR916129">(Zelditch 1987)</a> et al., see <a href="#ref-MR1859345 MR2346281 MR2314452"
+class="citation"
+data-cites="MR1859345 MR2346281 MR2314452">(Lindenstrauss 2001;
+Silberman and Venkatesh 2007; Anantharaman and Zelditch 2007)</a>.
+More precisely, it is (asymptotically) a <span
+class="math inline">\(G\)</span>-translate of the usual definition; the
+limit invariance for <span class="math inline">\(L^2\)</span>-masses
+will be with respect to the stabilizer <span
+class="math inline">\(G_\tau\)</span> of <span
+class="math inline">\(\tau\)</span>, namely <span id="eqn:G-tau" class="math display">\[\label{eqn:G-tau}\tag{5.3}
+  G_\tau = \left\{ \begin{pmatrix}
+      \cosh t &amp; \sinh t \\
+      \sinh t &amp; \cosh t
+    \end{pmatrix} \right\},\]</span> rather than with respect to the
+diagonal subgroup.</p>
+</div>
+<p>By chosing the smooth bump function implicit in <a
+href="#eqn:35ac3e31cb" data-reference-type="eqref"
+data-reference="eqn:35ac3e31cb">\((5.2)\)</a> to be nonnegative,
+we may arrange that <span class="math display">\[\int_{H} W_\varphi
+\asymp  T^{-1/4},\]</span> so that <a href="#eq:int-_h-varphi"
+data-reference-type="eqref"
+data-reference="eq:int-_h-varphi">\((3.1)\)</a> reads <span id="eqn:35ac3e32a4" class="math display">\[\label{eqn:35ac3e32a4}\tag{5.4}
+  T^{-1/4} L(\pi,\tfrac{1}{2}) \asymp  \int_{\Gamma_{H} \backslash H}
+\varphi.\]</span> Our task is to show that the right hand side is <span
+class="math inline">\(\ll T^{1/4-\delta}\)</span>.</p>
+<h1 id="sec:orgc98f847">§6. Truncation</h1>
+<p>We now indicate why the integral on the right hand side of <a
+href="#eqn:35ac3e32a4" data-reference-type="eqref"
+data-reference="eqn:35ac3e32a4">\((5.4)\)</a> of may be
+effectively truncated to a fixed compact set. For a detailed discussion
+of this point, see <a href="#ref-2021arXiv210915230N" class="citation"
+data-cites="2021arXiv210915230N">(Nelson 2021, sec. 5.3)</a> (direct
+link: <a href="standard.html#sec:reduct-peri-bounds" data-reference-type="ref"
+data-reference="sec:reduct-peri-bounds">5.3</a>) or
+<a href="#ref-michel-2009" class="citation" data-cites="michel-2009">(Michel and Venkatesh
+2010, sec. 5.1.4)</a> or <a href="#ref-2020arXiv200406791S" class="citation"
+data-cites="2020arXiv200406791S">(Schumacher 2020, sec. 3)</a> (or
+§<a href="20230522T174726__shrinking-archimedean-families-second-moment-gl2.html#sec:20230522180027" data-reference-type="ref"
+data-reference="sec:20230522180027">3</a> of <a
+href="20230522T174726__shrinking-archimedean-families-second-moment-gl2.html">this
+informal note</a>).</p>
+<p>Consider, for a fixed even “truncation” function <span
+class="math inline">\(\mathcal{T} \in C_c^\infty(H)\)</span>, the map
+<span class="math display">\[I : H \rightarrow \mathbb{C}\]</span> <span
+class="math display">\[I(Y) := \int _{y \in \Gamma_{H} \backslash
+H}  \mathcal{T}(y/Y) \varphi(y) \, d^\times y\]</span> assigning to a
+parameter <span class="math inline">\(Y\)</span> the smoothened integral
+of <span class="math inline">\(\varphi|_H\)</span> over the
+corresponding dyadic range. We have <span class="math display">\[\int
+_{\Gamma_{H} \backslash H} \varphi |.|^{s-1/2} = L(\pi,s)
+Z(W_\varphi,s),\]</span> where <span
+class="math inline">\(Z(W_\varphi,s)\)</span> denotes the local zeta
+integral <span class="math display">\[Z(W_\varphi,s) := \int _{H}
+W_\varphi |.|^{s-1/2}.\]</span> For <span class="math inline">\(s =
+\operatorname{O}(1)\)</span>, we see by explicit calculation that <span
+class="math display">\[Z(W_\varphi,s) \approx T^{s-3/4}.\]</span> If
+moreover <span class="math inline">\(|\Re(s)| \leq 1/2\)</span>, then
+the convexity bound reads <span class="math display">\[L(\pi,s) \ll T^{1
+- s}.\]</span> These bounds become only polynomially worse if we relax
+the condition <span class="math inline">\(s =
+\operatorname{O}(1)\)</span> to <span class="math inline">\(\Re(s) =
+\operatorname{O}(1)\)</span>. Multiplying them together and convolving
+against the rapidly-decaying Mellin transform of the fixed test function
+<span class="math inline">\(\mathcal{T}\)</span>, we deduce the Mellin
+transform estimate <span class="math display">\[|\Re(s)| \leq 1/2
+\implies \tilde{I}(s) \ll T^{1/4} (1 + |s|)^{-\infty}.\]</span> It
+follows readily that for fixed <span class="math inline">\(\kappa &gt;
+0\)</span>, we incur the acceptable error <span
+class="math inline">\(\operatorname{O}(T^{1/4 -\kappa/2})\)</span> by
+smoothly truncating the integral <span class="math inline">\(\int_H
+\varphi\)</span> to the range <span class="math inline">\(\{T^{-\kappa}
+&lt; |y| &lt; T^{\kappa}\}\)</span>. If we seek only a qualitative
+subconvex bound, then we can take <span
+class="math inline">\(\kappa\)</span> as small as we like, so there is
+no harm in truncating to <span class="math inline">\(\{ |y| = T^{o(1)}
+\}\)</span>. Note that the relevant truncation is specific to our choice
+of vector <span class="math inline">\(\varphi\)</span>.</p>
+<p>The model problem is thus to bound <span id="eq:int-_y-in" class="math display">\[\label{eq:int-_y-in}\tag{6.1}
+  \int _{y \in H, y \asymp 1} \varphi(y) \, d^\times y.\]</span></p>
+<h1 id="sec:org1580512">§7. Symmetries</h1>
+<p>We use a convolution kernel <span class="math inline">\(\omega \in
+C_c^\infty(G)\)</span> to “remember” many of the symmetries satisfied by
+<span class="math inline">\(\varphi\)</span>. (When amplifying, we
+really take <span class="math inline">\(\omega \in
+C_c^\infty({\mathop{\mathrm{PGL}}}_2(\mathbb{A}))\)</span>.) Roughly
+speaking, we take <span class="math inline">\(\omega\)</span> to be a
+character multiple of an approximate subgroup of <span
+class="math inline">\(G\)</span>: <span class="math display">\[\omega :=
+\mathop{\mathrm{vol}}(J)^{-1} 1_J^{\text{smooth}}
+\chi_\tau^{-1},\]</span> where:</p>
+<ul>
+<li><p><span class="math inline">\(J\)</span> is a subset of <span
+class="math inline">\(G\)</span> roughly of the shape <span
+class="math display">\[J = (1 + \operatorname{O}(T^{-\varepsilon})) \cap
+(G_\tau + \operatorname{O}(T^{-1/2-\varepsilon})),\]</span> with <span
+class="math inline">\(G_\tau\)</span> the stabilizer of <span
+class="math inline">\(\tau\)</span>, as described in <a
+href="#eqn:G-tau" data-reference-type="eqref"
+data-reference="eqn:G-tau">\((5.3)\)</a>.</p></li>
+<li><p><span class="math inline">\(1_J^{\text{smooth}}\)</span> is a
+smoothened characteristic function of <span
+class="math inline">\(J\)</span>.</p></li>
+<li><p><span class="math inline">\(\chi_\tau\)</span> is the
+“approximate character” of <span class="math inline">\(J\)</span>
+attached to <span class="math inline">\(\tau\)</span>, given near the
+identity in exponential coordinates by <span
+class="math display">\[\chi_\tau(\exp(X)) = e^{i \langle X, \tau
+\rangle}.\]</span></p></li>
+</ul>
+<p>We may also describe <span class="math inline">\(\omega\)</span> in
+terms of the function <span class="math inline">\(\mathfrak{g}^*
+\rightarrow \mathbb{C}\)</span> obtained by taking the Fourier transform
+of the pullback <span class="math inline">\(\omega \circ \exp\)</span>.
+This function is roughly a smoothened characteristic function of a
+“coin-shaped” neighborhood of <span class="math inline">\(\tau\)</span>,
+of thickness <span class="math inline">\(T^\varepsilon\)</span> (resp.
+<span class="math inline">\(T^{1/2+\varepsilon}\)</span>) in directions
+transverse (resp. tangential) to the coadjoint orbit <span
+class="math inline">\(\mathcal{O}_\pi\)</span> at <span
+class="math inline">\(\tau\)</span>. The intersection of this
+neighborhood with <span class="math inline">\(\mathcal{O}_\pi\)</span>
+has symplectic volume <span class="math inline">\(\approx T^{2
+\varepsilon} \approx 1\)</span>. The orbit method heuristic suggests
+that for an irreducible representation <span
+class="math inline">\(\sigma\)</span> of <span
+class="math inline">\(G\)</span>, we have <span
+class="math inline">\(\sigma(\omega) \approx 0\)</span> unless <span
+class="math inline">\(\sigma\)</span> is a principal series
+representation of parameter <span class="math inline">\(T +
+\operatorname{O}(T^{\varepsilon})\)</span>, in which case <span
+class="math inline">\(\sigma(\omega)\)</span> is approximately a
+projection onto a rank <span class="math inline">\(\approx T^{2
+\varepsilon} \approx 1\)</span> “subspace” of vectors microlocalized at
+<span class="math inline">\(\tau\)</span>. In particular, <span id="eqn:35ac3e34eb" class="math display">\[\label{eqn:35ac3e34eb}\tag{7.1}
+  \pi(\omega) \varphi \approx \varphi.\]</span> These heuristics and
+definitions can be made precise, and the above approximation holds in an
+extremely strong sense (i.e., up to <span
+class="math inline">\(\operatorname{O}(T^{-\infty})\)</span> with
+respect to any fixed seminorm).</p>
+<p>For further informal discussion concerning <span
+class="math inline">\(\omega\)</span> in a general setting, see <a href="#ref-2020arXiv201202187N"
+class="citation" data-cites="2020arXiv201202187N">(Nelson 2023, sec.
+2)</a>. For a precise discussion in the current rank one example, see
+§<a href="var-quat-3-submitted.html#sec:states-approx-microlocal" data-reference-type="ref"
+data-reference="sec:states-approx-microlocal">7.1</a>
+of <a href="var-quat-3-submitted.html">Quantum variance III</a>.</p>
+<h1 id="sec:org82a14f5">§8. The convexity threshold</h1>
+<p>Let’s explain how to recover the convexity bound from here. Our task
+is to show that <span class="math display">\[\int _{y \in H, y \asymp 1}
+\pi(\omega) \varphi(y) \, d^\times y \ll T^{1/4}.\]</span> We view the
+square of the left hand side as one term arising from an integrated
+pretrace formula, like in the sup norm story <a href="#ref-iwan-sar" class="citation"
+data-cites="iwan-sar">(Iwaniec and Sarnak 1995)</a> (alternatively,
+we write the left hand side as the inner product of <span
+class="math inline">\(\varphi\)</span> against a Poincar<span>é</span>
+series and apply Cauchy–Schwarz; see <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, sec. 5.3)</a>). We
+reduce to checking that <span id="eq:int-_-substack-1" class="math display">\[\label{eq:int-_-substack-1}\tag{8.1}
+  \int _{
+    \substack{
+      y_1, y_2 \asymp 1
+    }
+  }
+  \sum _{\gamma \in \Gamma }
+  \omega (y_1^{-1} \gamma y_2)
+  \ll
+  T^{1/2}.\]</span> Since <span class="math inline">\(\omega\)</span> is
+supported on <span class="math inline">\(1 +
+\operatorname{O}(T^{-\varepsilon})\)</span>, we see that the only <span
+class="math inline">\(\gamma\)</span> that contribute are those in <span
+class="math inline">\(\Gamma_{H}\)</span>. Combining the <span
+class="math inline">\(y_1\)</span> and <span
+class="math inline">\(y_2\)</span> integrals, it remains to check that
+<span id="eq:int-_-substack" class="math display">\[\label{eq:int-_-substack}\tag{8.2}
+  \int _{
+    \substack{
+      y \in H : y\asymp 1
+    }
+  }
+  \omega (y)
+  \ll
+  T^{1/2}.\]</span> To that end, we observe that <span
+class="math display">\[H \cap G_\tau = \{1\},\]</span> i.e., that no
+nontrivial matrices are simultaneously diagonal and of the form <a
+href="#eqn:G-tau" data-reference-type="eqref"
+data-reference="eqn:G-tau">\((5.3)\)</a>. (This is a baby case of the
+“stability” feature explained in <a href="#ref-nelson-venkatesh-1" class="citation"
+data-cites="nelson-venkatesh-1">(Nelson and Venkatesh 2021, sec. 1.9,
+§14)</a>.) It follows that (up to some <span
+class="math inline">\(\varepsilon\)</span>’s in the exponents) <span
+class="math display">\[H \cap J \subseteq
+\operatorname{O}(T^{-1/2}),\]</span> and so the volume of the integral
+in <a href="#eq:int-_-substack" data-reference-type="eqref"
+data-reference="eq:int-_-substack">\((8.2)\)</a> is <span
+class="math inline">\(\operatorname{O}(T^{-1/2})\)</span>.</p>
+<p>On the other hand, the magnitude of the integrand is <span
+class="math display">\[\mathop{\mathrm{vol}}(J)^{-1} \approx T.\]</span>
+Indeed, <span class="math inline">\(J\)</span> has dimensions roughly
+<span class="math inline">\(1\)</span> along one direction and <span
+class="math inline">\(T^{-1/2}\)</span> along the remaining two
+directions.</p>
+<p>These observations combine to give the required estimate <a
+href="#eq:int-_-substack" data-reference-type="eqref"
+data-reference="eq:int-_-substack">\((8.2)\)</a>.</p>
+<div class="remark">
+<p><strong>Remark 5</strong>. It’s clear in retrospect that we should
+have obtained such an estimate: the orbit method heuristic applied to
+<span class="math inline">\(\omega\)</span> suggests that the left hand
+side of <a href="#eq:int-_-substack-1" data-reference-type="eqref"
+data-reference="eq:int-_-substack-1">\((8.1)\)</a> is a
+proxy for the sum of <span
+class="math inline">\(|L(\pi,\tfrac{1}{2})|^2\)</span> over <span
+class="math inline">\(T\)</span> in an interval of width roughly <span
+class="math inline">\(\operatorname{O}(T^\varepsilon)\)</span> (see
+<a href="#ref-2020arXiv201202187N" class="citation" data-cites="2020arXiv201202187N">(Nelson 2023,
+sec. 2.3)</a>), which is of the appropriate size for an averaged
+Lindelöf estimate to recover convexity.</p>
+</div>
+<h1 id="sec:orgb296ba1">§9. Amplification</h1>
+<p>This section is just a stub; see <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, sec. 1.5,
+§2.7-2.10)</a> for details and pictures relevant for this example. To
+carry out the amplification step, we basically need to know that the
+vector <span class="math inline">\(\varphi &#39;\)</span> obtained by
+averaging the translates of <span class="math inline">\(\varphi\)</span>
+under elements of <span class="math inline">\(H\)</span> of size <span
+class="math inline">\(\asymp 1\)</span> satisfies a matrix coefficient
+estimate <span class="math inline">\(\langle g \varphi &#39;, \varphi
+&#39; \rangle \ll T^{-\delta}\)</span> except when <span
+class="math inline">\(g\)</span> is very close to <span
+class="math inline">\(H\)</span>. This is word-for-word what happens in
+the sup norm problem <a href="#ref-iwan-sar" class="citation"
+data-cites="iwan-sar">(Iwaniec and Sarnak 1995)</a>, where, if we
+replace <span class="math inline">\(H\)</span> with <span
+class="math inline">\(\mathop{\mathrm{SO}}(2)\)</span>, then <span
+class="math inline">\(\varphi &#39;\)</span> becomes something like the
+weight zero vector.</p>
+<h1 id="sec:org60bf720">§10. Comparison with Iwaniec</h1>
+<p>The “two arguments” are “equivalent.” Recall that Iwaniec <a href="#ref-Iwaniec1992"
+class="citation" data-cites="Iwaniec1992">(Iwaniec 1992)</a> starts
+with the approximate functional equation, applies Kuznetsov, and then
+applies Poisson summation to both variables. The reduction to <a
+href="#eq:int-_y-in" data-reference-type="eqref"
+data-reference="eq:int-_y-in">\((6.1)\)</a> is essentially the
+approximate functional equation (TODO: explain this in some detail?). In
+the passage to <a href="#eq:int-_-substack-1"
+data-reference-type="eqref"
+data-reference="eq:int-_-substack-1">\((8.1)\)</a>, rather
+than applying the pretrace formula, we could have instead applied the
+Fourier expansion of <span class="math inline">\(\varphi\)</span> and
+averaged each term in the resulting double sum using Kuznetsov. A couple
+applications of Poisson to the geometric side of Kuznetsov would then
+bring us right back to <a href="#eq:int-_-substack-1"
+data-reference-type="eqref"
+data-reference="eq:int-_-substack-1">\((8.1)\)</a>.</p>
+<p>It’s more interesting to compare the generalization of this argument
+to <span class="math inline">\({\mathop{\mathrm{GL}}}_3\)</span> with
+Blomer–Buttcane <a href="#ref-MR4203038" class="citation" data-cites="MR4203038">(Blomer
+and Buttcane 2020a)</a>. The arguments are again ultimately
+“equivalent,” but the present approach seems less miraculous.</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="list">
+<div id="ref-MR2314452" class="csl-entry" role="listitem">
+Anantharaman, Nalini, and Steve Zelditch. 2007.
+<span>“Patterson-<span>S</span>ullivan Distributions and Quantum
+Ergodicity.”</span> <em>Ann. Henri Poincaré</em> 8 (2): 361–426. <a
+href="https://doi.org/10.1007/s00023-006-0311-7">https://doi.org/10.1007/s00023-006-0311-7</a>.
+</div>
+<div id="ref-balkanova2022weyls" class="csl-entry" role="listitem">
+Balkanova, Olga, Dmitry Frolenkov, and Han Wu. 2022. <span>“On Weyl’s
+Subconvex Bound for Cube-Free Hecke Characters: Totally Real
+Case.”</span> <a
+href="https://arxiv.org/abs/2108.12283">https://arxiv.org/abs/2108.12283</a>.
+</div>
+<div id="ref-MR4203038" class="csl-entry" role="listitem">
+Blomer, Valentin, and Jack Buttcane. 2020a. <span>“On the Subconvexity
+Problem for <span><span
+class="math inline">\(L\)</span></span>-Functions on <span><span
+class="math inline">\(\rm
+              GL(3)\)</span></span>.”</span> <em>Ann. Sci. Éc. Norm.
+Supér. (4)</em> 53 (6): 1441–1500. <a
+href="https://doi.org/10.24033/asens.245">https://doi.org/10.24033/asens.245</a>.
+</div>
+<div id="ref-MR4039487" class="csl-entry" role="listitem">
+———. 2020b. <span>“Subconvexity for <span><span
+class="math inline">\(L\)</span></span>-Functions of Non-Spherical Cusp
+Forms on <span><span class="math inline">\({\rm
+GL}(3)\)</span></span>.”</span> <em>Acta Arith.</em> 192 (1): 31–62. <a
+href="https://doi.org/10.4064/aa180125-5-2">https://doi.org/10.4064/aa180125-5-2</a>.
+</div>
+<div id="ref-2021arXiv210112106B" class="csl-entry" role="listitem">
+Blomer, Valentin, Subhajit Jana, and Paul D. Nelson. 2023. <span>“The
+<span>W</span>eyl Bound for Triple Product
+<span>L</span>-Functions.”</span> <em>Duke Math. J.</em> 172 (6):
+1173–1234. <a
+href="https://doi.org/10.1215/00127094-2022-0058">https://doi.org/10.1215/00127094-2022-0058</a>.
+</div>
+<div id="ref-MR1879668" class="csl-entry" role="listitem">
+Ivić, Aleksandar. 2001. <span>“On Sums of <span>H</span>ecke Series in
+Short Intervals.”</span> <em>J. Théor. Nombres Bordeaux</em> 13 (2):
+453–68. <a
+href="http://jtnb.cedram.org/item?id=JTNB_2001__13_2_453_0">http://jtnb.cedram.org/item?id=JTNB_2001__13_2_453_0</a>.
+</div>
+<div id="ref-Iwaniec1992" class="csl-entry" role="listitem">
+Iwaniec, Henryk. 1992. <span>“The Spectral Growth of Automorphic
+l-Functions.”</span> <em>Journal Für Die Reine Und Angewandte
+Mathematik</em> 428: 139–60. <a
+href="http://eudml.org/doc/153426">http://eudml.org/doc/153426</a>.
+</div>
+<div id="ref-iwan-sar" class="csl-entry" role="listitem">
+Iwaniec, Henryk, and Peter Sarnak. 1995. <span>“<span><span
+class="math inline">\(L^\infty\)</span></span> Norms of Eigenfunctions
+of Arithmetic Surfaces.”</span> <em>Ann. Of Math. (2)</em> 141 (2):
+301–20. <a
+href="https://doi.org/10.2307/2118522">https://doi.org/10.2307/2118522</a>.
+</div>
+<div id="ref-MR1859345" class="csl-entry" role="listitem">
+Lindenstrauss, Elon. 2001. <span>“On Quantum Unique Ergodicity for
+<span><span class="math inline">\(\Gamma\backslash\Bbb
+              H\times\Bbb H\)</span></span>.”</span> <em>Internat. Math.
+Res. Notices</em>, no. 17: 913–33. <a
+href="https://doi.org/10.1155/S1073792801000459">https://doi.org/10.1155/S1073792801000459</a>.
+</div>
+<div id="ref-michel-2009" class="csl-entry" role="listitem">
+Michel, Philippe, and Akshay Venkatesh. 2010. <span>“The Subconvexity
+Problem for <span><span class="math inline">\({\rm
+GL}_2\)</span></span>.”</span> <em>Publ. Math. Inst. Hautes Études
+Sci.</em>, no. 111: 171–271. <a
+href="https://doi.org/10.1007/s10240-010-0025-8">https://doi.org/10.1007/s10240-010-0025-8</a>.
+</div>
+<div id="ref-Nelson-EisCubic" class="csl-entry" role="listitem">
+Nelson, Paul D. 2019. <span>“Eisenstein Series and the Cubic Moment for
+<span class="math inline">\(\text{PGL}_2\)</span>.”</span> arxiv
+preprint.
+</div>
+<div id="ref-2021arXiv210915230N" class="csl-entry" role="listitem">
+———. 2021. <span>“<span class="nocase">Bounds for standard <span><span
+class="math inline">\(L\)</span></span>-functions</span>.”</span>
+<em>arXiv e-Prints</em>, September, arXiv:2109.15230. <a
+href="https://arxiv.org/abs/2109.15230">https://arxiv.org/abs/2109.15230</a>.
+</div>
+<div id="ref-2020arXiv201202187N" class="csl-entry" role="listitem">
+———. 2023. <span>“Spectral Aspect Subconvex Bounds for <span><span
+class="math inline">\(U_{n+1} \times U_n\)</span></span>.”</span>
+<em>Invent. Math.</em> 232 (3): 1273–1438. <a
+href="https://doi.org/10.1007/s00222-023-01180-x">https://doi.org/10.1007/s00222-023-01180-x</a>.
+</div>
+<div id="ref-nelson-venkatesh-1" class="csl-entry" role="listitem">
+Nelson, Paul D., and A. Venkatesh. 2021. <span>“<span class="nocase">The
+orbit method and analysis of automorphic forms</span>.”</span> <em>Acta
+Math.</em> 226 (1): 1–209.
+</div>
+<div id="ref-2020arXiv200406791S" class="csl-entry" role="listitem">
+Schumacher, Raphael. 2020. <span>“<span class="nocase">Subconvexity for
+<span class="math inline">\(GL_{3}(R)\)</span> <span
+class="math inline">\(L\)</span>-Functions via Integral
+Representations</span>.”</span> <em>arXiv e-Prints</em>, April,
+arXiv:2004.06791. <a
+href="https://arxiv.org/abs/2004.06791">https://arxiv.org/abs/2004.06791</a>.
+</div>
+<div id="ref-MR2346281" class="csl-entry" role="listitem">
+Silberman, Lior, and Akshay Venkatesh. 2007. <span>“On Quantum Unique
+Ergodicity for Locally Symmetric Spaces.”</span> <em>Geom. Funct.
+Anal.</em> 17 (3): 960–98. <a
+href="https://doi.org/10.1007/s00039-007-0611-1">https://doi.org/10.1007/s00039-007-0611-1</a>.
+</div>
+<div id="ref-MR916129" class="csl-entry" role="listitem">
+Zelditch, Steven. 1987. <span>“Uniform Distribution of Eigenfunctions on
+Compact Hyperbolic Surfaces.”</span> <em>Duke Math. J.</em> 55 (4):
+919–41. <a
+href="https://doi.org/10.1215/S0012-7094-87-05546-3">https://doi.org/10.1215/S0012-7094-87-05546-3</a>.
+</div>
+</div>
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
