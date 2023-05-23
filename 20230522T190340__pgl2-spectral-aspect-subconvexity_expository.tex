@@ -1,0 +1,368 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\title{Spectral aspect subconvexity for $\PGL_2$: a couple approaches}
+
+\usepackage{xr}
+\externaldocument{20230522T174726__shrinking-archimedean-families-second-moment-gl2}
+\externaldocument{var-quat-3-submitted}
+\externaldocument{standard}
+
+\numberwithin{equation}{section}
+\numberwithin{theorem}{section}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\begin{abstract}
+  We discuss and compare two approaches for estimating a short second moment of $L$-functions on $\PGL_2$ in the spectral aspect: that of Iwaniec \cite{Iwaniec1992}, using the approximate functional equation and Kuznetsov formula, and that of \cite{2021arXiv210915230N} using period integrals.
+\end{abstract}
+
+\begin{remark}
+  This is a lightly edited version of ``log-2022-03-08-a.tex''.  It needs a lot of polishing, but might be useful to someone even in its current state.
+\end{remark}
+
+\section{Goal}\label{sec:org64b74bb}
+Take
+\begin{equation*}
+G := \PGL_2(\mathbb{R}),
+\end{equation*}
+\begin{equation*}
+\Gamma := \PGL_2(\mathbb{Z}) \hookrightarrow G,
+\end{equation*}
+\begin{equation*}
+  H := \GL_1(\mathbb{R}) \cong  \begin{pmatrix} \ast & 0 \\ 0 & 1 \end{pmatrix} \hookrightarrow G,
+\end{equation*}
+\begin{equation*}
+\Gamma_H := \GL_1(\mathbb{Z}) = \{\pm 1\} \hookrightarrow  H.
+\end{equation*}
+Let $\pi \subset L^2_{\text{cusp}}(\Gamma \backslash G)$ be a cuspidal automorphic representation corresponding to a Maass form of eigenvalue $1/4 + T^2$.  We aim to show that
+\begin{equation}\label{eqn:35ac318817}
+  L(\pi,\tfrac{1}{2}) \ll T^{1/2 - \delta}
+\end{equation}
+for some fixed $\delta > 0$.
+
+
+Such an estimate was first shown by Iwaniec \cite{Iwaniec1992} (in the Maass case, and initially under an additional hypothesis, which Iwaniec later observed could be removed using identity $\lambda(p)^2 - \lambda(p^2) = 1$).  Iwaniec's method consists of estimating an amplified second moment over $T$ in an interval of length a bit more than $1$.  This method was adapted to $\PGL_3$ by Blomer--Buttcane \cite{MR4203038, MR4039487}, using an amplified fourth moment, and then to $\GL_n$ in \cite{2021arXiv210915230N}  (\href{standard.pdf}{direct link}), using an amplified $2(n-1)$th moment.  In the works of Iwaniec and Blomer---Buttcane, the moment is estimated using the approximate functional equation, Kuznetsov formula, and several applications of Poisson summation.  In \cite{2021arXiv210915230N}, the moment is estimated implicitly by direct analysis of an integral representation for the $L$-function, with vectors chosen as in \cite{nelson-venkatesh-1} and the averaging implemented via the pretrace formula like in \cite{iwan-sar}.
+
+\begin{remark}
+  The best known bound for \eqref{eqn:35ac318817} is to due to Ivic \cite{MR1879668} , who showed (in the Maass case) that \eqref{eqn:35ac318817} holds for any fixed $\delta < 1/6$.  Ivic's method consists of estimating an unamplified fourth moment over $T$ in an interval of length a bit more than $T^{1/3}$ (compare with \cite{michel-2009, Nelson-EisCubic, 2021arXiv210112106B, balkanova2022weyls}).  Such approaches using ``higher moments'' have no known generalization beyond $\GL_2$.
+\end{remark}
+
+\section{Automorphic background}\label{sec:35ac3e5876}
+
+\subsection{Cuspidal automorphic representations}\label{sec:35ac3e5878}
+The space $L^2_{\cusp}(\Gamma \backslash G)$ consists of square-integrable functions on $\Gamma \backslash G$ whose constant term vanishes.  It is simultaneously a representation for the group $G$, acting via right translation, and the Hecke algebra, acting via left translation with respect to double cosets in $\Gamma \backslash \PGL_2(\mathbb{Q}) / \Gamma$.  Under these actions, it decomposes as a direct sum of irreducible representations, each occurring with multiplicity one.  We denote by $\pi$ the space of smooth vectors inside one such representation.
+
+\subsection{Whittaker expansion}\label{sec:35ac3e587a}
+The Hecke eigenvalues of $\pi$ are described by a multiplicative function $\lambda_\pi : \mathbb{N} \rightarrow \mathbb{C}$, which specifies the eigenvalues for a spanning set of double cosets.  For $\varphi \in \pi$, one defines the Whittaker function $W_\varphi : G \rightarrow \mathbb{C}$ by
+\begin{equation*}
+  W_\varphi (g) :=
+  \int_{x \in \mathbb{R} / \mathbb{Z} } \varphi \left(
+    \begin{pmatrix}
+1 & x \\
+0 & 1 \\
+\end{pmatrix} g \right) e(-x) \, d x,
+\end{equation*}
+where we employ the standard abbreviation $e(t) := e^{2 \pi i t}$.  Conversely, $\varphi$ may be recovered from $\lambda_\pi$ and $W_\varphi$ via the formula
+\begin{equation}\label{eqn:35ac31d7c1}
+  \varphi(g) = \sum _{n \neq 0}
+  \frac{\lambda_{\pi}(|n|)}{|n|^{1/2}}
+  W_\varphi \left( \begin{pmatrix}
+      n & 0 \\
+      0 & 1
+    \end{pmatrix} g \right),
+\end{equation}
+with the sum taken over all nonzero integers $n$.
+
+\subsection{Kirillov model}\label{sec:35ac31dd2c}
+The Whittaker model $\mathcal{W}(\pi)$ for $\pi$ is defined to consist of all functions of the form $W_\varphi$.  The theory of the Kirillov model implies that the restriction map
+\begin{equation*}
+\mathcal{W}(\pi) \rightarrow \{\text{functions } H \rightarrow \mathbb{C} \}
+\end{equation*}
+is injective, and that its image contains $C_c^\infty(H)$.  Combining this fact with \eqref{eqn:35ac31d7c1} tells us that
+\begin{itemize}
+\item any $\varphi \in \pi$ is determined by $W_\varphi : H \rightarrow \mathbb{C}$, and
+\item every smooth compactly-supported function $H \rightarrow \mathbb{C}$ determines a unique $\varphi \in \pi$.
+\end{itemize}
+
+
+
+\section{Integral representation}\label{sec:org8f5cc20}
+The $L$-function $L(\pi,s)$ may be defined for $\Re(s) > 1$ by the absolutely convergent Dirichlet series $\sum_{n \in \mathbb{N} } \lambda_\pi(n) n^{-s}$ and in general by meromorphic continuation.  By unfolding \eqref{eqn:35ac31d7c1}, one obtains the Hecke/Jacquet--Langlands integral representation
+\begin{equation}\label{eq:int-_h-varphi}
+  \int _{\Gamma_{H} \backslash H} \varphi = L(\pi,\tfrac{1}{2}) \int _H W_\varphi.
+\end{equation}
+
+
+\section{Coadjoint orbits}\label{sec:orge4ffe7c}
+We denote by $\mathfrak{g}$ the Lie algebra of $G$ and by $\mathfrak{g}^*$ its linear dual.  Using the trace pairing, we may identify $\mathfrak{g}^*$ with $\mathfrak{g}$, which we identify further with the space $\slLie_2(\mathbb{R})$ of traceless $2 \times 2$ matrices $\xi$.  The coadjoint orbit
+\begin{equation*}
+  \mathcal{O}_\pi \subseteq \mathfrak{g}^*
+\end{equation*}
+attached to $\pi$ is the one-sheeted hyperboloid cut out by the equation
+\begin{equation*}
+  \det(\xi) = -T^2.
+\end{equation*}
+(See for instance \S\ref{sec:coadjoint-orbits}-\S\ref{sec:prelims-representations} of \href{var-quat-3-submitted.pdf}{Quantum variance III}. It comes with a natural symplectic volume form that describes the character of $\pi$ via the Kirillov formula (see \cite[\S6]{nelson-venkatesh-1}).  We note that in the coordinates
+\begin{equation*}
+  \xi =
+  \begin{pmatrix}
+    a & b \\
+    c & -a
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  x & y - z \\
+  y + z & -x
+\end{pmatrix},
+\end{equation*}
+we have
+\begin{equation*}
+  \det(\xi) = -a^2 - b c = z^2 - y^2 - x^2.
+\end{equation*}
+In particular, $\mathcal{O}_\pi$ contains the circle $\{(x,y,0) : x^2 + y^2 = T^2\}$.  The circular strip $\{(x,y,z) \in \mathcal{O}_\pi : |z| \leq 1/2\}$ has symplectic volume one; in the orbit method heuristic described in \cite[\S1.7]{nelson-venkatesh-1}, it corresponds to the weight zero vector in $\pi$.
+
+The integrals \eqref{eq:int-_h-varphi} may be understood as describing how $\pi$ oscillates against the trivial character of $H$.  The orbit method suggests \cite[\S1.9]{nelson-venkatesh-1} that such oscillation may be understood in terms of the intersection
+\begin{equation*}
+  \mathcal{O}_\pi \cap \mathfrak{h}^\perp,
+\end{equation*}
+i.e., the preimage in $\mathcal{O}_\pi$ of the trivial element $0$ of $\mathfrak{h}^*$.  That intersection is given in $(x,y,z)$ coordinates by
+\begin{equation*}
+  \{(0,y,z) : y^2 - z^2 = T^2\}
+\end{equation*}
+and in $(a,b,c)$ coordinates by
+\begin{equation*}
+  \{(0,b,c) : b c = T^2\}.
+\end{equation*}
+It is a closed $H$-orbit, with trivial stabilizer.
+
+We pick a point $\tau \in \mathcal{O}_\pi \cap \mathfrak{h}^\perp$ of size comparable to $T$.  For concreteness, let us take
+\begin{equation*}
+  \tau = \begin{pmatrix}
+    0 & T \\
+    T & 0
+  \end{pmatrix}.
+\end{equation*}
+
+\begin{remark}
+  For the variant problem concerning $\pi$ attached to a holomorphic form of weight $2 k$, we would take $T := k - 1/2$, we would take $\mathcal{O}_\pi$ cut out by $\det(\xi) = T^2$, and we would take
+  \begin{equation*}
+\tau =
+\begin{pmatrix}
+0 & -T \\
+T & 0 \\
+\end{pmatrix}.
+\end{equation*}
+See for instance \S\ref{sec:holomorphic-analogue-1} of \href{var-quat-3-submitted.pdf}{Quantum variance III}.
+\end{remark}
+
+
+\section{Choice of vector}\label{sec:org806411a}
+We seek a unit vector $\varphi \in \pi$ that is ``localized at $\tau$.''  Informally, this means that for each fixed Lie algebra element $X \in \mathfrak{g}$, we have
+\begin{equation}\label{eq:x-varphi-=}
+  X \varphi = {i \langle X, \tau  \rangle} \varphi + \O(T^{1/2}).
+\end{equation}
+For further informal discussion of this concept, see \cite[\S1.7]{nelson-venkatesh-1} and \cite[\S2.5]{2020arXiv201202187N} .  For some precise definitions, see \S\ref{sec:states-approx-microlocal} of \href{var-quat-3-submitted.pdf}{Quantum variance III}, or \cite[\S14]{2021arXiv210915230N} (direct link: \S\ref{sec:abstr-study-local}).
+
+Such a vector $\varphi$ may be described readily in the Kirillov model for $\pi$.  Recall (from \S\ref{sec:35ac31dd2c}) that this consists of identifying elements $W$ of the Whittaker model $\mathcal{W}(\pi)$ their restrictions to $H$.  It will be convenient to think of such $W$ as function on $\mathbb{R}^\times$ via the abbreviation
+\begin{equation*}
+W(y) := W\left(
+  \begin{pmatrix}
+y & 0 \\
+0 & 1 \\
+\end{pmatrix} \right).
+\end{equation*}
+We consider the following basis elements for $\mathfrak{g}$:
+\begin{equation*}
+  \partial_a =
+  \begin{pmatrix}
+    1 & 0 \\
+    0 & -1
+  \end{pmatrix},
+  \quad
+  \partial_b =
+  \begin{pmatrix}
+    0 & 1 \\
+    0 & 0
+  \end{pmatrix},
+  \quad
+  \partial_c =
+  \begin{pmatrix}
+    0 & 0 \\
+    1 & 0
+  \end{pmatrix}  .
+\end{equation*}
+The action of the first two of these elements on the Kirillov model is given very simply:
+\begin{equation*}
+  \partial_a W(y) = 2 y W'(y),
+  \quad
+  \partial_b W(y) = 2 \pi i y W(y).
+\end{equation*}
+Since $\langle \partial_a, \tau \rangle = 0$ and $\langle \partial_b, \tau \rangle = T$, the condition \eqref{eq:x-varphi-=} says in particular that
+\begin{equation*}
+  \partial_a W_\varphi = \O(T^{1/2}),
+  \quad
+  \partial_b W_\varphi = i T W_\varphi + \O(T^{1/2}).
+\end{equation*}
+These formulas suggest taking the following smoothened $L^2$-normalized characteristic function:
+\begin{equation}\label{eqn:35ac3e31cb}
+  W_\varphi(y) = T^{1/4} 1_{T / 2 \pi + \O(T^{1/2})}^{\text{smooth}}(y).
+\end{equation}
+Using that $W_\varphi$ is an eigenfunction under the Casimir operator (see \cite[\S12]{2021arXiv210915230N}, direct link: \S\ref{sec:overview-asymp-kirillov}), one can check also that
+\begin{equation*}
+  \partial_c W_\varphi = i T W_\varphi + \O(T^{1/2}).
+\end{equation*}
+Precise forms of all these estimates are established in \cite[Part 3]{2021arXiv210915230N} (direct link: Part \ref{part:asympt-analys-kirill}).
+
+\begin{remark}
+  This choice of $\varphi$ is closely related to the ``microlocal lift'' of Zelditch \cite{MR916129} et al., see \cite{MR1859345, MR2346281, MR2314452}.  More precisely, it is (asymptotically) a $G$-translate of the usual definition; the limit invariance for $L^2$-masses will be with respect to the stabilizer $G_\tau$ of $\tau$, namely
+\begin{equation}\label{eqn:G-tau}
+  G_\tau = \left\{ \begin{pmatrix}
+      \cosh t & \sinh t \\
+      \sinh t & \cosh t
+    \end{pmatrix} \right\},
+\end{equation}
+rather than with respect to the diagonal subgroup.
+\end{remark}
+
+By chosing the smooth bump function implicit in \eqref{eqn:35ac3e31cb} to be nonnegative, we may arrange that
+\begin{equation*}
+  \int_{H} W_\varphi \asymp  T^{-1/4},
+\end{equation*}
+so that \eqref{eq:int-_h-varphi} reads
+\begin{equation}\label{eqn:35ac3e32a4}
+  T^{-1/4} L(\pi,\tfrac{1}{2}) \asymp  \int_{\Gamma_{H} \backslash H} \varphi.
+\end{equation}
+Our task is to show that the right hand side is $\ll T^{1/4-\delta}$.
+
+
+\section{Truncation}\label{sec:orgc98f847}
+We now indicate why the integral on the right hand side of \eqref{eqn:35ac3e32a4} of may be effectively truncated to a fixed compact set.  For a detailed discussion of this point, see \cite[\S5.3]{2021arXiv210915230N} (direct link: \ref{sec:reduct-peri-bounds}) or \cite[\S5.1.4]{michel-2009} or \cite[\S3]{2020arXiv200406791S} (or \S\ref{sec:20230522180027} of \href{20230522T174726__shrinking-archimedean-families-second-moment-gl2.pdf}{this informal note}).
+
+Consider, for a fixed even ``truncation'' function $\mathcal{T} \in C_c^\infty(H)$, the map
+\begin{equation*}
+  I : H \rightarrow \mathbb{C} 
+\end{equation*}
+\begin{equation*}
+  I(Y) := \int _{y \in \Gamma_{H} \backslash H}  \mathcal{T}(y/Y) \varphi(y) \, d^\times y
+\end{equation*}
+assigning to a parameter $Y$ the smoothened integral of $\varphi|_H$ over the corresponding dyadic range.  We have
+\begin{equation*}
+  \int _{\Gamma_{H} \backslash H} \varphi |.|^{s-1/2} = L(\pi,s) Z(W_\varphi,s),
+\end{equation*}
+where $Z(W_\varphi,s)$ denotes the local zeta integral
+\begin{equation*}
+  Z(W_\varphi,s) := \int _{H} W_\varphi |.|^{s-1/2}.
+\end{equation*}
+For $s = \O(1)$, we see by explicit calculation that
+\begin{equation*}
+  Z(W_\varphi,s) \approx T^{s-3/4}.
+\end{equation*}
+If moreover $|\Re(s)| \leq 1/2$, then the convexity bound reads
+\begin{equation*}
+  L(\pi,s) \ll T^{1 - s}.
+\end{equation*}
+These bounds become only polynomially worse if we relax the condition $s = \O(1)$ to $\Re(s) = \O(1)$.  Multiplying them together and convolving against the rapidly-decaying Mellin transform of the fixed test function $\mathcal{T}$, we deduce the Mellin transform estimate
+\begin{equation*}
+|\Re(s)| \leq 1/2 \implies \tilde{I}(s) \ll T^{1/4} (1 + |s|)^{-\infty}.
+\end{equation*}
+It follows readily that for fixed $\kappa > 0$, we incur the acceptable error $\O(T^{1/4 -\kappa/2})$ by smoothly truncating the integral $\int_H \varphi$ to the range $\{T^{-\kappa} < |y| < T^{\kappa}\}$.  If we seek only a qualitative subconvex bound, then we can take $\kappa$ as small as we like, so there is no harm in truncating to $\{ |y| = T^{o(1)} \}$.  Note that the relevant truncation is specific to our choice of vector $\varphi$.
+
+
+The model problem is thus to bound
+\begin{equation}\label{eq:int-_y-in}
+  \int _{y \in H, y \asymp 1} \varphi(y) \, d^\times y.
+\end{equation}
+
+\section{Symmetries}\label{sec:org1580512}
+We use a convolution kernel $\omega \in C_c^\infty(G)$ to ``remember'' many of the symmetries satisfied by $\varphi$.  (When amplifying, we really take $\omega \in C_c^\infty(\PGL_2(\mathbb{A}))$.)  Roughly speaking, we take $\omega$ to be a character multiple of an approximate subgroup of $G$:
+\begin{equation*}
+  \omega := \vol(J)^{-1} 1_J^{\text{smooth}} \chi_\tau^{-1},
+\end{equation*}
+where:
+\begin{itemize}
+\item $J$ is a subset of $G$ roughly of the shape
+  \begin{equation*}
+    J = (1 + \O(T^{-\eps})) \cap (G_\tau + \O(T^{-1/2-\eps})),
+  \end{equation*}
+  with $G_\tau$ the stabilizer of $\tau$, as described in \eqref{eqn:G-tau}.
+\item $1_J^{\text{smooth}}$ is a smoothened characteristic function of $J$.
+\item $\chi_\tau$ is the ``approximate character'' of $J$ attached to $\tau$, given near the identity in exponential coordinates by
+  \begin{equation*}
+    \chi_\tau(\exp(X)) = e^{i \langle X, \tau \rangle}.
+  \end{equation*}  
+\end{itemize}
+
+We may also describe $\omega$ in terms of the function $\mathfrak{g}^* \rightarrow \mathbb{C}$ obtained by taking the Fourier transform of the pullback $\omega \circ \exp$.  This function is roughly a smoothened characteristic function of a ``coin-shaped'' neighborhood of $\tau$, of thickness $T^\eps$ (resp. $T^{1/2+\eps}$) in directions transverse (resp. tangential) to the coadjoint orbit $\mathcal{O}_\pi$ at $\tau$.  The intersection of this neighborhood with $\mathcal{O}_\pi$ has symplectic volume $\approx T^{2 \eps} \approx 1$.  The orbit method heuristic suggests that for an irreducible representation $\sigma$ of $G$, we have $\sigma(\omega) \approx 0$ unless $\sigma$ is a principal series representation of parameter $T + \O(T^{\eps})$, in which case $\sigma(\omega)$ is approximately a projection onto a rank $\approx T^{2 \eps} \approx 1$ ``subspace'' of vectors microlocalized at $\tau$.  In particular,
+\begin{equation}\label{eqn:35ac3e34eb}
+  \pi(\omega) \varphi \approx \varphi.
+\end{equation}
+These heuristics and definitions can be made precise, and the above approximation holds in an extremely strong sense (i.e., up to $\O(T^{-\infty})$ with respect to any fixed seminorm).
+
+For further informal discussion concerning $\omega$ in a general setting, see \cite[\S2]{2020arXiv201202187N}.  For a precise discussion in the current rank one example, see \S\ref{sec:states-approx-microlocal} of \href{var-quat-3-submitted.pdf}{Quantum variance III}.
+
+
+\section{The convexity threshold}\label{sec:org82a14f5}
+Let's explain how to recover the convexity bound from here.  Our task is to show that
+\begin{equation*}
+  \int _{y \in H, y \asymp 1} \pi(\omega) \varphi(y) \, d^\times y \ll T^{1/4}.
+\end{equation*}
+We view the square of the left hand side as one term arising from an integrated pretrace formula, like in the sup norm story \cite{iwan-sar} (alternatively, we write the left hand side as the inner product of $\varphi$ against a Poincar{\'e} series and apply Cauchy--Schwarz; see \cite[\S5.3]{2020arXiv201202187N}).  We reduce to checking that
+\begin{equation}\label{eq:int-_-substack-1}
+  \int _{
+    \substack{
+      y_1, y_2 \asymp 1
+    }
+  }
+  \sum _{\gamma \in \Gamma }
+  \omega (y_1^{-1} \gamma y_2)
+  \ll
+  T^{1/2}.
+\end{equation}
+Since $\omega$ is supported on $1 + \O(T^{-\eps})$, we see that the only $\gamma$ that contribute are those in $\Gamma_{H}$.  Combining the $y_1$ and $y_2$ integrals, it remains to check that
+\begin{equation}\label{eq:int-_-substack}
+  \int _{
+    \substack{
+      y \in H : y\asymp 1
+    }
+  }
+  \omega (y)
+  \ll
+  T^{1/2}.
+\end{equation}
+To that end, we observe that
+\begin{equation*}
+  H \cap G_\tau = \{1\},
+\end{equation*}
+i.e., that no nontrivial matrices are simultaneously diagonal and of the form \eqref{eqn:G-tau}.  (This is a baby case of the ``stability'' feature explained in \cite[\S1.9, \S14]{nelson-venkatesh-1}.)  It follows that (up to some $\eps$'s in the exponents)
+\begin{equation*}
+  H \cap J \subseteq \O(T^{-1/2}),
+\end{equation*}
+and so the volume of the integral in  \eqref{eq:int-_-substack} is $\O(T^{-1/2})$.
+
+On the other hand, the magnitude of the integrand is
+\begin{equation*}
+  \vol(J)^{-1} \approx T.
+\end{equation*}
+Indeed, $J$ has dimensions roughly $1$ along one direction and $T^{-1/2}$ along the remaining two directions.
+
+These observations combine to give the required estimate \eqref{eq:int-_-substack}.
+
+\begin{remark}
+  It's clear in retrospect that we should have obtained such an estimate: the orbit method heuristic applied to $\omega$ suggests that the left hand side of \eqref{eq:int-_-substack-1} is a proxy for the sum of $|L(\pi,\tfrac{1}{2})|^2$ over $T$ in an interval of width roughly $\O(T^\eps)$ (see \cite[\S2.3]{2020arXiv201202187N}), which is of the appropriate size for an averaged Lindel\"{o}f estimate to recover convexity.
+\end{remark}
+
+\section{Amplification}\label{sec:orgb296ba1}
+This section is just a stub;  see \cite[\S1.5, \S2.7-2.10]{2020arXiv201202187N} for details and pictures relevant for this example.  To carry out the amplification step, we basically need to know that the vector $\varphi '$ obtained by averaging the translates of $\varphi$ under elements of $H$ of size $\asymp 1$ satisfies a matrix coefficient estimate $\langle g \varphi ', \varphi ' \rangle \ll T^{-\delta}$ except when $g$ is very close to $H$.  This is word-for-word what happens in the sup norm problem \cite{iwan-sar}, where, if we replace $H$ with $\SO(2)$, then $\varphi '$ becomes something like the weight zero vector.
+
+\section{Comparison with Iwaniec}\label{sec:org60bf720}
+The ``two arguments'' are ``equivalent.''  Recall that Iwaniec \cite{Iwaniec1992} starts with the approximate functional equation, applies Kuznetsov, and then applies Poisson summation to both variables.  The reduction to \eqref{eq:int-_y-in} is essentially the approximate functional equation (TODO: explain this in some detail?).  In the passage to \eqref{eq:int-_-substack-1}, rather than applying the pretrace formula, we could have instead applied the Fourier expansion of $\varphi$ and averaged each term in the resulting double sum using Kuznetsov.  A couple applications of Poisson to the geometric side of Kuznetsov would then bring us right back to \eqref{eq:int-_-substack-1}.
+
+It's more interesting to compare the generalization of this argument to $\GL_3$ with Blomer--Buttcane \cite{MR4203038}.  The arguments are again ultimately ``equivalent,'' but the present approach seems less miraculous.
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
