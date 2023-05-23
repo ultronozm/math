@@ -46,7 +46,7 @@ jobs:
           ls -al
       - name: Determine files to be compiled
         run: |
-	  FILES=$(find . -maxdepth 1 -name "test*.tex")
+          FILES=$(find . -maxdepth 1 -name "test*.tex")
           echo "::set-output name=list::$(echo "$FILES" | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/\\n/g')"
       - name: Build LaTeX documents
         uses: xu-cheng/latex-action@v2
