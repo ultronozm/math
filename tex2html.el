@@ -231,9 +231,38 @@
 	"font-family: Georgia, serif;"
 	"font-size: 20px;"
 	"color: #1a1a1a;"
-	"background-color: #fdfdfd;")
+	"background-color: #fdfdfd;"
+	)
       "\n")
      "\n}")))
+
+(defun tex2html-add-tex-pdf-links ()
+  (interactive)
+  (goto-char (point-min))
+  (when-let ((style-beg (search-forward "<style>" nil t))
+	     (body-beg (search-forward "<body>" nil t))
+	     (base-filename (file-name-nondirectory (file-name-sans-extension (buffer-file-name)))))
+    (goto-char body-beg)
+    (insert
+     (format "
+    <div class=\"my-links-container\">
+      <a href=\"%s.tex\" class=\"my-link\">tex</a>
+      <a href=\"%s.pdf\" class=\"my-link\">pdf</a>
+    </div>"
+	     base-filename
+	     base-filename))
+    (goto-char style-beg)
+    (insert "
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }")))
 
 (defun tex2html-convert-file (&optional filename out-dir out-filename)
   "Converts a LaTeX file to HTML using pandoc and applies postprocessing.

@@ -89,7 +89,7 @@ jobs:
               ls -al
               sudo chown runner:docker "${file%.tex}.html"
               ls -al
-              emacs --batch "${file%.tex}.html" -l ./tex2html.el --eval "(progn (tex2html-add-style-to-html-head) (tex2html-postprocess-html-buffer) (tex2html-add-comment-script))" -f save-buffer
+              emacs --batch "${file%.tex}.html" -l ./tex2html.el --eval "(progn (tex2html-add-style-to-html-head) (tex2html-postprocess-html-buffer) (tex2html-add-comment-script) (tex2html-add-tex-pdf-links))" -f save-buffer
             done
           fi            
       - name: Debugging shell        
