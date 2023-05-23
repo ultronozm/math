@@ -59,6 +59,7 @@
 
 (defun tex2html-postprocess-html-buffer (&optional auxfile external-auxfiles)
   "Update an HTML buffer with MathJax code created using pandoc from a LaTeX file."
+  (interactive)
   (if (not auxfile)
       (setq auxfile (concat (file-name-sans-extension (buffer-file-name)) ".aux")))
   (if (not external-auxfiles)
@@ -84,7 +85,7 @@
     (save-excursion
       (goto-char (point-min))
       ;; Step 1: Handle \label{eqn:blah}
-      (while (search-forward-regexp "\\\\label{\\(eqn:[^}]+\\)}" nil t)
+      (while (search-forward-regexp "\\\\label{\\([^}]+\\)}" nil t)
 	(let* ((label (match-string 1))
 	       (tag-number (gethash label label-number-hash)))
           (replace-match (concat "\\\\label{" label "}\\\\tag{" tag-number "}"))
@@ -139,7 +140,7 @@
 
     ;; Step 4: add section numbering
     (goto-char (point-min))
-    (while (re-search-forward "<h[1-3][[:space:]]id=\"\\([^\"]+\\)\">" nil t)
+    (while (re-search-forward "<h[1-9][[:space:]]id=\"\\([^\"]+\\)\">" nil t)
       (let ((contents (match-string 0))
 	    (label (match-string 1)))
 	(when-let ((number (gethash label label-number-hash)))
@@ -268,7 +269,7 @@ The output directory and output filename can be optionally specified."
       (setq out-filename (concat (file-name-base filename) ".html")))
     (let* ((output-file (expand-file-name out-filename out-dir))
 	   (pandoc-status (call-process "pandoc" nil "*pandoc output*" t "--standalone" filename "-o"
-					output-file "--mathjax" "--citeproc")))
+					output-file "--mathjax" "--citeproc" "--toc")))
       ;; call pandoc
       (unless (equal 0 pandoc-status)
 	(error (format "pandoc failed with exit status %d" pandoc-status)))
@@ -427,11 +428,11 @@ file to .html and apply postprocessing."
 	(insert (json-encode data-list))))))
 
 (defun tex2html-make-index ()
+  (interactive)
   (populate-listing-json)
   (find-file "index.org")
   (setq org-html-validation-link nil)
-  (org-html-export-to-html)
-  )
+  (org-html-export-to-html))
 
 
 
