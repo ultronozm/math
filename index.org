@@ -67,6 +67,8 @@ $(document).ready(function() {
 </script>
 #+END_EXPORT
 
+- Comments: [[https://github.com/ultronozm/math/discussions]]
+
 
 * Course notes
 - Testing display math: $(x+y)$.
