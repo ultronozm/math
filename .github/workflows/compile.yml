@@ -76,9 +76,9 @@ jobs:
           version: ${{ matrix.emacs_version }}
       - name: Convert to html
         run: |
-          EXCLUDE_FILES=$(jq -r '.exclude[]' config.json)
+          EXCLUDE_FILES=$(jq -r '.exclude[]' config.json | tr '\n' '|' | sed 's/.$//')
           if [[ "${{ github.event_name }}" == "push" ]]; then          
-            git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep .tex | grep -v $EXCLUDE_FILES | while read file; do
+            git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep .tex | grep -vE $EXCLUDE_FILES | while read file; do
               echo "Converting $file to html"
               docker run --volume "`pwd`:`pwd`" --workdir "`pwd`" pandoc/core:3.1 --standalone "$file" -o "${file%.tex}.html" --mathjax --citeproc
               echo "Listing files in the current directory:"
@@ -88,7 +88,7 @@ jobs:
               emacs --batch "${file%.tex}.html" -l ./tex2html.el --eval "(progn (tex2html-add-style-to-html-head) (tex2html-postprocess-html-buffer) (tex2html-add-comment-script))" -f save-buffer
             done
           elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            find . -maxdepth 1 -name "*.tex" | grep -v $EXCLUDE_FILES | while read file; do
+            find . -maxdepth 1 -name "*.tex" | grep -vE $EXCLUDE_FILES | while read file; do
               echo "Converting $file to html"
               docker run --volume "`pwd`:`pwd`" --workdir "`pwd`" pandoc/core:3.1 --standalone "$file" -o "${file%.tex}.html" --mathjax --citeproc
               echo "Listing files in the current directory:"
