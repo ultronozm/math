@@ -17,7 +17,7 @@
 
 
 \begin{abstract}
-  We discuss and compare two approaches for estimating a short second moment of $L$-functions on $\PGL_2$ in the spectral aspect: that of Iwaniec \cite{Iwaniec1992}, using the approximate functional equation and Kuznetsov formula, and that of \cite{2021arXiv210915230N} using period integrals.
+  We discuss and compare two ways to estimate a short second moment of $L$-functions on $\PGL_2$ in the spectral aspect: that of Iwaniec \cite{Iwaniec1992}, using the approximate functional equation and Kuznetsov formula, and that of \cite{2021arXiv210915230N} using period integrals.
 \end{abstract}
 
 \begin{remark}
@@ -45,10 +45,10 @@ Let $\pi \subset L^2_{\text{cusp}}(\Gamma \backslash G)$ be a cuspidal automorph
 for some fixed $\delta > 0$.
 
 
-Such an estimate was first shown by Iwaniec \cite{Iwaniec1992} (in the Maass case, and initially under an additional hypothesis, which Iwaniec later observed could be removed using identity $\lambda(p)^2 - \lambda(p^2) = 1$).  Iwaniec's method consists of estimating an amplified second moment over $T$ in an interval of length a bit more than $1$.  This method was adapted to $\PGL_3$ by Blomer--Buttcane \cite{MR4203038, MR4039487}, using an amplified fourth moment, and then to $\GL_n$ in \cite{2021arXiv210915230N}  (\href{standard.pdf}{direct link}), using an amplified $2(n-1)$th moment.  In the works of Iwaniec and Blomer---Buttcane, the moment is estimated using the approximate functional equation, Kuznetsov formula, and several applications of Poisson summation.  In \cite{2021arXiv210915230N}, the moment is estimated implicitly by direct analysis of an integral representation for the $L$-function, with vectors chosen as in \cite{nelson-venkatesh-1} and the averaging implemented via the pretrace formula like in \cite{iwan-sar}.
+Such an estimate was first shown by Iwaniec \cite{Iwaniec1992} (initially under an additional hypothesis, which Iwaniec later observed could be removed using identity $\lambda(p)^2 - \lambda(p^2) = 1$).  Iwaniec's method consists of estimating an amplified second moment over $T$ in an interval of length a bit more than $1$.  This method was adapted to $\PGL_3$ by Blomer--Buttcane \cite{MR4203038, MR4039487}, using an amplified fourth moment, and then to $\GL_n$ in \cite{2021arXiv210915230N}  (\href{standard.pdf}{direct link}), using an amplified $2(n-1)$th moment.  In the works of Iwaniec and Blomer---Buttcane, the moment is estimated using the approximate functional equation, Kuznetsov formula, and several applications of Poisson summation.  In \cite{2021arXiv210915230N}, the moment is estimated implicitly by direct analysis of an integral representation for the $L$-function, with vectors chosen as in \cite{nelson-venkatesh-1} and the averaging implemented via the pretrace formula like in \cite{iwan-sar}.
 
 \begin{remark}
-  The best known bound for \eqref{eqn:35ac318817} is to due to Ivic \cite{MR1879668} , who showed (in the Maass case) that \eqref{eqn:35ac318817} holds for any fixed $\delta < 1/6$.  Ivic's method consists of estimating an unamplified fourth moment over $T$ in an interval of length a bit more than $T^{1/3}$ (compare with \cite{michel-2009, Nelson-EisCubic, 2021arXiv210112106B, balkanova2022weyls}).  Such approaches using ``higher moments'' have no known generalization beyond $\GL_2$.
+  The best known bound for \eqref{eqn:35ac318817} is to due to Ivic \cite{MR1879668} , who showed that \eqref{eqn:35ac318817} holds for any fixed $\delta < 1/6$.  Ivic's method consists of estimating an unamplified fourth moment over $T$ in an interval of length a bit more than $T^{1/3}$ (compare with \cite{michel-2009, Nelson-EisCubic, 2021arXiv210112106B, balkanova2022weyls}).  Such approaches using ``higher moments'' have no known extension beyond $\GL_2$.  It would be significant to identify such an extension.
 \end{remark}
 
 \section{Automorphic background}\label{sec:35ac3e5876}
@@ -106,7 +106,7 @@ attached to $\pi$ is the one-sheeted hyperboloid cut out by the equation
 \begin{equation*}
   \det(\xi) = -T^2.
 \end{equation*}
-(See for instance \S\ref{sec:coadjoint-orbits}-\S\ref{sec:prelims-representations} of \href{var-quat-3-submitted.pdf}{Quantum variance III}. It comes with a natural symplectic volume form that describes the character of $\pi$ via the Kirillov formula (see \cite[\S6]{nelson-venkatesh-1}).  We note that in the coordinates
+(See for instance \S\ref{sec:coadjoint-orbits}-\S\ref{sec:prelims-representations} of \href{var-quat-3-submitted.pdf}{Quantum variance III}.) It comes with a natural symplectic volume form that describes the character of $\pi$ via the Kirillov formula (see \cite[\S6]{nelson-venkatesh-1}).  We note that in the coordinates
 \begin{equation*}
   \xi =
   \begin{pmatrix}
@@ -167,7 +167,7 @@ We seek a unit vector $\varphi \in \pi$ that is ``localized at $\tau$.''  Inform
 \end{equation}
 For further informal discussion of this concept, see \cite[\S1.7]{nelson-venkatesh-1} and \cite[\S2.5]{2020arXiv201202187N} .  For some precise definitions, see \S\ref{sec:states-approx-microlocal} of \href{var-quat-3-submitted.pdf}{Quantum variance III}, or \cite[\S14]{2021arXiv210915230N} (direct link: \S\ref{sec:abstr-study-local}).
 
-Such a vector $\varphi$ may be described readily in the Kirillov model for $\pi$.  Recall (from \S\ref{sec:35ac31dd2c}) that this consists of identifying elements $W$ of the Whittaker model $\mathcal{W}(\pi)$ their restrictions to $H$.  It will be convenient to think of such $W$ as function on $\mathbb{R}^\times$ via the abbreviation
+Such a vector $\varphi$ may be described readily in the Kirillov model for $\pi$.  Recall (from \S\ref{sec:35ac31dd2c}) that this model consists of the restrictions to $H$ of elements $W$ of the Whittaker model $\mathcal{W}(\pi)$.  It will be convenient to think of such restricted elements $W$ as functions on $\mathbb{R}^\times$ via the abbreviation
 \begin{equation*}
 W(y) := W\left(
   \begin{pmatrix}
@@ -228,7 +228,7 @@ Precise forms of all these estimates are established in \cite[Part 3]{2021arXiv2
 rather than with respect to the diagonal subgroup.
 \end{remark}
 
-By chosing the smooth bump function implicit in \eqref{eqn:35ac3e31cb} to be nonnegative, we may arrange that
+By choosing the smooth bump function implicit in \eqref{eqn:35ac3e31cb} to be nonnegative, we may arrange that
 \begin{equation*}
   \int_{H} W_\varphi \asymp  T^{-1/4},
 \end{equation*}
@@ -310,7 +310,7 @@ Let's explain how to recover the convexity bound from here.  Our task is to show
 \begin{equation*}
   \int _{y \in H, y \asymp 1} \pi(\omega) \varphi(y) \, d^\times y \ll T^{1/4}.
 \end{equation*}
-We view the square of the left hand side as one term arising from an integrated pretrace formula, like in the sup norm story \cite{iwan-sar} (alternatively, we write the left hand side as the inner product of $\varphi$ against a Poincar{\'e} series and apply Cauchy--Schwarz; see \cite[\S5.3]{2020arXiv201202187N}).  We reduce to checking that
+We view the square of the left hand side as one term arising from an integrated pretrace formula, like in the sup norm story \cite{iwan-sar}.  Alternatively, we write the left hand side as the inner product of $\varphi$ against a Poincar{\'e} series and apply Cauchy--Schwarz; see \cite[\S5.3]{2020arXiv201202187N}.  Either way, we reduce to checking that
 \begin{equation}\label{eq:int-_-substack-1}
   \int _{
     \substack{
