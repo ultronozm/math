@@ -45,6 +45,12 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git rebase origin/main
+      - name: Debugging shell        
+        working-directory: ${{ env.DIR }}
+        run: |
+          echo "Current directory is $(pwd)"
+          echo "Listing files in the current directory:"
+          ls -al
       - name: Run latexmk
         run: |
           EXCLUDE_FILES=$(jq -r '.exclude[]' config.json)
