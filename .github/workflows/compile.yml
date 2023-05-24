@@ -45,7 +45,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git rebase origin/main
-      - name: Debugging shell        
+      - name: Debugging shell
         working-directory: ${{ env.DIR }}
         run: |
           echo "Current directory is $(pwd)"
