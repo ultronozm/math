@@ -30,6 +30,13 @@ We can speak of $T$-dependent sets $X = X_T$ and $T$-dependent elements $x = x_T
 
 By a \emph{class}, we mean a fixed collection of $T$-dependent sets.  We say that a $T$-dependent element lies in a given class if it lies in one of the $T$-dependent sets in the given collection.  For example, given a $T$-dependent normed vector space $(V, \lVert . \rVert)$ (possibly $T$-dependent), the class $\O(1)$ inside $V$ is defined to consist of all $T$-dependent subsets $S = S_T$ of $V = V_T$ such that there is a fixed $C \geq 0$ so that for all $T$, we have $\lVert v_T \rVert \leq C$ for all $v_T \in S_T$.  The class $o(1)$ inside $V$ consists of all $T$-dependent subsets $S$ of $V$ such that for each fixed $c > 0$, we have for large enough $T$ that $\lVert v_T \rVert \leq c$ for all $v_T \in S_T$.  An element $v = v_T \in V$ then lies in $\O(1)$ (resp. $o(1)$) if and only if $\lVert v_T \rVert$ is bounded independently of $T$ (resp. converges to zero as $T \rightarrow \infty$).  Similarly, given any $T$-dependent element $u = u_T \in V = V_T$ and scalar $A = A_T \geq 0$, we may define the classes $u + \O(A)$ and $u + o(A)$ inside $V$.
 
+We use the asymptotic notation:
+\begin{itemize}
+\item $A \ll B$ and $B \gg A$ means $A = \O(B)$, 
+\item $A \ggg B$ and $B \lll A$ mean $B = o(A)$, 
+\item $A \asymp B$ means $A \ll B \ll A$.
+\end{itemize}
+
 \subsection{Schwartz spaces and bumps}\label{sec:d1a8de614869}
 For a real vector space $V$, recall that the \href{https://en.wikipedia.org/wiki/Schwartz_space}{Schwartz space} $\mathcal{S}(V)$ consists of functions each of whose derivatives decays faster than any polynomial.  We denote by $V^*$ the dual space and write $e(t) := e^{2 \pi i t}$.  Suppose $V$ comes equipped with a Haar measure.  The Fourier transform
 \begin{equation*}
@@ -59,7 +66,7 @@ When $\alpha = 0$, we say simply that $f$ is a \emph{bump on } $\beta + \O(r)$
   Let $V$ be a real vector space of fixed dimension, let $\alpha$ (resp. $\beta$) be a $T$-dependent of $V$ (resp. $V^*$), and let $r > 0$ be a $T$-dependent positive real.  Then the following are equivalent for a $T$-dependent element $f$ of $\mathcal{S}(V)$.
 \begin{enumerate}[(i)]
 \item $f$ is an  $\alpha$-modulated bump on $\beta + \O(r)$.  
-\item $f^\wedge$ is a $(-\beta)$-modulated bump on $\alpha + \O(1/r)$.
+\item $r^{-\dim(V)} f^\wedge$ is a $(-\beta)$-modulated bump on $\alpha + \O(1/r)$.
 \end{enumerate}  
 \end{lemma}
 \begin{proof}
@@ -206,7 +213,7 @@ We observe that the coin-shaped region $\mathcal{R}_{\tau,\eps}$ is a subclass o
 \end{theorem}
 
 \begin{remark}
-  The Fourier transform $a^\vee$ is a $\tau$-modulated bump (defined by obvious analogy to Definition \ref{definition:d1a910775837} on the dual coin-shaped region
+  The Fourier transform $a^\vee$ is, up to a normalizing scalar, a $\tau$-modulated bump (defined by obvious analogy to Definition \ref{definition:d1a910775837}) on the dual coin-shaped region
   \begin{equation*}
     \mathcal{R}_{\tau,\eps}^\vee = \left\{ x \in \mathfrak{g} : x ' \ll T^{-1/2-\eps}, \, x '' \ll T^{-\eps} \right\},
   \end{equation*}
