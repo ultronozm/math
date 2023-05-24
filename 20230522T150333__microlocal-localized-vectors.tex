@@ -47,7 +47,7 @@ f \mapsto f^\vee := \left[ x \mapsto \int_{V^*} f(\xi) e(\bullet \xi) \, d \xi  
 \end{equation*}
 for a suitable Haar measure on $V^*$.
 
-\begin{definition}
+\begin{definition}\label{definition:d1a910775837}
   Let $V$ be a real vector space.  Let $\alpha = \alpha_T \in V$ and $\beta = \beta_T \in V^*$ be $T$-dependent elements, and let $r = r_T > 0$ be a $T$-dependent positive real.  We say that $T$-dependent Schwartz function $f = f_T \in \mathcal{S}(V)$ is a $\alpha$\emph{-modulated bump on} $\beta + \O(r)$ if there is a fixed bounded subset $\mathfrak{B}$ of $\mathcal{S}(V)$ and a $T$-dependent element $\phi = \phi_T \in \mathfrak{B}$ so that
   \begin{equation*}
 f(\tau + x) =  e(\alpha x) \phi\left( \frac{x }{r} \right).
@@ -185,7 +185,7 @@ The uniqueness part of Theorem \ref{theorem:d1a8ddcbd754} is not used anywhere, 
 Let $G$ be a fixed real reductive group.
 
 \begin{definition}
-  Let $\tau$ be a uniformly regular $T$-dependent element of $\mathfrak{g}^*$.  We choose coordinates $\xi = (\xi ', \xi '')$ on $\mathfrak{g}^*$, where $\xi '$ consists of the directions tangent to $G \cdot \tau$ at $\tau$ and $\xi ''$ consists of the perpendicular directions.  Thus $\xi'$ (resp. $\xi ''$) has dimension $\rank(G)$ (resp. $\dim(G) - \rank(G)$).  See \cite[\S9.4.1]{2020arXiv201202187N} or \cite[\S13.3.4]{2021arXiv210915230N} (direct link: \S\ref{sec:refined-classes}) for details.
+  Let $\tau$ be a uniformly regular $T$-dependent element of $\mathfrak{g}^*$.  We choose coordinates $\xi = (\xi ', \xi '')$ on $\mathfrak{g}^*$, where $\xi '$ consists of the directions tangent to $G \cdot \tau$ at $\tau$ and $\xi ''$ consists of the perpendicular directions.  Thus $\xi'$ (resp. $\xi ''$) has dimension $\dim(G) - \rank(G)$ (resp. $\rank(G)$).  See \cite[\S9.4.1]{2020arXiv201202187N} or \cite[\S13.3.4]{2021arXiv210915230N} (direct link: \S\ref{sec:refined-classes}) for details.
 
   We define the \emph{coin-shaped region} $\mathcal{R} _{\tau,\eps}$ to be the following class in $\mathfrak{g}^*$:
   \begin{equation*}
@@ -206,7 +206,7 @@ We observe that the coin-shaped region $\mathcal{R}_{\tau,\eps}$ is a subclass o
 \end{theorem}
 
 \begin{remark}
-  The Fourier transform $a^\vee$ is a $\tau$-modulated Schwartz bump on the ``dual coin-shaped region''
+  The Fourier transform $a^\vee$ is a $\tau$-modulated bump (defined by obvious analogy to Definition \ref{definition:d1a910775837} on the dual coin-shaped region
   \begin{equation*}
     \mathcal{R}_{\tau,\eps}^\vee = \left\{ x \in \mathfrak{g} : x ' \ll T^{-1/2-\eps}, \, x '' \ll T^{-\eps} \right\},
   \end{equation*}
