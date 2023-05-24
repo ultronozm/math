@@ -2,6 +2,7 @@
 
 \usepackage{xr-hyper}
 \externaldocument{standard}
+\externaldocument{var-quat-3-submitted}
 
 \numberwithin{equation}{section}
 \numberwithin{theorem}{section}
@@ -38,32 +39,32 @@ We use the asymptotic notation:
 \end{itemize}
 
 \subsection{Schwartz spaces and bumps}\label{sec:d1a8de614869}
-For a real vector space $V$, recall that the \href{https://en.wikipedia.org/wiki/Schwartz_space}{Schwartz space} $\mathcal{S}(V)$ consists of functions each of whose derivatives decays faster than any polynomial.  We denote by $V^*$ the dual space and write $e(t) := e^{2 \pi i t}$.  Suppose $V$ comes equipped with a Haar measure.  The Fourier transform
+For a real vector space $V$, recall that the \href{https://en.wikipedia.org/wiki/Schwartz_space}{Schwartz space} $\mathcal{S}(V)$ consists of functions each of whose derivatives decays faster than any polynomial.  We denote by $V^\wedge := \Hom(V, i \mathbb{R})$ the imaginary dual space, so that for $x \in V$ and $\xi \in V^\wedge$, the natural pairing $\langle x, \xi  \rangle$ lies in $i \mathbb{R}$.  Suppose $V$ comes equipped with a Haar measure.  The Fourier transform
 \begin{equation*}
 \mathcal{S}(V) \rightarrow \mathcal{S}(V^*)
 \end{equation*}
 \begin{equation*}
-f \mapsto f^\wedge := \left[ \xi \mapsto \int_{V} f(x) e(- \xi  x) \, d x \right]
+f \mapsto f^\wedge := \left[ \xi \mapsto \int_{V} f(x) e^{- \langle x, \xi  \rangle} \, d x \right]
 \end{equation*}
 is then an isomorphism of topological vector spaces, with inverse given by
 \begin{equation*}
 \mathcal{S}(V) \rightarrow \mathcal{S}(V)
 \end{equation*}
-\begin{equation*}
-f \mapsto f^\vee := \left[ x \mapsto \int_{V^*} f(\xi) e(\bullet \xi) \, d \xi  \right]
-\end{equation*}
-for a suitable Haar measure on $V^*$.
+\begin{equation}\label{eqn:d1a913db4ab4}
+f \mapsto f^\vee := \left[ x \mapsto \int_{V^\wedge} f(\xi) e^{\langle x, \xi  \rangle} \, d \xi  \right]
+\end{equation}
+for a suitable Haar measure on $V^\wedge $.
 
 \begin{definition}\label{definition:d1a910775837}
-  Let $V$ be a real vector space.  Let $\alpha = \alpha_T \in V$ and $\beta = \beta_T \in V^*$ be $T$-dependent elements, and let $r = r_T > 0$ be a $T$-dependent positive real.  We say that $T$-dependent Schwartz function $f = f_T \in \mathcal{S}(V)$ is a $\alpha$\emph{-modulated bump on} $\beta + \O(r)$ if there is a fixed bounded subset $\mathfrak{B}$ of $\mathcal{S}(V)$ and a $T$-dependent element $\phi = \phi_T \in \mathfrak{B}$ so that
+  Let $V$ be a real vector space.  Let $\alpha = \alpha_T \in V$ and $\beta = \beta_T \in V^\wedge$ be $T$-dependent elements, and let $r = r_T > 0$ be a $T$-dependent positive real.  We say that $T$-dependent Schwartz function $f = f_T \in \mathcal{S}(V)$ is a $\alpha$\emph{-modulated bump on} $\beta + \O(r)$ if there is a fixed bounded subset $\mathfrak{B}$ of $\mathcal{S}(V)$ and a $T$-dependent element $\phi = \phi_T \in \mathfrak{B}$ so that
   \begin{equation*}
-f(\tau + x) =  e(\alpha x) \phi\left( \frac{x }{r} \right).
+f(\tau + x) =  e^{\langle x, \alpha \rangle} \phi\left( \frac{x }{r} \right).
 \end{equation*}
 When $\alpha = 0$, we say simply that $f$ is a \emph{bump on } $\beta + \O(r)$ 
 \end{definition}
 
 \begin{lemma}
-  Let $V$ be a real vector space of fixed dimension, let $\alpha$ (resp. $\beta$) be a $T$-dependent of $V$ (resp. $V^*$), and let $r > 0$ be a $T$-dependent positive real.  Then the following are equivalent for a $T$-dependent element $f$ of $\mathcal{S}(V)$.
+  Let $V$ be a real vector space of fixed dimension, let $\alpha$ (resp. $\beta$) be a $T$-dependent of $V$ (resp. $V^\wedge$), and let $r > 0$ be a $T$-dependent positive real.  Then the following are equivalent for a $T$-dependent element $f$ of $\mathcal{S}(V)$.
 \begin{enumerate}[(i)]
 \item $f$ is an  $\alpha$-modulated bump on $\beta + \O(r)$.  
 \item $r^{-\dim(V)} f^\wedge$ is a $(-\beta)$-modulated bump on $\alpha + \O(1/r)$.
@@ -76,7 +77,7 @@ This follows from the fact that the Fourier transform defines a topological auto
 
 
 \section{Definition of localized vectors}\label{sec:d1a8de614cc9}
-Let $G$ be a fixed real Lie group.  We denote by $\mathfrak{g}$ its Lie algebra and by $\mathfrak{g}^*$ the dual of that Lie algebra.  For example, we might take $G = \GL_r(\mathbb{R})$, so that $\mathfrak{g} = \glLie_r(\mathbb{R})$; then $\mathfrak{g}^*$ identifies with $\glLie_r(\mathbb{R})$ via the trace pairing.
+Let $G$ be a fixed real Lie group.  We denote by $\mathfrak{g}$ its Lie algebra and by $\mathfrak{g}^\wedge$ the dual of that Lie algebra.  For example, we might take $G = \GL_r(\mathbb{R})$, so that $\mathfrak{g} = \glLie_r(\mathbb{R})$; then $\mathfrak{g}^\wedge$ identifies with $\glLie_r(\mathbb{R})$ via the trace pairing.
 
 Let
 \begin{equation*}
@@ -108,44 +109,66 @@ be a $T$-dependent representation of $G$.  We assume that $\pi$ is unitary (alth
 \end{definition}
 
 \begin{definition}
-  We fix a smooth even function $\chi \in C_c^\infty(\mathfrak{g})$, taking the value $1$ in a neighborhood of the origin.  Given $a \in \mathcal{S}(\mathfrak{g}^*)$, we denote by $\Opp(a)$ the operator on $\pi$ given by
+  We fix a smooth even function $\chi \in C_c^\infty(\mathfrak{g})$, taking the value $1$ in a neighborhood of the origin.  Given $a \in \mathcal{S}(\mathfrak{g}^\wedge)$, we denote by $\Opp(a)$ the operator on $\pi$ given by
   \begin{equation*}
-    \Opp(a) := \int_{\mathfrak{g} } \chi(x) a^\vee (x) \pi (\exp(x)) \, d x,
+    \Opp(a) := \int_{\mathfrak{g} } \chi(x) a^\vee (x) \pi (\exp(-x)) \, d x,
   \end{equation*}
-  with $a^\vee \in \mathcal{S}(\mathfrak{g})$ the inverse Fourier transform of $a$.
+  with $a^\vee \in \mathcal{S}(\mathfrak{g})$ the inverse Fourier transform of $a$, normalized as in \eqref{eqn:d1a913db4ab4}.
 \end{definition}
 
 
 Let
 \begin{equation*}
-  \tau = \tau_T \in \mathfrak{g}^*
+  \tau = \tau_T \in \mathfrak{g}^\wedge
 \end{equation*}
 be a $T$-dependent parameter in the dual Lie algebra.  We assume that
 \begin{equation*}
   \tau = \O(T),
 \end{equation*}
-i.e., that the norm of $\tau$ (taken in any fixed sense) is bounded by a fixed multiple of $T$.  For each fixed  $\eps > 0$, we define the class
+i.e., that the norm of $\tau$ (taken in any fixed sense) is bounded by a fixed multiple of $T$.  For each fixed $\eps > 0$, we set
 \begin{equation}\label{eqn:d1a8de18355b}
-  B_{\tau,\eps} := \tau + \O \left( T^{1/2 + \eps } \right)
+  B_{\tau,\eps} := \tau + \O \left( T^{1/2 + \eps } \right).
 \end{equation}
-following the general recipe of \S\ref{sec:d1a8dda545b5}.
 
-
-\begin{definition}
-  We say that a $T$-dependent vector $v \in \pi$ is \emph{localized} at the $T$-dependent parameter $\tau = \tau_T \in \mathfrak{g}^*$ if for each fixed $\eps > 0$, there is a $T$-dependent Schwartz function $a = a_T \in \mathcal{S} (\mathfrak{g}^*)$ with the following properties.
+\begin{definition}\label{definition:d1a913bed772}
+  We say that a $T$-dependent vector $v \in \pi$ is \emph{localized} at the $T$-dependent parameter $\tau = \tau_T \in \mathfrak{g}^\wedge$ if for each fixed $\eps > 0$, there is a $T$-dependent Schwartz function $a = a_T \in \mathcal{S} (\mathfrak{g}^\wedge)$ with the following properties.
   \begin{enumerate}[(i)]
   \item $a$ is a bump on $B_{\tau,\eps}$.
   \item $\Opp(a) v \approx v$.
   \end{enumerate}
 \end{definition}
 \begin{remark}
-  If $v$ is localized at $\tau$, then one can show that $\Opp(a) v \approx v$ for any bump $a$ on $B_{\tau,\eps}$ with the property that $a$ takes the value $1$ on every set of class $\tau + o(T^{1/2+\eps})$.
+  If $v$ is localized at $\tau$, then one can show that $\Opp(a) v \approx v$ for any bump $a$ on $B_{\tau,\eps}$ with the property that $a(\xi) = 1$ whenever $\xi = \tau + o(T^{1/2+\eps})$.
 \end{remark}
+\begin{remark}
+One can usefully ask for weaker, or alternative, definitions of ``localized vector''.  The given one suits our purposes, but is not universal.  For some purposes, it is better to ask for a ``localized hermitian form'' or ``localized state'', see for instance \S\ref{sec:states-approx-microlocal} of \href{var-quat-3-submitted.pdf}{Quantum variance III}.
+\end{remark}
+
+We record a convenient criterion for checking that a vector is localized.
+\begin{theorem}\label{theorem:d1a913c8091b}
+  Let $M$ be a class of $T$-dependent vectors $v$ in $\pi$ with the following properties:
+  \begin{enumerate}[(i)]
+  \item For each $v \in M$, we have $\lVert v \rVert \leq T^{\O(1)}$.
+  \item For all $u, v \in M$, we have $u + v \in M$.
+  \item For all $v \in M$ and $c \in \mathbb{C}$ with $c = \O(1)$, we have $c v \in M$.
+  \item For each fixed $\eps > 0$, fixed $x \in \mathfrak{g}$ and each $v \in M$, we have
+    \begin{equation}\label{eqn:d1a913bcf6ce}
+      x v - i \langle x, \tau  \rangle v \in T^{1/2+\eps} M.
+    \end{equation}
+    That is to say, the $T$-dependent vector on the left hand side of \eqref{eqn:d1a913bcf6ce} may be written $T^{1/2+\eps} u$, where $u$ belongs to the class $M$.
+  \end{enumerate}
+  Then each $v \in M$ is localized at $\tau$ in the sense of Definition \ref{definition:d1a913bed772}.
+\end{theorem}
+\begin{proof}
+  This follows by combining \cite[Lem 14.5, Thm 14.12]{2021arXiv210915230N} with $\h = 1/T$.
+\end{proof}
+
+
 
 \section{Existence and uniqueness}\label{sec:d1a8de61510d}
 
 \begin{definition}
-  We say that an element $\xi \in \mathfrak{g}^*$ is \emph{regular} if its $G$-centralizer has smallest possible dimension.  We denote by $\mathfrak{g}^*_{\reg}$ the subset of regular elements.  We say that a $T$-dependent element $\xi = \xi_T$ of $\mathfrak{g}^*$ is \emph{uniformly regular} if $T^{-1} \tau = T^{-1} \tau_T$ lies some fixed compact subset of $\mathfrak{g}^*_{\reg}$.
+  We say that an element $\xi \in \mathfrak{g}^\wedge$ is \emph{regular} if its $G$-centralizer has smallest possible dimension.  We denote by $\mathfrak{g}^\wedge_{\reg}$ the subset of regular elements.  We say that a $T$-dependent element $\xi = \xi_T$ of $\mathfrak{g}^\wedge$ is \emph{uniformly regular} if $T^{-1} \tau = T^{-1} \tau_T$ lies some fixed compact subset of $\mathfrak{g}^\wedge_{\reg}$.
 \end{definition}
 
 \begin{theorem}\label{theorem:d1a8ddcbd754}
@@ -154,11 +177,11 @@ following the general recipe of \S\ref{sec:d1a8dda545b5}.
   \item\label{enumerate:d1a8ddc751e5} $G$ is reductive and $\pi$ is tempered, or
   \item\label{enumerate:d1a8ddcc2f30} $G = \GL_n(\mathbb{R})$ and $\pi$ is generic.
   \end{enumerate}
-  Assume that the infinitesimal character $\lambda_\pi$  has the property that its rescaling $T^{-1} \lambda_\pi$ lies in a fixed compact collection of infinitesimal characters (see \cite[\S9]{nelson-venkatesh-1} for details).  Define the $G$-invariant subset
+  Assume that the infinitesimal character $\lambda_\pi$ of $\pi$ (see \cite[\S9]{nelson-venkatesh-1}) has the property that its rescaling $T^{-1} \lambda_\pi$ lies in a fixed compact collection of infinitesimal characters.  Define the $G$-invariant subset
   \begin{equation*}
-\mathcal{O}_\pi \subseteq \mathfrak{g}^*,
+\mathcal{O}_\pi \subseteq \mathfrak{g}^\wedge,
 \end{equation*}
-as follows.  In the case \eqref{enumerate:d1a8ddc751e5}, let it denote the coadjoint orbit assigned to $\pi$ by the Kirillov formula \cite[\S6]{nelson-venkatesh-1}.  In the second case, let it denote the preimage of $\lambda_\pi$.
+as follows.  In the first case \eqref{enumerate:d1a8ddc751e5}, let it denote the coadjoint orbit assigned to $\pi$ by the Kirillov formula \cite[\S6]{nelson-venkatesh-1}.  In the second case \eqref{enumerate:d1a8ddcc2f30}, let it denote the preimage of $\lambda_\pi$ in $\mathfrak{g}^\wedge$ under the natural map .
 
 Let $\tau = \tau_T \in \mathcal{O}_\pi$ be $\O(T)$ and uniformly regular.  Then:
   \begin{enumerate}[(i)]
@@ -192,13 +215,13 @@ The uniqueness part of Theorem \ref{theorem:d1a8ddcbd754} is not used anywhere, 
 Let $G$ be a fixed real reductive group.
 
 \begin{definition}
-  Let $\tau$ be a uniformly regular $T$-dependent element of $\mathfrak{g}^*$.  We choose coordinates $\xi = (\xi ', \xi '')$ on $\mathfrak{g}^*$, where $\xi '$ consists of the directions tangent to $G \cdot \tau$ at $\tau$ and $\xi ''$ consists of the perpendicular directions.  Thus $\xi'$ (resp. $\xi ''$) has dimension $\dim(G) - \rank(G)$ (resp. $\rank(G)$).  See \cite[\S9.4.1]{2020arXiv201202187N} or \cite[\S13.3.4]{2021arXiv210915230N} (direct link: \S\ref{sec:refined-classes}) for details.
+  Let $\tau$ be a uniformly regular $T$-dependent element of $\mathfrak{g}^\wedge$.  We choose coordinates $\xi = (\xi ', \xi '')$ on $\mathfrak{g}^\wedge$, where $\xi '$ consists of the directions tangent to $G \cdot \tau$ at $\tau$ and $\xi ''$ consists of the perpendicular directions.  Thus $\xi'$ (resp. $\xi ''$) has dimension $\dim(G) - \rank(G)$ (resp. $\rank(G)$).  See \cite[\S9.4.1]{2020arXiv201202187N} or \cite[\S13.3.4]{2021arXiv210915230N} (direct link: \S\ref{sec:refined-classes}) for details.
 
-  We define the \emph{coin-shaped region} $\mathcal{R} _{\tau,\eps}$ to be the following class in $\mathfrak{g}^*$:
+  We define the \emph{coin-shaped region} $\mathcal{R} _{\tau,\eps}$ to be the following class in $\mathfrak{g}^\wedge$:
   \begin{equation*}
 \mathcal{R}_{\tau,\eps} = \left\{ \tau + \xi : \xi ' = \O(T^{1/2+\eps}), \, \xi '' = \O(T^{\eps}) \right\}.
 \end{equation*}
-We say that a $T$-dependent element $a$ of $\mathcal{S}(\mathfrak{g}^*)$ is a \emph{bump on} $\mathcal{R}_{\tau,\eps}$ if there is a fixed bounded subset $\mathfrak{B}$ of $\mathcal{S}(\mathfrak{g}^*)$ and a $T$-dependent element $\phi = \phi_T \in \mathfrak{B}$ so that
+We say that a $T$-dependent element $a$ of $\mathcal{S}(\mathfrak{g}^\wedge)$ is a \emph{bump on} $\mathcal{R}_{\tau,\eps}$ if there is a fixed bounded subset $\mathfrak{B}$ of $\mathcal{S}(\mathfrak{g}^\wedge)$ and a $T$-dependent element $\phi = \phi_T \in \mathfrak{B}$ so that
 \begin{equation*}
 a(\tau + \xi ) = \phi\left(\frac{\xi ' }{ T^{1/2+\eps}}, \frac{\xi '' }{ T^\eps}\right).
 \end{equation*}
@@ -206,7 +229,7 @@ a(\tau + \xi ) = \phi\left(\frac{\xi ' }{ T^{1/2+\eps}}, \frac{\xi '' }{ T^\eps}
 We observe that the coin-shaped region $\mathcal{R}_{\tau,\eps}$ is a subclass of the ball $\mathcal{B}_{\tau,\eps}$ defined in \eqref{eqn:d1a8de18355b}.
 
 \begin{theorem}[Existence of approximate projectors]
-  Let $\pi = \pi_T$ be a $T$-dependent irreducible unitary representation of $G$.  Let $\tau = \tau_T$ be a uniformly regular element of $\mathfrak{g}^*$.  Let $v = v_T$ be a $T$-dependent element of $\pi$ that has norm $\O(1)$ and is localized at $\tau$.  Then for each fixed $\eps > 0$, there is a bump $a$ on the coin-shaped region $\mathcal{R}_{\tau,\eps}$ such that
+  Let $\pi = \pi_T$ be a $T$-dependent irreducible unitary representation of $G$.  Let $\tau = \tau_T$ be a uniformly regular element of $\mathfrak{g}^\wedge$.  Let $v = v_T$ be a $T$-dependent element of $\pi$ that has norm $\O(1)$ and is localized at $\tau$.  Then for each fixed $\eps > 0$, there is a bump $a$ on the coin-shaped region $\mathcal{R}_{\tau,\eps}$ such that
   \begin{equation*}
     \Opp(a) v \approx v.
   \end{equation*}
@@ -259,7 +282,7 @@ to be negligible unless
 \begin{equation*}
   \xi_H \approx \eta,
 \end{equation*}
-where $\xi_H \in \mathfrak{g}^*$ denotes the restriction of $\xi \in \mathfrak{g}^*$.  This condition holds for some $\eta$ precisely when $\xi$ lies in the set
+where $\xi_H \in \mathfrak{g}^\wedge$ denotes the restriction of $\xi \in \mathfrak{g}^\wedge$.  This condition holds for some $\eta$ precisely when $\xi$ lies in the set
 \begin{equation*}
   \mathcal{O}_{\pi,\sigma} := \mathcal{O}_\pi \cap \operatorname{preimage}(\mathcal{O}_\sigma).
 \end{equation*}
@@ -274,7 +297,7 @@ Such sets given a detailed general study in \cite{nelson-venkatesh-1}.  We summa
   \begin{enumerate}[(i)]
   \item $\mathcal{O}_{\pi,\sigma}$ is either empty, or is an $H$-torsor, i.e., a closed $H$-orbit with trivial stabilizer.
   \item\label{enumerate:d1a8de41634c} If $\mathcal{O}_{\pi,\sigma}$ is nonempty, then there exists $\tau \in \mathcal{O}_{\pi,\sigma}$ with $\lvert \tau \rvert \asymp T$.
-  \item\label{enumerate:d1a8de433647} Any $\tau$ satisfying the conclusion of \eqref{enumerate:d1a8de41634c} has the further property that both $\tau \in \mathfrak{g}^*$ and $\tau_H \in \mathfrak{g}^*$ are uniformly regular, so that by Theorem \ref{theorem:d1a8ddcbd754}, we may find unit vectors $v \in \sigma$ and $u \in \pi$ localized at $\tau$ and $\tau_H$, respectively.
+  \item\label{enumerate:d1a8de433647} Any $\tau$ satisfying the conclusion of \eqref{enumerate:d1a8de41634c} has the further property that both $\tau \in \mathfrak{g}^\wedge$ and $\tau_H \in \mathfrak{g}^\wedge$ are uniformly regular, so that by Theorem \ref{theorem:d1a8ddcbd754}, we may find unit vectors $v \in \sigma$ and $u \in \pi$ localized at $\tau$ and $\tau_H$, respectively.
   \item\label{enumerate:d1a8de48acf7} The vectors $v$ and $u$ as in \eqref{enumerate:d1a8de433647} may be chosen to have the further property that
 \begin{equation}\label{eqn:d1a8de4497e0}
 \left\lvert \left\langle \ell_\sigma(v), u \right\rangle \right\rvert^2 = T^{-\dim(H)/2 + o(1)}.
