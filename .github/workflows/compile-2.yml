@@ -1,11 +1,6 @@
 name: compile-2
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - '**/*.tex'
 permissions:
   contents: write
 jobs:          
