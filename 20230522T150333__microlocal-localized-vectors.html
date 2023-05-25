@@ -6,6 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Some basics on localized vectors in representations of Lie groups</title>
   <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
     html {
 line-height: 1.5;
 font-family: Georgia, serif;
@@ -201,6 +211,13 @@ background-color: #fdfdfd;
   <![endif]-->
 </head>
 <body>
+    <div class="my-links-container">
+2023-05-25 07:27:15
+      <a href="20230522T150333__microlocal-localized-vectors.tex" class="my-link">tex</a>
+      <a href="20230522T150333__microlocal-localized-vectors.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20230522T150333__microlocal-localized-vectors.tex" class="my-link">history</a>
+    </div>
+
 <header id="title-block-header">
 <h1 class="title">Some basics on localized vectors in representations of
 Lie groups</h1>
@@ -507,7 +524,7 @@ class="math inline">\(c v \in M\)</span>.</em></p></li>
 0\)</span>, fixed <span class="math inline">\(x \in
 \mathfrak{g}\)</span> and each <span class="math inline">\(v \in
 M\)</span>, we have <span id="eqn:d1a913bcf6ce" class="math display">\[\label{eqn:d1a913bcf6ce}\tag{3.2}
-      x v - i \langle x, \tau  \rangle v \in T^{1/2+\varepsilon}
+      x v - \langle x, \tau  \rangle v \in T^{1/2+\varepsilon}
 M.\]</span> That is to say, the <span
 class="math inline">\(T\)</span>-dependent vector on the left hand side
 of <a href="#eqn:d1a913bcf6ce" data-reference-type="eqref"
@@ -716,6 +733,14 @@ class="math inline">\(a\)</span> on the coin-shaped region <span
 class="math inline">\(\mathcal{R}_{\tau,\varepsilon}\)</span> such that
 <span class="math display">\[\mathop{\mathrm{Op}}(a) v \approx
 v.\]</span></em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> This follows from the proof of <a href="#ref-2021arXiv210915230N" class="citation"
+data-cites="2021arXiv210915230N">(Nelson 2021, Thm 17.12)</a> (direct
+link: Theorem <a href="standard.html#thm:appr-idemp" data-reference-type="ref"
+data-reference="thm:appr-idemp">17.12</a>). The idea is to
+integrate by parts with respect to the center of the universal
+enveloping algebra. ◻</p>
 </div>
 <div class="remark">
 <p><strong>Remark 14</strong>. The Fourier transform <span
