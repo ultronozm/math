@@ -21,7 +21,7 @@ We record some exercises whose purpose is to verify that certain classes of vect
 
 \section{Overview}\label{sec:d1a9162ede03}
 
-The purpose of this note is to record some exercises that aim to convey some computational feeling for ``localized vectors'' in the precise sense defined in \S\ref{sec:d1a8de614cc9} of \href{20230522T150333__microlocal-localized-vectors.pdf}{this note}, focusing on low-rank examples.  Along the way, we recall the basic representation theory for such examples.
+In this note, we give exercises that aim to convey some computational feeling for ``localized vectors'' in the precise sense defined in \S\ref{sec:d1a8de614cc9} of \href{20230522T150333__microlocal-localized-vectors.pdf}{this note}, focusing on low-rank examples.  Along the way, we recall the basic representation theory for such examples.
 
 \section{Setup}\label{sec:d1a94d0b364d}
 We let $T \rightarrow \infty$ be an asymptotic parameter, and retain the asymptotic notation and conventions of \S\ref{sec:d1a8dda545b5} of \href{20230522T150333__microlocal-localized-vectors.pdf}{this note} concerning ``$T$-dependent elements'', ``fixed'' (equivalently, ``$T$-independent'') and ``classes''.  In particular, we recall that ``class'' means ``collection of $T$-dependent sets''.  A typical example is the class $\O(1)$ inside $\mathbb{C}$, consisting of all $T$-dependent subsets $S = S_T \subseteq \mathbb{C}$ for which there is a fixed $C \geq 0$ so that for all $T$, we have $\lVert c_T \rVert \leq C$ for all $c_T \in S_T$.
@@ -37,7 +37,7 @@ Let $G$ be a fixed real Lie group, and let $\pi = \pi_T$ be a $T$-dependent unit
     \begin{equation}\label{eqn:d1a94c11ed29}
       x v - \langle x, \tau  \rangle v \in T^{1/2+\eps} M.
     \end{equation}
-    That is to say, the $T$-dependent vector on the left hand side of \eqref{eqn:d1a913bcf6ce} may be written $T^{1/2+\eps} u$, where $u$ belongs to the class $M$.
+    That is to say, the $T$-dependent vector on the left hand side may be written $T^{1/2+\eps} u$, where $u$ belongs to the class $M$.
   \end{enumerate}
   Then each $v \in M$ is localized at $\tau$ in the sense of Definition \ref{definition:d1a913bed772} of \href{20230522T150333__microlocal-localized-vectors.pdf}{this note}.
 \end{theorem}
@@ -137,7 +137,7 @@ From the commutation relations \eqref{eqn:20230524102817}, we see that
   \begin{equation}\label{eqn:20230524102429}
     0 = Y X v = \Omega v - \ell (\ell + 1) v.
   \end{equation}
-  Since $\pi$ is irreducible and $\Omega$ commutes with the action of $\SO(3)$, we know by Schur's lemma that $\Omega$ acts on $\pi$ by a scalar.  Taking $v$ to be a nonzero element of $\pi(\ell)$, we see from \eqref{eqn:20230524102429} shows that this scalar must be given by \eqref{eqn:d1a9136775d2}.  We now choose a nonzero vector $e_{\ell} \in V(\ell)$ and define $e_m$ by recursive induction for integers $m$ with $- \ell \leq m < \ell$ by requiring that \eqref{eqn:d1a9136592ce} hold, noting that the square root is positive in the stated range.  Using \eqref{eqn:20230524104145}, we see that $Y e_{- \ell} = 0$.  By the mapping property \eqref{eqn:20230524104326}, we have $e_m \in \pi(m)$, hence \eqref{eqn:d1a91367ba12} holds.  By the formula \eqref{eqn:20230524104145} for $\Omega$, we have
+  Since $\pi$ is irreducible and $\Omega$ commutes with the action of $\SO(3)$, we know by Schur's lemma that $\Omega$ acts on $\pi$ by a scalar.  Taking $v$ to be a nonzero element of $\pi(\ell)$, we see from \eqref{eqn:20230524102429} that this scalar must be given by \eqref{eqn:d1a9136775d2}.  We now choose a nonzero vector $e_{\ell} \in V(\ell)$ and define $e_m$ by reverse induction for integers $m$ with $- \ell \leq m < \ell$ by requiring that \eqref{eqn:d1a9136592ce} hold, noting that the square root is positive in the stated range.  Using \eqref{eqn:20230524104145}, we see that $Y e_{- \ell} = 0$.  By the mapping property \eqref{eqn:20230524104326}, we have $e_m \in \pi(m)$, hence \eqref{eqn:d1a91367ba12} holds.  By the formula \eqref{eqn:20230524104145} for $\Omega$, we have
   \begin{equation}\label{eqn:d1a94c62c57d}
     X Y e_{m + 1} = \Omega e_{m+1} - m(m+1) e_{m+1}
     =
@@ -166,7 +166,7 @@ The integer $\ell$ as in the conclusion of Proposition \ref{proposition:d1a913c9
 \end{equation*}
 
 \subsection{Localized vectors}\label{sec:d1a9162ebd8a}
-In the following exercises, we assume that the asymptotic parameter $T \rightarrow \infty$ is a nonnegative integer, and let $\pi$ denote the $T$-dependent representation having highest weight $T$.
+In the following exercises, we assume that the asymptotic parameter $T \rightarrow \infty$ is valued in the nonnegative integers, and let $\pi$ denote the $T$-dependent representation having highest weight $T$.
 
 \begin{exercise}\label{exercise:d1a913e1e9ec}
   Let $M$ denote the class of $T$-dependent vectors $v$ in $\pi$ given in terms of a basis as in Proposition \ref{proposition:d1a913c915d4} by $v = \sum_m a_m e_m$, where the coefficients have the following properties:
@@ -277,7 +277,7 @@ Here $\xi \in i \slLie_2(\mathbb{R})$ corresponds to the linear map $\slLie_2(\m
 \subsection{Representations}\label{sec:d1a915c57e2f}
 
 \begin{proposition}
-  Let $\pi$ be an irreducible unitary representation of $\SO(3)$.  Then $\Omega$ acts on $\pi$ by a scalar, say $\Omega_\pi$.  Then, either:
+  Let $\pi$ be an irreducible unitary representation of $\PGL_2(\mathbb{R})$.  Then $\Omega$ acts on $\pi$ by a scalar, say $\Omega_\pi$.  Then, either:
   \begin{enumerate}[(i)]
   \item $\pi$ is a one-dimensional representation, either trivial or the sign representation, in which case $\Omega_\pi = 0$.
   \item  $\pi$ is a discrete series representation $\pi(k)$ for some $k \in \mathbb{Z}_{\geq 1}$, with $\Omega_\pi = k(k-1)$.
