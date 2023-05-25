@@ -39,6 +39,12 @@ $(document).ready(function() {
             { width: "10%" },
         ],
 	order: [[2, 'desc']]	
+        columnDefs: [
+            {
+                targets: [2,3],
+                orderSequence: ['desc', 'asc']
+            }
+        ]
     });
 
     fetch('listing.json')
