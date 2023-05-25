@@ -246,11 +246,20 @@
     (insert
      (format "
     <div class=\"my-links-container\">
+%s
       <a href=\"%s.tex\" class=\"my-link\">tex</a>
       <a href=\"%s.pdf\" class=\"my-link\">pdf</a>
-    </div>"
+      <a href=\"https://github.com/ultronozm/math/commits/main/%s.tex\" class=\"my-link\">history</a>
+    </div>
+"
+	     (czm/format-git-time-string
+	      (shell-command-to-string
+	       (concat "git log -1 --format=%aI -- " (concat base-filename ".tex"))))
 	     base-filename
-	     base-filename))
+	     base-filename
+	     base-filename
+	     )
+     )
     (goto-char style-beg)
     (insert "
       .my-links-container {
@@ -411,50 +420,52 @@ file to .html and apply postprocessing."
 (require 'json)
 (require 'seq)
 
+(defun czm/format-git-time-string (str)
+  (let ((substr (substring str 0 19)))
+    ;; replace T by space in substr
+    (replace-regexp-in-string "T" " " substr))
+  )
+
 (defun populate-listing-json ()
   (interactive)
-  (cl-flet ((format-git-time-string (str)
-	      (let ((substr (substring str 0 19)))
-		;; replace T by space in substr
-		(replace-regexp-in-string "T" " " substr))))
-    (let* ((exclude-file "config.json")
-	   (data-file "listing.json")
-	   (exclude-list (with-temp-buffer
-			   (insert-file-contents exclude-file)
-			   (cdr (assoc 'exclude (json-read)))))
-	   (tex-files (seq-filter (lambda (filename)
-				    (and (string-suffix-p ".tex" filename)
-					 (not (seq-contains-p exclude-list filename))))
-				  (split-string
-				   (shell-command-to-string "git ls-files *.tex") "\n")))
-	   (data-list (mapcar (lambda (filename)
-				(let* ((title (with-temp-buffer
-						(insert-file-contents filename)
-						(goto-char (point-min))
-						(if (re-search-forward "\\\\title\\(\\[.*?\\]\\)?{\\(.*?\\)}" nil t)
-						    (match-string 2)
-						  filename)))
-				       (abstract (with-temp-buffer
-						   (insert-file-contents filename)
-						   (goto-char (point-min))
-						   (when (re-search-forward "\\\\begin{abstract}[[:space:]]+" nil t)
-						     (let ((beg (match-end 0)))
-						       (when (re-search-forward "[[:space:]]+\\\\end{abstract}" nil t)
-							 (buffer-substring-no-properties beg (match-beginning 0)))))))
-				       (created (format-git-time-string (shell-command-to-string
-									 (concat "git log --format=%aI -- " filename
-										 " | tail -1"))))
-				       (modified (format-git-time-string
-						  (shell-command-to-string
-						   (concat "git log -1 --format=%aI -- " filename)))))
-				  `((title . ,title)
-				    (abstract . ,abstract)
-				    (dateCreated . ,created)
-				    (dateModified . ,modified)
-				    (file . ,(file-name-sans-extension filename)))))
-			      tex-files)))
-      (with-temp-file data-file
-	(insert (json-encode data-list))))))
+  (let* ((exclude-file "config.json")
+	 (data-file "listing.json")
+	 (exclude-list (with-temp-buffer
+			 (insert-file-contents exclude-file)
+			 (cdr (assoc 'exclude (json-read)))))
+	 (tex-files (seq-filter (lambda (filename)
+				  (and (string-suffix-p ".tex" filename)
+				       (not (seq-contains-p exclude-list filename))))
+				(split-string
+				 (shell-command-to-string "git ls-files *.tex") "\n")))
+	 (data-list (mapcar (lambda (filename)
+			      (let* ((title (with-temp-buffer
+					      (insert-file-contents filename)
+					      (goto-char (point-min))
+					      (if (re-search-forward "\\\\title\\(\\[.*?\\]\\)?{\\(.*?\\)}" nil t)
+						  (match-string 2)
+						filename)))
+				     (abstract (with-temp-buffer
+						 (insert-file-contents filename)
+						 (goto-char (point-min))
+						 (when (re-search-forward "\\\\begin{abstract}[[:space:]]+" nil t)
+						   (let ((beg (match-end 0)))
+						     (when (re-search-forward "[[:space:]]+\\\\end{abstract}" nil t)
+						       (buffer-substring-no-properties beg (match-beginning 0)))))))
+				     (created (czm/format-git-time-string (shell-command-to-string
+								       (concat "git log --format=%aI -- " filename
+									       " | tail -1"))))
+				     (modified (czm/format-git-time-string
+						(shell-command-to-string
+						 (concat "git log -1 --format=%aI -- " filename)))))
+				`((title . ,title)
+				  (abstract . ,abstract)
+				  (dateCreated . ,created)
+				  (dateModified . ,modified)
+				  (file . ,(file-name-sans-extension filename)))))
+			    tex-files)))
+    (with-temp-file data-file
+      (insert (json-encode data-list)))))
 
 (defun tex2html-make-index ()
   (interactive)
