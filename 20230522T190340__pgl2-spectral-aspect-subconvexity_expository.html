@@ -212,17 +212,20 @@ background-color: #fdfdfd;
 </head>
 <body>
     <div class="my-links-container">
+2023-05-24 06:01:16
       <a href="20230522T190340__pgl2-spectral-aspect-subconvexity_expository.tex" class="my-link">tex</a>
       <a href="20230522T190340__pgl2-spectral-aspect-subconvexity_expository.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20230522T190340__pgl2-spectral-aspect-subconvexity_expository.tex" class="my-link">history</a>
     </div>
+
 <header id="title-block-header">
 <h1 class="title">Spectral aspect subconvexity for <span
 class="math inline">\({\mathop{\mathrm{PGL}}}_2\)</span>: a couple
 approaches</h1>
 <div class="abstract">
 <div class="abstract-title">Abstract</div>
-<p>We discuss and compare two approaches for estimating a short second
-moment of <span class="math inline">\(L\)</span>-functions on <span
+<p>We discuss and compare two ways to estimate a short second moment of
+<span class="math inline">\(L\)</span>-functions on <span
 class="math inline">\({\mathop{\mathrm{PGL}}}_2\)</span> in the spectral
 aspect: that of Iwaniec <a href="#ref-Iwaniec1992" class="citation"
 data-cites="Iwaniec1992">(Iwaniec 1992)</a>, using the approximate
@@ -252,13 +255,13 @@ We aim to show that <span id="eqn:35ac318817" class="math display">\[\label{eqn:
   L(\pi,\tfrac{1}{2}) \ll T^{1/2 - \delta}\]</span> for some fixed <span
 class="math inline">\(\delta &gt; 0\)</span>.</p>
 <p>Such an estimate was first shown by Iwaniec <a href="#ref-Iwaniec1992" class="citation"
-data-cites="Iwaniec1992">(Iwaniec 1992)</a> (in the Maass case, and
-initially under an additional hypothesis, which Iwaniec later observed
-could be removed using identity <span class="math inline">\(\lambda(p)^2
-- \lambda(p^2) = 1\)</span>). Iwaniec’s method consists of estimating an
-amplified second moment over <span class="math inline">\(T\)</span> in
-an interval of length a bit more than <span
-class="math inline">\(1\)</span>. This method was adapted to <span
+data-cites="Iwaniec1992">(Iwaniec 1992)</a> (initially under an
+additional hypothesis, which Iwaniec later observed could be removed
+using identity <span class="math inline">\(\lambda(p)^2 - \lambda(p^2) =
+1\)</span>). Iwaniec’s method consists of estimating an amplified second
+moment over <span class="math inline">\(T\)</span> in an interval of
+length a bit more than <span class="math inline">\(1\)</span>. This
+method was adapted to <span
 class="math inline">\({\mathop{\mathrm{PGL}}}_3\)</span> by
 Blomer–Buttcane <a href="#ref-MR4203038 MR4039487" class="citation"
 data-cites="MR4203038 MR4039487">(Blomer and Buttcane 2020a,
@@ -283,8 +286,7 @@ class="citation" data-cites="iwan-sar">(Iwaniec and Sarnak
 href="#eqn:35ac318817" data-reference-type="eqref"
 data-reference="eqn:35ac318817">\((1.1)\)</a> is to due to Ivic
 <a href="#ref-MR1879668" class="citation" data-cites="MR1879668">(Ivić 2001)</a> , who
-showed (in the Maass case) that <a href="#eqn:35ac318817"
-data-reference-type="eqref"
+showed that <a href="#eqn:35ac318817" data-reference-type="eqref"
 data-reference="eqn:35ac318817">\((1.1)\)</a> holds for any fixed
 <span class="math inline">\(\delta &lt; 1/6\)</span>. Ivic’s method
 consists of estimating an unamplified fourth moment over <span
@@ -294,8 +296,9 @@ class="citation"
 data-cites="michel-2009 Nelson-EisCubic 2021arXiv210112106B balkanova2022weyls">(Michel
 and Venkatesh 2010; Nelson 2019; Blomer, Jana, and Nelson 2023;
 Balkanova, Frolenkov, and Wu 2022)</a>). Such approaches using
-“higher moments” have no known generalization beyond <span
-class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span>.</p>
+“higher moments” have no known extension beyond <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span>. It would be
+significant to identify such an extension.</p>
 </div>
 <h1 id="sec:35ac3e5876">§2. Automorphic background</h1>
 <h2 id="sec:35ac3e5878">§2.1. Cuspidal automorphic representations</h2>
@@ -387,10 +390,10 @@ href="var-quat-3-submitted.html#sec:coadjoint-orbits" data-reference-type="ref"
 data-reference="sec:coadjoint-orbits">6.2</a>-§<a
 href="var-quat-3-submitted.html#sec:prelims-representations" data-reference-type="ref"
 data-reference="sec:prelims-representations">6.3</a>
-of <a href="var-quat-3-submitted.html">Quantum variance III</a>. It comes
-with a natural symplectic volume form that describes the character of
-<span class="math inline">\(\pi\)</span> via the Kirillov formula (see
-<a href="#ref-nelson-venkatesh-1" class="citation" data-cites="nelson-venkatesh-1">(Nelson and
+of <a href="var-quat-3-submitted.html">Quantum variance III</a>.) It
+comes with a natural symplectic volume form that describes the character
+of <span class="math inline">\(\pi\)</span> via the Kirillov formula
+(see <a href="#ref-nelson-venkatesh-1" class="citation" data-cites="nelson-venkatesh-1">(Nelson and
 Venkatesh 2021, sec. 6)</a>). We note that in the coordinates <span
 class="math display">\[\xi =
   \begin{pmatrix}
@@ -476,13 +479,14 @@ data-reference="sec:abstr-study-local">14</a>).</p>
 described readily in the Kirillov model for <span
 class="math inline">\(\pi\)</span>. Recall (from §<a
 href="#sec:35ac31dd2c" data-reference-type="ref"
-data-reference="sec:35ac31dd2c">2.3</a>) that this consists of
-identifying elements <span class="math inline">\(W\)</span> of the
-Whittaker model <span class="math inline">\(\mathcal{W}(\pi)\)</span>
-their restrictions to <span class="math inline">\(H\)</span>. It will be
-convenient to think of such <span class="math inline">\(W\)</span> as
-function on <span class="math inline">\(\mathbb{R}^\times\)</span> via
-the abbreviation <span class="math display">\[W(y) := W\left(
+data-reference="sec:35ac31dd2c">2.3</a>) that this model consists of the
+restrictions to <span class="math inline">\(H\)</span> of elements <span
+class="math inline">\(W\)</span> of the Whittaker model <span
+class="math inline">\(\mathcal{W}(\pi)\)</span>. It will be convenient
+to think of such restricted elements <span
+class="math inline">\(W\)</span> as functions on <span
+class="math inline">\(\mathbb{R}^\times\)</span> via the abbreviation
+<span class="math display">\[W(y) := W\left(
   \begin{pmatrix}
 y &amp; 0 \\
 0 &amp; 1 \\
@@ -555,7 +559,7 @@ class="math inline">\(\tau\)</span>, namely <span id="eqn:G-tau" class="math dis
     \end{pmatrix} \right\},\]</span> rather than with respect to the
 diagonal subgroup.</p>
 </div>
-<p>By chosing the smooth bump function implicit in <a
+<p>By choosing the smooth bump function implicit in <a
 href="#eqn:35ac3e31cb" data-reference-type="eqref"
 data-reference="eqn:35ac3e31cb">\((5.2)\)</a> to be nonnegative,
 we may arrange that <span class="math display">\[\int_{H} W_\varphi
@@ -692,12 +696,12 @@ is to show that <span class="math display">\[\int _{y \in H, y \asymp 1}
 \pi(\omega) \varphi(y) \, d^\times y \ll T^{1/4}.\]</span> We view the
 square of the left hand side as one term arising from an integrated
 pretrace formula, like in the sup norm story <a href="#ref-iwan-sar" class="citation"
-data-cites="iwan-sar">(Iwaniec and Sarnak 1995)</a> (alternatively,
+data-cites="iwan-sar">(Iwaniec and Sarnak 1995)</a>. Alternatively,
 we write the left hand side as the inner product of <span
 class="math inline">\(\varphi\)</span> against a Poincar<span>é</span>
 series and apply Cauchy–Schwarz; see <a href="#ref-2020arXiv201202187N" class="citation"
-data-cites="2020arXiv201202187N">(Nelson 2023, sec. 5.3)</a>). We
-reduce to checking that <span id="eq:int-_-substack-1" class="math display">\[\label{eq:int-_-substack-1}\tag{8.1}
+data-cites="2020arXiv201202187N">(Nelson 2023, sec. 5.3)</a>. Either
+way, we reduce to checking that <span id="eq:int-_-substack-1" class="math display">\[\label{eq:int-_-substack-1}\tag{8.1}
   \int _{
     \substack{
       y_1, y_2 \asymp 1
