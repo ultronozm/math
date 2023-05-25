@@ -1,4 +1,4 @@
-#+TITLE: my cool math notes
+#+TITLE: my cool m4th notes
 #+AUTHOR: Paul D. Nelson
 #+EMAIL: ultrono@gmail.com
 
