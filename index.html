@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-05-25 Thu 13:07 -->
+<!-- 2023-05-25 Thu 16:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>my cool m4th notes</title>
@@ -237,14 +237,14 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgc65c2e9">1. Updates</a></li>
-<li><a href="#org1b359f5">2. Course notes</a></li>
+<li><a href="#orgcccf07a">1. Updates</a></li>
+<li><a href="#org72edd15">2. Course notes</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgc65c2e9" class="outline-2">
-<h2 id="orgc65c2e9"><span class="section-number-2">1.</span> Updates</h2>
+<div id="outline-container-orgcccf07a" class="outline-2">
+<h2 id="orgcccf07a"><span class="section-number-2">1.</span> Updates</h2>
 <div class="outline-text-2" id="text-1">
 <table id="myTable" class="display" style="width:100%">
     <thead>
@@ -272,6 +272,12 @@ $(document).ready(function() {
             { width: "10%" },
         ],
 	order: [[2, 'desc']]	
+        columnDefs: [
+            {
+                targets: [2,3],
+                orderSequence: ['desc', 'asc']
+            }
+        ]
     });
 
     fetch('listing.json')
@@ -306,8 +312,8 @@ $(document).ready(function() {
 </div>
 
 
-<div id="outline-container-org1b359f5" class="outline-2">
-<h2 id="org1b359f5"><span class="section-number-2">2.</span> Course notes</h2>
+<div id="outline-container-org72edd15" class="outline-2">
+<h2 id="org72edd15"><span class="section-number-2">2.</span> Course notes</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Testing display math: \((x+y)\).</li>
@@ -318,7 +324,7 @@ $(document).ready(function() {
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Paul D. Nelson</p>
-<p class="date">Created: 2023-05-25 Thu 13:07</p>
+<p class="date">Created: 2023-05-25 Thu 16:10</p>
 </div>
 </body>
 </html>
