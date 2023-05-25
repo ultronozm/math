@@ -153,7 +153,7 @@ We record a convenient criterion for checking that a vector is localized.
   \item For all $v \in M$ and $c \in \mathbb{C}$ with $c = \O(1)$, we have $c v \in M$.
   \item For each fixed $\eps > 0$, fixed $x \in \mathfrak{g}$ and each $v \in M$, we have
     \begin{equation}\label{eqn:d1a913bcf6ce}
-      x v - i \langle x, \tau  \rangle v \in T^{1/2+\eps} M.
+      x v - \langle x, \tau  \rangle v \in T^{1/2+\eps} M.
     \end{equation}
     That is to say, the $T$-dependent vector on the left hand side of \eqref{eqn:d1a913bcf6ce} may be written $T^{1/2+\eps} u$, where $u$ belongs to the class $M$.
   \end{enumerate}
@@ -234,6 +234,9 @@ We observe that the coin-shaped region $\mathcal{R}_{\tau,\eps}$ is a subclass o
     \Opp(a) v \approx v.
   \end{equation*}
 \end{theorem}
+\begin{proof}
+This follows from the proof of \cite[Thm 17.12]{2021arXiv210915230N} (direct link: Theorem \ref{thm:appr-idemp}).  The idea is to integrate by parts with respect to the center of the universal enveloping algebra.
+\end{proof}
 
 \begin{remark}
   The Fourier transform $a^\vee$ is, up to a normalizing scalar, a $\tau$-modulated bump (defined by obvious analogy to Definition \ref{definition:d1a910775837}) on the dual coin-shaped region
