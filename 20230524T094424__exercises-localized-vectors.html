@@ -219,18 +219,84 @@ convey some computational feeling for “localized vectors” in the precise
 sense defined in §<a href="20230522T150333__microlocal-localized-vectors.html#sec:d1a8de614cc9" data-reference-type="ref"
 data-reference="sec:d1a8de614cc9">3</a> of <a
 href="20230522T150333__microlocal-localized-vectors.html">this note</a>,
-focusing on low-rank examples.</p>
+focusing on low-rank examples. Along the way, we recall the basic
+representation theory for such examples.</p>
+<h1 id="sec:d1a94d0b364d">§2. Setup</h1>
 <p>We let <span class="math inline">\(T \rightarrow \infty\)</span> be
 an asymptotic parameter, and retain the asymptotic notation and
 conventions of §<a href="20230522T150333__microlocal-localized-vectors.html#sec:d1a8dda545b5" data-reference-type="ref"
 data-reference="sec:d1a8dda545b5">2.1</a> of <a
 href="20230522T150333__microlocal-localized-vectors.html">this note</a>
 concerning “<span class="math inline">\(T\)</span>-dependent elements”,
-“fixed” and “classes”.</p>
-<h1 id="sec:d1a9162ed4bc">§2. The group <span
+“fixed” (equivalently, “<span
+class="math inline">\(T\)</span>-independent”) and “classes”. In
+particular, we recall that “class” means “collection of <span
+class="math inline">\(T\)</span>-dependent sets”. A typical example is
+the class <span class="math inline">\(\operatorname{O}(1)\)</span>
+inside <span class="math inline">\(\mathbb{C}\)</span>, consisting of
+all <span class="math inline">\(T\)</span>-dependent subsets <span
+class="math inline">\(S = S_T \subseteq \mathbb{C}\)</span> for which
+there is a fixed <span class="math inline">\(C \geq 0\)</span> so that
+for all <span class="math inline">\(T\)</span>, we have <span
+class="math inline">\(\lVert c_T \rVert \leq C\)</span> for all <span
+class="math inline">\(c_T \in S_T\)</span>.</p>
+<p>Let <span class="math inline">\(G\)</span> be a fixed real Lie group,
+and let <span class="math inline">\(\pi = \pi_T\)</span> be a <span
+class="math inline">\(T\)</span>-dependent unitary representation. We
+recall Theorem <a href="20230522T150333__microlocal-localized-vectors.html#theorem:d1a913c8091b" data-reference-type="ref"
+data-reference="theorem:d1a913c8091b">3.6</a> from <a
+href="20230522T150333__microlocal-localized-vectors.html">this
+note</a>:</p>
+<div id="theorem:d1a94d0ddd25" class="theorem">
+<p><strong>Theorem 1</strong>. <em>Let <span
+class="math inline">\(M\)</span> be a class of <span
+class="math inline">\(T\)</span>-dependent vectors <span
+class="math inline">\(v = v_T\)</span> in <span
+class="math inline">\(\pi = \pi_T\)</span> with the following
+properties:</em></p>
+<ol type="i">
+<li><p><em>For each <span class="math inline">\(v \in M\)</span>, we
+have <span class="math inline">\(\lVert v \rVert \leq
+T^{\operatorname{O}(1)}\)</span>.</em></p></li>
+<li><p><em>For all <span class="math inline">\(u, v \in M\)</span>, we
+have <span class="math inline">\(u + v \in M\)</span>.</em></p></li>
+<li><p><em>For all <span class="math inline">\(v \in M\)</span> and
+<span class="math inline">\(c \in \mathbb{C}\)</span> with <span
+class="math inline">\(c = \operatorname{O}(1)\)</span>, we have <span
+class="math inline">\(c v \in M\)</span>.</em></p></li>
+<li><p><em>For each fixed <span class="math inline">\(\varepsilon&gt;
+0\)</span>, fixed <span class="math inline">\(x \in
+\mathfrak{g}\)</span> and each <span class="math inline">\(v \in
+M\)</span>, we have <span id="eqn:d1a94c11ed29" class="math display">\[\label{eqn:d1a94c11ed29}\tag{2.1}
+      x v - \langle x, \tau  \rangle v \in T^{1/2+\varepsilon}
+M.\]</span> That is to say, the <span
+class="math inline">\(T\)</span>-dependent vector on the left hand side
+of <a href="20230522T150333__microlocal-localized-vectors.html#eqn:d1a913bcf6ce" data-reference-type="eqref"
+data-reference="eqn:d1a913bcf6ce">\((3.2)\)</a> may be written
+<span class="math inline">\(T^{1/2+\varepsilon} u\)</span>, where <span
+class="math inline">\(u\)</span> belongs to the class <span
+class="math inline">\(M\)</span>.</em></p></li>
+</ol>
+<p><em>Then each <span class="math inline">\(v \in M\)</span> is
+localized at <span class="math inline">\(\tau\)</span> in the sense of
+Definition <a href="20230522T150333__microlocal-localized-vectors.html#definition:d1a913bed772" data-reference-type="ref"
+data-reference="definition:d1a913bed772">3.3</a>
+of <a href="20230522T150333__microlocal-localized-vectors.html">this
+note</a>.</em></p>
+</div>
+<p>The purpose of the present note is to give some examples of classes
+<span class="math inline">\(M\)</span> satisfying the above conditions,
+hence, in particular, examples of localized vectors. In each case, the
+first three properties will clearly hold, so we do not mention them; the
+main point is to verify the approximate eigenvector property <a
+href="#eqn:d1a94c11ed29" data-reference-type="eqref"
+data-reference="eqn:d1a94c11ed29">\((2.1)\)</a> for elements
+<span class="math inline">\(x\)</span> of a fixed basis of <span
+class="math inline">\(\mathfrak{g}\)</span>.</p>
+<h1 id="sec:d1a9162ed4bc">§3. The group <span
 class="math inline">\(\mathop{\mathrm{SO}}(3)\)</span> via weight
 vectors</h1>
-<h2 id="sec:d1a9162ece67">§2.1. Lie algebra</h2>
+<h2 id="sec:d1a9162ece67">§3.1. Lie algebra</h2>
 <p>We consider the Lie group <span
 class="math inline">\(\mathop{\mathrm{SO}}(3)\)</span>. Its Lie algebra
 <span
@@ -240,9 +306,9 @@ where for any angle <span class="math inline">\(\theta\)</span>, the
 element <span class="math inline">\(\exp(\theta R_j)\)</span> defines
 rotation by <span class="math inline">\(\theta\)</span> about the <span
 class="math inline">\(j\)</span>th axis. These satisfy the commutation
-relations <span class="math display">\[= R_3, \quad [R_2,R_3] = R_1,
-\quad [R_3,R_1] = R_2.\]</span> The center of the universal enveloping
-algebra is generated by the Casimir element <span
+relations <span class="math display">\[~ [R_1,R_2] = R_3, \quad
+[R_2,R_3] = R_1, \quad [R_3,R_1] = R_2.\]</span> The center of the
+universal enveloping algebra is generated by the Casimir element <span
 class="math display">\[\Omega = -(R_1^2 + R_2^2 + R_3^2).\]</span></p>
 <p>Define the following elements <span
 class="math inline">\(X,Y\)</span> of the complexified Lie algebra <span
@@ -252,7 +318,7 @@ class="math inline">\(\mathop{\mathrm{\mathfrak{s}\mathfrak{o}}}(3)_{\mathbb{C}}
   Y := -R_1 + i R_2.\]</span> Then <span
 class="math inline">\(X,Y,R_3\)</span> is a basis for <span
 class="math inline">\(\mathop{\mathrm{\mathfrak{s}\mathfrak{o}}}(3)_{\mathbb{C}}\)</span>
-satisfying the commutation relations <span id="eqn:20230524102817" class="math display">\[\label{eqn:20230524102817}\tag{2.1} [X,Y] = 2 i R_3,
+satisfying the commutation relations <span id="eqn:20230524102817" class="math display">\[\label{eqn:20230524102817}\tag{3.1} [X,Y] = 2 i R_3,
   \quad
   [i R_3, X] = X,
   \quad
@@ -265,29 +331,27 @@ Y}{2},
   \frac{X Y + Y X}{2} - R_3^2.\]</span> By writing <span
 class="math inline">\(X Y = [X,Y] + Y X\)</span> and appealing to the
 formula <a href="#eqn:20230524102817" data-reference-type="eqref"
-data-reference="eqn:20230524102817">\((2.1)\)</a> for <span
-class="math inline">\([X,Y]\)</span>, we see that <span id="eqn:20230524102839" class="math display">\[\label{eqn:20230524102839}\tag{2.2}
-  \Omega = Y X +  i R_3(i R_3 + 1).\]</span> Similarly, <span id="eqn:20230524104145" class="math display">\[\label{eqn:20230524104145}\tag{2.3}
+data-reference="eqn:20230524102817">\((3.1)\)</a> for <span
+class="math inline">\([X,Y]\)</span>, we see that <span id="eqn:20230524102839" class="math display">\[\label{eqn:20230524102839}\tag{3.2}
+  \Omega = Y X +  i R_3(i R_3 + 1).\]</span> Similarly, <span id="eqn:20230524104145" class="math display">\[\label{eqn:20230524104145}\tag{3.3}
   \Omega = X Y  + i R_3 (i R_3 - 1).\]</span></p>
-<p>The imaginary dual of the Lie algebra identifieswith the space of
-triples of imaginary numbers: <span id="eqn:d1a914f48fd7" class="math display">\[\label{eqn:d1a914f48fd7}\tag{2.4}
+<p>The imaginary dual of the Lie algebra identifies with the space of
+triples of imaginary numbers: <span id="eqn:d1a914f48fd7" class="math display">\[\label{eqn:d1a914f48fd7}\tag{3.4}
 \mathop{\mathrm{\mathfrak{s}\mathfrak{o}}}(3)^\wedge \cong  i
 \mathbb{R}^3.\]</span> Here <span class="math inline">\(\xi \in i
 \mathbb{R}^3\)</span> corresponds to the linear map <span
 class="math inline">\(\mathop{\mathrm{\mathfrak{s}\mathfrak{o}}}(3)
 \rightarrow i \mathbb{R}\)</span> given on basis elements by <span
 class="math inline">\(R_j \mapsto \xi_j\)</span>.</p>
-<h2 id="sec:d1a9162ec67d">§2.2. Representations</h2>
+<h2 id="sec:d1a9162ec67d">§3.2. Representations</h2>
 <p>Let <span class="math inline">\(\pi\)</span> be a (complex)
 representation of <span
 class="math inline">\(\mathop{\mathrm{SO}}(3)\)</span>. It may be
 decomposed into eigenspaces for <span
 class="math inline">\(R_3\)</span>. Since <span
 class="math inline">\(\exp(2 \pi R_3) = 1\)</span>, the eigenvalues of
-<span class="math inline">\(i R_3\)</span> are of the form <span
-class="math inline">\(m\)</span> with <span class="math inline">\(m \in
-\mathbb{Z}\)</span>: <span class="math display">\[\pi = \oplus_{m \in
-\mathbb{Z}} \pi(m),
+<span class="math inline">\(i R_3\)</span> are integers: <span
+class="math display">\[\pi = \oplus_{m \in \mathbb{Z}} \pi(m),
   \quad
   \pi(m) := \{ v \in \pi : i R_3 v = m v \}.\]</span> The <span
 class="math inline">\(m\)</span> for which <span
@@ -296,29 +360,29 @@ class="math inline">\(\pi(m) \neq 0\)</span> are called the
 dimensions <span class="math inline">\(\dim \pi(m)\)</span> the
 corresponding <em>weight multiplicities</em>. From the commutation
 relations <a href="#eqn:20230524102817" data-reference-type="eqref"
-data-reference="eqn:20230524102817">\((2.1)\)</a>, we see
-that <span id="eqn:20230524104326" class="math display">\[\label{eqn:20230524104326}\tag{2.5}
+data-reference="eqn:20230524102817">\((3.1)\)</a>, we see
+that <span id="eqn:20230524104326" class="math display">\[\label{eqn:20230524104326}\tag{3.5}
   X : \pi(m) \rightarrow \pi(m+1),
   \quad
   Y : \pi(m) \rightarrow \pi(m-1).\]</span></p>
 <div id="proposition:d1a913c915d4" class="proposition">
-<p><strong>Proposition 1</strong>. <em>Let <span
+<p><strong>Proposition 2</strong>. <em>Let <span
 class="math inline">\(\pi\)</span> be an irreducible unitary
 representation of <span
 class="math inline">\(\mathop{\mathrm{SO}}(3)\)</span>. Then <span
 class="math inline">\(\Omega\)</span> acts on <span
-class="math inline">\(\pi\)</span> by a scalar of the form <span id="eqn:d1a9136775d2" class="math display">\[\label{eqn:d1a9136775d2}\tag{2.6}
+class="math inline">\(\pi\)</span> by a scalar of the form <span id="eqn:d1a9136775d2" class="math display">\[\label{eqn:d1a9136775d2}\tag{3.6}
     \Omega_\pi = \ell (\ell + 1)\]</span> for some nonnegative integer
 <span class="math inline">\(\ell\)</span>. This scalar determines the
 isomorphism class of <span class="math inline">\(\pi\)</span>. In fact,
 there is a basis <span class="math display">\[e_{- \ell}, \qquad e_{-
 \ell + 1}, \qquad \dotsc, \qquad e_{\ell }\]</span> for <span
 class="math inline">\(\pi\)</span> on which the Lie algebra acts by the
-formulas <span id="eqn:d1a913647caa" class="math display">\[\label{eqn:d1a913647caa}\tag{2.7}
+formulas <span id="eqn:d1a913647caa" class="math display">\[\label{eqn:d1a913647caa}\tag{3.7}
     X e_m = \left( \Omega_\pi  - m (m + 1) \right)^{1/2} e_{m +
-1}\]</span> <span id="eqn:d1a9136592ce" class="math display">\[\label{eqn:d1a9136592ce}\tag{2.8}
+1}\]</span> <span id="eqn:d1a9136592ce" class="math display">\[\label{eqn:d1a9136592ce}\tag{3.8}
     Y e_{m+1} = \left( \Omega_\pi - m (m + 1) \right)^{1/2}
-e_{m},\]</span> <span id="eqn:d1a91367ba12" class="math display">\[\label{eqn:d1a91367ba12}\tag{2.9}
+e_{m},\]</span> <span id="eqn:d1a91367ba12" class="math display">\[\label{eqn:d1a91367ba12}\tag{3.9}
     i R_3 e_m = m e_m.\]</span> If <span
 class="math inline">\(\pi\)</span> is unitary, then this basis is
 orthonormal.</em></p>
@@ -334,8 +398,8 @@ For any <span class="math inline">\(v \in \pi(\ell)\)</span>, we have
 <span class="math inline">\(X v \in \pi(\ell+1) = \{0\}\)</span>, hence
 <span class="math inline">\(X v = 0\)</span>. By <a
 href="#eqn:20230524102839" data-reference-type="eqref"
-data-reference="eqn:20230524102839">\((2.2)\)</a>, it follows
-that <span id="eqn:20230524102429" class="math display">\[\label{eqn:20230524102429}\tag{2.10}
+data-reference="eqn:20230524102839">\((3.2)\)</a>, it follows
+that <span id="eqn:20230524102429" class="math display">\[\label{eqn:20230524102429}\tag{3.10}
     0 = Y X v = \Omega v - \ell (\ell + 1) v.\]</span> Since <span
 class="math inline">\(\pi\)</span> is irreducible and <span
 class="math inline">\(\Omega\)</span> commutes with the action of <span
@@ -345,60 +409,58 @@ Schur’s lemma that <span class="math inline">\(\Omega\)</span> acts on
 class="math inline">\(v\)</span> to be a nonzero element of <span
 class="math inline">\(\pi(\ell)\)</span>, we see from <a
 href="#eqn:20230524102429" data-reference-type="eqref"
-data-reference="eqn:20230524102429">\((2.10)\)</a> shows that
+data-reference="eqn:20230524102429">\((3.10)\)</a> shows that
 this scalar must be given by <a href="#eqn:d1a9136775d2"
 data-reference-type="eqref"
-data-reference="eqn:d1a9136775d2">\((2.6)\)</a>. We now choose
+data-reference="eqn:d1a9136775d2">\((3.6)\)</a>. We now choose
 a nonzero vector <span class="math inline">\(e_{\ell} \in
-V(\ell)\)</span> and inductively define <span
-class="math inline">\(e_m\)</span> for integers <span
-class="math inline">\(m\)</span> with <span class="math inline">\(- \ell
-\leq m &lt; \ell\)</span> by requiring that <a href="#eqn:d1a9136592ce"
-data-reference-type="eqref"
-data-reference="eqn:d1a9136592ce">\((2.8)\)</a> hold, noting
+V(\ell)\)</span> and define <span class="math inline">\(e_m\)</span> by
+recursive induction for integers <span class="math inline">\(m\)</span>
+with <span class="math inline">\(- \ell \leq m &lt; \ell\)</span> by
+requiring that <a href="#eqn:d1a9136592ce" data-reference-type="eqref"
+data-reference="eqn:d1a9136592ce">\((3.8)\)</a> hold, noting
 that the square root is positive in the stated range. Using <a
 href="#eqn:20230524104145" data-reference-type="eqref"
-data-reference="eqn:20230524104145">\((2.3)\)</a>, we see
+data-reference="eqn:20230524104145">\((3.3)\)</a>, we see
 that <span class="math inline">\(Y e_{- \ell} = 0\)</span>. By the
 mapping property <a href="#eqn:20230524104326"
 data-reference-type="eqref"
-data-reference="eqn:20230524104326">\((2.5)\)</a>, we have
+data-reference="eqn:20230524104326">\((3.5)\)</a>, we have
 <span class="math inline">\(e_m \in \pi(m)\)</span>, hence <a
 href="#eqn:d1a91367ba12" data-reference-type="eqref"
-data-reference="eqn:d1a91367ba12">\((2.9)\)</a> holds. By the
+data-reference="eqn:d1a91367ba12">\((3.9)\)</a> holds. By the
 formula <a href="#eqn:20230524104145" data-reference-type="eqref"
-data-reference="eqn:20230524104145">\((2.3)\)</a> for <span
-class="math inline">\(\Omega\)</span>, we have <span
-class="math display">\[X Y e_{m + 1} = \Omega e_{m+1} - m(m+1) e_{m+1}
+data-reference="eqn:20230524104145">\((3.3)\)</a> for <span
+class="math inline">\(\Omega\)</span>, we have <span id="eqn:d1a94c62c57d" class="math display">\[\label{eqn:d1a94c62c57d}\tag{3.11}
+    X Y e_{m + 1} = \Omega e_{m+1} - m(m+1) e_{m+1}
     =
-    (\ell (\ell + 1) - m (m + 1)) e_{m+1},\]</span> and so <a
+    (\Omega - m (m + 1)) e_{m+1},\]</span> and so <a
 href="#eqn:d1a913647caa" data-reference-type="eqref"
-data-reference="eqn:d1a913647caa">\((2.7)\)</a> holds. From the
-formulas established thus far, we see that <span
-class="math inline">\(\{e_{- \ell}, e_{- \ell + 1}, \dotsc, e_{\ell
-}\}\)</span> spans an invariant subspace of <span
+data-reference="eqn:d1a913647caa">\((3.7)\)</a> holds. From the
+formulas established thus far, we see that the <span
+class="math inline">\(e_m\)</span> (<span class="math inline">\(- \ell
+\leq m \leq \ell\)</span>) span an invariant subspace of <span
 class="math inline">\(\pi\)</span>, which by the irreducibility
 hypothesis must be <span class="math inline">\(\pi\)</span> itself.</p>
-<p>We have established all assertions except that the basis is may be
-taken orthonormal when <span class="math inline">\(\pi\)</span> is
-unitary. We may assume that <span
-class="math inline">\(e_{\ell}\)</span> was normalized to be a unit
-vector. We will verify by reverse inductive on <span
-class="math inline">\(m\)</span> with <span class="math inline">\(- \ell
-\leq m &lt; \ell\)</span> that <span class="math inline">\(e_m\)</span>
-is then likewise a unit vector. To that end, observe first by <a
-href="#eqn:d1a9136592ce" data-reference-type="eqref"
-data-reference="eqn:d1a9136592ce">\((2.8)\)</a> that <span
+<p>We have established all assertions except that the basis may be taken
+orthonormal when <span class="math inline">\(\pi\)</span> is unitary. We
+may assume that <span class="math inline">\(e_{\ell}\)</span> was
+normalized to be a unit vector, and will verify then by reverse
+inductive on <span class="math inline">\(m &lt; \ell\)</span> that <span
+class="math inline">\(e_m\)</span> is then likewise a unit vector. To
+that end, observe first by <a href="#eqn:d1a9136592ce"
+data-reference-type="eqref"
+data-reference="eqn:d1a9136592ce">\((3.8)\)</a> that <span
 class="math display">\[(\Omega_\pi - m(m+1))
     \lVert e_{m} \rVert^2
-    = \left\langle Y e_{m + 1}, Y e_{m+1} \right\rangle.\]</span> We now
+    = \left\langle Y e_{m + 1}, Y e_{m+1} \right\rangle,\]</span> then
 use that the adjoint of <span class="math inline">\(Y\)</span> is <span
 class="math inline">\(- \bar{Y} = X\)</span> to see that <span
 class="math display">\[\left\langle Y e_{m + 1}, Y e_{m+1} \right\rangle
     =
     \left\langle X Y e_{m + 1}, e_{m+1} \right\rangle.\]</span> By <a
-href="#eqn:d1a913725343" data-reference-type="eqref"
-data-reference="eqn:d1a913725343">\(()\)</a>, we deduce that
+href="#eqn:d1a94c62c57d" data-reference-type="eqref"
+data-reference="eqn:d1a94c62c57d">\((3.11)\)</a>, we deduce that
 <span class="math inline">\(e_m\)</span> and <span
 class="math inline">\(e_{m + 1}\)</span> have the same norm, so the
 induction follows as claimed. ◻</p>
@@ -406,15 +468,16 @@ induction follows as claimed. ◻</p>
 <p>The integer <span class="math inline">\(\ell\)</span> as in the
 conclusion of Proposition <a href="#proposition:d1a913c915d4"
 data-reference-type="ref"
-data-reference="proposition:d1a913c915d4">1</a> is called the
+data-reference="proposition:d1a913c915d4">2</a> is called the
 <em>highest weight</em> of <span class="math inline">\(\pi\)</span>. The
-coadjoint orbit for <span class="math inline">\(\pi\)</span> is given in
-the optic <a href="#eqn:d1a914f48fd7" data-reference-type="eqref"
-data-reference="eqn:d1a914f48fd7">\((2.4)\)</a> by the sphere
+coadjoint orbit for <span class="math inline">\(\pi\)</span> turns out
+to be given in the optic <a href="#eqn:d1a914f48fd7"
+data-reference-type="eqref"
+data-reference="eqn:d1a914f48fd7">\((3.4)\)</a> by the sphere
 of radius <span class="math inline">\(\ell + 1/2\)</span>: <span
 class="math display">\[\mathcal{O}_\pi = \left\{ (a,b,c) : a^2 + b^2 +
 c^2 = (T + \tfrac{1}{2} )^2 \right\}.\]</span></p>
-<h2 id="sec:d1a9162ebd8a">§2.3. Localized vectors</h2>
+<h2 id="sec:d1a9162ebd8a">§3.3. Localized vectors</h2>
 <p>In the following exercises, we assume that the asymptotic parameter
 <span class="math inline">\(T \rightarrow \infty\)</span> is a
 nonnegative integer, and let <span class="math inline">\(\pi\)</span>
@@ -426,78 +489,92 @@ class="math inline">\(T\)</span>.</p>
 class="math inline">\(M\)</span> denote the class of <span
 class="math inline">\(T\)</span>-dependent vectors <span
 class="math inline">\(v\)</span> in <span
-class="math inline">\(\pi\)</span> of the form <span id="eqn:d1a913e68561" class="math display">\[\label{eqn:d1a913e68561}\tag{2.11}
-    v = \sum_{m=-T}^T a_m e_m,\]</span> where the coefficients <span
-class="math inline">\(a_m\)</span> have the following properties:</p>
+class="math inline">\(\pi\)</span> given in terms of a basis as in
+Proposition <a href="#proposition:d1a913c915d4"
+data-reference-type="ref"
+data-reference="proposition:d1a913c915d4">2</a> by <span
+class="math inline">\(v = \sum_m a_m e_m\)</span>, where the
+coefficients have the following properties:</p>
 <ol>
 <li><p><span class="math inline">\(a_m = 0\)</span> unless <span
 class="math inline">\(m = T + \operatorname{O}(1)\)</span>.</p></li>
 <li><p>Each <span class="math inline">\(a_m =
 \operatorname{O}(1)\)</span>.</p></li>
 </ol>
-<p>Clearly, the following conditions hold:</p>
-<ul>
-<li><p>For each <span class="math inline">\(v \in M\)</span>, we have
-<span class="math inline">\(\lVert v \rVert \leq
-T^{\operatorname{O}(1)}\)</span>.</p></li>
-<li><p>For all <span class="math inline">\(u, v \in M\)</span>, we have
-<span class="math inline">\(u + v \in M\)</span>.</p></li>
-<li><p>For all <span class="math inline">\(v \in M\)</span> and <span
-class="math inline">\(c \in \mathbb{C}\)</span> with <span
-class="math inline">\(c = \operatorname{O}(1)\)</span>, we have <span
-class="math inline">\(c v \in M\)</span>.</p></li>
-</ul>
-<p>Verify the following approximate eigenvector property for the action
-of the <span class="math inline">\(\mathfrak{g}\)</span> on <span
-class="math inline">\(M\)</span>: for all <span class="math inline">\(v
-\in M\)</span>, we have <span class="math display">\[X v \in T^{1/2}
-M,\]</span> <span class="math display">\[Y v \in T^{1/2} M,\]</span>
-<span class="math display">\[i R_3 v - i T v \in T^{1/2} M.\]</span>
-Deduce from Theorem <a href="20230522T150333__microlocal-localized-vectors.html#theorem:d1a913c8091b"
-data-reference-type="ref"
-data-reference="theorem:d1a913c8091b">3.6</a> of <a
-href="20230522T150333__microlocal-localized-vectors.html">this note</a>
-that every element of <span class="math inline">\(M\)</span> is
-localized at the <span class="math inline">\(T\)</span>-dependent
-element <span class="math inline">\(\tau \in
-\mathfrak{g}^\wedge\)</span> given in the optic <a
-href="#eqn:d1a914f48fd7" data-reference-type="eqref"
-data-reference="eqn:d1a914f48fd7">\((2.4)\)</a> by <span
+<p>Verify that for all <span class="math inline">\(v \in M\)</span>, we
+have <span class="math display">\[X v \in T^{1/2} M,\]</span> <span
+class="math display">\[Y v \in T^{1/2} M,\]</span> <span
+class="math display">\[i R_3 v - i T v \in T^{1/2} M.\]</span> Deduce
+from Theorem <a href="#theorem:d1a94d0ddd25" data-reference-type="ref"
+data-reference="theorem:d1a94d0ddd25">1</a> that every element of <span
+class="math inline">\(M\)</span> is localized at the <span
+class="math inline">\(T\)</span>-dependent element <span
+class="math inline">\(\tau \in \mathfrak{g}^\wedge\)</span> given in the
+optic <a href="#eqn:d1a914f48fd7" data-reference-type="eqref"
+data-reference="eqn:d1a914f48fd7">\((3.4)\)</a> by <span
 class="math display">\[\tau = (0,0,i T).\]</span></p>
 </div>
-<div class="exercise">
-<p><strong>Exercise 2</strong>. Modify Exercise <a
-href="#exercise:d1a913e1e9ec" data-reference-type="ref"
-data-reference="exercise:d1a913e1e9ec">1</a> as follows. Change the
-conditions on the coefficients to the following:</p>
+<div id="enumerate:d1a94b71ab0c" class="exercise">
+<p><strong>Exercise 2</strong>. <span id="exercise:d1a94c55524c"
+label="exercise:d1a94c55524c"></span> Let <span
+class="math inline">\(M\)</span> be the class of <span
+class="math inline">\(T\)</span>-dependent vectors in <span
+class="math inline">\(\pi\)</span> of the form <span
+class="math inline">\(\sum a_m e_m\)</span>, where the coefficients have
+the following properties:</p>
 <ol>
 <li><p><span class="math inline">\(a_m = 0\)</span> unless <span
-class="math inline">\(m = T +
-\operatorname{O}(T^{1/2})\)</span>.</p></li>
-<li><p><span class="math inline">\(\sum_m \lvert a_m \rvert^2 =
+class="math inline">\(m = \operatorname{O}(T^{1/2})\)</span>.</p></li>
+<li><p><span id="enumerate:d1a94c582b38"
+label="enumerate:d1a94c582b38"></span> <span
+class="math inline">\(\sum_m \lvert a_m \rvert^2 =
 \operatorname{O}(1)\)</span>.</p></li>
+<li><p><span id="enumerate:d1a94c589c87"
+label="enumerate:d1a94c589c87"></span> The function of <span
+class="math inline">\(\theta \in \mathbb{R} / \mathbb{Z}\)</span>
+defined by <span class="math display">\[a(\theta) := \sum_n a(n) e (n
+\theta), \qquad
+      e(\theta) := e^{2 \pi i \theta }\]</span> is an <span
+class="math inline">\(L^2\)</span>-normalized bump of width <span
+class="math inline">\(T^{-1/2}\)</span>, in the following sense: for
+fixed <span class="math inline">\(k , \ell \in \mathbb{Z}_{\geq
+0}\)</span>,</p>
+<p><span class="math display">\[a^{(\ell)}(\theta) \ll
+       T^{1/4 + \ell/2} \left( 1+ \frac{\lVert \theta  \rVert}{T^{1/2}}
+\right)^{-k},\]</span> where <span
+class="math inline">\(a^{(\ell)}\)</span> denotes the <span
+class="math inline">\(\ell\)</span>th derivative and <span
+class="math inline">\(\lVert \theta \rVert\)</span> the distance to the
+nearest integer.</p></li>
 </ol>
-<p>Verify then that for all <span class="math inline">\(v \in
-M\)</span>, <span class="math display">\[X v - T v \in T^{1/2}
-M,\]</span> <span class="math display">\[Y v - T v \in T^{1/2}
-M,\]</span> <span class="math display">\[R_3 v \in T^{1/2} M.\]</span>
-Deduce that every element of <span class="math inline">\(M\)</span> is
+<ol type="i">
+<li><p>Show that if <span class="math inline">\(f \in
+C_c^\infty(\mathbb{R})\)</span> is fixed, then the <span
+class="math inline">\(T\)</span>-dependent vector <span
+class="math inline">\(\sum_m a_m e_m\)</span> with coefficients <span
+class="math display">\[a_n := T^{-1/4} f\left( \frac{n}{T^{1/2}}
+\right)\]</span> belongs to <span
+class="math inline">\(M\)</span>.</p></li>
+<li><p>Show that for all <span class="math inline">\(v \in M\)</span>,
+<span class="math display">\[X v - T v \in T^{1/2} M,\]</span> <span
+class="math display">\[Y v - T v \in T^{1/2} M,\]</span> <span
+class="math display">\[R_3 v \in T^{1/2} M.\]</span></p></li>
+</ol>
+<p>Deduce that every element of <span class="math inline">\(M\)</span>,
+and in particular, the element defined in <a
+href="#enumerate:d1a94b71ab0c" data-reference-type="eqref"
+data-reference="enumerate:d1a94b71ab0c">\((i)\)</a>, is
 localized at the <span class="math inline">\(T\)</span>-dependent
 element <span class="math inline">\(\tau \in \mathfrak{g}^*\)</span>
 given in the optic <a href="#eqn:d1a914f48fd7"
 data-reference-type="eqref"
-data-reference="eqn:d1a914f48fd7">\((2.4)\)</a> by <span id="sec:d1a9162eb3c7" class="math display">\[\tau = (0,-iT,0).\]</span></p>
+data-reference="eqn:d1a914f48fd7">\((3.4)\)</a> by <span
+class="math display">\[\tau = (0,-iT,0).\]</span></p>
 </div>
-<p>Observe that in either case, <span
-class="math inline">\(\tau\)</span> lies quite close to the coadjoint
-orbit of <span class="math inline">\(\pi\)</span> (i.e., the sphere of
-radius <span class="math inline">\(T + \tfrac{1}{2}\)</span>).</p>
-<h1
-id="the-group-mathopmathrmpgl_2mathbbrlabelsecd1a9162eb3c7-via-weight-vectors">The
-group <span
-class="math inline">\({\mathop{\mathrm{PGL}}}_2(\mathbb{R}\label{sec:d1a9162eb3c7}\tag{3})\)</span>
-via weight vectors</h1>
-<h2 id="sec:d1a915ba8ec6">§3.1. Preliminaries</h2>
+<h1 id="sec:d1a9162eb3c7">§4. The group <span
+class="math inline">\({\mathop{\mathrm{PGL}}}_2(\mathbb{R})\)</span> via
+weight vectors</h1>
+<h2 id="sec:d1a915ba8ec6">§4.1. Preliminaries</h2>
 <p>We now turn to the group <span
 class="math inline">\({\mathop{\mathrm{PGL}}}_2(\mathbb{R})\)</span>. We
 will use the following notation for a basis of its complexified Lie
@@ -522,7 +599,8 @@ class="math inline">\(G\)</span>, namely the image of <span
 class="math inline">\(\mathop{\mathrm{SO}}(2)\)</span>, is then <span
 class="math display">\[K = \left\{ \exp(\theta H) : \theta \in
 \mathbb{R} / 2 \pi \mathbb{Z}  \right\}.\]</span> The commutation
-relations are <span class="math display">\[= - 2 H,  \quad
+relations are <span class="math display">\[~
+  [X,Y] = - 2 H,  \quad
   [H,X] = X,
   \quad
   [H,Y] = -Y.\]</span> The center of the universal enveloping algebra is
@@ -530,7 +608,7 @@ generated by the Casimir element <span class="math display">\[\Omega :=
 H^2 - \frac{X Y + Y X}{2} = H(H-1) - X Y = H(H+1) - Y X.\]</span> The
 imaginary dual of the Lie algebra identifies with the space of imaginary
 traceless <span class="math inline">\(2 \times 2\)</span> matrices:
-<span id="eqn:d1a9150ab652" class="math display">\[\label{eqn:d1a9150ab652}\tag{3.1}
+<span id="eqn:d1a9150ab652" class="math display">\[\label{eqn:d1a9150ab652}\tag{4.1}
 {\mathop{\mathrm{\mathfrak{s}\mathfrak{l}}}}_2(\mathbb{R})^\wedge \cong i
 {\mathop{\mathrm{\mathfrak{s}\mathfrak{l}}}}_2(\mathbb{R}).\]</span> Here
 <span class="math inline">\(\xi \in i
@@ -539,9 +617,9 @@ corresponds to the linear map <span
 class="math inline">\({\mathop{\mathrm{\mathfrak{s}\mathfrak{l}}}}_2(\mathbb{R})
 \rightarrow i \mathbb{R}\)</span> given by <span class="math inline">\(x
 \mapsto \mathop{\mathrm{trace}}(x \xi)\)</span>.</p>
-<h2 id="sec:d1a915c57e2f">§3.2. Representations</h2>
+<h2 id="sec:d1a915c57e2f">§4.2. Representations</h2>
 <div class="proposition">
-<p><strong>Proposition 2</strong>. <em>Let <span
+<p><strong>Proposition 3</strong>. <em>Let <span
 class="math inline">\(\pi\)</span> be an irreducible unitary
 representation of <span
 class="math inline">\(\mathop{\mathrm{SO}}(3)\)</span>. Then <span
@@ -592,7 +670,7 @@ with <span class="math inline">\(\varepsilon= 1\)</span>.</em></p>
 <div class="proof">
 <p><em>Proof.</em> Similar to that of Proposition <a
 href="#proposition:d1a913c915d4" data-reference-type="ref"
-data-reference="proposition:d1a913c915d4">1</a>. ◻</p>
+data-reference="proposition:d1a913c915d4">2</a>. ◻</p>
 </div>
 <p>The tempered irreducible representations are the <span
 class="math inline">\(\pi(k)\)</span> and the <span
@@ -601,13 +679,13 @@ class="math inline">\(t \in \mathbb{R}\)</span>. For either of these,
 the coadjoint orbit <span class="math inline">\(\mathcal{O}_\pi\)</span>
 is given in the optic <a href="#eqn:d1a9150ab652"
 data-reference-type="eqref"
-data-reference="eqn:d1a9150ab652">\((3.1)\)</a> by <span id="eqn:d1a91628a316" class="math display">\[\label{eqn:d1a91628a316}\tag{3.2}
+data-reference="eqn:d1a9150ab652">\((4.1)\)</a> by <span id="eqn:d1a91628a316" class="math display">\[\label{eqn:d1a91628a316}\tag{4.2}
   \mathcal{O}_\pi = \left\{ 0 \neq \xi \in i
 {\mathop{\mathrm{\mathfrak{s}\mathfrak{l}}}}_2(\mathbb{R}) :
     \det(\xi/i) =   
 \tfrac{1}{4} + \Omega_\pi     
   \right\}.\]</span></p>
-<h2 id="sec:d1a9162ea6e6">§3.3. Localized vectors</h2>
+<h2 id="sec:d1a9162ea6e6">§4.3. Localized vectors</h2>
 <div class="exercise">
 <p><strong>Exercise 3</strong>. Let <span
 class="math inline">\(\pi\)</span> be the <span
@@ -634,7 +712,7 @@ every element of <span class="math inline">\(M\)</span> is localized at
 the <span class="math inline">\(T\)</span>-dependent element <span
 class="math inline">\(\tau \in \mathfrak{g}^*\)</span> given in the
 optic <a href="#eqn:d1a9150ab652" data-reference-type="eqref"
-data-reference="eqn:d1a9150ab652">\((3.1)\)</a> by <span
+data-reference="eqn:d1a9150ab652">\((4.1)\)</a> by <span
 class="math display">\[\tau =
   i T \begin{pmatrix}
 0 &amp; 1 \\
@@ -646,7 +724,7 @@ class="math display">\[\tau =
 class="math inline">\(\pi\)</span> be the <span
 class="math inline">\(T\)</span>-dependent representation of <span
 class="math inline">\({\mathop{\mathrm{PGL}}}_2(\mathbb{R})\)</span> given
-by tempered principal series representation <span
+by the tempered principal series representation <span
 class="math inline">\(\pi_T = \pi(t,\varepsilon)\)</span>, where <span
 class="math display">\[t = t_T := T\]</span> while <span
 class="math inline">\(\varepsilon\in \{\pm 1\}\)</span> is fixed. Let
@@ -654,15 +732,11 @@ class="math inline">\(\varepsilon\in \{\pm 1\}\)</span> is fixed. Let
 class="math inline">\(T\)</span>-dependent vectors <span
 class="math inline">\(v\)</span> in <span
 class="math inline">\(\pi\)</span> of the form <span
-class="math inline">\(v = \sum_m a_m e_m\)</span>, where</p>
-<ul>
-<li><p><span class="math inline">\(a_m = 0\)</span> unless <span
-class="math inline">\(m = \operatorname{O}(T^{1/2})\)</span>,
-and</p></li>
-<li><p><span class="math inline">\(\sum_m \lvert a_m \rvert^2 =
-\operatorname{O}(1)\)</span>.</p></li>
-</ul>
-<p>Verify that for all <span class="math inline">\(v \in M\)</span>, we
+class="math inline">\(v = \sum_m a_m e_m\)</span>, where the
+coefficients satisfy the same conditions as enunciated in Exercise <a
+href="#exercise:d1a94c55524c" data-reference-type="ref"
+data-reference="exercise:d1a94c55524c">2</a>.
+Verify that for all <span class="math inline">\(v \in M\)</span>, we
 have <span class="math display">\[X v - T v \in T^{1/2} M,\]</span>
 <span class="math display">\[Y v - T v \in T^{1/2}  M,\]</span> <span
 class="math display">\[H v \in T^{1/2} M.\]</span> Deduce that every
@@ -683,34 +757,34 @@ class="math inline">\(M\)</span> denote the class of <span
 class="math inline">\(T\)</span>-dependent vectors <span
 class="math inline">\(v\)</span> in <span
 class="math inline">\(\pi\)</span> of the form <span
-class="math inline">\(v = \sum_m a_m e_m\)</span>, where</p>
-<ul>
-<li><p><span class="math inline">\(a_m = 0\)</span> unless <span
-class="math inline">\(m = T + \operatorname{O}(T^{1/2})\)</span>,
-and</p></li>
-<li><p><span class="math inline">\(\sum_m \lvert a_m  \rvert^2 =
-\operatorname{O}(1)\)</span>.</p></li>
-</ul>
-<p>Verify that for all <span class="math inline">\(v \in M\)</span>, we
+class="math inline">\(v = \sum_m a_m e_m\)</span>, where the
+coefficients satisfy the support condition <span
+class="math display">\[a_m \neq 0 \implies m = T+
+\operatorname{O}(T^{1/2})\]</span> as well as the <span
+class="math inline">\(L^2\)</span>-normalization condition <a
+href="#enumerate:d1a94c582b38" data-reference-type="eqref"
+data-reference="enumerate:d1a94c582b38">\((2)\)</a> and
+the Fourier series condition <a href="#enumerate:d1a94c589c87"
+data-reference-type="eqref"
+data-reference="enumerate:d1a94c589c87">\((3)\)</a>
+enunciated in Exercise <a href="#exercise:d1a94c55524c"
+data-reference-type="ref"
+data-reference="exercise:d1a94c55524c">2</a>.
+Verify that for all <span class="math inline">\(v \in M\)</span>, we
 have <span class="math display">\[X v - T v \in T^{1/2} M,\]</span>
 <span class="math display">\[Y v - T v \in T^{1/2} M,\]</span> <span
 class="math display">\[H v - T v \in T^{1/2} M.\]</span> Deduce that
 every element of <span class="math inline">\(M\)</span> is localized at
-<span id="sec:d1a9162e9d89" class="math display">\[\tau =  i T
+<span class="math display">\[\tau =  i T
 \begin{pmatrix}
   1 &amp; -1 \\
   1 &amp; -1 \\
 \end{pmatrix}.\]</span></p>
 </div>
-<p>Note that in each of these examples, <span
-class="math inline">\(\tau\)</span> lies quite close to <span
-class="math inline">\(\mathcal{O}_\pi\)</span>.</p>
-<h1
-id="the-group-mathopmathrmpgl_2mathbbrlabelsecd1a9162e9d89-via-the-kirillov-model">The
-group <span
-class="math inline">\({\mathop{\mathrm{PGL}}}_2(\mathbb{R}\label{sec:d1a9162e9d89}\tag{4})\)</span>
-via the Kirillov model</h1>
-<h2 id="sec:d1a9162e9385">§4.1. Preliminaries</h2>
+<h1 id="sec:d1a9162e9d89">§5. The group <span
+class="math inline">\({\mathop{\mathrm{PGL}}}_2(\mathbb{R})\)</span> via
+the Kirillov model</h1>
+<h2 id="sec:d1a9162e9385">§5.1. Preliminaries</h2>
 <p>Set <span class="math inline">\(G :=
 {\mathop{\mathrm{PGL}}}_2(\mathbb{R})\)</span>. We will work with the
 subgroups <span class="math display">\[N := \left\{ n(x) :=
@@ -759,7 +833,7 @@ realization of <span class="math inline">\(\pi\)</span> as a space of
 functions on <span class="math inline">\(\mathbb{R}^\times\)</span>,
 called the <em>Kirillov model</em>. When <span
 class="math inline">\(\pi\)</span> is unitary, an invariant inner
-product may be given in the Kirillov model by <span id="eqn:d1a915c9af68" class="math display">\[\label{eqn:d1a915c9af68}\tag{4.1}
+product may be given in the Kirillov model by <span id="eqn:d1a915c9af68" class="math display">\[\label{eqn:d1a915c9af68}\tag{5.1}
   \lVert W \rVert^2 := \int_{y \in \mathbb{R}^\times } W(y) \, d^\times
 y, \quad
   d^\times y := \frac{d y}{\lvert y \rvert}.\]</span> Standard
@@ -768,17 +842,17 @@ data-cites="MR748505">(Bernstein 1984, sec. 6)</a>, <a href="#ref-MR1999922"
 class="citation" data-cites="MR1999922">(Baruch 2003, sec. 10.2)</a>,
 <a href="#ref-MR2733072" class="citation" data-cites="MR2733072">(Jacquet 2010)</a>.</p>
 <p>The action of <span class="math inline">\(B\)</span> on the Kirillov
-model is completely explicit: we have <span id="eqn:d1a915ae9c3b" class="math display">\[\label{eqn:d1a915ae9c3b}\tag{4.2}
-n(x) W(y) = \psi(y x) W(y),\]</span> <span id="eqn:d1a915b0643b" class="math display">\[\label{eqn:d1a915b0643b}\tag{4.3}
+model is completely explicit: we have <span id="eqn:d1a915ae9c3b" class="math display">\[\label{eqn:d1a915ae9c3b}\tag{5.2}
+n(x) W(y) = \psi(y x) W(y),\]</span> <span id="eqn:d1a915b0643b" class="math display">\[\label{eqn:d1a915b0643b}\tag{5.3}
 a(u) W(y) = W(y u).\]</span> Indeed <a href="#eqn:d1a915ae9c3b"
 data-reference-type="eqref"
-data-reference="eqn:d1a915ae9c3b">\((4.2)\)</a> follows from
+data-reference="eqn:d1a915ae9c3b">\((5.2)\)</a> follows from
 the commutation property <span class="math inline">\(a(y) n(x) = n(y x)
 a(y)\)</span> and the left <span
 class="math inline">\(N\)</span>-equivariance of <span
 class="math inline">\(W\)</span>, while <a href="#eqn:d1a915b0643b"
 data-reference-type="eqref"
-data-reference="eqn:d1a915b0643b">\((4.3)\)</a> is obvious.</p>
+data-reference="eqn:d1a915b0643b">\((5.3)\)</a> is obvious.</p>
 <p>The infinitesimal generators of <span
 class="math inline">\(N\)</span> and <span
 class="math inline">\(A\)</span> are the matrices <span
@@ -795,26 +869,26 @@ h :=
 0 &amp; -1 \\
 \end{pmatrix}.\]</span> These act on <span
 class="math inline">\(\pi\)</span> by differential operators. The
-formulas for their action is simplest when <span id="eqn:d1a915c27da9" class="math display">\[\label{eqn:d1a915c27da9}\tag{4.4}
+formulas for their action is simplest when <span id="eqn:d1a915c27da9" class="math display">\[\label{eqn:d1a915c27da9}\tag{5.4}
 \psi(x) := e^{i x},\]</span> so let’s specialize to that case. By
 differentiating <a href="#eqn:d1a915ae9c3b" data-reference-type="eqref"
-data-reference="eqn:d1a915ae9c3b">\((4.2)\)</a> and <a
+data-reference="eqn:d1a915ae9c3b">\((5.2)\)</a> and <a
 href="#eqn:d1a915b0643b" data-reference-type="eqref"
-data-reference="eqn:d1a915b0643b">\((4.3)\)</a>, we see that
-<span id="eqn:d1a915a9f0b7" class="math display">\[\label{eqn:d1a915a9f0b7}\tag{4.5}
-  e W(y) = i y W(y),\]</span> <span id="eqn:d1a915aa06ba" class="math display">\[\label{eqn:d1a915aa06ba}\tag{4.6}
+data-reference="eqn:d1a915b0643b">\((5.3)\)</a>, we see that
+<span id="eqn:d1a915a9f0b7" class="math display">\[\label{eqn:d1a915a9f0b7}\tag{5.5}
+  e W(y) = i y W(y),\]</span> <span id="eqn:d1a915aa06ba" class="math display">\[\label{eqn:d1a915aa06ba}\tag{5.6}
 h W (y) = y \partial_y W(y).\]</span> The other standard Lie algebra
 basis element is <span class="math display">\[f :=
 \begin{pmatrix}
 0 &amp; 0 \\
 1 &amp; 0 \\
 \end{pmatrix}.\]</span> These elements satisfy <span
-class="math display">\[= 2 h, \quad
+class="math display">\[~ [e,f] = 2 h, \quad
   [h, e] = e, \quad
   [h,f] = - f.\]</span> The Casimir element <span
 class="math inline">\(\Omega\)</span> is given (with the same
 normalization as in §<a href="#sec:d1a915ba8ec6"
-data-reference-type="ref" data-reference="sec:d1a915ba8ec6">3.1</a>) by
+data-reference-type="ref" data-reference="sec:d1a915ba8ec6">4.1</a>) by
 <span class="math display">\[\Omega =
   h^2 + \frac{e f + f e}{2}
   =
@@ -823,7 +897,7 @@ class="math inline">\(\Omega_\pi\)</span> as before for the eigenvalue
 by which <span class="math inline">\(\Omega\)</span> acts on <span
 class="math inline">\(\pi\)</span>, we can solve for the action of <span
 class="math inline">\(f\)</span> on <span
-class="math inline">\(\pi\)</span>: <span id="eqn:d1a915c0e3d2" class="math display">\[\label{eqn:d1a915c0e3d2}\tag{4.7}
+class="math inline">\(\pi\)</span>: <span id="eqn:d1a915c0e3d2" class="math display">\[\label{eqn:d1a915c0e3d2}\tag{5.7}
   f W(y)
   =
   \frac{1}{i y} \left(\Omega_\pi - (y \partial_y)^2 + y \partial_y
@@ -834,10 +908,10 @@ class="math inline">\(\mathbb{R}^\times\)</span> arises from some
 to <a href="#ref-MR2733072" class="citation" data-cites="MR2733072">(Jacquet 2010)</a>
 and <a href="#ref-2021arXiv210915230N" class="citation" data-cites="2021arXiv210915230N">(Nelson
 2021, sec. 12)</a> (direct link: §<a
-href="#sec:overview-asymp-kirillov" data-reference-type="ref"
-data-reference="sec:overview-asymp-kirillov"></a>)
+href="standard.html#sec:overview-asymp-kirillov" data-reference-type="ref"
+data-reference="sec:overview-asymp-kirillov">12</a>)
 for further discussion.</p>
-<h2 id="sec:d1a9162d5b8b">§4.2. Localized vectors</h2>
+<h2 id="sec:d1a9162d5b8b">§5.2. Localized vectors</h2>
 <p>We just give one representative example of the sort of analysis that
 can be achieved in this way.</p>
 <div id="exercise:d1a9162d527e" class="exercise">
@@ -848,14 +922,14 @@ representation of <span
 class="math inline">\({\mathop{\mathrm{PGL}}}_2(\mathbb{R})\)</span>,
 realized in its Kirillov model with respect to the character <a
 href="#eqn:d1a915c27da9" data-reference-type="eqref"
-data-reference="eqn:d1a915c27da9">\((4.4)\)</a> as above and
+data-reference="eqn:d1a915c27da9">\((5.4)\)</a> as above and
 with unitary structure given by <a href="#eqn:d1a915c9af68"
 data-reference-type="eqref"
-data-reference="eqn:d1a915c9af68">\((4.1)\)</a>. Assume that
+data-reference="eqn:d1a915c9af68">\((5.1)\)</a>. Assume that
 <span class="math display">\[\Omega_\pi =
 \operatorname{O}(T^2).\]</span> In other words, in the notation of §<a
 href="#sec:d1a915c57e2f" data-reference-type="ref"
-data-reference="sec:d1a915c57e2f">3.2</a>, either</p>
+data-reference="sec:d1a915c57e2f">4.2</a>, either</p>
 <ol>
 <li><p><span class="math inline">\(\pi = \pi(t,\varepsilon)\)</span>
 with <span class="math inline">\(t = \operatorname{O}(T)\)</span>,
@@ -876,7 +950,16 @@ formula <span class="math display">\[W(y) =
     \phi \left( \frac{y - T}{T^{1/2} } \right),\]</span> where <span
 class="math inline">\(\phi\)</span> belongs to some fixed bounded subset
 of the space <span
-class="math inline">\(C_c^\infty(\mathbb{R}^\times)\)</span>.</p>
+class="math inline">\(C_c^\infty(\mathbb{R}^\times)\)</span>. (We recall
+that a subset <span class="math inline">\(\mathfrak{B}\)</span> of this
+space is bounded if there are constants <span class="math inline">\(C_n
+\geq 0\)</span> and a compact set <span class="math inline">\(E
+\subseteq \mathbb{R}^\times\)</span> such that each <span
+class="math inline">\(\phi \in \mathfrak{B}\)</span> is supported in
+<span class="math inline">\(E\)</span> and has <span
+class="math inline">\(n\)</span>th derivative bounded in <span
+class="math inline">\(L^\infty\)</span>-norm by <span
+class="math inline">\(C_n\)</span>.)</p>
 <ol type="i">
 <li><p>Verify that <span class="math inline">\(\lVert W \rVert =
 \operatorname{O}(1)\)</span> for each <span class="math inline">\(W \in
@@ -887,7 +970,7 @@ M,\]</span> <span class="math display">\[h W
       - i \rho W
       \in T^{1/2} M.\]</span></p></li>
 <li><p>Use <a href="#eqn:d1a915c0e3d2" data-reference-type="eqref"
-data-reference="eqn:d1a915c0e3d2">\((4.7)\)</a> to show that
+data-reference="eqn:d1a915c0e3d2">\((5.7)\)</a> to show that
 <span class="math display">\[f W - i \beta W \in T^{1/2} M,\]</span>
 where <span class="math display">\[\beta := \frac{\rho^2 -
 \Omega_\pi}{T}.\]</span></p></li>
@@ -902,7 +985,7 @@ class="math display">\[\tau = i
       \end{pmatrix},\]</span> for which <span
 class="math display">\[\det (\tau/i) = \Omega_\pi.\]</span> (Compare
 with <a href="#eqn:d1a91628a316" data-reference-type="eqref"
-data-reference="eqn:d1a91628a316">\((3.2)\)</a>.)</p></li>
+data-reference="eqn:d1a91628a316">\((4.2)\)</a>.)</p></li>
 </ol>
 </div>
 <h1 id="todo">TODO</h1>
@@ -914,7 +997,7 @@ Borel–Weil model over <span class="math inline">\(\mathbb{C}
 <li><p>Something for induced models for <span
 class="math inline">\({\mathop{\mathrm{PGL}}}_2(\mathbb{R})\)</span>.</p></li>
 <li><p>Some follow-up to exercise <a href="#sec:d1a9162d5b8b"
-data-reference-type="ref" data-reference="sec:d1a9162d5b8b">4.2</a>
+data-reference-type="ref" data-reference="sec:d1a9162d5b8b">5.2</a>
 explaining what it says about <span class="math inline">\(w
 W(y)\)</span>, for <span class="math inline">\(w\)</span> the nontrivial
 Weyl element.</p></li>
