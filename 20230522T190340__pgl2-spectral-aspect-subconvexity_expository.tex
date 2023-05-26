@@ -212,11 +212,12 @@ These formulas suggest taking the following smoothened $L^2$-normalized characte
 \begin{equation}\label{eqn:35ac3e31cb}
   W_\varphi(y) = T^{1/4} 1_{T / 2 \pi + \O(T^{1/2})}^{\text{smooth}}(y).
 \end{equation}
-Using that $W_\varphi$ is an eigenfunction under the Casimir operator (see \cite[\S12]{2021arXiv210915230N}, direct link: \S\ref{sec:overview-asymp-kirillov}), one can check also that
+Using that $W_\varphi$ is an eigenfunction under the Casimir operator, one can check also that
 \begin{equation*}
   \partial_c W_\varphi = i T W_\varphi + \O(T^{1/2}).
 \end{equation*}
-Precise forms of all these estimates are established in a general setting in \cite[Part 3]{2021arXiv210915230N} (direct link: Part \ref{part:asympt-analys-kirill}) and in this specific setting in Exercise \ref{exercise:d1a9162d527e} of \href{20230524T094424__exercises-localized-vectors.tex.pdf}{this note}.
+This is the content of Exercise \ref{exercise:d1a9162d527e} of \href{20230524T094424__exercises-localized-vectors.tex.pdf}{this note}.  For $\GL_n$,  precise forms of all these estimates are established in \cite[Part 3]{2021arXiv210915230N} (direct link: Part \ref{part:asympt-analys-kirill}).
+
 \begin{remark}
   This choice of $\varphi$ is closely related to the ``microlocal lift'' of Zelditch \cite{MR916129} et al., see \cite{MR1859345, MR2346281, MR2314452}.  More precisely, it is (asymptotically) a $G$-translate of the usual definition; the limit invariance for $L^2$-masses will be with respect to the stabilizer $G_\tau$ of $\tau$, namely
 \begin{equation}\label{eqn:G-tau}
@@ -362,7 +363,6 @@ This section is just a stub;  see \cite[\S1.5, \S2.7-2.10]{2020arXiv201202187N} 
 The ``two arguments'' are ``equivalent.''  Recall that Iwaniec \cite{Iwaniec1992} starts with the approximate functional equation, applies Kuznetsov, and then applies Poisson summation to both variables.  The reduction to \eqref{eq:int-_y-in} is essentially the approximate functional equation (TODO: explain this in some detail?).  In the passage to \eqref{eq:int-_-substack-1}, rather than applying the pretrace formula, we could have instead applied the Fourier expansion of $\varphi$ and averaged each term in the resulting double sum using Kuznetsov.  A couple applications of Poisson to the geometric side of Kuznetsov would then bring us right back to \eqref{eq:int-_-substack-1}.
 
 It's more interesting to compare the generalization of this argument to $\GL_3$ with Blomer--Buttcane \cite{MR4203038}.  The arguments are again ultimately ``equivalent,'' but the present approach seems less miraculous.
-
 
 
 \bibliography{refs}{} \bibliographystyle{plain}
