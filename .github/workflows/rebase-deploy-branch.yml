@@ -1,6 +1,11 @@
 name: rebase-deploy-branch
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.css'
 permissions:
   contents: write
 jobs:
