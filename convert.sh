@@ -4,6 +4,8 @@ file=$1
 converted_file="${file%.tex}.html"
 
 echo "Converting $file to html"
+echo "file: $file"
+echo "converted_file: $converted_file"
 
 if command -v docker &> /dev/null
 then
