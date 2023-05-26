@@ -211,30 +211,10 @@
   "Add style to HTML buffer."
   (interactive)
   (goto-char (point-min))
-  (when-let ((style-beg (search-forward "<style>" nil t))
-	     (style-end (search-forward "</style>" nil t))
-	     (html-beg
-	      (progn
-		(goto-char style-beg)
-		(search-forward "html {" nil t)))
-	     (html-end
-	      (search-forward "}" nil t)))
-    ;; replace the contents of html{} with the above
-    (delete-region html-beg html-end)
-    (goto-char html-beg)
-    (insert
-     "\n"
-     (mapconcat
-      #'identity
-      '(
-	"line-height: 1.5;"
-	"font-family: Georgia, serif;"
-	"font-size: 20px;"
-	"color: #1a1a1a;"
-	"background-color: #fdfdfd;"
-	)
-      "\n")
-     "\n}")))
+  (when (search-forward "<style>" nil t)
+    (beginning-of-line)
+    (insert "  <link rel=\"stylesheet\" href=\"tex.css\">
+")))
 
 (defun tex2html-add-tex-pdf-links ()
   (interactive)

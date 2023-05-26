@@ -1,3 +1,4 @@
 {
-    "exclude": ["common.tex", "test9.tex", "test10.tex", "test11.tex", "test7.tex"]
+    "exclude": ["common.tex", "test9.tex", "test10.tex", "test11.tex", "test7.tex"],
+    "boxed-environments": ["theorem", "lemma", "exercise", "example", "corollary", "remark", "notation", "note", "problem", "question", "answer", "criterion", "summary"]
 }
