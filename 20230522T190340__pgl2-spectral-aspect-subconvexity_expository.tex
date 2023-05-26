@@ -6,6 +6,7 @@
 \externaldocument{20230522T174726__shrinking-archimedean-families-second-moment-gl2}
 \externaldocument{var-quat-3-submitted}
 \externaldocument{standard}
+\externaldocument{20230524T094424__exercises-localized-vectors.tex}
 
 \numberwithin{equation}{section}
 \numberwithin{theorem}{section}
@@ -43,7 +44,6 @@ Let $\pi \subset L^2_{\text{cusp}}(\Gamma \backslash G)$ be a cuspidal automorph
   L(\pi,\tfrac{1}{2}) \ll T^{1/2 - \delta}
 \end{equation}
 for some fixed $\delta > 0$.
-
 
 Such an estimate was first shown by Iwaniec \cite{Iwaniec1992} (initially under an additional hypothesis, which Iwaniec later observed could be removed using identity $\lambda(p)^2 - \lambda(p^2) = 1$).  Iwaniec's method consists of estimating an amplified second moment over $T$ in an interval of length a bit more than $1$.  This method was adapted to $\PGL_3$ by Blomer--Buttcane \cite{MR4203038, MR4039487}, using an amplified fourth moment, and then to $\GL_n$ in \cite{2021arXiv210915230N}  (\href{standard.pdf}{direct link}), using an amplified $2(n-1)$th moment.  In the works of Iwaniec and Blomer---Buttcane, the moment is estimated using the approximate functional equation, Kuznetsov formula, and several applications of Poisson summation.  In \cite{2021arXiv210915230N}, the moment is estimated implicitly by direct analysis of an integral representation for the $L$-function, with vectors chosen as in \cite{nelson-venkatesh-1} and the averaging implemented via the pretrace formula like in \cite{iwan-sar}.
 
@@ -201,7 +201,8 @@ The action of the first two of these elements on the Kirillov model is given ver
   \quad
   \partial_b W(y) = 2 \pi i y W(y).
 \end{equation*}
-Since $\langle \partial_a, \tau \rangle = 0$ and $\langle \partial_b, \tau \rangle = T$, the condition \eqref{eq:x-varphi-=} says in particular that
+
+From now on, we will be very vague and informal about asymptotics notation.  For a precise discussion, we refer to Exercise \ref{exercise:d1a9162d527e} of \href{20230524T094424__exercises-localized-vectors.tex.pdf}{this note}.  Since $\langle \partial_a, \tau \rangle = 0$ and $\langle \partial_b, \tau \rangle = T$, the condition \eqref{eq:x-varphi-=} says in particular that
 \begin{equation*}
   \partial_a W_\varphi = \O(T^{1/2}),
   \quad
@@ -215,8 +216,7 @@ Using that $W_\varphi$ is an eigenfunction under the Casimir operator (see \cite
 \begin{equation*}
   \partial_c W_\varphi = i T W_\varphi + \O(T^{1/2}).
 \end{equation*}
-Precise forms of all these estimates are established in \cite[Part 3]{2021arXiv210915230N} (direct link: Part \ref{part:asympt-analys-kirill}).
-
+Precise forms of all these estimates are established in a general setting in \cite[Part 3]{2021arXiv210915230N} (direct link: Part \ref{part:asympt-analys-kirill}) and in this specific setting in Exercise \ref{exercise:d1a9162d527e} of \href{20230524T094424__exercises-localized-vectors.tex.pdf}{this note}.
 \begin{remark}
   This choice of $\varphi$ is closely related to the ``microlocal lift'' of Zelditch \cite{MR916129} et al., see \cite{MR1859345, MR2346281, MR2314452}.  More precisely, it is (asymptotically) a $G$-translate of the usual definition; the limit invariance for $L^2$-masses will be with respect to the stabilizer $G_\tau$ of $\tau$, namely
 \begin{equation}\label{eqn:G-tau}
