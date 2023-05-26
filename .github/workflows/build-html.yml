@@ -33,7 +33,7 @@ jobs:
           EXCLUDE_FILES=$(jq -r '.exclude[]' config.json)
           for file in $(ls *.tex | grep -vFf <(printf '%s\n' $EXCLUDE_FILES))
           do
-	    ./convert.sh $file
+            ./convert.sh $file
           done
       - name: Debugging shell        
         working-directory: ${{ env.DIR }}
