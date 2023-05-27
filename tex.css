@@ -15,7 +15,6 @@ div.answer,
 div.criterion,
 div.summary
 {
-    /* margin: 5px 5px 5px 5px; */
     margin: 1em 1em 1em 1em;
     padding: 10px;
     text-align: left;
@@ -24,6 +23,31 @@ div.summary
     border-color: #ccc;      
 }
 
+@media (max-width: 600px) {
+  div.theorem,
+  div.lemma,
+  div.proposition,
+  div.definition,
+  div.exercise,
+  div.example,
+  div.hypothesis,
+  div.corollary,
+  div.remark,
+  div.notation,
+  div.note,
+  div.problem,
+  div.question,
+  div.answer,
+  div.criterion,
+  div.summary,
+  div.answer,
+  div.criterion,
+  div.summary {
+    margin: 0em 0em 0em 0em;
+    padding: 0;
+    border: none;
+  }
+}
 
 .my-links-container {
     position: absolute;
@@ -43,3 +67,6 @@ html {
     color: #1a1a1a;
     background-color: #fdfdfd;
 }
+
+
+    /* margin: 5px 5px 5px 5px; */
