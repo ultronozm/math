@@ -76,6 +76,16 @@ $(document).ready(function() {
 - Comments: [[https://github.com/ultronozm/math/discussions]]
 
 
+* Oberwolfach seminar
+
+** Notes
+- [[tex-html:20230522T190340__pgl2-spectral-aspect-subconvexity_expository]]
+- [[tex-html:20230522T150333__microlocal-localized-vectors]]
+
+
+** Exercises
+- [[tex-html:20230524T094424__exercises-localized-vectors]]
+
 * Course notes
 - Testing display math: $(x+y)$.
 - lskdjfladsjfklsj

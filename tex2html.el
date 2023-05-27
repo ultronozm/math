@@ -510,6 +510,20 @@ file to .html and apply postprocessing."
   (setq org-html-validation-link nil)
   (org-html-export-to-html))
 
+(require 'org)
+(org-add-link-type
+ "tex-html"
+ (lambda (path)
+   (browse-url (format "%s.html" path)))
+ (lambda (path desc backend)
+   (let* ((json-array-type 'list)
+          (json-object-type 'plist)
+          (data (json-read-file "listing.json"))
+          (entry (cl-find-if (lambda (e) (string= (plist-get e :file) path)) data))
+          (title (plist-get entry :title)))
+     (cond ((eq backend 'html)
+            (format "<a href=\"%s.html\">%s</a>" path title))))))
+
 
 (provide 'tex2html)
 ;;; tex2html.el ends here
