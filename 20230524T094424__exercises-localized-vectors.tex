@@ -194,25 +194,24 @@ In the following exercises, we assume that the asymptotic parameter $T \rightarr
   Let $M$ be the class of $T$-dependent vectors in $\pi$ of the form $\sum a_m e_m$, where the coefficients have the following properties:
   \begin{enumerate}
   \item $a_m = 0$ unless $m = \O(T^{1/2})$.
-  \item\label{enumerate:d1a94c582b38} $\sum_m \lvert a_m \rvert^2 = \O(1)$.
-  \item\label{enumerate:d1a94c589c87} The function of $\theta \in \mathbb{R} / \mathbb{Z}$ defined by
+  \item The function of $\theta \in \mathbb{R} / \mathbb{Z}$ defined by
     \begin{equation*}
       a(\theta) := \sum_n a(n) e (n \theta), \qquad
       e(\theta) := e^{2 \pi i \theta }      
     \end{equation*}
     is an $L^2$-normalized bump of width $T^{-1/2}$, in the following sense: for fixed $k , \ell \in \mathbb{Z}_{\geq 0}$,
-
-    \begin{equation*}
+    \begin{equation}\label{eqn:d1a9c4e68198}
       a^{(\ell)}(\theta) \ll
        T^{1/4 + \ell/2} \left( 1+ \frac{\lVert \theta  \rVert}{T^{1/2}} \right)^{-k},
-    \end{equation*}
+    \end{equation}
     where $a^{(\ell)}$ denotes the $\ell$th derivative and $\lVert \theta \rVert$ the distance to the nearest integer.
   \end{enumerate}
+  We note that, by Parseval, the second condition implies that $\sum_m \lvert a_m \rvert^2 = \O(1)$.
   \begin{enumerate}[(i)]
-  \item\label{enumerate:d1a94b71ab0c} Show that if $f \in C_c^\infty(\mathbb{R})$ is fixed, then the $T$-dependent vector $\sum_m a_m e_m$ with coefficients
-    \begin{equation*}
+  \item Show that if $f \in C_c^\infty(\mathbb{R})$ is fixed, then the $T$-dependent vector $\sum_m a_m e_m$ with coefficients
+    \begin{equation}\label{eqn:d1a9c4e9c308}
       a_n := T^{-1/4} f\left( \frac{n}{T^{1/2}} \right)
-    \end{equation*}
+    \end{equation}
     belongs to $M$.
   \item Show that for all $v \in M$,
     \begin{equation*}
@@ -225,7 +224,7 @@ In the following exercises, we assume that the asymptotic parameter $T \rightarr
       R_3 v \in T^{1/2} M.
     \end{equation*}
   \end{enumerate}
-  Deduce that every element of $M$, and in particular, the element defined in \eqref{enumerate:d1a94b71ab0c}, is localized at the $T$-dependent element $\tau \in \mathfrak{g}^*$ given in the optic \eqref{eqn:d1a914f48fd7} by
+  Deduce that every element of $M$, and in particular, the element defined by \eqref{eqn:d1a9c4e9c308}, is localized at the $T$-dependent element $\tau \in \mathfrak{g}^*$ given in the optic \eqref{eqn:d1a914f48fd7} by
   \begin{equation*}
     \tau = (0,-iT,0).
   \end{equation*}
@@ -355,7 +354,11 @@ Deduce that every element of $M$ is localized at the $T$-dependent element $\tau
   \begin{equation*}
     t = t_T := T
   \end{equation*}
-  while $\eps \in \{\pm 1\}$ is fixed.  Let $M$ denote the class of $T$-dependent vectors $v$ in $\pi$ of the form $v = \sum_m a_m e_m$, where the coefficients satisfy the same conditions as enunciated in Exercise \ref{exercise:d1a94c55524c}.  Verify that for all $v \in M$, we have
+  while $\eps \in \{\pm 1\}$ is fixed.  Let $M$ denote the class of $T$-dependent vectors $v$ in $\pi$ of the form $v = \sum_m a_m e_m$, where the coefficients satisfy the support condition
+  \begin{equation*}
+    a_m \neq 0 \implies m = \O(T^{1/2})
+  \end{equation*}
+  as well as the Fourier series condition \eqref{eqn:d1a9c4e68198} enunciated in Exercise \ref{exercise:d1a94c55524c}.  Verify that for all $v \in M$, we have
   \begin{equation*}
     X v - T v \in T^{1/2} M,
   \end{equation*}
@@ -368,18 +371,18 @@ Deduce that every element of $M$ is localized at the $T$-dependent element $\tau
   Deduce that every element of $M$ is localized at
   \begin{equation*}
     \tau = i T \begin{pmatrix}
-                 1 &  0 \\
-        0 & -1 \\
-    \end{pmatrix}.
-  \end{equation*}
-\end{exercise}
+              1 &  0 \\
+              0 & -1 \\
+            \end{pmatrix}.
+          \end{equation*}
+        \end{exercise}
 
 \begin{exercise}
-  Let $\pi_1$ be any fixed infinite-dimensional irreducible unitary representation of $\PGL_2(\mathbb{R})$ (e.g., the tempered principal series representation $\pi(0,1)$).  Let $M$ denote the class of $T$-dependent vectors $v$ in $\pi$ of the form $v = \sum_m a_m e_m$, where the coefficients satisfy the support condition
+  Let $\pi$ be any fixed infinite-dimensional irreducible unitary representation of $\PGL_2(\mathbb{R})$ (e.g., the tempered principal series representation $\pi(0,1)$).  Let $M$ denote the class of $T$-dependent vectors $v$ in $\pi$ of the form $v = \sum_m a_m e_m$, where the coefficients satisfy the support condition
   \begin{equation*}
 a_m \neq 0 \implies m = T+ \O(T^{1/2})
 \end{equation*}
-as well as the $L^2$-normalization condition \eqref{enumerate:d1a94c582b38} and the Fourier series condition \eqref{enumerate:d1a94c589c87} enunciated in Exercise \ref{exercise:d1a94c55524c}.  Verify that for all $v \in M$, we have
+as well as the Fourier series condition \eqref{eqn:d1a9c4e68198} enunciated in Exercise \ref{exercise:d1a94c55524c}.  Verify that for all $v \in M$, we have
 \begin{equation*}
 X v - T v \in T^{1/2} M,
 \end{equation*}

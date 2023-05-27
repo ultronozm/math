@@ -27,6 +27,12 @@
 (require 'cl-lib)
 (require 'json)
 
+(defcustom tex2html-theorem-names
+  '("theorem" "lemma" "proposition" "corollary" "conjecture" "definition" "example" "remark" "exercise" "problem" "question" "solution" "note" "remark" "notation" "assumption" "hypothesis" "claim" "summary" "answer" "criterion" "summary")
+  "List of theorem-like environments."
+  :type '(repeat string)
+  :group 'tex2html)
+
 (defun label-number-hash-table (aux-file)
   "Return a hash table of label numbers from the given aux-file."
   (let ((hash (make-hash-table :test 'equal)))
@@ -97,7 +103,33 @@
 	      (message "Warning: something went wrong"))))))
     ;; Step 2: Handle links with data-reference-type="ref" or "eqref"
     (goto-char (point-min))
-    (while (search-forward-regexp "href=\"\\([^\"]+\\)\"[^>]+data-reference-type=\"\\(ref\\|eqref\\)\"[^>]+data-reference=\"\\([^\"]+\\)\"[^>]*>\\(\\[[^]]+\\]\\)" nil t)
+    ;; (while (search-forward "<a" nil t)
+    ;;   (when-let*
+    ;; 	  ((beg (match-beginning 0))
+    ;; 	   (end (save-excursion
+    ;; 		  (goto-char beg)
+    ;; 		  (sgml-skip-tag-forward 1)))
+    ;; 	   (parsed (libxml-parse-xml-region beg end))
+    ;; 	   (link (alist-get 'href parsed))
+    ;; 	   (ref-type (alist-get 'data-reference-type parsed))
+    ;; 	   (label (alist-get 'data-reference parsed)))
+    ;; 	(let (tag-number external-html)
+    ;; 	  (unless (setq tag-number (gethash label label-number-hash))
+    ;; 	    (cl-loop
+    ;; 	     for (html-file . hash) in external-label-number-hash-list
+    ;; 	     for number = (gethash label hash)
+    ;; 	     when number
+    ;; 	     do (setq tag-number number
+    ;; 		      external-html html-file)))
+    ;; 	  (let ((new-content
+    ;; 		 (if (string= ref-type "ref")
+    ;; 		     (concat "" tag-number "")
+    ;; 		   (concat "\\((" tag-number ")\\)"))))
+    ;; 	    (replace-match new-content t t nil 4)
+    ;; 	    (if external-html
+    ;; 		(replace-match (concat external-html link) t t nil 1))))))
+
+    (while (search-forward-regexp "href=\"\\([^\"]+\\)\"[^>]+data-reference-type=\"\\(ref\\|eqref\\)\"[^>]+data-reference=\"\\([^\"]+\\)\"[^>]*>\\([^<]+\\)</a>" nil t)
       (let* ((link (match-string 1))
 	     (ref-type (match-string 2))
 	     (label (match-string 3))
@@ -170,7 +202,31 @@
       (while (re-search-forward (concat "href=\"\\(" auxfiles-regexp "\\.pdf\\)\"") nil t)
 	(let* ((pdf-file (match-string 1))
 	       (html-file (concat (file-name-sans-extension pdf-file) ".html")))
-	  (replace-match html-file t t nil 1))))))
+	  (replace-match html-file t t nil 1))))
+
+    ;; Step 8: fix theorem numbering.
+    ;; Disabling for now due to a bug in pandoc: https://github.com/jgm/pandoc/issues/8872
+    ;; (goto-char (point-min))
+    ;; (while (search-forward "<div" nil t)
+    ;;   (let* ((opening-end (save-excursion
+    ;; 			    (goto-char (match-beginning 0))
+    ;; 			    (forward-sexp 1) (point)))
+    ;; 	     (id (save-excursion
+    ;; 		   (when (re-search-forward "id=\"\\([^\"]+\\)\"" opening-end t)
+    ;; 		     (match-string 1))))
+    ;; 	     (class (save-excursion
+    ;; 		      (when (re-search-forward "class=\"\\([^\"]+\\)\"" opening-end t)
+    ;; 			(match-string 1))))
+    ;; 	     (closing (save-excursion (search-forward "</div>" nil t) (point))))
+    ;; 	(when (member class tex2html-theorem-names)
+    ;; 	  (let ((number
+    ;; 		 (when id
+    ;; 		   (concat " "
+    ;; 			   (gethash id label-number-hash)))))
+    ;; 	    (when (re-search-forward "<strong>\\([A-Za-z]+\\)\\( [0-9]+\\)</strong>"
+    ;; 				     closing t)
+    ;; 	      (replace-match (or number "") t t nil 2))))))
+    ))
 
 (defcustom giscus-comment-script
   "<script src=\"https://giscus.app/client.js\"
