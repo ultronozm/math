@@ -210,7 +210,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2023-05-25 15:03:46
+2023-05-27 08:42:51
       <a href="20230524T094424__exercises-localized-vectors.tex" class="my-link">tex</a>
       <a href="20230524T094424__exercises-localized-vectors.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20230524T094424__exercises-localized-vectors.tex" class="my-link">history</a>
@@ -481,7 +481,7 @@ induction follows as claimed. ◻</p>
 <p>The integer <span class="math inline">\(\ell\)</span> as in the
 conclusion of Proposition <a href="#proposition:d1a913c915d4"
 data-reference-type="ref"
-data-reference="proposition:d1a913c915d4">2</a> is called the
+data-reference="proposition:d1a913c915d4">3.1</a> is called the
 <em>highest weight</em> of <span class="math inline">\(\pi\)</span>. The
 coadjoint orbit for <span class="math inline">\(\pi\)</span> turns out
 to be given in the optic <a href="#eqn:d1a914f48fd7"
@@ -505,7 +505,7 @@ class="math inline">\(v\)</span> in <span
 class="math inline">\(\pi\)</span> given in terms of a basis as in
 Proposition <a href="#proposition:d1a913c915d4"
 data-reference-type="ref"
-data-reference="proposition:d1a913c915d4">2</a> by <span
+data-reference="proposition:d1a913c915d4">3.1</a> by <span
 class="math inline">\(v = \sum_m a_m e_m\)</span>, where the
 coefficients have the following properties:</p>
 <ol>
@@ -519,7 +519,7 @@ have <span class="math display">\[X v \in T^{1/2} M,\]</span> <span
 class="math display">\[Y v \in T^{1/2} M,\]</span> <span
 class="math display">\[i R_3 v - i T v \in T^{1/2} M.\]</span> Deduce
 from Theorem <a href="#theorem:d1a94d0ddd25" data-reference-type="ref"
-data-reference="theorem:d1a94d0ddd25">1</a> that every element of <span
+data-reference="theorem:d1a94d0ddd25">2.1</a> that every element of <span
 class="math inline">\(M\)</span> is localized at the <span
 class="math inline">\(T\)</span>-dependent element <span
 class="math inline">\(\tau \in \mathfrak{g}^\wedge\)</span> given in the
@@ -527,9 +527,8 @@ optic <a href="#eqn:d1a914f48fd7" data-reference-type="eqref"
 data-reference="eqn:d1a914f48fd7">\((3.4)\)</a> by <span
 class="math display">\[\tau = (0,0,i T).\]</span></p>
 </div>
-<div id="enumerate:d1a94b71ab0c" class="exercise">
-<p><strong>Exercise 2</strong>. <span id="exercise:d1a94c55524c"
-label="exercise:d1a94c55524c"></span> Let <span
+<div id="exercise:d1a94c55524c" class="exercise">
+<p><strong>Exercise 2</strong>. Let <span
 class="math inline">\(M\)</span> be the class of <span
 class="math inline">\(T\)</span>-dependent vectors in <span
 class="math inline">\(\pi\)</span> of the form <span
@@ -538,21 +537,15 @@ the following properties:</p>
 <ol>
 <li><p><span class="math inline">\(a_m = 0\)</span> unless <span
 class="math inline">\(m = \operatorname{O}(T^{1/2})\)</span>.</p></li>
-<li><p><span id="enumerate:d1a94c582b38"
-label="enumerate:d1a94c582b38"></span> <span
-class="math inline">\(\sum_m \lvert a_m \rvert^2 =
-\operatorname{O}(1)\)</span>.</p></li>
-<li><p><span id="enumerate:d1a94c589c87"
-label="enumerate:d1a94c589c87"></span> The function of <span
-class="math inline">\(\theta \in \mathbb{R} / \mathbb{Z}\)</span>
-defined by <span class="math display">\[a(\theta) := \sum_n a(n) e (n
-\theta), \qquad
+<li><p>The function of <span class="math inline">\(\theta \in \mathbb{R}
+/ \mathbb{Z}\)</span> defined by <span class="math display">\[a(\theta)
+:= \sum_n a(n) e (n \theta), \qquad
       e(\theta) := e^{2 \pi i \theta }\]</span> is an <span
 class="math inline">\(L^2\)</span>-normalized bump of width <span
 class="math inline">\(T^{-1/2}\)</span>, in the following sense: for
 fixed <span class="math inline">\(k , \ell \in \mathbb{Z}_{\geq
-0}\)</span>,</p>
-<p><span class="math display">\[a^{(\ell)}(\theta) \ll
+0}\)</span>, <span id="eqn:d1a9c4e68198" class="math display">\[\label{eqn:d1a9c4e68198}\tag{3.12}
+      a^{(\ell)}(\theta) \ll
        T^{1/4 + \ell/2} \left( 1+ \frac{\lVert \theta  \rVert}{T^{1/2}}
 \right)^{-k},\]</span> where <span
 class="math inline">\(a^{(\ell)}\)</span> denotes the <span
@@ -560,27 +553,28 @@ class="math inline">\(\ell\)</span>th derivative and <span
 class="math inline">\(\lVert \theta \rVert\)</span> the distance to the
 nearest integer.</p></li>
 </ol>
+<p>We note that, by Parseval, the second condition implies that <span
+class="math inline">\(\sum_m \lvert a_m \rvert^2 =
+\operatorname{O}(1)\)</span>.</p>
 <ol type="i">
 <li><p>Show that if <span class="math inline">\(f \in
 C_c^\infty(\mathbb{R})\)</span> is fixed, then the <span
 class="math inline">\(T\)</span>-dependent vector <span
-class="math inline">\(\sum_m a_m e_m\)</span> with coefficients <span
-class="math display">\[a_n := T^{-1/4} f\left( \frac{n}{T^{1/2}}
-\right)\]</span> belongs to <span
-class="math inline">\(M\)</span>.</p></li>
+class="math inline">\(\sum_m a_m e_m\)</span> with coefficients <span id="eqn:d1a9c4e9c308" class="math display">\[\label{eqn:d1a9c4e9c308}\tag{3.13}
+      a_n := T^{-1/4} f\left( \frac{n}{T^{1/2}} \right)\]</span> belongs
+to <span class="math inline">\(M\)</span>.</p></li>
 <li><p>Show that for all <span class="math inline">\(v \in M\)</span>,
 <span class="math display">\[X v - T v \in T^{1/2} M,\]</span> <span
 class="math display">\[Y v - T v \in T^{1/2} M,\]</span> <span
 class="math display">\[R_3 v \in T^{1/2} M.\]</span></p></li>
 </ol>
 <p>Deduce that every element of <span class="math inline">\(M\)</span>,
-and in particular, the element defined in <a
-href="#enumerate:d1a94b71ab0c" data-reference-type="eqref"
-data-reference="enumerate:d1a94b71ab0c">\((i)\)</a>, is
-localized at the <span class="math inline">\(T\)</span>-dependent
-element <span class="math inline">\(\tau \in \mathfrak{g}^*\)</span>
-given in the optic <a href="#eqn:d1a914f48fd7"
+and in particular, the element defined by <a href="#eqn:d1a9c4e9c308"
 data-reference-type="eqref"
+data-reference="eqn:d1a9c4e9c308">\((3.13)\)</a>, is localized
+at the <span class="math inline">\(T\)</span>-dependent element <span
+class="math inline">\(\tau \in \mathfrak{g}^*\)</span> given in the
+optic <a href="#eqn:d1a914f48fd7" data-reference-type="eqref"
 data-reference="eqn:d1a914f48fd7">\((3.4)\)</a> by <span
 class="math display">\[\tau = (0,-iT,0).\]</span></p>
 </div>
@@ -683,7 +677,7 @@ with <span class="math inline">\(\varepsilon= 1\)</span>.</em></p>
 <div class="proof">
 <p><em>Proof.</em> Similar to that of Proposition <a
 href="#proposition:d1a913c915d4" data-reference-type="ref"
-data-reference="proposition:d1a913c915d4">2</a>. ◻</p>
+data-reference="proposition:d1a913c915d4">3.1</a>. ◻</p>
 </div>
 <p>The tempered irreducible representations are the <span
 class="math inline">\(\pi(k)\)</span> and the <span
@@ -746,22 +740,26 @@ class="math inline">\(T\)</span>-dependent vectors <span
 class="math inline">\(v\)</span> in <span
 class="math inline">\(\pi\)</span> of the form <span
 class="math inline">\(v = \sum_m a_m e_m\)</span>, where the
-coefficients satisfy the same conditions as enunciated in Exercise <a
-href="#exercise:d1a94c55524c" data-reference-type="ref"
-data-reference="exercise:d1a94c55524c">2</a>.
-Verify that for all <span class="math inline">\(v \in M\)</span>, we
-have <span class="math display">\[X v - T v \in T^{1/2} M,\]</span>
-<span class="math display">\[Y v - T v \in T^{1/2}  M,\]</span> <span
+coefficients satisfy the support condition <span
+class="math display">\[a_m \neq 0 \implies m =
+\operatorname{O}(T^{1/2})\]</span> as well as the Fourier series
+condition <a href="#eqn:d1a9c4e68198" data-reference-type="eqref"
+data-reference="eqn:d1a9c4e68198">\((3.12)\)</a> enunciated in
+Exercise <a href="#exercise:d1a94c55524c" data-reference-type="ref"
+data-reference="exercise:d1a94c55524c">2</a>. Verify that for all <span
+class="math inline">\(v \in M\)</span>, we have <span
+class="math display">\[X v - T v \in T^{1/2} M,\]</span> <span
+class="math display">\[Y v - T v \in T^{1/2}  M,\]</span> <span
 class="math display">\[H v \in T^{1/2} M.\]</span> Deduce that every
 element of <span class="math inline">\(M\)</span> is localized at <span
 class="math display">\[\tau = i T \begin{pmatrix}
-                 1 &amp;  0 \\
-        0 &amp; -1 \\
-    \end{pmatrix}.\]</span></p>
+              1 &amp;  0 \\
+              0 &amp; -1 \\
+            \end{pmatrix}.\]</span></p>
 </div>
 <div class="exercise">
 <p><strong>Exercise 5</strong>. Let <span
-class="math inline">\(\pi_1\)</span> be any fixed infinite-dimensional
+class="math inline">\(\pi\)</span> be any fixed infinite-dimensional
 irreducible unitary representation of <span
 class="math inline">\({\mathop{\mathrm{PGL}}}_2(\mathbb{R})\)</span>
 (e.g., the tempered principal series representation <span
@@ -773,19 +771,14 @@ class="math inline">\(\pi\)</span> of the form <span
 class="math inline">\(v = \sum_m a_m e_m\)</span>, where the
 coefficients satisfy the support condition <span
 class="math display">\[a_m \neq 0 \implies m = T+
-\operatorname{O}(T^{1/2})\]</span> as well as the <span
-class="math inline">\(L^2\)</span>-normalization condition <a
-href="#enumerate:d1a94c582b38" data-reference-type="eqref"
-data-reference="enumerate:d1a94c582b38">\((2)\)</a> and
-the Fourier series condition <a href="#enumerate:d1a94c589c87"
-data-reference-type="eqref"
-data-reference="enumerate:d1a94c589c87">\((3)\)</a>
-enunciated in Exercise <a href="#exercise:d1a94c55524c"
-data-reference-type="ref"
-data-reference="exercise:d1a94c55524c">2</a>.
-Verify that for all <span class="math inline">\(v \in M\)</span>, we
-have <span class="math display">\[X v - T v \in T^{1/2} M,\]</span>
-<span class="math display">\[Y v - T v \in T^{1/2} M,\]</span> <span
+\operatorname{O}(T^{1/2})\]</span> as well as the Fourier series
+condition <a href="#eqn:d1a9c4e68198" data-reference-type="eqref"
+data-reference="eqn:d1a9c4e68198">\((3.12)\)</a> enunciated in
+Exercise <a href="#exercise:d1a94c55524c" data-reference-type="ref"
+data-reference="exercise:d1a94c55524c">2</a>. Verify that for all <span
+class="math inline">\(v \in M\)</span>, we have <span
+class="math display">\[X v - T v \in T^{1/2} M,\]</span> <span
+class="math display">\[Y v - T v \in T^{1/2} M,\]</span> <span
 class="math display">\[H v - T v \in T^{1/2} M.\]</span> Deduce that
 every element of <span class="math inline">\(M\)</span> is localized at
 <span class="math display">\[\tau =  i T
