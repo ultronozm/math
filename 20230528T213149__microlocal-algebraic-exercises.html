@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Some algebra-flavored exercises</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+    <div class="my-links-container">
+2023-05-28 23:51:33
+      <a href="20230528T213149__microlocal-algebraic-exercises.tex" class="my-link">tex</a>
+      <a href="20230528T213149__microlocal-algebraic-exercises.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20230528T213149__microlocal-algebraic-exercises.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+
+<header id="title-block-header">
+<h1 class="title">Some algebra-flavored exercises</h1>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>In this evolving note, we record some algebra-flavored exercises
+relevant for the Oberwolfach seminar.</p>
+</div>
+</header>
+<h1 id="cyclic-and-regular-matrices">Cyclic and regular matrices</h1>
+<p>Let <span class="math inline">\(F\)</span> be a field, let <span
+class="math inline">\(V\)</span> be a vector space over <span
+class="math inline">\(F\)</span>, and let <span class="math inline">\(M
+:= \mathop{\mathrm{End}}(V)\)</span> denote the space of linear maps
+<span class="math inline">\(V \to V\)</span>.</p>
+<div class="definition">
+<p><strong>Definition 1</strong>. Let <span class="math inline">\(\tau
+\in M\)</span> and <span class="math inline">\(v \in V\)</span>. We
+denote by <span class="math inline">\(F[\tau] v\)</span> the set of
+elements of <span class="math inline">\(V\)</span> that may be written
+as a polynomial in <span class="math inline">\(\tau\)</span> applied to
+<span class="math inline">\(v\)</span>, or equivalently, the span of the
+elements <span class="math display">\[v, \quad \tau v, \quad \tau^2 v,
+\quad (\dotsc).\]</span> We say that a vector <span
+class="math inline">\(v \in V\)</span> is <span
+class="math inline">\(\tau\)</span><em>-cyclic</em>, or that <span
+class="math inline">\(v\)</span> is a <em>cyclic vector</em> for <span
+class="math inline">\(\tau\)</span>, if <span
+class="math display">\[F[\tau] v = V.\]</span> We say that <span
+class="math inline">\(\tau\)</span> is <em>cyclic</em> if it admits a
+cyclic vector.</p>
+</div>
+<div class="exercise">
+<p><strong>Exercise 1</strong>. Show that <span
+class="math inline">\(\tau\)</span> is cyclic if and only if there is a
+basis with respect to which it is of the form, e.g., for <span
+class="math inline">\(\dim(V) = 4\)</span>, <span
+class="math display">\[\begin{pmatrix}
+0 &amp; 0 &amp; 0 &amp; \ast \\
+1 &amp; 0 &amp; 0 &amp; \ast \\
+0 &amp; 1 &amp; 0 &amp; \ast \\
+0 &amp; 0 &amp; 1 &amp; \ast \\
+\end{pmatrix}.\]</span></p>
+</div>
+<div class="exercise">
+<p><strong>Exercise 2</strong>. For each monic polynomial of degree
+<span class="math inline">\(\dim(V)\)</span>, show that there exists a
+cyclic element <span class="math inline">\(\tau \in M\)</span> whose
+characteristic polynomial is that polynomial. Show moreover that any two
+cyclic elements with the same characteristic polynomial are
+conjugate.</p>
+</div>
+<div class="exercise">
+<p><strong>Exercise 3</strong>. Show that a matrix given in Jordan form
+is cyclic precisely when the eigenvalues pertaining to different Jordan
+blocks are distinct. In particular, a diagonal matrix is cyclic
+precisely when its diagonal entries are distinct.</p>
+</div>
+<div class="definition">
+<p><strong>Definition 2</strong>. We say that <span
+class="math inline">\(\tau \in M\)</span> is <em>regular</em> if <span
+class="math inline">\(\dim M_\tau = \dim V\)</span>, where <span
+class="math display">\[M_\tau := \left\{ x \in M : x \tau = \tau x
+\right\}\]</span> denotes the <em>centralizer</em> of <span
+class="math inline">\(\tau\)</span> in <span
+class="math inline">\(M\)</span>.</p>
+</div>
+<div class="exercise">
+<p><strong>Exercise 4</strong>. Show that for <span
+class="math inline">\(\tau \in M\)</span>, the following are
+equivalent.</p>
+<ol type="i">
+<li><p><span class="math inline">\(\tau\)</span> is cyclic.</p></li>
+<li><p><span class="math inline">\(M_\tau = F[\tau]\)</span>.</p></li>
+<li><p><span class="math inline">\(\tau\)</span> is regular.</p></li>
+</ol>
+</div>
+<div class="definition">
+<p><strong>Definition 3</strong>. We recall that <span
+class="math inline">\(\tau \in M\)</span> is <em>nilpotent</em> if some
+power of <span class="math inline">\(\tau\)</span> vanishes.</p>
+</div>
+<div class="exercise">
+<p><strong>Exercise 5</strong>. Suppose that <span
+class="math inline">\(F = \mathbb{R}\)</span>. Fix a norm <span
+class="math inline">\(\lVert . \rVert\)</span> on <span
+class="math inline">\(M\)</span>. Let <span
+class="math display">\[\mathcal{O} \subseteq M\]</span> be a conjugacy
+class consisting of regular (equivalently, cyclic) elements. Let <span
+class="math inline">\(x_j \in \mathcal{O}\)</span> be a sequence whose
+matrix norms <span class="math inline">\(\lVert x_j \rVert\)</span> tend
+to infinity.</p>
+<ol type="i">
+<li><p>Show that, after passing to a subsequence if necessary, the
+normalized limit <span class="math display">\[x := \lim_{j \rightarrow
+\infty } \frac{x_j}{ \lVert x_j \rVert}\]</span> exists, and is
+nilpotent.</p></li>
+<li><p>Show that there exists a sequence <span
+class="math inline">\(x_j\)</span> as above for which the normalized
+limit <span class="math inline">\(x\)</span> is regular
+nilpotent.</p></li>
+</ol>
+</div>
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
