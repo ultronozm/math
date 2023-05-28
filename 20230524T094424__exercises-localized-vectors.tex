@@ -3,6 +3,7 @@
 \usepackage{xr-hyper}
 \externaldocument{20230522T150333__microlocal-localized-vectors}
 \externaldocument{standard}
+\externaldocument{20230522T190340__pgl2-spectral-aspect-subconvexity_expository}
 
 \numberwithin{equation}{section}
 
@@ -444,7 +445,7 @@ W(y) := W(a(y)),
 \end{equation*}
 and every smooth compactly-supported function arises in this way.  We obtain in this way a realization of $\pi$ as a space of functions on $\mathbb{R}^\times$, called the \emph{Kirillov model}.  When $\pi$ is unitary, an invariant inner product may be given in the Kirillov model by
 \begin{equation}\label{eqn:d1a915c9af68}
-  \lVert W \rVert^2 := \int_{y \in \mathbb{R}^\times } W(y) \, d^\times y, \quad
+ \langle W_1, W_2 \rangle := \int_{y \in \mathbb{R}^\times } W_1(y) \overline{W_2(y)} \, d^\times y, \quad
   d^\times y := \frac{d y}{\lvert y \rvert}.
 \end{equation}
 Standard references for these facts include \cite[\S6]{MR748505}, \cite[\S10.2]{MR1999922}, \cite{MR2733072}.
@@ -527,19 +528,19 @@ We just give one representative example of the sort of analysis that can be achi
   \item $\pi = \pi(k)$ with $k = \O(T)$.
   \end{enumerate}
 
-  Let $\rho$ be a $T$-dependent real number with $\rho = \O(T)$.  Let $M$ denote the class of all $T$-dependent elements $W \in \pi$ that are given in the Kirillov model for large enough $T$ by the formula
-  \begin{equation*}
+  Let $\alpha$ and $\rho$ be $T$-dependent real numbers with $\rho = \O(T)$ and $\alpha \asymp T$ (see \S\ref{sec:d1a8dda545b5} of \href{20230522T150333__microlocal-localized-vectors.pdf}{this note} for notation).  Let $M$ denote the class of all $T$-dependent elements $W \in \pi$ that are given in the Kirillov model for large enough $T$ by the formula
+  \begin{equation}\label{eqn:d1aa012dc1aa}
     W(y) =
     T^{1/4}
     \lvert y \rvert^{i \rho }
-    \phi \left( \frac{y - T}{T^{1/2} } \right),
-  \end{equation*}
+    \phi \left( \frac{y - \alpha}{T^{1/2} } \right),
+  \end{equation}
   where $\phi$ belongs to some fixed bounded subset of the space $C_c^\infty(\mathbb{R}^\times)$.  (We recall that a subset $\mathfrak{B}$ of this space is bounded if there are constants $C_n \geq 0$ and a compact set $E \subseteq \mathbb{R}^\times$ such that each $\phi \in \mathfrak{B}$ is supported in $E$ and has $n$th derivative bounded in $L^\infty$-norm by $C_n$.)
   \begin{enumerate}[(i)]
   \item Verify that $\lVert W \rVert = \O(1)$ for each $W \in M$.
   \item Verify that for each $W \in M$, we have
     \begin{equation*}
-      e W - i T W \in T^{1/2} M,
+      e W - i \alpha  W \in T^{1/2} M,
     \end{equation*}
     \begin{equation*}
       h W
@@ -552,14 +553,14 @@ We just give one representative example of the sort of analysis that can be achi
     \end{equation*}
     where
     \begin{equation*}
-      \beta := \frac{\rho^2 - \Omega_\pi}{T}.
+      \beta := \frac{\rho^2 - \Omega_\pi}{\alpha}.
     \end{equation*}    
   \item Deduce that every element of $M$ is localized at the $T$-dependent element of $\mathfrak{g}^\wedge$ given by
     \begin{equation*}
       \tau = i 
       \begin{pmatrix}
         \rho  & \beta \\
-        T  & -\rho \\
+        \alpha & -\rho \\
       \end{pmatrix},
     \end{equation*}
     for which
@@ -567,15 +568,81 @@ We just give one representative example of the sort of analysis that can be achi
       \det (\tau/i) = \Omega_\pi.
     \end{equation*}
     (Compare with \eqref{eqn:d1a91628a316}.)
+  \item Define the Weyl group element
+    \begin{equation*}
+      w :=
+      \begin{pmatrix}
+        0 & 1 \\
+        1 & 0 \\
+      \end{pmatrix}
+      \in G,
+    \end{equation*}
+    which satisfies
+    \begin{equation*}
+      \Ad(w) e = f, \qquad
+      \Ad(w) h = -h,
+      \qquad
+      \Ad(w) f = e.
+    \end{equation*}
+    Show that for each $W \in M$, the $w$-translate $w W$ of $W$, given in the Kirillov model by
+    \begin{equation}\label{eqn:d1aa0102b8bb}
+      w W(y) := W(a(y) w),
+    \end{equation}
+    is localized at
+    \begin{equation*}
+      w \cdot \tau = i
+      \begin{pmatrix}
+        -\rho  & \alpha  \\
+        \beta  & \rho \\
+      \end{pmatrix}.
+    \end{equation*}
+  \item Show that fixed $k, \ell  \in \mathbb{Z}_{\geq 0}$, we have
+\begin{equation*}
+  \int_{y \in \mathbb{R}^\times }
+  \left\lvert \frac{(y \partial_y)^k |y|^{i \rho} w W (y)}{T^{k/2}}  \right\rvert^2
+  \left\lvert \frac{y - \beta }{ T^{1/2} } \right\rvert^{\ell} \,d^\times y \ll 1.
+\end{equation*}
+Informally, and at least when $\beta \asymp T$, this says that $w W(y)$ looks roughly like $T^{1/4} |y|^{-i \rho}$ times a bump function on $\beta + \O(T^{1/2})$.
+
+[Hint: consider the identity
+    \begin{equation*}
+      (e - i \beta)^k (h + i \rho)^\ell w W
+      =
+      w (f - i \beta)^k (-h + i \rho)^\ell W
+    \end{equation*}
+    and use that the norm defined by \eqref{eqn:d1a915c9af68} is $G$-invariant and that each element of $M$ has norm $\O(1)$.]
   \end{enumerate}
 \end{exercise}
+
+\begin{remark}
+  Set $\Gamma := \PGL_{2}(\mathbb{Z}) < G$.  Suppose that the representation $\pi$ of $G$ considered in Exercise \ref{exercise:d1a9162d527e} comes with an embedding $\pi \hookrightarrow L^2_{\cusp}(\Gamma \backslash G)$ as a Hecke eigenspace, with Hecke eigenvalues $\lambda : \mathbb{N} \rightarrow \mathbb{C}$.  Then, as explained in \S\ref{sec:35ac3e587a} of \href{20230522T190340__pgl2-spectral-aspect-subconvexity_expository.pdf}{this note}, each $\varphi \in \pi$ (regarded as a function $\varphi : \Gamma \backslash G \rightarrow \mathbb{C}$) admits a Whittaker expansion
+  \begin{equation}\label{eqn:d1aa0111162c}
+    \varphi(g) = \sum_{n \neq 0} \frac{\lambda (\lvert n \rvert)}{ \lvert n \rvert^{1/2} } W (a (2 \pi n) g)
+  \end{equation}
+  where $W \in \mathcal{W}(\pi,\psi)$ denotes the image of $\varphi$ under the equivariant map defined by integrating over $(\Gamma \cap N) \backslash N$ against $\psi^{-1}$.  (The factor $2 \pi$ appears because we are using the unconventional choice \eqref{eqn:d1a915c27da9} for $\psi$.)  The left-invariance of $\varphi$ under $w$ implies a case of the Voronoi summation formula (see \href{https://people.math.osu.edu/cogdell.1/bessel-www.pdf}{this note of Cogdell} for a more general discussion): by applying the expansion \eqref{eqn:d1aa0111162c} to both sides of the identity $\varphi(1) = \varphi(w)$, and with the same abbreviations
+  \begin{equation*}
+    W(y) := W(a(y)),
+    \qquad
+    w W(y) := W(a(y) w)
+  \end{equation*}
+  as before, we obtain
+
+\begin{equation*}
+  \sum_{n \neq 0 } \frac{\lambda (\lvert n \rvert)}{ \lvert n \rvert^{1/2} }
+  W(2 \pi n)
+  =
+  \sum_{n \neq 0 } \frac{\lambda (\lvert n \rvert)}{ \lvert n \rvert^{1/2} }
+  w W(2 \pi n).
+\end{equation*}
+The values $W(y)$ and $w W(y)$ are related by an integral transform involving the Bessel function attached to $\pi$ (see \S2.2 of \href{https://people.math.osu.edu/cogdell.1/bessel-www.pdf}{Cogdell's note}, or \cite[Appendix A]{KMV02}).  When $W(y)$ is given by \eqref{eqn:d1aa012dc1aa}, one can derive asymptotics for $w W(y)$ using stationary phase analysis; derivations like this may be found in many analytic number theory papers.  One consequence of Exercise \ref{exercise:d1a9162d527e} is that in many cases, the shapes of $W(y)$ and $w W(y)$ may be related by ``pure thought''.
+\end{remark}
 
 \section{TODO}
 
 \begin{enumerate}
 \item Something for $\SO(3)$ using the Borel--Weil model over $\mathbb{C} \mathbb{P}^1$. 
 \item Something for induced models for $\PGL_2(\mathbb{R})$.
-\item Some follow-up to exercise \ref{sec:d1a9162d5b8b} explaining what it says about $w W(y)$, for $w$ the nontrivial Weyl element.
+\item \sout{Some follow-up to exercise \ref{sec:d1a9162d5b8b} explaining what it says about $w W(y)$, for $w$ the nontrivial Weyl element.}
 \end{enumerate}
 
 
