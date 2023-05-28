@@ -55,7 +55,7 @@
     (save-excursion
       (goto-char (point-min))
       (let ((files nil))
-	(while (re-search-forward "\\\\externaldocument\\(\\[[^]]+\\]\\)?{\\([^}]+\\)}" nil t)
+	(while (re-search-forward "^\\\\externaldocument\\(\\[[^]]+\\]\\)?{\\([^}]+\\)}" nil t)
 	  (let ((file (concat (match-string 2) ".aux")))
 	    (unless (file-exists-p file)
 	      (error "External .aux file %s does not exist" file))
