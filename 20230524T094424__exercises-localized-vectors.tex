@@ -48,6 +48,18 @@ Let $G$ be a fixed real Lie group, and let $\pi = \pi_T$ be a $T$-dependent unit
 The purpose of the present note is to give some examples of classes $M$ satisfying the above conditions, hence, in particular, examples of localized vectors.  In each case, the first three properties will clearly hold, so we do not mention them; the main point is to verify the approximate eigenvector property \eqref{eqn:d1a94c11ed29} for elements $x$ of a fixed basis of $\mathfrak{g}$.
 
 
+\begin{exercise}
+  Verify, directly from the definitions, that the following are equivalent for a class $M$ of vectors satisfying the first three conditions in Theorem \ref{theorem:d1a94d0ddd25}.
+  \begin{enumerate}
+\item The fourth condition in Theorem \ref{theorem:d1a94d0ddd25} holds.
+\item For all fixed $\eps > 0$, fixed $k \in \mathbb{Z}_{\geq 0}$, and fixed $x_1,\dotsc,x_k \in \mathfrak{g}$, we have
+  \begin{equation*}
+\lVert (x_1 - \tau(x_1)) \dotsb (x_k - \tau(x_k)) v \rVert \ll T^{k/2 + \eps }.
+\end{equation*}
+\end{enumerate}
+\end{exercise}
+
+
 \section{The group $\SO(3)$ via weight vectors}\label{sec:d1a9162ed4bc}
 
 \subsection{Lie algebra}\label{sec:d1a9162ece67}
@@ -135,6 +147,8 @@ The $m$ for which $\pi(m) \neq 0$ are called the \emph{weights} of $\pi$, and th
   If $\pi$ is unitary, then this basis is orthonormal.
 \end{proposition}
 \begin{proof}
+  (It is a good exercise to attempt as many parts of this proof yourself as possible.)
+  
   Since $\SO(3)$ is compact, we know by the Peter--Weyl theorem that $\pi$ is finite-dimensional.  There is thus a largest element $\ell \in \mathbb{Z}_{\geq 0}$ with $\pi(\ell) \neq 0$.  For any $v \in \pi(\ell)$, we have $X v \in \pi(\ell+1) = \{0\}$, hence $X v = 0$.  By \eqref{eqn:20230524102839}, it follows that
   \begin{equation}\label{eqn:20230524102429}
     0 = Y X v = \Omega v - \ell (\ell + 1) v.
@@ -693,6 +707,12 @@ We just give one representative example of the sort of analysis that can be achi
 \end{equation*}
 The values $W(y)$ and $w W(y)$ are related by an integral transform involving the Bessel function attached to $\pi$ (see \S2.2 of \href{https://people.math.osu.edu/cogdell.1/bessel-www.pdf}{Cogdell's note}, or \cite[Appendix A]{KMV02}).  When $W(y)$ is given by \eqref{eqn:d1aa012dc1aa}, one can derive asymptotics for $w W(y)$ using stationary phase analysis; derivations like this may be found in many analytic number theory papers.  One consequence of Exercise \ref{exercise:d1a9162d527e} is that in many cases, the shapes of $W(y)$ and $w W(y)$ may be related by ``pure thought''.
 \end{remark}
+
+\section{Relative character asymptotics}
+
+\subsection{The case $(\SO(3), \SO(2))$}
+
+
 
 \section{TODO}
 
