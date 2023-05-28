@@ -286,6 +286,7 @@
       <a href=\"%s.tex\" class=\"my-link\">tex</a>
       <a href=\"%s.pdf\" class=\"my-link\">pdf</a>
       <a href=\"https://github.com/ultronozm/math/commits/main/%s.tex\" class=\"my-link\">history</a>
+      <a href=\".\" class=\"my-link\">home</a>
     </div>
 "
 	     (czm/format-git-time-string
