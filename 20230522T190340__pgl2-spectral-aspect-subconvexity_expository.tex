@@ -7,6 +7,7 @@
 \externaldocument{var-quat-3-submitted}
 \externaldocument{standard}
 \externaldocument{20230524T094424__exercises-localized-vectors}
+\externaldocument{20230522T150333__microlocal-localized-vectors}
 
 \numberwithin{equation}{section}
 
@@ -44,7 +45,7 @@ Let $\pi \subset L^2_{\text{cusp}}(\Gamma \backslash G)$ be a cuspidal automorph
 \end{equation}
 for some fixed $\delta > 0$.
 
-Such an estimate was first shown by Iwaniec \cite{Iwaniec1992} (initially under an additional hypothesis, which Iwaniec later observed could be removed using identity $\lambda(p)^2 - \lambda(p^2) = 1$).  Iwaniec's method consists of estimating an amplified second moment over $T$ in an interval of length a bit more than $1$.  This method was adapted to $\PGL_3$ by Blomer--Buttcane \cite{MR4203038, MR4039487}, using an amplified fourth moment, and then to $\GL_n$ in \cite{2021arXiv210915230N}  (\href{standard.pdf}{direct link}), using an amplified $2(n-1)$th moment.  In the works of Iwaniec and Blomer---Buttcane, the moment is estimated using the approximate functional equation, Kuznetsov formula, and several applications of Poisson summation.  In \cite{2021arXiv210915230N}, the moment is estimated implicitly by direct analysis of an integral representation for the $L$-function, with vectors chosen as in \cite{nelson-venkatesh-1} and the averaging implemented via the pretrace formula like in \cite{iwan-sar}.
+Such an estimate was first shown by Iwaniec \cite{Iwaniec1992} (initially under an additional hypothesis, which Iwaniec later observed could be removed using the identity $\lambda(p)^2 - \lambda(p^2) = 1$).  Iwaniec's method consists of estimating an amplified second moment over $T$ in an interval of length a bit more than $1$.  This method was adapted to $\PGL_3$ by Blomer--Buttcane \cite{MR4203038, MR4039487}, using an amplified fourth moment, and then to $\GL_n$ in \cite{2021arXiv210915230N}  (\href{standard.pdf}{direct link}), using an amplified $2(n-1)$th moment.  In the works of Iwaniec and Blomer---Buttcane, the moment is estimated using the approximate functional equation, Kuznetsov formula, and several applications of Poisson summation.  In \cite{2021arXiv210915230N}, the moment is estimated implicitly by direct analysis of an integral representation for the $L$-function, with vectors chosen as in \cite{nelson-venkatesh-1} and the averaging implemented via the pretrace formula like in \cite{iwan-sar}.
 
 \begin{remark}
   The best known bound for \eqref{eqn:35ac318817} is to due to Ivic \cite{MR1879668} , who showed that \eqref{eqn:35ac318817} holds for any fixed $\delta < 1/6$.  Ivic's method consists of estimating an unamplified fourth moment over $T$ in an interval of length a bit more than $T^{1/3}$ (compare with \cite{michel-2009, Nelson-EisCubic, 2021arXiv210112106B, balkanova2022weyls}).  Such approaches using ``higher moments'' have no known extension beyond $\GL_2$.  It would be significant to identify such an extension.
@@ -164,7 +165,7 @@ We seek a unit vector $\varphi \in \pi$ that is ``localized at $\tau$.''  Inform
 \begin{equation}\label{eq:x-varphi-=}
   X \varphi = {i \langle X, \tau  \rangle} \varphi + \O(T^{1/2}).
 \end{equation}
-For further informal discussion of this concept, see \cite[\S1.7]{nelson-venkatesh-1} and \cite[\S2.5]{2020arXiv201202187N} .  For some precise definitions, see \S\ref{sec:states-approx-microlocal} of \href{var-quat-3-submitted.pdf}{Quantum variance III}, or \cite[\S14]{2021arXiv210915230N} (direct link: \S\ref{sec:abstr-study-local}).
+For further informal discussion of this concept, see \cite[\S1.7]{nelson-venkatesh-1} and \cite[\S2.5]{2020arXiv201202187N} .  For a precise definition, see \S\ref{sec:d1a8de614cc9} of \href{20230522T150333__microlocal-localized-vectors.pdf}{this note}; for exercises, see \href{20230524T094424__exercises-localized-vectors.pdf}{this note}; for further discussion, see \S\ref{sec:states-approx-microlocal} of \href{var-quat-3-submitted.pdf}{Quantum variance III}, or \cite[\S14]{2021arXiv210915230N} (direct link: \S\ref{sec:abstr-study-local}).
 
 Such a vector $\varphi$ may be described readily in the Kirillov model for $\pi$.  Recall (from \S\ref{sec:35ac31dd2c}) that this model consists of the restrictions to $H$ of elements $W$ of the Whittaker model $\mathcal{W}(\pi)$.  It will be convenient to think of such restricted elements $W$ as functions on $\mathbb{R}^\times$ via the abbreviation
 \begin{equation*}
