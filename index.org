@@ -85,6 +85,7 @@ $(document).ready(function() {
 
 ** Exercises
 - [[tex-html:20230524T094424__exercises-localized-vectors]]
+- [[tex-html:20230528T213149__microlocal-algebraic-exercises]]
 
 * Course notes
 - Testing display math: $(x+y)$.
