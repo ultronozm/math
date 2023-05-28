@@ -210,10 +210,11 @@
 </head>
 <body>
     <div class="my-links-container">
-2023-05-28 15:53:28
+2023-05-28 21:09:38
       <a href="20230524T094424__exercises-localized-vectors.tex" class="my-link">tex</a>
       <a href="20230524T094424__exercises-localized-vectors.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20230524T094424__exercises-localized-vectors.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
     </div>
 
 <header id="title-block-header">
@@ -306,6 +307,25 @@ href="#eqn:d1a94c11ed29" data-reference-type="eqref"
 data-reference="eqn:d1a94c11ed29">\((2.1)\)</a> for elements
 <span class="math inline">\(x\)</span> of a fixed basis of <span
 class="math inline">\(\mathfrak{g}\)</span>.</p>
+<div class="exercise">
+<p><strong>Exercise 1</strong>. Verify, directly from the definitions,
+that the following are equivalent for a class <span
+class="math inline">\(M\)</span> of vectors satisfying the first three
+conditions in Theorem <a href="#theorem:d1a94d0ddd25"
+data-reference-type="ref"
+data-reference="theorem:d1a94d0ddd25">1</a>.</p>
+<ol>
+<li><p>The fourth condition in Theorem <a href="#theorem:d1a94d0ddd25"
+data-reference-type="ref" data-reference="theorem:d1a94d0ddd25">1</a>
+holds.</p></li>
+<li><p>For all fixed <span class="math inline">\(\varepsilon&gt;
+0\)</span>, fixed <span class="math inline">\(k \in \mathbb{Z}_{\geq
+0}\)</span>, and fixed <span class="math inline">\(x_1,\dotsc,x_k \in
+\mathfrak{g}\)</span>, we have <span class="math display">\[\lVert (x_1
+- \tau(x_1)) \dotsb (x_k - \tau(x_k)) v \rVert \ll T^{k/2 +
+\varepsilon}.\]</span></p></li>
+</ol>
+</div>
 <h1 id="sec:d1a9162ed4bc">§3. The group <span
 class="math inline">\(\mathop{\mathrm{SO}}(3)\)</span> via weight
 vectors</h1>
@@ -401,9 +421,10 @@ class="math inline">\(\pi\)</span> is unitary, then this basis is
 orthonormal.</em></p>
 </div>
 <div class="proof">
-<p><em>Proof.</em> Since <span
-class="math inline">\(\mathop{\mathrm{SO}}(3)\)</span> is compact, we
-know by the Peter–Weyl theorem that <span
+<p><em>Proof.</em> (It is a good exercise to attempt as many parts of
+this proof yourself as possible.)</p>
+<p>Since <span class="math inline">\(\mathop{\mathrm{SO}}(3)\)</span> is
+compact, we know by the Peter–Weyl theorem that <span
 class="math inline">\(\pi\)</span> is finite-dimensional. There is thus
 a largest element <span class="math inline">\(\ell \in \mathbb{Z}_{\geq
 0}\)</span> with <span class="math inline">\(\pi(\ell) \neq 0\)</span>.
@@ -498,7 +519,7 @@ class="math inline">\(\pi\)</span> denote the <span
 class="math inline">\(T\)</span>-dependent representation having highest
 weight <span class="math inline">\(T\)</span>.</p>
 <div id="exercise:d1a913e1e9ec" class="exercise">
-<p><strong>Exercise 1</strong>. Let <span
+<p><strong>Exercise 2</strong>. Let <span
 class="math inline">\(M\)</span> denote the class of <span
 class="math inline">\(T\)</span>-dependent vectors <span
 class="math inline">\(v\)</span> in <span
@@ -528,7 +549,7 @@ data-reference="eqn:d1a914f48fd7">\((3.4)\)</a> by <span
 class="math display">\[\tau = (0,0,i T).\]</span></p>
 </div>
 <div id="exercise:d1a94c55524c" class="exercise">
-<p><strong>Exercise 2</strong>. Let <span
+<p><strong>Exercise 3</strong>. Let <span
 class="math inline">\(M\)</span> be the class of <span
 class="math inline">\(T\)</span>-dependent vectors in <span
 class="math inline">\(\pi\)</span> of the form <span
@@ -705,7 +726,7 @@ data-reference="eqn:d1a9150ab652">\((4.1)\)</a> by <span id="eqn:d1a91628a316" c
   \right\}.\]</span></p>
 <h2 id="sec:d1a9162ea6e6">§4.3. Localized vectors</h2>
 <div id="exercise:d1aa01c52923" class="exercise">
-<p><strong>Exercise 3</strong>. Let <span
+<p><strong>Exercise 4</strong>. Let <span
 class="math inline">\(\pi\)</span> be the <span
 class="math inline">\(T\)</span>-dependent representation of <span
 class="math inline">\({\mathop{\mathrm{PGL}}}_2(\mathbb{R})\)</span> given
@@ -739,7 +760,7 @@ class="math display">\[\tau =
     \end{pmatrix}.\]</span></p>
 </div>
 <div id="exercise:d1aa01c53f48" class="exercise">
-<p><strong>Exercise 4</strong>. Let <span
+<p><strong>Exercise 5</strong>. Let <span
 class="math inline">\(\pi\)</span> be the <span
 class="math inline">\(T\)</span>-dependent representation of <span
 class="math inline">\({\mathop{\mathrm{PGL}}}_2(\mathbb{R})\)</span> given
@@ -758,7 +779,7 @@ class="math display">\[a_m \neq 0 \implies m =
 condition <a href="#eqn:d1a9c4e68198" data-reference-type="eqref"
 data-reference="eqn:d1a9c4e68198">\((3.12)\)</a> enunciated in
 Exercise <a href="#exercise:d1a94c55524c" data-reference-type="ref"
-data-reference="exercise:d1a94c55524c">2</a>. Verify that for all <span
+data-reference="exercise:d1a94c55524c">3</a>. Verify that for all <span
 class="math inline">\(v \in M\)</span>, we have <span
 class="math display">\[X v - T v \in T^{1/2} M,\]</span> <span
 class="math display">\[Y v - T v \in T^{1/2}  M,\]</span> <span
@@ -774,7 +795,7 @@ class="math display">\[\tau = i T
 <p><strong>Remark 4</strong>. Suppose that <span
 class="math inline">\(\pi\)</span> as in Exercise <a
 href="#exercise:d1aa01c53f48" data-reference-type="ref"
-data-reference="exercise:d1aa01c53f48">4</a> comes equipped with a
+data-reference="exercise:d1aa01c53f48">5</a> comes equipped with a
 equivariant isometric embedding <span class="math display">\[\iota : \pi
 \hookrightarrow L^2(\Gamma \backslash G)\]</span> for some finite volume
 quotient <span class="math inline">\(\Gamma \backslash G\)</span> by a
@@ -829,7 +850,7 @@ data-reference="thm:characterize-mu-pi">2</a>)
 for further discussion.</p>
 </div>
 <div id="exercise:d1aa01c4e580" class="exercise">
-<p><strong>Exercise 5</strong>. Let <span
+<p><strong>Exercise 6</strong>. Let <span
 class="math inline">\(\pi\)</span> be any fixed infinite-dimensional
 irreducible unitary representation of <span
 class="math inline">\({\mathop{\mathrm{PGL}}}_2(\mathbb{R})\)</span>
@@ -846,7 +867,7 @@ class="math display">\[a_m \neq 0 \implies m = T+
 condition <a href="#eqn:d1a9c4e68198" data-reference-type="eqref"
 data-reference="eqn:d1a9c4e68198">\((3.12)\)</a> enunciated in
 Exercise <a href="#exercise:d1a94c55524c" data-reference-type="ref"
-data-reference="exercise:d1a94c55524c">2</a>. Verify that for all <span
+data-reference="exercise:d1a94c55524c">3</a>. Verify that for all <span
 class="math inline">\(v \in M\)</span>, we have <span
 class="math display">\[X v - T v \in T^{1/2} M,\]</span> <span
 class="math display">\[Y v - T v \in T^{1/2} M,\]</span> <span
@@ -992,7 +1013,7 @@ for further discussion.</p>
 <p>We just give one representative example of the sort of analysis that
 can be achieved in this way.</p>
 <div id="exercise:d1a9162d527e" class="exercise">
-<p><strong>Exercise 6</strong>. Let <span
+<p><strong>Exercise 7</strong>. Let <span
 class="math inline">\(\pi\)</span> be a <span
 class="math inline">\(T\)</span>-dependent generic irreducible unitary
 representation of <span
@@ -1118,7 +1139,7 @@ class="math inline">\(\operatorname{O}(1)\)</span>.]</p></li>
 representation <span class="math inline">\(\pi\)</span> of <span
 class="math inline">\(G\)</span> considered in Exercise <a
 href="#exercise:d1a9162d527e" data-reference-type="ref"
-data-reference="exercise:d1a9162d527e">6</a> comes with an embedding
+data-reference="exercise:d1a9162d527e">7</a> comes with an embedding
 <span class="math inline">\(\pi \hookrightarrow
 L^2_{\mathop{\mathrm{cusp}}}(\Gamma \backslash G)\)</span> as a Hecke
 eigenspace, with Hecke eigenvalues <span class="math inline">\(\lambda :
@@ -1175,11 +1196,16 @@ asymptotics for <span class="math inline">\(w W(y)\)</span> using
 stationary phase analysis; derivations like this may be found in many
 analytic number theory papers. One consequence of Exercise <a
 href="#exercise:d1a9162d527e" data-reference-type="ref"
-data-reference="exercise:d1a9162d527e">6</a> is that in many cases, the
+data-reference="exercise:d1a9162d527e">7</a> is that in many cases, the
 shapes of <span class="math inline">\(W(y)\)</span> and <span
 class="math inline">\(w W(y)\)</span> may be related by “pure
 thought”.</p>
 </div>
+<h1 id="relative-character-asymptotics">Relative character
+asymptotics</h1>
+<h2 id="the-case-mathopmathrmso3-mathopmathrmso2">The case <span
+class="math inline">\((\mathop{\mathrm{SO}}(3),
+\mathop{\mathrm{SO}}(2))\)</span></h2>
 <h1 id="todo">TODO</h1>
 <ol>
 <li><p>Something for <span
