@@ -210,7 +210,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2023-05-27 08:58:05
+2023-05-28 10:05:50
       <a href="20230524T094424__exercises-localized-vectors.tex" class="my-link">tex</a>
       <a href="20230524T094424__exercises-localized-vectors.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20230524T094424__exercises-localized-vectors.tex" class="my-link">history</a>
@@ -840,8 +840,8 @@ functions on <span class="math inline">\(\mathbb{R}^\times\)</span>,
 called the <em>Kirillov model</em>. When <span
 class="math inline">\(\pi\)</span> is unitary, an invariant inner
 product may be given in the Kirillov model by <span id="eqn:d1a915c9af68" class="math display">\[\label{eqn:d1a915c9af68}\tag{5.1}
-  \lVert W \rVert^2 := \int_{y \in \mathbb{R}^\times } W(y) \, d^\times
-y, \quad
+\langle W_1, W_2 \rangle := \int_{y \in \mathbb{R}^\times } W_1(y)
+\overline{W_2(y)} \, d^\times y, \quad
   d^\times y := \frac{d y}{\lvert y \rvert}.\]</span> Standard
 references for these facts include <a href="#ref-MR748505" class="citation"
 data-cites="MR748505">(Bernstein 1984, sec. 6)</a>, <a href="#ref-MR1999922"
@@ -943,19 +943,25 @@ or</p></li>
 <li><p><span class="math inline">\(\pi = \pi(k)\)</span> with <span
 class="math inline">\(k = \operatorname{O}(T)\)</span>.</p></li>
 </ol>
-<p>Let <span class="math inline">\(\rho\)</span> be a <span
-class="math inline">\(T\)</span>-dependent real number with <span
-class="math inline">\(\rho = \operatorname{O}(T)\)</span>. Let <span
-class="math inline">\(M\)</span> denote the class of all <span
-class="math inline">\(T\)</span>-dependent elements <span
-class="math inline">\(W \in \pi\)</span> that are given in the Kirillov
-model for large enough <span class="math inline">\(T\)</span> by the
-formula <span class="math display">\[W(y) =
+<p>Let <span class="math inline">\(\alpha\)</span> and <span
+class="math inline">\(\rho\)</span> be <span
+class="math inline">\(T\)</span>-dependent real numbers with <span
+class="math inline">\(\rho = \operatorname{O}(T)\)</span> and <span
+class="math inline">\(\alpha \asymp T\)</span> (see §<a
+href="20230522T150333__microlocal-localized-vectors.html#sec:d1a8dda545b5" data-reference-type="ref"
+data-reference="sec:d1a8dda545b5">2.1</a> of <a
+href="20230522T150333__microlocal-localized-vectors.html">this note</a>
+for notation). Let <span class="math inline">\(M\)</span> denote the
+class of all <span class="math inline">\(T\)</span>-dependent elements
+<span class="math inline">\(W \in \pi\)</span> that are given in the
+Kirillov model for large enough <span class="math inline">\(T\)</span>
+by the formula <span id="eqn:d1aa012dc1aa" class="math display">\[\label{eqn:d1aa012dc1aa}\tag{5.8}
+    W(y) =
     T^{1/4}
     \lvert y \rvert^{i \rho }
-    \phi \left( \frac{y - T}{T^{1/2} } \right),\]</span> where <span
-class="math inline">\(\phi\)</span> belongs to some fixed bounded subset
-of the space <span
+    \phi \left( \frac{y - \alpha}{T^{1/2} } \right),\]</span> where
+<span class="math inline">\(\phi\)</span> belongs to some fixed bounded
+subset of the space <span
 class="math inline">\(C_c^\infty(\mathbb{R}^\times)\)</span>. (We recall
 that a subset <span class="math inline">\(\mathfrak{B}\)</span> of this
 space is bounded if there are constants <span class="math inline">\(C_n
@@ -971,15 +977,15 @@ class="math inline">\(C_n\)</span>.)</p>
 \operatorname{O}(1)\)</span> for each <span class="math inline">\(W \in
 M\)</span>.</p></li>
 <li><p>Verify that for each <span class="math inline">\(W \in
-M\)</span>, we have <span class="math display">\[e W - i T W \in T^{1/2}
-M,\]</span> <span class="math display">\[h W
+M\)</span>, we have <span class="math display">\[e W - i \alpha  W \in
+T^{1/2} M,\]</span> <span class="math display">\[h W
       - i \rho W
       \in T^{1/2} M.\]</span></p></li>
 <li><p>Use <a href="#eqn:d1a915c0e3d2" data-reference-type="eqref"
 data-reference="eqn:d1a915c0e3d2">\((5.7)\)</a> to show that
 <span class="math display">\[f W - i \beta W \in T^{1/2} M,\]</span>
 where <span class="math display">\[\beta := \frac{\rho^2 -
-\Omega_\pi}{T}.\]</span></p></li>
+\Omega_\pi}{\alpha}.\]</span></p></li>
 <li><p>Deduce that every element of <span
 class="math inline">\(M\)</span> is localized at the <span
 class="math inline">\(T\)</span>-dependent element of <span
@@ -987,12 +993,121 @@ class="math inline">\(\mathfrak{g}^\wedge\)</span> given by <span
 class="math display">\[\tau = i
       \begin{pmatrix}
         \rho  &amp; \beta \\
-        T  &amp; -\rho \\
+        \alpha &amp; -\rho \\
       \end{pmatrix},\]</span> for which <span
 class="math display">\[\det (\tau/i) = \Omega_\pi.\]</span> (Compare
 with <a href="#eqn:d1a91628a316" data-reference-type="eqref"
 data-reference="eqn:d1a91628a316">\((4.2)\)</a>.)</p></li>
+<li><p>Define the Weyl group element <span class="math display">\[w :=
+      \begin{pmatrix}
+        0 &amp; 1 \\
+        1 &amp; 0 \\
+      \end{pmatrix}
+      \in G,\]</span> which satisfies <span
+class="math display">\[\mathop{\mathrm{Ad}}(w) e = f, \qquad
+      \mathop{\mathrm{Ad}}(w) h = -h,
+      \qquad
+      \mathop{\mathrm{Ad}}(w) f = e.\]</span> Show that for each <span
+class="math inline">\(W \in M\)</span>, the <span
+class="math inline">\(w\)</span>-translate <span class="math inline">\(w
+W\)</span> of <span class="math inline">\(W\)</span>, given in the
+Kirillov model by <span id="eqn:d1aa0102b8bb" class="math display">\[\label{eqn:d1aa0102b8bb}\tag{5.9}
+      w W(y) := W(a(y) w),\]</span> is localized at <span
+class="math display">\[w \cdot \tau = i
+      \begin{pmatrix}
+        -\rho  &amp; \alpha  \\
+        \beta  &amp; \rho \\
+      \end{pmatrix}.\]</span></p></li>
+<li><p>Show that fixed <span class="math inline">\(k, \ell  \in
+\mathbb{Z}_{\geq 0}\)</span>, we have <span
+class="math display">\[\int_{y \in \mathbb{R}^\times }
+  \left\lvert \frac{(y \partial_y)^k |y|^{i \rho} w W
+(y)}{T^{k/2}}  \right\rvert^2
+  \left\lvert \frac{y - \beta }{ T^{1/2} } \right\rvert^{\ell}
+\,d^\times y \ll 1.\]</span> Informally, and at least when <span
+class="math inline">\(\beta \asymp T\)</span>, this says that <span
+class="math inline">\(w W(y)\)</span> looks roughly like <span
+class="math inline">\(T^{1/4} |y|^{-i \rho}\)</span> times a bump
+function on <span class="math inline">\(\beta +
+\operatorname{O}(T^{1/2})\)</span>.</p>
+<p>[Hint: consider the identity <span class="math display">\[(e - i
+\beta)^k (h + i \rho)^\ell w W
+      =
+      w (f - i \beta)^k (-h + i \rho)^\ell W\]</span> and use that the
+norm defined by <a href="#eqn:d1a915c9af68" data-reference-type="eqref"
+data-reference="eqn:d1a915c9af68">\((5.1)\)</a> is <span
+class="math inline">\(G\)</span>-invariant and that each element of
+<span class="math inline">\(M\)</span> has norm <span
+class="math inline">\(\operatorname{O}(1)\)</span>.]</p></li>
 </ol>
+</div>
+<div class="remark">
+<p><strong>Remark 4</strong>. Set <span class="math inline">\(\Gamma :=
+{\mathop{\mathrm{PGL}}}_{2}(\mathbb{Z}) &lt; G\)</span>. Suppose that the
+representation <span class="math inline">\(\pi\)</span> of <span
+class="math inline">\(G\)</span> considered in Exercise <a
+href="#exercise:d1a9162d527e" data-reference-type="ref"
+data-reference="exercise:d1a9162d527e">6</a> comes with an embedding
+<span class="math inline">\(\pi \hookrightarrow
+L^2_{\mathop{\mathrm{cusp}}}(\Gamma \backslash G)\)</span> as a Hecke
+eigenspace, with Hecke eigenvalues <span class="math inline">\(\lambda :
+\mathbb{N} \rightarrow \mathbb{C}\)</span>. Then, as explained in §<a
+href="20230522T190340__pgl2-spectral-aspect-subconvexity_expository.html#sec:35ac3e587a" data-reference-type="ref"
+data-reference="sec:35ac3e587a">2.2</a> of <a
+href="20230522T190340__pgl2-spectral-aspect-subconvexity_expository.html">this
+note</a>, each <span class="math inline">\(\varphi \in \pi\)</span>
+(regarded as a function <span class="math inline">\(\varphi : \Gamma
+\backslash G \rightarrow \mathbb{C}\)</span>) admits a Whittaker
+expansion <span id="eqn:d1aa0111162c" class="math display">\[\label{eqn:d1aa0111162c}\tag{5.10}
+    \varphi(g) = \sum_{n \neq 0} \frac{\lambda (\lvert n \rvert)}{
+\lvert n \rvert^{1/2} } W (a (2 \pi n) g)\]</span> where <span
+class="math inline">\(W \in \mathcal{W}(\pi,\psi)\)</span> denotes the
+image of <span class="math inline">\(\varphi\)</span> under the
+equivariant map defined by integrating over <span
+class="math inline">\((\Gamma \cap N) \backslash N\)</span> against
+<span class="math inline">\(\psi^{-1}\)</span>. (The factor <span
+class="math inline">\(2 \pi\)</span> appears because we are using the
+unconventional choice <a href="#eqn:d1a915c27da9"
+data-reference-type="eqref"
+data-reference="eqn:d1a915c27da9">\((5.4)\)</a> for <span
+class="math inline">\(\psi\)</span>.) The left-invariance of <span
+class="math inline">\(\varphi\)</span> under <span
+class="math inline">\(w\)</span> implies a case of the Voronoi summation
+formula (see <a
+href="https://people.math.osu.edu/cogdell.1/bessel-www.pdf">this note of
+Cogdell</a> for a more general discussion): by applying the expansion <a
+href="#eqn:d1aa0111162c" data-reference-type="eqref"
+data-reference="eqn:d1aa0111162c">\((5.10)\)</a> to both sides
+of the identity <span class="math inline">\(\varphi(1) =
+\varphi(w)\)</span>, and with the same abbreviations <span
+class="math display">\[W(y) := W(a(y)),
+    \qquad
+    w W(y) := W(a(y) w)\]</span> as before, we obtain</p>
+<p><span class="math display">\[\sum_{n \neq 0 } \frac{\lambda (\lvert n
+\rvert)}{ \lvert n \rvert^{1/2} }
+  W(2 \pi n)
+  =
+  \sum_{n \neq 0 } \frac{\lambda (\lvert n \rvert)}{ \lvert n
+\rvert^{1/2} }
+  w W(2 \pi n).\]</span> The values <span
+class="math inline">\(W(y)\)</span> and <span class="math inline">\(w
+W(y)\)</span> are related by an integral transform involving the Bessel
+function attached to <span class="math inline">\(\pi\)</span> (see §2.2
+of <a
+href="https://people.math.osu.edu/cogdell.1/bessel-www.pdf">Cogdell’s
+note</a>, or <a href="#ref-KMV02" class="citation" data-cites="KMV02">(Kowalski,
+Michel, and VanderKam 2002, Appendix A)</a>). When <span
+class="math inline">\(W(y)\)</span> is given by <a
+href="#eqn:d1aa012dc1aa" data-reference-type="eqref"
+data-reference="eqn:d1aa012dc1aa">\((5.8)\)</a>, one can derive
+asymptotics for <span class="math inline">\(w W(y)\)</span> using
+stationary phase analysis; derivations like this may be found in many
+analytic number theory papers. One consequence of Exercise <a
+href="#exercise:d1a9162d527e" data-reference-type="ref"
+data-reference="exercise:d1a9162d527e">6</a> is that in many cases, the
+shapes of <span class="math inline">\(W(y)\)</span> and <span
+class="math inline">\(w W(y)\)</span> may be related by “pure
+thought”.</p>
 </div>
 <h1 id="todo">TODO</h1>
 <ol>
@@ -1002,11 +1117,11 @@ Borel–Weil model over <span class="math inline">\(\mathbb{C}
 \mathbb{P}^1\)</span>.</p></li>
 <li><p>Something for induced models for <span
 class="math inline">\({\mathop{\mathrm{PGL}}}_2(\mathbb{R})\)</span>.</p></li>
-<li><p>Some follow-up to exercise <a href="#sec:d1a9162d5b8b"
+<li><p><del>Some follow-up to exercise <a href="#sec:d1a9162d5b8b"
 data-reference-type="ref" data-reference="sec:d1a9162d5b8b">5.2</a>
 explaining what it says about <span class="math inline">\(w
 W(y)\)</span>, for <span class="math inline">\(w\)</span> the nontrivial
-Weyl element.</p></li>
+Weyl element.</del></p></li>
 </ol>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="list">
@@ -1031,6 +1146,12 @@ href="https://doi.org/10.1007/BFb0073145">https://doi.org/10.1007/BFb0073145</a>
 Jacquet, Hervé. 2010. <span>“Distinction by the Quasi-Split Unitary
 Group.”</span> <em>Israel J. Math.</em> 178: 269–324. <a
 href="https://doi.org/10.1007/s11856-010-0066-1">https://doi.org/10.1007/s11856-010-0066-1</a>.
+</div>
+<div id="ref-KMV02" class="csl-entry" role="listitem">
+Kowalski, E., P. Michel, and J. VanderKam. 2002.
+<span>“Rankin-<span>S</span>elberg <span><span
+class="math inline">\(L\)</span></span>-Functions in the Level
+Aspect.”</span> <em>Duke Math. J.</em> 114 (1): 123–91.
 </div>
 <div id="ref-2021arXiv210915230N" class="csl-entry" role="listitem">
 Nelson, Paul D. 2021. <span>“<span class="nocase">Bounds for standard
