@@ -48,7 +48,7 @@ Let $G$ be a fixed real Lie group, and let $\pi = \pi_T$ be a $T$-dependent unit
 The purpose of the present note is to give some examples of classes $M$ satisfying the above conditions, hence, in particular, examples of localized vectors.  In each case, the first three properties will clearly hold, so we do not mention them; the main point is to verify the approximate eigenvector property \eqref{eqn:d1a94c11ed29} for elements $x$ of a fixed basis of $\mathfrak{g}$.
 
 
-\begin{exercise}
+\begin{exercise}\label{exercise:d1aa39b6bf0d}
   Verify, directly from the definitions, that the following are equivalent for a class $M$ of vectors satisfying the first three conditions in Theorem \ref{theorem:d1a94d0ddd25}.
   \begin{enumerate}
 \item The fourth condition in Theorem \ref{theorem:d1a94d0ddd25} holds.
@@ -146,9 +146,10 @@ The $m$ for which $\pi(m) \neq 0$ are called the \emph{weights} of $\pi$, and th
   \end{equation}
   If $\pi$ is unitary, then this basis is orthonormal.
 \end{proposition}
+\begin{exercise}\label{exercise:d1aa39b81acd}
+Attempt to work out the proof of Proposition \ref{proposition:d1a913c915d4}, or as many parts of it as you can, on your own, without reading what's written here in detail.
+\end{exercise}
 \begin{proof}
-  (It is a good exercise to attempt as many parts of this proof yourself as possible.)
-  
   Since $\SO(3)$ is compact, we know by the Peter--Weyl theorem that $\pi$ is finite-dimensional.  There is thus a largest element $\ell \in \mathbb{Z}_{\geq 0}$ with $\pi(\ell) \neq 0$.  For any $v \in \pi(\ell)$, we have $X v \in \pi(\ell+1) = \{0\}$, hence $X v = 0$.  By \eqref{eqn:20230524102839}, it follows that
   \begin{equation}\label{eqn:20230524102429}
     0 = Y X v = \Omega v - \ell (\ell + 1) v.
@@ -183,6 +184,11 @@ The integer $\ell$ as in the conclusion of Proposition \ref{proposition:d1a913c9
 
 \subsection{Localized vectors}\label{sec:d1a9162ebd8a}
 In the following exercises, we assume that the asymptotic parameter $T \rightarrow \infty$ is valued in the nonnegative integers, and let $\pi$ denote the $T$-dependent representation having highest weight $T$.
+
+\begin{remark}
+  The purpose of the following exercises is not to overload on analysis of localized vectors using weight vector bases, but rather to illustrate the strong parallel with what happens for $\SO(3)$ as explained above in \S\ref{sec:d1a9162ebd8a}.
+\end{remark}
+
 
 \begin{exercise}\label{exercise:d1a913e1e9ec}
   Let $M$ denote the class of $T$-dependent vectors $v$ in $\pi$ given in terms of a basis as in Proposition \ref{proposition:d1a913c915d4} by $v = \sum_m a_m e_m$, where the coefficients have the following properties:
@@ -565,11 +571,11 @@ The other standard Lie algebra basis element is
   \end{pmatrix}.
 \end{equation*}
 These elements satisfy
-\begin{equation*}
+\begin{equation}\label{eqn:d1aa0854f4ee}
   ~ [e,f] = 2 h, \quad
   [h, e] = e, \quad
   [h,f] = - f.
-\end{equation*}
+\end{equation}
 The Casimir element $\Omega$ is given (with the same normalization as in \S\ref{sec:d1a915ba8ec6}) by
 \begin{equation*}
   \Omega =
