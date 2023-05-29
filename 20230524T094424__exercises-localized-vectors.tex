@@ -31,9 +31,9 @@ We let $T \rightarrow \infty$ be an asymptotic parameter, and retain the asympto
 
 Let $G$ be a fixed real Lie group, and let $\pi = \pi_T$ be a $T$-dependent unitary representation.  We recall Theorem \ref{theorem:d1a913c8091b} from \href{20230522T150333__microlocal-localized-vectors.pdf}{this note}:
 \begin{theorem}\label{theorem:d1a94d0ddd25}
-  Let $M$ be a class of $T$-dependent vectors $v = v_T$ in $\pi = \pi_T$ with the following properties:
+  Let $\tau \in \mathfrak{g}^\wedge$ with $\tau = \O(1)$.  Let $M$ be a class of $T$-dependent vectors $v = v_T$ in $\pi = \pi_T$ with the following properties:
   \begin{enumerate}[(i)]
-  \item For each $v \in M$, we have $\lVert v \rVert \leq T^{\O(1)}$.
+  \item For each $v \in M$, we have $\lVert v \rVert = \O(1)$.
   \item For all $u, v \in M$, we have $u + v \in M$.
   \item For all $v \in M$ and $c \in \mathbb{C}$ with $c = \O(1)$, we have $c v \in M$.
   \item For each fixed $\eps > 0$, fixed $x \in \mathfrak{g}$ and each $v \in M$, we have
@@ -49,14 +49,25 @@ The purpose of the present note is to give some examples of classes $M$ satisfyi
 
 
 \begin{exercise}\label{exercise:d1aa39b6bf0d}
-  Verify, directly from the definitions, that the following are equivalent for a class $M$ of vectors satisfying the first three conditions in Theorem \ref{theorem:d1a94d0ddd25}.
-  \begin{enumerate}
-\item The fourth condition in Theorem \ref{theorem:d1a94d0ddd25} holds.
-\item For all fixed $\eps > 0$, fixed $k \in \mathbb{Z}_{\geq 0}$, and fixed $x_1,\dotsc,x_k \in \mathfrak{g}$, we have
+  Let $\tau$ be a $T$-dependent element of $\mathfrak{g}^\wedge$ with $\tau = \O(T)$.  For $x \in \mathfrak{g}$, set
   \begin{equation*}
-\lVert (x_1 - \tau(x_1)) \dotsb (x_k - \tau(x_k)) v \rVert \ll T^{k/2 + \eps }.
-\end{equation*}
-\end{enumerate}
+    \bar{x} := x - \tau(x).
+  \end{equation*}
+  Consider the following condition (*) on a $T$-dependent vector $v \in \pi$:
+  \begin{itemize}
+  \item for all fixed $\eps > 0$, fixed $k \in \mathbb{Z}_{\geq 0}$, and fixed $x_1,\dotsc,x_k \in \mathfrak{g}$, we have
+    \begin{equation*}
+      \lVert \bar{x}_1 \dotsb \bar{x}_k v \rVert \ll T^{k/2 + \eps }.
+    \end{equation*}
+  \end{itemize}
+  \begin{enumerate}[(i)]
+  \item Let $M$ be a class satisfying the hypotheses of Theorem \ref{theorem:d1a94d0ddd25}.  Show that each $v \in M$ satisfies (*).
+  \item Let $v$ be a $T$-dependent vector in $\pi = \pi_T$ satisfying (*).  Fix a basis $\mathcal{B}$ of $\mathfrak{g}$, and let $M$ denote the class of $T$-dependent vectors in $\pi$ of the form
+    \begin{equation*}
+      \sum_{x_1,\dotsc,x_k \in \mathcal{B}} c_{x_1,\dotsc,x_k} \bar{x}_1 \dotsb \bar{x}_{k} v,
+    \end{equation*}
+    where $k = \O(1)$ and each $c_{x_1,\dotsc,x_k} = \O(1)$.  Verify that $M$ satisfies the hypotheses of Theorem \ref{theorem:d1a94d0ddd25}.
+  \end{enumerate}
 \end{exercise}
 
 
@@ -224,7 +235,7 @@ In the following exercises, we assume that the asymptotic parameter $T \rightarr
     is an $L^2$-normalized bump of width $T^{-1/2}$, in the following sense: for fixed $k , \ell \in \mathbb{Z}_{\geq 0}$,
     \begin{equation}\label{eqn:d1a9c4e68198}
       a^{(\ell)}(\theta) \ll
-      T^{1/4 + \ell/2} \left( 1+ \frac{\lVert \theta  \rVert}{T^{1/2}} \right)^{-k},
+      T^{1/4 + \ell/2} \left( 1+ \frac{\lVert \theta  \rVert}{T^{-1/2}} \right)^{-k},
     \end{equation}
     where $a^{(\ell)}$ denotes the $\ell$th derivative and $\lVert \theta \rVert$ the distance to the nearest integer.
   \end{enumerate}
