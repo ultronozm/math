@@ -191,7 +191,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2023-05-28 23:58:03
+2023-05-29 07:56:11
       <a href="20230528T213149__microlocal-algebraic-exercises.tex" class="my-link">tex</a>
       <a href="20230528T213149__microlocal-algebraic-exercises.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20230528T213149__microlocal-algebraic-exercises.tex" class="my-link">history</a>
@@ -208,11 +208,11 @@ relevant for the Oberwolfach seminar.</p>
 </header>
 <h1 id="cyclic-and-regular-matrices">Cyclic and regular matrices</h1>
 <p>Let <span class="math inline">\(F\)</span> be a field, let <span
-class="math inline">\(V\)</span> be a vector space over <span
-class="math inline">\(F\)</span>, and let <span class="math inline">\(M
-:= \mathop{\mathrm{End}}(V)\)</span> denote the space of linear maps
-<span class="math inline">\(V \to V\)</span>.</p>
-<div class="definition">
+class="math inline">\(V\)</span> be a finite-dimensional vector space
+over <span class="math inline">\(F\)</span>, and let <span
+class="math inline">\(M := \mathop{\mathrm{End}}(V)\)</span> denote the
+space of linear maps <span class="math inline">\(V \to V\)</span>.</p>
+<div id="definition:d1aa39be9299" class="definition">
 <p><strong>Definition 1</strong>. Let <span class="math inline">\(\tau
 \in M\)</span> and <span class="math inline">\(v \in V\)</span>. We
 denote by <span class="math inline">\(F[\tau] v\)</span> the set of
@@ -229,7 +229,7 @@ class="math display">\[F[\tau] v = V.\]</span> We say that <span
 class="math inline">\(\tau\)</span> is <em>cyclic</em> if it admits a
 cyclic vector.</p>
 </div>
-<div class="exercise">
+<div id="exercise:d1aa39bea659" class="exercise">
 <p><strong>Exercise 1</strong>. Show that <span
 class="math inline">\(\tau\)</span> is cyclic if and only if there is a
 basis with respect to which it is of the form, e.g., for <span
@@ -241,21 +241,26 @@ class="math display">\[\begin{pmatrix}
 0 &amp; 0 &amp; 1 &amp; \ast \\
 \end{pmatrix}.\]</span></p>
 </div>
-<div class="exercise">
-<p><strong>Exercise 2</strong>. For each monic polynomial of degree
-<span class="math inline">\(\dim(V)\)</span>, show that there exists a
-cyclic element <span class="math inline">\(\tau \in M\)</span> whose
-characteristic polynomial is that polynomial. Show moreover that any two
-cyclic elements with the same characteristic polynomial are
-conjugate.</p>
+<div id="exercise:d1aa39beaf1c" class="exercise">
+<p><strong>Exercise 2</strong>. Show that the set of conjugacy classes
+consisting of cyclic elements is in bijection with the set of
+characteristic polynomials, that is to say:</p>
+<ol type="i">
+<li><p>For each monic polynomial of degree <span
+class="math inline">\(\dim(V)\)</span>, there exists a cyclic element
+<span class="math inline">\(\tau \in M\)</span> whose characteristic
+polynomial is that polynomial.</p></li>
+<li><p>Two cyclic elements with the same characteristic polynomial are
+conjugate.</p></li>
+</ol>
 </div>
-<div class="exercise">
+<div id="exercise:d1aa39bebb57" class="exercise">
 <p><strong>Exercise 3</strong>. Show that a matrix given in Jordan form
 is cyclic precisely when the eigenvalues pertaining to different Jordan
 blocks are distinct. In particular, a diagonal matrix is cyclic
 precisely when its diagonal entries are distinct.</p>
 </div>
-<div class="definition">
+<div id="definition:d1aa39bec426" class="definition">
 <p><strong>Definition 2</strong>. We say that <span
 class="math inline">\(\tau \in M\)</span> is <em>regular</em> if <span
 class="math inline">\(\dim M_\tau = \dim V\)</span>, where <span
@@ -264,7 +269,7 @@ class="math display">\[M_\tau := \left\{ x \in M : x \tau = \tau x
 class="math inline">\(\tau\)</span> in <span
 class="math inline">\(M\)</span>.</p>
 </div>
-<div class="exercise">
+<div id="exercise:d1aa39becb3a" class="exercise">
 <p><strong>Exercise 4</strong>. Show that for <span
 class="math inline">\(\tau \in M\)</span>, the following are
 equivalent.</p>
@@ -274,12 +279,12 @@ equivalent.</p>
 <li><p><span class="math inline">\(\tau\)</span> is regular.</p></li>
 </ol>
 </div>
-<div class="definition">
+<div id="definition:d1aa39bed4ba" class="definition">
 <p><strong>Definition 3</strong>. We recall that <span
 class="math inline">\(\tau \in M\)</span> is <em>nilpotent</em> if some
 power of <span class="math inline">\(\tau\)</span> vanishes.</p>
 </div>
-<div class="exercise">
+<div id="exercise:d1aa39bedb9b" class="exercise">
 <p><strong>Exercise 5</strong>. Suppose that <span
 class="math inline">\(F = \mathbb{R}\)</span>. Fix a norm <span
 class="math inline">\(\lVert . \rVert\)</span> on <span
@@ -300,6 +305,9 @@ limit <span class="math inline">\(x\)</span> is regular
 nilpotent.</p></li>
 </ol>
 </div>
+<p>Test: Exercise <a href="#exercise:d1aa39bedb9b"
+data-reference-type="ref"
+data-reference="exercise:d1aa39bedb9b">5</a></p>
 <script src="https://giscus.app/client.js"
         data-repo="Ultronozm/math"
         data-repo-id="R_kgDOJlhjqQ"
