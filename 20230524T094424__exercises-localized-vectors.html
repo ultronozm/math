@@ -210,7 +210,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2023-05-29 07:35:33
+2023-05-29 21:44:43
       <a href="20230524T094424__exercises-localized-vectors.tex" class="my-link">tex</a>
       <a href="20230524T094424__exercises-localized-vectors.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20230524T094424__exercises-localized-vectors.tex" class="my-link">history</a>
@@ -264,16 +264,17 @@ data-reference="theorem:d1a913c8091b">3.6</a> from <a
 href="20230522T150333__microlocal-localized-vectors.html">this
 note</a>:</p>
 <div id="theorem:d1a94d0ddd25" class="theorem">
-<p><strong>Theorem 1</strong>. <em>Let <span
-class="math inline">\(M\)</span> be a class of <span
-class="math inline">\(T\)</span>-dependent vectors <span
-class="math inline">\(v = v_T\)</span> in <span
+<p><strong>Theorem 1</strong>. <em>Let <span class="math inline">\(\tau
+\in \mathfrak{g}^\wedge\)</span> with <span class="math inline">\(\tau =
+\operatorname{O}(1)\)</span>. Let <span class="math inline">\(M\)</span>
+be a class of <span class="math inline">\(T\)</span>-dependent vectors
+<span class="math inline">\(v = v_T\)</span> in <span
 class="math inline">\(\pi = \pi_T\)</span> with the following
 properties:</em></p>
 <ol type="i">
 <li><p><em>For each <span class="math inline">\(v \in M\)</span>, we
-have <span class="math inline">\(\lVert v \rVert \leq
-T^{\operatorname{O}(1)}\)</span>.</em></p></li>
+have <span class="math inline">\(\lVert v \rVert =
+\operatorname{O}(1)\)</span>.</em></p></li>
 <li><p><em>For all <span class="math inline">\(u, v \in M\)</span>, we
 have <span class="math inline">\(u + v \in M\)</span>.</em></p></li>
 <li><p><em>For all <span class="math inline">\(v \in M\)</span> and
@@ -308,22 +309,46 @@ data-reference="eqn:d1a94c11ed29">\((2.1)\)</a> for elements
 <span class="math inline">\(x\)</span> of a fixed basis of <span
 class="math inline">\(\mathfrak{g}\)</span>.</p>
 <div id="exercise:d1aa39b6bf0d" class="exercise">
-<p><strong>Exercise 1</strong>. Verify, directly from the definitions,
-that the following are equivalent for a class <span
-class="math inline">\(M\)</span> of vectors satisfying the first three
-conditions in Theorem <a href="#theorem:d1a94d0ddd25"
-data-reference-type="ref"
-data-reference="theorem:d1a94d0ddd25">1</a>.</p>
-<ol>
-<li><p>The fourth condition in Theorem <a href="#theorem:d1a94d0ddd25"
-data-reference-type="ref" data-reference="theorem:d1a94d0ddd25">1</a>
-holds.</p></li>
-<li><p>For all fixed <span class="math inline">\(\varepsilon&gt;
+<p><strong>Exercise 1</strong>. Let <span
+class="math inline">\(\tau\)</span> be a <span
+class="math inline">\(T\)</span>-dependent element of <span
+class="math inline">\(\mathfrak{g}^\wedge\)</span> with <span
+class="math inline">\(\tau = \operatorname{O}(T)\)</span>. For <span
+class="math inline">\(x \in \mathfrak{g}\)</span>, set <span
+class="math display">\[\bar{x} := x - \tau(x).\]</span> Consider the
+following condition (*) on a <span
+class="math inline">\(T\)</span>-dependent vector <span
+class="math inline">\(v \in \pi\)</span>:</p>
+<ul>
+<li><p>for all fixed <span class="math inline">\(\varepsilon&gt;
 0\)</span>, fixed <span class="math inline">\(k \in \mathbb{Z}_{\geq
 0}\)</span>, and fixed <span class="math inline">\(x_1,\dotsc,x_k \in
-\mathfrak{g}\)</span>, we have <span class="math display">\[\lVert (x_1
-- \tau(x_1)) \dotsb (x_k - \tau(x_k)) v \rVert \ll T^{k/2 +
+\mathfrak{g}\)</span>, we have <span class="math display">\[\lVert
+\bar{x}_1 \dotsb \bar{x}_k v \rVert \ll T^{k/2 +
 \varepsilon}.\]</span></p></li>
+</ul>
+<ol type="i">
+<li><p>Let <span class="math inline">\(M\)</span> be a class satisfying
+the hypotheses of Theorem <a href="#theorem:d1a94d0ddd25"
+data-reference-type="ref" data-reference="theorem:d1a94d0ddd25">1</a>.
+Show that each <span class="math inline">\(v \in M\)</span> satisfies
+(*).</p></li>
+<li><p>Let <span class="math inline">\(v\)</span> be a <span
+class="math inline">\(T\)</span>-dependent vector in <span
+class="math inline">\(\pi = \pi_T\)</span> satisfying (*). Fix a basis
+<span class="math inline">\(\mathcal{B}\)</span> of <span
+class="math inline">\(\mathfrak{g}\)</span>, and let <span
+class="math inline">\(M\)</span> denote the class of <span
+class="math inline">\(T\)</span>-dependent vectors in <span
+class="math inline">\(\pi\)</span> of the form <span
+class="math display">\[\sum_{x_1,\dotsc,x_k \in \mathcal{B}}
+c_{x_1,\dotsc,x_k} \bar{x}_1 \dotsb \bar{x}_{k} v,\]</span> where <span
+class="math inline">\(k = \operatorname{O}(1)\)</span> and each <span
+class="math inline">\(c_{x_1,\dotsc,x_k} = \operatorname{O}(1)\)</span>.
+Verify that <span class="math inline">\(M\)</span> satisfies the
+hypotheses of Theorem <a href="#theorem:d1a94d0ddd25"
+data-reference-type="ref"
+data-reference="theorem:d1a94d0ddd25">1</a>.</p></li>
 </ol>
 </div>
 <h1 id="sec:d1a9162ed4bc">§3. The group <span
@@ -582,7 +607,7 @@ class="math inline">\(T^{-1/2}\)</span>, in the following sense: for
 fixed <span class="math inline">\(k , \ell \in \mathbb{Z}_{\geq
 0}\)</span>, <span id="eqn:d1a9c4e68198" class="math display">\[\label{eqn:d1a9c4e68198}\tag{3.12}
       a^{(\ell)}(\theta) \ll
-      T^{1/4 + \ell/2} \left( 1+ \frac{\lVert \theta  \rVert}{T^{1/2}}
+      T^{1/4 + \ell/2} \left( 1+ \frac{\lVert \theta  \rVert}{T^{-1/2}}
 \right)^{-k},\]</span> where <span
 class="math inline">\(a^{(\ell)}\)</span> denotes the <span
 class="math inline">\(\ell\)</span>th derivative and <span
