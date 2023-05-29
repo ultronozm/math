@@ -11,6 +11,21 @@
  
 # #+HTML_HEAD:    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/jszip-2.5.0/dt-1.10.18/af-2.3.2/b-1.5.2/b-html5-1.5.2/b-print-1.5.2/r-2.2.2/sl-1.2.6/datatables.min.js"></script>
 
+
+* Oberwolfach seminar
+
+** Plan
+- [[tex-html:20230529T040944__mfo2322a-plan.tex]]
+
+** Exercises
+- [[tex-html:20230524T094424__exercises-localized-vectors]]
+- [[tex-html:20230528T213149__microlocal-algebraic-exercises]]
+
+** Notes
+- [[tex-html:20230522T190340__pgl2-spectral-aspect-subconvexity_expository]]
+- [[tex-html:20230522T150333__microlocal-localized-vectors]]
+
+
 * Updates
 #+BEGIN_EXPORT html
 <table id="myTable" class="display" style="width:100%">
@@ -74,18 +89,6 @@ $(document).ready(function() {
 #+END_EXPORT
 
 - Comments: [[https://github.com/ultronozm/math/discussions]]
-
-
-* Oberwolfach seminar
-
-** Notes
-- [[tex-html:20230522T190340__pgl2-spectral-aspect-subconvexity_expository]]
-- [[tex-html:20230522T150333__microlocal-localized-vectors]]
-
-
-** Exercises
-- [[tex-html:20230524T094424__exercises-localized-vectors]]
-- [[tex-html:20230528T213149__microlocal-algebraic-exercises]]
 
 * Course notes
 - Testing display math: $(x+y)$.
