@@ -12,9 +12,9 @@
 
 
 \section{Cyclic and regular matrices}
-Let $F$ be a field, let $V$ be a vector space over $F$, and let $M := \End(V)$ denote the space of linear maps $V \to V$.
+Let $F$ be a field, let $V$ be a finite-dimensional vector space over $F$, and let $M := \End(V)$ denote the space of linear maps $V \to V$.
 
-\begin{definition}
+\begin{definition}\label{definition:d1aa39be9299}
   Let $\tau \in M$ and $v \in V$.  We denote by $F[\tau] v$ the set of elements of $V$ that may be written as a polynomial in $\tau$ applied to $v$, or equivalently, the span of the elements
   \begin{equation*}
 v, \quad \tau v, \quad \tau^2 v, \quad (\dotsc).
@@ -26,7 +26,7 @@ F[\tau] v = V.
 We say that $\tau$ is \emph{cyclic} if it admits a cyclic vector.
 \end{definition}
 
-\begin{exercise}
+\begin{exercise}\label{exercise:d1aa39bea659}
   Show that $\tau$ is cyclic if and only if there is a basis with respect to which it is of the form, e.g., for $\dim(V) = 4$,
   \begin{equation*}
 \begin{pmatrix}
@@ -38,15 +38,19 @@ We say that $\tau$ is \emph{cyclic} if it admits a cyclic vector.
 \end{equation*}
 \end{exercise}
 
-\begin{exercise}
-  For each monic polynomial of degree $\dim(V)$, show that there exists a cyclic element $\tau \in M$ whose characteristic polynomial is that polynomial.  Show moreover that any two cyclic elements with the same characteristic polynomial are conjugate.
+\begin{exercise}\label{exercise:d1aa39beaf1c}
+  Show that the set of conjugacy classes consisting of cyclic elements is in bijection with the set of characteristic polynomials, that is to say:
+  \begin{enumerate}[(i)]
+  \item   For each monic polynomial of degree $\dim(V)$, there exists a cyclic element $\tau \in M$ whose characteristic polynomial is that polynomial.
+  \item Two cyclic elements with the same characteristic polynomial are conjugate.
+  \end{enumerate}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{exercise:d1aa39bebb57}
   Show that a matrix given in Jordan form is cyclic precisely when the eigenvalues pertaining to different Jordan blocks are distinct.  In particular, a diagonal matrix is cyclic precisely when its diagonal entries are distinct.
 \end{exercise}
 
-\begin{definition}
+\begin{definition}\label{definition:d1aa39bec426}
   We say that $\tau \in M$ is \emph{regular} if $\dim M_\tau = \dim V$, where
   \begin{equation*}
     M_\tau := \left\{ x \in M : x \tau = \tau x \right\}
@@ -54,7 +58,7 @@ We say that $\tau$ is \emph{cyclic} if it admits a cyclic vector.
   denotes the \emph{centralizer} of $\tau$ in $M$.
 \end{definition}
 
-\begin{exercise}
+\begin{exercise}\label{exercise:d1aa39becb3a}
   Show that for $\tau \in M$, the following are equivalent.
   \begin{enumerate}[(i)]
 \item $\tau$ is cyclic.
@@ -63,11 +67,11 @@ We say that $\tau$ is \emph{cyclic} if it admits a cyclic vector.
 \end{enumerate}
 \end{exercise}
 
-\begin{definition}
+\begin{definition}\label{definition:d1aa39bed4ba}
 We recall that $\tau \in M$ is \emph{nilpotent} if some power of $\tau$ vanishes.
 \end{definition}
 
-\begin{exercise}
+\begin{exercise}\label{exercise:d1aa39bedb9b}
   Suppose that $F = \mathbb{R}$.  Fix a norm $\lVert . \rVert$ on $M$.  Let
   \begin{equation*}
     \mathcal{O} \subseteq M
