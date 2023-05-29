@@ -15,7 +15,7 @@
 * Oberwolfach seminar
 
 ** Plan
-- [[tex-html:20230529T040944__mfo2322a-plan.tex]]
+- [[tex-html:20230529T040944__mfo2322a-plan]]
 
 ** Exercises
 - [[tex-html:20230524T094424__exercises-localized-vectors]]
