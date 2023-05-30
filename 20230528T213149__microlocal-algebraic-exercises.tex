@@ -41,7 +41,7 @@ We say that $\tau$ is \emph{cyclic} if it admits a cyclic vector.
 \begin{exercise}\label{exercise:d1aa39beaf1c}
   Show that the set of conjugacy classes consisting of cyclic elements is in bijection with the set of characteristic polynomials, that is to say:
   \begin{enumerate}[(i)]
-  \item   For each monic polynomial of degree $\dim(V)$, there exists a cyclic element $\tau \in M$ whose characteristic polynomial is that polynomial.
+  \item For each monic polynomial of degree $\dim(V)$, there exists a cyclic element $\tau \in M$ whose characteristic polynomial is that polynomial.
   \item Two cyclic elements with the same characteristic polynomial are conjugate.
   \end{enumerate}
 \end{exercise}
@@ -89,8 +89,24 @@ exists, and is nilpotent.
 \end{exercise}
 
 
+\begin{exercise}\label{exercise:d1aa77216096}
+  Suppose that a matrix of the form
+  \begin{equation*}
+    \tau =
+    \begin{pmatrix}
+      0 & \ast & \ast & \ast \\
+      0 & \ast & \ast & \ast \\
+      0 & \ast & \ast & \ast \\
+      1 & \ast & \ast & \ast \\
+    \end{pmatrix}
+  \end{equation*}
+  has the property that the standard basis vector $e_4$ is cyclic.  Show that $\tau$ is invertible.
+\end{exercise}
 
-Test: Exercise \ref{exercise:d1aa39bedb9b}
+\begin{exercise}\label{exercise:d1aa77219196}
+Show that if a matrix is cyclic, then so is its transpose.
+\end{exercise}
+
 
 
 \bibliography{refs}{} \bibliographystyle{plain}
