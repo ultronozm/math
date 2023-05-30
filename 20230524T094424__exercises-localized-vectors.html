@@ -210,7 +210,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2023-05-30 17:00:44
+2023-05-30 17:40:13
       <a href="20230524T094424__exercises-localized-vectors.tex" class="my-link">tex</a>
       <a href="20230524T094424__exercises-localized-vectors.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20230524T094424__exercises-localized-vectors.tex" class="my-link">history</a>
@@ -1241,11 +1241,56 @@ shapes of <span class="math inline">\(W(y)\)</span> and <span
 class="math inline">\(w W(y)\)</span> may be related by “pure
 thought”.</p>
 </div>
-<h1 id="relative-character-asymptotics">Relative character
-asymptotics</h1>
-<h2 id="the-case-mathopmathrmso3-mathopmathrmso2">The case <span
-class="math inline">\((\mathop{\mathrm{SO}}(3),
-\mathop{\mathrm{SO}}(2))\)</span></h2>
+<h1 id="some-exercises-from-avs-lectures">Some exercises from AV’s
+lectures</h1>
+<div class="exercise">
+<p><strong>Exercise 9</strong>. Let <span
+class="math inline">\(\pi_{\ell}\)</span> denote the irreducible
+representation of <span
+class="math inline">\(\mathop{\mathrm{SO}}(3)\)</span> of highest weight
+<span class="math inline">\(\ell\)</span>, and <span
+class="math inline">\(e_m\)</span> (<span class="math inline">\(-\ell
+\leq m \leq \ell\)</span>) its basis of weight vectors (see §<a
+href="#sec:d1a9162ec67d" data-reference-type="ref"
+data-reference="sec:d1a9162ec67d">3.2</a>).</p>
+<ol type="i">
+<li><p>Show that for each fixed <span class="math inline">\(g \in
+\mathop{\mathrm{SO}}(3)\)</span> that is not a rotation about the <span
+class="math inline">\(z\)</span>-axis, the matrix coefficient <span
+class="math display">\[\langle g e_{\ell}, e_{\ell}  \rangle\]</span>
+decays exponentially with respect to <span
+class="math inline">\(\ell\)</span>.</p></li>
+<li><p>Show that the same does not hold in general for the matrix
+coefficient <span class="math display">\[\langle g e_0, e_0
+\rangle.\]</span></p></li>
+</ol>
+</div>
+<div class="exercise">
+<p><strong>Exercise 10</strong>. Show that for <span
+class="math inline">\(x \in \mathbb{R}^3\)</span>, we have <span
+class="math display">\[\int_{\xi \in S^2}
+    e^{i \langle x, \xi  \rangle}
+    \, d \sigma(\xi)
+    =
+    \frac{\sin(\lvert x \rvert)}{\lvert x \rvert},\]</span> where <span
+class="math inline">\(\sigma\)</span> denotes the rotation-invariant
+probability measure on the sphere. [Hint: use Archimedes’s theorem to
+show that the left hand side is <span class="math inline">\((1/2)
+\int_{-1}^1 e^{i t |x|} \, d t\)</span>.]</p>
+</div>
+<div class="exercise">
+<p><strong>Exercise 11</strong>. Let <span class="math inline">\(f \in
+\mathcal{S}(\mathbb{R})\)</span>. Define its Fourier transform <span
+class="math display">\[\hat{f}(\xi) := \int_{\mathbb{R}} f(x) e^{-2 \pi
+i x \xi} \, d x.\]</span> Show that for some absolute constant <span
+class="math inline">\(C\)</span>, we have for all <span
+class="math inline">\(x_0,\xi_0 \in \mathbb{R}\)</span> the lower bound
+<span class="math display">\[\left[
+      \int \left( \xi  - \xi_0  \right)^2 \lvert \hat{f} \rvert^2
+    \right]
+    \left[ \int \left( x - x_0  \right)^2 \lvert f \rvert^2  \right]
+    \geq C.\]</span></p>
+</div>
 <h1 id="todo">TODO</h1>
 <ol>
 <li><p>Something for <span
