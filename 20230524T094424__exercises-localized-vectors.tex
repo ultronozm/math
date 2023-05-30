@@ -725,9 +725,50 @@ We just give one representative example of the sort of analysis that can be achi
 The values $W(y)$ and $w W(y)$ are related by an integral transform involving the Bessel function attached to $\pi$ (see \S2.2 of \href{https://people.math.osu.edu/cogdell.1/bessel-www.pdf}{Cogdell's note}, or \cite[Appendix A]{KMV02}).  When $W(y)$ is given by \eqref{eqn:d1aa012dc1aa}, one can derive asymptotics for $w W(y)$ using stationary phase analysis; derivations like this may be found in many analytic number theory papers.  One consequence of Exercise \ref{exercise:d1a9162d527e} is that in many cases, the shapes of $W(y)$ and $w W(y)$ may be related by ``pure thought''.
 \end{remark}
 
-\section{Relative character asymptotics}
+\section{Some exercises from AV's lectures}
 
-\subsection{The case $(\SO(3), \SO(2))$}
+\begin{exercise}
+  Let $\pi_{\ell}$ denote the irreducible representation of $\SO(3)$ of highest weight $\ell$, and $e_m$ ($-\ell \leq m \leq \ell$) its basis of weight vectors (see \S\ref{sec:d1a9162ec67d}).
+  \begin{enumerate}[(i)]
+  \item Show that for each fixed $g \in \SO(3)$ that is not a rotation about the $z$-axis, the matrix coefficient
+    \begin{equation*}
+      \langle g e_{\ell}, e_{\ell}  \rangle
+    \end{equation*}
+    decays exponentially with respect to $\ell$.
+  \item Show that the same does not hold in general for the matrix coefficient
+    \begin{equation*}
+      \langle g e_0, e_0 \rangle.
+    \end{equation*}
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  Show that for $x \in \mathbb{R}^3$, we have
+  \begin{equation*}
+    \int_{\xi \in S^2}
+    e^{i \langle x, \xi  \rangle}
+    \, d \sigma(\xi)
+    =
+    \frac{\sin(\lvert x \rvert)}{\lvert x \rvert},
+  \end{equation*}
+  where $\sigma$ denotes the rotation-invariant probability measure on the sphere.  [Hint: use Archimedes's theorem to show that the left hand side is $(1/2) \int_{-1}^1 e^{i t |x|} \, d t$.]
+\end{exercise}
+
+\begin{exercise}
+  Let $f \in \mathcal{S}(\mathbb{R})$.  Define its Fourier transform
+  \begin{equation*}
+    \hat{f}(\xi) := \int_{\mathbb{R}} f(x) e^{-2 \pi i x \xi} \, d x.
+  \end{equation*}
+  Show that for some absolute constant $C$, we have for all $x_0,\xi_0 \in \mathbb{R}$ the lower bound
+  \begin{equation*}
+    \left[
+      \int \left( \xi  - \xi_0  \right)^2 \lvert \hat{f} \rvert^2 
+    \right]
+    \left[ \int \left( x - x_0  \right)^2 \lvert f \rvert^2  \right]
+    \geq C.
+  \end{equation*}
+\end{exercise}
+
 
 
 
