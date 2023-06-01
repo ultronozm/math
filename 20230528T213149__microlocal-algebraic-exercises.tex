@@ -107,6 +107,32 @@ Let $F$ be a field, let $V$ be a finite-dimensional vector space over $F$, and l
   Show that if a matrix is cyclic, then so is its transpose.
 \end{exercise}
 
+\begin{exercise}\label{exercise:d1bb02a2fbb1}
+  Let $\mathcal{O}$ be a conjugacy class of $n \times n$ matrices.  Show that the intersection
+  \begin{equation*}
+    \mathcal{O}_{\psi}
+    :=
+    \mathcal{O} \cap
+    \begin{pmatrix}
+      \ast & \ast & \ast & \ast \\
+      1 & \ast & \ast & \ast \\
+      0 & 1 & \ast & \ast \\
+      0 & 0 & 1 & \ast \\
+    \end{pmatrix}
+  \end{equation*}
+  is nonempty if and only if $\mathcal{O}$ consists of regular (equivalently, cyclic) elements, in which case the group
+  \begin{equation*}
+    N :=
+    \begin{pmatrix}
+      1 & \ast & \ast & \ast \\
+      0 & 1 & \ast & \ast \\
+      0 & 0 & 1 & \ast \\
+      0 & 0 & 0 & 1 \\
+    \end{pmatrix}  
+  \end{equation*}
+  acts simply-transitively on $\mathcal{O}_{\psi}$ via conjugation.
+\end{exercise}
+
 
 
 \bibliography{refs}{} \bibliographystyle{plain}
