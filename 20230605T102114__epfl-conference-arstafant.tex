@@ -3124,5 +3124,41 @@ The speaker is trying to improve this further using subconvexity, like in \eqref
 
 
 
+\section{Nicolas Potthast, \emph{On the asymptotics of elementary abelian extensions over global function fields}}
+Fix a global field $F$ and a finite group $G$.
+\begin{question}
+Are there Galois extensions of $F$ with Galois group $G$.
+\end{question}
+\begin{question}
+How many of these extensions are there with discriminant bounded in norm from above by $X$?
+\end{question}
+\begin{question}
+  How does the counting function $Z (F, G, X)$, for the number of extensions  $K/F$ with Galois group $G$ and discriminant bounded by $X$, grow as $X \rightarrow \infty$?
+\end{question}
+\begin{conjecture}[Malle 2005]
+  For a number field $F$, there exists a constant $c (F, G) > 0$ that describes the asymptotics.
+\end{conjecture}
+Wright made a conjecture about the case where the characteristic of $F$ divides $\lvert G \rvert$, but further research showed that the conjecture is wrong.
+
+Lagemann: Distribution of Artin--Schreier extensions.
+
+\begin{theorem}
+  The number of $C_p^r$-extensions of a global function field $F$, when counted by discriminant, has asymptotics
+  \begin{equation*}
+Z (F, C_p^r , X) \sim
+\begin{cases}
+c (F, C_2^2, e) X^{1/2} \log (X)^3  & \text{ for } C_2^2 , \\
+c (F, C_p^r , e) X^{\frac{1 + r (p - 1 )}{p (p^r - 1 )}} & \text{ otherwise.}
+\end{cases}
+\end{equation*}
+In these formulas, we have $X = q^m $, and we consider $m \rightarrow \infty $ with
+\begin{equation*}
+  m \equiv e \pmod{L},
+\end{equation*}
+for a fixed $e$, with $L = 2$ for $C_2^2 $ and $L = p (p^r-1)$ otherwise.
+\end{theorem}
+
+
+
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
