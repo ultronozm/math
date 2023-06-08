@@ -191,7 +191,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2023-06-08 14:56:15
+2023-06-08 15:21:17
       <a href="20230605T102114__epfl-conference-arstafant.tex" class="my-link">tex</a>
       <a href="20230605T102114__epfl-conference-arstafant.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20230605T102114__epfl-conference-arstafant.tex" class="my-link">history</a>
@@ -518,7 +518,7 @@ double correlation <span class="math display">\[\operatorname{Cor} (P_X,
   \mathbb{E}_{
     \substack{
       p \in P_X  \\
-       \pi \in \mathcal{F}_N
+      \pi \in \mathcal{F}_N
     }
   }
   a_\pi (p).\]</span> We’ll take <span class="math inline">\(N\)</span>
@@ -559,9 +559,9 @@ class="math display">\[\mathcal{E}_M^w
   = \left\{ E / \mathbb{Q} : w(E) = w, \,
     N(E) \in
     \begin{cases}
-[M,2 M]  \\
-[M, (1 + o(1)) M].
-\end{cases}
+      [M,2 M]  \\
+      [M, (1 + o(1)) M].
+    \end{cases}
   \right\}\]</span> That is to say, one can consider either a dyadic
 interval or a short interval. What Sutherland noticed is that when you
 switch to these geometric intervals, there’s a funny phenomena that
@@ -3182,11 +3182,12 @@ Sun, <em>Sums of Kloosterman sums and their applications</em></h1>
 <p>We consider the Kloosterman sums <span class="math display">\[S (m,
 n, c ) := \sum_{d (c)} e_c (m a + n d).\]</span> <span
 class="math display">\[\begin{pmatrix}
-a &amp; b \\
-c &amp; d \\
-\end{pmatrix} \in {\mathop{\mathrm{SL}}}_2(\mathbb{Z}).\]</span> Trivial
-bound <span class="math display">\[\left\lvert S (m, n, c) \right\rvert
-\leq \sigma_0 (c)
+    a &amp; b \\
+    c &amp; d \\
+  \end{pmatrix} \in {\mathop{\mathrm{SL}}}_2(\mathbb{Z}).\]</span> Weil
+bound with no cancellation gives <span
+class="math display">\[\left\lvert S (m, n, c) \right\rvert \leq
+\sigma_0 (c)
   (m, n, c)^{1/2} c^{1/2}.\]</span> <span class="math display">\[\sum_{c
 \leq X}
   \frac{S (m, n, c)}{c}
@@ -3197,10 +3198,10 @@ Kuznetsov: the above is <span class="math inline">\(\ll_{m, n} X^{1/6}
 <p><strong>Theorem 58</strong> (Sarnak–Tsimerman, 2009). <em>The above
 is <span class="math display">\[\ll_\varepsilon\left( X^{1/6} + (m n
 )^{1/6}
-    + (m + n )^{1/8}
-    (m n )^{\vartheta  / 2}
-  \right)
-  (m n X)^\varepsilon.\]</span></em></p>
+      + (m + n )^{1/8}
+      (m n )^{\vartheta  / 2}
+    \right)
+    (m n X)^\varepsilon.\]</span></em></p>
 </div>
 <div class="conjecture">
 <p><strong>Conjecture 9</strong> (Linnik–Selberg). <em>The above is
@@ -3219,11 +3220,11 @@ e^{- \pi i k}.\]</span> Then <span class="math display">\[\theta (z) :=
   \qquad
   \theta (\gamma z) = \sqrt{c z + d }
   \underbrace
-{
-  \left( \frac{c}{d} \right)  \varepsilon_d^{-1}
-}_{
-\nu_\theta (\gamma)
-}
+  {
+    \left( \frac{c}{d} \right)  \varepsilon_d^{-1}
+  }_{
+    \nu_\theta (\gamma)
+  }
   \theta (z) .\]</span> <span class="math display">\[\eta (z) = q^{1/24}
 \prod_{n = 1 }^\infty (1  - q^n ),\]</span> <span
 class="math inline">\(z \mapsto z + 1\)</span>, <span
@@ -3244,7 +3245,91 @@ X } \frac{S (m, n, c, \iota )}{c}
     + \operatorname{O}_{m, n, I, \nu, k, \varepsilon} (X^{\beta / 3 +
 \varepsilon}),\]</span> where <span class="math display">\[\lambda_j =
 s_j (1 - s_j ).\]</span></p></li>
+<li><p>Uniform bound. Ahlgren–Andersen, 2015: <span
+class="math display">\[\operatorname{O}_{\nu, \varepsilon} \left(
+(X^{1/6} + \lvert \tilde{m} \tilde{n} \rvert^{1/4}) (\dotsb
+)^\varepsilon\right).\]</span> For the even multiplier, e.g., <span
+class="math inline">\(\nu_j\)</span>, the exponent gets reduced to <span id="eqn:d1bca4ee387e" class="math display">\[\label{eqn:d1bca4ee387e}\tag{12}
+    \frac{1}{4} - \frac{1}{168}.\]</span> Andersen and Wu got the better
+result <span id="eqn:d1bca4f2c062" class="math display">\[\label{eqn:d1bca4f2c062}\tag{13}
+    \frac{1}{4} - \frac{1}{36}\]</span> by using the subconvexity of
+<span class="math inline">\(L\)</span>-functions.</p>
+<p>For <span class="math inline">\(\psi\)</span>, get <span id="eqn:d1bca4ee432a" class="math display">\[\label{eqn:d1bca4ee432a}\tag{14}
+\frac{1}{4} - \frac{1}{147}.\]</span></p></li>
 </ol>
+<p>Next, we turn to the partition functions. Recall that <span
+class="math inline">\(p (n)\)</span> denotes the number of ways to write
+<span class="math inline">\(n\)</span> as a sum of positive integers.
+For example, <span class="math display">\[p(4) = 5\]</span> because we
+can write <span class="math inline">\(4\)</span> in the following five
+ways: <span class="math display">\[4, \quad
+  3 + 1, \quad
+  2 + 2, \quad
+  2 + 1 + 1, \quad
+  1 +1+1+1.\]</span></p>
+<ol>
+<li><p>We have <span class="math display">\[p (n) \sim \frac{1}{4
+\sqrt{3} n} e^{\pi \sqrt{\frac{2 n}{3}}} + \dotsb +
+\operatorname{O}(\dotsb).\]</span> Rademacher, 1938: <span
+class="math display">\[p(n) = \frac{2 \pi e (- \tfrac{1}{8})}{(24 n -
+1)^{3/4}}
+    \sum_{c = 1}^\infty
+    \frac{S (1, 1 - n, c, \nu_\eta )}{c}
+    I_{3/2} \left( \frac{4 \pi \sqrt{2 4 n - 1}}{24} \right).\]</span>
+Estimates: <span class="math display">\[R_1 (n, x) = (\dotsb) \sum_{n
+&gt; x}\]</span> satisfies <span class="math display">\[R_1 (n, \alpha
+\sqrt{n})
+    \ll n^{- 1/2 - 1/168 + \varepsilon}.\]</span></p></li>
+<li><p>Another case comes from the congruence satisfied by the partition
+function. The following congruence was conjectured by Ramanujan. <span
+class="math display">\[p (5 n + 4) \equiv 0(5).\]</span> Other
+congruences were conjectured involving <span class="math inline">\(7 n +
+5\)</span> and <span class="math inline">\(11 n + 6\)</span>.</p>
+<p>Dyson, 1994: the rank of the partition <span
+class="math display">\[\Lambda_1 + \dotsb + \Lambda_k = n,
+    \qquad
+    \Lambda_1 \geq \dotsb \geq \Lambda_k,\]</span> namely <span
+class="math inline">\(\Lambda_1 - k\)</span>, is congruent to <span
+class="math inline">\(a\)</span> modulo <span
+class="math inline">\(5\)</span>. Let <span class="math inline">\(N (m,
+n)\)</span> denote the number of partitions of <span
+class="math inline">\(n\)</span> of rank <span
+class="math inline">\(m\)</span>. Then <span
+class="math display">\[\begin{align}
+    R (w, q) &amp;= 1 + \sum_{n = 1}^\infty \sum_{m = 1}^\infty N (m, n)
+w^m q^n \\
+             &amp;=
+               1 + \sum_{n = 1}^\infty
+               \frac{q^{n^2 }}{\prod_{j = 1 }^n
+               (1 - w q^j ) (1 - w^{-1} q^j )
+               }.
+  
+\end{align}\]</span> <span class="math inline">\(w = - 1\)</span>,
+<span class="math inline">\(R(-1,q) = f(q)\)</span>, <span
+class="math inline">\(3\)</span>rd mock theta function. Bringmann–Ono,
+2006: we can write <span class="math display">\[a_f (n) = \frac{2 \pi e
+(- \tfrac{1}{8})}{(2 4n - 1  )^{1/4} }
+    \sum_{2 | c}
+    \frac{S (0, n, c, \psi )}{c}
+    I_{1/2} \left( \frac{4 \pi \sqrt{2 4 n - 1}}{24} \right),\]</span>
+where <span class="math display">\[\frac{\eta (z)^5 }{ \eta (2 z )^2 }
+    \in S_{3/2 } (2, \bar{\psi }).\]</span></p>
+<p>Ahlgren–Dunn, 2019: with <span class="math display">\[R_2(n,x) =
+(\dotsb) \sum_{n &gt; x} \dotsb,\]</span> we have <span
+class="math display">\[R_2 (n, \alpha \sqrt{n}) \ll n^{- 1 / 147 +
+\varepsilon}.\]</span></p></li>
+</ol>
+<p>The speaker’s main result (2023) is to generalize the improvements <a
+href="#eqn:d1bca4ee387e" data-reference-type="eqref"
+data-reference="eqn:d1bca4ee387e">\((12)\)</a> and <a
+href="#eqn:d1bca4ee432a" data-reference-type="eqref"
+data-reference="eqn:d1bca4ee432a">\((14)\)</a>: we get <span
+class="math display">\[\frac{1}{4} - \frac{1}{147}\]</span> for the
+multipliers <span class="math display">\[\left( \frac{D}{\cdot } \right)
+\nu_\theta, \qquad \left( \frac{D}{\cdot } \right)  \nu_\eta.\]</span>
+The speaker is trying to improve this further using subconvexity, like
+in <a href="#eqn:d1bca4f2c062" data-reference-type="eqref"
+data-reference="eqn:d1bca4f2c062">\((13)\)</a>.</p>
 <script src="https://giscus.app/client.js"
         data-repo="Ultronozm/math"
         data-repo-id="R_kgDOJlhjqQ"
