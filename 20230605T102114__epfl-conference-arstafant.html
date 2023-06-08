@@ -191,7 +191,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2023-06-08 14:51:08
+2023-06-08 14:56:15
       <a href="20230605T102114__epfl-conference-arstafant.tex" class="my-link">tex</a>
       <a href="20230605T102114__epfl-conference-arstafant.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20230605T102114__epfl-conference-arstafant.tex" class="my-link">history</a>
@@ -3212,6 +3212,39 @@ class="math display">\[j (z ) = q^{-1} + 744 +
 \operatorname{O}(q).\]</span> <span class="math display">\[a_j (n ) =
 \frac{2 \pi }{ \sqrt{n}} \sum_{c = 1 }^\infty \frac{S (1, n, c)}{c} I_1
 \left( \frac{2 \pi \sqrt{n}}{c} \right).\]</span></p>
+<p>Generalized Kloosterman sum: <span class="math display">\[\nu : I
+\rightarrow \mathbb{T},\]</span> <span class="math display">\[\nu(-I) =
+e^{- \pi i k}.\]</span> Then <span class="math display">\[\theta (z) :=
+\sum_{n \in \mathbb{Z} } q^{n^2 },
+  \qquad
+  \theta (\gamma z) = \sqrt{c z + d }
+  \underbrace
+{
+  \left( \frac{c}{d} \right)  \varepsilon_d^{-1}
+}_{
+\nu_\theta (\gamma)
+}
+  \theta (z) .\]</span> <span class="math display">\[\eta (z) = q^{1/24}
+\prod_{n = 1 }^\infty (1  - q^n ),\]</span> <span
+class="math inline">\(z \mapsto z + 1\)</span>, <span
+class="math display">\[\eta (\gamma z ) = \sqrt{c z + d} \nu_\eta
+(\gamma) \eta (z),\]</span> <span class="math display">\[\eta (z) =
+\sum_{n = 1 }^\infty a_\eta (n) q^{n - 23/24} \rightarrow
+\tilde{n}.\]</span> <span class="math display">\[S (m, n, c, \iota ) :=
+\sum_{d (c)^*} \overline{\nu } (\gamma) e_c (\tilde{m} a + \tilde{n}
+d).\]</span></p>
+<ol>
+<li><p>Weil bound.</p></li>
+<li><p>Goldfeld–Sarnak, 1983: <span class="math display">\[\sum_{c \leq
+X } \frac{S (m, n, c, \iota )}{c}
+    =
+    \sum_{1/2 &lt; s_j &lt; 1}
+    \tau_j (m, n)
+    \frac{X^{2 s_j - 1 }}{ 2 s_j - 1 }
+    + \operatorname{O}_{m, n, I, \nu, k, \varepsilon} (X^{\beta / 3 +
+\varepsilon}),\]</span> where <span class="math display">\[\lambda_j =
+s_j (1 - s_j ).\]</span></p></li>
+</ol>
 <script src="https://giscus.app/client.js"
         data-repo="Ultronozm/math"
         data-repo-id="R_kgDOJlhjqQ"
