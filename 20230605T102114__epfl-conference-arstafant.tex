@@ -11,6 +11,8 @@
   Notes from ArStAFANT workshop 2023, held at EPFL between June 5 and June 9, 2023.  These notes are incomplete and have not been proofread.  Any errors should be assumed to be due to the note-taker.
 \end{abstract}
 
+\tableofcontents
+
 \section{Oleksiy Klurman, \emph{On Elliott's conjecture and applications}}
 Let's talk about some recent progress on some topic of multiplicative number theory, starting with two applications of this recent progress.
 
@@ -2963,6 +2965,55 @@ j (z ) = q^{-1} + 744 + \O(q).
   a_j (n ) = \frac{2 \pi }{ \sqrt{n}} \sum_{c = 1 }^\infty \frac{S (1, n, c)}{c} I_1 \left( \frac{2 \pi \sqrt{n}}{c} \right).
 \end{equation*}
 
+Generalized Kloosterman sum:
+\begin{equation*}
+\nu : I \rightarrow \mathbb{T},
+\end{equation*}
+\begin{equation*}
+\nu(-I) = e^{- \pi i k}.
+\end{equation*}
+Then
+\begin{equation*}
+  \theta (z) := \sum_{n \in \mathbb{Z} } q^{n^2 },
+  \qquad
+  \theta (\gamma z) = \sqrt{c z + d }
+  \underbrace
+{
+  \qr{c}{d}  \eps_d^{-1}
+}_{
+\nu_\theta (\gamma)
+}
+  \theta (z) .
+\end{equation*}
+\begin{equation*}
+  \eta (z) = q^{1/24} \prod_{n = 1 }^\infty (1  - q^n ),
+\end{equation*}
+$z \mapsto z + 1$,
+\begin{equation*}
+\eta (\gamma z ) = \sqrt{c z + d} \nu_\eta (\gamma) \eta (z),
+\end{equation*}
+\begin{equation*}
+\eta (z) = \sum_{n = 1 }^\infty a_\eta (n) q^{n - 23/24} \rightarrow \tilde{n}.
+\end{equation*}
+\begin{equation*}
+S (m, n, c, \iota ) := \sum_{d (c)^*} \overline{\nu } (\gamma) e_c (\tilde{m} a + \tilde{n} d).
+\end{equation*}
+\begin{enumerate}
+\item Weil bound.
+\item Goldfeld--Sarnak, 1983:
+  \begin{equation*}
+    \sum_{c \leq X } \frac{S (m, n, c, \iota )}{c}
+    =
+    \sum_{1/2 < s_j < 1}
+    \tau_j (m, n)
+    \frac{X^{2 s_j - 1 }}{ 2 s_j - 1 }
+    + \O_{m, n, I, \nu, k, \eps } (X^{\beta / 3 + \eps }),
+  \end{equation*}
+  where
+  \begin{equation*}
+    \lambda_j = s_j (1 - s_j ).
+\end{equation*}
+\end{enumerate}
 
 
 
