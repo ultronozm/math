@@ -1,0 +1,2970 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\title{Notes from ArStAFANT}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  Notes from ArStAFANT workshop 2023, held at EPFL between June 5 and June 9, 2023.  These notes are incomplete and have not been proofread.  Any errors should be assumed to be due to the note-taker.
+\end{abstract}
+
+\section{Oleksiy Klurman, \emph{On Elliott's conjecture and applications}}
+Let's talk about some recent progress on some topic of multiplicative number theory, starting with two applications of this recent progress.
+
+One application is the following:
+\begin{enumerate}
+\item Take any binary sequence $\{a_n\}_{n \in \mathbb{N} } = \{\pm 1\}^{\mathbb{N} }$.  Suppose you measure the discrepancy of this sequence along arithmetic progressions.  Then Erdos conjectured that
+  \begin{equation*}
+    \sup_{n, d}
+    \left\lvert
+      \sum_{k = 1}^n a_{k d}
+    \right\rvert
+    =
+    + \infty.
+  \end{equation*}
+  This was eventually proved by Tao (2015), following a partially successful polymath project.
+\item The second application concerns (completely) multiplicative functions $f$, thus $f (m n) = f (m) f (n)$, that are $1$-bounded int he sense that $\lvert f \rvert \leq 1$.  Suppose for instance that $f : \mathbb{N} \rightarrow \{\pm 1\}$.  Then the problem is to determine which multiplicative functions avoid some sign patterns.
+  \begin{enumerate}[(a)]
+  \item Clearly there are no multiplicative functions that take the value $-1$ from some point on.  In other words, there are none that have no $+1$ at all from some point on.
+  \item But what about functions that never take two values $+1$ in a row from some point on?  Consider
+    \begin{equation*}
+      x^2 - p q y^2 = 1, \quad f (p) = f (q ) = - 1.
+    \end{equation*}
+    Then
+    \begin{equation*}
+      f (p q y^2 ) = f (q ) f (p) f (y)^2 = 1,
+    \end{equation*}
+    \begin{equation*}
+      f (p q y^2 + 1) = f (x^2 ) = 1.
+    \end{equation*}
+  \item Lehmer conjectured, and Schur proved using a combinatorially argument, that there are exactly two functions, completely multiplicative, that avoid three consecutive values $+1$, or equivalently, three quadratic residues in a row.
+    \begin{equation*}
+      \chi_3^{\pm} (p) =
+      \begin{cases}
+        1  &  \text{ if } p \equiv 1(3), \\
+        -1 &  \text{ if } p \equiv -1(3), \\
+        \pm 1 &  \text{ if } p = 3.
+      \end{cases}
+    \end{equation*}
+    (In the 80's, Hildebrand asked the same question about more general sign patterns, and these questions have been understood.)
+  \item Four in a row is a much more difficult question.
+    \begin{conjecture}[Hudson, 1974; Mills, 1965]\label{conjecture:d1bbef4df1f8}
+      There are thirteen functions, in addition to the two mentioned above, that avoid $++++$.  They are $\chi_p^{\pm}$ with modulus $p \in \{5, 7, 11, 13, 53\}$.  There are two functions that look like characters mod $4$:
+      \begin{equation*}
+        g_1 (p) = g_2 (p) = (-1)^{\frac{p-1}{2}}, \quad p \neq 2.
+      \end{equation*}
+      \begin{equation*}
+        g_1 (2) = - g_2 (2) = - 1.
+      \end{equation*}
+      \begin{equation*}
+        g_3 (p) = 1, p \neq 2.
+      \end{equation*}
+      \begin{equation*}
+        g_3 (2) = - 1.
+      \end{equation*}
+    \end{conjecture}
+  \end{enumerate}
+\end{enumerate}
+\begin{theorem}[KMV, 2023]
+  Conjecture \ref{conjecture:d1bbef4df1f8} is true.
+\end{theorem}
+Let's begin with some thoughts.  Let's try to understand
+\begin{equation*}
+  \frac{1}{16}
+  \sum_{n \leq N} (1 + f (n )) (1 + f (n + 1)) (1 + f (n + 2 )) (1 + f (n + 3)).
+\end{equation*}
+If we open everything up, then we get a main term plus a $k$-point correlation sum for each $k \in \{1,2,3,4\}$.
+\begin{equation*}
+  \frac{N}{16}
+  + \sum f (n) f (n + 1) f (n + 2) f (n + 3)
+  + \sum (\text{3 pt})
+  + \sum (\text{2 pt})
+  + \sum_{n \leq N} f (n) + \dotsb.  
+\end{equation*}
+We aim to bound everything but the first term.
+\begin{question}
+  When is $\sum_{n \leq N} f (n) \gg N$?  We recall here that $f : \mathbb{N} \rightarrow \{\pm 1\}$ is completely multiplicative, and takes values in $[-1, 1]$.
+\end{question}
+Wirsing says that no matter which multiplicative function one takes with the above conditions, one has some cancellation, i.e.,
+\begin{equation*}
+  \sum_{n \leq N} f (n ) = o (N),
+\end{equation*}
+unless
+\begin{equation*}
+  \sum \frac{1 - f (p)}{p} < \infty,
+\end{equation*}
+or equivalently,
+\begin{equation*}
+  \sum_{f (p) = - 1}
+  \frac{1}{ p} < \infty.
+\end{equation*}
+In other words, $f$ is close to $1$ in a certain sense on the primes.  In that case, the mean value is
+\begin{equation*}
+  \mathcal{M}_N \sim N \prod \left( 1 - \frac{1}{p} \right) \left( 1 + \frac{f (p)}{p} + \dotsb \right).
+\end{equation*}
+
+How about the two and three point correlations?  Chowla said that the correlations of Liouville or Mobius always vanish, except when they obviously don't.  Here we recall that $\lambda (n) = (- 1 )^{\Omega (n)}$.
+\begin{conjecture}[Chowla, 1964]
+  For all distinct $h_1, \dotsc, h_k \in \mathbb{N}$, we have
+  \begin{equation*}
+    \sum_{n \leq N}
+    \lambda (n + h_1 )
+    \lambda (n + h_2 ) \dotsb
+    \lambda (n + h_k )
+    = o(N).
+  \end{equation*}
+\end{conjecture}
+\begin{conjecture}[Elliott, 1994]
+  If $f : \mathbb{N} \rightarrow \mathcal{U}$ is a $1$-bounded completely multiplicative complex-valued function, then its correlations vanish
+  \begin{equation*}
+    \sum_{n \leq N}
+    f (n + h_1 ) \dotsb
+    f (n + h_k ) =
+    o(N)
+  \end{equation*}
+  unless $f(n)$ is ``close'' to $n^{i t} \chi (n)$ in the sense that for some $t$ and $\chi$, we have
+  \begin{equation*}
+    \mathbb{D} (f, n^{i t } \chi, \infty ) < \infty,
+  \end{equation*}
+  with notation as below.
+\end{conjecture}
+\begin{definition}
+  We define the squared distance between two multiplicative functions at scale $x$ to be
+  \begin{equation*}
+    \mathbb{D}^2 (f , n^{i t } \chi (n), x)
+    =
+    \sum_{p \leq x}
+    \frac{1 - \Re (f (p) \overline{\chi (p)} p^{- i t})}{p}.
+  \end{equation*}
+\end{definition}
+\begin{remark}
+  Consider functions $f$ such that
+  \begin{equation*}
+    \mathbb{D} (f, n^{i t } \chi, \infty ) = \infty
+  \end{equation*}
+  for all $t$ and $\chi$.  Ergodic theorists call such functions \emph{aperiodic}.
+\end{remark}
+\begin{remark}
+  The largest that the distance $\mathbb{D}^2$ can be is
+  \begin{equation*}
+    2 \sum_{p \leq x} \frac{1}{p} \sim 2 \log \log x.
+  \end{equation*}
+\end{remark}
+Matomaki, Radziwill and Tao pointed out that this conjecture is wrong.  The class of functions for which it is wrong is now called the MRT class.  The idea is to construct a function $f$ that looks like different $n^{it } \chi$'s at different scales, but looks like none of them in particular at all scales.  In more detail, we are trying to understand
+\begin{equation}\label{eqn:d1bbefb37a02}
+  \sum f (n) \overline{f (n + 1)}.
+\end{equation}
+At scale $p \leq S_m $, we take $f (p) \sim p^{i t_m }$.  Then \eqref{eqn:d1bbefb37a02} is large.  At the next scale $S_{m+1}$, which we take to be much, much larger than $S_m$, we take a different character.  Then $\mathbb{D} (f, n^{i t_m }, s_m )$ is small, but for all $t$ and $\chi$, we have $\mathbb{D} (f, n^{i t } \chi, \infty ) = \infty $.  It's key here that this scale be much much larger than $s_m$.
+
+\begin{theorem}[Tao, 2015; Terivainen--Tao, 2018]\label{theorem:d1bbefc4fbe2}
+  (Tao proved something about $2$-point correlations, which was generalized with Terivainen to odd-point correlations.)  Assume one of the following conditions:
+  \begin{enumerate}[(a)]
+  \item $k = 2$, $f$ is strongly aperiodic:
+    \begin{equation*}
+      \inf_{
+        \substack{
+          \lvert t \rvert \leq A x  \\
+          q \leq (\log x )^A 
+        }
+      }
+      \mathbb{D} (f, n^{i t } \chi, x) \xrightarrow{x \rightarrow \infty } \infty.
+    \end{equation*}
+    Then there exists $\mathcal{X} \subseteq \mathbb{N}$ with density one, i.e., with
+    \begin{equation*}
+      \lim_{X \rightarrow \infty } \frac{\sum_{
+          \substack{
+            n \in \mathcal{X}   \\
+            n \leq x
+          }
+        }
+        1
+      }{
+        \sum_{n \leq x} \frac{1}{ n}
+      }
+      =
+      1,
+    \end{equation*}
+    such that for all $h_1, h_2$ distinct, we have
+    \begin{equation*}
+      \lim_{
+        \substack{
+          x \rightarrow \infty  \\
+          x \in \mathcal{X} 
+        }
+      }  \frac{1}{x}
+      \sum_{
+        n \leq x
+      }
+      f (n + h_1 ) \overline{f (n + h_2 )} = 0.
+    \end{equation*}
+  \item $k$: odd.  Suppose for simplicity that $ k = 3$ and $f : \mathbb{N} \rightarrow [-1, 1]$ and that $f$ is \emph{super strongly aperiodic}: for each $\chi$,
+    \begin{equation*}
+      \mathbb{D}^2 (f, \chi, x)
+      \gg
+      \log \log x.
+    \end{equation*}
+    (We can ignore $t$'s because $f$ is real.)  Then the same conclusion as in the previous case is true.
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[KMT, 2023]
+  Same conditions as above:
+  \begin{enumerate}[(a)]
+  \item For $k = 2$, and $f$ aperiodic (rather than strongly aperiodic), the same conclusion holds as in Theorem \ref{theorem:d1bbefc4fbe2}, except that we can only take $\mathcal{X}$ to have \emph{upper} logarithmic density: same condition as above, but using $\limsup$ rather than $\lim$.  (This is necessary; one can otherwise construct counterexamples.)
+  \item For $k$ odd, with $f$ aperiodic, and with upper logarithmic-logarithmic density.
+  \end{enumerate}
+\end{theorem}
+
+
+
+\section{Nina Zubrilina, \emph{Root Number Correlation Bias of Fourier Coefficients of Modular Form}}
+Statistical properties of Fourier coefficients of automorphic forms.  Distribution of $a_\pi (p)$.  Let's backtrack a bit and give some informal overarching context for the more refined phenomena that we'll discuss later.
+
+We start with the conjecture of Sato and Tate, which describes what we'll call the \emph{horizontal } distribution.  This refers to the behavior of Fourier coefficients for a \emph{fixed} arithmetic $L$-function.  To its coefficients $a_L (p)$, we associate a measure $\mu$, given by the Haar measure on a certain group $G_L$.
+\begin{example}
+  Given a non-CM elliptic curve $E/\mathbb{Q}$, we have
+  \begin{equation*}
+    a_p = \sqrt{p} \lambda (p)
+    = 2 \sqrt{p} \cos \theta_E (p).
+  \end{equation*}
+  Then as $p \rightarrow \infty$, the $\theta_E (p)$ follow the famous Sato--Tate distribution:
+  \begin{equation*}
+    \mu (\theta) = \frac{2}{ \pi } \sin^2 \theta \, d \theta .
+  \end{equation*}
+\end{example}
+
+An orthogonal picture to this is what we'll refer to as the \emph{vertical} distribution.  The way we'll like to think of it is that we have some packet $\mathcal{F}_N $ of automorphic forms $\pi$, and we'd like to prescribe that the conductors of the elements of these packets have roughly the same size:
+\begin{equation*}
+\frac{N (\pi) }{N} = 1 + o(1).
+\end{equation*}
+One example of this would be to take a Hecke basis of modular forms of some fixed weight and level $N$:
+\begin{equation*}
+\mathcal{F}_N := \Gamma_0(N,k).
+\end{equation*}
+Then the Satake parameters
+\begin{equation*}
+  \left\{ \theta_\pi (p)  \right\} \approx_N
+  \mu_p := \text{$p$-adic Plancherel}.
+\end{equation*}
+We won't write it down, but remark that it approaches the Sato--Tate distribution as $p \rightarrow \infty $.  This is a theorem of Serre.
+
+How about the expectation?  Let's write it as the correlation:
+\begin{equation*}
+  \operatorname{Cor} (\mathcal{F}_N, p) := \mathbb{E}_{\pi \in \mathcal{F}_N } a_\pi (p)
+  = \frac{1}{ \lvert \mathcal{F}_N  \rvert}
+  \sum a_\pi (p).
+\end{equation*}
+In this vertical averaging, this expectation, in many many cases, will be zero.  One can heuristically derive this expectation from the fact that these distributions are symmetric.  See the paper of Sarnak--Shin--Templier.
+
+A similar question can be asked back on the horizontal size.  If we consider a packet of primes
+\begin{equation*}
+P_X = \left\{ p : p = (1 + o(1)) X \right\},
+\end{equation*}
+then we can again ask about this correlation function
+\begin{equation*}
+  \operatorname{Cor} (P_X , \pi )
+  \sqrt{X}
+  = \text{almost periodic function of } \log X.
+\end{equation*}
+This will oscillate about the mean.  It's a generalization of the Chebyshev bias.  A reference is a paper of Rubinstein--Sarnak.
+
+What we'll discuss today is a hybrid phenomenon, where we consider a double correlation
+\begin{equation*}
+  \operatorname{Cor} (P_X, \mathcal{F}_N )
+  =
+  \mathbb{E}_{
+    \substack{
+      p \in P_X  \\
+       \pi \in \mathcal{F}_N 
+    }
+  }
+  a_\pi (p).
+\end{equation*}
+We'll take $N$ and $X$ to depend upon each other in some way.
+
+The problem that we'll talk about comes from the world of computer science, historically speaking.  It comes from a machine learning paper of He, Lee, Oliver and Pozdnyakov.  They fed a bunch of invariants coming from number theory into a machine learning algorithm and tried to guess others.  For instance, they considered a family
+\begin{equation*}
+  \mathcal{E} = \mathcal{E}_{[N _1, N_2]}^k
+  = \left\{ E / \mathbb{Q} : \rank (E) = r, \, N(E) \in [N_1, N_2] \right\}.
+\end{equation*}
+They fed in Frobenius traces for small primes and tried to guess the rank.  They observed the following curious feature:
+\begin{equation*}
+  \frac{1}{\lvert \mathcal{E}  \rvert}
+  \sum_{E \in \mathcal{E} }
+  a_E (p)
+  = \operatorname{Cor} (\mathcal{E}, p)
+  =
+  \text{``interesting''}.
+\end{equation*}
+This is best illustrated by a picture.
+
+Picture shows interval between 7000 and 10000.  $x$-axis is the parameter $p$.  Blue line: elliptic curves of rank zero.  Red line: elliptic curves of rank one.  There's this weird oscillation behavior.
+
+Bottom picture: blue is rank zero, green is rank two.  Here it looks sort of like the same picture, just shifted a bit.
+
+This might have gone completely unnoticed, but Sutherland stumbled upon it and performed a bunch of computations.  He mentioned a couple things about this phenomenon.  You can think about it not as a phenomenon about the rank, but rather about the root number (noting the role played by parity).  The second thing he noticed is that perhaps the correct intervals to take are ``geometric intervals'': for $w \in \{\pm 1\}$,
+\begin{equation*}
+  \mathcal{E}_M^w
+  = \left\{ E / \mathbb{Q} : w(E) = w, \,
+    N(E) \in
+    \begin{cases}
+[M,2 M]  \\
+[M, (1 + o(1)) M].
+\end{cases}
+  \right\}
+\end{equation*}
+That is to say, one can consider either a dyadic interval or a short interval.  What Sutherland noticed is that when you switch to these geometric intervals, there's a funny phenomena that shows up, that we'll call scale invariance.
+
+The picture shows two intervals at unrelated scales (dyadic case) for which the plots have similar shapes, suggesting that perhaps
+\begin{equation*}
+  \operatorname{Cor} (\mathcal{E}_M^w , p )
+  \approx w \mathcal{M} \left( \frac{p}{M} \right).
+\end{equation*}
+
+We observe next that the ordering is very important.  If we plot instead by Faltings height, naive height, $j$-invariant, then we just get complete gibberish.  It matters that we order by conductor.
+
+The last observation is that, rather than just elliptic curves, we can consider broader families
+\begin{equation*}
+  \mathcal{F}_M^w = \left\{ \text{weight two newforms for } \Gamma_0 (N) : N \in I_M,
+    \text{degree $d$}
+  \right\}.
+\end{equation*}
+The picture becomes very pretty if we impose no condition on degrees.  The theorem we'll present today is that one can actually write down this function and prove something about it.  We give an explicit function.  The short intervals are nicer to work with.
+
+Some more pictures.  Nice.
+
+Let's write one line about the proof.  It's basically that
+\begin{equation*}
+  \sum_{p} a_f (p) w (f)
+  =
+  \pm \trace (T (p) \circ W_N ).
+\end{equation*}
+Apply the Selberg trace formula.  Unravel it.  Get that the above is basically the sum of a bunch of class numbers, depending upon $p$ and $N$.  We apply a theorem of Skoruppa--Zagier.  Get that the trace is a sum
+\begin{equation*}
+  \sum_{\lvert k \rvert \leq 2 \sqrt{P / N}}
+  H_1 (k^2 N^2 - 4 P N)
+  - (P + 1).
+\end{equation*}
+
+Let's add a few words about how this ties up with the Katz--Sarnak philosophy.  One way to think about that philosophy is that if we take a family $\mathcal{F}$ with symmetry type $\O(\infty)$, then the $1$-level density conjecture says that if we take the parameter $X$ for the prime to be the conductor to some power, say $N^a$, and we compute this correlation, then as $N \rightarrow \infty$, that correlation should behave as follows:
+\begin{equation*}
+  \operatorname{Cor} (\mathcal{F}_N^w , P_X ) \xrightarrow{N \rightarrow \infty }
+  \begin{cases}
+0 & \text{ if } a < 1, \\
+- \frac{w}{2} & a > 1.
+\end{cases}
+\end{equation*}
+Since we took $p$ to be of size $N$, the murmurations occur at the phase transition between the gap in asymptotics between the two cases of the $1$-level density conjecture.
+
+Maybe two closing comments.  We can compute this address using Selberg with harmonic weights, but this removes everything.
+Another thing is that for elliptic curves or other Galois orbits, this remains mysterious.  Lastly, maybe want to advertise Sutherland's website and IAS talk, which has a lot of interesting data.
+
+The Selberg trace formula has the disadvantage that we can't go very high with $N$ in terms of $p$.  The speaker is working through what happens when one removes the weights.  The function might be qualitatively different when you take $N$ to be $p^{1/3} $ or something.
+
+One can do higher weights similarly using the same techniques.  Qualitatively it's similar, but looks different.  
+
+
+\section{Yu-Chen Sun, \emph{On divisor bounded multiplicative functions in short intervals}}
+
+\subsection{Introduction}
+Huxley, 1972: prime number theorem in short intervals: for any $H \geq X^{7/12 + \eps }$, we have
+\begin{equation*}
+  \sum_{X < n \leq X + H } \Lambda (n ) = (1 + o(1)) H.
+\end{equation*}
+Similarly, we have
+\begin{equation*}
+  \sum_{X < n \leq X + H } \mu (n) = o(H)
+\end{equation*}
+and
+\begin{equation*}
+  \sum_{X < n \leq X + H } \lambda (n) = o(H).
+\end{equation*}
+Matomaki and Teravainen recently showed that in the Mobius and Liouville cases, the results hold for all $H \geq X^{0.55 + \eps}$, but they cannot prove this for the von Mangoldt function (their arguments are based upon multiplicative properties).  Under RH, the above results hold for all $H \geq X^{1/2 + \eps}$.
+
+In 2016, Matomaki and Radziwill proved the following breakthrough result:
+\begin{theorem}[Matomaki--Radziwill]
+  Let $f : \mathbb{N} \rightarrow [-1,1]$ be a multiplicative function.  For almost all $x \in [X, 2 X]$, we have
+  \begin{equation*}
+    \frac{1}{h} \sum_{x < n \leq x + h}
+    f (n)
+    - \frac{1}{X}
+    \sum_{X < n \leq 2 X} f (n)
+    = o(1)
+  \end{equation*}
+  provided that $h \rightarrow \infty $ as $X \rightarrow \infty $.
+\end{theorem}
+\begin{itemize}
+\item For any $\eps > 0$, the interval $[X, X + C (\eps ) \sqrt{X }] $ contains $X^\eps $ numbers.
+\item For every integer $h \geq 1$, there exists $c (h ) > 0$ such that
+  \begin{equation*}
+    \frac{1}{ X}
+    \left\lvert
+      \sum_{n \leq X } \lambda (n ) \lambda (n + h )
+    \right\rvert \leq 1 - c (h).
+  \end{equation*}
+\end{itemize}
+
+How about the $k$-fold divisor function in short intervals?  Let
+\begin{equation*}
+d_k (n ) = \sum_{n = m_1 \dotsb  m_k } 1.
+\end{equation*}
+The asymptotic formula for $d_k $ in short intervals is that
+\begin{equation*}
+  \sum_{x < n \leq x + H}
+  d_k (n)
+  = (1 + o(1))
+P_{k - 1} (\log x) H,  
+\end{equation*}
+where $P_k (x)$ is an explicit polynomial of degree $k$.  Here
+\begin{itemize}
+\item $k = 2$ and $x^{131/416 + \eps } \leq H \leq x$ (Hulexy).
+\item $k = 3$ and $x^{43 / 9 6 + \eps} \leq H \leq x $ (Holesnik).
+\item $4 \leq k \leq 5$ and $x^{\frac{3 k - 4}{4 k } + \eps } \leq H \leq x$ (Hulexy).
+\item $k \geq 6$ and $x^{\frac{11}{20} + \eps } \leq H \leq x$ (Matomaki--Teravainen).
+\end{itemize}
+
+It is natural to ask, can we give an almost all result for divisor bounded functions (or $d_k$ bounded multiplicative functions).  Yes, but the general theorem is a bit complicated; we will try to say it at the end of the talk.  Let's start with the simple case of just the divisor function $d_k $.
+\begin{theorem}[Mangerel, 2023]
+  If $h_0 \rightarrow \infty $ as $X \rightarrow \infty $ and $h \geq h_0 (\log X)^{(k - 1 )^2 }$, then
+  \begin{equation*}
+    \frac{1}{h} \sum_{x < n \leq x + h } d_k (n ) - \frac{1}{x}
+    \sum_{x < n \leq 2 x } d_k (n)
+    = o (\log^{k - 1} x)
+  \end{equation*}
+  for all but $o (X)$ values of $x \in [X, 2 X]$.
+\end{theorem}
+
+\subsection{Main results}
+\begin{theorem}[S. 2023]
+  Let $X > 0$ be sufficiently large.  If $h \geq (\log X )^{(1 + \eps ) k \log k - k + 1}$, then
+  \begin{equation*}
+    \frac{1}{h}
+    \sum_{x < n \leq x + h}
+    d_k (n)
+    - \frac{1}{x}
+    \sum_{x < n \leq 2 x}
+    d_k (n)
+    = o (\log^{k - 1} x)
+  \end{equation*}
+  for all but at most $o(X)$ integers $x \in [X,2 X]$.
+\end{theorem}
+For convenience, we will focus on the simplest case $k = 2$, with the length of the interval being
+\begin{equation*}
+  (\log X )^{(1 + \eps ) 2 \log 2 - 1}.
+\end{equation*}
+Here $2 \log 2 - 1 \approx 0.38692$, which should be compared with Mangerel's value $1$.
+
+\subsection{Sketch of proof for the simplest version}
+We consider a relatively long average Dirichlet divisor proble.  Let
+\begin{equation*}
+\Delta (x ) = \sum_{n \leq x } d (n ) - x (\log x - 2 \gamma + 1 ),
+\end{equation*}
+where
+\begin{equation*}
+\gamma = 0.57721 \dotsb 
+\end{equation*}
+is the Euler--Mascheroni constant.  The Dirichlet hyperbola method shows that
+\begin{equation*}
+\Delta(x) = \O (X^{1/2} ).  
+\end{equation*}
+This implies that for any $h \geq x^{1/2} $, we have
+\begin{equation*}
+\sum_{x < n \leq x + h } d (n) = h \log x + \O(h).
+\end{equation*}
+\begin{proposition}[Relatively long average]
+Let $X > 0$ be a large number.  One has, for all $h \in [X^{1/2} , X]$ and (...)
+\end{proposition}
+
+For short $h$, we do instead the following.  We first restrict to some subset where we have nice prime factorizations.  Let $\eps_0 > 0$ be small.  We define
+\begin{equation*}
+P_1 := \exp ((\log \log X )^{1/2} ), \qquad Q_1 := (\log X )^{\eps_0 },
+\end{equation*}
+\begin{equation*}
+  P_2 := \exp ((\log X \log X)^2 ),
+  \qquad
+  Q_2 = \exp ((\log X \log X)^{100}).
+\end{equation*}
+Let $S_A$ denote the set of all $n \in (X, 2X]$ having at least one prime factor in each interval $[P_1, Q_1]$ and $[P_2, Q_2]$.
+\begin{lemma}
+  Let $S_A$ be as above.  Then for any $h > 0$, we have
+  \begin{equation*}
+    \sum_{
+      \substack{
+        x < n \leq x + h  \\
+         n \notin S_A
+      }
+    }
+    d (n) =
+    o(h \log X)
+  \end{equation*}
+  for all but $o(X)$ values of $x \in [X, 2 X]$.
+\end{lemma}
+
+Next, for relatively short averages, we have to restrict to subsets.  Let
+\begin{equation*}
+S_{B, \eps } = \left\{ n \in \mathbb{N} : \Omega (n) \leq 2 (1 + \eps ) \log \log X \right\}.
+\end{equation*}
+Here $\Omega (n)$ denotes the number of prime factors of $n$.
+\begin{lemma}
+  Let $X > 0$ be a large real number and $\eps > 0$ be a small real number.  Then for any $h > 0$, we have
+  \begin{equation*}
+    \sum_{
+      \substack{
+        n \notin S_{B , \eps }  \\
+         x < n \leq x + h 
+      }
+    } d (n) = o (h \log X)
+  \end{equation*}
+  for all but $o(X)$ values of $x \in [X, 2 X]$.
+\end{lemma}
+
+[These restriction lemmas follow from multiplicative properties, using Brun--Titchmarsh.]
+
+From the above two lemmas, we can restrict to the set $S_A \cap S_{B, \eps }$.
+\begin{proposition}[Matomaki--Radziwill type bound]
+  Let $X > 0$ be a large number.  Let $S_A $ and $S_B $ be as before, and $S = S_A \cap S_B$.  Let
+  \begin{equation*}
+H_\eps = (\log X )^{(1 + \eps )2 \log 2 - 1} \leq h \leq h_1 = X^{1/2} 
+\end{equation*}
+for any $\eps > 0$.  Then
+\begin{equation*}
+  \frac{1}{X} \int_X^{2 X } \left\lvert \frac{1}{h} \sum_{
+      \substack{
+        n \in S  \\
+        x < n \leq x + h
+      }
+    }
+    d_k (n)
+    - \frac{1}{ h_1 }
+    \sum_{
+      \substack{
+        n \in S  \\
+         x < n \leq h_1 
+      }
+    }
+    ???
+  \right\rvert
+  \ll
+  ???.
+\end{equation*}
+\end{proposition}
+
+\subsection{Sketch of proof of Matomaki--Radziwill type bound}
+We use a mean value theorem for Dirichlet polynomials.  Improvement comes from reducing the number of terms, decreasing the diagonal.
+
+Next, we have a Parseval-type bound.
+
+Next, we use Ramare's identity to carry out a Matomaki--Radziwill type decomposition.
+
+
+
+\section{Agniva Dasgupta, \emph{Second moment of twisted cusp forms along a coset}}
+
+We'll talk in particular about moments of $L$-functions.  We'll continue in particular with the theme of short intervals that we've already seen in this conference, but in a slightly different context.
+
+$L$-functions are hard to study individually, but often we study them as a collection, via families of $L$-functions.  Often that is does statistically, via moments of families of $L$-functions.  Thus, let $\mathcal{F}$ be a family of $L$-functions.  We're looking at expressions like
+\begin{equation*}
+  \frac{1}{\lvert \mathcal{F}  \rvert}
+  \sum_{f \in \mathcal{F} }
+  \left\lvert   L (\tfrac{1}{2} , f) \right\rvert^k.
+\end{equation*}
+More generally, one can look at expressions like
+\begin{equation*}
+  \frac{1}{T} \int_0^T
+  \left\lvert L (\tfrac{1}{2} + i t ) \right\rvert^k \, d t.
+\end{equation*}
+The goal is to get asymptotic expansions or upper bounds for these.
+
+The $L$-functions that we'll focus on today will mostly be on $\GL(1)$ (the zeta function or Dirichlet $L$-functions) or $\GL(2)$ ($L$-functions associated to cusp forms, possibly twisted by $\GL(1)$).  We'll focus on
+\begin{itemize}
+\item the $4$th moment for $\GL(1)$, and
+\item the $2$nd moment for $\GL(2)$.
+\end{itemize}
+We consider
+\begin{equation}\label{eqn:d1bbf1c74665}
+  \frac{1}{T}
+  \int_0^T \left\lvert \zeta (\tfrac{1}{2} + i t) \right\rvert^4 \, d t
+\end{equation}
+or, for the $q$-aspect,
+\begin{equation}\label{eqn:d1bbf1c80437}
+  \frac{1}{ \phi^\ast (q)}
+  \sum_{\chi(q)}
+  \left\lvert   L (\tfrac{1}{2}, \chi )  \right\rvert^4.
+\end{equation}
+The overarching conjecture is the generalized Lindel\"{o}f hypothesis (GLH).  What that says is that if you have an $L$-function, and let's say we fix $s$ at $1/2 + i t$, then
+\begin{equation*}
+  \left\lvert L (f, s) \right\rvert \ll \left\lvert q (f, s ) \right\rvert^\eps 
+\end{equation*}
+for any fixed $\eps > 0$.  If you're unfamiliar with the analytic conductor, then just think of it as something that depends upon all the quantities that we use when working with $L$-functions, such as the arithmetic conductor $q$ and $s$.  This implies that the moment \eqref{eqn:d1bbf1c74665} is $\O(T^{\eps})$ and that \eqref{eqn:d1bbf1c80437} is $\O(q^\eps)$.  Such moment bounds are called \emph{Lindel\"{o}f on average}.
+
+For the zeta function, the first breakthrough (i.e., result with power-savings error term) was due to Heath--Brown (1979), who showed that
+\begin{equation*}
+  \frac{1}{T} \int_0^T
+  \left\lvert \zeta (\tfrac{1}{2} + i t) \right\rvert^4
+  \, d t
+  = P_4 (\log T)
+  + \O ( T^{-1/8 + \eps} ).
+\end{equation*}
+The $\GL_2$ variant of this was done by Anton Good (1982), who showed that
+\begin{equation*}
+  \frac{1}{T} \int_0^T \left\lvert L (\tfrac{1}{2} + i t, f) \right\rvert^2 \, d t
+  = P_1 (\log T) + \O(T^{- 2/3 + \eps}).
+\end{equation*}
+It also follows immediately from his work that
+\begin{equation*}
+  \int_T^{T + T^{2/3} }
+  \left\lvert L (\tfrac{1}{2} + i t, f) \right\rvert^2 \, d t
+  \ll T^{2/3 + \eps}.
+\end{equation*}
+
+For the $q$-aspect, Young (2011) showed that
+\begin{equation*}
+  \frac{1}{ \varphi^\ast (q)}
+  \sum_{\chi (q)}^\ast \left\lvert L (\tfrac{1}{2}, \chi ) \right\rvert^4
+  = P_4 (\log Q) + \O(q^{- 5/512 + \eps }).
+\end{equation*}
+This was the first power savings estimate for the fourth moment.  The $\GL_2$ analogue of this was done by Blomer--Fouvry--Kowalski--Michel--Milicevic--Sawin (2017), who showed that for a fixed $\GL_2$ form $f$,
+\begin{equation*}
+  \frac{1}{\varphi (q)}
+  \sum_{\chi (q)}
+  \left\lvert
+    L (\tfrac{1}{2}, f \otimes \chi  )\right\rvert^2
+  =
+  P_1 (\log q) + \O(q^{- 1/144 + \eps }).
+\end{equation*}
+
+The speaker has been working on moments over short intervals.  We want to look at things like
+\begin{equation*}
+  \int_T^{T + H } \left\lvert L (\tfrac{1}{2} + i t ) \right\rvert^k \, d t
+\end{equation*}
+where $H$ is significantly smaller than $T$.  Here GLH gives $\O(H T^\eps )$.  One of the first significant breakthroughs here was due to Iwaniec (1978), who showed that
+\begin{equation*}
+  \int_T^{T + T^{2/3} }
+  \left\lvert \zeta (\tfrac{1}{2} + i t ) \right\rvert^4 \, d t
+  \ll_\eps T^{2/3 + \eps}.
+\end{equation*}
+
+How about short intervals in the $q$-aspect?  One approach is the following.  Say you have a family of automorphic forms $\mathcal{F}$, say a big family.  What you want to do is to choose a subfamily where the members are kind of close to one another.  That is to say, for $\pi_1$ and $\pi_2$ in the subfamily, we want the conductor of their convolution
+\begin{equation*}
+  C (\pi_1 \otimes \overline{\pi_2 })
+\end{equation*}
+to be small.  For instance, we could consider $L(f, 1/2 + i t)$ for $t \in [T,T+H]$, and look at the conductors of the Rankin--Selberg convolutions of those.  For the $q$-aspect, let $\mathcal{F}$ be the family of all characters modulo $q$, and consider, for given $\alpha \in \mathcal{F}$,
+\begin{equation*}
+  \mathcal{F}_0 = \left\{ \alpha \cdot \chi, \, \chi \pmod{d}, \, d \mid q, \, d \ll q \right\}.
+\end{equation*}
+For these, we have $C (\pi_1 \otimes \bar{\pi }_2 ) \asymp d$.  Petrow--Young (2019) showed that if $q = p^3$, and if $\alpha \pmod{q}$ is primitive, and we look at a short interval fourth moment like
+\begin{equation*}
+  \sum_{\chi(p^2)}
+  \left\lvert L (\tfrac{1}{2}, \alpha \cdot \chi ) \right\rvert^4 \ll_{\eps}
+  p^{2 + \eps }.
+\end{equation*}
+
+\begin{theorem}[D. 2023]
+  Let $f$ be a level $1$ cusp form.  Let $q = p^3$, where $p$ is an odd prime.  Let $\alpha \pmod{q}$ be a given primitive character.  Look at
+  \begin{equation*}
+    \sum_{\chi  (q^{2/3})}
+    \left\lvert L (f \otimes \alpha \cdot \chi, \tfrac{1}{2} ) \right\rvert^2
+    \ll_\eps q^{2/3 + \eps }.
+  \end{equation*}
+
+\end{theorem}
+\begin{corollary}[D. 2019]
+  Let $q = p^3 $, $\alpha (q)^*$, and let $f$ be a level $1$ cusp form.  Then
+  \begin{equation*}
+    \# \left\{ \chi : L (f \otimes \alpha \cdot \chi, \tfrac{1}{2} ) \neq 0,
+      \,
+      \chi (q^{2/3} )
+    \right\}
+    \gg_\eps q^{2/3 - \eps }.
+\end{equation*}
+\end{corollary}
+
+Munshi, Singh (2019): $L (\tfrac{1}{2}, f \otimes \alpha \chi ) \ll q^{1/3 + \eps }$ (Weyl-type subconvexity).  Their proof used Munshi's variant of the $\delta$-method, which doesn't require averaging over families.  Also, their work is a bit more general: they work with $q = p^{3 r}$.
+
+
+
+\section{Nihar Gargava, \emph{Random arithmetic lattices as sphere packings}}
+Given a lattice $\Lambda$, let $r > 0$ and consider the open balls $B_r(v)$, where $v$ ranges over $\Lambda$, that are disjoint.  Then $(\Lambda, r)$ is called a lattice sphere packing.
+
+Note that $2 r$ can be at most
+\begin{equation*}
+  m (\Lambda) = \min_{v \in \Lambda - \{0\}} \lVert v \rVert,
+\end{equation*}
+otherwise some balls will begin to intersect.  The goal is to maximize packing density, so take $r = \tfrac{1}{2} m (\Lambda) $.  In that case, the packing density will be equal to
+\begin{equation*}
+  \frac{\mu (B_{m (\Lambda) /2} (0) )}{ \mu (\mathbb{R}^d / \Lambda )}
+\end{equation*}
+and is independent of scaling.  So we somehow find
+\begin{equation*}
+  \sup_{
+    \substack{
+      \Lambda \subseteq \mathbb{R}^d  \\
+      \mu (\mathbb{R}^d / \Lambda ) = 1
+    }
+  }
+  \mu (B_{m (\Lambda) / 2} (0) )
+  =
+  \sup_{g \in \SL_d (\mathbb{R}) }
+  \frac{1}{ 2^d } \mu \left( B_{m (g \mathbb{Z}^d )} (0)  \right),
+\end{equation*}
+which we use to define our dimensional constant $c_d$, by requiring that the above be
+\begin{equation*}
+  \frac{1}{2^d } c_d .
+\end{equation*}
+Putting it together, and in more technical words, we have
+\begin{equation*}
+  c_d = \sup \left\{ \mu (B_r (0) ) : r > 0, \exists g \in \SL_d(\mathbb{R}) \text{ and } B_r(0) \cap g \mathbb{Z}^d = \{0\} \right\}.
+\end{equation*}
+Clearly $c_d \in [0, 2^d ]$, so the supremum exists.  What is known about $c_d$?  The exact value is known only for
+\begin{equation*}
+  d \in \{1, 2, 3, 4, 5, 6, 7, 8, 24\}.
+\end{equation*}
+For other $d$, we want to understand the asymptotic behavior.  In this talk, we will only focus on lower bounds.  Note that this is only the \emph{lattice packing problem}, not the sphere packing problem, so it was known before the work of the speaker's advisor.
+
+The exact value of the constant $c_d $ is known only for $d \in \{1,2,3,4,5,6,7,8,24\}$.  For other $d$, we want to understand the asymptotic behavior.  In this talk, we will only focus on lower bounds.  (The speaker presented a table of the known lower bounds.)
+
+| $c_d \geq 1$ | Minkowski--Hlawka (1896-1940) | $d \geq 2$ | |
+
+The speaker's result works with probabilistic arguments that lie on $(D \otimes_{\mathbb{Q}} R)^2 $, where $D$ is a division algebra over $\mathbb{Q}$.  The speaker's result is stronger than Venkatesh's for some small $d$, but weaker for larger $d$.  Also, it's along a different sparse sequence.
+
+\begin{theorem}[G. 2022]
+  Let $D$ be a finite-dimensional division algebra over $\mathbb{Q}$.  Let $\mathcal{O} \subseteq D$ be an order in $D$, and let $G_0 \subseteq \mathcal{O} $ be a finite group embedded in the multiplicative group of $D$.  Then if $d = 2 \dim_{\mathbb{Q} } D$, we have
+  \begin{equation*}
+    c_d \geq \# G_0.
+  \end{equation*}
+\end{theorem}
+To recover VEnkatehs's result, take
+\begin{equation*}
+  D = \mathbb{Q} (\mu_n ),
+  \quad
+  \mathcal{O} = \mathbb{Z} [\mu_n ],
+  \qquad
+  G_0 = \langle \mu_n  \rangle.
+\end{equation*}
+Hence, this gives
+\begin{equation*}
+  c_{2 \varphi (n)} \geq n.
+\end{equation*}
+The cherrypicked sequence of Venkatesh achieves an asymptotic growth of $\O(d \log \log d)$.  This is achieved by taking $K$ to be the $n$th cyclotomic field, where
+\begin{equation*}
+  n = \prod_{p < N} p.
+\end{equation*}
+The division algebra construction gives more freedom to cherrypick sequences.
+
+Let's give a taste of how this machinery works.  To show that $c_d \geq K$, we must prove the existence of $g \in \SL_d (\mathbb{R} )$ such that the origin-centered ball $B$ with $\mu (B) = K$ satisfies
+\begin{equation*}
+  g \mathbb{Z}^d \cap B = \{0\}.
+\end{equation*}
+This is an optimization problem on the space
+\begin{equation*}
+  X_d := \left\{ \Lambda \subseteq \mathbb{R}^d  : \mu (\mathbb{R}^d / \Lambda ) = 1 \right\}
+  =
+  \left\{ g \mathbb{Z}^d  : g \in \SL_d (\mathbb{R} ) \right\}
+  \cong \SL_d (\mathbb{R} ) / \SL_d (\mathbb{Z} ).  
+\end{equation*}
+Probabilistic arguments.
+
+Given $f : \mathbb{R}^d \rightarrow \mathbb{R}$ (measurable, bounded, with compact support), we consider the lattice sum function
+\begin{equation*}
+  \Phi_f (\Lambda ) = \sum_{v \in \Lambda - \{0\}}
+f (v).  
+\end{equation*}
+Since we can generate random lattices, we can talk about the expected value of $\Phi_f (\Lambda )$.  We do this experimentally.
+
+We are empirically confirming the following theorem of Siegel:
+\begin{theorem}[Siegel, 1945]
+  Suppose that $f : \mathbb{R}^d \rightarrow \mathbb{R} $ is a compactly-supported bounded measurable function.  Then
+  \begin{equation*}
+    \int_{X_d } \Phi_f  = \int_{\SL_d(\mathbb{R}) / \SL_d(\mathbb{Z})}
+    \left( \sum_{v \in g \mathbb{Z}^d - \{0\}} f (v) \right)
+    \, d g.
+\end{equation*}
+\end{theorem}
+But we saw that for any $\Lambda \in X_d$, when $f$ is the indicator function of a ball, we must have
+\begin{equation*}
+  \Phi_f (\Lambda ) \in \{0, 2, 4, 6, \dotsc \}.
+\end{equation*}
+That's because balls are symmetric:
+\begin{equation*}
+  v \in \supp(f) \cap (\Lambda - \{0\})
+  \implies - v \in \supp (f) \cap (\Lambda - \{0\}).
+\end{equation*}
+If $f$ is the indicator function of a ball of volume $2 - \eps$, then this tells us that for any dimension $d$,
+\begin{equation*}
+\int_{X_d } \Phi_f = 2 - \eps.
+\end{equation*}
+Conclusion: there exists some lattice $\Lambda \in X_d $ such that $\Phi_f (\Lambda)  = 0$.  Etc.
+
+In the final part of the talk, we'll say a bit about more general spaces of lattices.  Can we come up with a general integration formula for some $\mathcal{G} (\mathbb{R} ) / \Gamma $ for some algebraic $\mathbb{Q}$-group $\mathcal{G}$ and an arithmetic subgroup $\Gamma$.  If the group $\mathcal{G}$ is semisimple, we are automatically guaranteed that $\mathcal{G} (\mathbb{R} ) / \Gamma $ will be a probability space under the natural left-invariant Haar measure.  This is a theorem of Borel and Harish--Chandra.  In fact, this works for any group with no nontrivial rational characters.
+
+For the higher moment case, what are the orbits of $\SL_d(\mathbb{Z})$ acting on $\mathbb{Z}^{d \times n}$?  We work out the case $n < d$.
+
+When $n$ is much less than $d$, the higher moments start behaving like moments of a Poisson distribution.  Rogers used this to prove that $c_d \geq \tfrac{1}{3} \sqrt{d}$.  But he had already obtained in 1947 the stronger lower bound $c_d \geq d \cdot (2 e^{-1} )$.
+
+\section{James Branch, \emph{Explicit images of Shimura's map}}
+In one sentence, Shimura's map is a map from half-integral to integral weight modular forms:
+\begin{equation*}
+  S_{k / 2} \rightarrow S_{2 \lambda }.
+\end{equation*}
+For us, $k$ and $\lambda$ will be integers related by the equation
+\begin{equation*}
+  k = 2 \lambda + 1.
+\end{equation*}
+
+We recall that a modular form of integral weight is given by
+\begin{equation*}
+  f : \mathbb{H} \rightarrow \mathbb{C} 
+\end{equation*}
+such that
+\begin{equation*}
+  f (\gamma \tau )
+  =
+  (c \tau + d)^k f (\tau)
+\end{equation*}
+for every
+\begin{equation*}
+  \gamma =
+  \begin{pmatrix}
+    a & b \\
+    c & d \\
+  \end{pmatrix}
+  \in \Gamma.
+\end{equation*}
+We also ask that $f$ vanishes at the cusps of $\Gamma$.  We call the resulting space $S_k (\Gamma) $.
+
+We recall next that a modular form of half-integral weight is given by something that transforms according to
+\begin{equation*}
+  \mathcal{J} (\gamma, \tau )
+  =
+  \underbrace
+  {
+    \eps_{d }^{-1} 
+    \qr{c}{d}
+  }_{
+    \chi_{-1,4}
+  }
+  (c \tau + d )^{1/2},
+\end{equation*}
+\begin{equation*}
+  \eps_d =
+  \begin{cases}
+    1 & \text{ if } d \equiv 1 \pmod{4}, \\
+    -1 & \text{ if } d \equiv 3 \pmod{4}.
+  \end{cases}
+\end{equation*}
+We might write it as
+\begin{equation*}
+  \sum b(n) q^n  \in S_{k/2} (\Gamma, \chi).
+\end{equation*}
+
+\begin{theorem}[Shimura, 1973]
+  Let $\chi$ be a character modulo $4 N$ and let $D > 0$ be squarefree.  Let
+  \begin{equation*}
+    f = \sum_{n \geq 1} a_f (n) q^n \in S_{k / 2} (\Gamma_0 (4 N), \chi ).
+  \end{equation*}
+  Then there exists an element
+  \begin{equation*}
+    g_D (w) = \sum_{n = 0}^\infty c_D (n) e (n w)
+    \in M_{2 \lambda } (\Gamma_0 (2 N), \chi^2 )
+  \end{equation*}
+  such that
+  \begin{equation*}
+    L (g_D, s)
+    =
+    L (\chi_D , s - \lambda + 1)
+    \sum_{n \geq 1}
+    \frac{a_f (n)}{ n^s}.
+  \end{equation*}
+\end{theorem}
+In other words, we take
+\begin{equation*}
+  B (n) = \sum_{d | n} \chi (d) \chi_{- 4 }^\lambda (d) d^{\lambda - 1} b \left( \frac{n^2 }{d^2 } \right).
+\end{equation*}
+
+Question: given some explicit $f$, can we write the coefficients of $g$ in a nice way?
+
+\begin{theorem}[Selberg]
+  Let $f \in S_\lambda (N, \chi )$ be primitive.  Consider
+  \begin{equation*}
+    f (4 \tau ) \theta (\tau )
+    \in S_{k / 2 } (4 N, \chi \chi_{- 4}).
+  \end{equation*}
+  Then
+  \begin{equation*}
+    \sigma (f (4 \tau ) \theta (\tau) )
+    = f (\tau)^2 - 2^{\lambda - 1 } \chi (2) f (2 \tau )^2 
+  \end{equation*}
+  lies in $S_{2 \lambda } (2 N, \chi^2 )$.
+\end{theorem}
+Here
+\begin{equation*}
+  \theta (\tau) = \sum_{n \in \mathbb{Z} } q^{n^2 } \in M_{1/4} (4).
+\end{equation*}
+\begin{proof}[Sketch of proof]
+  The coefficient of the product are given by
+  \begin{equation*}
+    b (n) = \sum_{m \in \mathbb{Z} } a \left( \frac{n - m^2 }{4} \right).
+  \end{equation*}
+  Then
+  \begin{equation}\label{eqn:d1bbf2625e99}
+    b (n^2 )
+    = \sum a_f \left( \frac{n^2 - m^2 }{4} \right).
+  \end{equation}
+  After $n \mapsto 2 m - n$, \eqref{eqn:d1bbf2625e99} becomes
+  \begin{equation*}
+    b (n^2 ) = \sum_m a_f (n (m - n )).
+  \end{equation*}
+  Take $f$ to be a newform.  We can then write
+  \begin{equation*}
+    a_f (n (m - n))
+    =
+    \sum_{e | (m,n)}
+    \mu(e) e^{\lambda - 1}
+    a_f \left( \frac{n}{e} \right)
+    a_f \left( \frac{m - n}{e} \right).
+  \end{equation*}
+  We obtain
+  \begin{equation*}
+    \sum_m \sum_{e \mid (m, n)}.
+  \end{equation*}
+  Then
+  \begin{equation*}
+    \sum_{d | n} \sum_{e | \tfrac{n}{a}}
+    \chi (d e ) (e d )^{\lambda - 1}
+    \mu (e) \chi_{0, 4} (d)
+    a_{f^2 } \left( \frac{n}{e d} \right).
+  \end{equation*}
+  Then
+  \begin{equation*}
+    a_{f^2 } (n)
+    = \sum \left( \sum a_f (m) a_f (n - m ) \right) q^n.
+  \end{equation*}
+\end{proof}
+\begin{example}
+  Let $f = \eta^2 \eta_{1 1 }^2 $.  Then, since $\chi_{0, 44} (2) = 0$, we have
+  \begin{equation*}
+    \sigma (\eta_4^2 \eta_{44 }^2 \theta )
+    = \eta^4 \eta_{1 1}^4.
+  \end{equation*}
+  Next, we introduce $h_\psi$.  Here
+  \begin{equation*}
+    \eta (\tau) = q^{1/24} \prod_{n \geq 1} (1 - q^n),
+    \qquad
+    \eta_{11} (\tau ) = \eta (11 \tau).
+  \end{equation*}
+\end{example}
+
+Next, let's introduce these $h_\psi$:
+\begin{equation*}
+h_\psi (\tau) = \sum_{n \in \mathbb{Z} } n^\nu \psi (n) q^{n^2 }.
+\end{equation*}
+Here $\nu = 0$ or $\nu = 1$, with $\psi (-1) = (-1)^{\nu}$.  We have
+\begin{equation*}
+h_\psi \in M_{1/2 + \nu } (4 r_{\psi}, \chi_{- 1, 4}^{-\lambda}).
+\end{equation*}
+We know that we can do functions of the form $f (4 \tau ) \theta (\tau) $.  What happens if we work with a much more general theta function $h_\psi$?  That is to say, what happens for
+\begin{equation*}
+  f (4 r_\psi \tau ) h_\psi (\tau )?
+\end{equation*}
+We have the following:
+\begin{theorem}[Cipra, 1987]
+  Let $f$ be as above.  Then
+  \begin{equation*}
+    \sigma_1 (f (4 r \tau ) h_\psi (\tau) )
+    = g \otimes \psi (\tau )
+    - 2^{\lambda + \nu - 1 } \chi (2) \psi (2) g \otimes \psi (2 \tau )
+  \end{equation*}
+  lies in $S_{2 (\lambda + \nu )} (2 r N_r, \chi^2 \psi^2 )$, where $ N _r := \lcm (N, r)$.
+\end{theorem}
+
+\begin{theorem}[Hansen, Naqvi, 2007]
+  Similar result, but without assuming that $\psi$ is primitive.
+\end{theorem}
+
+\begin{theorem}[Brown, 2013]
+  Let $f \in M_\lambda (N, \chi )$ be a Hecke eigenform.  Then
+  \begin{enumerate}
+\item
+  \begin{equation*}
+    \sigma (f (24 \tau ) \eta_{2 4})
+    = (f (\tau) f (6 \tau ) - f (2 \tau ) f (3 \tau ))
+\otimes \qr{12}{\cdot }
+\end{equation*}
+satisfies (...).
+\end{enumerate}
+\end{theorem}
+
+What happens when one looks at stuff that is old on the half-integral weight side?  For example, look at
+\begin{equation*}
+f (4 r_\psi \tau ) h_\psi (D \tau),
+\end{equation*}
+where $D$ is a fundamental discriminant.  (...)
+
+
+\begin{theorem}[B. 2022]
+Choose any $N$.  Suppose that $f \in S_\lambda^{\new} (N, \chi )$ such that $f \theta \in S_{k / 2} (4 N, \chi )$.  Then
+  \begin{equation*}
+\sigma (f \theta ) = U_2 f^2.
+\end{equation*}
+\end{theorem}
+Here
+\begin{equation*}
+  U_2 (\sum_{n \geq 1} a (n ) q^{n})
+  =
+  \sum_{n \geq 1}
+  a (2 n ) q^n.
+\end{equation*}
+Here $U_2 f^2 := (U_2(f))^2$.
+
+\section{Satyabrat Sahoo, \emph{On the solutions of $x^p + y^p = 2^r z^p $, $x^p + y^p = z^2 $ over totally real fields}}
+
+An elliptic curve $E$ is a nonsingular curve of dimension $1$ with a fixed point $O \in E$.
+\begin{itemize}
+\item Any elliptic curve $E /K$ defined over a field is given by a Weierstrass equation with $a_i \in K$.
+\item Let
+  \begin{equation*}
+    \Delta_E := - b_2^2 b_8 - 8 b_4^3 - 27 b_6^2
++ 9 b_2 b_4 b_6 ,    
+\end{equation*}
+\begin{equation*}
+j_E := \frac{c_4^3 }{ \Delta_E}.
+\end{equation*}
+
+\end{itemize}
+
+\section{Radu Toma, \emph{On the size of newforms of large level on $\PGL(n)$}}
+
+\begin{theorem}[Toma 2023+]
+  Under GRH, for a large prime number $N$, we have
+  \begin{equation*}
+    \lVert \varphi_{\Omega_N} \rVert _\infty \ll_{\Omega, n, \lambda, \eps } N^{- 1/4n + \eps }
+  \end{equation*}
+  for all $n \geq 2$.
+\end{theorem}
+The actual relevant hypothesis is that
+\begin{equation*}
+  \sum_{p \asymp L}
+  \left\lvert \lambda (p, \varphi ) \right\rvert \gg_\eps L^{3/4 - \eps }  
+\end{equation*}
+for $L$ a small power of $N \ggg 1$.
+
+
+Amplifier:
+\begin{equation*}
+  A(\varpi) = \sum_{p \asymp L} \lambda (p, \varpi ) \overline{\lambda (p, \varphi )}.
+\end{equation*}
+
+Atkin--Lehner operator:
+\begin{equation*}
+  W_N : z \mapsto
+  \diag (1, \dotsc, 1, N) z^{- \transpose}.
+\end{equation*}
+
+\section{Felicien Comtat, \emph{Sup norms of Siegel modular forms and Bocherer conjecture}}
+
+\subsection{Motivation}
+Take $G$ to be a reductive algebraic group over $\mathbb{Q}$, say.  Let $\phi$ be a cusp form for $G$.  In particular, $\phi$ has rapid decay at cusps.  The complement of the cusps is a bounded region, so by continuity, $\phi$ is bounded, and in particular, $L^2$.  It's thus an interesting question to relate the $L^\infty $ and $L^2 $ norms.
+\begin{problem}
+  Bound
+  \begin{equation*}
+    \frac{\lVert \phi  \rVert _\infty }{ \lVert \phi   \rVert_2 }.
+  \end{equation*}
+\end{problem}
+
+Methods:
+\begin{enumerate}
+\item Amplified pretrace formula.
+\item (Steiner) Studying fourth moments via the theta correspondence.
+\item Bound the Fourier expansion termwise.
+\end{enumerate}
+The third approach is the subject of today's talk.  It motivates the following further question.
+\begin{problem}
+How to understand the Fourier coefficients of $\phi$?
+\end{problem}
+
+\subsection{Framework}
+We denote by
+\begin{equation*}
+  \mathbb{H}_2 := \left\{ z = x + i y \in M_2^{\sym} (\mathbb{C} ) : y > 0 \right\},
+\end{equation*}
+\begin{equation*}
+  \GSp_4 (R) := \left\{ g \in \GL_4 (R) : {}^{\transpose} g J g = \mu (g) J \right\}
+\end{equation*}
+where
+\begin{equation*}
+J =
+\begin{pmatrix}
+0_2 & 1_2 \\
+-1_2 & 0_2 \\
+\end{pmatrix}.
+\end{equation*}
+We also set
+\begin{equation*}
+\Sp_4(R) = \left\{ g \in \GSp_4(R) : \mu(g) = 1 \right\}.
+\end{equation*}
+Then
+\begin{equation*}
+\Sp_4(\mathbb{R}) \circlearrowright \mathbb{H}_2
+\end{equation*}
+via the rule
+\begin{equation*}
+\begin{pmatrix}
+a & b \\
+c & d \\
+\end{pmatrix}
+Z =
+(a Z + b ) (c Z + d )^{-1}.
+\end{equation*}
+We say that $F : \mathbb{H}_2 \rightarrow \mathbb{c} $ is a Siegel modular form if it satisfies the transformation property
+\begin{equation*}
+F (\gamma z ) = \det (c z + d )^k F (z)
+\end{equation*}
+for all $z \in \mathbb{H}_2$ and
+\begin{equation*}
+  \gamma
+  =
+  \begin{pmatrix}
+a & b \\
+c & d \\
+  \end{pmatrix}
+  \in \Sp_4(\mathbb{Z}).
+\end{equation*}
+Fourier expansion:
+\begin{equation*}
+  f(z) = \sum_{S \in \mathcal{S}_2}
+  a(S) e^{2 \pi i \tr (S z)},
+\end{equation*}
+where
+\begin{equation*}
+\mathcal{S}_2 := \left\{ S =
+  \begin{pmatrix}
+a & b/2 \\
+b/2 & c \\
+\end{pmatrix} : a,b,c \in \mathbb{Z}, \, S \geq 0 \right\}.
+\end{equation*}
+Then
+\begin{equation*}
+\phi_F (z) := (\det y )^{k  / 2 } F (z)
+\end{equation*}
+is bounded.
+
+\subsection{Fourier coefficients of Siegel modular forms}
+\begin{conjecture}[Reznikov--Saldana]
+  Take $F$ a Siegel cusp form of weight $k$.  Then
+  \begin{equation*}
+    a_F (S) \ll_{\eps, F} (\det S )^{\frac{k}{2} - \frac{3}{4} + \eps }.
+  \end{equation*}
+\end{conjecture}
+
+\subsubsection{Saito--Kurokawa lifts}
+$F$ is a Saito--Kurokawa lift if there is a Hecke cusp form of half-integral weight $k - \tfrac{1}{2}$ in Kohnen's plus space such that
+\begin{equation*}
+  h (z) = \sum_{m > 0 } c (m) m^{\frac{k}{2} - \frac{3}{4}}
+  e (m z),  
+\end{equation*}
+\begin{equation*}
+  a_F (S) = \left( \det 2 S \right)^{\frac{k}{2} - \frac{3}{4}}
+  \sum_{d | \operatorname{content}(S)}
+  d^{1/2} c \left( \det \left( \frac{2 S}{d} \right) \right).
+\end{equation*}
+
+If $D < 0$ is a fundamental discriminant, then
+\begin{equation*}
+  c (\lvert D \rvert)^2 = L (\tfrac{1}{2}, f \otimes \chi_D ),
+\end{equation*}
+where $f$ is the image of $h$ by the Shimura correspondence.  This implies that under GRH, we have
+\begin{equation}\label{eqn:d1bc2b8774a0}
+  a_F (S) \ll (\det 2 S )^{\frac{k}{2} - \frac{3}{4} + \eps }
+  (\operatorname{content} S)^{1/2}.  
+\end{equation}
+Using this observation, Blomer proved:
+\begin{corollary}[Blomer]
+  If $F$ is a Saito--Kurokawa lift, then
+  \begin{equation*}
+    \frac{\lVert \phi_F  \rVert_{\infty}}{\left\langle F, F \right\rangle^{1/2} }
+    \ll k^{3/4 + \eps }
+    \quad
+    \text{under GRH.}
+  \end{equation*}
+\end{corollary}
+\begin{proof}[Idea of proof]
+  The idea is as follows.  Write $z = x + i y$.  Then the contribution of $a_F (S) $ is negligible unless $S y$ is negligible, with eigenvalue
+  \begin{equation*}
+    \frac{k}{4 \pi } + \O\left(\sqrt{k } \log k\right).
+  \end{equation*}
+
+  Now count such $S$ and apply \eqref{eqn:d1bc2b8774a0}.
+\end{proof}
+
+\subsubsection{General case}
+\begin{theorem}[C., Moyer?-Balbesteros?, Saha]
+  Let $k$ be even.  Let $F$ be a Siegel cusp form of weight $k$ that is a Hecke eigenform, but not a Saito--Kurokawa lift.  Then under GRH (although maybe GLH suffices), we have
+  \begin{equation*}
+    \frac{\left\lvert a_F (S)  \right\rvert}{ \left\langle F, F  \right\rangle^{1/2} }
+    \ll_\eps \frac{(4 \pi )^k }{\sqrt{\Gamma (2 k - 1)}}
+    \left( \det 2 S \right)^{\frac{k - 1}{2} + \eps }
+    \operatorname{content}(S)^{- 1/2}.
+  \end{equation*}
+\end{theorem}
+
+\begin{corollary}[C, M-B, S]
+  Under GRH, we have
+  \begin{equation*}
+    \frac{\left\lvert \phi_F (z)  \right\rvert}{ \left\langle F, F  \right\rangle^{1/2} }
+    \ll (\det Y )^{- 1/4}
+    k^{5/4 + \eps }.
+\end{equation*}
+\end{corollary}
+This $5/4$ improves upon the trivial bound, but not to the same extent as Blomer's  estimate.  However, it is stronger higher in the cusp.
+
+\subsection{Bocherer conjecture and idea of proof}
+Let $A \in \SL_2(\mathbb{Z})$.  Then $F$ is invariant by the element
+\begin{equation*}
+  \begin{pmatrix}
+    T A  &  0 \\
+    0 &  A^{-1}  \\
+  \end{pmatrix} \in \Sp_4(\mathbb{Z}).
+\end{equation*}
+It follows that
+\begin{equation*}
+  a_F ({}^{\transpose} A S A) = a_F(S).
+\end{equation*}
+Thus $a_F(S)$ depends only upon the orbit of $S$.  If $d$ is a fundamental discriminant., then
+\begin{equation*}
+  \left\{ S \in \mathcal{S}_2 : \disc (S) = - 4 \det S = d \right\} / \sim
+  \quad 
+  \longleftrightarrow \quad 
+  \mathrm{Cl}_K, \qquad K = \mathbb{Q}(\sqrt{d}).
+\end{equation*}
+
+Let $\Lambda$ be a character of $\mathrm{Cl}_K(M)$.  Set
+\begin{equation*}
+  R_{L,M} (F, K, \Lambda ) = \sum_{S \in \mathrm{Cl}_K(M) } \Lambda^{-1} (S)
+  a_F \left(
+    L
+    \begin{pmatrix}
+      M & 0 \\
+      0 & 1 \\
+    \end{pmatrix}
+    S
+    \begin{pmatrix}
+      M & 0 \\
+      0 & 1 \\
+    \end{pmatrix}
+  \right).
+\end{equation*}
+\begin{conjecture}[Bocherer, D-P-S-S, proved by Furasawa--Morimoto]
+  We have
+  \begin{align*}
+    &\frac{64}{\left\langle F, F  \right\rangle^{1/2} }
+      \left\lvert R (F, K, \Lambda ) \right\rvert^2 \\
+    &= \frac{(4 \pi )^{2k - 1}}{\Gamma (2 k - 1)}
+      W (k)
+      \lvert d \rvert^{k - 1}
+      \frac{L (\tfrac{1}{2}, \pi_F \times \operatorname{AI} (\Lambda^{-1} ))}{L (1, \pi_F, \Ad)}
+      \prod_{p | C(\Lambda)}
+      \mathcal{J}_p (\phi_F^{L, M}, \Lambda_p ),
+  \end{align*}
+  where $\phi_F^{L, M}$ is a certain translate of $\phi_F$.
+\end{conjecture}
+Set
+\begin{equation*}
+  J_p (\phi_p^{L, M}, \Lambda_p )
+  =
+  \int_{\mathbb{Q}_p^\ast }
+  \Lambda^{-1} (t) J_p (\phi^{L, M}, t) \, d t.
+\end{equation*}
+Then
+\begin{equation*}
+  J_p (\phi, t)
+  = \lim_{k \rightarrow \infty }
+  \int_{M_2^{\sym} (p^{- k } \mathbb{Z} )}
+  \Phi_\phi \left(
+    \begin{bmatrix}
+      1 & x \\
+      0 & 1 \\
+    \end{bmatrix} t \right)
+  \psi (\trace (S x))^{-1} \, d x.
+\end{equation*}
+
+
+
+
+\section{Wing Hong (Joseph) Leung, \emph{Short second moment bounds and subconvexity for $\GL(3)$ $L$-functions}}
+(Joint work with Keshav Aggarwal and Ritabrata Munshi)
+
+Riemann zeta function.  Good times.
+
+$L$-functions.  Even better.
+
+\begin{theorem}[Aggarwal--L.--Munshi]
+
+\begin{equation*}
+  \int_{t - t^{2/3} }^{t + t^{2/3} }
+  \left\lvert L (\tfrac{1}{2} + i v, \pi ) \right\rvert^2 \, d v
+  \ll_{\pi, \eps }
+  t^{3/2 - 1/4 + \eps }.
+\end{equation*}
+\end{theorem}
+Using a simple argument similar to Good's, we deduce:
+\begin{corollary}
+  \begin{equation*}
+    L (\tfrac{1}{2} + i t, \pi ) \ll_{\pi, \eps } t^{3/4 - 1 / 8 + \eps}.
+  \end{equation*}
+\end{corollary}
+\begin{remark}
+  Pal used the same argument by decomposing the full second moment to get
+  \begin{equation}\label{eqn:d1bc2c045402}
+    \int_t^{2 t } \left\lvert L (\tfrac{1}{2} + i v, \pi ) \right\rvert^2 \, d v \ll_{\pi, \eps } t^{3/2 - 3 / 1676 + \eps }.
+  \end{equation}
+\end{remark}
+\begin{remark}
+  The speaker is currently working on analogous subconvexity bound for $L$-functions $\GL(3)$ twisted by characters $\chi$ of factorizable modulus $P_1 P_2$.
+\end{remark}
+\begin{remark}
+  Ikuyo Kaneko and Maksym Radziwill are showing (maybe not yet on the arxiv) something like \eqref{eqn:d1bc2c045402}, without decomposing into shorter moments.
+\end{remark}
+
+Proof idea?  Short second moment yields shifted sum problem, with some average over shifts.  Ingredients:
+\begin{itemize}
+\item $\delta$-method (``standard recipe'').
+\item Duality trick.
+\item ``$\infty$-Cauchy Schwarz'', some sort of van der Corput trick.
+\end{itemize}
+We want to bound
+\begin{equation*}
+  \int_{\mathbb{R} } U \left( \frac{v}{M} \right)
+  \left\lvert L (\tfrac{1}{2} + i t + i v, \pi ) \right\rvert^2 \, d v.
+\end{equation*}
+The final optimal choice for subconvexity is $M = t^{2/3}$.
+
+Approximate functional equation yields
+\begin{equation*}
+  \sum_{N \ll t^{3/2 + \eps }} \frac{1}{ \sqrt{N}}
+  \sum_{n \sim N } \lambda (n ) n^{- i t - i \nu }.
+\end{equation*}
+For sketch, focus on $N \sim t^{3/2}$.  Squaring and integrating, we arrive at
+\begin{equation*}
+  S = \frac{M}{ t^{3/2} }
+  \sum_{h \ll t^{3/2 + \eps } / M}
+  \sum_{n \sim t^{3/2} }
+  \lambda (n) \overline{\lambda (n + h)}
+  e \left( \frac{t h}{2 \pi n} \right).
+\end{equation*}
+Compare with
+\begin{equation*}
+  \sum_{h \ll t^{1/2} }
+  \sum_{n \asymp t^{3/2} }
+  \lambda (n ) \lambda (n + h).
+\end{equation*}
+We didn't know how to do that, but now Ikuya and Maksym have announced that they can.
+
+To study $S$, we apply the delta method to detect the condition $m = n + h$.  For $Q > 1$, get
+\begin{align*}
+  &\frac{M}{Q^2 t^{3/2} } \sum_{q \leq Q} \sum_{h \ll t^{3 / 2 + \eps } / M }
+  \sum_{n \asymp t^{3/2} } \lambda (n )
+  \sum_{m \asymp t^{3/2} } \overline{\lambda  (m)} \\
+  &\quad \sum_{a(q)^*}
+  e_q (a (n + h - m))
+  e \left( \frac{t h }{ 2 \pi n } \right)
+\int U (x) e \left( \frac{(n + h - m )x}{q Q} \right) \, d x.  
+\end{align*}
+For sketch, focus on $q \asymp Q$ and $x \asymp 1$.
+
+Take $Q = \sqrt{M } t^{1/4} $.  This corresponds to balancing
+\begin{equation*}
+  \frac{t h }{2 \pi n}
+  \asymp \frac{n x}{q Q}.
+\end{equation*}
+Poisson on $h$, Voronoi on $m$ and $n$.
+
+
+
+\section{Soumendra Ganguly}
+
+
+
+\section{Phillip Harris, \emph{Maximal flat periods for $\SL(n)$}}
+Let $G = \SL(n,\mathbb{R}) = N A K$.  We can write
+\begin{equation*}
+  \mathfrak{p} = \mathfrak{n} + \mathfrak{a} + \mathfrak{k} = \mathfrak{p} + \mathfrak{k} ,
+\end{equation*}
+where $\mathfrak{p}$ is the space of symmetric matrices.
+
+Let $\Gamma < G$ be a discrete subgroup.  Set
+\begin{equation*}
+  X = \Gamma \backslash G / K.
+\end{equation*}
+Let $Y \subset X$ be a maximal flat, i.e., a translate $g A$ of the diagonal subgroup.  Fix $b \in C_c^\infty (Y) $.  Let $f_i$ be an orthonormal basis of Maass forms, with spectral parameter $\nu_i$.  The period of interest is then
+\begin{equation*}
+  P_i = \int_Y f_i (g) b (g) \, d g.
+\end{equation*}
+
+Pick $\nu \in \mathfrak{a}_{\mathbb{C} }^\ast $.  Sum over all spectral parameters in a ball of radius one around $\nu$:
+\begin{equation*}
+  \sum_{\lVert \Re \nu - \nu_i  \rVert \leq 1} \lvert P_i  \rvert^2.
+\end{equation*}
+Bart Michels (2022): for a closed cone
+\begin{equation*}
+  D^{\gen} \subset  (\mathfrak{a}^\ast )^{\gen}
+\end{equation*}
+(where $\gen$ means not singular, i.e., $\langle \nu, \alpha \rangle \neq 0$, and also $\nu \notin \spann \{\alpha_1, \dotsc, \alpha_{n-2}\}$), we have
+\begin{equation*}
+  \sum_{\lVert \Re \nu - \nu_i  \rVert \leq 1} \lvert P_i  \rvert^2
+  \ll_b \beta(\nu) \lVert \nu  \rVert^{- n + 1}.
+\end{equation*}
+
+
+The speaker shows in 2023 a result valid for general spectral parameters:
+\begin{equation*}
+  \sum_{\lVert \Re \nu - \nu_i  \rVert \leq 1} \lvert P_i  \rvert^2
+  \ll_b \beta(\nu) \lVert \nu  \rVert^{- n + 1}
+  \begin{cases}
+    \left( \log \frac{\lVert \nu  \rVert}{1 + \lvert \nu_2 + \nu_{n - 1} \rvert} \right)^{n - 2}  & n \neq 4, \\
+    \left( \log \frac{\lVert \nu  \rVert}{1 + \dotsb } \right) & \text{ if } n = 4.
+  \end{cases}
+\end{equation*}
+Here we order so that $\nu_1 \leq \dotsb \leq \nu_n$.
+
+Let
+\begin{equation*}
+  k \in C_c^\infty(K \backslash G / K).
+\end{equation*}
+We can take its support as small as we want.
+\begin{equation*}
+  \int_{Y} \int_Y
+  \sum_i \hat{k}(\nu_i) f_i(x) \overline{f_i(y)}
+  b(x) b(y) \,d x \,d y
+  =
+  \int_{Y} \int_{Y}
+  k(x^{-1} y) b (x) b (y) \, d x \, d y.  
+\end{equation*}
+
+\begin{equation*}
+  k(z) = \frac{1}{\lvert W \rvert}
+  \int_{\mathfrak{a}^\ast }
+  \beta (\lambda) \varphi_\lambda (z) \hat{k} (\lambda) \, d \lambda,
+\end{equation*}
+\begin{equation*}
+  \varphi_\lambda (g) = \int_{\SO(n)}
+  e^{(i \lambda - \rho ) H (k g)} \, d g,
+\end{equation*}
+\begin{equation*}
+  H : G \rightarrow \mathfrak{a},
+\end{equation*}
+\begin{equation*}
+  g \in N e^{H(g)} K.
+\end{equation*}
+
+\begin{theorem}[Duistermaat]
+  There exists $a \in C^\infty(\mathfrak{p})$ so that for all $X \in \mathfrak{p}$, and with $\pi : \mathfrak{p} \rightarrow \mathfrak{a}$ the projection, we have
+  \begin{equation*}
+    \varphi_\lambda (e^X ) = \int_{\SO(n)} e^{i \lambda \pi (\Ad k X )}
+    a (\Ad k X)
+    \, d X.
+  \end{equation*}
+\end{theorem}
+
+So now we can rewrite something as
+\begin{equation*}
+  \int_{\mathfrak{a}^\ast } \beta (\lambda) \hat{k} (\lambda)
+  \int_{\mathfrak{a} } e^{i \lambda \pi (\Ad k X)}
+  \underbrace
+{
+a (\Ad k X ) b (e^X )
+}_{
+C(K,X)
+}
+  \, d X \, d \lambda.
+\end{equation*}
+
+\section{Yiannis Petridis, \emph{Counting and equidistribution}}
+
+Outline:
+\begin{enumerate}[(i)]
+\item Motivation/example
+\item Lattice problems in hyperbolic space.  (The above was all beyond 2016.)
+\item After 2016
+\item Equidistribution
+\end{enumerate}
+
+To start, we'll look at the following sum:
+\begin{equation*}
+  \sum_{n \leq x - 2}
+  a_n r (n) r (n + 4),
+\end{equation*}
+\begin{equation*}
+  a_n =
+  \begin{cases}
+    1 & \text{ if $n$ is even}, \\
+    1/2 & \text{ if $n$ is odd}.
+  \end{cases}
+\end{equation*}
+Here $r(n)$ counts the number of representations of $n$ as a sum of two squares.
+
+The above sum suggests writing
+\begin{equation*}
+  n = t^2 + s^2, \qquad n + 4 = r^2 + u^2 , \qquad
+  (r, u, s, t ) \in \mathbb{Z}^4.
+\end{equation*}
+Then
+\begin{equation*}
+  1 = \frac{r + s }{2} \frac{r - s }{2} - \frac{t + u}{2} \frac{t - u}{2},
+\end{equation*}
+\begin{equation}\label{eqn:d1bc65bb15d6}
+  1 = a d - b c.
+\end{equation}
+If $n$ is even, then $a,b,c,d$ will be integers.  If $n$ is odd, then $r$ and $u$ (resp. $t$ and $s$) will have different parities, so by swapping $t$ and $s$ as necessary, we will get an integer solution.  That will happen with the swapping half the times.
+\begin{equation*}
+  (a , b, c, d) \in \mathbb{Z}^4.
+\end{equation*}
+\begin{equation}\label{eqn:d1bc65bb24a2}
+  a^2 + b^2 + c^2 + d^2 = n + 2 \leq x.
+\end{equation}
+Write $N (x)$ for the number of quadruples satisfying \eqref{eqn:d1bc65bb15d6} and \eqref{eqn:d1bc65bb24a2}.  Write
+\begin{equation*}
+  u (z, w ) = \frac{\lvert z - w  \rvert^2 }{ 4 \Im z \Im w}.
+\end{equation*}
+Thus, with
+\begin{equation*}
+  \gamma =
+  \begin{pmatrix}
+    a & b \\
+    c & d \\
+  \end{pmatrix},
+\end{equation*}
+we have
+\begin{equation*}
+  u (\gamma i, i) = \frac{a^2 + b^2 + c^2 + d^2 - 2}{4}.
+\end{equation*}
+The hyperbolic lattice point problem is to estimate
+\begin{equation*}
+  N (x, i, i) = \# \left\{ \gamma \in \SL_2 (\mathbb{Z} ) : 4 \cosh u (\gamma i, i) + 2 \leq x \right\}.
+\end{equation*}
+More generally,
+\begin{equation*}
+  N (x, z, w ) = \# \left\{ \gamma \in \Gamma : 4 \cosh u (\gamma z, w) + 2 \leq x \right\}.
+\end{equation*}
+So we have the upper half-plane, and all the points in $i + \mathbb{Z}$.  Take a geodesic circle containing $i$ of radius $R$.  Then its area is
+\begin{equation*}
+  A(R) = 4 \pi \left( \sinh \frac{R}{2} \right)^2 \asymp e^R,
+\end{equation*}
+while the circumference is
+\begin{equation*}
+  C(R) = 2 \pi \sinh R \asymp e^R.
+\end{equation*}
+
+Heinz Huber (Basel) wrote a set of papers (1969 Math. Annalen) to explain the relation of the problem to automorphic forms.  What results is that we have a main term and an error term:
+\begin{equation*}
+  N (x, z, w) = M (x, z, w ) + E (x, z, w),
+\end{equation*}
+\begin{equation*}
+  M (x, z, w) = \sum_{1/2 \leq s_j \leq 1} \sqrt{\pi }
+  \frac{\Gamma (s_j - 1/2)}{\Gamma (s_j + 1)}
+  u_j (z) u_j (w) x^{s_j }
+  \sim \frac{\pi }{\vol (\Gamma \backslash \mathbb{H} )}  x.
+\end{equation*}
+The $s_j$ correspond to eigenfunctions
+\begin{equation*}
+  \Delta u_j + s_j (1 - s_j ) u_j = 0, \quad
+  \Delta = y^2 \left( \frac{\partial^2 }{ \partial x^2 } + \frac{\partial^2 }{ \partial y^2 } \right).
+\end{equation*}
+
+Selberg (unpublished notes, 1972) proved that
+\begin{equation*}
+  E (x, z, w) = \O(X^{2/3} ).
+\end{equation*}
+Patterson (1972) improved the exponent to $3/4$.  P. Gunther (1980) improved it further to $2/3$.  A. Good (1983) obtained related results to those of Gunther that we'll talk more about later.  Conjecturally, one can take $\O_\eps (X^{1/2 + \eps })$.  Phillips--Rudnick  established
+\begin{equation*}
+\Omega \left( X^{1/2} (\log \log X )^{1/4 - \delta } \right).
+\end{equation*}
+
+Let's talk about Good's work.  There are three types of subgroups of $\SL_2(\mathbb{R})$:
+\begin{itemize}
+\item elliptic subgroups $K$,
+\item hyperbolic subgroups $\mathcal{H}$, and
+\item parabolic subgroups $P$.
+\end{itemize}
+Let $H, H_1, H_2$ be any of the above subgroups.  Good was interested in double cosets by these kinds of subgroups:
+\begin{equation*}
+  \Gamma \cap H_1 \backslash \Gamma / \Gamma \cap H_2.
+\end{equation*}
+
+Chamizo 1996:
+\begin{equation*}
+\frac{1}{X} \int_X^{2 X } E (x)^2 \, d x \ll X^1 \log^2 X.
+\end{equation*}
+
+Let's consider some cases.
+
+Elliptic-hyperbolic.  $\cosh \rho (z, \ell ) = \frac{1}{ \cos \theta }$.
+
+With
+\begin{equation*}
+X = \frac{\sinh (t / 2)}{ \sinh (\mu / 2)}.
+\end{equation*}
+\begin{align*}
+  N(t)
+  &= \# \left\{ \gamma \in (\Gamma \cap \mathcal{H} ) \backslash \Gamma
+    : \rho (\gamma z, \ell ) \leq t
+  \right\} \\
+  &=
+  \sum_{s_j \leq 1}
+  (\Gamma\text{-factors})
+    u_j (z) \int_{\ell} u_j X^{s_j }+
+    \underbrace
+{
+E (X, \mathcal{H}, z)
+}_{
+= \O(X^{2/3}  )
+}.
+\end{align*}
+The conjecture is that one can take $\O(X^{1/2 + \eps })$.  There's an integral transform here, the one introduced by Huber in his paper in 1988.  It's a special case of the Jacobi transform, which covers just about everything in this area of mathematics.
+
+Chatzakos--P 2016:
+\begin{equation*}
+  \frac{1}{X} \int_X^{2 X }
+  \lvert E (X, \mathcal{H}, z) \rvert^2 \, d x \ll X^1 \log^2 X.
+\end{equation*}
+Chatzakos 2019: $\Omega (X^{1/2} )$.
+
+Is there any arithmetic interpretation of this counting problem?
+
+Hyperbolic-hyperbolic.
+
+\section{Michael Yiasemidis, \emph{Lattice points in elliptic annuli}}
+
+Sums of squares.
+\begin{equation*}
+  r (n ) := \# \left\{ (a, b ) \in \mathbb{Z}^2  : n = a^2 + b^2  \right\}
+  = 4 \sum_{
+    \substack{
+      d | n  \\
+      d \equiv 1, 3 (4)
+    }
+  }
+  (-1)^{\frac{d - 1}{2}}.
+\end{equation*}
+This implies that $p = a^2 + b^2$ if and only if $p \equiv 1(4)$ (Fermat).
+
+For $u, v \geq 0$ integers,
+\begin{equation*}
+  r_{u, v} (n) := \# \left\{ (a, b) \in \mathbb{Z}^2 : u a^2 + v b^2 = n \right\}.
+\end{equation*}
+A special case is when $n =p$ is prime, with $u = 1$.
+
+We have
+\begin{equation*}
+  p = a^2 + 2 b^2 \iff
+  p \equiv 1,3(8),
+\end{equation*}
+\begin{equation*}
+  p = a^2 + 3 b^2
+  \iff
+  p \equiv 1(3) \qquad (\text{or } p = 3),
+\end{equation*}
+\begin{equation*}
+  p = a^2 + 14 b^2 \iff \qr{-14}{p} = 1
+  \text{ and $\exists$ solution $x$ to } (x^2 + 1 )^2 - 8 \equiv 0 (p).
+\end{equation*}
+For all $v > 0$, there is an irreducible $f_v (x) \in \mathbb{Z} [x]$ such that
+\begin{equation*}
+  p = a^2 + v b^2
+  \iff
+  \qr{-v}{p} = 1
+  \text{ and $\exists$ solution to }
+  f_n(x) \equiv 0 (p).  
+\end{equation*}
+
+A reference is David A. Cox, \emph{Primes of the form} $x^2 + n y^2 $, which uses methods such as class field theory and Shimura reciprocity.
+
+How about arithmetic functions?
+\begin{equation*}
+  r (n) = \# \left\{ (a, b) \in \mathbb{Z}^2 : n = a^2 + b^2 \right\},
+\end{equation*}
+
+\begin{align*}
+  \sum_{n = 1}^x r (n ) &= \# \left\{ (a, b ) \in \mathbb{Z}^2 : a^2 + b^2 \leq x \right\}\\
+                        &= \pi x + \O(\sqrt{x}),
+\end{align*}
+\begin{align*}
+  \sum_{n = 1}^x r_{u, v} (n) &= \# \left\{ (a, b) \in \mathbb{Z}^2 : u a^2 + v b^2 \leq x \right\} \\
+                              &=
+                                \frac{\pi }{\sqrt{u v}} h + E(x,h), \qquad E(x,h) = \O(\sqrt{x}).
+\end{align*}
+We want to take our error and understand what happens when we average it:
+\begin{equation*}
+  \frac{1}{z} \sum_{x = z }^{2 z } E (x, h)
+  =
+  \frac{1}{z} \sum_{x = z}^{2 z} \left( \sum_{n = x}^{x + h} r_{u, v} (n) - \frac{\pi h}{\sqrt{u v}} \right),
+\end{equation*}
+and also the variance
+\begin{equation*}
+  \frac{1}{z} \sum_{x = z}^{2 z} E (x, h)^2
+  =
+  \frac{1}{z} \sum_{x = z}^{2 z} \left( \sum_{n = x}^{x + h} r_{u, v} (n) - \frac{\pi h}{\sqrt{u v}} \right)^2.
+\end{equation*}
+Four regimes.
+\begin{itemize}
+\item $h$ constant
+\item $h = h(x) \rightarrow 0$ (Wigman 2005)
+\end{itemize}
+
+\begin{equation*}
+  \sum_{n = x}^{x + h}
+  r_{u, v} (n) = \# \left\{ (a, b) \in \mathbb{Z}^2 : x \leq u a^2 + v b^2 \leq x + h \right\}.
+\end{equation*}
+
+
+Analogy between integers and function fields.
+\begin{tabular}{|c|c|}
+  \hline
+  Integers & Function Fields \\
+  \hline
+  $\mathbb{Z}$  & $\mathcal{A} := \mathbb{F}_q [T]$ \\
+  \hline
+  positives & $A = a_0 + a_1 + \dotsb + a_k T^k$ \\
+  \hline
+  positive & monic \\
+  \hline
+  primes & irreducibles \\
+  \hline
+  $|n| = |\mathbb{Z}/n \mathbb{Z}|$ & $\lvert A \rvert = \lvert \mathcal{A} / A \mathcal{A}  \rvert$ \\
+  \hline
+  $\zeta (s) = \sum_{n = 1}^\infty n^{- s}$ & $\zeta_q (s) = \sum_{A :\text{monic}} \lvert A \rvert^{- s}$ \\
+  \hline
+\end{tabular}
+We also use the notation, for a polynomial $A$ as above,
+\begin{equation*} [A]_k =
+  \begin{pmatrix}
+    a_0  \\
+    a_1  \\
+    \dotsb  \\
+    a_k
+  \end{pmatrix}.
+\end{equation*}
+We have
+\begin{equation*}
+r_{U, V} (N) = \# \left\{ (A, B) \in \mathcal{A} : N = U A^2 + V B^2  \right\},
+\end{equation*}
+where $U$ and $V$ are fixed monics.
+
+The mean is
+\begin{equation*}
+  \frac{1}{ q^k }
+  \sum_{
+    \substack{
+      X : \text{monic}  \\
+       \deg X = k
+    }
+  }
+  \sum_{\lvert N - x \rvert < q^h }
+  r_{u, v} (N) = \frac{q^h }{\sqrt{\lvert u v \rvert}}.
+\end{equation*}
+The variance is
+\begin{equation}\label{eqn:d1bc66f48d40}
+   \frac{1}{ q^k }
+  \sum_{
+    \substack{
+      X : \text{monic}  \\
+       \deg X = k
+    }
+  }
+\left(   \sum_{\lvert N - x \rvert < q^h }
+  r_{u, v} (N) - \frac{q^h }{\sqrt{\lvert u v \rvert}} \right)^2.
+\end{equation}
+
+Solutions to
+\begin{equation*}
+N = U A^2 + V B^2,
+\end{equation*}
+where
+\begin{itemize}
+\item $N$ is over a ``short interval'',
+\item $A,B$ over intervals of $\deg \leq k$,
+\end{itemize}
+are given by
+\begin{equation*}
+\sum_{N, A, B} \mathbf{1} (N - U A^2 - V B^2 ).
+\end{equation*}
+The idea is now to take the Fourier expansion of the indicator function.  Each of the resulting functions is additive, so we can look separately at the contribution of each parenthentical term.  We use
+\begin{equation*}
+\psi : \mathbb{F}_q \rightarrow \mathbb{C}^\ast ,
+\end{equation*}
+\begin{equation*}
+\psi (x + y ) = \psi (x) \psi (y) ,
+\end{equation*}
+\begin{equation*}
+\mathbf{1} (M) = \sum_{\underline{\alpha } \in \mathbb{F}_q^k } \psi \left( \underline{\alpha } \cdot [M]_k \right).
+\end{equation*}
+This gives the expansion
+\begin{equation*}
+  \sum_{\underline{\alpha } \in \mathbb{F}_q^{\kappa - 1}}
+  \sum_N 
+\end{equation*}]
+
+This gives for the variance \eqref{eqn:d1bc66f48d40} the formula
+\begin{equation*}
+\begin{cases}
+q^k (\tfrac{k}{2} - h) \frac{d (u v )}{ \lvert u v \rvert^2 } \phi (u  v) &  \text{ if } h < \frac{\kappa }{2}, \\
+0 & \text{ if } h > \frac{\kappa }{2}.
+\end{cases}
+\end{equation*}
+
+\section{Pranendu Darbar, \emph{Asymmetric distributions of the extreme values for cubic $L$-functions on the $1$-line}}
+
+\section{Jackie Voros, \emph{On the average least negative Hecke eigenvalue}}
+
+\subsection{Motivation}
+Recall the Legendre symbol
+\begin{equation*}
+  \qr{a}{p}
+  =
+  \begin{cases}
+    1 & \text{ if $a$ is a quadratic residue}, \\
+    -1 & \text{ if $a$ is not a quadratic residue}, \\
+    0 & \text{ if $p | a$}.
+  \end{cases}  
+\end{equation*}
+Totally multiplicative.  Quadratic reciprocity:
+\begin{equation*}
+  \qr{p}{2}
+  \qr{2}{p}
+  = (-1)^{
+    \frac{p-1}{2}
+    \frac{q-1}{2}
+  }
+\end{equation*}
+for $p$ and $q$ odd primes.
+
+\begin{question}
+  What is
+  \begin{equation*}
+    n_2(p) := \text{least $n$ such that }
+    \qr{n}{p} = -1.
+  \end{equation*}
+\end{question}
+Burgess (1957):
+\begin{equation*}
+  n_2 (p) \ll p^{\frac{1}{4 \sqrt{e}} + \eps }.
+\end{equation*}
+Linnik (1942):
+\begin{equation*}
+  \# \left\{ p < x : n_2(p) > x^\eps  \right\} \ll_\eps 1.
+\end{equation*}
+\begin{conjecture}[Vinogradov]
+  $n_2(p) = \O(p^\eps )$.
+\end{conjecture}
+How about the average value, namely
+\begin{equation*}
+  \lim_{x \rightarrow \infty } \frac{1}{ \pi (x) }
+  \sum_{p < x} n_2 (p)?  
+\end{equation*}
+A heuristic: $n_2(p)$ is prime, and
+\begin{equation*}
+  \# \left\{ n : \qr{n}{p} = \pm 1, \, n \in [1, p - 1] \right\}
+  = \frac{p - 1}{2}.
+\end{equation*}
+Assume that
+\begin{equation*}
+  \operatorname{Prob} \left( \qr{q}{p} = \pm 1 \right)
+  = \frac{1}{2} 
+\end{equation*}
+for $p$ and $q$ prime, independently.  Then
+\begin{equation*}
+  \operatorname{Prob}\left( n_2(p) = p_k \right)
+  =
+  \prod_{j=1}^k
+  \operatorname{Prob}
+  \left(
+    \qr{p_j}{p} = + 1
+  \right)
+  = \frac{1}{2^k}.
+\end{equation*}
+This is in fact what you get:
+\begin{theorem}[Erdos 1961]
+  \begin{equation*}
+    \lim_{x \rightarrow \infty }
+    \frac{1}{  \pi(x)} \sum_{p < x } n_2 (p)
+    = \sum_{k = 1 }^\infty \frac{p_k }{ 2^k }.
+  \end{equation*}
+\end{theorem}
+Take
+\begin{equation*}
+  f \in S_k^{\new} (\Gamma_0 (N) ) = S_k^{\new} (N),
+\end{equation*}
+a normalized eigenform.  The set of newforms is finitely-generated.  We denote by $H_k^\ast (N) $ a finite generating set.  Each $f$ in this set has the following FOurier expansion:
+\begin{equation*}
+  f (z) = \sum_{n \geq 1 } \lambda_f (n) n^{\frac{k - 1 }{2}} e (n z),
+  \qquad
+  e (n z ) := e^{2 \pi i n z }.
+\end{equation*}
+Here the $\lambda_f (n) $ are Hecke eigenvalues, and they also have a few nice properties much like the LEgendre symbol.
+\begin{itemize}
+\item They are (weakly) multiplicative:
+  \begin{equation*}
+    \lambda_f (n m ) = \lambda_f (n) \lambda_f (m)
+  \end{equation*}
+  for $(n, m ) = 1$.
+\item We have, e.g.,
+  \begin{equation*}
+    \lambda_f (p)^2 = 1 + \lambda_f (p^2 ).
+  \end{equation*}
+\item Deligne's bound:
+  \begin{equation*}
+    \lvert \lambda_f (n)  \rvert \leq \tau (n),
+  \end{equation*}
+  where $\tau (n)$ denotes the divisor function.  Importantly, when $n$ is prime, this says that
+  \begin{equation*}
+    \lvert \lambda_f (p) \rvert \leq 2.
+  \end{equation*}
+  We may thus associate some angle
+  \begin{equation*}
+    \theta_f (p) \in [0, \pi ]
+  \end{equation*}
+  such that
+  \begin{equation*}
+    \lambda_f (p) = 2 \cos \theta_f (p).
+  \end{equation*}
+\end{itemize}
+\begin{question}
+  When is the first sign change of $\lambda_f (p)$, namely
+  \begin{equation*}
+    p_f := \text{least prime such that } \lambda_f (p_f ) < 0?
+  \end{equation*}
+\end{question}
+\begin{theorem}[V]
+  We have
+  \begin{equation*}
+    \lim_{N \rightarrow \infty } \frac{1 }{ \lvert H_k^\ast (N)  \rvert}
+    \sum_{f \in H_k^\ast (N) } p_f
+    = \sum_{i = 1 }^\infty
+    \frac{p_i }{ 2^i },
+  \end{equation*}
+  where $p_i $ denotes the $i$th prime.
+\end{theorem}
+Where does this come from?  Let's give some evidence or motivation.  Let's write
+\begin{equation*}
+  n_f := \text{least $n$ such that } \lambda_f (n) < 0.
+\end{equation*}
+(Note that this need not coincide with $p_f$, because we do not have total multiplicativity.)  Then:
+\begin{itemize}
+\item $\lambda_f (n)$ changes sign infinitely often.
+\item Kohnen, Sengupta, Iwaniec, Kowalski, Lau, Soundararajan, Wu, Matomaki:
+  \begin{equation*}
+    n_f \ll Q^{3 / 8},
+    \qquad Q = k^2 N.
+  \end{equation*}  
+\item Sato--Tate: the numbers $\theta_f (p)$ defined by
+  \begin{equation*}
+    \lambda_f (p) = 2 \cos \theta_f (p)
+  \end{equation*}
+  are equidistributed with respect to the Sato--Tate measure
+  \begin{equation*}
+    \mu_{S T } = \frac{2 }{ \pi } \sin^2 \theta \, d \theta.
+  \end{equation*}
+  In particular, half the time the eigenvalue should be positive, the other half, negative.
+\end{itemize}
+
+We will now do a very very quick sketch proof that will maybe shed light on the fixing of the $k$ and the prime condition for $n$.  We will use Sato--Tate, which means that we can say that the size of the set
+\begin{equation}\label{eqn:d1bc67a1be84}
+  \frac{
+    \# \left\{ f \in H_k^\ast (N) :
+      \eps_p \lambda_f (p) > 0, \, p \leq z , \, p | N 
+    \right\}
+  }{
+    \# \lvert H_k^\ast (N)  \rvert
+  }
+  \rightarrow \mu_{S T} ([0, \pi / 2])^{\pi_N(z) }
+  =
+  \left( \frac{1}{2} \right)^{\pi_N (z) },
+\end{equation}
+where
+\begin{equation*}
+  \pi_N (z) := \# \left\{ \text{ primes } p \nmid N \right\}.
+\end{equation*}
+Let $(\eps_p)$ be a sequence of signs.  Then, letting $z$ tend to infinity slowly enough, we deduce that
+\begin{equation*}
+  \sum p_f = \sum_{p_i \leq z } p_i \cdot G,
+\end{equation*}
+where $G$ denotes the numerator on the left hand side of \eqref{eqn:d1bc67a1be84}.
+
+Lau, Wu 2008:
+\begin{equation*}
+  \sum_{f \in H_k^\ast (N) } \left\lvert \sum_{P \leq p \leq 2 P}
+    b_p \frac{\lambda_f (p)}{ p }
+  \right\rvert^{2 j } \ll k \varphi (N) \left( \frac{3 8 4 B^2 }{ P \log P } \right)^j
+  + (k N )^{10 /11}
+  \left( \frac{10 B Q^{1/10}}{ \log P}  \right)^{2 j}.
+\end{equation*}
+Here $(b_p)_p$ are real numbers satisfying the bound $\lvert b_p \rvert \leq B$.  Basically, we want to count all forms with a sequence of signs that make the summands positive up to some point.  We thus take
+\begin{equation*}
+  \mathcal{E} := \left\{ f  : \eps_p \lambda_f (p) \geq 0, \, p \in [P, 2 P], \, p \nmid N \right\}.
+\end{equation*}
+We can then consider the sum
+\begin{equation*}
+  \sum_{f \in \mathcal{E} }
+  \left\lvert \sum_{
+      \substack{
+        P < p \leq 2 P  \\
+        p \nmid N
+      }
+    }
+    \frac{\lambda_f (p)^2 }{ p}\right\rvert^{2 j}
+  \leq \text{ (apply large sieve).}  
+\end{equation*}
+Then, using that
+\begin{equation*}
+  \lambda_f (p)^2 = 1 + \lambda_f (p^2 ),
+\end{equation*}
+we arrive at consdiering
+\begin{equation*}
+  \sum_{
+    \substack{
+      P < p \leq 2 P  \\
+      p \nmid N
+    }
+  }
+  \frac{1}{p}
+  = \sum_{P \leq p \leq 2 P} \frac{1}{ p}
+  - \sum_{
+    \substack{
+      P < p \leq 2 P  \\
+      p | N
+    }
+  }
+  \frac{1}{p}
+  \geq \frac{\delta }{2 \log P} - \frac{\omega (N) }{p}.  
+\end{equation*}
+(We want to take $P = 2^i z$, where $i = 0,1,\dotsc$.  But $z$ itself depends upon $N$, which makes the analysis complicated.)
+
+In the remaining two minutes, we'll explain briefly how we implement this.
+
+\begin{corollary}
+  For $N$ prime, $k \geq 2$ (not fixed), and $z < \beta \leq \log k N$, the set
+  \begin{equation*}
+    \left\{ f \in H_k^\ast (N) : p_f \ll \beta  \right\}
+    \ll k N \exp \left( - C \frac{\beta }{ \log \beta } \right),
+  \end{equation*}
+  where $C > 0$.
+\end{corollary}
+
+\begin{remark}
+Technically we could take $\omega(N)$ to be $P$-smooth, but we end up taking $P$ to be very large.  We thus don't need $N$ to be prime.
+\end{remark}
+
+\section{Min Lee, \emph{An extension of converse theorems}}
+
+\subsection{Modular forms}
+We start withs ome notation.
+\begin{equation*}
+  \GL_2^+(\mathbb{R}) \circlearrowright \mathbb{H} = \{x + i y : x \in \mathbb{R}, y > 0\}.
+\end{equation*}
+For $k \in \mathbb{Z}$,
+\begin{equation*}
+  \left( h |_k \gamma  \right)
+  :=
+  \left( \det \gamma  \right)^{k / 2 }
+  \left( c z + d  \right)^{- k}
+  h (\gamma z)
+  \quad \text{ for }
+  \gamma =
+  \begin{pmatrix}
+    a & b \\
+    c & d \\
+  \end{pmatrix}.
+\end{equation*}
+$\phi$ should be a holomorphic function on the upper half-plane, $k \in \mathbb{Z}_{\geq 1}$, $\Gamma_0(n)$, $\chi$.
+\begin{equation*}
+  \int_0^1 \phi (x + i y ) \, d x
+  = 0 \quad (\text{cuspidal}),
+\end{equation*}
+\begin{equation*}
+  \phi |_k \gamma = \chi(d) \cdot \phi.
+\end{equation*}
+$S_k(N,\chi)$.
+\begin{equation*}
+  \phi (z) = \sum_{n = 1}^\infty a_\phi (n) n^{\frac{k - 1}{2}} e (n z),
+  \qquad
+  e (z) = e^{2 \pi i z}.
+\end{equation*}
+Here we know the Ramanujanconjecture: $a_\phi (n) \ll n^\eps $.
+
+From such a modular form $\phi$ we can construct $L$-functions
+\begin{equation*}
+  L (s, \phi )
+  = \sum_{k = 1}^\infty
+  \frac{a_\phi (n)}{ n^s }
+  \qquad (\Re(s) > 1).
+\end{equation*}
+\begin{align*}
+  \Lambda (s, \phi ) &= \Gamma_{\mathbb{C} } \left( s + \frac{k - 1 }{ 2} \right) L (s, \phi )  \\
+                     &= i^k N^{\tfrac{1}{2} - s } \Lambda (1 - s, \tilde{\phi }),
+\end{align*}
+where
+\begin{equation*}
+  \tilde{\phi} = \phi|_k w_N, \qquad
+  w_N =
+  \begin{pmatrix}
+    0 & - 1/\sqrt{N} \\
+    \sqrt{N} & 0 \\
+  \end{pmatrix}.
+\end{equation*}
+This is proved by using that
+\begin{equation*}
+  \phi (i y ) = (- i y )^k \phi \left( - \frac{1}{N y} \right)
+\end{equation*}
+and using the integral representation
+\begin{equation*}
+  \Lambda (s, \phi ) = 2 \int_0^\infty \phi (i y )
+  y^{s + \frac{k - 1 }{2}}
+  \, \frac{d y}{y}.
+\end{equation*}
+
+Converse theorems address the question: given sequences $f_n$ and $\tilde{f}_n$ indexed by $n \geq 1$ whose associated Dirichlet series satisfy certain conditions, such as
+\begin{itemize}
+\item $f_n, \tilde{f}_n = \O (n^\sigma ), \sigma > 0$, and
+\item analytic continuation and functional equation,
+\end{itemize}
+must they come from something in $S_k (N, \chi )$?
+
+Hecke (1936): $N \geq 4$.
+\begin{equation*}
+  \{f_n\}
+  \rightsquigarrow 
+  f(z) = \sum_{n = 1 }^\infty
+  f_n \cdot n^{\frac{k - 1 }{2}} e (n z).
+\end{equation*}
+Then
+\begin{equation*}
+  f |_k T = f,
+  \qquad
+  T =
+  \begin{pmatrix}
+    1 & 1 \\
+    0 & 1 \\
+  \end{pmatrix}.
+\end{equation*}
+Also, the condition
+\begin{equation*}
+  \tilde{f} (i y ) = f |_k w_N (i y)
+\end{equation*}
+implies that
+\begin{equation*}
+  f|_k W_N = f,
+  \qquad
+  W_N :=
+  w_N T w_N^{-1} =
+  \begin{pmatrix}
+    1 & 0 \\
+    N & 1 \\
+  \end{pmatrix}.
+\end{equation*}
+These matrices generate $\Gamma_0 (N)$ for $N \leq 4$.  For $N = 5$, one needs an additional generator.  For instance,
+\begin{equation*}
+  \Gamma_0(5)
+  = \left\langle T, w_5 T w_5^{-1},
+    \begin{pmatrix}
+      2 & -1 \\
+      5 & -2 \\
+    \end{pmatrix} \right\rangle.
+\end{equation*}
+We can consider the twisted $L$-functions
+\begin{equation*}
+  L (s, f, \psi ) := \sum_{n = 1}^\infty
+  \frac{f_n \psi (n)}{ n^s },
+  \qquad
+  \psi : \text{Dirichlet character modulo } q.
+\end{equation*}
+
+Weil (1967): if $L (s, f, \psi )$ satisfy analytic continuation and functional equation for all primitive characters $\psi$ modulo $q$ (prime) and all $q \nmid N$, then $f \in S_k(N,\chi)$.
+
+Razar (1977): it is enough to know that $L (s, f, \psi )$ satisfies the above for all characters $\psi$ (not necessarily primitive) with modulus $q$ in $N \mathbb{Z}_{\geq 1}$ satisfying $N \leq q \leq N^2$.
+
+Suppose we know just a single functional equation.  Then for $N \geq 5$, the space of solutions, i.e., pairs of sequences $(f_n)_{n \geq 1}$ and $(\tilde{f}_n)_{n \geq 1}$ satisfying the relevant condition, is infinite-dimensional.  For an explicit ``counterexample'' to the naive converse theorem, see the paper of Raphael Steiner (2019).
+
+\begin{conjecture}[Farmer, Koutsaliotus, Lemuell, 2008]
+  Assume single functional equation and that there is an Euler product, i.e., that
+  \begin{equation*}
+    \Lambda (s, f) = \Gamma_{\mathbb{C} } \left( s + \frac{k - 1}{2} \right)
+    \prod_{p \nmid N}
+    \left( 1 - f_p p^{- s } + \chi (p) p^{- 2 s } \right)^{-1}.
+  \end{equation*}
+  Then we should have $f \in S_k (N, \chi )$.
+\end{conjecture}
+\begin{remark}
+  By assuming the existence of an Euler product, we can eliminate the known counterexamples.
+\end{remark}
+
+BBBCMOPSL (2018): consider, instead of an additive twist $\psi (n)$, a twist by the Ramanujan sum
+\begin{equation*}
+  c_q (n) = \sum_{a(q)} e \left( n \frac{a}{q} \right).
+\end{equation*}
+We assume knowledge about such twists for all $q$ with $(q, N) = 1$ and get a converse theorem.  We conjecture:
+\begin{conjecture}
+  If $L(s,f,c_q)$ have analytic continuation, functional equation, and moderate growth, then for all $q$ with $(q, N ) = 1$, we have $f \in S_k (N, \chi )$.
+\end{conjecture}
+
+\subsection{Petersson trace formula}
+Let $H_k (N, \chi ) \subset S_k (N, \chi )$ be a basis, and let $g$ be an element of that basis.  Write
+\begin{equation*}
+  g (z) = \sum_{n = 1}^\infty \rho_g (n) n^{\frac{k - 1}{2}} e (n z).
+\end{equation*}
+We have $n, m \in \mathbb{Z}_{> 0}$,
+\begin{align*}
+  &\frac{(4 \pi )^{k - 1}}{ \Gamma (k - 1)}
+    \sum_{g \in H_k (N, \chi )}
+    \rho_g (n) \rho_g (m) \\
+  &\quad = \delta_{n = m}
+    +
+    2 \pi i^{- k}
+    \sum_{q \in N \mathbb{Z}_{\geq 1}}
+    \frac{S_\chi (m, n, q)}{q}
+    J_{k - 1 } \left( \frac{4 \pi \sqrt{m n}}{c} \right),
+\end{align*}
+where we recall that
+\begin{equation*}
+  S_\chi (m, n, q)
+  = \sum_{
+    \substack{
+      u,v(q)  \\
+       u v \equiv 1 (q)
+    }
+  }
+  e_q (m u + n v) \chi (u).
+\end{equation*}
+
+Rankin--Selberg convolutions:
+\begin{equation*}
+  L (s, \phi_1 \times \phi_2 ) = \zeta^{(N)} (2 s )
+  \sum_{m = 1 }^\infty
+  \frac{\lambda_{\phi_1 } (m) \overline{\lambda_{\phi_2 } (m)}}{ m^s}.
+\end{equation*}
+At $s=1$, one gets the residue $\langle \phi_1, \phi_2 \rangle$.  We obtain
+\begin{align*}
+  &\frac{(4 \pi )^{k - 1}}{\Gamma (k - 1 )}
+  \sum_{g \in H_k (N, \chi )}
+  \rho_g (n) L (s, f \times \bar{g}) \\
+  &\quad =
+    f_n n^{- s}
+    \zeta^{(N)} (2 s ) + 2 \pi i^{- k}
+    \zeta^{(N)} (2 s)
+    \sum_{q \in N \mathbb{Z} }
+    \frac{1}{q}
+    \sum_{m = 1}^\infty \frac{f_m S_\chi (n, m, q)}{m^s }
+    J_{k - 1 } \left( \frac{4 \pi \sqrt{m n }}{q} \right).
+\end{align*}
+We can write
+\begin{equation*}
+  J_{k - 1 } (4 \pi y)
+  = \frac{1}{2 \pi i }
+  \int_{(\sigma)}
+  \frac{\Gamma_{\mathbb{C} } \left( u + \frac{k - 1}{2} \right)}{
+    \Gamma_{\mathbb{C} } \left( - u + \frac{k - 1}{2} \right)}
+  y^{u}
+  \, \frac{d y}{y}.
+\end{equation*}
+
+Venkatesh (2002): for $N = 1$, and assuming finitely many poles of these $L$-functions, we can recover the converse theorem.  Here we assume that
+\begin{equation*}
+  \Lambda (s, f, \alpha ) = \Gamma_{\mathbb{C} } \left( s + \frac{k - 1 }{2} \right)
+  L (s, f, \alpha ),
+  \qquad
+  \alpha = \frac{a}{q}.
+\end{equation*}
+
+\begin{theorem}[A. Booker, M. Farmer, L 2023]
+  Let $ (f_n )_{n \geq 1}$ and $(\tilde{f}_n )_{n \geq 1}$ such that
+  \begin{equation*}
+L (s, f ) := \sum_{n \geq 1} f_n n^{- s}
+\end{equation*}
+is absolutely convergent for $\Re(s) > 1$.  Set
+
+\begin{equation*}
+\gamma(s) = Q^s \prod_{j = 1 }^r \Gamma (\lambda_j s + \mu_j ),
+\end{equation*}
+where $\lambda_j > 0$, $\mu_j \in \mathbb{C}$ and $\sum_{j = 1}^r \lambda_j = 1$.
+Let $\alpha = u / q \in \mathbb{Q}$ and $Q > 0$.  For $\Re(\mu_j) > - \tfrac{1}{2} \lambda_j$, assume the functional equation
+\begin{equation*}
+  \Lambda(s,f,\alpha) = \gamma (s) \sum_{n = 1 }^\infty \frac{f_n e (n \alpha )}{ n^s }
+  = w \cdot \chi (v)
+  q^{1/2 - s }
+  \Lambda (1 - s, \tilde{f}, - \frac{v}{q}),
+\end{equation*}
+where $q \in N \mathbb{Z}_{\geq 1} $.  Then there exists $k \in \mathbb{Z}_{\geq 1}$ such that
+\begin{equation*}
+f (z) = \sum_{n = 1 }^\infty f_n e (n z ) \in M_k (N, \chi ).
+\end{equation*}
+If $k \geq 2$, then it lies in $S_k(N,\chi)$.
+\end{theorem}
+
+
+
+
+
+
+
+
+\section{Junxian Li, \emph{Variations of the Titchmarsh divisor problem}}
+Titchmarsh divisor problem: find an asymptotic formula for
+\begin{equation}\label{eqn:d1bca2243875}
+  \sum_{p \leq x} \tau (p - a),
+  \quad
+  x \rightarrow \infty.
+\end{equation}
+Here $p$ denotes a prime and $a \in \mathbb{Z}$.  We know that
+\begin{equation*}
+  \sum_{n \leq x} \tau (n) \sim n \log n.
+\end{equation*}
+We also know that
+\begin{equation*}
+  \sum_{p \leq x} 1 \sim \frac{x}{\log x}.
+\end{equation*}
+So if you believe that the prime factors of a shifted prime behave more-or-less like a shifted integer, then you would think that the main term for the Titchmarsh divisor problem \eqref{eqn:d1bca2243875} should be roughly $x$.  In reality, there will be arithmetic factors coming up.
+
+\begin{equation*}
+  \sum_{p \leq x}
+  \tau (p - a)
+  = \mathfrak{S} (a) x + E_\tau (x).
+\end{equation*}
+\begin{itemize}
+\item Titchmarsh (1933): under GRH,
+\item Linnik (1966): dispersion method, unconditional.
+\item Halberstam (1967): simplified proof.
+  \begin{equation*}
+    E_\tau (x) \ll \frac{x \log \log x}{\log x},
+  \end{equation*}
+  uniform in $a$.
+\item Bombieri--Friedlander--Iwaniec (1986):
+  \begin{equation*}
+    E_\tau (x) \ll_{A, a}
+    \frac{x}{ (\log x)^A },
+    \qquad
+    A > 0.
+  \end{equation*}
+\item Drappeau (2017): under GRH, there exists $\delta > 0$ such that
+  \begin{equation*}
+    E_\tau (x) \ll x^{1 - \delta}.
+  \end{equation*}
+\end{itemize}
+\begin{question}
+  Do we have
+  \begin{equation*}
+    E_\tau (x) \ll x^{1/2 + \eps}?
+  \end{equation*}
+\end{question}
+Uniformity in $a$?  For example,
+\begin{equation*}
+  \sum_{p \leq N} \tau (N - p).
+\end{equation*}
+How many ways can an integer $n$ be written as a sum of a prime and two squares?
+\begin{equation*}
+  n = p + x^2 + y^2.
+\end{equation*}
+This question arises naturally in the study of, e.g.,
+\begin{equation*}
+  \sum_{p \leq x} r (n - p).
+\end{equation*}
+What do we know about such sums?  Consider the statement
+\begin{equation*}
+  \sum_{p \leq n}
+  r (n - p)
+  \leq
+  \mathfrak{S} (n) \frac{\pi n}{ \log n}
+  + E_r (n).
+\end{equation*}
+\begin{itemize}
+\item Hooley (1957): established the above under GRH.
+\item Linnik: unconditional proof.
+\item Elliott--Halberstam: simplified proof,
+  \begin{equation*}
+    E_r (n) \ll \frac{n}{ (\log n )^{1 + \delta }},
+    \qquad
+    \delta \approx 0.04.
+  \end{equation*}
+\end{itemize}
+\begin{theorem}[Assing--Blomer--L.]
+  We have
+  \begin{equation*}
+    E_\tau (n) \ll \frac{n}{ (\log n )^A }
+    \quad \text{ for all } A > 0,
+  \end{equation*}
+  uniformly in $\lvert a \rvert \ll n$.  We have
+  \begin{equation*}
+    \sum_{p \leq n} r (n - p) =
+    \mathfrak{S} (n) \operatorname{Li}(n) + \O_A \left( \frac{n}{ (\log n)^A } \right).
+  \end{equation*}
+\end{theorem}
+
+Upper bounds for $\sum_{p \leq x} \lambda (p - a)$, where $p$ denotes a prime and $a \in \mathbb{Z} $.
+
+Pitt (2013): there exists $\delta > 0$ such that
+\begin{equation*}
+\sum_{p \leq x } \lambda \left(p + \frac{1}{q}\right) \ll x^{1 - \delta}.
+\end{equation*}
+
+Assing--Blomer--Li: uniformity in level, shift parameter, weight, spectral parameter.
+
+Recall that $\pi (x) = \# \left\{ p \leq x \right\}$, $\pi (x, q, a) = \# \left\{ p \equiv a(q) \right\}$.  Then
+\begin{equation*}
+  \sum_{q \leq \sqrt{x} / (\log x)^B }
+  \max_{(a,q)}
+  \left\lvert \pi (x, q, a) - \frac{\pi (x) }{\phi (q) } \right\rvert
+  \ll_A \frac{x}{ (\log x)^A }
+\end{equation*}
+for all $A > 0$.
+
+We have
+\begin{equation*}
+  \sum_{\frac{\sqrt{x}}{ (\log x)^B } < q < \sqrt{x}}
+  \frac{x}{\phi (q) \log (x/q)}
+  \ll \frac{x \log_2 x }{\log x}.
+\end{equation*}
+Also
+\begin{equation*}
+  \sum_{q \sim \sqrt{x}}
+  \left( \pi (x, q, a) - \frac{\pi (x) }{ \phi (q) } \right)
+  \ll \frac{x}{ (\log x)^A },
+\end{equation*}
+uniform in $a \ll x^{1 + \delta }$; also, you can go up to $x^{1/2 + \delta }$, and then all the way up to $x / (\log x )^B $ because of the switching divisor thing?
+
+Leads to
+\begin{equation*}
+  \sum_{q_2 } \sum_h \sum_{q_1 }
+  S \left( a h (n_1 - n_2 ) \bar{n}_1, q_2, q_1 n_2  \right).
+\end{equation*}
+Now apply Kuznetsov and large sieve.  This sequence is very sparse when you have large coefficients $a$.  Thats' why uniformity is a major issue in the original Titchmarsh divisor problem.  We overcome this difficulty by factoring out the coefficient $a$, in some sense, because of a certain multiplicativity of the Fourier coefficients.  But because we have levels and these inverses, it's not at the cusp infinity, but rather at something like the cusp $1/N$.
+
+
+Study $\sum_{p}\tau (p^2 + q^2 + 1) - \mathcal{M} + \mathcal{E}$.  Improve to arbitrary power of a logarithm savings?  How about the analogue for cusp forms, namely $\sum \lambda (p^2 + q^2 + 1)$?
+
+\section{Mayank Pandey, \emph{$L^1$-norms of exponential sums with multiplicative coefficients}}
+
+The general problem is to understand the distribution of the magnitude of exponential sums of some arithmetically interesting coefficients $a : \mathbb{N} \rightarrow \mathbb{C} $, namely
+\begin{equation*}
+  \left\lvert \sum_{n \leq X} a (n )  e(n \alpha)  \right\rvert.
+\end{equation*}
+One approach that gives a lot of information about these is through the moments
+\begin{equation*}
+  \int_0^1 \left\lvert \sum_{n \leq X } a (n ) e (n \alpha ) \right\rvert^s \, d \alpha.
+\end{equation*}
+We focus on the $L^1$-norm.  Here there is comparatively little known.  Less structure compare to the even moments.
+
+Why would we want to understand such $L^1$-norms?
+
+There's the general problem of understanding the distribution, which one might want for its own sake.  It's not inconceivable that it might show up in applications of the circle method.  Finally, there's an interesting result of Bourgain:
+\begin{theorem}
+  Any finite subset $A \subseteq \mathbb{N} $ has a sumfree subset $B$ with
+  \begin{equation*}
+    \lvert B \rvert \geq \frac{1}{3} \lvert A \rvert + \frac{1}{ \log \lvert A \rvert} \int_0^1 \left\lvert \sum_{n \in A } e (n \alpha ) \right\rvert \, d \alpha.
+  \end{equation*}
+\end{theorem}
+The best current result (also due to Bourgain) is that the biggest such $B$ has size
+\begin{equation*}
+  \geq \frac{1}{3} \lvert A \rvert + \frac{2}{3}.
+\end{equation*}
+This improves upon a simpler result of Erdos where one just has $|B| \geq (1/3) |A|$ under weaker conditions.
+
+One might hope that sets with small $L^1$-norm can be characterized, then manually dealt with, to obtain
+\begin{equation*}
+  \lvert B \rvert \geq \frac{1}{3} \lvert A \rvert + \psi (\lvert A \rvert),
+\end{equation*}
+for some $\psi(X) \rightarrow \infty $.  Bloom has announced some results in this direction for general sets.
+
+
+Let's turn to basic considerations regarding what one can prove.  It's not hard to show that
+\begin{equation*}
+  \int_0^1 \left\lvert \sum_{n \leq X} e (n \alpha ) \right\rvert \, d \alpha
+  \asymp \log X.  
+\end{equation*}
+This is sharp, due to a (resolved) conjecture of Littlewood:
+\begin{equation*}
+  \int_0^1 \left\lvert \sum_{n \leq X} a (n ) e (n \alpha ) \right\rvert \, d \alpha
+  \gg
+  \sum_{j \leq k}
+  \frac{\left\lvert a (n_j ) \right\rvert}{j},
+\end{equation*}
+where $\{n_1, \dotsc, n_k\}$ are those $n \leq X$ at which $a (n) = 0$.  One expects that the $L^1$-norm is small only if the coefficients are structured in arithmetic progressions, and the aforementioned work of Bloom makes this precise when the $L^1$-norm is very small.
+
+For the case where $a(n)$ is a multiplicative function, here are some examples of results.
+\begin{theorem}[Balog, Ruzsa]
+  For fixed $r \geq 2$, we have
+  \begin{equation*}
+    \int_0^1 \left\lvert \sum_{n \leq X} 1_{r\text{-free}}(n) e (n \alpha ) \right\rvert
+    \, d \alpha \asymp X^{\frac{1}{r + 1}}.    
+  \end{equation*}
+\end{theorem}
+\begin{theorem}[Vaughan, Goldston]
+  We have
+  \begin{equation*}
+    \sqrt{X} \ll \int_0^1 \left\lvert \sum_{n \leq X} \Lambda (n ) e (n \alpha ) \right\rvert \, d \alpha
+    \leq \left( \frac{1}{\sqrt{2}} + o(1) \right)
+    \sqrt{X \log X}.
+  \end{equation*}
+\end{theorem}
+\begin{theorem}[Balog--Rusza]
+  For $a (n)$ supported on squarefree $n$, we have
+  \begin{equation*}
+    \int_0^1 \left\lvert \sum_{n \leq X } a (n ) e (n \alpha ) \right\rvert \, d \alpha
+    \gg
+    X^{1/ 8 - o(1)} \left( \frac{1}{X} \sum_{n \leq X } \lvert a (n )  \rvert^2  \right)^{1/2}.
+  \end{equation*}
+\end{theorem}
+
+\begin{theorem}[P.]
+  With $\lambda_f (n)$ the normalized Fourier coefficients of an $\SL_2(\mathbb{Z})$ modular form, we have
+  \begin{equation*}
+    \int_0^1 \left\lvert \sum_{n \leq X } \lambda_f (n ) e (n \alpha ) \right\rvert \, d \alpha
+    = C X^{1/2} + \O(X^{1/2 - \delta })    
+  \end{equation*}
+  for some $\delta > 0$ (probably $\delta = 1/100$ suffices).
+\end{theorem}
+
+One of the main results that we'll state today is the following, joint with Maksym Radziwill.
+\begin{theorem}[P., Radziwill]
+  Take $\lambda$ the Liouville function (completely multiplicative, $\lambda (p) = - 1$ for all $p$).  We have
+  \begin{equation*}
+    \int_0^1 \left\lvert \sum_{n \leq X} \lambda (n) e (n \alpha ) \right\rvert \, d \alpha
+\gg X^{1/4 - o(1)}.    
+\end{equation*}
+\end{theorem}
+\begin{itemize}
+\item Previous best result due to Balog and Perelli, giving a lower bound of $\exp (c \log X / \log \log X)$.
+\item Methods apply to the Mobius function, beating the previous Balog--Ruzsa $X^{1/6}$ result lower bound.  (Balog--Rusza used less information.)
+\end{itemize}
+
+Another one of our results is a structure theorem for the $L^1$-norm of an exponential sum with multiplicative coefficients.
+
+\begin{theorem}[P. Radziwill]
+  Suppose that $f : \mathbb{N} \rightarrow \{\pm 1\}$ is completely multiplicative.  Suppose that $M \ll X^{\eta }$ for some absolute $\eta > 0$.  Then, if
+  \begin{equation*}
+    \int_0^1 \left\lvert \sum_{n \leq X } f (n) e (n \alpha ) \right\rvert \, d \alpha
+    \leq M,
+  \end{equation*}
+  then there exist $\chi (q), t \in \mathbb{R} $ with $q (1 + \lvert t \rvert) \ll M^2 \log^{\O(1)} \chi $ such that
+  \begin{equation*}
+f \approx \{n \mapsto \chi (n ) n^{i t}\}.
+\end{equation*}
+\end{theorem}
+While not fully worked out, we expect to make ``$\approx$'' correspond to pretentiousness.  From the lens of $\approx$, this is sharp: for $\chi$ of conductor $q$, and $t \in \mathbb{R} $ with $q (1 + \lvert t \rvert)$ at most a small power of $X$, we have
+\begin{equation*}
+  \int_0^1 \left\lvert \sum_{n \leq X} \chi (n ) n^{i t} e (n \alpha ) \right\rvert \, d \alpha
+  = (q (1 + \lvert t \rvert))^{1/2} (\dotsb).
+\end{equation*}
+
+The next result follows from similar methods.
+\begin{theorem}
+  Let $\lambda_\pi(n_1,\dotsc,n_{m-1})$ be the Fourier coefficients (or Hecke eigenvalues) of some $\GL_m$ cuspidal automorphic representation $\pi$.  Then we get
+  \begin{equation*}
+    \int_0^1
+    \left\lvert \sum_{n \leq X }\lambda_\pi (1, \dotsc, 1, n ) e(n \alpha)
+    \right\rvert
+    \, d \alpha \gg X^\delta,
+  \end{equation*}
+  where $\delta = \delta(m) \gg 1/m$.
+\end{theorem}
+When $m = 2$, this follows from the Jutila/Wilton pointwise bound of $X^{1/2} $, and similarly for $m = 3$ by the bound
+\begin{equation*}
+\sum_{n \leq X} \lambda_\pi (1, n) e (n \alpha ) \ll X^{3/4 + o(1)}
+\end{equation*}
+of Miller, but seems new for general $m$, where there is no nontrivial $L^\infty $-bound.
+
+Now we give the sketch of the proof of the result concerning general multiplicative functions.  Suppose that $f$ does not pretend tob e a character of conductor $\leq Q$ for some $Q \leq X^\delta$.  Let
+\begin{equation*}
+S (\alpha) := \sum_{n \leq X } f (n ) e (n \alpha ).
+\end{equation*}
+The theorem is then the statement that
+\begin{equation*}
+\lVert S \rVert_1 \gg \sqrt{Q}.
+\end{equation*}
+Define the major arcs
+\begin{equation*}
+  \mathfrak{M} = \cup_{
+    \substack{
+      q \leq Q  \\
+       (a, q ) = 1
+    }
+  }
+  \mathfrak{M} (q, a),
+  \qquad
+\mathfrak{M} (q, a) := (\dotsb)
+\end{equation*}
+and the minor arcs $\mathfrak{m}$.
+
+If we have a bound of $X / \sqrt{Q}$ for $S(\alpha)$ on the minor arcs $\mathfrak{m}$, and that
+\begin{equation*}
+\int_{\mathfrak{M} } \lvert S (\alpha ) \rvert^2 \, d \alpha \leq (1 - \sigma ) X
+\end{equation*}
+for some $\sigma \gg 1$.  Then we are done, by Cauchy--Schwarz:
+\begin{equation*}
+  \int_{\mathfrak{m} } \left\lvert S (\alpha)  \right\rvert^2 \, d \alpha  \gg X \implies \int_{\mathfrak{m} }
+  \left\lvert S (\alpha)  \right\rvert \, d \alpha.
+\end{equation*}
+
+Don't have such good minor arc bounds for $S (\alpha) $ from nonpretentiousness, which is insensitive to primes $\sim X$, so we can do no better than saving $1 / \log X$.  Instead, we decompose as
+\begin{equation*}
+S = S^* + S_{\mathrm{exc}},
+\end{equation*}
+with
+\begin{equation*}
+  \lVert S_{\mathrm{exc}} \rVert_2^2 =
+  o_{\delta \rightarrow 0} (X) ,
+  \qquad
+  \sup_{\alpha \in \mathfrak{m} } \left\lvert S^\ast (\alpha ) \right\rvert \ll X / \sqrt{Q}.
+\end{equation*}
+Here $S^\ast $ is a sum over $n$ with a prime factor in a certain range, and we use Ramare's identity to provide bilinearity to get minor arc bounds.  Let
+\begin{equation*}
+\mathcal{E} := \left\{ \alpha : \left\lvert S_{\mathrm{exc}} (\alpha)  \right\rvert \geq X / \sqrt{Q} \right\}.
+\end{equation*}
+Something.
+
+Then, because the exceptional set attached to $\alpha \in \mathfrak{m} \cap \mathcal{E}$ has size at least $S^*(\alpha)$, and since we can bound the $L^2$-norm of $S(\alpha)$ on $\mathfrak{m} \cap \mathcal{E}$ by that of $S_{\mathrm{exc}}(\alpha)$, then we get the desired lower bound $\lVert S \rVert_1 \gg \sqrt{Q}$.
+
+The main part is the $L^2$ upper bound on the major arcs.  By Plancherel and change of variables, we get
+\begin{equation*}
+  \int_{\mathfrak{M} } \lvert S (\alpha)  \rvert^2 \, d \alpha
+  \approx
+  \sum_{q \leq Q} \sum_{\chi(q)}^\ast \int_{\lvert t \rvert \ll Q / q}
+  \left\lvert \sum_{n \sim X} f (n) \chi (n) n^{i t} \right\rvert^2 \, d t.
+\end{equation*}
+Restricting to $n$ with a prime factor in $[X^{3 \delta}, X^{1 - 3 \delta }]$ and applying Turan--Kubilius, there are scales
+\begin{equation*}
+  X^{3 \delta } \ll N, \quad P \ll X^{1 - 3 \delta }, \quad
+  N P \asymp X
+\end{equation*}
+such that the above is
+\begin{equation*}
+  \ll \log^2 P
+  \sum_{q \leq Q}
+  \sum_{\chi (q)}^\ast
+  \int_{\lvert t \rvert \ll Q/q}
+  \left\lvert \sum_{n \asymp N} f (n) \chi (n) n^{i t } \right\rvert^2
+  \left\lvert \sum_{p \asymp P} f (p) \chi (p) p^{i t} \right\rvert^2 \, d t.
+\end{equation*}
+We bound the $n$-sum in $L^\infty$ via Halasz.  We win after using the large sieve on the $p$-sum: there are more harmonics than the length, so we get a savings of $Q^2 $ from the large sieve.
+
+
+
+Let's now give a sketch of the Liouville result.  We begin by writing
+\begin{equation*}
+S_X (\alpha) = \sum_{n \leq X } \lambda (n ) e (n \alpha ).
+\end{equation*}
+Then $S_X$ varies on scales of size $1/X$, so we have
+\begin{align*}
+  \int_0^1  \lvert S_X (\alpha)  \rvert \, d \alpha
+  &\gg \frac{1}{X}
+    \sum_{
+    \substack{
+    p \sim \sqrt{X}  \\
+   (a, p ) = 1
+  }
+  }
+  \left\lvert S_X \left( \frac{a}{p} \right) \right\rvert
+  \\
+  &\geq
+    \frac{1}{X}
+    \sum_{p \sim \sqrt{X}}
+    \dotsb.
+\end{align*}
+
+For typical $p \sim \sqrt{X}$, we generically expect that (since $\zeta$ has notnrivial zeros)
+\begin{equation*}
+p \sum_{n \leq X /p } \lambda (n ) \gg p \sqrt{X / p } \asymp X^{3/4},
+\end{equation*}
+and as $X$ varies, there are $\Omega$ results to this effect that have been established.
+
+As for varying $X$, we write
+\begin{equation*}
+F_X (\alpha) = \sum_{n \leq X} e (n \alpha ).
+\end{equation*}
+We then have that for $y \leq X$,
+\begin{equation*}
+\int_0^1 F_y (\alpha - \beta ) S_X (\beta) \, d \beta = S_y (\beta),
+\end{equation*}
+and so
+\begin{equation*}
+\lVert S_y \rVert_1 \leq \lVert F_y  \rVert_1 \lVert S_X  \rVert_1.
+\end{equation*}
+Since $\lVert F_y  \rVert_1 \asymp \log y$, we obtain that (...).
+
+We reduce to showing that
+\begin{equation*}
+  \frac{1}{X} \cdot X^{1/2} \frac{1}{X} \int_{y \asymp X} \left\lvert p \sum_{n \leq y / p } \lambda (n )
+  + \sum_{n \leq y} \lambda (n)\right\rvert \, d y \gg X^{1/4 - o(1)}.
+\end{equation*}
+The idea that's used here is to integrate against the kernel $w(y/X)$, where
+\begin{equation*}
+  w (u) := \frac{1}{2 \pi i } \int_{(2)} \frac{\zeta (s + i \gamma_0 )}{ s - \tfrac{1}{2} }
+  u^{- s} e^{s^2 } \, d s,
+\end{equation*}
+and $\frac{1}{2} + i \gamma_0 $ is some zero of $\zeta$.  This is based on an idea of Pintz.
+
+With this, we can pick out the oscillation coming from a zero of $\zeta$ for the expected $\Omega$ fresult.  In particular, on average,
+\begin{equation*}
+p \sum_{n \leq y / p } \lambda (n ) + \sum_{n \leq y } \lambda (n ) \gg X^{1/2} p^{1/2} \sim X^{3/4}.
+\end{equation*}
+We thereby obtain the required lower bound
+
+\section{Andrei Seymour--Howell, \emph{Rigorous computation of Maass cusp forms of squarefree level}}
+
+$S_\lambda(N)$: the space of Maass cusp forms of level $N$ (trivial character) with eigenvalue $\lambda$.
+
+Hecke operators $T_n$, Fourier expansions with coefficients
+\begin{equation*}
+  a(n) = \lambda(n),
+  \qquad
+  a(-n) = \eps \lambda(n),
+\end{equation*}
+where $\eps = \pm 1$.
+
+History of computations.  In the 1990's, Hejhal developed an algorithm to compute Maass cusp forms, generalized by Stromberg in 2006 to work for general congruence (and non-congruence) subgroups.  This argument works very well in practice, but relies on a heuristic argument, and it has not been proven yet to rigorously converge to genuine Maass cusp forms.  One gets number that look like Maass forms, but one can't tell if it is an exact Maass form.
+
+Booker--Strombergsson--Venkatesh (2006) developed an algorithm to verify the computations of Maass cusp forms.  Originally derived only for level $1$, but recent work of Child has generalized this to general level and character.
+
+Booker and Strombergsson (2006) used the Selberg trace formula for computations of Maass cusp forms.  However, they focused mainly on proving the non-existence of Maass forms in certain cases.
+
+The main tool we'll use here is the Selberg trace formula.  Hecke eigenbasis $f_j$, with Laplace eigenvalues $\lambda_j$ and Hecke eigenvalues $a_j (n)$.  Let $H$ be a nice (analytic) test function.  Then the spectral sum
+\begin{equation*}
+  t(n,H) := \sum_j a_j (n ) H (\lambda_j )
+\end{equation*}
+admits a geometric expansion.
+
+Aside to modular forms.  Explicit versions of the trace formula have been used to compute basis elements of the spaces of modular forms.  Example: PARI command \texttt{mfeigenbasis}.  Since these spaces are finite-dimensional, one can use Hecke operators and linear algebra to extract Fourier coefficients of basis elements.
+
+In the Maass form case, our spaces become infinite-dimensional. We'll mimic the idea, though, by taking the test function to decay rapidly enough that an essentially bounded number of eigenvalues contribute.
+
+
+As for details, we define, for a sequence of real numbers $c(m)$ (here $1 \leq m \leq M$) satisfying $c(m) = 0$ if $(m,N) > 1$,
+\begin{equation*}
+  Q (c, H) :=
+  \sum_{j = 1 }^\infty \left( \sum_{m = 1 }^M c (m ) a_j (m ) \right)^2 H (\lambda_j).
+\end{equation*}
+We can rewrite this using Hecke multiplicativity.
+
+Intuitively, suppose we have some putative numerical approximations $\tilde{\lambda}_j$ and $\tilde{a}_j(m)$ to $\lambda_j$ and $a_j(m)$.  Then we want to choose numbers $c_i(m) = 0$ if $(m, N ) > 1$ and
+\begin{equation*}
+  \sum_{m = 1}^M c_i (m ) \tilde{a}_j(m)
+  =
+  \begin{cases}
+1 & \text{ if } j = i, \\
+0 & \text{ otherwise.}
+\end{cases}
+\end{equation*}
+Let $\tilde{H}_i(\lambda) = H(\lambda) (\lambda - \tilde{\lambda}_i)^2$.  For the verification, we shall prove that there exists a Laplace eigenvalue near $\tilde{\lambda}_i$.  For this, we use the definition of $Q$ to compute
+\begin{equation*}
+\eps_i := \sqrt{\frac{Q (c_i , \tilde{H}_i)}{Q (c_i, H)}}.
+\end{equation*}
+There exists a cuspidal eigenvalue $\lambda \in [\tilde{\lambda}_i - \eps_i, \tilde{\lambda}_i + \eps_i]$.
+
+With the same $H$ as before, we define $\tilde{H}(\lambda) = \lambda H(\lambda)$.  Let $Q$ and $\tilde{Q}$ denote the respective matrices of the quadratic forms $Q (c, H)$ and $Q (c, \tilde{H})$.  To find the eigenvalues $\lambda_j $, we seek solutions to the generalized symmetric eigenvalue problem
+\begin{equation*}
+\tilde{Q} x = \lambda Q x.
+\end{equation*}
+This gives us numerical approximations to the Laplace eigenvalues.  The corresponding eigenvectors we then use as the $c_i$.  This way means we only have to do two matrix diagonalizations per level.
+
+\section{Beat Zurbuchen, \emph{Sato--Tate laws for Fourier duals of exponential sums}}
+
+\subsection{Sato--Tate}
+Let $E/\mathbb{Q}$ be a non-CM elliptic curve.
+
+Let $p$ be a prime of good reduction for $E$.  Then one can prove using the Lefschetz trace formula that the number of points for the reduction of $E$ modulo $p$ in this finite field is
+\begin{equation*}
+  \lvert E_p(\mathbb{P}^n) \rvert = p^k + 1 - p^{k /2} \left( \alpha_p^n + \alpha_p^{- n} \right),
+  \quad
+  \lvert \alpha  \rvert = 1.
+\end{equation*}
+\begin{equation*}
+  \Theta_p :=
+  \begin{pmatrix}
+    \alpha  & 0 \\
+    0 & \bar{\alpha } \\
+  \end{pmatrix}
+  \in
+  \SU(2)^{\sharp}.
+\end{equation*}
+Here $\SU(2)^{\sharp}$ denotes the set of topological conjugacy classes of $\SU(2)$.
+
+Sato--Tate says that for all continuous
+\begin{equation*}
+  f : \SU(2)^{\sharp}
+  \rightarrow \mathbb{C} ,
+\end{equation*}
+we have
+\begin{equation*}
+  \lim_{N \rightarrow \infty }
+  \mathbb{E}_{
+    \substack{
+      p \leq N  \\
+      \text{good reduction}
+    }
+  }
+  f (\Theta_p )
+  =
+  \int_{\SU(2)} f(g) \, d g.
+\end{equation*}
+
+Tate module: for $\ell$ a prime, for $p \neq \ell$ of good reduction for $E$,
+\begin{equation*}
+  T_{\ell} : G_{\mathbb{Q} } \rightarrow \GL_2 (\mathbb{Q}_{\ell} ).
+\end{equation*}
+Fix
+\begin{equation*}
+  \iota : \overline{\mathbb{Q}_{\ell} } \xrightarrow{\cong } \mathbb{C}.
+\end{equation*}
+For each such $p$,
+\begin{equation*}
+  \Theta_p = \left( \iota \left( T_{\ell} (\Frob_p ) \right) \right)^{ss}.
+\end{equation*}
+
+Sato--Tate over $\mathbb{G}_m$?  Let $p$ be an odd prime.  Let $q = p^m$.  Take a prime $\ell \neq p$.
+\begin{definition}
+  An $\ell$-adic local system on $\mathbb{G}_{m,\mathbb{F}_q}$ is a continuous Galois representation
+  \begin{equation*}
+    \rho : G_{\mathbb{F}_q (t) } \rightarrow \GL_n( \overline{\mathbb{Q}_{\ell}})
+  \end{equation*}
+  which ramifies at most at $0$ and $\infty$.
+\end{definition}
+From now on, $\rho$ is an $\ell$-adic local system.
+\begin{remark}
+  Local systems will give you functions:
+  \begin{equation*}
+    \rho(t) : 
+    \mathbb{F}_q^\ast \rightarrow \mathbb{C} 
+  \end{equation*}
+  \begin{equation*}
+    t \mapsto
+    \trace (\Frob_t | \rho ).
+  \end{equation*}
+\end{remark}
+\begin{example}
+  \begin{enumerate}
+  \item Let $\chi : \mathbb{F}_{q^n }^\ast \rightarrow S^1$, there is a local system $h_\chi $ such that
+    \begin{equation*}
+      h_\chi (t) = \chi \left( N_{\mathbb{F}_{q^n } / \mathbb{F}_q } (t)  \right).
+    \end{equation*}
+  \item Let $\lambda_2 : \mathbb{F}_p^\ast \rightarrow S^1$ denote the Legendre symbol, and let $\chi : \mathbb{F}_q^\ast \rightarrow S^1$ and $\psi : \mathbb{F}_q \rightarrow S^1$ be characters, with $\psi$ nontrivial.  Then there is a local system
+    \begin{equation*}
+      \mathcal{H} (\psi, \chi )
+    \end{equation*}
+    such that
+    \begin{equation*}
+      \mathcal{H} (\psi, \chi ) = \sum_{x_1 \dotsb x_7 = t y}
+      \psi \left( \trace_{\mathbb{F}_{q^n } / \mathbb{F}_q } (x_1 \dotsb x_7 - y) \right)
+      \chi (N (x_4 x_5 x_6^{-1} x_7^{-1} ))
+      \lambda_z (y).
+    \end{equation*}
+  \end{enumerate}
+\end{example}
+
+Sato--Tate law.  Let $\rho$ be a ``normalized'' $\ell$-adic local system.
+
+Then there exists a compact Lie group $G \subseteq \GL (\rho \otimes_\iota \mathbb{C} )$ such that
+\begin{equation*}
+  \Theta_t := \left( \iota \left( \rho(\Frob_t) \right) \right)^{ss} \in G^{\sharp}
+\end{equation*}
+and for all $f : G^\sharp \rightarrow \mathbb{C}$ continuous, and all $t \in \mathbb{F}_{q^n }^\ast $, we have
+\begin{equation*}
+  \frac{1}{q^n - 1 }
+  \sum_{t \in \mathbb{F}_{q^n}^\ast }
+  f (\Theta_t ) = \int_{G } f (g ) \, d g
+  +
+  \O_{f, g} (q^{- n/2}).
+\end{equation*}
+\begin{example}
+  \begin{enumerate}
+  \item For $h_\chi $, the group $G$ is $\iota (\image(\chi))$.
+  \item For $\mathcal{H} (\psi, \chi )$, the monodromy group is $G_2$.
+  \end{enumerate}
+\end{example}
+
+Sato--Tate laws for Fourier duals.  We can construct a Mellin transform for $\rho$: for a multiplicative character $\chi : \mathbb{F}_{q^n }^\ast \rightarrow S^1$,
+\begin{equation*}
+  \hat{\rho } (\chi) := \sum_{t \in \mathbb{F}_{q^n }^\ast } \rho (t) \chi (t).
+\end{equation*}
+This is not a local system (by any known means).
+
+Sato--Tate (Katz, 2012): for $\rho$ ``normalized'', there exists a compact Lie group $G$, together with a representation $\varphi_\pi : G \rightarrow \GL_n(\mathbb{C})$, such that for all ``good'' characters $\chi$, there exists a conjugacy class $\Theta_\chi \in G^\sharp$ such that
+\begin{equation*}
+  \trace (\Theta_\chi | \pi ) = \hat{\rho} (\chi),
+\end{equation*}
+and for all continuous $f : G^\sharp \rightarrow \mathbb{C}$,
+\begin{equation*}
+  \mathbb{E}_{
+    \substack{
+      \chi \in \widehat{\mathbb{F}_{q^n }}^\ast  \\
+      \chi \text{ is good}
+    }
+  }
+  f (\Theta_\chi )
+  = \int_G f + \O (q^{- n/2}).
+\end{equation*}
+
+\begin{example}
+  There exists a local system $\rho_t $ for each $t \in \mathbb{F}_{p^n }^\ast $ such that $\hat{\rho }_t (\chi ) = \mathcal{H} (\psi, \chi ) (t)$.
+\end{example}
+\begin{theorem}[Katz]
+  For $t$ in a set of full measure, the monodromy group is $G_2$.
+\end{theorem}
+The speaker has been able to show the following.
+\begin{theorem}
+  The same is true for all $t$, provided that $p$ is sufficiently large.
+\end{theorem}
+
+
+\section{Qihang Sun, \emph{Sums of Kloosterman sums and their applications}}
+We consider the Kloosterman sums
+\begin{equation*}
+S (m, n, c ) := \sum_{d (c)} e_c (m a + n d).
+\end{equation*}
+\begin{equation*}
+\begin{pmatrix}
+a & b \\
+c & d \\
+\end{pmatrix} \in \SL_2(\mathbb{Z}).
+\end{equation*}
+Trivial bound
+\begin{equation*}
+  \left\lvert S (m, n, c) \right\rvert \leq \sigma_0 (c)
+  (m, n, c)^{1/2} c^{1/2}.
+\end{equation*}
+\begin{equation*}
+  \sum_{c \leq X}
+  \frac{S (m, n, c)}{c}
+  \ll_\eps (m, n )^\eps X^{1/2 + \eps }.
+\end{equation*}
+Kuznetsov: the above is $\ll_{m, n} X^{1/6} \log^{1/3} X$.
+
+\begin{theorem}[Sarnak--Tsimerman, 2009]
+The above is
+\begin{equation*}
+  \ll_\eps \left( X^{1/6} + (m n )^{1/6}
+    + (m + n )^{1/8}
+    (m n )^{\vartheta  / 2}
+  \right)
+  (m n X)^\eps.  
+\end{equation*}
+\end{theorem}
+
+\begin{conjecture}[Linnik--Selberg]
+  The above is
+  \begin{equation*}
+\ll_\eps (m n X)^\eps .
+\end{equation*}
+\end{conjecture}
+
+$j$-invariant:
+\begin{equation*}
+j (z ) = q^{-1} + 744 + \O(q).
+\end{equation*}
+\begin{equation*}
+  a_j (n ) = \frac{2 \pi }{ \sqrt{n}} \sum_{c = 1 }^\infty \frac{S (1, n, c)}{c} I_1 \left( \frac{2 \pi \sqrt{n}}{c} \right).
+\end{equation*}
+
+
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
