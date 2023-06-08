@@ -1,0 +1,3231 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Notes from ArStAFANT</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+    <div class="my-links-container">
+2023-06-08 14:51:08
+      <a href="20230605T102114__epfl-conference-arstafant.tex" class="my-link">tex</a>
+      <a href="20230605T102114__epfl-conference-arstafant.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20230605T102114__epfl-conference-arstafant.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+
+<header id="title-block-header">
+<h1 class="title">Notes from ArStAFANT</h1>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>Notes from ArStAFANT workshop 2023, held at EPFL between June 5 and
+June 9, 2023. These notes are incomplete and have not been proofread.
+Any errors should be assumed to be due to the note-taker.</p>
+</div>
+</header>
+<h1 id="oleksiy-klurman-on-elliotts-conjecture-and-applications">Oleksiy
+Klurman, <em>On Elliott’s conjecture and applications</em></h1>
+<p>Let’s talk about some recent progress on some topic of multiplicative
+number theory, starting with two applications of this recent
+progress.</p>
+<p>One application is the following:</p>
+<ol>
+<li><p>Take any binary sequence <span class="math inline">\(\{a_n\}_{n
+\in \mathbb{N} } = \{\pm 1\}^{\mathbb{N} }\)</span>. Suppose you measure
+the discrepancy of this sequence along arithmetic progressions. Then
+Erdos conjectured that <span class="math display">\[\sup_{n, d}
+    \left\lvert
+      \sum_{k = 1}^n a_{k d}
+    \right\rvert
+    =
+    + \infty.\]</span> This was eventually proved by Tao (2015),
+following a partially successful polymath project.</p></li>
+<li><p>The second application concerns (completely) multiplicative
+functions <span class="math inline">\(f\)</span>, thus <span
+class="math inline">\(f (m n) = f (m) f (n)\)</span>, that are <span
+class="math inline">\(1\)</span>-bounded int he sense that <span
+class="math inline">\(\lvert f \rvert \leq 1\)</span>. Suppose for
+instance that <span class="math inline">\(f : \mathbb{N} \rightarrow
+\{\pm 1\}\)</span>. Then the problem is to determine which
+multiplicative functions avoid some sign patterns.</p>
+<ol type="a">
+<li><p>Clearly there are no multiplicative functions that take the value
+<span class="math inline">\(-1\)</span> from some point on. In other
+words, there are none that have no <span
+class="math inline">\(+1\)</span> at all from some point on.</p></li>
+<li><p>But what about functions that never take two values <span
+class="math inline">\(+1\)</span> in a row from some point on? Consider
+<span class="math display">\[x^2 - p q y^2 = 1, \quad f (p) = f (q ) = -
+1.\]</span> Then <span class="math display">\[f (p q y^2 ) = f (q ) f
+(p) f (y)^2 = 1,\]</span> <span class="math display">\[f (p q y^2 + 1) =
+f (x^2 ) = 1.\]</span></p></li>
+<li><p>Lehmer conjectured, and Schur proved using a combinatorially
+argument, that there are exactly two functions, completely
+multiplicative, that avoid three consecutive values <span
+class="math inline">\(+1\)</span>, or equivalently, three quadratic
+residues in a row. <span class="math display">\[\chi_3^{\pm} (p) =
+      \begin{cases}
+        1  &amp;  \text{ if } p \equiv 1(3), \\
+        -1 &amp;  \text{ if } p \equiv -1(3), \\
+        \pm 1 &amp;  \text{ if } p = 3.
+      \end{cases}\]</span> (In the 80’s, Hildebrand asked the same
+question about more general sign patterns, and these questions have been
+understood.)</p></li>
+<li><p>Four in a row is a much more difficult question.</p>
+<div id="conjecture:d1bbef4df1f8" class="conjecture">
+<p><strong>Conjecture 1</strong> (Hudson, 1974; Mills, 1965). <em>There
+are thirteen functions, in addition to the two mentioned above, that
+avoid <span class="math inline">\(++++\)</span>. They are <span
+class="math inline">\(\chi_p^{\pm}\)</span> with modulus <span
+class="math inline">\(p \in \{5, 7, 11, 13, 53\}\)</span>. There are two
+functions that look like characters mod <span
+class="math inline">\(4\)</span>: <span class="math display">\[g_1 (p) =
+g_2 (p) = (-1)^{\frac{p-1}{2}}, \quad p \neq 2.\]</span> <span
+class="math display">\[g_1 (2) = - g_2 (2) = - 1.\]</span> <span
+class="math display">\[g_3 (p) = 1, p \neq 2.\]</span> <span
+class="math display">\[g_3 (2) = - 1.\]</span></em></p>
+</div></li>
+</ol></li>
+</ol>
+<div class="theorem">
+<p><strong>Theorem 1</strong> (KMV, 2023). <em>Conjecture <a
+href="#conjecture:d1bbef4df1f8" data-reference-type="ref"
+data-reference="conjecture:d1bbef4df1f8">1</a> is true.</em></p>
+</div>
+<p>Let’s begin with some thoughts. Let’s try to understand <span
+class="math display">\[\frac{1}{16}
+  \sum_{n \leq N} (1 + f (n )) (1 + f (n + 1)) (1 + f (n + 2 )) (1 + f
+(n + 3)).\]</span> If we open everything up, then we get a main term
+plus a <span class="math inline">\(k\)</span>-point correlation sum for
+each <span class="math inline">\(k \in \{1,2,3,4\}\)</span>. <span
+class="math display">\[\frac{N}{16}
+  + \sum f (n) f (n + 1) f (n + 2) f (n + 3)
+  + \sum (\text{3 pt})
+  + \sum (\text{2 pt})
+  + \sum_{n \leq N} f (n) + \dotsb.\]</span> We aim to bound everything
+but the first term.</p>
+<div class="question">
+<p><strong>Question 1</strong>. When is <span
+class="math inline">\(\sum_{n \leq N} f (n) \gg N\)</span>? We recall
+here that <span class="math inline">\(f : \mathbb{N} \rightarrow \{\pm
+1\}\)</span> is completely multiplicative, and takes values in <span
+class="math inline">\([-1, 1]\)</span>.</p>
+</div>
+<p>Wirsing says that no matter which multiplicative function one takes
+with the above conditions, one has some cancellation, i.e., <span
+class="math display">\[\sum_{n \leq N} f (n ) = o (N),\]</span> unless
+<span class="math display">\[\sum \frac{1 - f (p)}{p} &lt;
+\infty,\]</span> or equivalently, <span class="math display">\[\sum_{f
+(p) = - 1}
+  \frac{1}{ p} &lt; \infty.\]</span> In other words, <span
+class="math inline">\(f\)</span> is close to <span
+class="math inline">\(1\)</span> in a certain sense on the primes. In
+that case, the mean value is <span class="math display">\[\mathcal{M}_N
+\sim N \prod \left( 1 - \frac{1}{p} \right) \left( 1 + \frac{f (p)}{p} +
+\dotsb \right).\]</span></p>
+<p>How about the two and three point correlations? Chowla said that the
+correlations of Liouville or Mobius always vanish, except when they
+obviously don’t. Here we recall that <span class="math inline">\(\lambda
+(n) = (- 1 )^{\Omega (n)}\)</span>.</p>
+<div class="conjecture">
+<p><strong>Conjecture 2</strong> (Chowla, 1964). <em>For all distinct
+<span class="math inline">\(h_1, \dotsc, h_k \in \mathbb{N}\)</span>, we
+have <span class="math display">\[\sum_{n \leq N}
+    \lambda (n + h_1 )
+    \lambda (n + h_2 ) \dotsb
+    \lambda (n + h_k )
+    = o(N).\]</span></em></p>
+</div>
+<div class="conjecture">
+<p><strong>Conjecture 3</strong> (Elliott, 1994). <em>If <span
+class="math inline">\(f : \mathbb{N} \rightarrow \mathcal{U}\)</span> is
+a <span class="math inline">\(1\)</span>-bounded completely
+multiplicative complex-valued function, then its correlations vanish
+<span class="math display">\[\sum_{n \leq N}
+    f (n + h_1 ) \dotsb
+    f (n + h_k ) =
+    o(N)\]</span> unless <span class="math inline">\(f(n)\)</span> is
+“close” to <span class="math inline">\(n^{i t} \chi (n)\)</span> in the
+sense that for some <span class="math inline">\(t\)</span> and <span
+class="math inline">\(\chi\)</span>, we have <span
+class="math display">\[\mathbb{D} (f, n^{i t } \chi, \infty ) &lt;
+\infty,\]</span> with notation as below.</em></p>
+</div>
+<div class="definition">
+<p><strong>Definition 2</strong>. We define the squared distance between
+two multiplicative functions at scale <span
+class="math inline">\(x\)</span> to be <span
+class="math display">\[\mathbb{D}^2 (f , n^{i t } \chi (n), x)
+    =
+    \sum_{p \leq x}
+    \frac{1 - \Re (f (p) \overline{\chi (p)} p^{- i
+t})}{p}.\]</span></p>
+</div>
+<div class="remark">
+<p><strong>Remark 3</strong>. Consider functions <span
+class="math inline">\(f\)</span> such that <span
+class="math display">\[\mathbb{D} (f, n^{i t } \chi, \infty ) =
+\infty\]</span> for all <span class="math inline">\(t\)</span> and <span
+class="math inline">\(\chi\)</span>. Ergodic theorists call such
+functions <em>aperiodic</em>.</p>
+</div>
+<div class="remark">
+<p><strong>Remark 4</strong>. The largest that the distance <span
+class="math inline">\(\mathbb{D}^2\)</span> can be is <span
+class="math display">\[2 \sum_{p \leq x} \frac{1}{p} \sim 2 \log \log
+x.\]</span></p>
+</div>
+<p>Matomaki, Radziwill and Tao pointed out that this conjecture is
+wrong. The class of functions for which it is wrong is now called the
+MRT class. The idea is to construct a function <span
+class="math inline">\(f\)</span> that looks like different <span
+class="math inline">\(n^{it } \chi\)</span>’s at different scales, but
+looks like none of them in particular at all scales. In more detail, we
+are trying to understand <span id="eqn:d1bbefb37a02" class="math display">\[\label{eqn:d1bbefb37a02}\tag{1}
+  \sum f (n) \overline{f (n + 1)}.\]</span> At scale <span
+class="math inline">\(p \leq S_m\)</span>, we take <span
+class="math inline">\(f (p) \sim p^{i t_m }\)</span>. Then <a
+href="#eqn:d1bbefb37a02" data-reference-type="eqref"
+data-reference="eqn:d1bbefb37a02">\((1)\)</a> is large. At
+the next scale <span class="math inline">\(S_{m+1}\)</span>, which we
+take to be much, much larger than <span
+class="math inline">\(S_m\)</span>, we take a different character. Then
+<span class="math inline">\(\mathbb{D} (f, n^{i t_m }, s_m )\)</span> is
+small, but for all <span class="math inline">\(t\)</span> and <span
+class="math inline">\(\chi\)</span>, we have <span
+class="math inline">\(\mathbb{D} (f, n^{i t } \chi, \infty ) =
+\infty\)</span>. It’s key here that this scale be much much larger than
+<span class="math inline">\(s_m\)</span>.</p>
+<div id="theorem:d1bbefc4fbe2" class="theorem">
+<p><strong>Theorem 5</strong> (Tao, 2015; Terivainen–Tao, 2018).
+<em>(Tao proved something about <span
+class="math inline">\(2\)</span>-point correlations, which was
+generalized with Terivainen to odd-point correlations.) Assume one of
+the following conditions:</em></p>
+<ol type="a">
+<li><p><em><span class="math inline">\(k = 2\)</span>, <span
+class="math inline">\(f\)</span> is strongly aperiodic: <span
+class="math display">\[\inf_{
+        \substack{
+          \lvert t \rvert \leq A x  \\
+          q \leq (\log x )^A
+        }
+      }
+      \mathbb{D} (f, n^{i t } \chi, x) \xrightarrow{x \rightarrow \infty
+} \infty.\]</span> Then there exists <span
+class="math inline">\(\mathcal{X} \subseteq \mathbb{N}\)</span> with
+density one, i.e., with <span class="math display">\[\lim_{X \rightarrow
+\infty } \frac{\sum_{
+          \substack{
+            n \in \mathcal{X}   \\
+            n \leq x
+          }
+        }
+        1
+      }{
+        \sum_{n \leq x} \frac{1}{ n}
+      }
+      =
+      1,\]</span> such that for all <span class="math inline">\(h_1,
+h_2\)</span> distinct, we have <span class="math display">\[\lim_{
+        \substack{
+          x \rightarrow \infty  \\
+          x \in \mathcal{X}
+        }
+      }  \frac{1}{x}
+      \sum_{
+        n \leq x
+      }
+      f (n + h_1 ) \overline{f (n + h_2 )} = 0.\]</span></em></p></li>
+<li><p><em><span class="math inline">\(k\)</span>: odd. Suppose for
+simplicity that <span class="math inline">\(k = 3\)</span> and <span
+class="math inline">\(f : \mathbb{N} \rightarrow [-1, 1]\)</span> and
+that <span class="math inline">\(f\)</span> is <em>super strongly
+aperiodic</em>: for each <span class="math inline">\(\chi\)</span>,
+<span class="math display">\[\mathbb{D}^2 (f, \chi, x)
+      \gg
+      \log \log x.\]</span> (We can ignore <span
+class="math inline">\(t\)</span>’s because <span
+class="math inline">\(f\)</span> is real.) Then the same conclusion as
+in the previous case is true.</em></p></li>
+</ol>
+</div>
+<div class="theorem">
+<p><strong>Theorem 6</strong> (KMT, 2023). <em>Same conditions as
+above:</em></p>
+<ol type="a">
+<li><p><em>For <span class="math inline">\(k = 2\)</span>, and <span
+class="math inline">\(f\)</span> aperiodic (rather than strongly
+aperiodic), the same conclusion holds as in Theorem <a
+href="#theorem:d1bbefc4fbe2" data-reference-type="ref"
+data-reference="theorem:d1bbefc4fbe2">5</a>, except that we can only
+take <span class="math inline">\(\mathcal{X}\)</span> to have
+<em>upper</em> logarithmic density: same condition as above, but using
+<span class="math inline">\(\limsup\)</span> rather than <span
+class="math inline">\(\lim\)</span>. (This is necessary; one can
+otherwise construct counterexamples.)</em></p></li>
+<li><p><em>For <span class="math inline">\(k\)</span> odd, with <span
+class="math inline">\(f\)</span> aperiodic, and with upper
+logarithmic-logarithmic density.</em></p></li>
+</ol>
+</div>
+<h1
+id="nina-zubrilina-root-number-correlation-bias-of-fourier-coefficients-of-modular-form">Nina
+Zubrilina, <em>Root Number Correlation Bias of Fourier Coefficients of
+Modular Form</em></h1>
+<p>Statistical properties of Fourier coefficients of automorphic forms.
+Distribution of <span class="math inline">\(a_\pi (p)\)</span>. Let’s
+backtrack a bit and give some informal overarching context for the more
+refined phenomena that we’ll discuss later.</p>
+<p>We start with the conjecture of Sato and Tate, which describes what
+we’ll call the <em>horizontal</em> distribution. This refers to the
+behavior of Fourier coefficients for a <em>fixed</em> arithmetic <span
+class="math inline">\(L\)</span>-function. To its coefficients <span
+class="math inline">\(a_L (p)\)</span>, we associate a measure <span
+class="math inline">\(\mu\)</span>, given by the Haar measure on a
+certain group <span class="math inline">\(G_L\)</span>.</p>
+<div class="example">
+<p><strong>Example 7</strong>. Given a non-CM elliptic curve <span
+class="math inline">\(E/\mathbb{Q}\)</span>, we have <span
+class="math display">\[a_p = \sqrt{p} \lambda (p)
+    = 2 \sqrt{p} \cos \theta_E (p).\]</span> Then as <span
+class="math inline">\(p \rightarrow \infty\)</span>, the <span
+class="math inline">\(\theta_E (p)\)</span> follow the famous Sato–Tate
+distribution: <span class="math display">\[\mu (\theta) = \frac{2}{ \pi
+} \sin^2 \theta \, d \theta .\]</span></p>
+</div>
+<p>An orthogonal picture to this is what we’ll refer to as the
+<em>vertical</em> distribution. The way we’ll like to think of it is
+that we have some packet <span
+class="math inline">\(\mathcal{F}_N\)</span> of automorphic forms <span
+class="math inline">\(\pi\)</span>, and we’d like to prescribe that the
+conductors of the elements of these packets have roughly the same size:
+<span class="math display">\[\frac{N (\pi) }{N} = 1 + o(1).\]</span> One
+example of this would be to take a Hecke basis of modular forms of some
+fixed weight and level <span class="math inline">\(N\)</span>: <span
+class="math display">\[\mathcal{F}_N := \Gamma_0(N,k).\]</span> Then the
+Satake parameters <span class="math display">\[\left\{ \theta_\pi
+(p)  \right\} \approx_N
+  \mu_p := \text{$p$-adic Plancherel}.\]</span> We won’t write it down,
+but remark that it approaches the Sato–Tate distribution as <span
+class="math inline">\(p \rightarrow \infty\)</span>. This is a theorem
+of Serre.</p>
+<p>How about the expectation? Let’s write it as the correlation: <span
+class="math display">\[\operatorname{Cor} (\mathcal{F}_N, p) :=
+\mathbb{E}_{\pi \in \mathcal{F}_N } a_\pi (p)
+  = \frac{1}{ \lvert \mathcal{F}_N  \rvert}
+  \sum a_\pi (p).\]</span> In this vertical averaging, this expectation,
+in many many cases, will be zero. One can heuristically derive this
+expectation from the fact that these distributions are symmetric. See
+the paper of Sarnak–Shin–Templier.</p>
+<p>A similar question can be asked back on the horizontal size. If we
+consider a packet of primes <span class="math display">\[P_X = \left\{ p
+: p = (1 + o(1)) X \right\},\]</span> then we can again ask about this
+correlation function <span class="math display">\[\operatorname{Cor}
+(P_X , \pi )
+  \sqrt{X}
+  = \text{almost periodic function of } \log X.\]</span> This will
+oscillate about the mean. It’s a generalization of the Chebyshev bias. A
+reference is a paper of Rubinstein–Sarnak.</p>
+<p>What we’ll discuss today is a hybrid phenomenon, where we consider a
+double correlation <span class="math display">\[\operatorname{Cor} (P_X,
+\mathcal{F}_N )
+  =
+  \mathbb{E}_{
+    \substack{
+      p \in P_X  \\
+       \pi \in \mathcal{F}_N
+    }
+  }
+  a_\pi (p).\]</span> We’ll take <span class="math inline">\(N\)</span>
+and <span class="math inline">\(X\)</span> to depend upon each other in
+some way.</p>
+<p>The problem that we’ll talk about comes from the world of computer
+science, historically speaking. It comes from a machine learning paper
+of He, Lee, Oliver and Pozdnyakov. They fed a bunch of invariants coming
+from number theory into a machine learning algorithm and tried to guess
+others. For instance, they considered a family <span
+class="math display">\[\mathcal{E} = \mathcal{E}_{[N _1, N_2]}^k
+  = \left\{ E / \mathbb{Q} : \mathop{\mathrm{rank}}(E) = r, \, N(E) \in
+[N_1, N_2] \right\}.\]</span> They fed in Frobenius traces for small
+primes and tried to guess the rank. They observed the following curious
+feature: <span class="math display">\[\frac{1}{\lvert
+\mathcal{E}  \rvert}
+  \sum_{E \in \mathcal{E} }
+  a_E (p)
+  = \operatorname{Cor} (\mathcal{E}, p)
+  =
+  \text{``interesting&#39;&#39;}.\]</span> This is best illustrated by a
+picture.</p>
+<p>Picture shows interval between 7000 and 10000. <span
+class="math inline">\(x\)</span>-axis is the parameter <span
+class="math inline">\(p\)</span>. Blue line: elliptic curves of rank
+zero. Red line: elliptic curves of rank one. There’s this weird
+oscillation behavior.</p>
+<p>Bottom picture: blue is rank zero, green is rank two. Here it looks
+sort of like the same picture, just shifted a bit.</p>
+<p>This might have gone completely unnoticed, but Sutherland stumbled
+upon it and performed a bunch of computations. He mentioned a couple
+things about this phenomenon. You can think about it not as a phenomenon
+about the rank, but rather about the root number (noting the role played
+by parity). The second thing he noticed is that perhaps the correct
+intervals to take are “geometric intervals”: for <span
+class="math inline">\(w \in \{\pm 1\}\)</span>, <span
+class="math display">\[\mathcal{E}_M^w
+  = \left\{ E / \mathbb{Q} : w(E) = w, \,
+    N(E) \in
+    \begin{cases}
+[M,2 M]  \\
+[M, (1 + o(1)) M].
+\end{cases}
+  \right\}\]</span> That is to say, one can consider either a dyadic
+interval or a short interval. What Sutherland noticed is that when you
+switch to these geometric intervals, there’s a funny phenomena that
+shows up, that we’ll call scale invariance.</p>
+<p>The picture shows two intervals at unrelated scales (dyadic case) for
+which the plots have similar shapes, suggesting that perhaps <span
+class="math display">\[\operatorname{Cor} (\mathcal{E}_M^w , p )
+  \approx w \mathcal{M} \left( \frac{p}{M} \right).\]</span></p>
+<p>We observe next that the ordering is very important. If we plot
+instead by Faltings height, naive height, <span
+class="math inline">\(j\)</span>-invariant, then we just get complete
+gibberish. It matters that we order by conductor.</p>
+<p>The last observation is that, rather than just elliptic curves, we
+can consider broader families <span
+class="math display">\[\mathcal{F}_M^w = \left\{ \text{weight two
+newforms for } \Gamma_0 (N) : N \in I_M,
+    \text{degree $d$}
+  \right\}.\]</span> The picture becomes very pretty if we impose no
+condition on degrees. The theorem we’ll present today is that one can
+actually write down this function and prove something about it. We give
+an explicit function. The short intervals are nicer to work with.</p>
+<p>Some more pictures. Nice.</p>
+<p>Let’s write one line about the proof. It’s basically that <span
+class="math display">\[\sum_{p} a_f (p) w (f)
+  =
+  \pm \mathop{\mathrm{trace}}(T (p) \circ W_N ).\]</span> Apply the
+Selberg trace formula. Unravel it. Get that the above is basically the
+sum of a bunch of class numbers, depending upon <span
+class="math inline">\(p\)</span> and <span
+class="math inline">\(N\)</span>. We apply a theorem of Skoruppa–Zagier.
+Get that the trace is a sum <span class="math display">\[\sum_{\lvert k
+\rvert \leq 2 \sqrt{P / N}}
+  H_1 (k^2 N^2 - 4 P N)
+  - (P + 1).\]</span></p>
+<p>Let’s add a few words about how this ties up with the Katz–Sarnak
+philosophy. One way to think about that philosophy is that if we take a
+family <span class="math inline">\(\mathcal{F}\)</span> with symmetry
+type <span class="math inline">\(\operatorname{O}(\infty)\)</span>, then
+the <span class="math inline">\(1\)</span>-level density conjecture says
+that if we take the parameter <span class="math inline">\(X\)</span> for
+the prime to be the conductor to some power, say <span
+class="math inline">\(N^a\)</span>, and we compute this correlation,
+then as <span class="math inline">\(N \rightarrow \infty\)</span>, that
+correlation should behave as follows: <span
+class="math display">\[\operatorname{Cor} (\mathcal{F}_N^w , P_X )
+\xrightarrow{N \rightarrow \infty }
+  \begin{cases}
+0 &amp; \text{ if } a &lt; 1, \\
+- \frac{w}{2} &amp; a &gt; 1.
+\end{cases}\]</span> Since we took <span
+class="math inline">\(p\)</span> to be of size <span
+class="math inline">\(N\)</span>, the murmurations occur at the phase
+transition between the gap in asymptotics between the two cases of the
+<span class="math inline">\(1\)</span>-level density conjecture.</p>
+<p>Maybe two closing comments. We can compute this address using Selberg
+with harmonic weights, but this removes everything. Another thing is
+that for elliptic curves or other Galois orbits, this remains
+mysterious. Lastly, maybe want to advertise Sutherland’s website and IAS
+talk, which has a lot of interesting data.</p>
+<p>The Selberg trace formula has the disadvantage that we can’t go very
+high with <span class="math inline">\(N\)</span> in terms of <span
+class="math inline">\(p\)</span>. The speaker is working through what
+happens when one removes the weights. The function might be
+qualitatively different when you take <span
+class="math inline">\(N\)</span> to be <span
+class="math inline">\(p^{1/3}\)</span> or something.</p>
+<p>One can do higher weights similarly using the same techniques.
+Qualitatively it’s similar, but looks different.</p>
+<h1
+id="yu-chen-sun-on-divisor-bounded-multiplicative-functions-in-short-intervals">Yu-Chen
+Sun, <em>On divisor bounded multiplicative functions in short
+intervals</em></h1>
+<h2 id="introduction">Introduction</h2>
+<p>Huxley, 1972: prime number theorem in short intervals: for any <span
+class="math inline">\(H \geq X^{7/12 + \varepsilon}\)</span>, we have
+<span class="math display">\[\sum_{X &lt; n \leq X + H } \Lambda (n ) =
+(1 + o(1)) H.\]</span> Similarly, we have <span
+class="math display">\[\sum_{X &lt; n \leq X + H } \mu (n) =
+o(H)\]</span> and <span class="math display">\[\sum_{X &lt; n \leq X + H
+} \lambda (n) = o(H).\]</span> Matomaki and Teravainen recently showed
+that in the Mobius and Liouville cases, the results hold for all <span
+class="math inline">\(H \geq X^{0.55 + \varepsilon}\)</span>, but they
+cannot prove this for the von Mangoldt function (their arguments are
+based upon multiplicative properties). Under RH, the above results hold
+for all <span class="math inline">\(H \geq X^{1/2 +
+\varepsilon}\)</span>.</p>
+<p>In 2016, Matomaki and Radziwill proved the following breakthrough
+result:</p>
+<div class="theorem">
+<p><strong>Theorem 8</strong> (Matomaki–Radziwill). <em>Let <span
+class="math inline">\(f : \mathbb{N} \rightarrow [-1,1]\)</span> be a
+multiplicative function. For almost all <span class="math inline">\(x
+\in [X, 2 X]\)</span>, we have <span class="math display">\[\frac{1}{h}
+\sum_{x &lt; n \leq x + h}
+    f (n)
+    - \frac{1}{X}
+    \sum_{X &lt; n \leq 2 X} f (n)
+    = o(1)\]</span> provided that <span class="math inline">\(h
+\rightarrow \infty\)</span> as <span class="math inline">\(X \rightarrow
+\infty\)</span>.</em></p>
+</div>
+<ul>
+<li><p>For any <span class="math inline">\(\varepsilon&gt; 0\)</span>,
+the interval <span class="math inline">\([X, X + C (\varepsilon) \sqrt{X
+}]\)</span> contains <span class="math inline">\(X^\varepsilon\)</span>
+numbers.</p></li>
+<li><p>For every integer <span class="math inline">\(h \geq 1\)</span>,
+there exists <span class="math inline">\(c (h ) &gt; 0\)</span> such
+that <span class="math display">\[\frac{1}{ X}
+    \left\lvert
+      \sum_{n \leq X } \lambda (n ) \lambda (n + h )
+    \right\rvert \leq 1 - c (h).\]</span></p></li>
+</ul>
+<p>How about the <span class="math inline">\(k\)</span>-fold divisor
+function in short intervals? Let <span class="math display">\[d_k (n ) =
+\sum_{n = m_1 \dotsb  m_k } 1.\]</span> The asymptotic formula for <span
+class="math inline">\(d_k\)</span> in short intervals is that <span
+class="math display">\[\sum_{x &lt; n \leq x + H}
+  d_k (n)
+  = (1 + o(1))
+P_{k - 1} (\log x) H,\]</span> where <span class="math inline">\(P_k
+(x)\)</span> is an explicit polynomial of degree <span
+class="math inline">\(k\)</span>. Here</p>
+<ul>
+<li><p><span class="math inline">\(k = 2\)</span> and <span
+class="math inline">\(x^{131/416 + \varepsilon} \leq H \leq x\)</span>
+(Hulexy).</p></li>
+<li><p><span class="math inline">\(k = 3\)</span> and <span
+class="math inline">\(x^{43 / 9 6 + \varepsilon} \leq H \leq x\)</span>
+(Holesnik).</p></li>
+<li><p><span class="math inline">\(4 \leq k \leq 5\)</span> and <span
+class="math inline">\(x^{\frac{3 k - 4}{4 k } + \varepsilon} \leq H \leq
+x\)</span> (Hulexy).</p></li>
+<li><p><span class="math inline">\(k \geq 6\)</span> and <span
+class="math inline">\(x^{\frac{11}{20} + \varepsilon} \leq H \leq
+x\)</span> (Matomaki–Teravainen).</p></li>
+</ul>
+<p>It is natural to ask, can we give an almost all result for divisor
+bounded functions (or <span class="math inline">\(d_k\)</span> bounded
+multiplicative functions). Yes, but the general theorem is a bit
+complicated; we will try to say it at the end of the talk. Let’s start
+with the simple case of just the divisor function <span
+class="math inline">\(d_k\)</span>.</p>
+<div class="theorem">
+<p><strong>Theorem 9</strong> (Mangerel, 2023). <em>If <span
+class="math inline">\(h_0 \rightarrow \infty\)</span> as <span
+class="math inline">\(X \rightarrow \infty\)</span> and <span
+class="math inline">\(h \geq h_0 (\log X)^{(k - 1 )^2 }\)</span>, then
+<span class="math display">\[\frac{1}{h} \sum_{x &lt; n \leq x + h } d_k
+(n ) - \frac{1}{x}
+    \sum_{x &lt; n \leq 2 x } d_k (n)
+    = o (\log^{k - 1} x)\]</span> for all but <span
+class="math inline">\(o (X)\)</span> values of <span
+class="math inline">\(x \in [X, 2 X]\)</span>.</em></p>
+</div>
+<h2 id="main-results">Main results</h2>
+<div class="theorem">
+<p><strong>Theorem 10</strong> (S. 2023). <em>Let <span
+class="math inline">\(X &gt; 0\)</span> be sufficiently large. If <span
+class="math inline">\(h \geq (\log X )^{(1 + \varepsilon) k \log k - k +
+1}\)</span>, then <span class="math display">\[\frac{1}{h}
+    \sum_{x &lt; n \leq x + h}
+    d_k (n)
+    - \frac{1}{x}
+    \sum_{x &lt; n \leq 2 x}
+    d_k (n)
+    = o (\log^{k - 1} x)\]</span> for all but at most <span
+class="math inline">\(o(X)\)</span> integers <span
+class="math inline">\(x \in [X,2 X]\)</span>.</em></p>
+</div>
+<p>For convenience, we will focus on the simplest case <span
+class="math inline">\(k = 2\)</span>, with the length of the interval
+being <span class="math display">\[(\log X )^{(1 + \varepsilon) 2 \log 2
+- 1}.\]</span> Here <span class="math inline">\(2 \log 2 - 1 \approx
+0.38692\)</span>, which should be compared with Mangerel’s value <span
+class="math inline">\(1\)</span>.</p>
+<h2 id="sketch-of-proof-for-the-simplest-version">Sketch of proof for
+the simplest version</h2>
+<p>We consider a relatively long average Dirichlet divisor proble. Let
+<span class="math display">\[\Delta (x ) = \sum_{n \leq x } d (n ) - x
+(\log x - 2 \gamma + 1 ),\]</span> where <span
+class="math display">\[\gamma = 0.57721 \dotsb\]</span> is the
+Euler–Mascheroni constant. The Dirichlet hyperbola method shows that
+<span class="math display">\[\Delta(x) = \operatorname{O}(X^{1/2}
+).\]</span> This implies that for any <span class="math inline">\(h \geq
+x^{1/2}\)</span>, we have <span class="math display">\[\sum_{x &lt; n
+\leq x + h } d (n) = h \log x + \operatorname{O}(h).\]</span></p>
+<div class="proposition">
+<p><strong>Proposition 11</strong> (Relatively long average). <em>Let
+<span class="math inline">\(X &gt; 0\)</span> be a large number. One
+has, for all <span class="math inline">\(h \in [X^{1/2} , X]\)</span>
+and (...)</em></p>
+</div>
+<p>For short <span class="math inline">\(h\)</span>, we do instead the
+following. We first restrict to some subset where we have nice prime
+factorizations. Let <span class="math inline">\(\varepsilon_0 &gt;
+0\)</span> be small. We define <span class="math display">\[P_1 := \exp
+((\log \log X )^{1/2} ), \qquad Q_1 := (\log X )^{\varepsilon_0
+},\]</span> <span class="math display">\[P_2 := \exp ((\log X \log X)^2
+),
+  \qquad
+  Q_2 = \exp ((\log X \log X)^{100}).\]</span> Let <span
+class="math inline">\(S_A\)</span> denote the set of all <span
+class="math inline">\(n \in (X, 2X]\)</span> having at least one prime
+factor in each interval <span class="math inline">\([P_1, Q_1]\)</span>
+and <span class="math inline">\([P_2, Q_2]\)</span>.</p>
+<div class="lemma">
+<p><strong>Lemma 12</strong>. Let <span
+class="math inline">\(S_A\)</span> be as above. Then for any <span
+class="math inline">\(h &gt; 0\)</span>, we have <span
+class="math display">\[\sum_{
+      \substack{
+        x &lt; n \leq x + h  \\
+         n \notin S_A
+      }
+    }
+    d (n) =
+    o(h \log X)\]</span> for all but <span
+class="math inline">\(o(X)\)</span> values of <span
+class="math inline">\(x \in [X, 2 X]\)</span>.</p>
+</div>
+<p>Next, for relatively short averages, we have to restrict to subsets.
+Let <span class="math display">\[S_{B, \varepsilon} = \left\{ n \in
+\mathbb{N} : \Omega (n) \leq 2 (1 + \varepsilon) \log \log X
+\right\}.\]</span> Here <span class="math inline">\(\Omega (n)\)</span>
+denotes the number of prime factors of <span
+class="math inline">\(n\)</span>.</p>
+<div class="lemma">
+<p><strong>Lemma 13</strong>. Let <span class="math inline">\(X &gt;
+0\)</span> be a large real number and <span
+class="math inline">\(\varepsilon&gt; 0\)</span> be a small real number.
+Then for any <span class="math inline">\(h &gt; 0\)</span>, we have
+<span class="math display">\[\sum_{
+      \substack{
+        n \notin S_{B , \varepsilon}  \\
+         x &lt; n \leq x + h
+      }
+    } d (n) = o (h \log X)\]</span> for all but <span
+class="math inline">\(o(X)\)</span> values of <span
+class="math inline">\(x \in [X, 2 X]\)</span>.</p>
+</div>
+<p>[These restriction lemmas follow from multiplicative properties,
+using Brun–Titchmarsh.]</p>
+<p>From the above two lemmas, we can restrict to the set <span
+class="math inline">\(S_A \cap S_{B, \varepsilon}\)</span>.</p>
+<div class="proposition">
+<p><strong>Proposition 14</strong> (Matomaki–Radziwill type bound).
+<em>Let <span class="math inline">\(X &gt; 0\)</span> be a large number.
+Let <span class="math inline">\(S_A\)</span> and <span
+class="math inline">\(S_B\)</span> be as before, and <span
+class="math inline">\(S = S_A \cap S_B\)</span>. Let <span
+class="math display">\[H_\varepsilon= (\log X )^{(1 + \varepsilon)2 \log
+2 - 1} \leq h \leq h_1 = X^{1/2}\]</span> for any <span
+class="math inline">\(\varepsilon&gt; 0\)</span>. Then <span
+class="math display">\[\frac{1}{X} \int_X^{2 X } \left\lvert \frac{1}{h}
+\sum_{
+      \substack{
+        n \in S  \\
+        x &lt; n \leq x + h
+      }
+    }
+    d_k (n)
+    - \frac{1}{ h_1 }
+    \sum_{
+      \substack{
+        n \in S  \\
+         x &lt; n \leq h_1
+      }
+    }
+    ???
+  \right\rvert
+  \ll
+  ???.\]</span></em></p>
+</div>
+<h2 id="sketch-of-proof-of-matomakiradziwill-type-bound">Sketch of proof
+of Matomaki–Radziwill type bound</h2>
+<p>We use a mean value theorem for Dirichlet polynomials. Improvement
+comes from reducing the number of terms, decreasing the diagonal.</p>
+<p>Next, we have a Parseval-type bound.</p>
+<p>Next, we use Ramare’s identity to carry out a Matomaki–Radziwill type
+decomposition.</p>
+<h1
+id="agniva-dasgupta-second-moment-of-twisted-cusp-forms-along-a-coset">Agniva
+Dasgupta, <em>Second moment of twisted cusp forms along a
+coset</em></h1>
+<p>We’ll talk in particular about moments of <span
+class="math inline">\(L\)</span>-functions. We’ll continue in particular
+with the theme of short intervals that we’ve already seen in this
+conference, but in a slightly different context.</p>
+<p><span class="math inline">\(L\)</span>-functions are hard to study
+individually, but often we study them as a collection, via families of
+<span class="math inline">\(L\)</span>-functions. Often that is does
+statistically, via moments of families of <span
+class="math inline">\(L\)</span>-functions. Thus, let <span
+class="math inline">\(\mathcal{F}\)</span> be a family of <span
+class="math inline">\(L\)</span>-functions. We’re looking at expressions
+like <span class="math display">\[\frac{1}{\lvert \mathcal{F}  \rvert}
+  \sum_{f \in \mathcal{F} }
+  \left\lvert   L (\tfrac{1}{2} , f) \right\rvert^k.\]</span> More
+generally, one can look at expressions like <span
+class="math display">\[\frac{1}{T} \int_0^T
+  \left\lvert L (\tfrac{1}{2} + i t ) \right\rvert^k \, d t.\]</span>
+The goal is to get asymptotic expansions or upper bounds for these.</p>
+<p>The <span class="math inline">\(L\)</span>-functions that we’ll focus
+on today will mostly be on <span
+class="math inline">\(\mathop{\mathrm{GL}}(1)\)</span> (the zeta
+function or Dirichlet <span class="math inline">\(L\)</span>-functions)
+or <span class="math inline">\(\mathop{\mathrm{GL}}(2)\)</span> (<span
+class="math inline">\(L\)</span>-functions associated to cusp forms,
+possibly twisted by <span
+class="math inline">\(\mathop{\mathrm{GL}}(1)\)</span>). We’ll focus
+on</p>
+<ul>
+<li><p>the <span class="math inline">\(4\)</span>th moment for <span
+class="math inline">\(\mathop{\mathrm{GL}}(1)\)</span>, and</p></li>
+<li><p>the <span class="math inline">\(2\)</span>nd moment for <span
+class="math inline">\(\mathop{\mathrm{GL}}(2)\)</span>.</p></li>
+</ul>
+<p>We consider <span id="eqn:d1bbf1c74665" class="math display">\[\label{eqn:d1bbf1c74665}\tag{2}
+  \frac{1}{T}
+  \int_0^T \left\lvert \zeta (\tfrac{1}{2} + i t) \right\rvert^4 \, d
+t\]</span> or, for the <span class="math inline">\(q\)</span>-aspect,
+<span id="eqn:d1bbf1c80437" class="math display">\[\label{eqn:d1bbf1c80437}\tag{3}
+  \frac{1}{ \phi^\ast (q)}
+  \sum_{\chi(q)}
+  \left\lvert   L (\tfrac{1}{2}, \chi )  \right\rvert^4.\]</span> The
+overarching conjecture is the generalized Lindelöf hypothesis (GLH).
+What that says is that if you have an <span
+class="math inline">\(L\)</span>-function, and let’s say we fix <span
+class="math inline">\(s\)</span> at <span class="math inline">\(1/2 + i
+t\)</span>, then <span class="math display">\[\left\lvert L (f, s)
+\right\rvert \ll \left\lvert q (f, s ) \right\rvert^\varepsilon\]</span>
+for any fixed <span class="math inline">\(\varepsilon&gt; 0\)</span>. If
+you’re unfamiliar with the analytic conductor, then just think of it as
+something that depends upon all the quantities that we use when working
+with <span class="math inline">\(L\)</span>-functions, such as the
+arithmetic conductor <span class="math inline">\(q\)</span> and <span
+class="math inline">\(s\)</span>. This implies that the moment <a
+href="#eqn:d1bbf1c74665" data-reference-type="eqref"
+data-reference="eqn:d1bbf1c74665">\((2)\)</a> is <span
+class="math inline">\(\operatorname{O}(T^{\varepsilon})\)</span> and
+that <a href="#eqn:d1bbf1c80437" data-reference-type="eqref"
+data-reference="eqn:d1bbf1c80437">\((3)\)</a> is <span
+class="math inline">\(\operatorname{O}(q^\varepsilon)\)</span>. Such
+moment bounds are called <em>Lindelöf on average</em>.</p>
+<p>For the zeta function, the first breakthrough (i.e., result with
+power-savings error term) was due to Heath–Brown (1979), who showed that
+<span class="math display">\[\frac{1}{T} \int_0^T
+  \left\lvert \zeta (\tfrac{1}{2} + i t) \right\rvert^4
+  \, d t
+  = P_4 (\log T)
+  + \operatorname{O}( T^{-1/8 + \varepsilon} ).\]</span> The <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span> variant of this
+was done by Anton Good (1982), who showed that <span
+class="math display">\[\frac{1}{T} \int_0^T \left\lvert L (\tfrac{1}{2}
++ i t, f) \right\rvert^2 \, d t
+  = P_1 (\log T) + \operatorname{O}(T^{- 2/3 + \varepsilon}).\]</span>
+It also follows immediately from his work that <span
+class="math display">\[\int_T^{T + T^{2/3} }
+  \left\lvert L (\tfrac{1}{2} + i t, f) \right\rvert^2 \, d t
+  \ll T^{2/3 + \varepsilon}.\]</span></p>
+<p>For the <span class="math inline">\(q\)</span>-aspect, Young (2011)
+showed that <span class="math display">\[\frac{1}{ \varphi^\ast (q)}
+  \sum_{\chi (q)}^\ast \left\lvert L (\tfrac{1}{2}, \chi )
+\right\rvert^4
+  = P_4 (\log Q) + \operatorname{O}(q^{- 5/512 + \varepsilon}).\]</span>
+This was the first power savings estimate for the fourth moment. The
+<span class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span> analogue of
+this was done by Blomer–Fouvry–Kowalski–Michel–Milicevic–Sawin (2017),
+who showed that for a fixed <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span> form <span
+class="math inline">\(f\)</span>, <span
+class="math display">\[\frac{1}{\varphi (q)}
+  \sum_{\chi (q)}
+  \left\lvert
+    L (\tfrac{1}{2}, f \otimes \chi  )\right\rvert^2
+  =
+  P_1 (\log q) + \operatorname{O}(q^{- 1/144 +
+\varepsilon}).\]</span></p>
+<p>The speaker has been working on moments over short intervals. We want
+to look at things like <span class="math display">\[\int_T^{T + H }
+\left\lvert L (\tfrac{1}{2} + i t ) \right\rvert^k \, d t\]</span> where
+<span class="math inline">\(H\)</span> is significantly smaller than
+<span class="math inline">\(T\)</span>. Here GLH gives <span
+class="math inline">\(\operatorname{O}(H T^\varepsilon)\)</span>. One of
+the first significant breakthroughs here was due to Iwaniec (1978), who
+showed that <span class="math display">\[\int_T^{T + T^{2/3} }
+  \left\lvert \zeta (\tfrac{1}{2} + i t ) \right\rvert^4 \, d t
+  \ll_\varepsilon T^{2/3 + \varepsilon}.\]</span></p>
+<p>How about short intervals in the <span
+class="math inline">\(q\)</span>-aspect? One approach is the following.
+Say you have a family of automorphic forms <span
+class="math inline">\(\mathcal{F}\)</span>, say a big family. What you
+want to do is to choose a subfamily where the members are kind of close
+to one another. That is to say, for <span
+class="math inline">\(\pi_1\)</span> and <span
+class="math inline">\(\pi_2\)</span> in the subfamily, we want the
+conductor of their convolution <span class="math display">\[C (\pi_1
+\otimes \overline{\pi_2 })\]</span> to be small. For instance, we could
+consider <span class="math inline">\(L(f, 1/2 + i t)\)</span> for <span
+class="math inline">\(t \in [T,T+H]\)</span>, and look at the conductors
+of the Rankin–Selberg convolutions of those. For the <span
+class="math inline">\(q\)</span>-aspect, let <span
+class="math inline">\(\mathcal{F}\)</span> be the family of all
+characters modulo <span class="math inline">\(q\)</span>, and consider,
+for given <span class="math inline">\(\alpha \in \mathcal{F}\)</span>,
+<span class="math display">\[\mathcal{F}_0 = \left\{ \alpha \cdot \chi,
+\, \chi \pmod{d}, \, d \mid q, \, d \ll q \right\}.\]</span> For these,
+we have <span class="math inline">\(C (\pi_1 \otimes \bar{\pi }_2 )
+\asymp d\)</span>. Petrow–Young (2019) showed that if <span
+class="math inline">\(q = p^3\)</span>, and if <span
+class="math inline">\(\alpha \pmod{q}\)</span> is primitive, and we look
+at a short interval fourth moment like <span
+class="math display">\[\sum_{\chi(p^2)}
+  \left\lvert L (\tfrac{1}{2}, \alpha \cdot \chi ) \right\rvert^4
+\ll_{\varepsilon}
+  p^{2 + \varepsilon}.\]</span></p>
+<div class="theorem">
+<p><strong>Theorem 15</strong> (D. 2023). <em>Let <span
+class="math inline">\(f\)</span> be a level <span
+class="math inline">\(1\)</span> cusp form. Let <span
+class="math inline">\(q = p^3\)</span>, where <span
+class="math inline">\(p\)</span> is an odd prime. Let <span
+class="math inline">\(\alpha \pmod{q}\)</span> be a given primitive
+character. Look at <span class="math display">\[\sum_{\chi  (q^{2/3})}
+    \left\lvert L (f \otimes \alpha \cdot \chi, \tfrac{1}{2} )
+\right\rvert^2
+    \ll_\varepsilon q^{2/3 + \varepsilon}.\]</span></em></p>
+</div>
+<div class="corollary">
+<p><strong>Corollary 16</strong> (D. 2019). <em>Let <span
+class="math inline">\(q = p^3\)</span>, <span
+class="math inline">\(\alpha (q)^*\)</span>, and let <span
+class="math inline">\(f\)</span> be a level <span
+class="math inline">\(1\)</span> cusp form. Then <span
+class="math display">\[\# \left\{ \chi : L (f \otimes \alpha \cdot \chi,
+\tfrac{1}{2} ) \neq 0,
+      \,
+      \chi (q^{2/3} )
+    \right\}
+    \gg_\varepsilon q^{2/3 - \varepsilon}.\]</span></em></p>
+</div>
+<p>Munshi, Singh (2019): <span class="math inline">\(L (\tfrac{1}{2}, f
+\otimes \alpha \chi ) \ll q^{1/3 + \varepsilon}\)</span> (Weyl-type
+subconvexity). Their proof used Munshi’s variant of the <span
+class="math inline">\(\delta\)</span>-method, which doesn’t require
+averaging over families. Also, their work is a bit more general: they
+work with <span class="math inline">\(q = p^{3 r}\)</span>.</p>
+<h1
+id="nihar-gargava-random-arithmetic-lattices-as-sphere-packings">Nihar
+Gargava, <em>Random arithmetic lattices as sphere packings</em></h1>
+<p>Given a lattice <span class="math inline">\(\Lambda\)</span>, let
+<span class="math inline">\(r &gt; 0\)</span> and consider the open
+balls <span class="math inline">\(B_r(v)\)</span>, where <span
+class="math inline">\(v\)</span> ranges over <span
+class="math inline">\(\Lambda\)</span>, that are disjoint. Then <span
+class="math inline">\((\Lambda, r)\)</span> is called a lattice sphere
+packing.</p>
+<p>Note that <span class="math inline">\(2 r\)</span> can be at most
+<span class="math display">\[m (\Lambda) = \min_{v \in \Lambda - \{0\}}
+\lVert v \rVert,\]</span> otherwise some balls will begin to intersect.
+The goal is to maximize packing density, so take <span
+class="math inline">\(r = \tfrac{1}{2} m (\Lambda)\)</span>. In that
+case, the packing density will be equal to <span
+class="math display">\[\frac{\mu (B_{m (\Lambda) /2} (0) )}{ \mu
+(\mathbb{R}^d / \Lambda )}\]</span> and is independent of scaling. So we
+somehow find <span class="math display">\[\sup_{
+    \substack{
+      \Lambda \subseteq \mathbb{R}^d  \\
+      \mu (\mathbb{R}^d / \Lambda ) = 1
+    }
+  }
+  \mu (B_{m (\Lambda) / 2} (0) )
+  =
+  \sup_{g \in {\mathop{\mathrm{SL}}}_d (\mathbb{R}) }
+  \frac{1}{ 2^d } \mu \left( B_{m (g \mathbb{Z}^d )}
+(0)  \right),\]</span> which we use to define our dimensional constant
+<span class="math inline">\(c_d\)</span>, by requiring that the above be
+<span class="math display">\[\frac{1}{2^d } c_d .\]</span> Putting it
+together, and in more technical words, we have <span
+class="math display">\[c_d = \sup \left\{ \mu (B_r (0) ) : r &gt; 0,
+\exists g \in {\mathop{\mathrm{SL}}}_d(\mathbb{R}) \text{ and } B_r(0)
+\cap g \mathbb{Z}^d = \{0\} \right\}.\]</span> Clearly <span
+class="math inline">\(c_d \in [0, 2^d ]\)</span>, so the supremum
+exists. What is known about <span class="math inline">\(c_d\)</span>?
+The exact value is known only for <span class="math display">\[d \in
+\{1, 2, 3, 4, 5, 6, 7, 8, 24\}.\]</span> For other <span
+class="math inline">\(d\)</span>, we want to understand the asymptotic
+behavior. In this talk, we will only focus on lower bounds. Note that
+this is only the <em>lattice packing problem</em>, not the sphere
+packing problem, so it was known before the work of the speaker’s
+advisor.</p>
+<p>The exact value of the constant <span
+class="math inline">\(c_d\)</span> is known only for <span
+class="math inline">\(d \in \{1,2,3,4,5,6,7,8,24\}\)</span>. For other
+<span class="math inline">\(d\)</span>, we want to understand the
+asymptotic behavior. In this talk, we will only focus on lower bounds.
+(The speaker presented a table of the known lower bounds.)</p>
+<p>| <span class="math inline">\(c_d \geq 1\)</span> | Minkowski–Hlawka
+(1896-1940) | <span class="math inline">\(d \geq 2\)</span> | |</p>
+<p>The speaker’s result works with probabilistic arguments that lie on
+<span class="math inline">\((D \otimes_{\mathbb{Q}} R)^2\)</span>, where
+<span class="math inline">\(D\)</span> is a division algebra over <span
+class="math inline">\(\mathbb{Q}\)</span>. The speaker’s result is
+stronger than Venkatesh’s for some small <span
+class="math inline">\(d\)</span>, but weaker for larger <span
+class="math inline">\(d\)</span>. Also, it’s along a different sparse
+sequence.</p>
+<div class="theorem">
+<p><strong>Theorem 17</strong> (G. 2022). <em>Let <span
+class="math inline">\(D\)</span> be a finite-dimensional division
+algebra over <span class="math inline">\(\mathbb{Q}\)</span>. Let <span
+class="math inline">\(\mathcal{O} \subseteq D\)</span> be an order in
+<span class="math inline">\(D\)</span>, and let <span
+class="math inline">\(G_0 \subseteq \mathcal{O}\)</span> be a finite
+group embedded in the multiplicative group of <span
+class="math inline">\(D\)</span>. Then if <span class="math inline">\(d
+= 2 \dim_{\mathbb{Q} } D\)</span>, we have <span
+class="math display">\[c_d \geq \# G_0.\]</span></em></p>
+</div>
+<p>To recover VEnkatehs’s result, take <span class="math display">\[D =
+\mathbb{Q} (\mu_n ),
+  \quad
+  \mathcal{O} = \mathbb{Z} [\mu_n ],
+  \qquad
+  G_0 = \langle \mu_n  \rangle.\]</span> Hence, this gives <span
+class="math display">\[c_{2 \varphi (n)} \geq n.\]</span> The
+cherrypicked sequence of Venkatesh achieves an asymptotic growth of
+<span class="math inline">\(\operatorname{O}(d \log \log d)\)</span>.
+This is achieved by taking <span class="math inline">\(K\)</span> to be
+the <span class="math inline">\(n\)</span>th cyclotomic field, where
+<span class="math display">\[n = \prod_{p &lt; N} p.\]</span> The
+division algebra construction gives more freedom to cherrypick
+sequences.</p>
+<p>Let’s give a taste of how this machinery works. To show that <span
+class="math inline">\(c_d \geq K\)</span>, we must prove the existence
+of <span class="math inline">\(g \in {\mathop{\mathrm{SL}}}_d (\mathbb{R}
+)\)</span> such that the origin-centered ball <span
+class="math inline">\(B\)</span> with <span class="math inline">\(\mu
+(B) = K\)</span> satisfies <span class="math display">\[g \mathbb{Z}^d
+\cap B = \{0\}.\]</span> This is an optimization problem on the space
+<span class="math display">\[X_d := \left\{ \Lambda \subseteq
+\mathbb{R}^d  : \mu (\mathbb{R}^d / \Lambda ) = 1 \right\}
+  =
+  \left\{ g \mathbb{Z}^d  : g \in {\mathop{\mathrm{SL}}}_d (\mathbb{R} )
+\right\}
+  \cong {\mathop{\mathrm{SL}}}_d (\mathbb{R} ) / {\mathop{\mathrm{SL}}}_d
+(\mathbb{Z} ).\]</span> Probabilistic arguments.</p>
+<p>Given <span class="math inline">\(f : \mathbb{R}^d \rightarrow
+\mathbb{R}\)</span> (measurable, bounded, with compact support), we
+consider the lattice sum function <span class="math display">\[\Phi_f
+(\Lambda ) = \sum_{v \in \Lambda - \{0\}}
+f (v).\]</span> Since we can generate random lattices, we can talk about
+the expected value of <span class="math inline">\(\Phi_f (\Lambda
+)\)</span>. We do this experimentally.</p>
+<p>We are empirically confirming the following theorem of Siegel:</p>
+<div class="theorem">
+<p><strong>Theorem 18</strong> (Siegel, 1945). <em>Suppose that <span
+class="math inline">\(f : \mathbb{R}^d \rightarrow \mathbb{R}\)</span>
+is a compactly-supported bounded measurable function. Then <span
+class="math display">\[\int_{X_d } \Phi_f  =
+\int_{{\mathop{\mathrm{SL}}}_d(\mathbb{R}) /
+{\mathop{\mathrm{SL}}}_d(\mathbb{Z})}
+    \left( \sum_{v \in g \mathbb{Z}^d - \{0\}} f (v) \right)
+    \, d g.\]</span></em></p>
+</div>
+<p>But we saw that for any <span class="math inline">\(\Lambda \in
+X_d\)</span>, when <span class="math inline">\(f\)</span> is the
+indicator function of a ball, we must have <span
+class="math display">\[\Phi_f (\Lambda ) \in \{0, 2, 4, 6, \dotsc
+\}.\]</span> That’s because balls are symmetric: <span
+class="math display">\[v \in \mathop{\mathrm{supp}}(f) \cap (\Lambda -
+\{0\})
+  \implies - v \in \mathop{\mathrm{supp}}(f) \cap (\Lambda -
+\{0\}).\]</span> If <span class="math inline">\(f\)</span> is the
+indicator function of a ball of volume <span class="math inline">\(2 -
+\varepsilon\)</span>, then this tells us that for any dimension <span
+class="math inline">\(d\)</span>, <span class="math display">\[\int_{X_d
+} \Phi_f = 2 - \varepsilon.\]</span> Conclusion: there exists some
+lattice <span class="math inline">\(\Lambda \in X_d\)</span> such that
+<span class="math inline">\(\Phi_f (\Lambda)  = 0\)</span>. Etc.</p>
+<p>In the final part of the talk, we’ll say a bit about more general
+spaces of lattices. Can we come up with a general integration formula
+for some <span class="math inline">\(\mathcal{G} (\mathbb{R} ) /
+\Gamma\)</span> for some algebraic <span
+class="math inline">\(\mathbb{Q}\)</span>-group <span
+class="math inline">\(\mathcal{G}\)</span> and an arithmetic subgroup
+<span class="math inline">\(\Gamma\)</span>. If the group <span
+class="math inline">\(\mathcal{G}\)</span> is semisimple, we are
+automatically guaranteed that <span class="math inline">\(\mathcal{G}
+(\mathbb{R} ) / \Gamma\)</span> will be a probability space under the
+natural left-invariant Haar measure. This is a theorem of Borel and
+Harish–Chandra. In fact, this works for any group with no nontrivial
+rational characters.</p>
+<p>For the higher moment case, what are the orbits of <span
+class="math inline">\({\mathop{\mathrm{SL}}}_d(\mathbb{Z})\)</span> acting
+on <span class="math inline">\(\mathbb{Z}^{d \times n}\)</span>? We work
+out the case <span class="math inline">\(n &lt; d\)</span>.</p>
+<p>When <span class="math inline">\(n\)</span> is much less than <span
+class="math inline">\(d\)</span>, the higher moments start behaving like
+moments of a Poisson distribution. Rogers used this to prove that <span
+class="math inline">\(c_d \geq \tfrac{1}{3} \sqrt{d}\)</span>. But he
+had already obtained in 1947 the stronger lower bound <span
+class="math inline">\(c_d \geq d \cdot (2 e^{-1} )\)</span>.</p>
+<h1 id="james-branch-explicit-images-of-shimuras-map">James Branch,
+<em>Explicit images of Shimura’s map</em></h1>
+<p>In one sentence, Shimura’s map is a map from half-integral to
+integral weight modular forms: <span class="math display">\[S_{k / 2}
+\rightarrow S_{2 \lambda }.\]</span> For us, <span
+class="math inline">\(k\)</span> and <span
+class="math inline">\(\lambda\)</span> will be integers related by the
+equation <span class="math display">\[k = 2 \lambda + 1.\]</span></p>
+<p>We recall that a modular form of integral weight is given by <span
+class="math display">\[f : \mathbb{H} \rightarrow \mathbb{C}\]</span>
+such that <span class="math display">\[f (\gamma \tau )
+  =
+  (c \tau + d)^k f (\tau)\]</span> for every <span
+class="math display">\[\gamma =
+  \begin{pmatrix}
+    a &amp; b \\
+    c &amp; d \\
+  \end{pmatrix}
+  \in \Gamma.\]</span> We also ask that <span
+class="math inline">\(f\)</span> vanishes at the cusps of <span
+class="math inline">\(\Gamma\)</span>. We call the resulting space <span
+class="math inline">\(S_k (\Gamma)\)</span>.</p>
+<p>We recall next that a modular form of half-integral weight is given
+by something that transforms according to <span
+class="math display">\[\mathcal{J} (\gamma, \tau )
+  =
+  \underbrace
+  {
+    \varepsilon_{d }^{-1}
+    \left( \frac{c}{d} \right)
+  }_{
+    \chi_{-1,4}
+  }
+  (c \tau + d )^{1/2},\]</span> <span
+class="math display">\[\varepsilon_d =
+  \begin{cases}
+    1 &amp; \text{ if } d \equiv 1 \pmod{4}, \\
+    -1 &amp; \text{ if } d \equiv 3 \pmod{4}.
+  \end{cases}\]</span> We might write it as <span
+class="math display">\[\sum b(n) q^n  \in S_{k/2} (\Gamma,
+\chi).\]</span></p>
+<div class="theorem">
+<p><strong>Theorem 19</strong> (Shimura, 1973). <em>Let <span
+class="math inline">\(\chi\)</span> be a character modulo <span
+class="math inline">\(4 N\)</span> and let <span class="math inline">\(D
+&gt; 0\)</span> be squarefree. Let <span class="math display">\[f =
+\sum_{n \geq 1} a_f (n) q^n \in S_{k / 2} (\Gamma_0 (4 N), \chi
+).\]</span> Then there exists an element <span
+class="math display">\[g_D (w) = \sum_{n = 0}^\infty c_D (n) e (n w)
+    \in M_{2 \lambda } (\Gamma_0 (2 N), \chi^2 )\]</span> such that
+<span class="math display">\[L (g_D, s)
+    =
+    L (\chi_D , s - \lambda + 1)
+    \sum_{n \geq 1}
+    \frac{a_f (n)}{ n^s}.\]</span></em></p>
+</div>
+<p>In other words, we take <span class="math display">\[B (n) = \sum_{d
+| n} \chi (d) \chi_{- 4 }^\lambda (d) d^{\lambda - 1} b \left( \frac{n^2
+}{d^2 } \right).\]</span></p>
+<p>Question: given some explicit <span class="math inline">\(f\)</span>,
+can we write the coefficients of <span class="math inline">\(g\)</span>
+in a nice way?</p>
+<div class="theorem">
+<p><strong>Theorem 20</strong> (Selberg). <em>Let <span
+class="math inline">\(f \in S_\lambda (N, \chi )\)</span> be primitive.
+Consider <span class="math display">\[f (4 \tau ) \theta (\tau )
+    \in S_{k / 2 } (4 N, \chi \chi_{- 4}).\]</span> Then <span
+class="math display">\[\sigma (f (4 \tau ) \theta (\tau) )
+    = f (\tau)^2 - 2^{\lambda - 1 } \chi (2) f (2 \tau )^2\]</span> lies
+in <span class="math inline">\(S_{2 \lambda } (2 N, \chi^2
+)\)</span>.</em></p>
+</div>
+<p>Here <span class="math display">\[\theta (\tau) = \sum_{n \in
+\mathbb{Z} } q^{n^2 } \in M_{1/4} (4).\]</span></p>
+<div class="proof">
+<p><em>Sketch of proof.</em> The coefficient of the product are given by
+<span class="math display">\[b (n) = \sum_{m \in \mathbb{Z} } a \left(
+\frac{n - m^2 }{4} \right).\]</span> Then <span id="eqn:d1bbf2625e99" class="math display">\[\label{eqn:d1bbf2625e99}\tag{4}
+    b (n^2 )
+    = \sum a_f \left( \frac{n^2 - m^2 }{4} \right).\]</span> After <span
+class="math inline">\(n \mapsto 2 m - n\)</span>, <a
+href="#eqn:d1bbf2625e99" data-reference-type="eqref"
+data-reference="eqn:d1bbf2625e99">\((4)\)</a> becomes <span
+class="math display">\[b (n^2 ) = \sum_m a_f (n (m - n )).\]</span> Take
+<span class="math inline">\(f\)</span> to be a newform. We can then
+write <span class="math display">\[a_f (n (m - n))
+    =
+    \sum_{e | (m,n)}
+    \mu(e) e^{\lambda - 1}
+    a_f \left( \frac{n}{e} \right)
+    a_f \left( \frac{m - n}{e} \right).\]</span> We obtain <span
+class="math display">\[\sum_m \sum_{e \mid (m, n)}.\]</span> Then <span
+class="math display">\[\sum_{d | n} \sum_{e | \tfrac{n}{a}}
+    \chi (d e ) (e d )^{\lambda - 1}
+    \mu (e) \chi_{0, 4} (d)
+    a_{f^2 } \left( \frac{n}{e d} \right).\]</span> Then <span
+class="math display">\[a_{f^2 } (n)
+    = \sum \left( \sum a_f (m) a_f (n - m ) \right) q^n.\]</span> ◻</p>
+</div>
+<div class="example">
+<p><strong>Example 21</strong>. Let <span class="math inline">\(f =
+\eta^2 \eta_{1 1 }^2\)</span>. Then, since <span
+class="math inline">\(\chi_{0, 44} (2) = 0\)</span>, we have <span
+class="math display">\[\sigma (\eta_4^2 \eta_{44 }^2 \theta )
+    = \eta^4 \eta_{1 1}^4.\]</span> Next, we introduce <span
+class="math inline">\(h_\psi\)</span>. Here <span
+class="math display">\[\eta (\tau) = q^{1/24} \prod_{n \geq 1} (1 -
+q^n),
+    \qquad
+    \eta_{11} (\tau ) = \eta (11 \tau).\]</span></p>
+</div>
+<p>Next, let’s introduce these <span
+class="math inline">\(h_\psi\)</span>: <span
+class="math display">\[h_\psi (\tau) = \sum_{n \in \mathbb{Z} } n^\nu
+\psi (n) q^{n^2 }.\]</span> Here <span class="math inline">\(\nu =
+0\)</span> or <span class="math inline">\(\nu = 1\)</span>, with <span
+class="math inline">\(\psi (-1) = (-1)^{\nu}\)</span>. We have <span
+class="math display">\[h_\psi \in M_{1/2 + \nu } (4 r_{\psi}, \chi_{- 1,
+4}^{-\lambda}).\]</span> We know that we can do functions of the form
+<span class="math inline">\(f (4 \tau ) \theta (\tau)\)</span>. What
+happens if we work with a much more general theta function <span
+class="math inline">\(h_\psi\)</span>? That is to say, what happens for
+<span class="math display">\[f (4 r_\psi \tau ) h_\psi (\tau )?\]</span>
+We have the following:</p>
+<div class="theorem">
+<p><strong>Theorem 22</strong> (Cipra, 1987). <em>Let <span
+class="math inline">\(f\)</span> be as above. Then <span
+class="math display">\[\sigma_1 (f (4 r \tau ) h_\psi (\tau) )
+    = g \otimes \psi (\tau )
+    - 2^{\lambda + \nu - 1 } \chi (2) \psi (2) g \otimes \psi (2 \tau
+)\]</span> lies in <span class="math inline">\(S_{2 (\lambda + \nu )} (2
+r N_r, \chi^2 \psi^2 )\)</span>, where <span class="math inline">\(N _r
+:= \mathop{\mathrm{lcm}}(N, r)\)</span>.</em></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 23</strong> (Hansen, Naqvi, 2007). <em>Similar
+result, but without assuming that <span
+class="math inline">\(\psi\)</span> is primitive.</em></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 24</strong> (Brown, 2013). <em>Let <span
+class="math inline">\(f \in M_\lambda (N, \chi )\)</span> be a Hecke
+eigenform. Then</em></p>
+<ol>
+<li><p><em><span class="math display">\[\sigma (f (24 \tau ) \eta_{2 4})
+    = (f (\tau) f (6 \tau ) - f (2 \tau ) f (3 \tau ))
+\otimes \left( \frac{12}{\cdot } \right)\]</span> satisfies
+(...).</em></p></li>
+</ol>
+</div>
+<p>What happens when one looks at stuff that is old on the half-integral
+weight side? For example, look at <span class="math display">\[f (4
+r_\psi \tau ) h_\psi (D \tau),\]</span> where <span
+class="math inline">\(D\)</span> is a fundamental discriminant.
+(...)</p>
+<div class="theorem">
+<p><strong>Theorem 25</strong> (B. 2022). <em>Choose any <span
+class="math inline">\(N\)</span>. Suppose that <span
+class="math inline">\(f \in S_\lambda^{\mathop{\mathrm{new}}} (N, \chi
+)\)</span> such that <span class="math inline">\(f \theta \in S_{k / 2}
+(4 N, \chi )\)</span>. Then <span class="math display">\[\sigma (f
+\theta ) = U_2 f^2.\]</span></em></p>
+</div>
+<p>Here <span class="math display">\[U_2 (\sum_{n \geq 1} a (n ) q^{n})
+  =
+  \sum_{n \geq 1}
+  a (2 n ) q^n.\]</span> Here <span class="math inline">\(U_2 f^2 :=
+(U_2(f))^2\)</span>.</p>
+<h1
+id="satyabrat-sahoo-on-the-solutions-of-xp-yp-2r-zp-xp-yp-z2-over-totally-real-fields">Satyabrat
+Sahoo, <em>On the solutions of <span class="math inline">\(x^p + y^p =
+2^r z^p\)</span>, <span class="math inline">\(x^p + y^p = z^2\)</span>
+over totally real fields</em></h1>
+<p>An elliptic curve <span class="math inline">\(E\)</span> is a
+nonsingular curve of dimension <span class="math inline">\(1\)</span>
+with a fixed point <span class="math inline">\(O \in E\)</span>.</p>
+<ul>
+<li><p>Any elliptic curve <span class="math inline">\(E /K\)</span>
+defined over a field is given by a Weierstrass equation with <span
+class="math inline">\(a_i \in K\)</span>.</p></li>
+<li><p>Let <span class="math display">\[\Delta_E := - b_2^2 b_8 - 8
+b_4^3 - 27 b_6^2
++ 9 b_2 b_4 b_6 ,\]</span> <span class="math display">\[j_E :=
+\frac{c_4^3 }{ \Delta_E}.\]</span></p></li>
+</ul>
+<h1
+id="radu-toma-on-the-size-of-newforms-of-large-level-on-mathopmathrmpgln">Radu
+Toma, <em>On the size of newforms of large level on <span
+class="math inline">\(\mathop{\mathrm{PGL}}(n)\)</span></em></h1>
+<div class="theorem">
+<p><strong>Theorem 26</strong> (Toma 2023+). <em>Under GRH, for a large
+prime number <span class="math inline">\(N\)</span>, we have <span
+class="math display">\[\lVert \varphi_{\Omega_N} \rVert _\infty
+\ll_{\Omega, n, \lambda, \varepsilon} N^{- 1/4n + \varepsilon}\]</span>
+for all <span class="math inline">\(n \geq 2\)</span>.</em></p>
+</div>
+<p>The actual relevant hypothesis is that <span
+class="math display">\[\sum_{p \asymp L}
+  \left\lvert \lambda (p, \varphi ) \right\rvert \gg_\varepsilon L^{3/4
+- \varepsilon}\]</span> for <span class="math inline">\(L\)</span> a
+small power of <span class="math inline">\(N \ggg 1\)</span>.</p>
+<p>Amplifier: <span class="math display">\[A(\varpi) = \sum_{p \asymp L}
+\lambda (p, \varpi ) \overline{\lambda (p, \varphi )}.\]</span></p>
+<p>Atkin–Lehner operator: <span class="math display">\[W_N : z \mapsto
+  \mathop{\mathrm{diag}}(1, \dotsc, 1, N) z^{- %
+  {\mathpalette\@transpose{}}%
+}.\]</span></p>
+<h1
+id="felicien-comtat-sup-norms-of-siegel-modular-forms-and-bocherer-conjecture">Felicien
+Comtat, <em>Sup norms of Siegel modular forms and Bocherer
+conjecture</em></h1>
+<h2 id="motivation">Motivation</h2>
+<p>Take <span class="math inline">\(G\)</span> to be a reductive
+algebraic group over <span class="math inline">\(\mathbb{Q}\)</span>,
+say. Let <span class="math inline">\(\phi\)</span> be a cusp form for
+<span class="math inline">\(G\)</span>. In particular, <span
+class="math inline">\(\phi\)</span> has rapid decay at cusps. The
+complement of the cusps is a bounded region, so by continuity, <span
+class="math inline">\(\phi\)</span> is bounded, and in particular, <span
+class="math inline">\(L^2\)</span>. It’s thus an interesting question to
+relate the <span class="math inline">\(L^\infty\)</span> and <span
+class="math inline">\(L^2\)</span> norms.</p>
+<div class="problem">
+<p><strong>Problem 1</strong>. Bound <span
+class="math display">\[\frac{\lVert \phi  \rVert _\infty }{ \lVert
+\phi   \rVert_2 }.\]</span></p>
+</div>
+<p>Methods:</p>
+<ol>
+<li><p>Amplified pretrace formula.</p></li>
+<li><p>(Steiner) Studying fourth moments via the theta
+correspondence.</p></li>
+<li><p>Bound the Fourier expansion termwise.</p></li>
+</ol>
+<p>The third approach is the subject of today’s talk. It motivates the
+following further question.</p>
+<div class="problem">
+<p><strong>Problem 2</strong>. How to understand the Fourier
+coefficients of <span class="math inline">\(\phi\)</span>?</p>
+</div>
+<h2 id="framework">Framework</h2>
+<p>We denote by <span class="math display">\[\mathbb{H}_2 := \left\{ z =
+x + i y \in M_2^{\mathop{\mathrm{sym}}} (\mathbb{C} ) : y &gt; 0
+\right\},\]</span> <span class="math display">\[{\mathop{\mathrm{GSp}}}_4
+(R) := \left\{ g \in {\mathop{\mathrm{GL}}}_4 (R) : {}^{%
+  {\mathpalette\@transpose{}}%
+} g J g = \mu (g) J \right\}\]</span> where <span
+class="math display">\[J =
+\begin{pmatrix}
+0_2 &amp; 1_2 \\
+-1_2 &amp; 0_2 \\
+\end{pmatrix}.\]</span> We also set <span
+class="math display">\[{\mathop{\mathrm{Sp}}}_4(R) = \left\{ g \in
+{\mathop{\mathrm{GSp}}}_4(R) : \mu(g) = 1 \right\}.\]</span> Then <span
+class="math display">\[{\mathop{\mathrm{Sp}}}_4(\mathbb{R})
+\circlearrowright \mathbb{H}_2\]</span> via the rule <span
+class="math display">\[\begin{pmatrix}
+a &amp; b \\
+c &amp; d \\
+\end{pmatrix}
+Z =
+(a Z + b ) (c Z + d )^{-1}.\]</span> We say that <span
+class="math inline">\(F : \mathbb{H}_2 \rightarrow \mathbb{c}\)</span>
+is a Siegel modular form if it satisfies the transformation property
+<span class="math display">\[F (\gamma z ) = \det (c z + d )^k F
+(z)\]</span> for all <span class="math inline">\(z \in
+\mathbb{H}_2\)</span> and <span class="math display">\[\gamma
+  =
+  \begin{pmatrix}
+a &amp; b \\
+c &amp; d \\
+  \end{pmatrix}
+  \in {\mathop{\mathrm{Sp}}}_4(\mathbb{Z}).\]</span> Fourier expansion:
+<span class="math display">\[f(z) = \sum_{S \in \mathcal{S}_2}
+  a(S) e^{2 \pi i \mathop{\mathrm{tr}}(S z)},\]</span> where <span
+class="math display">\[\mathcal{S}_2 := \left\{ S =
+  \begin{pmatrix}
+a &amp; b/2 \\
+b/2 &amp; c \\
+\end{pmatrix} : a,b,c \in \mathbb{Z}, \, S \geq 0 \right\}.\]</span>
+Then <span class="math display">\[\phi_F (z) := (\det y )^{k  / 2 } F
+(z)\]</span> is bounded.</p>
+<h2 id="fourier-coefficients-of-siegel-modular-forms">Fourier
+coefficients of Siegel modular forms</h2>
+<div class="conjecture">
+<p><strong>Conjecture 4</strong> (Reznikov–Saldana). <em>Take <span
+class="math inline">\(F\)</span> a Siegel cusp form of weight <span
+class="math inline">\(k\)</span>. Then <span class="math display">\[a_F
+(S) \ll_{\varepsilon, F} (\det S )^{\frac{k}{2} - \frac{3}{4} +
+\varepsilon}.\]</span></em></p>
+</div>
+<h3 id="saitokurokawa-lifts">Saito–Kurokawa lifts</h3>
+<p><span class="math inline">\(F\)</span> is a Saito–Kurokawa lift if
+there is a Hecke cusp form of half-integral weight <span
+class="math inline">\(k - \tfrac{1}{2}\)</span> in Kohnen’s plus space
+such that <span class="math display">\[h (z) = \sum_{m &gt; 0 } c (m)
+m^{\frac{k}{2} - \frac{3}{4}}
+  e (m z),\]</span> <span class="math display">\[a_F (S) = \left( \det 2
+S \right)^{\frac{k}{2} - \frac{3}{4}}
+  \sum_{d | \operatorname{content}(S)}
+  d^{1/2} c \left( \det \left( \frac{2 S}{d} \right)
+\right).\]</span></p>
+<p>If <span class="math inline">\(D &lt; 0\)</span> is a fundamental
+discriminant, then <span class="math display">\[c (\lvert D \rvert)^2 =
+L (\tfrac{1}{2}, f \otimes \chi_D ),\]</span> where <span
+class="math inline">\(f\)</span> is the image of <span
+class="math inline">\(h\)</span> by the Shimura correspondence. This
+implies that under GRH, we have <span id="eqn:d1bc2b8774a0" class="math display">\[\label{eqn:d1bc2b8774a0}\tag{5}
+  a_F (S) \ll (\det 2 S )^{\frac{k}{2} - \frac{3}{4} + \varepsilon}
+  (\operatorname{content} S)^{1/2}.\]</span> Using this observation,
+Blomer proved:</p>
+<div class="corollary">
+<p><strong>Corollary 27</strong> (Blomer). <em>If <span
+class="math inline">\(F\)</span> is a Saito–Kurokawa lift, then <span
+class="math display">\[\frac{\lVert
+\phi_F  \rVert_{\infty}}{\left\langle F, F \right\rangle^{1/2} }
+    \ll k^{3/4 + \varepsilon}
+    \quad
+    \text{under GRH.}\]</span></em></p>
+</div>
+<div class="proof">
+<p><em>Idea of proof.</em> The idea is as follows. Write <span
+class="math inline">\(z = x + i y\)</span>. Then the contribution of
+<span class="math inline">\(a_F (S)\)</span> is negligible unless <span
+class="math inline">\(S y\)</span> is negligible, with eigenvalue <span
+class="math display">\[\frac{k}{4 \pi } + \operatorname{O}\left(\sqrt{k
+} \log k\right).\]</span></p>
+<p>Now count such <span class="math inline">\(S\)</span> and apply <a
+href="#eqn:d1bc2b8774a0" data-reference-type="eqref"
+data-reference="eqn:d1bc2b8774a0">\((5)\)</a>. ◻</p>
+</div>
+<h3 id="general-case">General case</h3>
+<div class="theorem">
+<p><strong>Theorem 28</strong> (C., Moyer?-Balbesteros?, Saha). <em>Let
+<span class="math inline">\(k\)</span> be even. Let <span
+class="math inline">\(F\)</span> be a Siegel cusp form of weight <span
+class="math inline">\(k\)</span> that is a Hecke eigenform, but not a
+Saito–Kurokawa lift. Then under GRH (although maybe GLH suffices), we
+have <span class="math display">\[\frac{\left\lvert a_F
+(S)  \right\rvert}{ \left\langle F, F  \right\rangle^{1/2} }
+    \ll_\varepsilon\frac{(4 \pi )^k }{\sqrt{\Gamma (2 k - 1)}}
+    \left( \det 2 S \right)^{\frac{k - 1}{2} + \varepsilon}
+    \operatorname{content}(S)^{- 1/2}.\]</span></em></p>
+</div>
+<div class="corollary">
+<p><strong>Corollary 29</strong> (C, M-B, S). <em>Under GRH, we have
+<span class="math display">\[\frac{\left\lvert \phi_F
+(z)  \right\rvert}{ \left\langle F, F  \right\rangle^{1/2} }
+    \ll (\det Y )^{- 1/4}
+    k^{5/4 + \varepsilon}.\]</span></em></p>
+</div>
+<p>This <span class="math inline">\(5/4\)</span> improves upon the
+trivial bound, but not to the same extent as Blomer’s estimate. However,
+it is stronger higher in the cusp.</p>
+<h2 id="bocherer-conjecture-and-idea-of-proof">Bocherer conjecture and
+idea of proof</h2>
+<p>Let <span class="math inline">\(A \in
+{\mathop{\mathrm{SL}}}_2(\mathbb{Z})\)</span>. Then <span
+class="math inline">\(F\)</span> is invariant by the element <span
+class="math display">\[\begin{pmatrix}
+    T A  &amp;  0 \\
+    0 &amp;  A^{-1}  \\
+  \end{pmatrix} \in {\mathop{\mathrm{Sp}}}_4(\mathbb{Z}).\]</span> It
+follows that <span class="math display">\[a_F ({}^{%
+  {\mathpalette\@transpose{}}%
+} A S A) = a_F(S).\]</span> Thus <span
+class="math inline">\(a_F(S)\)</span> depends only upon the orbit of
+<span class="math inline">\(S\)</span>. If <span
+class="math inline">\(d\)</span> is a fundamental discriminant., then
+<span class="math display">\[\left\{ S \in \mathcal{S}_2 :
+\mathop{\mathrm{disc}}(S) = - 4 \det S = d \right\} / \sim
+  \quad
+  \longleftrightarrow \quad
+  \mathrm{Cl}_K, \qquad K = \mathbb{Q}(\sqrt{d}).\]</span></p>
+<p>Let <span class="math inline">\(\Lambda\)</span> be a character of
+<span class="math inline">\(\mathrm{Cl}_K(M)\)</span>. Set <span
+class="math display">\[R_{L,M} (F, K, \Lambda ) = \sum_{S \in
+\mathrm{Cl}_K(M) } \Lambda^{-1} (S)
+  a_F \left(
+    L
+    \begin{pmatrix}
+      M &amp; 0 \\
+      0 &amp; 1 \\
+    \end{pmatrix}
+    S
+    \begin{pmatrix}
+      M &amp; 0 \\
+      0 &amp; 1 \\
+    \end{pmatrix}
+  \right).\]</span></p>
+<div class="conjecture">
+<p><strong>Conjecture 5</strong> (Bocherer, D-P-S-S, proved by
+Furasawa–Morimoto). <em>We have <span
+class="math display">\[\begin{align}
+    &amp;\frac{64}{\left\langle F, F  \right\rangle^{1/2} }
+      \left\lvert R (F, K, \Lambda ) \right\rvert^2 \\
+    &amp;= \frac{(4 \pi )^{2k - 1}}{\Gamma (2 k - 1)}
+      W (k)
+      \lvert d \rvert^{k - 1}
+      \frac{L (\tfrac{1}{2}, \pi_F \times \operatorname{AI}
+(\Lambda^{-1} ))}{L (1, \pi_F, \mathop{\mathrm{Ad}})}
+      \prod_{p | C(\Lambda)}
+      \mathcal{J}_p (\phi_F^{L, M}, \Lambda_p ),
+  
+\end{align}\]</span> where <span class="math inline">\(\phi_F^{L,
+M}\)</span> is a certain translate of <span
+class="math inline">\(\phi_F\)</span>.</em></p>
+</div>
+<p>Set <span class="math display">\[J_p (\phi_p^{L, M}, \Lambda_p )
+  =
+  \int_{\mathbb{Q}_p^\ast }
+  \Lambda^{-1} (t) J_p (\phi^{L, M}, t) \, d t.\]</span> Then <span
+class="math display">\[J_p (\phi, t)
+  = \lim_{k \rightarrow \infty }
+  \int_{M_2^{\mathop{\mathrm{sym}}} (p^{- k } \mathbb{Z} )}
+  \Phi_\phi \left(
+    \begin{bmatrix}
+      1 &amp; x \\
+      0 &amp; 1 \\
+    \end{bmatrix} t \right)
+  \psi (\mathop{\mathrm{trace}}(S x))^{-1} \, d x.\]</span></p>
+<h1
+id="wing-hong-joseph-leung-short-second-moment-bounds-and-subconvexity-for-mathopmathrmgl3-l-functions">Wing
+Hong (Joseph) Leung, <em>Short second moment bounds and subconvexity for
+<span class="math inline">\(\mathop{\mathrm{GL}}(3)\)</span> <span
+class="math inline">\(L\)</span>-functions</em></h1>
+<p>(Joint work with Keshav Aggarwal and Ritabrata Munshi)</p>
+<p>Riemann zeta function. Good times.</p>
+<p><span class="math inline">\(L\)</span>-functions. Even better.</p>
+<div class="theorem">
+<p><strong>Theorem 30</strong> (Aggarwal–L.–Munshi). <em><span
+class="math display">\[\int_{t - t^{2/3} }^{t + t^{2/3} }
+  \left\lvert L (\tfrac{1}{2} + i v, \pi ) \right\rvert^2 \, d v
+  \ll_{\pi, \varepsilon}
+  t^{3/2 - 1/4 + \varepsilon}.\]</span></em></p>
+</div>
+<p>Using a simple argument similar to Good’s, we deduce:</p>
+<div class="corollary">
+<p><strong>Corollary 31</strong>. <em><span class="math display">\[L
+(\tfrac{1}{2} + i t, \pi ) \ll_{\pi, \varepsilon} t^{3/4 - 1 / 8 +
+\varepsilon}.\]</span></em></p>
+</div>
+<div class="remark">
+<p><strong>Remark 32</strong>. Pal used the same argument by decomposing
+the full second moment to get <span id="eqn:d1bc2c045402" class="math display">\[\label{eqn:d1bc2c045402}\tag{6}
+    \int_t^{2 t } \left\lvert L (\tfrac{1}{2} + i v, \pi )
+\right\rvert^2 \, d v \ll_{\pi, \varepsilon} t^{3/2 - 3 / 1676 +
+\varepsilon}.\]</span></p>
+</div>
+<div class="remark">
+<p><strong>Remark 33</strong>. The speaker is currently working on
+analogous subconvexity bound for <span
+class="math inline">\(L\)</span>-functions <span
+class="math inline">\(\mathop{\mathrm{GL}}(3)\)</span> twisted by
+characters <span class="math inline">\(\chi\)</span> of factorizable
+modulus <span class="math inline">\(P_1 P_2\)</span>.</p>
+</div>
+<div class="remark">
+<p><strong>Remark 34</strong>. Ikuyo Kaneko and Maksym Radziwill are
+showing (maybe not yet on the arxiv) something like <a
+href="#eqn:d1bc2c045402" data-reference-type="eqref"
+data-reference="eqn:d1bc2c045402">\((6)\)</a>, without
+decomposing into shorter moments.</p>
+</div>
+<p>Proof idea? Short second moment yields shifted sum problem, with some
+average over shifts. Ingredients:</p>
+<ul>
+<li><p><span class="math inline">\(\delta\)</span>-method (“standard
+recipe”).</p></li>
+<li><p>Duality trick.</p></li>
+<li><p>“<span class="math inline">\(\infty\)</span>-Cauchy Schwarz”,
+some sort of van der Corput trick.</p></li>
+</ul>
+<p>We want to bound <span class="math display">\[\int_{\mathbb{R} } U
+\left( \frac{v}{M} \right)
+  \left\lvert L (\tfrac{1}{2} + i t + i v, \pi ) \right\rvert^2 \, d
+v.\]</span> The final optimal choice for subconvexity is <span
+class="math inline">\(M = t^{2/3}\)</span>.</p>
+<p>Approximate functional equation yields <span
+class="math display">\[\sum_{N \ll t^{3/2 + \varepsilon}} \frac{1}{
+\sqrt{N}}
+  \sum_{n \sim N } \lambda (n ) n^{- i t - i \nu }.\]</span> For sketch,
+focus on <span class="math inline">\(N \sim t^{3/2}\)</span>. Squaring
+and integrating, we arrive at <span class="math display">\[S = \frac{M}{
+t^{3/2} }
+  \sum_{h \ll t^{3/2 + \varepsilon} / M}
+  \sum_{n \sim t^{3/2} }
+  \lambda (n) \overline{\lambda (n + h)}
+  e \left( \frac{t h}{2 \pi n} \right).\]</span> Compare with <span
+class="math display">\[\sum_{h \ll t^{1/2} }
+  \sum_{n \asymp t^{3/2} }
+  \lambda (n ) \lambda (n + h).\]</span> We didn’t know how to do that,
+but now Ikuya and Maksym have announced that they can.</p>
+<p>To study <span class="math inline">\(S\)</span>, we apply the delta
+method to detect the condition <span class="math inline">\(m = n +
+h\)</span>. For <span class="math inline">\(Q &gt; 1\)</span>, get <span
+class="math display">\[\begin{align}
+  &amp;\frac{M}{Q^2 t^{3/2} } \sum_{q \leq Q} \sum_{h \ll t^{3 / 2 +
+\varepsilon} / M }
+  \sum_{n \asymp t^{3/2} } \lambda (n )
+  \sum_{m \asymp t^{3/2} } \overline{\lambda  (m)} \\
+  &amp;\quad \sum_{a(q)^*}
+  e_q (a (n + h - m))
+  e \left( \frac{t h }{ 2 \pi n } \right)
+\int U (x) e \left( \frac{(n + h - m )x}{q Q} \right) \, d x.  
+\end{align}\]</span> For sketch, focus on <span
+class="math inline">\(q \asymp Q\)</span> and <span
+class="math inline">\(x \asymp 1\)</span>.</p>
+<p>Take <span class="math inline">\(Q = \sqrt{M } t^{1/4}\)</span>. This
+corresponds to balancing <span class="math display">\[\frac{t h }{2 \pi
+n}
+  \asymp \frac{n x}{q Q}.\]</span> Poisson on <span
+class="math inline">\(h\)</span>, Voronoi on <span
+class="math inline">\(m\)</span> and <span
+class="math inline">\(n\)</span>.</p>
+<h1 id="soumendra-ganguly">Soumendra Ganguly</h1>
+<h1 id="phillip-harris-maximal-flat-periods-for-mathopmathrmsln">Phillip
+Harris, <em>Maximal flat periods for <span
+class="math inline">\(\mathop{\mathrm{SL}}(n)\)</span></em></h1>
+<p>Let <span class="math inline">\(G =
+\mathop{\mathrm{SL}}(n,\mathbb{R}) = N A K\)</span>. We can write <span
+class="math display">\[\mathfrak{p} = \mathfrak{n} + \mathfrak{a} +
+\mathfrak{k} = \mathfrak{p} + \mathfrak{k} ,\]</span> where <span
+class="math inline">\(\mathfrak{p}\)</span> is the space of symmetric
+matrices.</p>
+<p>Let <span class="math inline">\(\Gamma &lt; G\)</span> be a discrete
+subgroup. Set <span class="math display">\[X = \Gamma \backslash G /
+K.\]</span> Let <span class="math inline">\(Y \subset X\)</span> be a
+maximal flat, i.e., a translate <span class="math inline">\(g A\)</span>
+of the diagonal subgroup. Fix <span class="math inline">\(b \in
+C_c^\infty (Y)\)</span>. Let <span class="math inline">\(f_i\)</span> be
+an orthonormal basis of Maass forms, with spectral parameter <span
+class="math inline">\(\nu_i\)</span>. The period of interest is then
+<span class="math display">\[P_i = \int_Y f_i (g) b (g) \, d
+g.\]</span></p>
+<p>Pick <span class="math inline">\(\nu \in \mathfrak{a}_{\mathbb{C}
+}^\ast\)</span>. Sum over all spectral parameters in a ball of radius
+one around <span class="math inline">\(\nu\)</span>: <span
+class="math display">\[\sum_{\lVert \Re \nu - \nu_i  \rVert \leq 1}
+\lvert P_i  \rvert^2.\]</span> Bart Michels (2022): for a closed cone
+<span class="math display">\[D^{\mathop{\mathrm{gen}}}
+\subset  (\mathfrak{a}^\ast )^{\mathop{\mathrm{gen}}}\]</span> (where
+<span class="math inline">\(\mathop{\mathrm{gen}}\)</span> means not
+singular, i.e., <span class="math inline">\(\langle \nu, \alpha \rangle
+\neq 0\)</span>, and also <span class="math inline">\(\nu \notin
+\mathop{\mathrm{span}}\{\alpha_1, \dotsc, \alpha_{n-2}\}\)</span>), we
+have <span class="math display">\[\sum_{\lVert \Re \nu - \nu_i  \rVert
+\leq 1} \lvert P_i  \rvert^2
+  \ll_b \beta(\nu) \lVert \nu  \rVert^{- n + 1}.\]</span></p>
+<p>The speaker shows in 2023 a result valid for general spectral
+parameters: <span class="math display">\[\sum_{\lVert \Re \nu -
+\nu_i  \rVert \leq 1} \lvert P_i  \rvert^2
+  \ll_b \beta(\nu) \lVert \nu  \rVert^{- n + 1}
+  \begin{cases}
+    \left( \log \frac{\lVert \nu  \rVert}{1 + \lvert \nu_2 + \nu_{n - 1}
+\rvert} \right)^{n - 2}  &amp; n \neq 4, \\
+    \left( \log \frac{\lVert \nu  \rVert}{1 + \dotsb } \right) &amp;
+\text{ if } n = 4.
+  \end{cases}\]</span> Here we order so that <span
+class="math inline">\(\nu_1 \leq \dotsb \leq \nu_n\)</span>.</p>
+<p>Let <span class="math display">\[k \in C_c^\infty(K \backslash G /
+K).\]</span> We can take its support as small as we want. <span
+class="math display">\[\int_{Y} \int_Y
+  \sum_i \hat{k}(\nu_i) f_i(x) \overline{f_i(y)}
+  b(x) b(y) \,d x \,d y
+  =
+  \int_{Y} \int_{Y}
+  k(x^{-1} y) b (x) b (y) \, d x \, d y.\]</span></p>
+<p><span class="math display">\[k(z) = \frac{1}{\lvert W \rvert}
+  \int_{\mathfrak{a}^\ast }
+  \beta (\lambda) \varphi_\lambda (z) \hat{k} (\lambda) \, d
+\lambda,\]</span> <span class="math display">\[\varphi_\lambda (g) =
+\int_{\mathop{\mathrm{SO}}(n)}
+  e^{(i \lambda - \rho ) H (k g)} \, d g,\]</span> <span
+class="math display">\[H : G \rightarrow \mathfrak{a},\]</span> <span
+class="math display">\[g \in N e^{H(g)} K.\]</span></p>
+<div class="theorem">
+<p><strong>Theorem 35</strong> (Duistermaat). <em>There exists <span
+class="math inline">\(a \in C^\infty(\mathfrak{p})\)</span> so that for
+all <span class="math inline">\(X \in \mathfrak{p}\)</span>, and with
+<span class="math inline">\(\pi : \mathfrak{p} \rightarrow
+\mathfrak{a}\)</span> the projection, we have <span
+class="math display">\[\varphi_\lambda (e^X ) =
+\int_{\mathop{\mathrm{SO}}(n)} e^{i \lambda \pi (\mathop{\mathrm{Ad}}k X
+)}
+    a (\mathop{\mathrm{Ad}}k X)
+    \, d X.\]</span></em></p>
+</div>
+<p>So now we can rewrite something as <span
+class="math display">\[\int_{\mathfrak{a}^\ast } \beta (\lambda) \hat{k}
+(\lambda)
+  \int_{\mathfrak{a} } e^{i \lambda \pi (\mathop{\mathrm{Ad}}k X)}
+  \underbrace
+{
+a (\mathop{\mathrm{Ad}}k X ) b (e^X )
+}_{
+C(K,X)
+}
+  \, d X \, d \lambda.\]</span></p>
+<h1 id="yiannis-petridis-counting-and-equidistribution">Yiannis
+Petridis, <em>Counting and equidistribution</em></h1>
+<p>Outline:</p>
+<ol type="i">
+<li><p>Motivation/example</p></li>
+<li><p>Lattice problems in hyperbolic space. (The above was all beyond
+2016.)</p></li>
+<li><p>After 2016</p></li>
+<li><p>Equidistribution</p></li>
+</ol>
+<p>To start, we’ll look at the following sum: <span
+class="math display">\[\sum_{n \leq x - 2}
+  a_n r (n) r (n + 4),\]</span> <span class="math display">\[a_n =
+  \begin{cases}
+    1 &amp; \text{ if $n$ is even}, \\
+    1/2 &amp; \text{ if $n$ is odd}.
+  \end{cases}\]</span> Here <span class="math inline">\(r(n)\)</span>
+counts the number of representations of <span
+class="math inline">\(n\)</span> as a sum of two squares.</p>
+<p>The above sum suggests writing <span class="math display">\[n = t^2 +
+s^2, \qquad n + 4 = r^2 + u^2 , \qquad
+  (r, u, s, t ) \in \mathbb{Z}^4.\]</span> Then <span
+class="math display">\[1 = \frac{r + s }{2} \frac{r - s }{2} - \frac{t +
+u}{2} \frac{t - u}{2},\]</span> <span id="eqn:d1bc65bb15d6" class="math display">\[\label{eqn:d1bc65bb15d6}\tag{7}
+  1 = a d - b c.\]</span> If <span class="math inline">\(n\)</span> is
+even, then <span class="math inline">\(a,b,c,d\)</span> will be
+integers. If <span class="math inline">\(n\)</span> is odd, then <span
+class="math inline">\(r\)</span> and <span
+class="math inline">\(u\)</span> (resp. <span
+class="math inline">\(t\)</span> and <span
+class="math inline">\(s\)</span>) will have different parities, so by
+swapping <span class="math inline">\(t\)</span> and <span
+class="math inline">\(s\)</span> as necessary, we will get an integer
+solution. That will happen with the swapping half the times. <span
+class="math display">\[(a , b, c, d) \in \mathbb{Z}^4.\]</span> <span id="eqn:d1bc65bb24a2" class="math display">\[\label{eqn:d1bc65bb24a2}\tag{8}
+  a^2 + b^2 + c^2 + d^2 = n + 2 \leq x.\]</span> Write <span
+class="math inline">\(N (x)\)</span> for the number of quadruples
+satisfying <a href="#eqn:d1bc65bb15d6" data-reference-type="eqref"
+data-reference="eqn:d1bc65bb15d6">\((7)\)</a> and <a
+href="#eqn:d1bc65bb24a2" data-reference-type="eqref"
+data-reference="eqn:d1bc65bb24a2">\((8)\)</a>. Write <span
+class="math display">\[u (z, w ) = \frac{\lvert z - w  \rvert^2 }{ 4 \Im
+z \Im w}.\]</span> Thus, with <span class="math display">\[\gamma =
+  \begin{pmatrix}
+    a &amp; b \\
+    c &amp; d \\
+  \end{pmatrix},\]</span> we have <span class="math display">\[u (\gamma
+i, i) = \frac{a^2 + b^2 + c^2 + d^2 - 2}{4}.\]</span> The hyperbolic
+lattice point problem is to estimate <span class="math display">\[N (x,
+i, i) = \# \left\{ \gamma \in {\mathop{\mathrm{SL}}}_2 (\mathbb{Z} ) : 4
+\cosh u (\gamma i, i) + 2 \leq x \right\}.\]</span> More generally,
+<span class="math display">\[N (x, z, w ) = \# \left\{ \gamma \in \Gamma
+: 4 \cosh u (\gamma z, w) + 2 \leq x \right\}.\]</span> So we have the
+upper half-plane, and all the points in <span class="math inline">\(i +
+\mathbb{Z}\)</span>. Take a geodesic circle containing <span
+class="math inline">\(i\)</span> of radius <span
+class="math inline">\(R\)</span>. Then its area is <span
+class="math display">\[A(R) = 4 \pi \left( \sinh \frac{R}{2} \right)^2
+\asymp e^R,\]</span> while the circumference is <span
+class="math display">\[C(R) = 2 \pi \sinh R \asymp e^R.\]</span></p>
+<p>Heinz Huber (Basel) wrote a set of papers (1969 Math. Annalen) to
+explain the relation of the problem to automorphic forms. What results
+is that we have a main term and an error term: <span
+class="math display">\[N (x, z, w) = M (x, z, w ) + E (x, z,
+w),\]</span> <span class="math display">\[M (x, z, w) = \sum_{1/2 \leq
+s_j \leq 1} \sqrt{\pi }
+  \frac{\Gamma (s_j - 1/2)}{\Gamma (s_j + 1)}
+  u_j (z) u_j (w) x^{s_j }
+  \sim \frac{\pi }{\mathop{\mathrm{vol}}(\Gamma \backslash \mathbb{H}
+)}  x.\]</span> The <span class="math inline">\(s_j\)</span> correspond
+to eigenfunctions <span class="math display">\[\Delta u_j + s_j (1 - s_j
+) u_j = 0, \quad
+  \Delta = y^2 \left( \frac{\partial^2 }{ \partial x^2 } +
+\frac{\partial^2 }{ \partial y^2 } \right).\]</span></p>
+<p>Selberg (unpublished notes, 1972) proved that <span
+class="math display">\[E (x, z, w) = \operatorname{O}(X^{2/3}
+).\]</span> Patterson (1972) improved the exponent to <span
+class="math inline">\(3/4\)</span>. P. Gunther (1980) improved it
+further to <span class="math inline">\(2/3\)</span>. A. Good (1983)
+obtained related results to those of Gunther that we’ll talk more about
+later. Conjecturally, one can take <span
+class="math inline">\(\operatorname{O}_\varepsilon(X^{1/2 +
+\varepsilon})\)</span>. Phillips–Rudnick established <span
+class="math display">\[\Omega \left( X^{1/2} (\log \log X )^{1/4 -
+\delta } \right).\]</span></p>
+<p>Let’s talk about Good’s work. There are three types of subgroups of
+<span
+class="math inline">\({\mathop{\mathrm{SL}}}_2(\mathbb{R})\)</span>:</p>
+<ul>
+<li><p>elliptic subgroups <span
+class="math inline">\(K\)</span>,</p></li>
+<li><p>hyperbolic subgroups <span
+class="math inline">\(\mathcal{H}\)</span>, and</p></li>
+<li><p>parabolic subgroups <span
+class="math inline">\(P\)</span>.</p></li>
+</ul>
+<p>Let <span class="math inline">\(H, H_1, H_2\)</span> be any of the
+above subgroups. Good was interested in double cosets by these kinds of
+subgroups: <span class="math display">\[\Gamma \cap H_1 \backslash
+\Gamma / \Gamma \cap H_2.\]</span></p>
+<p>Chamizo 1996: <span class="math display">\[\frac{1}{X} \int_X^{2 X }
+E (x)^2 \, d x \ll X^1 \log^2 X.\]</span></p>
+<p>Let’s consider some cases.</p>
+<p>Elliptic-hyperbolic. <span class="math inline">\(\cosh \rho (z, \ell
+) = \frac{1}{ \cos \theta }\)</span>.</p>
+<p>With <span class="math display">\[X = \frac{\sinh (t / 2)}{ \sinh
+(\mu / 2)}.\]</span> <span class="math display">\[\begin{align}
+  N(t)
+  &amp;= \# \left\{ \gamma \in (\Gamma \cap \mathcal{H} ) \backslash
+\Gamma
+    : \rho (\gamma z, \ell ) \leq t
+  \right\} \\
+  &amp;=
+  \sum_{s_j \leq 1}
+  (\Gamma\text{-factors})
+    u_j (z) \int_{\ell} u_j X^{s_j }+
+    \underbrace
+{
+E (X, \mathcal{H}, z)
+}_{
+= \operatorname{O}(X^{2/3}  )
+}.
+\end{align}\]</span> The conjecture is that one can take <span
+class="math inline">\(\operatorname{O}(X^{1/2 + \varepsilon})\)</span>.
+There’s an integral transform here, the one introduced by Huber in his
+paper in 1988. It’s a special case of the Jacobi transform, which covers
+just about everything in this area of mathematics.</p>
+<p>Chatzakos–P 2016: <span class="math display">\[\frac{1}{X} \int_X^{2
+X }
+  \lvert E (X, \mathcal{H}, z) \rvert^2 \, d x \ll X^1 \log^2
+X.\]</span> Chatzakos 2019: <span class="math inline">\(\Omega (X^{1/2}
+)\)</span>.</p>
+<p>Is there any arithmetic interpretation of this counting problem?</p>
+<p>Hyperbolic-hyperbolic.</p>
+<h1 id="michael-yiasemidis-lattice-points-in-elliptic-annuli">Michael
+Yiasemidis, <em>Lattice points in elliptic annuli</em></h1>
+<p>Sums of squares. <span class="math display">\[r (n ) := \# \left\{
+(a, b ) \in \mathbb{Z}^2  : n = a^2 + b^2  \right\}
+  = 4 \sum_{
+    \substack{
+      d | n  \\
+      d \equiv 1, 3 (4)
+    }
+  }
+  (-1)^{\frac{d - 1}{2}}.\]</span> This implies that <span
+class="math inline">\(p = a^2 + b^2\)</span> if and only if <span
+class="math inline">\(p \equiv 1(4)\)</span> (Fermat).</p>
+<p>For <span class="math inline">\(u, v \geq 0\)</span> integers, <span
+class="math display">\[r_{u, v} (n) := \# \left\{ (a, b) \in
+\mathbb{Z}^2 : u a^2 + v b^2 = n \right\}.\]</span> A special case is
+when <span class="math inline">\(n =p\)</span> is prime, with <span
+class="math inline">\(u = 1\)</span>.</p>
+<p>We have <span class="math display">\[p = a^2 + 2 b^2 \iff
+  p \equiv 1,3(8),\]</span> <span class="math display">\[p = a^2 + 3 b^2
+  \iff
+  p \equiv 1(3) \qquad (\text{or } p = 3),\]</span> <span
+class="math display">\[p = a^2 + 14 b^2 \iff \left( \frac{-14}{p}
+\right) = 1
+  \text{ and $\exists$ solution $x$ to } (x^2 + 1 )^2 - 8 \equiv 0
+(p).\]</span> For all <span class="math inline">\(v &gt; 0\)</span>,
+there is an irreducible <span class="math inline">\(f_v (x) \in
+\mathbb{Z} [x]\)</span> such that <span class="math display">\[p = a^2 +
+v b^2
+  \iff
+  \left( \frac{-v}{p} \right) = 1
+  \text{ and $\exists$ solution to }
+  f_n(x) \equiv 0 (p).\]</span></p>
+<p>A reference is David A. Cox, <em>Primes of the form</em> <span
+class="math inline">\(x^2 + n y^2\)</span>, which uses methods such as
+class field theory and Shimura reciprocity.</p>
+<p>How about arithmetic functions? <span class="math display">\[r (n) =
+\# \left\{ (a, b) \in \mathbb{Z}^2 : n = a^2 + b^2
+\right\},\]</span></p>
+<p><span class="math display">\[\begin{align}
+  \sum_{n = 1}^x r (n ) &amp;= \# \left\{ (a, b ) \in \mathbb{Z}^2 : a^2
++ b^2 \leq x \right\}\\
+                        &amp;= \pi x + \operatorname{O}(\sqrt{x}),
+\end{align}\]</span> <span class="math display">\[\begin{align}
+  \sum_{n = 1}^x r_{u, v} (n) &amp;= \# \left\{ (a, b) \in \mathbb{Z}^2
+: u a^2 + v b^2 \leq x \right\} \\
+                              &amp;=
+                                \frac{\pi }{\sqrt{u v}} h + E(x,h),
+\qquad E(x,h) = \operatorname{O}(\sqrt{x}).
+\end{align}\]</span> We want to take our error and understand what
+happens when we average it: <span class="math display">\[\frac{1}{z}
+\sum_{x = z }^{2 z } E (x, h)
+  =
+  \frac{1}{z} \sum_{x = z}^{2 z} \left( \sum_{n = x}^{x + h} r_{u, v}
+(n) - \frac{\pi h}{\sqrt{u v}} \right),\]</span> and also the variance
+<span class="math display">\[\frac{1}{z} \sum_{x = z}^{2 z} E (x, h)^2
+  =
+  \frac{1}{z} \sum_{x = z}^{2 z} \left( \sum_{n = x}^{x + h} r_{u, v}
+(n) - \frac{\pi h}{\sqrt{u v}} \right)^2.\]</span> Four regimes.</p>
+<ul>
+<li><p><span class="math inline">\(h\)</span> constant</p></li>
+<li><p><span class="math inline">\(h = h(x) \rightarrow 0\)</span>
+(Wigman 2005)</p></li>
+</ul>
+<p><span class="math display">\[\sum_{n = x}^{x + h}
+  r_{u, v} (n) = \# \left\{ (a, b) \in \mathbb{Z}^2 : x \leq u a^2 + v
+b^2 \leq x + h \right\}.\]</span></p>
+<p>Analogy between integers and function fields.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Integers</th>
+<th style="text-align: center;">Function Fields</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(\mathbb{Z}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\mathcal{A}
+:= \mathbb{F}_q [T]\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">positives</td>
+<td style="text-align: center;"><span class="math inline">\(A = a_0 +
+a_1 + \dotsb + a_k T^k\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">positive</td>
+<td style="text-align: center;">monic</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">primes</td>
+<td style="text-align: center;">irreducibles</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(|n| =
+|\mathbb{Z}/n \mathbb{Z}|\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\lvert A
+\rvert = \lvert \mathcal{A} / A \mathcal{A}  \rvert\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\zeta (s) =
+\sum_{n = 1}^\infty n^{- s}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\zeta_q (s)
+= \sum_{A :\text{monic}} \lvert A \rvert^{- s}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>We also use the notation, for a polynomial <span
+class="math inline">\(A\)</span> as above, <span
+class="math display">\[_k =
+  \begin{pmatrix}
+    a_0  \\
+    a_1  \\
+    \dotsb  \\
+    a_k
+  \end{pmatrix}.\]</span> We have <span class="math display">\[r_{U, V}
+(N) = \# \left\{ (A, B) \in \mathcal{A} : N = U A^2 + V
+B^2  \right\},\]</span> where <span class="math inline">\(U\)</span> and
+<span class="math inline">\(V\)</span> are fixed monics.</p>
+<p>The mean is <span class="math display">\[\frac{1}{ q^k }
+  \sum_{
+    \substack{
+      X : \text{monic}  \\
+       \deg X = k
+    }
+  }
+  \sum_{\lvert N - x \rvert &lt; q^h }
+  r_{u, v} (N) = \frac{q^h }{\sqrt{\lvert u v \rvert}}.\]</span> The
+variance is <span id="eqn:d1bc66f48d40" class="math display">\[\label{eqn:d1bc66f48d40}\tag{9}
+   \frac{1}{ q^k }
+  \sum_{
+    \substack{
+      X : \text{monic}  \\
+       \deg X = k
+    }
+  }
+\left(   \sum_{\lvert N - x \rvert &lt; q^h }
+  r_{u, v} (N) - \frac{q^h }{\sqrt{\lvert u v \rvert}}
+\right)^2.\]</span></p>
+<p>Solutions to <span class="math display">\[N = U A^2 + V B^2,\]</span>
+where</p>
+<ul>
+<li><p><span class="math inline">\(N\)</span> is over a “short
+interval”,</p></li>
+<li><p><span class="math inline">\(A,B\)</span> over intervals of <span
+class="math inline">\(\deg \leq k\)</span>,</p></li>
+</ul>
+<p>are given by <span class="math display">\[\sum_{N, A, B} \mathbf{1}
+(N - U A^2 - V B^2 ).\]</span> The idea is now to take the Fourier
+expansion of the indicator function. Each of the resulting functions is
+additive, so we can look separately at the contribution of each
+parenthentical term. We use <span class="math display">\[\psi :
+\mathbb{F}_q \rightarrow \mathbb{C}^\ast ,\]</span> <span
+class="math display">\[\psi (x + y ) = \psi (x) \psi (y) ,\]</span>
+<span class="math display">\[\mathbf{1} (M) = \sum_{\underline{\alpha }
+\in \mathbb{F}_q^k } \psi \left( \underline{\alpha } \cdot [M]_k
+\right).\]</span> This gives the expansion <span
+class="math display">\[\sum_{\underline{\alpha } \in
+\mathbb{F}_q^{\kappa - 1}}
+  \sum_N\]</span>]</p>
+<p>This gives for the variance <a href="#eqn:d1bc66f48d40"
+data-reference-type="eqref"
+data-reference="eqn:d1bc66f48d40">\((9)\)</a> the formula
+<span class="math display">\[\begin{cases}
+q^k (\tfrac{k}{2} - h) \frac{d (u v )}{ \lvert u v \rvert^2 } \phi
+(u  v) &amp;  \text{ if } h &lt; \frac{\kappa }{2}, \\
+0 &amp; \text{ if } h &gt; \frac{\kappa }{2}.
+\end{cases}\]</span></p>
+<h1
+id="pranendu-darbar-asymmetric-distributions-of-the-extreme-values-for-cubic-l-functions-on-the-1-line">Pranendu
+Darbar, <em>Asymmetric distributions of the extreme values for cubic
+<span class="math inline">\(L\)</span>-functions on the <span
+class="math inline">\(1\)</span>-line</em></h1>
+<h1
+id="jackie-voros-on-the-average-least-negative-hecke-eigenvalue">Jackie
+Voros, <em>On the average least negative Hecke eigenvalue</em></h1>
+<h2 id="motivation-1">Motivation</h2>
+<p>Recall the Legendre symbol <span class="math display">\[\left(
+\frac{a}{p} \right)
+  =
+  \begin{cases}
+    1 &amp; \text{ if $a$ is a quadratic residue}, \\
+    -1 &amp; \text{ if $a$ is not a quadratic residue}, \\
+    0 &amp; \text{ if $p | a$}.
+  \end{cases}\]</span> Totally multiplicative. Quadratic reciprocity:
+<span class="math display">\[\left( \frac{p}{2} \right)
+  \left( \frac{2}{p} \right)
+  = (-1)^{
+    \frac{p-1}{2}
+    \frac{q-1}{2}
+  }\]</span> for <span class="math inline">\(p\)</span> and <span
+class="math inline">\(q\)</span> odd primes.</p>
+<div class="question">
+<p><strong>Question 2</strong>. What is <span
+class="math display">\[n_2(p) := \text{least $n$ such that }
+    \left( \frac{n}{p} \right) = -1.\]</span></p>
+</div>
+<p>Burgess (1957): <span class="math display">\[n_2 (p) \ll
+p^{\frac{1}{4 \sqrt{e}} + \varepsilon}.\]</span> Linnik (1942): <span
+class="math display">\[\# \left\{ p &lt; x : n_2(p) &gt;
+x^\varepsilon\right\} \ll_\varepsilon 1.\]</span></p>
+<div class="conjecture">
+<p><strong>Conjecture 6</strong> (Vinogradov). <em><span
+class="math inline">\(n_2(p) =
+\operatorname{O}(p^\varepsilon)\)</span>.</em></p>
+</div>
+<p>How about the average value, namely <span
+class="math display">\[\lim_{x \rightarrow \infty } \frac{1}{ \pi (x) }
+  \sum_{p &lt; x} n_2 (p)?\]</span> A heuristic: <span
+class="math inline">\(n_2(p)\)</span> is prime, and <span
+class="math display">\[\# \left\{ n : \left( \frac{n}{p} \right) = \pm
+1, \, n \in [1, p - 1] \right\}
+  = \frac{p - 1}{2}.\]</span> Assume that <span
+class="math display">\[\operatorname{Prob} \left( \left( \frac{q}{p}
+\right) = \pm 1 \right)
+  = \frac{1}{2}\]</span> for <span class="math inline">\(p\)</span> and
+<span class="math inline">\(q\)</span> prime, independently. Then <span
+class="math display">\[\operatorname{Prob}\left( n_2(p) = p_k \right)
+  =
+  \prod_{j=1}^k
+  \operatorname{Prob}
+  \left(
+    \left( \frac{p_j}{p} \right) = + 1
+  \right)
+  = \frac{1}{2^k}.\]</span> This is in fact what you get:</p>
+<div class="theorem">
+<p><strong>Theorem 36</strong> (Erdos 1961). <em><span
+class="math display">\[\lim_{x \rightarrow \infty }
+    \frac{1}{  \pi(x)} \sum_{p &lt; x } n_2 (p)
+    = \sum_{k = 1 }^\infty \frac{p_k }{ 2^k }.\]</span></em></p>
+</div>
+<p>Take <span class="math display">\[f \in S_k^{\mathop{\mathrm{new}}}
+(\Gamma_0 (N) ) = S_k^{\mathop{\mathrm{new}}} (N),\]</span> a normalized
+eigenform. The set of newforms is finitely-generated. We denote by <span
+class="math inline">\(H_k^\ast (N)\)</span> a finite generating set.
+Each <span class="math inline">\(f\)</span> in this set has the
+following FOurier expansion: <span class="math display">\[f (z) =
+\sum_{n \geq 1 } \lambda_f (n) n^{\frac{k - 1 }{2}} e (n z),
+  \qquad
+  e (n z ) := e^{2 \pi i n z }.\]</span> Here the <span
+class="math inline">\(\lambda_f (n)\)</span> are Hecke eigenvalues, and
+they also have a few nice properties much like the LEgendre symbol.</p>
+<ul>
+<li><p>They are (weakly) multiplicative: <span
+class="math display">\[\lambda_f (n m ) = \lambda_f (n) \lambda_f
+(m)\]</span> for <span class="math inline">\((n, m ) =
+1\)</span>.</p></li>
+<li><p>We have, e.g., <span class="math display">\[\lambda_f (p)^2 = 1 +
+\lambda_f (p^2 ).\]</span></p></li>
+<li><p>Deligne’s bound: <span class="math display">\[\lvert \lambda_f
+(n)  \rvert \leq \tau (n),\]</span> where <span
+class="math inline">\(\tau (n)\)</span> denotes the divisor function.
+Importantly, when <span class="math inline">\(n\)</span> is prime, this
+says that <span class="math display">\[\lvert \lambda_f (p) \rvert \leq
+2.\]</span> We may thus associate some angle <span
+class="math display">\[\theta_f (p) \in [0, \pi ]\]</span> such that
+<span class="math display">\[\lambda_f (p) = 2 \cos \theta_f
+(p).\]</span></p></li>
+</ul>
+<div class="question">
+<p><strong>Question 3</strong>. When is the first sign change of <span
+class="math inline">\(\lambda_f (p)\)</span>, namely <span
+class="math display">\[p_f := \text{least prime such that } \lambda_f
+(p_f ) &lt; 0?\]</span></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 37</strong> (V). <em>We have <span
+class="math display">\[\lim_{N \rightarrow \infty } \frac{1 }{ \lvert
+H_k^\ast (N)  \rvert}
+    \sum_{f \in H_k^\ast (N) } p_f
+    = \sum_{i = 1 }^\infty
+    \frac{p_i }{ 2^i },\]</span> where <span
+class="math inline">\(p_i\)</span> denotes the <span
+class="math inline">\(i\)</span>th prime.</em></p>
+</div>
+<p>Where does this come from? Let’s give some evidence or motivation.
+Let’s write <span class="math display">\[n_f := \text{least $n$ such
+that } \lambda_f (n) &lt; 0.\]</span> (Note that this need not coincide
+with <span class="math inline">\(p_f\)</span>, because we do not have
+total multiplicativity.) Then:</p>
+<ul>
+<li><p><span class="math inline">\(\lambda_f (n)\)</span> changes sign
+infinitely often.</p></li>
+<li><p>Kohnen, Sengupta, Iwaniec, Kowalski, Lau, Soundararajan, Wu,
+Matomaki: <span class="math display">\[n_f \ll Q^{3 / 8},
+    \qquad Q = k^2 N.\]</span></p></li>
+<li><p>Sato–Tate: the numbers <span class="math inline">\(\theta_f
+(p)\)</span> defined by <span class="math display">\[\lambda_f (p) = 2
+\cos \theta_f (p)\]</span> are equidistributed with respect to the
+Sato–Tate measure <span class="math display">\[\mu_{S T } = \frac{2 }{
+\pi } \sin^2 \theta \, d \theta.\]</span> In particular, half the time
+the eigenvalue should be positive, the other half, negative.</p></li>
+</ul>
+<p>We will now do a very very quick sketch proof that will maybe shed
+light on the fixing of the <span class="math inline">\(k\)</span> and
+the prime condition for <span class="math inline">\(n\)</span>. We will
+use Sato–Tate, which means that we can say that the size of the set
+<span id="eqn:d1bc67a1be84" class="math display">\[\label{eqn:d1bc67a1be84}\tag{10}
+  \frac{
+    \# \left\{ f \in H_k^\ast (N) :
+      \varepsilon_p \lambda_f (p) &gt; 0, \, p \leq z , \, p | N
+    \right\}
+  }{
+    \# \lvert H_k^\ast (N)  \rvert
+  }
+  \rightarrow \mu_{S T} ([0, \pi / 2])^{\pi_N(z) }
+  =
+  \left( \frac{1}{2} \right)^{\pi_N (z) },\]</span> where <span
+class="math display">\[\pi_N (z) := \# \left\{ \text{ primes } p \nmid N
+\right\}.\]</span> Let <span
+class="math inline">\((\varepsilon_p)\)</span> be a sequence of signs.
+Then, letting <span class="math inline">\(z\)</span> tend to infinity
+slowly enough, we deduce that <span class="math display">\[\sum p_f =
+\sum_{p_i \leq z } p_i \cdot G,\]</span> where <span
+class="math inline">\(G\)</span> denotes the numerator on the left hand
+side of <a href="#eqn:d1bc67a1be84" data-reference-type="eqref"
+data-reference="eqn:d1bc67a1be84">\((10)\)</a>.</p>
+<p>Lau, Wu 2008: <span class="math display">\[\sum_{f \in H_k^\ast (N) }
+\left\lvert \sum_{P \leq p \leq 2 P}
+    b_p \frac{\lambda_f (p)}{ p }
+  \right\rvert^{2 j } \ll k \varphi (N) \left( \frac{3 8 4 B^2 }{ P \log
+P } \right)^j
+  + (k N )^{10 /11}
+  \left( \frac{10 B Q^{1/10}}{ \log P}  \right)^{2 j}.\]</span> Here
+<span class="math inline">\((b_p)_p\)</span> are real numbers satisfying
+the bound <span class="math inline">\(\lvert b_p \rvert \leq B\)</span>.
+Basically, we want to count all forms with a sequence of signs that make
+the summands positive up to some point. We thus take <span
+class="math display">\[\mathcal{E} := \left\{ f  : \varepsilon_p
+\lambda_f (p) \geq 0, \, p \in [P, 2 P], \, p \nmid N \right\}.\]</span>
+We can then consider the sum <span class="math display">\[\sum_{f \in
+\mathcal{E} }
+  \left\lvert \sum_{
+      \substack{
+        P &lt; p \leq 2 P  \\
+        p \nmid N
+      }
+    }
+    \frac{\lambda_f (p)^2 }{ p}\right\rvert^{2 j}
+  \leq \text{ (apply large sieve).}\]</span> Then, using that <span
+class="math display">\[\lambda_f (p)^2 = 1 + \lambda_f (p^2 ),\]</span>
+we arrive at consdiering <span class="math display">\[\sum_{
+    \substack{
+      P &lt; p \leq 2 P  \\
+      p \nmid N
+    }
+  }
+  \frac{1}{p}
+  = \sum_{P \leq p \leq 2 P} \frac{1}{ p}
+  - \sum_{
+    \substack{
+      P &lt; p \leq 2 P  \\
+      p | N
+    }
+  }
+  \frac{1}{p}
+  \geq \frac{\delta }{2 \log P} - \frac{\omega (N) }{p}.\]</span> (We
+want to take <span class="math inline">\(P = 2^i z\)</span>, where <span
+class="math inline">\(i = 0,1,\dotsc\)</span>. But <span
+class="math inline">\(z\)</span> itself depends upon <span
+class="math inline">\(N\)</span>, which makes the analysis
+complicated.)</p>
+<p>In the remaining two minutes, we’ll explain briefly how we implement
+this.</p>
+<div class="corollary">
+<p><strong>Corollary 38</strong>. <em>For <span
+class="math inline">\(N\)</span> prime, <span class="math inline">\(k
+\geq 2\)</span> (not fixed), and <span class="math inline">\(z &lt;
+\beta \leq \log k N\)</span>, the set <span
+class="math display">\[\left\{ f \in H_k^\ast (N) : p_f \ll
+\beta  \right\}
+    \ll k N \exp \left( - C \frac{\beta }{ \log \beta }
+\right),\]</span> where <span class="math inline">\(C &gt;
+0\)</span>.</em></p>
+</div>
+<div class="remark">
+<p><strong>Remark 39</strong>. Technically we could take <span
+class="math inline">\(\omega(N)\)</span> to be <span
+class="math inline">\(P\)</span>-smooth, but we end up taking <span
+class="math inline">\(P\)</span> to be very large. We thus don’t need
+<span class="math inline">\(N\)</span> to be prime.</p>
+</div>
+<h1 id="min-lee-an-extension-of-converse-theorems">Min Lee, <em>An
+extension of converse theorems</em></h1>
+<h2 id="modular-forms">Modular forms</h2>
+<p>We start withs ome notation. <span
+class="math display">\[{\mathop{\mathrm{GL}}}_2^+(\mathbb{R})
+\circlearrowright \mathbb{H} = \{x + i y : x \in \mathbb{R}, y &gt;
+0\}.\]</span> For <span class="math inline">\(k \in \mathbb{Z}\)</span>,
+<span class="math display">\[\left( h |_k \gamma  \right)
+  :=
+  \left( \det \gamma  \right)^{k / 2 }
+  \left( c z + d  \right)^{- k}
+  h (\gamma z)
+  \quad \text{ for }
+  \gamma =
+  \begin{pmatrix}
+    a &amp; b \\
+    c &amp; d \\
+  \end{pmatrix}.\]</span> <span class="math inline">\(\phi\)</span>
+should be a holomorphic function on the upper half-plane, <span
+class="math inline">\(k \in \mathbb{Z}_{\geq 1}\)</span>, <span
+class="math inline">\(\Gamma_0(n)\)</span>, <span
+class="math inline">\(\chi\)</span>. <span
+class="math display">\[\int_0^1 \phi (x + i y ) \, d x
+  = 0 \quad (\text{cuspidal}),\]</span> <span
+class="math display">\[\phi |_k \gamma = \chi(d) \cdot \phi.\]</span>
+<span class="math inline">\(S_k(N,\chi)\)</span>. <span
+class="math display">\[\phi (z) = \sum_{n = 1}^\infty a_\phi (n)
+n^{\frac{k - 1}{2}} e (n z),
+  \qquad
+  e (z) = e^{2 \pi i z}.\]</span> Here we know the Ramanujanconjecture:
+<span class="math inline">\(a_\phi (n) \ll n^\varepsilon\)</span>.</p>
+<p>From such a modular form <span class="math inline">\(\phi\)</span> we
+can construct <span class="math inline">\(L\)</span>-functions <span
+class="math display">\[L (s, \phi )
+  = \sum_{k = 1}^\infty
+  \frac{a_\phi (n)}{ n^s }
+  \qquad (\Re(s) &gt; 1).\]</span> <span
+class="math display">\[\begin{align}
+  \Lambda (s, \phi ) &amp;= \Gamma_{\mathbb{C} } \left( s + \frac{k - 1
+}{ 2} \right) L (s, \phi )  \\
+                     &amp;= i^k N^{\tfrac{1}{2} - s } \Lambda (1 - s,
+\tilde{\phi }),
+\end{align}\]</span> where <span class="math display">\[\tilde{\phi} =
+\phi|_k w_N, \qquad
+  w_N =
+  \begin{pmatrix}
+    0 &amp; - 1/\sqrt{N} \\
+    \sqrt{N} &amp; 0 \\
+  \end{pmatrix}.\]</span> This is proved by using that <span
+class="math display">\[\phi (i y ) = (- i y )^k \phi \left( - \frac{1}{N
+y} \right)\]</span> and using the integral representation <span
+class="math display">\[\Lambda (s, \phi ) = 2 \int_0^\infty \phi (i y )
+  y^{s + \frac{k - 1 }{2}}
+  \, \frac{d y}{y}.\]</span></p>
+<p>Converse theorems address the question: given sequences <span
+class="math inline">\(f_n\)</span> and <span
+class="math inline">\(\tilde{f}_n\)</span> indexed by <span
+class="math inline">\(n \geq 1\)</span> whose associated Dirichlet
+series satisfy certain conditions, such as</p>
+<ul>
+<li><p><span class="math inline">\(f_n, \tilde{f}_n =
+\operatorname{O}(n^\sigma ), \sigma &gt; 0\)</span>, and</p></li>
+<li><p>analytic continuation and functional equation,</p></li>
+</ul>
+<p>must they come from something in <span class="math inline">\(S_k (N,
+\chi )\)</span>?</p>
+<p>Hecke (1936): <span class="math inline">\(N \geq 4\)</span>. <span
+class="math display">\[\{f_n\}
+  \rightsquigarrow
+  f(z) = \sum_{n = 1 }^\infty
+  f_n \cdot n^{\frac{k - 1 }{2}} e (n z).\]</span> Then <span
+class="math display">\[f |_k T = f,
+  \qquad
+  T =
+  \begin{pmatrix}
+    1 &amp; 1 \\
+    0 &amp; 1 \\
+  \end{pmatrix}.\]</span> Also, the condition <span
+class="math display">\[\tilde{f} (i y ) = f |_k w_N (i y)\]</span>
+implies that <span class="math display">\[f|_k W_N = f,
+  \qquad
+  W_N :=
+  w_N T w_N^{-1} =
+  \begin{pmatrix}
+    1 &amp; 0 \\
+    N &amp; 1 \\
+  \end{pmatrix}.\]</span> These matrices generate <span
+class="math inline">\(\Gamma_0 (N)\)</span> for <span
+class="math inline">\(N \leq 4\)</span>. For <span
+class="math inline">\(N = 5\)</span>, one needs an additional generator.
+For instance, <span class="math display">\[\Gamma_0(5)
+  = \left\langle T, w_5 T w_5^{-1},
+    \begin{pmatrix}
+      2 &amp; -1 \\
+      5 &amp; -2 \\
+    \end{pmatrix} \right\rangle.\]</span> We can consider the twisted
+<span class="math inline">\(L\)</span>-functions <span
+class="math display">\[L (s, f, \psi ) := \sum_{n = 1}^\infty
+  \frac{f_n \psi (n)}{ n^s },
+  \qquad
+  \psi : \text{Dirichlet character modulo } q.\]</span></p>
+<p>Weil (1967): if <span class="math inline">\(L (s, f, \psi )\)</span>
+satisfy analytic continuation and functional equation for all primitive
+characters <span class="math inline">\(\psi\)</span> modulo <span
+class="math inline">\(q\)</span> (prime) and all <span
+class="math inline">\(q \nmid N\)</span>, then <span
+class="math inline">\(f \in S_k(N,\chi)\)</span>.</p>
+<p>Razar (1977): it is enough to know that <span class="math inline">\(L
+(s, f, \psi )\)</span> satisfies the above for all characters <span
+class="math inline">\(\psi\)</span> (not necessarily primitive) with
+modulus <span class="math inline">\(q\)</span> in <span
+class="math inline">\(N \mathbb{Z}_{\geq 1}\)</span> satisfying <span
+class="math inline">\(N \leq q \leq N^2\)</span>.</p>
+<p>Suppose we know just a single functional equation. Then for <span
+class="math inline">\(N \geq 5\)</span>, the space of solutions, i.e.,
+pairs of sequences <span class="math inline">\((f_n)_{n \geq 1}\)</span>
+and <span class="math inline">\((\tilde{f}_n)_{n \geq 1}\)</span>
+satisfying the relevant condition, is infinite-dimensional. For an
+explicit “counterexample” to the naive converse theorem, see the paper
+of Raphael Steiner (2019).</p>
+<div class="conjecture">
+<p><strong>Conjecture 7</strong> (Farmer, Koutsaliotus, Lemuell, 2008).
+<em>Assume single functional equation and that there is an Euler
+product, i.e., that <span class="math display">\[\Lambda (s, f) =
+\Gamma_{\mathbb{C} } \left( s + \frac{k - 1}{2} \right)
+    \prod_{p \nmid N}
+    \left( 1 - f_p p^{- s } + \chi (p) p^{- 2 s } \right)^{-1}.\]</span>
+Then we should have <span class="math inline">\(f \in S_k (N, \chi
+)\)</span>.</em></p>
+</div>
+<div class="remark">
+<p><strong>Remark 40</strong>. By assuming the existence of an Euler
+product, we can eliminate the known counterexamples.</p>
+</div>
+<p>BBBCMOPSL (2018): consider, instead of an additive twist <span
+class="math inline">\(\psi (n)\)</span>, a twist by the Ramanujan sum
+<span class="math display">\[c_q (n) = \sum_{a(q)} e \left( n
+\frac{a}{q} \right).\]</span> We assume knowledge about such twists for
+all <span class="math inline">\(q\)</span> with <span
+class="math inline">\((q, N) = 1\)</span> and get a converse theorem. We
+conjecture:</p>
+<div class="conjecture">
+<p><strong>Conjecture 8</strong>. <em>If <span
+class="math inline">\(L(s,f,c_q)\)</span> have analytic continuation,
+functional equation, and moderate growth, then for all <span
+class="math inline">\(q\)</span> with <span class="math inline">\((q, N
+) = 1\)</span>, we have <span class="math inline">\(f \in S_k (N, \chi
+)\)</span>.</em></p>
+</div>
+<h2 id="petersson-trace-formula">Petersson trace formula</h2>
+<p>Let <span class="math inline">\(H_k (N, \chi ) \subset S_k (N, \chi
+)\)</span> be a basis, and let <span class="math inline">\(g\)</span> be
+an element of that basis. Write <span class="math display">\[g (z) =
+\sum_{n = 1}^\infty \rho_g (n) n^{\frac{k - 1}{2}} e (n z).\]</span> We
+have <span class="math inline">\(n, m \in \mathbb{Z}_{&gt; 0}\)</span>,
+<span class="math display">\[\begin{align}
+  &amp;\frac{(4 \pi )^{k - 1}}{ \Gamma (k - 1)}
+    \sum_{g \in H_k (N, \chi )}
+    \rho_g (n) \rho_g (m) \\
+  &amp;\quad = \delta_{n = m}
+    +
+    2 \pi i^{- k}
+    \sum_{q \in N \mathbb{Z}_{\geq 1}}
+    \frac{S_\chi (m, n, q)}{q}
+    J_{k - 1 } \left( \frac{4 \pi \sqrt{m n}}{c} \right),
+\end{align}\]</span> where we recall that <span
+class="math display">\[S_\chi (m, n, q)
+  = \sum_{
+    \substack{
+      u,v(q)  \\
+       u v \equiv 1 (q)
+    }
+  }
+  e_q (m u + n v) \chi (u).\]</span></p>
+<p>Rankin–Selberg convolutions: <span class="math display">\[L (s,
+\phi_1 \times \phi_2 ) = \zeta^{(N)} (2 s )
+  \sum_{m = 1 }^\infty
+  \frac{\lambda_{\phi_1 } (m) \overline{\lambda_{\phi_2 } (m)}}{
+m^s}.\]</span> At <span class="math inline">\(s=1\)</span>, one gets the
+residue <span class="math inline">\(\langle \phi_1, \phi_2
+\rangle\)</span>. We obtain <span class="math display">\[\begin{align}
+  &amp;\frac{(4 \pi )^{k - 1}}{\Gamma (k - 1 )}
+  \sum_{g \in H_k (N, \chi )}
+  \rho_g (n) L (s, f \times \bar{g}) \\
+  &amp;\quad =
+    f_n n^{- s}
+    \zeta^{(N)} (2 s ) + 2 \pi i^{- k}
+    \zeta^{(N)} (2 s)
+    \sum_{q \in N \mathbb{Z} }
+    \frac{1}{q}
+    \sum_{m = 1}^\infty \frac{f_m S_\chi (n, m, q)}{m^s }
+    J_{k - 1 } \left( \frac{4 \pi \sqrt{m n }}{q} \right).
+\end{align}\]</span> We can write <span class="math display">\[J_{k -
+1 } (4 \pi y)
+  = \frac{1}{2 \pi i }
+  \int_{(\sigma)}
+  \frac{\Gamma_{\mathbb{C} } \left( u + \frac{k - 1}{2} \right)}{
+    \Gamma_{\mathbb{C} } \left( - u + \frac{k - 1}{2} \right)}
+  y^{u}
+  \, \frac{d y}{y}.\]</span></p>
+<p>Venkatesh (2002): for <span class="math inline">\(N = 1\)</span>, and
+assuming finitely many poles of these <span
+class="math inline">\(L\)</span>-functions, we can recover the converse
+theorem. Here we assume that <span class="math display">\[\Lambda (s, f,
+\alpha ) = \Gamma_{\mathbb{C} } \left( s + \frac{k - 1 }{2} \right)
+  L (s, f, \alpha ),
+  \qquad
+  \alpha = \frac{a}{q}.\]</span></p>
+<div class="theorem">
+<p><strong>Theorem 41</strong> (A. Booker, M. Farmer, L 2023). <em>Let
+<span class="math inline">\((f_n )_{n \geq 1}\)</span> and <span
+class="math inline">\((\tilde{f}_n )_{n \geq 1}\)</span> such that <span
+class="math display">\[L (s, f ) := \sum_{n \geq 1} f_n n^{- s}\]</span>
+is absolutely convergent for <span class="math inline">\(\Re(s) &gt;
+1\)</span>. Set</em></p>
+<p><em><span class="math display">\[\gamma(s) = Q^s \prod_{j = 1 }^r
+\Gamma (\lambda_j s + \mu_j ),\]</span> where <span
+class="math inline">\(\lambda_j &gt; 0\)</span>, <span
+class="math inline">\(\mu_j \in \mathbb{C}\)</span> and <span
+class="math inline">\(\sum_{j = 1}^r \lambda_j = 1\)</span>. Let <span
+class="math inline">\(\alpha = u / q \in \mathbb{Q}\)</span> and <span
+class="math inline">\(Q &gt; 0\)</span>. For <span
+class="math inline">\(\Re(\mu_j) &gt; - \tfrac{1}{2} \lambda_j\)</span>,
+assume the functional equation <span
+class="math display">\[\Lambda(s,f,\alpha) = \gamma (s) \sum_{n = 1
+}^\infty \frac{f_n e (n \alpha )}{ n^s }
+  = w \cdot \chi (v)
+  q^{1/2 - s }
+  \Lambda (1 - s, \tilde{f}, - \frac{v}{q}),\]</span> where <span
+class="math inline">\(q \in N \mathbb{Z}_{\geq 1}\)</span>. Then there
+exists <span class="math inline">\(k \in \mathbb{Z}_{\geq 1}\)</span>
+such that <span class="math display">\[f (z) = \sum_{n = 1 }^\infty f_n
+e (n z ) \in M_k (N, \chi ).\]</span> If <span class="math inline">\(k
+\geq 2\)</span>, then it lies in <span
+class="math inline">\(S_k(N,\chi)\)</span>.</em></p>
+</div>
+<h1 id="junxian-li-variations-of-the-titchmarsh-divisor-problem">Junxian
+Li, <em>Variations of the Titchmarsh divisor problem</em></h1>
+<p>Titchmarsh divisor problem: find an asymptotic formula for <span id="eqn:d1bca2243875" class="math display">\[\label{eqn:d1bca2243875}\tag{11}
+  \sum_{p \leq x} \tau (p - a),
+  \quad
+  x \rightarrow \infty.\]</span> Here <span
+class="math inline">\(p\)</span> denotes a prime and <span
+class="math inline">\(a \in \mathbb{Z}\)</span>. We know that <span
+class="math display">\[\sum_{n \leq x} \tau (n) \sim n \log n.\]</span>
+We also know that <span class="math display">\[\sum_{p \leq x} 1 \sim
+\frac{x}{\log x}.\]</span> So if you believe that the prime factors of a
+shifted prime behave more-or-less like a shifted integer, then you would
+think that the main term for the Titchmarsh divisor problem <a
+href="#eqn:d1bca2243875" data-reference-type="eqref"
+data-reference="eqn:d1bca2243875">\((11)\)</a> should be
+roughly <span class="math inline">\(x\)</span>. In reality, there will
+be arithmetic factors coming up.</p>
+<p><span class="math display">\[\sum_{p \leq x}
+  \tau (p - a)
+  = \mathfrak{S} (a) x + E_\tau (x).\]</span></p>
+<ul>
+<li><p>Titchmarsh (1933): under GRH,</p></li>
+<li><p>Linnik (1966): dispersion method, unconditional.</p></li>
+<li><p>Halberstam (1967): simplified proof. <span
+class="math display">\[E_\tau (x) \ll \frac{x \log \log x}{\log
+x},\]</span> uniform in <span class="math inline">\(a\)</span>.</p></li>
+<li><p>Bombieri–Friedlander–Iwaniec (1986): <span
+class="math display">\[E_\tau (x) \ll_{A, a}
+    \frac{x}{ (\log x)^A },
+    \qquad
+    A &gt; 0.\]</span></p></li>
+<li><p>Drappeau (2017): under GRH, there exists <span
+class="math inline">\(\delta &gt; 0\)</span> such that <span
+class="math display">\[E_\tau (x) \ll x^{1 - \delta}.\]</span></p></li>
+</ul>
+<div class="question">
+<p><strong>Question 4</strong>. Do we have <span
+class="math display">\[E_\tau (x) \ll x^{1/2 +
+\varepsilon}?\]</span></p>
+</div>
+<p>Uniformity in <span class="math inline">\(a\)</span>? For example,
+<span class="math display">\[\sum_{p \leq N} \tau (N - p).\]</span> How
+many ways can an integer <span class="math inline">\(n\)</span> be
+written as a sum of a prime and two squares? <span
+class="math display">\[n = p + x^2 + y^2.\]</span> This question arises
+naturally in the study of, e.g., <span class="math display">\[\sum_{p
+\leq x} r (n - p).\]</span> What do we know about such sums? Consider
+the statement <span class="math display">\[\sum_{p \leq n}
+  r (n - p)
+  \leq
+  \mathfrak{S} (n) \frac{\pi n}{ \log n}
+  + E_r (n).\]</span></p>
+<ul>
+<li><p>Hooley (1957): established the above under GRH.</p></li>
+<li><p>Linnik: unconditional proof.</p></li>
+<li><p>Elliott–Halberstam: simplified proof, <span
+class="math display">\[E_r (n) \ll \frac{n}{ (\log n )^{1 + \delta }},
+    \qquad
+    \delta \approx 0.04.\]</span></p></li>
+</ul>
+<div class="theorem">
+<p><strong>Theorem 42</strong> (Assing–Blomer–L.). <em>We have <span
+class="math display">\[E_\tau (n) \ll \frac{n}{ (\log n )^A }
+    \quad \text{ for all } A &gt; 0,\]</span> uniformly in <span
+class="math inline">\(\lvert a \rvert \ll n\)</span>. We have <span
+class="math display">\[\sum_{p \leq n} r (n - p) =
+    \mathfrak{S} (n) \operatorname{Li}(n) + \operatorname{O}_A \left(
+\frac{n}{ (\log n)^A } \right).\]</span></em></p>
+</div>
+<p>Upper bounds for <span class="math inline">\(\sum_{p \leq x} \lambda
+(p - a)\)</span>, where <span class="math inline">\(p\)</span> denotes a
+prime and <span class="math inline">\(a \in \mathbb{Z}\)</span>.</p>
+<p>Pitt (2013): there exists <span class="math inline">\(\delta &gt;
+0\)</span> such that <span class="math display">\[\sum_{p \leq x }
+\lambda \left(p + \frac{1}{q}\right) \ll x^{1 - \delta}.\]</span></p>
+<p>Assing–Blomer–Li: uniformity in level, shift parameter, weight,
+spectral parameter.</p>
+<p>Recall that <span class="math inline">\(\pi (x) = \# \left\{ p \leq x
+\right\}\)</span>, <span class="math inline">\(\pi (x, q, a) = \#
+\left\{ p \equiv a(q) \right\}\)</span>. Then <span
+class="math display">\[\sum_{q \leq \sqrt{x} / (\log x)^B }
+  \max_{(a,q)}
+  \left\lvert \pi (x, q, a) - \frac{\pi (x) }{\phi (q) } \right\rvert
+  \ll_A \frac{x}{ (\log x)^A }\]</span> for all <span
+class="math inline">\(A &gt; 0\)</span>.</p>
+<p>We have <span class="math display">\[\sum_{\frac{\sqrt{x}}{ (\log
+x)^B } &lt; q &lt; \sqrt{x}}
+  \frac{x}{\phi (q) \log (x/q)}
+  \ll \frac{x \log_2 x }{\log x}.\]</span> Also <span
+class="math display">\[\sum_{q \sim \sqrt{x}}
+  \left( \pi (x, q, a) - \frac{\pi (x) }{ \phi (q) } \right)
+  \ll \frac{x}{ (\log x)^A },\]</span> uniform in <span
+class="math inline">\(a \ll x^{1 + \delta }\)</span>; also, you can go
+up to <span class="math inline">\(x^{1/2 + \delta }\)</span>, and then
+all the way up to <span class="math inline">\(x / (\log x )^B\)</span>
+because of the switching divisor thing?</p>
+<p>Leads to <span class="math display">\[\sum_{q_2 } \sum_h \sum_{q_1 }
+  S \left( a h (n_1 - n_2 ) \bar{n}_1, q_2, q_1 n_2  \right).\]</span>
+Now apply Kuznetsov and large sieve. This sequence is very sparse when
+you have large coefficients <span class="math inline">\(a\)</span>.
+Thats’ why uniformity is a major issue in the original Titchmarsh
+divisor problem. We overcome this difficulty by factoring out the
+coefficient <span class="math inline">\(a\)</span>, in some sense,
+because of a certain multiplicativity of the Fourier coefficients. But
+because we have levels and these inverses, it’s not at the cusp
+infinity, but rather at something like the cusp <span
+class="math inline">\(1/N\)</span>.</p>
+<p>Study <span class="math inline">\(\sum_{p}\tau (p^2 + q^2 + 1) -
+\mathcal{M} + \mathcal{E}\)</span>. Improve to arbitrary power of a
+logarithm savings? How about the analogue for cusp forms, namely <span
+class="math inline">\(\sum \lambda (p^2 + q^2 + 1)\)</span>?</p>
+<h1
+id="mayank-pandey-l1-norms-of-exponential-sums-with-multiplicative-coefficients">Mayank
+Pandey, <em><span class="math inline">\(L^1\)</span>-norms of
+exponential sums with multiplicative coefficients</em></h1>
+<p>The general problem is to understand the distribution of the
+magnitude of exponential sums of some arithmetically interesting
+coefficients <span class="math inline">\(a : \mathbb{N} \rightarrow
+\mathbb{C}\)</span>, namely <span class="math display">\[\left\lvert
+\sum_{n \leq X} a (n )  e(n \alpha)  \right\rvert.\]</span> One approach
+that gives a lot of information about these is through the moments <span
+class="math display">\[\int_0^1 \left\lvert \sum_{n \leq X } a (n ) e (n
+\alpha ) \right\rvert^s \, d \alpha.\]</span> We focus on the <span
+class="math inline">\(L^1\)</span>-norm. Here there is comparatively
+little known. Less structure compare to the even moments.</p>
+<p>Why would we want to understand such <span
+class="math inline">\(L^1\)</span>-norms?</p>
+<p>There’s the general problem of understanding the distribution, which
+one might want for its own sake. It’s not inconceivable that it might
+show up in applications of the circle method. Finally, there’s an
+interesting result of Bourgain:</p>
+<div class="theorem">
+<p><strong>Theorem 43</strong>. <em>Any finite subset <span
+class="math inline">\(A \subseteq \mathbb{N}\)</span> has a sumfree
+subset <span class="math inline">\(B\)</span> with <span
+class="math display">\[\lvert B \rvert \geq \frac{1}{3} \lvert A \rvert
++ \frac{1}{ \log \lvert A \rvert} \int_0^1 \left\lvert \sum_{n \in A } e
+(n \alpha ) \right\rvert \, d \alpha.\]</span></em></p>
+</div>
+<p>The best current result (also due to Bourgain) is that the biggest
+such <span class="math inline">\(B\)</span> has size <span
+class="math display">\[\geq \frac{1}{3} \lvert A \rvert +
+\frac{2}{3}.\]</span> This improves upon a simpler result of Erdos where
+one just has <span class="math inline">\(|B| \geq (1/3) |A|\)</span>
+under weaker conditions.</p>
+<p>One might hope that sets with small <span
+class="math inline">\(L^1\)</span>-norm can be characterized, then
+manually dealt with, to obtain <span class="math display">\[\lvert B
+\rvert \geq \frac{1}{3} \lvert A \rvert + \psi (\lvert A
+\rvert),\]</span> for some <span class="math inline">\(\psi(X)
+\rightarrow \infty\)</span>. Bloom has announced some results in this
+direction for general sets.</p>
+<p>Let’s turn to basic considerations regarding what one can prove. It’s
+not hard to show that <span class="math display">\[\int_0^1 \left\lvert
+\sum_{n \leq X} e (n \alpha ) \right\rvert \, d \alpha
+  \asymp \log X.\]</span> This is sharp, due to a (resolved) conjecture
+of Littlewood: <span class="math display">\[\int_0^1 \left\lvert \sum_{n
+\leq X} a (n ) e (n \alpha ) \right\rvert \, d \alpha
+  \gg
+  \sum_{j \leq k}
+  \frac{\left\lvert a (n_j ) \right\rvert}{j},\]</span> where <span
+class="math inline">\(\{n_1, \dotsc, n_k\}\)</span> are those <span
+class="math inline">\(n \leq X\)</span> at which <span
+class="math inline">\(a (n) = 0\)</span>. One expects that the <span
+class="math inline">\(L^1\)</span>-norm is small only if the
+coefficients are structured in arithmetic progressions, and the
+aforementioned work of Bloom makes this precise when the <span
+class="math inline">\(L^1\)</span>-norm is very small.</p>
+<p>For the case where <span class="math inline">\(a(n)\)</span> is a
+multiplicative function, here are some examples of results.</p>
+<div class="theorem">
+<p><strong>Theorem 44</strong> (Balog, Ruzsa). <em>For fixed <span
+class="math inline">\(r \geq 2\)</span>, we have <span
+class="math display">\[\int_0^1 \left\lvert \sum_{n \leq X}
+1_{r\text{-free}}(n) e (n \alpha ) \right\rvert
+    \, d \alpha \asymp X^{\frac{1}{r + 1}}.\]</span></em></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 45</strong> (Vaughan, Goldston). <em>We have <span
+class="math display">\[\sqrt{X} \ll \int_0^1 \left\lvert \sum_{n \leq X}
+\Lambda (n ) e (n \alpha ) \right\rvert \, d \alpha
+    \leq \left( \frac{1}{\sqrt{2}} + o(1) \right)
+    \sqrt{X \log X}.\]</span></em></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 46</strong> (Balog–Rusza). <em>For <span
+class="math inline">\(a (n)\)</span> supported on squarefree <span
+class="math inline">\(n\)</span>, we have <span
+class="math display">\[\int_0^1 \left\lvert \sum_{n \leq X } a (n ) e (n
+\alpha ) \right\rvert \, d \alpha
+    \gg
+    X^{1/ 8 - o(1)} \left( \frac{1}{X} \sum_{n \leq X } \lvert a (n
+)  \rvert^2  \right)^{1/2}.\]</span></em></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 47</strong> (P.). <em>With <span
+class="math inline">\(\lambda_f (n)\)</span> the normalized Fourier
+coefficients of an <span
+class="math inline">\({\mathop{\mathrm{SL}}}_2(\mathbb{Z})\)</span>
+modular form, we have <span class="math display">\[\int_0^1 \left\lvert
+\sum_{n \leq X } \lambda_f (n ) e (n \alpha ) \right\rvert \, d \alpha
+    = C X^{1/2} + \operatorname{O}(X^{1/2 - \delta })\]</span> for some
+<span class="math inline">\(\delta &gt; 0\)</span> (probably <span
+class="math inline">\(\delta = 1/100\)</span> suffices).</em></p>
+</div>
+<p>One of the main results that we’ll state today is the following,
+joint with Maksym Radziwill.</p>
+<div class="theorem">
+<p><strong>Theorem 48</strong> (P., Radziwill). <em>Take <span
+class="math inline">\(\lambda\)</span> the Liouville function
+(completely multiplicative, <span class="math inline">\(\lambda (p) = -
+1\)</span> for all <span class="math inline">\(p\)</span>). We have
+<span class="math display">\[\int_0^1 \left\lvert \sum_{n \leq X}
+\lambda (n) e (n \alpha ) \right\rvert \, d \alpha
+\gg X^{1/4 - o(1)}.\]</span></em></p>
+</div>
+<ul>
+<li><p>Previous best result due to Balog and Perelli, giving a lower
+bound of <span class="math inline">\(\exp (c \log X / \log \log
+X)\)</span>.</p></li>
+<li><p>Methods apply to the Mobius function, beating the previous
+Balog–Ruzsa <span class="math inline">\(X^{1/6}\)</span> result lower
+bound. (Balog–Rusza used less information.)</p></li>
+</ul>
+<p>Another one of our results is a structure theorem for the <span
+class="math inline">\(L^1\)</span>-norm of an exponential sum with
+multiplicative coefficients.</p>
+<div class="theorem">
+<p><strong>Theorem 49</strong> (P. Radziwill). <em>Suppose that <span
+class="math inline">\(f : \mathbb{N} \rightarrow \{\pm 1\}\)</span> is
+completely multiplicative. Suppose that <span class="math inline">\(M
+\ll X^{\eta }\)</span> for some absolute <span
+class="math inline">\(\eta &gt; 0\)</span>. Then, if <span
+class="math display">\[\int_0^1 \left\lvert \sum_{n \leq X } f (n) e (n
+\alpha ) \right\rvert \, d \alpha
+    \leq M,\]</span> then there exist <span class="math inline">\(\chi
+(q), t \in \mathbb{R}\)</span> with <span class="math inline">\(q (1 +
+\lvert t \rvert) \ll M^2 \log^{\operatorname{O}(1)} \chi\)</span> such
+that <span class="math display">\[f \approx \{n \mapsto \chi (n ) n^{i
+t}\}.\]</span></em></p>
+</div>
+<p>While not fully worked out, we expect to make “<span
+class="math inline">\(\approx\)</span>” correspond to pretentiousness.
+From the lens of <span class="math inline">\(\approx\)</span>, this is
+sharp: for <span class="math inline">\(\chi\)</span> of conductor <span
+class="math inline">\(q\)</span>, and <span class="math inline">\(t \in
+\mathbb{R}\)</span> with <span class="math inline">\(q (1 + \lvert t
+\rvert)\)</span> at most a small power of <span
+class="math inline">\(X\)</span>, we have <span
+class="math display">\[\int_0^1 \left\lvert \sum_{n \leq X} \chi (n )
+n^{i t} e (n \alpha ) \right\rvert \, d \alpha
+  = (q (1 + \lvert t \rvert))^{1/2} (\dotsb).\]</span></p>
+<p>The next result follows from similar methods.</p>
+<div class="theorem">
+<p><strong>Theorem 50</strong>. <em>Let <span
+class="math inline">\(\lambda_\pi(n_1,\dotsc,n_{m-1})\)</span> be the
+Fourier coefficients (or Hecke eigenvalues) of some <span
+class="math inline">\({\mathop{\mathrm{GL}}}_m\)</span> cuspidal
+automorphic representation <span class="math inline">\(\pi\)</span>.
+Then we get <span class="math display">\[\int_0^1
+    \left\lvert \sum_{n \leq X }\lambda_\pi (1, \dotsc, 1, n ) e(n
+\alpha)
+    \right\rvert
+    \, d \alpha \gg X^\delta,\]</span> where <span
+class="math inline">\(\delta = \delta(m) \gg 1/m\)</span>.</em></p>
+</div>
+<p>When <span class="math inline">\(m = 2\)</span>, this follows from
+the Jutila/Wilton pointwise bound of <span
+class="math inline">\(X^{1/2}\)</span>, and similarly for <span
+class="math inline">\(m = 3\)</span> by the bound <span
+class="math display">\[\sum_{n \leq X} \lambda_\pi (1, n) e (n \alpha )
+\ll X^{3/4 + o(1)}\]</span> of Miller, but seems new for general <span
+class="math inline">\(m\)</span>, where there is no nontrivial <span
+class="math inline">\(L^\infty\)</span>-bound.</p>
+<p>Now we give the sketch of the proof of the result concerning general
+multiplicative functions. Suppose that <span
+class="math inline">\(f\)</span> does not pretend tob e a character of
+conductor <span class="math inline">\(\leq Q\)</span> for some <span
+class="math inline">\(Q \leq X^\delta\)</span>. Let <span
+class="math display">\[S (\alpha) := \sum_{n \leq X } f (n ) e (n \alpha
+).\]</span> The theorem is then the statement that <span
+class="math display">\[\lVert S \rVert_1 \gg \sqrt{Q}.\]</span> Define
+the major arcs <span class="math display">\[\mathfrak{M} = \cup_{
+    \substack{
+      q \leq Q  \\
+       (a, q ) = 1
+    }
+  }
+  \mathfrak{M} (q, a),
+  \qquad
+\mathfrak{M} (q, a) := (\dotsb)\]</span> and the minor arcs <span
+class="math inline">\(\mathfrak{m}\)</span>.</p>
+<p>If we have a bound of <span class="math inline">\(X /
+\sqrt{Q}\)</span> for <span class="math inline">\(S(\alpha)\)</span> on
+the minor arcs <span class="math inline">\(\mathfrak{m}\)</span>, and
+that <span class="math display">\[\int_{\mathfrak{M} } \lvert S (\alpha
+) \rvert^2 \, d \alpha \leq (1 - \sigma ) X\]</span> for some <span
+class="math inline">\(\sigma \gg 1\)</span>. Then we are done, by
+Cauchy–Schwarz: <span class="math display">\[\int_{\mathfrak{m} }
+\left\lvert S (\alpha)  \right\rvert^2 \, d \alpha  \gg X \implies
+\int_{\mathfrak{m} }
+  \left\lvert S (\alpha)  \right\rvert \, d \alpha.\]</span></p>
+<p>Don’t have such good minor arc bounds for <span
+class="math inline">\(S (\alpha)\)</span> from nonpretentiousness, which
+is insensitive to primes <span class="math inline">\(\sim X\)</span>, so
+we can do no better than saving <span class="math inline">\(1 / \log
+X\)</span>. Instead, we decompose as <span class="math display">\[S =
+S^* + S_{\mathrm{exc}},\]</span> with <span
+class="math display">\[\lVert S_{\mathrm{exc}} \rVert_2^2 =
+  o_{\delta \rightarrow 0} (X) ,
+  \qquad
+  \sup_{\alpha \in \mathfrak{m} } \left\lvert S^\ast (\alpha )
+\right\rvert \ll X / \sqrt{Q}.\]</span> Here <span
+class="math inline">\(S^\ast\)</span> is a sum over <span
+class="math inline">\(n\)</span> with a prime factor in a certain range,
+and we use Ramare’s identity to provide bilinearity to get minor arc
+bounds. Let <span class="math display">\[\mathcal{E} := \left\{ \alpha :
+\left\lvert S_{\mathrm{exc}} (\alpha)  \right\rvert \geq X / \sqrt{Q}
+\right\}.\]</span> Something.</p>
+<p>Then, because the exceptional set attached to <span
+class="math inline">\(\alpha \in \mathfrak{m} \cap \mathcal{E}\)</span>
+has size at least <span class="math inline">\(S^*(\alpha)\)</span>, and
+since we can bound the <span class="math inline">\(L^2\)</span>-norm of
+<span class="math inline">\(S(\alpha)\)</span> on <span
+class="math inline">\(\mathfrak{m} \cap \mathcal{E}\)</span> by that of
+<span class="math inline">\(S_{\mathrm{exc}}(\alpha)\)</span>, then we
+get the desired lower bound <span class="math inline">\(\lVert S
+\rVert_1 \gg \sqrt{Q}\)</span>.</p>
+<p>The main part is the <span class="math inline">\(L^2\)</span> upper
+bound on the major arcs. By Plancherel and change of variables, we get
+<span class="math display">\[\int_{\mathfrak{M} } \lvert S
+(\alpha)  \rvert^2 \, d \alpha
+  \approx
+  \sum_{q \leq Q} \sum_{\chi(q)}^\ast \int_{\lvert t \rvert \ll Q / q}
+  \left\lvert \sum_{n \sim X} f (n) \chi (n) n^{i t} \right\rvert^2 \, d
+t.\]</span> Restricting to <span class="math inline">\(n\)</span> with a
+prime factor in <span class="math inline">\([X^{3 \delta}, X^{1 - 3
+\delta }]\)</span> and applying Turan–Kubilius, there are scales <span
+class="math display">\[X^{3 \delta } \ll N, \quad P \ll X^{1 - 3 \delta
+}, \quad
+  N P \asymp X\]</span> such that the above is <span
+class="math display">\[\ll \log^2 P
+  \sum_{q \leq Q}
+  \sum_{\chi (q)}^\ast
+  \int_{\lvert t \rvert \ll Q/q}
+  \left\lvert \sum_{n \asymp N} f (n) \chi (n) n^{i t } \right\rvert^2
+  \left\lvert \sum_{p \asymp P} f (p) \chi (p) p^{i t} \right\rvert^2 \,
+d t.\]</span> We bound the <span class="math inline">\(n\)</span>-sum in
+<span class="math inline">\(L^\infty\)</span> via Halasz. We win after
+using the large sieve on the <span class="math inline">\(p\)</span>-sum:
+there are more harmonics than the length, so we get a savings of <span
+class="math inline">\(Q^2\)</span> from the large sieve.</p>
+<p>Let’s now give a sketch of the Liouville result. We begin by writing
+<span class="math display">\[S_X (\alpha) = \sum_{n \leq X } \lambda (n
+) e (n \alpha ).\]</span> Then <span class="math inline">\(S_X\)</span>
+varies on scales of size <span class="math inline">\(1/X\)</span>, so we
+have <span class="math display">\[\begin{align}
+  \int_0^1  \lvert S_X (\alpha)  \rvert \, d \alpha
+  &amp;\gg \frac{1}{X}
+    \sum_{
+    \substack{
+    p \sim \sqrt{X}  \\
+   (a, p ) = 1
+  }
+  }
+  \left\lvert S_X \left( \frac{a}{p} \right) \right\rvert
+  \\
+  &amp;\geq
+    \frac{1}{X}
+    \sum_{p \sim \sqrt{X}}
+    \dotsb.
+\end{align}\]</span></p>
+<p>For typical <span class="math inline">\(p \sim \sqrt{X}\)</span>, we
+generically expect that (since <span
+class="math inline">\(\zeta\)</span> has notnrivial zeros) <span
+class="math display">\[p \sum_{n \leq X /p } \lambda (n ) \gg p \sqrt{X
+/ p } \asymp X^{3/4},\]</span> and as <span
+class="math inline">\(X\)</span> varies, there are <span
+class="math inline">\(\Omega\)</span> results to this effect that have
+been established.</p>
+<p>As for varying <span class="math inline">\(X\)</span>, we write <span
+class="math display">\[F_X (\alpha) = \sum_{n \leq X} e (n \alpha
+).\]</span> We then have that for <span class="math inline">\(y \leq
+X\)</span>, <span class="math display">\[\int_0^1 F_y (\alpha - \beta )
+S_X (\beta) \, d \beta = S_y (\beta),\]</span> and so <span
+class="math display">\[\lVert S_y \rVert_1 \leq \lVert F_y  \rVert_1
+\lVert S_X  \rVert_1.\]</span> Since <span class="math inline">\(\lVert
+F_y  \rVert_1 \asymp \log y\)</span>, we obtain that (...).</p>
+<p>We reduce to showing that <span class="math display">\[\frac{1}{X}
+\cdot X^{1/2} \frac{1}{X} \int_{y \asymp X} \left\lvert p \sum_{n \leq y
+/ p } \lambda (n )
+  + \sum_{n \leq y} \lambda (n)\right\rvert \, d y \gg X^{1/4 -
+o(1)}.\]</span> The idea that’s used here is to integrate against the
+kernel <span class="math inline">\(w(y/X)\)</span>, where <span
+class="math display">\[w (u) := \frac{1}{2 \pi i } \int_{(2)}
+\frac{\zeta (s + i \gamma_0 )}{ s - \tfrac{1}{2} }
+  u^{- s} e^{s^2 } \, d s,\]</span> and <span
+class="math inline">\(\frac{1}{2} + i \gamma_0\)</span> is some zero of
+<span class="math inline">\(\zeta\)</span>. This is based on an idea of
+Pintz.</p>
+<p>With this, we can pick out the oscillation coming from a zero of
+<span class="math inline">\(\zeta\)</span> for the expected <span
+class="math inline">\(\Omega\)</span> fresult. In particular, on
+average, <span class="math display">\[p \sum_{n \leq y / p } \lambda (n
+) + \sum_{n \leq y } \lambda (n ) \gg X^{1/2} p^{1/2} \sim
+X^{3/4}.\]</span> We thereby obtain the required lower bound</p>
+<h1
+id="andrei-seymourhowell-rigorous-computation-of-maass-cusp-forms-of-squarefree-level">Andrei
+Seymour–Howell, <em>Rigorous computation of Maass cusp forms of
+squarefree level</em></h1>
+<p><span class="math inline">\(S_\lambda(N)\)</span>: the space of Maass
+cusp forms of level <span class="math inline">\(N\)</span> (trivial
+character) with eigenvalue <span
+class="math inline">\(\lambda\)</span>.</p>
+<p>Hecke operators <span class="math inline">\(T_n\)</span>, Fourier
+expansions with coefficients <span class="math display">\[a(n) =
+\lambda(n),
+  \qquad
+  a(-n) = \varepsilon\lambda(n),\]</span> where <span
+class="math inline">\(\varepsilon= \pm 1\)</span>.</p>
+<p>History of computations. In the 1990’s, Hejhal developed an algorithm
+to compute Maass cusp forms, generalized by Stromberg in 2006 to work
+for general congruence (and non-congruence) subgroups. This argument
+works very well in practice, but relies on a heuristic argument, and it
+has not been proven yet to rigorously converge to genuine Maass cusp
+forms. One gets number that look like Maass forms, but one can’t tell if
+it is an exact Maass form.</p>
+<p>Booker–Strombergsson–Venkatesh (2006) developed an algorithm to
+verify the computations of Maass cusp forms. Originally derived only for
+level <span class="math inline">\(1\)</span>, but recent work of Child
+has generalized this to general level and character.</p>
+<p>Booker and Strombergsson (2006) used the Selberg trace formula for
+computations of Maass cusp forms. However, they focused mainly on
+proving the non-existence of Maass forms in certain cases.</p>
+<p>The main tool we’ll use here is the Selberg trace formula. Hecke
+eigenbasis <span class="math inline">\(f_j\)</span>, with Laplace
+eigenvalues <span class="math inline">\(\lambda_j\)</span> and Hecke
+eigenvalues <span class="math inline">\(a_j (n)\)</span>. Let <span
+class="math inline">\(H\)</span> be a nice (analytic) test function.
+Then the spectral sum <span class="math display">\[t(n,H) := \sum_j a_j
+(n ) H (\lambda_j )\]</span> admits a geometric expansion.</p>
+<p>Aside to modular forms. Explicit versions of the trace formula have
+been used to compute basis elements of the spaces of modular forms.
+Example: PARI command <code>mfeigenbasis</code>. Since these spaces are
+finite-dimensional, one can use Hecke operators and linear algebra to
+extract Fourier coefficients of basis elements.</p>
+<p>In the Maass form case, our spaces become infinite-dimensional. We’ll
+mimic the idea, though, by taking the test function to decay rapidly
+enough that an essentially bounded number of eigenvalues contribute.</p>
+<p>As for details, we define, for a sequence of real numbers <span
+class="math inline">\(c(m)\)</span> (here <span class="math inline">\(1
+\leq m \leq M\)</span>) satisfying <span class="math inline">\(c(m) =
+0\)</span> if <span class="math inline">\((m,N) &gt; 1\)</span>, <span
+class="math display">\[Q (c, H) :=
+  \sum_{j = 1 }^\infty \left( \sum_{m = 1 }^M c (m ) a_j (m ) \right)^2
+H (\lambda_j).\]</span> We can rewrite this using Hecke
+multiplicativity.</p>
+<p>Intuitively, suppose we have some putative numerical approximations
+<span class="math inline">\(\tilde{\lambda}_j\)</span> and <span
+class="math inline">\(\tilde{a}_j(m)\)</span> to <span
+class="math inline">\(\lambda_j\)</span> and <span
+class="math inline">\(a_j(m)\)</span>. Then we want to choose numbers
+<span class="math inline">\(c_i(m) = 0\)</span> if <span
+class="math inline">\((m, N ) &gt; 1\)</span> and <span
+class="math display">\[\sum_{m = 1}^M c_i (m ) \tilde{a}_j(m)
+  =
+  \begin{cases}
+1 &amp; \text{ if } j = i, \\
+0 &amp; \text{ otherwise.}
+\end{cases}\]</span> Let <span
+class="math inline">\(\tilde{H}_i(\lambda) = H(\lambda) (\lambda -
+\tilde{\lambda}_i)^2\)</span>. For the verification, we shall prove that
+there exists a Laplace eigenvalue near <span
+class="math inline">\(\tilde{\lambda}_i\)</span>. For this, we use the
+definition of <span class="math inline">\(Q\)</span> to compute <span
+class="math display">\[\varepsilon_i := \sqrt{\frac{Q (c_i ,
+\tilde{H}_i)}{Q (c_i, H)}}.\]</span> There exists a cuspidal eigenvalue
+<span class="math inline">\(\lambda \in [\tilde{\lambda}_i -
+\varepsilon_i, \tilde{\lambda}_i + \varepsilon_i]\)</span>.</p>
+<p>With the same <span class="math inline">\(H\)</span> as before, we
+define <span class="math inline">\(\tilde{H}(\lambda) = \lambda
+H(\lambda)\)</span>. Let <span class="math inline">\(Q\)</span> and
+<span class="math inline">\(\tilde{Q}\)</span> denote the respective
+matrices of the quadratic forms <span class="math inline">\(Q (c,
+H)\)</span> and <span class="math inline">\(Q (c, \tilde{H})\)</span>.
+To find the eigenvalues <span class="math inline">\(\lambda_j\)</span>,
+we seek solutions to the generalized symmetric eigenvalue problem <span
+class="math display">\[\tilde{Q} x = \lambda Q x.\]</span> This gives us
+numerical approximations to the Laplace eigenvalues. The corresponding
+eigenvectors we then use as the <span
+class="math inline">\(c_i\)</span>. This way means we only have to do
+two matrix diagonalizations per level.</p>
+<h1
+id="beat-zurbuchen-satotate-laws-for-fourier-duals-of-exponential-sums">Beat
+Zurbuchen, <em>Sato–Tate laws for Fourier duals of exponential
+sums</em></h1>
+<h2 id="satotate">Sato–Tate</h2>
+<p>Let <span class="math inline">\(E/\mathbb{Q}\)</span> be a non-CM
+elliptic curve.</p>
+<p>Let <span class="math inline">\(p\)</span> be a prime of good
+reduction for <span class="math inline">\(E\)</span>. Then one can prove
+using the Lefschetz trace formula that the number of points for the
+reduction of <span class="math inline">\(E\)</span> modulo <span
+class="math inline">\(p\)</span> in this finite field is <span
+class="math display">\[\lvert E_p(\mathbb{P}^n) \rvert = p^k + 1 - p^{k
+/2} \left( \alpha_p^n + \alpha_p^{- n} \right),
+  \quad
+  \lvert \alpha  \rvert = 1.\]</span> <span
+class="math display">\[\Theta_p :=
+  \begin{pmatrix}
+    \alpha  &amp; 0 \\
+    0 &amp; \bar{\alpha } \\
+  \end{pmatrix}
+  \in
+  \mathop{\mathrm{SU}}(2)^{\sharp}.\]</span> Here <span
+class="math inline">\(\mathop{\mathrm{SU}}(2)^{\sharp}\)</span> denotes
+the set of topological conjugacy classes of <span
+class="math inline">\(\mathop{\mathrm{SU}}(2)\)</span>.</p>
+<p>Sato–Tate says that for all continuous <span class="math display">\[f
+: \mathop{\mathrm{SU}}(2)^{\sharp}
+  \rightarrow \mathbb{C} ,\]</span> we have <span
+class="math display">\[\lim_{N \rightarrow \infty }
+  \mathbb{E}_{
+    \substack{
+      p \leq N  \\
+      \text{good reduction}
+    }
+  }
+  f (\Theta_p )
+  =
+  \int_{\mathop{\mathrm{SU}}(2)} f(g) \, d g.\]</span></p>
+<p>Tate module: for <span class="math inline">\(\ell\)</span> a prime,
+for <span class="math inline">\(p \neq \ell\)</span> of good reduction
+for <span class="math inline">\(E\)</span>, <span
+class="math display">\[T_{\ell} : G_{\mathbb{Q} } \rightarrow
+{\mathop{\mathrm{GL}}}_2 (\mathbb{Q}_{\ell} ).\]</span> Fix <span
+class="math display">\[\iota : \overline{\mathbb{Q}_{\ell} }
+\xrightarrow{\cong } \mathbb{C}.\]</span> For each such <span
+class="math inline">\(p\)</span>, <span class="math display">\[\Theta_p
+= \left( \iota \left( T_{\ell} ({\mathop{\mathrm{Frob}}}_p ) \right)
+\right)^{ss}.\]</span></p>
+<p>Sato–Tate over <span class="math inline">\(\mathbb{G}_m\)</span>? Let
+<span class="math inline">\(p\)</span> be an odd prime. Let <span
+class="math inline">\(q = p^m\)</span>. Take a prime <span
+class="math inline">\(\ell \neq p\)</span>.</p>
+<div class="definition">
+<p><strong>Definition 51</strong>. An <span
+class="math inline">\(\ell\)</span>-adic local system on <span
+class="math inline">\(\mathbb{G}_{m,\mathbb{F}_q}\)</span> is a
+continuous Galois representation <span class="math display">\[\rho :
+G_{\mathbb{F}_q (t) } \rightarrow {\mathop{\mathrm{GL}}}_n(
+\overline{\mathbb{Q}_{\ell}})\]</span> which ramifies at most at <span
+class="math inline">\(0\)</span> and <span
+class="math inline">\(\infty\)</span>.</p>
+</div>
+<p>From now on, <span class="math inline">\(\rho\)</span> is an <span
+class="math inline">\(\ell\)</span>-adic local system.</p>
+<div class="remark">
+<p><strong>Remark 52</strong>. Local systems will give you functions:
+<span class="math display">\[\rho(t) :
+    \mathbb{F}_q^\ast \rightarrow \mathbb{C}\]</span> <span
+class="math display">\[t \mapsto
+    \mathop{\mathrm{trace}}({\mathop{\mathrm{Frob}}}_t | \rho
+).\]</span></p>
+</div>
+<div class="example">
+<p><strong>Example 53</strong>. </p>
+<ol>
+<li><p>Let <span class="math inline">\(\chi : \mathbb{F}_{q^n }^\ast
+\rightarrow S^1\)</span>, there is a local system <span
+class="math inline">\(h_\chi\)</span> such that <span
+class="math display">\[h_\chi (t) = \chi \left( N_{\mathbb{F}_{q^n } /
+\mathbb{F}_q } (t)  \right).\]</span></p></li>
+<li><p>Let <span class="math inline">\(\lambda_2 : \mathbb{F}_p^\ast
+\rightarrow S^1\)</span> denote the Legendre symbol, and let <span
+class="math inline">\(\chi : \mathbb{F}_q^\ast \rightarrow S^1\)</span>
+and <span class="math inline">\(\psi : \mathbb{F}_q \rightarrow
+S^1\)</span> be characters, with <span
+class="math inline">\(\psi\)</span> nontrivial. Then there is a local
+system <span class="math display">\[\mathcal{H} (\psi, \chi )\]</span>
+such that <span class="math display">\[\mathcal{H} (\psi, \chi ) =
+\sum_{x_1 \dotsb x_7 = t y}
+      \psi \left( {\mathop{\mathrm{trace}}}_{\mathbb{F}_{q^n } /
+\mathbb{F}_q } (x_1 \dotsb x_7 - y) \right)
+      \chi (N (x_4 x_5 x_6^{-1} x_7^{-1} ))
+      \lambda_z (y).\]</span></p></li>
+</ol>
+</div>
+<p>Sato–Tate law. Let <span class="math inline">\(\rho\)</span> be a
+“normalized” <span class="math inline">\(\ell\)</span>-adic local
+system.</p>
+<p>Then there exists a compact Lie group <span class="math inline">\(G
+\subseteq \mathop{\mathrm{GL}}(\rho \otimes_\iota \mathbb{C} )\)</span>
+such that <span class="math display">\[\Theta_t := \left( \iota \left(
+\rho({\mathop{\mathrm{Frob}}}_t) \right) \right)^{ss} \in
+G^{\sharp}\]</span> and for all <span class="math inline">\(f : G^\sharp
+\rightarrow \mathbb{C}\)</span> continuous, and all <span
+class="math inline">\(t \in \mathbb{F}_{q^n }^\ast\)</span>, we have
+<span class="math display">\[\frac{1}{q^n - 1 }
+  \sum_{t \in \mathbb{F}_{q^n}^\ast }
+  f (\Theta_t ) = \int_{G } f (g ) \, d g
+  +
+  \operatorname{O}_{f, g} (q^{- n/2}).\]</span></p>
+<div class="example">
+<p><strong>Example 54</strong>. </p>
+<ol>
+<li><p>For <span class="math inline">\(h_\chi\)</span>, the group <span
+class="math inline">\(G\)</span> is <span class="math inline">\(\iota
+(\mathop{\mathrm{image}}(\chi))\)</span>.</p></li>
+<li><p>For <span class="math inline">\(\mathcal{H} (\psi, \chi
+)\)</span>, the monodromy group is <span
+class="math inline">\(G_2\)</span>.</p></li>
+</ol>
+</div>
+<p>Sato–Tate laws for Fourier duals. We can construct a Mellin transform
+for <span class="math inline">\(\rho\)</span>: for a multiplicative
+character <span class="math inline">\(\chi : \mathbb{F}_{q^n }^\ast
+\rightarrow S^1\)</span>, <span class="math display">\[\hat{\rho }
+(\chi) := \sum_{t \in \mathbb{F}_{q^n }^\ast } \rho (t) \chi
+(t).\]</span> This is not a local system (by any known means).</p>
+<p>Sato–Tate (Katz, 2012): for <span class="math inline">\(\rho\)</span>
+“normalized”, there exists a compact Lie group <span
+class="math inline">\(G\)</span>, together with a representation <span
+class="math inline">\(\varphi_\pi : G \rightarrow
+{\mathop{\mathrm{GL}}}_n(\mathbb{C})\)</span>, such that for all “good”
+characters <span class="math inline">\(\chi\)</span>, there exists a
+conjugacy class <span class="math inline">\(\Theta_\chi \in
+G^\sharp\)</span> such that <span
+class="math display">\[\mathop{\mathrm{trace}}(\Theta_\chi | \pi ) =
+\hat{\rho} (\chi),\]</span> and for all continuous <span
+class="math inline">\(f : G^\sharp \rightarrow \mathbb{C}\)</span>,
+<span class="math display">\[\mathbb{E}_{
+    \substack{
+      \chi \in \widehat{\mathbb{F}_{q^n }}^\ast  \\
+      \chi \text{ is good}
+    }
+  }
+  f (\Theta_\chi )
+  = \int_G f + \operatorname{O}(q^{- n/2}).\]</span></p>
+<div class="example">
+<p><strong>Example 55</strong>. There exists a local system <span
+class="math inline">\(\rho_t\)</span> for each <span
+class="math inline">\(t \in \mathbb{F}_{p^n }^\ast\)</span> such that
+<span class="math inline">\(\hat{\rho }_t (\chi ) = \mathcal{H} (\psi,
+\chi ) (t)\)</span>.</p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 56</strong> (Katz). <em>For <span
+class="math inline">\(t\)</span> in a set of full measure, the monodromy
+group is <span class="math inline">\(G_2\)</span>.</em></p>
+</div>
+<p>The speaker has been able to show the following.</p>
+<div class="theorem">
+<p><strong>Theorem 57</strong>. <em>The same is true for all <span
+class="math inline">\(t\)</span>, provided that <span
+class="math inline">\(p\)</span> is sufficiently large.</em></p>
+</div>
+<h1
+id="qihang-sun-sums-of-kloosterman-sums-and-their-applications">Qihang
+Sun, <em>Sums of Kloosterman sums and their applications</em></h1>
+<p>We consider the Kloosterman sums <span class="math display">\[S (m,
+n, c ) := \sum_{d (c)} e_c (m a + n d).\]</span> <span
+class="math display">\[\begin{pmatrix}
+a &amp; b \\
+c &amp; d \\
+\end{pmatrix} \in {\mathop{\mathrm{SL}}}_2(\mathbb{Z}).\]</span> Trivial
+bound <span class="math display">\[\left\lvert S (m, n, c) \right\rvert
+\leq \sigma_0 (c)
+  (m, n, c)^{1/2} c^{1/2}.\]</span> <span class="math display">\[\sum_{c
+\leq X}
+  \frac{S (m, n, c)}{c}
+  \ll_\varepsilon(m, n )^\varepsilon X^{1/2 + \varepsilon}.\]</span>
+Kuznetsov: the above is <span class="math inline">\(\ll_{m, n} X^{1/6}
+\log^{1/3} X\)</span>.</p>
+<div class="theorem">
+<p><strong>Theorem 58</strong> (Sarnak–Tsimerman, 2009). <em>The above
+is <span class="math display">\[\ll_\varepsilon\left( X^{1/6} + (m n
+)^{1/6}
+    + (m + n )^{1/8}
+    (m n )^{\vartheta  / 2}
+  \right)
+  (m n X)^\varepsilon.\]</span></em></p>
+</div>
+<div class="conjecture">
+<p><strong>Conjecture 9</strong> (Linnik–Selberg). <em>The above is
+<span class="math display">\[\ll_\varepsilon(m n
+X)^\varepsilon.\]</span></em></p>
+</div>
+<p><span class="math inline">\(j\)</span>-invariant: <span
+class="math display">\[j (z ) = q^{-1} + 744 +
+\operatorname{O}(q).\]</span> <span class="math display">\[a_j (n ) =
+\frac{2 \pi }{ \sqrt{n}} \sum_{c = 1 }^\infty \frac{S (1, n, c)}{c} I_1
+\left( \frac{2 \pi \sqrt{n}}{c} \right).\]</span></p>
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
