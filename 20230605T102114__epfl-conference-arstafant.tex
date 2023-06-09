@@ -3160,5 +3160,267 @@ for a fixed $e$, with $L = 2$ for $C_2^2 $ and $L = p (p^r-1)$ otherwise.
 
 
 
+\section{Farrell Brumley, \emph{Recent extensions of Duke's equidistribution problems}}
+Duke's theorem is a statement about equidistribution that is solved by appealing to a subconvex bound.  What we'd like to do today is to look at some variants of Duke's theorem which are no longer simply reduced to subconvex bounds on $L$-functions, but rather require more and more technology in terms of $L$-functions and also other ingredients such as some classical analytic number theory and some ergodic theory.  So we'll start simple and then ramp up the degree of difficulty, throwing new tools at the problem.  Some people already attended a talk of this nature of mine in Oberwolfach a month ago, but the ending of this talk will be different, so there will still be something new for you.
+
+Let's start with classical Duke's theorem (or Linnik's problem).  As we have said, there are many variants and we'll kust chose one.  The one we'll choose will have to do with the sphere.  We'll take a squarefree integer $d \in \mathbb{N} $ and we're going to look at the ways to represent $d$ as a sum of three squares:
+\begin{equation*}
+  R_d := \left\{ x = (a,b,c) \in \mathbb{Z}^3 : a^2 + b^2 + c^2 = d \right\}.
+\end{equation*}
+We know, by Gauss and Legendre, a criterion for when this set is nonempty:
+\begin{equation*}
+  R_d \neq \emptyset \iff
+  d \not\equiv 0,4,7 (8).
+\end{equation*}
+We will call $d$ \emph{admissible}, and write
+\begin{equation*}
+  d \in \mathbb{D},
+\end{equation*}
+if it satisfies the above conditions.
+\begin{question}
+  Does the probability measure $\mu$ on the set
+  \begin{equation*}
+    \frac{1}{\sqrt{d}}R_d
+  \end{equation*}
+  equidistribute on the sphere $S^2$ as $d \rightarrow \infty $?
+\end{question}
+\begin{remark}
+  One can ask the same question in higher dimensions, but dimension three is in some sense the hardest case.
+\end{remark}
+The first progress on this question is due to Linnik and his school, who showed that these probability measures converge weak-star to the uniform measure on the sphere provided that our discriminants satisfy a congruence condition, called a \emph{Linnik condition}.  More precisely,
+\begin{equation*}
+  \mu_d \rightarrow \mu_{S^2}
+  \qquad \text{ provided that }
+  - d \in (\mathbb{F}_p^\ast )^2
+\end{equation*}
+for some auxiliary choice of prime $p$.  We will denote by $\mathbb{D} (p)$ the integers that satisfy this last condition.  You can choose your prime as you wish; it's completely auxiliary and foreign to the problem, but you need to fix it, and once you do, you get equidistribution along that sequence of discriminants.  So there is a defect here, and that defect is the choice of auxiliary prime.
+
+So the problem was not solved fully by Linnik.  His methods were ergodic-theoretic, and we're not going to say much about them, other than to say that this auxiliary condition is the means by which one can access ergodic theory.  In the end, membership in $\mathbb{D} (p)$ is a splitting condition of a certain acting torus, and we want this torus to be non-split, so that it is a non-compact group acting on the solution space, allowing one to work ergodically.
+
+After that, Duke (late 80's, early 90's) showed that one could remove this ergodic condition of Linnik:
+\begin{equation*}
+  \mu_d \rightarrow \mu_{S^2}
+\end{equation*}
+as $d \rightarrow \infty $ in $\mathbb{D}$, effectively.  We will talk briefly about the proof of this.  As mentioned, this is proved by appealing to subconvexity.  What is the bridge to subconvexity?  One wants to show that if you test this measure against some continuous function $f$ on $S^2$ that is orthogonal to constnats, then
+\begin{equation*}
+  \mu_d (f) \rightarrow 0.
+\end{equation*}
+
+We now discuss \emph{orthogonal lattices}.  Let
+\begin{equation*}
+  Y_0(1) := \SL_2(\mathbb{Z}) \backslash \mathbb{H}^2 = \left\{ \text{unimodular lattices in $\mathbb{R}^2$ up to rotation} \right\},
+\end{equation*}
+write $\mu_{\mathrm{hyp}}$ for the normalized hyperbolic measure.  To each $v \in R_d$, we associate the binary quadratic lattice
+\begin{equation*}
+  \Lambda_v := v^\perp \cap \mathbb{Z}^3
+\end{equation*}
+obtained by taking integral elements of the orthogonal complement of $v$.  This defines a map
+\begin{equation*}
+  R_d \rightarrow Y_0 (1) 
+\end{equation*}
+\begin{equation*}
+  v \mapsto [\Lambda_v ].
+\end{equation*}
+Playing the same game, we define
+\begin{equation*}
+  \mu_d = \frac{1}{\lvert R_d  \rvert} \sum_{v \in R_d }
+  \delta_{[\Lambda_v ]}.
+\end{equation*}
+Linnik tells us that
+\begin{equation*}
+  \mu_d \rightarrow \mu_{\mathrm{hyp}}
+\end{equation*}
+for $d \in \mathbb{D} (p)$, and Duke tells us that this happens for all $d \in \mathbb{D} $.  One can ask now for \emph{joint equidistribution}: consider the measure
+\begin{equation*}
+  \nu_d = \frac{1}{ \lvert R_d  \rvert} \sum_{v \in R_d } \delta_{\left( \frac{v }{ \lVert v \rVert} , [\Lambda_d ] \right)}
+  \quad \text{ on }
+  S^2 \times Y_0 (1).
+\end{equation*}
+There was a Bourbaki talk on this last year by Menny Akka, who had wonderful numerics that he showed.  The speaker attempts to reproduce one of them on the blackboard.  We consider a partition of the fundamental domain into a bulk region $L$ of volume $1/2$, and a complementary part $L^c$ of volume $1/2$, where $L^c$ is a tubular neighborhood of the cusp.  Informally, lattices lie in $L$ when they have a short vector.  Equidistribution in this context says that the probability measures obtained by partitioning $\mu_d$ according to whether a vector $v$ satisfies $[\Lambda_v] \in L$ or not equidistribute on $S^2$ as $d \rightarrow \infty$.
+
+\begin{theorem}[Akka--Einsiedler--Shapira (2019)]
+  Let $p_1, p_2 > 2$ be distinct.  Then
+  \begin{equation*}
+    \nu_d \rightarrow \mu_{S^2 } \otimes \mu_{\mathrm{hyp}}
+  \end{equation*}
+  as $d \rightarrow \infty $ in $\mathbb{D} (p_1 ) \cap \mathbb{D} (p_2 )$.
+\end{theorem}
+This may be understood as a classically expressed consequence of a powerful joinings classification result of Einsiedler--Lindenstrauss for higher rank diagonalizable actions.  So in contrast to the Linnik problem, where what was underlying the dynamics there was a split rak one torus, here we're going to have as plit rank two torus, coming from the fact that we have fixed two auxiliary primes.
+
+That's the beginning of my recent work on this topic, with Valentin and others.  The first theorem that we would like to present today is with Blomer a few years ago.  We use automorphic methods (rather than ergodic theory), but assume GRH.
+\begin{theorem}[B--Blomer]
+  Assume GRH.  Then
+  \begin{equation*}
+    \nu_d \rightarrow \mu_{S^2 } \otimes \mu_{\mathrm{hyp}}
+  \end{equation*}
+  as $d \rightarrow \infty $ in $\mathbb{D} $.
+\end{theorem}
+Let's give the big picture.  The spaces $S^2 $ and $Y_0 (1) $ are examples of what we call locally homogeneous quaternionic varieties, which are adelic quotients of the form
+\begin{equation*} [G]_K = \underbrace { G (\mathbb{Q} ) \backslash G (\mathbb{A} ) }_{ [G] } / K.
+\end{equation*}
+As an example, $S^2 $ corresponds to the Hamilton quaternions $B_{2, \infty }$, while $Y_0(1)$ corresponds to the matrix algebra $M_2$.  We may understand $\frac{1}{\sqrt{d}} R_d$ as defining a subset of $[ PB_{2,\infty}^\times]_{K_1}$ and $\{[\Lambda_v] : v \in R_d\}$ as defining a subset of $[\PGL_2]_{K_2}$.
+\begin{itemize}
+\item We could also take $G_1 = P B_1^\times $ and $G_2 = P B_2^\times $, where $B_1$ and $B_2$ are distinct fixed quaternion algebras.
+\item Quadratic field extension $E/\mathbb{Q}$ and (varying) embeddings
+  \begin{equation*}
+    \Res_{E / \mathbb{Q} } \mathbb{G}_m \rightarrow T_E \subset G_j \quad (j=1,2).
+  \end{equation*}
+\item We consider $\Delta T_E \subset G_1 \times G_2 $, noting that $\Delta T_E \subset T_E \times T_E $ is not maximal.
+\end{itemize}
+The idea of the proof comes down to a representation-theoretic fact concerning the sequence of inclusions
+\begin{equation*}
+  \Delta T_E \rightarrow T_E \times T_E \rightarrow G_1 \times G_2.
+\end{equation*}
+Each of these inclusions defines a multiplicity one space, and we're going to make use of these intermediate spaces.  These problems are difficult because the thing that's not varying (namely, $\Delta T_E $) is kind of small in the thing that's fixed (namely, $G_1 \times G_2 $).  Making use of this intermediate group allows you to say that
+\begin{equation*}
+  \nu_d (f_1 \otimes f_2 ) = \frac{1}{ h_d } \sum_{t \in \mathrm{Cl}_d } f_1 (t ) f_2 (t).
+\end{equation*}
+You're basically looking at an inner product along the calss group.  We may apply Parseval to rewrite the above as
+\begin{equation*}
+  \frac{1}{ h_d } \sum_{\chi  \in \mathrm{Cl}_d^\wedge  } \hat{f}_1 (\chi  ) \hat{f}_2 (\chi^{-1} ).
+\end{equation*}
+These measures are similar to what we had for the Duke problem, but they don't come with a square.  So what we get instead is a square-root $L$-function.  What we'll get is an average of square roots of central values:
+\begin{equation*}
+  \frac{1}{ h_d } \sum_{\chi \in \mathrm{Cl}^\wedge_d } L (\tfrac{1}{2}, f_1 \times \chi )^{1/2}
+  L (\tfrac{1}{2}, f_2 \times \chi )^{1/2}.
+\end{equation*}
+We're assuming GRH, but if you apply GRH pointwise to bound each one of these central values, then you won't get $o(1)$.  What we do instead is to apply absolute values (killing our chances a bit by not considering any possible cancellation between the signs of these two square root $L$-values) Holowinsky did something similar for the shifted convolution problem in the setting of QUE.  Here we're going to take $f_1 \neq f_2 $ (because $G_1 \neq G_2 $).  We will use GRH to approximate
+\begin{equation*}
+  \log L (\tfrac{1}{2}, f_i \times \chi )
+\end{equation*}
+by a short sum of Hecke eigenvalues.  We will then use the method of moments as developed by Sound.
+
+That's all we'll say about that.  Let's turn now to the \emph{mixing conjecture} of Michel--Venkatesh.  We'll try to be brief here, because we do want to talk about new stuff at the end here.  Same setup, but with $G_1 = G_2$.  The problem is now the existence of, e.g., $\Delta G \subseteq G \times G$.
+
+Let's recall their conjecture in the classical setting.  Set $G := \PGL_2$, and let $K$ be maximal.  Then $[G]_K = Y_0 (1) $.  We then have the following diagram.
+\begin{equation*}
+  \begin{CD}         
+    Y_0(1) \times Y_0(1) @<<< \Delta Y_0(1)\\
+    @AAA  @AAA \\
+    \mathrm{CM}_d \times \mathrm{CM}_d  @<<< \Delta \mathrm{CM}_d.\\
+  \end{CD}
+\end{equation*}
+We know by Duke that the vertical arrow on the right equidistributes.  The way to get an interesting question was introduced by Michel--Venkatesh.  Let $[\mathfrak{a} ] \in \mathrm{Cl}_d$, and put
+\begin{equation}\label{eqn:d1bcdd29051a}
+  \Delta \mathrm{CM}_d ([\mathfrak{a} ])
+  = \left\{ (x, [\mathfrak{a} ] x) : x \in \mathrm{CM}_d \right\}.
+\end{equation}
+Then for all $\mathfrak{n} \subset \mathcal{O}_E $ such that $[\mathfrak{n} ] = [\mathfrak{a} ]$, we have the inclusion
+\begin{equation*}
+  \Delta \mathrm{CM }_d ([\mathfrak{a} ])
+  \subset Y_0 (N),
+\end{equation*}
+where $N := \operatorname{norm} \mathfrak{n}$.
+\begin{conjecture}[Michel--Venkatesh]
+  Let $d \in \mathbb{N} $ be a fundamental discriminant.  For each such $d$, pick a class $[\mathfrak{a} ] \in \mathrm{Cl}_d $ and form the probability measure associate to shifted CM points as in \eqref{eqn:d1bcdd29051a}.  Then we get equidistribution: the class $\Delta \mathrm{CM }_d ([\mathfrak{a} ]) $ equidistributes in $Y_0 (1)^2 $ if both parameters go to infinite, or more precisely, if
+  \begin{equation*}
+    d \rightarrow \infty
+  \end{equation*}
+  and
+  \begin{equation*}
+    q := \min \left\{ \norm (\mathfrak{n} ) : [\mathfrak{n} ] = [\mathfrak{a} ] \right\} \rightarrow \infty.
+  \end{equation*}
+\end{conjecture}
+There are ergodic and automorphic approaches to this question, which each mix ideas from the other subject.
+\begin{itemize}
+\item Khayutin solved the mixing conjecture under a double Linnik condition, involving two split primes $p_1, p_2 $; his proof is not altogether ergodic, since it involves analytic techniques and also assumes the absence of a Siegel zero.
+\item Blomer--B--Khayutin: solve the mixing conjecture under GRH and other hypotheses.
+\end{itemize}
+\begin{remark}
+  In both of these cases, the ambient group is a product group.  In the ergodic approach to these problems, the fact that the ambient group is a product group allows you to access the joinings theorem, as done by Khayutin.  But the joinings theorem is a corollary of a more general result of Einsiedler and Lindenstrauss, which is a classification of measures invariant under a higher rank diagonalizable action.  It's not as nice as, say, Ratner's theorem, because it requires an additional input, namely positive entropy, which we'll need to verify.
+\end{remark}
+Let's now move to higher rank.  Let's move to $\PGL_3$.
+\begin{theorem}[ELMV, 2006]
+  Let
+  \begin{equation*}
+    A =
+    \begin{pmatrix}
+      \ast & 0 & 0 \\
+      0 & \ast & 0 \\
+      0 & 0 & 1 \\
+    \end{pmatrix}
+    < \PGL_3 (\mathbb{R}).
+  \end{equation*}
+  For a natural number $d \in \mathbb{N} $, let $\mathcal{F}_d$ denote the set of periodic $A$-orbits on $X_3 := \PGL_3(\mathbb{Z}) \backslash \PGL_3(\mathbb{R})$ of discriminant $d$.  Then $\mathcal{F}_d $ equidistributes on $X_3 $ as $d \rightarrow \infty $.
+\end{theorem}
+\begin{proof}
+  The proof really hangs by a thread.  It uses, critically, ergodic theory and number theory.  It can't get by without one or the other.
+\begin{enumerate}
+\item  $\mathcal{F}_d $, like in the classical case, is in bijection with the class group $\mathrm{Cl}_d $ of a \emph{real} cubic extension $E/\mathbb{Q}$ of discriminant $d$.  This has to do with the fact that $A$ is a split (rank $2$) torus, and this is a splitting condition, which is then the doorway to access ergodic methods.  But one then eneds to establish positive entropy.  That's the role of ergodic theory in this paper.
+\item We use critically that $X_3 $ is non-compact.  This allows us to use Eisenstein series and test our measure against them.  There, we get an $L$-function: by a formula of Hecke (proved by direct unfolding), we get that this measure is given by a Dedekind zeta function $\zeta_E (s)$.  A subconvex bound now yields enropy positivity.
+\end{enumerate}  
+\end{proof}
+
+We now discuss some work in progress with Matz.  We want a similar theorem, but for a different group.  Change $\PGL_3$ to $\GSp_4$.  This setting is tantalizing from an arithmetic point of view.  However, when you try to move from $\GL_n$ to $\GSp_4$, what goes away is the Hecke formula.  The ergodic part thus applies as before, but establishing positive entropy is a bit more mysterious.  Suppose we have a maximal anisotropic torus $S \subset \GSp_4$.  Then $S$ gives rise to a quartic extension $E/\mathbb{Q}$ equipped with an involution $\sigma$, of which $F$ is the subfield $E^\sigma $ of fixed points.  For instance, we could take $E$ to be a quartic CM extension, and $F$ would then be the unique quadratic totally real subfield.  We then get
+\begin{equation*}
+S_{E, F} \hookrightarrow \GL_{2, F }^\ast \hookrightarrow \GSp _4.
+\end{equation*}
+The first inclusion enjoys a Hecke-like formula, which we can use to establish positive entropy.  
+
+
+\section{Simran Khunger, \emph{Exteding support for the centered moments of the low lying zeros of cuspidal newforms}}
+
+Zeros of $L$-functions near central point and energy levels of heavy nuclei can both be modeled by eigenvalues of random matrices.  Famous story of Montgomery and Dyson.
+
+Limiting distribution of random matrix eigenvalues are reasonable to calculate.  It's more elusive to establish the distribution of zeros of $L$-functions.
+
+$H_k^*(N)$: holomorphic cuspidal newforms of weight $k$ and level $N$.
+
+$H_k^{\pm} (N)$, $\eps_f = \pm 1$.
+
+$\phi \in \mathcal{S}(\mathbb{R}^n)$, even, $\hat{\phi}$ compactly-supported, $\phi(0) > 0$, $\phi \geq 0$.  One-level density
+\begin{equation*}
+D(f,\phi) = \sum_{\gamma_f} \phi \left( \frac{\log R}{2 \pi} \gamma_f \right).
+\end{equation*}
+Here $R$ is the analytic conductor, and the $\gamma_f$ are the imaginary parts of the zeros of the $L$-function associated with $f$.
+
+\begin{definition}[Notation for averages]
+\begin{equation*}
+  \left\langle D (f, \phi ) \right\rangle_{\pm }
+  :=
+  \mathbb{E}_{f \in H_k \pm (N) } D (f, \phi ).
+\end{equation*}
+\end{definition}
+We'll be fixing the weight $k$ and looking at the limit as $N \rightarrow \infty $.  We'll also look at, e.g.,
+\begin{equation*}
+  \lim_{N \rightarrow \infty } \left\langle
+  \left( D (f, \phi ) - \langle D (f, \phi ) \rangle_{\pm } \right)^n \right\rangle_{\pm }.
+\end{equation*}
+
+Random matrix theory analogues.  For $U \in \U(M)$ with eigenvalues $e^{i \theta_n }$, and for $\phi \in \mathcal{S} (\mathbb{R})$, we define
+\begin{equation*}
+  Z_\phi (U) := \sum_{n = 1}^M \sum_{j \in \mathbb{Z} }
+  \phi \left( \frac{M}{2 \pi }
+    \dotsb
+  \right).
+\end{equation*}
+We also look at higher powers.
+
+The examples of spectral distributions are
+\begin{itemize}
+\item for orthogonal matrices, $1 + (1/2) \delta_0$,
+\item for $\SO(\mathrm{even})$, $1 + \sin(2 \pi x) / 2 \pi x$,
+\item for $\SO(\mathrm{odd})$, $1 - \sin (2 \pi x) / 2 \pi x + \dotsb$.
+\end{itemize}
+
+
+
+
+\section{Gilles Felber, \emph{$L^2$-restriction norm of Siegel modular forms}}
+Siegel upper half-plane $\mathbb{H}^{(n)} \ni Z = X + i Y$, with $Z$ symmetric and $Y > 0$.  Mobius transforms by $\Sp_{2n}(\mathbb{R})$.
+
+Siegel modular forms $f$ of weight $k$.
+\begin{equation*}
+f (Z) = \sum_{T > 0 } a_f (T) \det (T)^{\frac{k - 3/2}{2}} e (\tr (T Z)).
+\end{equation*}
+
+$L^2$-restriction norm to the imaginary axis $\SL_2(\mathbb{Z}) \backslash \{Y > 0\}$.
+
+Parseval, spectral expansion over $\GL_2(\mathbb{Z}) \backslash \GL_2(\mathbb{R})$.
+
+\section{Huimin Zhang, \emph{Analytic twists of $\GL_2 \times \GL_2$ automorphic forms and applications}}
+
+
+
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
