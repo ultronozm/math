@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Paul D. Nelson" />
-  <meta name="dcterms.date" content="2023-05-26" />
+  <meta name="dcterms.date" content="2023-06-23" />
   <title>Quantum variance on quaternion algebras, III</title>
   <link rel="stylesheet" href="tex.css">
   <style>
@@ -216,12 +216,13 @@
       <a href="var-quat-3-submitted.tex" class="my-link">tex</a>
       <a href="var-quat-3-submitted.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/var-quat-3-submitted.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
     </div>
 
 <header id="title-block-header">
 <h1 class="title">Quantum variance on quaternion algebras, III</h1>
 <p class="author">Paul D. Nelson</p>
-<p class="date">2023-05-26</p>
+<p class="date">2023-06-23</p>
 <div class="abstract">
 <div class="abstract-title">Abstract</div>
 <p>We determine the asymptotic quantum variance of microlocal lifts of
@@ -238,6 +239,34 @@ integral operators on the group, addressed using an analytic incarnation
 of the method of coadjoint orbits.</p>
 </div>
 </header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#sec-1" id="toc-sec-1">Introduction</a></li>
+<li><a href="#part:quant-vari-theta"
+id="toc-part:quant-vari-theta">Quantum variance and theta functions</a>
+<ul>
+<li><a href="#sec-1-8" id="toc-sec-1-8">General notation<span
+id="sec:general-notation" label="sec:general-notation"></span></a></li>
+<li><a href="#sec-2" id="toc-sec-2">Local preliminaries</a></li>
+<li><a href="#sec-3" id="toc-sec-3">Global preliminaries</a></li>
+<li><a href="#sec-4" id="toc-sec-4">Estimates for general quantum
+variance sums<span id="sec:estimates-general-var"
+label="sec:estimates-general-var"></span></a></li>
+</ul></li>
+<li><a href="#part:appl-micr-lifts"
+id="toc-part:appl-micr-lifts">Application to microlocal lifts</a>
+<ul>
+<li><a href="#sec:constr-irred-unit"
+id="toc-sec:constr-irred-unit">Archimedean preliminaries</a></li>
+<li><a href="#sec:35ac3e579c" id="toc-sec:35ac3e579c">Microlocal
+lifts</a></li>
+<li><a href="#sec:35ac3e57a1" id="toc-sec:35ac3e57a1">Proofs of main
+results</a></li>
+<li><a href="#sec:35ac3e57a7" id="toc-sec:35ac3e57a7">Concluding
+remarks</a></li>
+</ul></li>
+</ul>
+</nav>
 <h3 id="sec-1">§1. Introduction</h3>
 <h4 id="sec-1-1">§1.1. Overview</h4>
 <p>The quantum variance problem (see, e.g., <a href="#ref-nelson-variance-73-2" class="citation"
@@ -312,7 +341,7 @@ data-reference-type="ref" data-reference="thm:var-2">3</a>, stated in
 data-reference="sec:orgb2d0a08">1.8</a>, and Theorem <a
 href="#thm:main-estimate-general-variance" data-reference-type="ref"
 data-reference="thm:main-estimate-general-variance">4</a>, stated in §<a
-href="#sec-4" data-reference-type="ref" data-reference="sec-4">4</a>).
+href="#sec-4" data-reference-type="ref" data-reference="sec-4">5</a>).
 Part <a href="#part:appl-micr-lifts" data-reference-type="ref"
 data-reference="part:appl-micr-lifts"></a> provides additional local
 estimates, at the archimedean place, relevant for determining the
@@ -539,7 +568,7 @@ class="math inline">\(L^2(\mathbf{X})\)</span> by right translation:
 <p>We assume for simplicity of presentation that <span
 class="math inline">\(F\)</span> has odd narrow class number. The strong
 approximation theorem (see §<a href="#sec-4-4-2"
-data-reference-type="ref" data-reference="sec-4-4-2">4.5.2</a> or <a href="#ref-voightQA"
+data-reference-type="ref" data-reference="sec-4-4-2">5.5.2</a> or <a href="#ref-voightQA"
 class="citation" data-cites="voightQA">(Voight 2018, sec. 28)</a>)
 then identifies <span class="math inline">\(\mathbf{X}\)</span>, rather
 than a finite disjoint union of similarly defined quotients, with the
@@ -611,7 +640,7 @@ infinitesimal character <span class="math inline">\(\lambda_\pi \in
 \mathbb{R}\)</span>, describing the action of the center of the
 universal enveloping algebra of <span class="math inline">\(G\)</span>
 (see §<a href="#sec:prelims-representations" data-reference-type="ref"
-data-reference="sec:prelims-representations">1.3</a>). If <span
+data-reference="sec:prelims-representations">6.3</a>). If <span
 class="math inline">\(\lambda_\pi &lt; 0\)</span>, then <span
 class="math inline">\(\pi\)</span> contains a one-dimensional space of
 <span class="math inline">\(K^1\)</span>-invariant vectors <span
@@ -632,7 +661,7 @@ data-cites="2013arXiv1303.6972S">(Sarnak and Zhao 2019)</a>. We
 recall the precise construction of <span
 class="math inline">\(\mu_\pi\)</span> in §<a
 href="#sec:constr-mu-pi-ZW" data-reference-type="ref"
-data-reference="sec:constr-mu-pi-ZW">1.5</a>. We mention for now only
+data-reference="sec:constr-mu-pi-ZW">6.5</a>. We mention for now only
 that it is a functional <span id="eq:mu-pi-first-appearance" class="math display">\[\label{eq:mu-pi-first-appearance}\tag{1.8}
   \mu_\pi :
   \{
@@ -705,7 +734,7 @@ class="math inline">\(+1\)</span>.</p></li>
 <span class="math inline">\(\mu_\pi(\Psi) = 0\)</span> for all <span
 class="math inline">\(\Psi \in \sigma\)</span> (see §<a
 href="#sec:branch-coeff" data-reference-type="ref"
-data-reference="sec:branch-coeff">1.6</a>); for this reason, we focus
+data-reference="sec:branch-coeff">6.6</a>); for this reason, we focus
 primarily on even <span class="math inline">\(\sigma\)</span>. We say
 also that an eigenfunction <span class="math inline">\(\Psi\)</span> is
 even if it belongs to an even <span class="math inline">\(\sigma \in
@@ -795,7 +824,7 @@ class="math display">\[\frac{c_B}{2 \pi} = 2^{\# S} \frac { \prod_{p \in
 S} (1 + 1/p) } { 4 \Delta_B }\]</span> The factor <span
 class="math inline">\(2^{\# S}\)</span> may be understood (see §<a
 href="#sec:heuristics" data-reference-type="ref"
-data-reference="sec:heuristics">4.2</a>) as coming from the nontrivial
+data-reference="sec:heuristics">9.2</a>) as coming from the nontrivial
 normalizer of <span class="math inline">\(\Gamma\)</span>, corresponding
 to the involutory Hecke operators <span
 class="math inline">\(T_{{p}}\)</span> (<span
@@ -884,7 +913,7 @@ naturally from the perspective of our method.</p>
 </div>
 <div class="remark">
 <p><em>Remark 5</em>. In §<a href="#sec:heuristics"
-data-reference-type="ref" data-reference="sec:heuristics">4.2</a>, we
+data-reference-type="ref" data-reference="sec:heuristics">9.2</a>, we
 extend the semiclassical heuristics for variance asymptotics from the
 generic non-arithmetic setting (see, e.g., <a href="#ref-2009arXiv0911.4312Z" class="citation"
 data-cites="2009arXiv0911.4312Z">(S. Zelditch 2009, sec. 15.6)</a>,
@@ -925,7 +954,7 @@ number <span class="math inline">\(k\)</span>, and <span
 class="math inline">\(\lambda_\pi = (k-1/2)^2\)</span>. (We normalize so
 that <span class="math inline">\(k\)</span> is not necessarily even –
 see §<a href="#sec:prelims-representations" data-reference-type="ref"
-data-reference="sec:prelims-representations">1.3</a>.) For such <span
+data-reference="sec:prelims-representations">6.3</a>.) For such <span
 class="math inline">\(\pi\)</span>, the analogue of the microlocal lifts
 are the <span class="math inline">\(L^2\)</span>-masses <span
 class="math inline">\(\mu_\pi(\Psi) := \langle \varphi_\pi \Psi,
@@ -974,7 +1003,7 @@ but to keep the exposition concrete, we first prove Theorem <a
 href="#thm:var-3" data-reference-type="ref"
 data-reference="thm:var-3">1</a>, then explain in §<a
 href="#sec:holomorphic-analogue-1" data-reference-type="ref"
-data-reference="sec:holomorphic-analogue-1">3.4</a> the modifications
+data-reference="sec:holomorphic-analogue-1">8.4</a> the modifications
 needed to obtain a proof of Theorem <a
 href="#thm:var-quat-annals-submission:limit-begin-lim_h"
 data-reference-type="ref"
@@ -1058,7 +1087,7 @@ class="math inline">\(\mathcal{M}(f)\)</span> converges absolutely (see
 §<a href="#sec:local-convergence-lemmas" data-reference-type="ref"
 data-reference="sec:local-convergence-lemmas">3.1.6</a>,
 §<a href="#sec:local-integrals-for-rallis-ipf" data-reference-type="ref"
-data-reference="sec:local-integrals-for-rallis-ipf">2.4.4</a>).</p>
+data-reference="sec:local-integrals-for-rallis-ipf">3.4.4</a>).</p>
 <p>For any real vector space <span class="math inline">\(V\)</span>, we
 denote by <span class="math inline">\(\mathcal{S}(V)\)</span> the space
 of Schwartz functions. Recall that <span class="math inline">\(M =
@@ -1082,7 +1111,7 @@ basic variance sums of interest. The “expected main terms” <span
 class="math inline">\(\mathcal{M}(f)\)</span> will arise after some
 calculations involving theta functions and the Rallis inner product
 formula. We refer to §<a href="#sec:heuristics"
-data-reference-type="ref" data-reference="sec:heuristics">4.2</a> for
+data-reference-type="ref" data-reference="sec:heuristics">9.2</a> for
 some heuristic discussion, independent of our rigorous arguments, about
 why one should expect <span class="math inline">\(\mathcal{V}(f) \approx
 \mathcal{M}(f)\)</span> for nice enough <span
@@ -1138,7 +1167,7 @@ that for all <span class="math inline">\(y \in
 </div>
 <p>The proof is completed in §<a href="#sec:deduct-theor-refthm"
 data-reference-type="ref"
-data-reference="sec:deduct-theor-refthm">4.5.3</a>. The key feature,
+data-reference="sec:deduct-theor-refthm">5.5.3</a>. The key feature,
 elaborated in §<a href="#sec:sketch-deduct-theor"
 data-reference-type="ref"
 data-reference="sec:sketch-deduct-theor">1.10</a>, is that Theorem <a
@@ -1325,14 +1354,14 @@ class="math inline">\(\mathop{\mathrm{h}}\rightarrow
 <p>We construct such a class <span
 class="math inline">\(\mathcal{K}\)</span> explicitly in §<a
 href="#sec:org8bcf1bd" data-reference-type="ref"
-data-reference="sec:org8bcf1bd">2.3</a>. (In fact, for the class that we
+data-reference="sec:org8bcf1bd">7.3</a>. (In fact, for the class that we
 construct, quantitatively stronger properties hold, adequate for
 obtaining the rate mentioned in Remark <a
 href="#rmk:var-quat-annals-submission:proof-gives-rate"
 data-reference-type="ref"
 data-reference="rmk:var-quat-annals-submission:proof-gives-rate">2</a>.)</p>
 <p>In §<a href="#sec:defn-f" data-reference-type="ref"
-data-reference="sec:defn-f">3.1</a> and beyond, we construct for each
+data-reference="sec:defn-f">8.1</a> and beyond, we construct for each
 <span class="math inline">\(k \in \mathcal{K}\)</span> an <span
 class="math inline">\(\mathop{\mathrm{h}}\)</span>-dependent element
 <span class="math inline">\(f \in C_c^\infty(G)\)</span> and show that
@@ -1365,7 +1394,7 @@ identity <a href="#eq:var-2-main-identity" data-reference-type="eqref"
 data-reference="eq:var-2-main-identity">\((1.13)\)</a>.</p>
 <p>The idea behind the construction of <span
 class="math inline">\(f\)</span>, completed in §<a href="#sec:defn-f"
-data-reference-type="ref" data-reference="sec:defn-f">3.1</a>, is to
+data-reference-type="ref" data-reference="sec:defn-f">8.1</a>, is to
 arrange that <span class="math inline">\(\pi(f)\)</span> is an
 approximate weighted projector onto a “space” spanned by unit vectors
 <span class="math inline">\(v \in \pi\)</span> for which <span
@@ -1375,7 +1404,7 @@ data-reference-type="eqref" data-reference="eqn:req-V">\((1.19)\)</a>.
 The orbit method and philosophy developed in <a href="#ref-nelson-venkatesh-1" class="citation"
 data-cites="nelson-venkatesh-1">(Nelson and Venkatesh 2021)</a> and
 summarized in §<a href="#sec:operator-calculus"
-data-reference-type="ref" data-reference="sec:operator-calculus">1.7</a>
+data-reference-type="ref" data-reference="sec:operator-calculus">6.7</a>
 is a suitable tool for constructing and studying such approximate
 projectors. This step of the proof may be understood as implementing the
 identity <a href="#eq:intro-pretrace-fromula"
@@ -1383,7 +1412,7 @@ data-reference-type="eqref"
 data-reference="eq:intro-pretrace-fromula">\((1.2)\)</a>
 for the family of microlocal lifts.</p>
 <p>For the proof (§<a href="#sec:orge0a88b2" data-reference-type="ref"
-data-reference="sec:orge0a88b2">3.2</a>) of the main term estimate <a
+data-reference="sec:orge0a88b2">8.2</a>) of the main term estimate <a
 href="#eqn:req-I" data-reference-type="eqref"
 data-reference="eqn:req-I">\((1.20)\)</a>, we pull the inner product
 <span class="math inline">\(\langle , \rangle_G\)</span> back to the Lie
@@ -1400,7 +1429,7 @@ data-cites="2013arXiv1303.6972S">(Sarnak and Zhao 2019)</a>.</p>
 <p>The error estimate <a href="#eqn:req-E" data-reference-type="eqref"
 data-reference="eqn:req-E">\((1.21)\)</a>, proved in §<a
 href="#sec:org543f416" data-reference-type="ref"
-data-reference="sec:org543f416">3.3</a>, is ultimately a consequence of
+data-reference="sec:org543f416">8.3</a>, is ultimately a consequence of
 <a href="#eqn:main-estimate" data-reference-type="eqref"
 data-reference="eqn:main-estimate">\((1.14)\)</a> and the fact
 that the function <span class="math inline">\(f\)</span> that we
@@ -1476,7 +1505,7 @@ functions <span class="math inline">\(\theta\)</span>. A key
 construction is that of the <span
 class="math inline">\(\heartsuit^{\tau}\)</span> operators (§<a
 href="#sec:heartsuit" data-reference-type="ref"
-data-reference="sec:heartsuit">4.2.4</a>); these solve the “inversion
+data-reference="sec:heartsuit">5.2.4</a>); these solve the “inversion
 problem,” mentioned at the end of §<a href="#sec:theta-funct-vari"
 data-reference-type="ref" data-reference="sec:theta-funct-vari">1.4</a>,
 of constructing theta functions whose integrals recover quantum variance
@@ -1501,7 +1530,7 @@ integrals of theta functions that arise (Proposition <a
 href="#prop:after-extracting-main-term" data-reference-type="ref"
 data-reference="prop:after-extracting-main-term">2</a>, Lemma <a
 href="#lem:main-term-eval-for-heartsuit" data-reference-type="ref"
-data-reference="lem:main-term-eval-for-heartsuit">14</a>).</p></li>
+data-reference="lem:main-term-eval-for-heartsuit">5.4.3</a>).</p></li>
 <li><p>General estimates for the “error terms” (Proposition <a
 href="#prop:main-error-estimate-global-adelic-general"
 data-reference-type="ref"
@@ -1515,11 +1544,11 @@ class="citation" data-cites="nelson-theta-squared">(Nelson
 §<a href="#sec:general-notation" data-reference-type="ref"
 data-reference="sec:general-notation">2</a>, §<a
 href="#sec-4-1" data-reference-type="ref"
-data-reference="sec-4-1">4.1</a>, §<a
+data-reference="sec-4-1">5.1</a>, §<a
 href="#sec:main-general-estimate-key-defns" data-reference-type="ref"
 data-reference="sec:main-general-estimate-key-defns">5.2</a>,
 §<a href="#sec-4-3" data-reference-type="ref"
-data-reference="sec-4-3">4.3</a>, which are essentially
+data-reference="sec-4-3">5.3</a>, which are essentially
 self-contained.</p>
 <h3 id="sec-1-8">§2. General notation<span id="sec:general-notation"
 label="sec:general-notation"></span></h3>
@@ -1744,7 +1773,7 @@ class="math inline">\(f \in C_c(G)\)</span> that <span id="eqn:explicit-M2-integ
 <h5 id="sec-2-1-3">§3.1.3. Volume formulas<span id="sec:local-vol-formulas"
 label="sec:local-vol-formulas"></span></h5>
 <p>Assume (for all but the final assertion of §<a href="#sec-2-1-3"
-data-reference-type="ref" data-reference="sec-2-1-3">2.1.3</a>) that
+data-reference-type="ref" data-reference="sec-2-1-3">3.1.3</a>) that
 <span class="math inline">\(k\)</span> is non-archimedean. Write <span
 class="math inline">\(\mathop{\mathrm{vol}}(E \subseteq X)\)</span> to
 denote the volume of <span class="math inline">\(E\)</span> with respect
@@ -2299,7 +2328,7 @@ class="lemma">
 a(\varpi^m) K\)</span> for some <span class="math inline">\(m \in
 \mathbb{Z}_{\geqslant 0}\)</span> (see §<a
 href="#sec:cartan-decomposition" data-reference-type="ref"
-data-reference="sec:cartan-decomposition">2.1.4</a>). Then <span
+data-reference="sec:cartan-decomposition">3.1.4</a>). Then <span
 class="math inline">\(\langle \mathop{\mathrm{Ad}}(g) \phi_1, \phi_2
 \rangle_{\Omega} = q^{-m} \langle \phi_1, \phi_2
 \rangle_{\Omega}\)</span>.</p>
@@ -2340,7 +2369,7 @@ in that case, <span
 class="math inline">\(\dim(\pi^{\operatorname{PGL}_2(\mathfrak{o})}) =
 1\)</span>.</p>
 <p>Suppose for the remainder of §<a href="#sec-2-3"
-data-reference-type="ref" data-reference="sec-2-3">2.3</a> that <span
+data-reference-type="ref" data-reference="sec-2-3">3.3</a> that <span
 class="math inline">\(\pi\)</span> is generic and unramified. Let <span
 class="math inline">\(\psi^0\)</span> be an unramified unitary character
 of <span class="math inline">\(k\)</span>. There is then a unique <span
@@ -2440,7 +2469,7 @@ class="math display">\[\rho_{\mathop{\mathrm{Weil}}}(a(y))
 \mathop{\mathrm{vol}}(J) T_y(g)\]</span> where <span
 class="math inline">\(\phi^0 \in \Omega\)</span> is the distinguished
 element (§<a href="#sec:dist-elem" data-reference-type="ref"
-data-reference="sec:dist-elem">2.2.6</a>).</p>
+data-reference="sec:dist-elem">3.2.6</a>).</p>
 </div>
 <div class="proof">
 <p><em>Proof.</em> We must verify that <span id="eq:formula-for-hecke-kernel" class="math display">\[\label{eq:formula-for-hecke-kernel}\tag{3.11}
@@ -2485,7 +2514,7 @@ class="math inline">\(J\)</span>-invariant vectors in <span
 class="math inline">\(\pi\)</span> is nonzero; it is known then that
 <span class="math inline">\(\dim(\pi^J) = 1\)</span>.</p>
 <p>Suppose for remainder of §<a href="#sec-2-4-2"
-data-reference-type="ref" data-reference="sec-2-4-2">2.4.2</a> that
+data-reference-type="ref" data-reference="sec-2-4-2">3.4.2</a> that
 <span class="math inline">\(\pi\)</span> is unramified. There is then a
 unique functional <span class="math inline">\(\lambda_\pi : C_c^\infty(J
 \backslash G / J) \rightarrow \mathbb{C}\)</span> so that <span
@@ -2558,8 +2587,8 @@ particular, if <span class="math inline">\(\pi\)</span> is unramified,
 then so is <span
 class="math inline">\(\pi_{\mathop{\mathrm{JL}}}\)</span>, and Satake
 parameters (see §<a href="#sec-2-3" data-reference-type="ref"
-data-reference="sec-2-3">2.3</a>, §<a href="#sec-2-4-2"
-data-reference-type="ref" data-reference="sec-2-4-2">2.4.2</a>) are
+data-reference="sec-2-3">3.3</a>, §<a href="#sec-2-4-2"
+data-reference-type="ref" data-reference="sec-2-4-2">3.4.2</a>) are
 preserved.</p></li>
 </ul>
 <p>Assume now that that <span class="math inline">\(k\)</span> is
@@ -2571,7 +2600,7 @@ unramified. Let <span class="math inline">\(W^0_\pi : k^\times
 \rightarrow \mathbb{C}\)</span> denote the function attached to <span
 class="math inline">\(\pi_{\mathop{\mathrm{JL}}}\)</span> in §<a
 href="#sec-2-3" data-reference-type="ref"
-data-reference="sec-2-3">2.3</a>. By <a
+data-reference="sec-2-3">3.3</a>. By <a
 href="#eq:explicit-formula-W-pi-0" data-reference-type="eqref"
 data-reference="eq:explicit-formula-W-pi-0">\((3.9)\)</a>
 and <a href="#eq:explicitf-romula-lambda-pi-tY"
@@ -2584,7 +2613,7 @@ data-reference="eq:explicitf-romula-lambda-pi-tY">\((3.12)\)</a>,
 non-archimedean, that <span class="math inline">\(\pi\)</span> is
 unramified, and that <span class="math inline">\(\pi\)</span> is
 unitary. Retain the notation of §<a href="#sec-2-4-2"
-data-reference-type="ref" data-reference="sec-2-4-2">2.4.2</a>.</p>
+data-reference-type="ref" data-reference="sec-2-4-2">3.4.2</a>.</p>
 <div id="lem:local-rallis-ipf-unram-calc" class="lemma">
 <p><em>Lemma 5</em>. Suppose that <span class="math inline">\(B\)</span>
 is split and that <span class="math inline">\(\dim(\pi) &gt;
@@ -2630,9 +2659,9 @@ q^{-1}}\frac{1 - q^{-1} \alpha / \beta }{1 - \alpha / \beta }.\]</span>
 By the Cartan decomposition and Lemma <a
 href="#lem:formula-for-how-Ad-acts-on-distinguish-element-inner-products"
 data-reference-type="ref"
-data-reference="lem:formula-for-how-Ad-acts-on-distinguish-element-inner-products">4</a>
+data-reference="lem:formula-for-how-Ad-acts-on-distinguish-element-inner-products">2</a>
 of §<a href="#sec:dist-elem" data-reference-type="ref"
-data-reference="sec:dist-elem">2.2.6</a>, we obtain <span
+data-reference="sec:dist-elem">3.2.6</a>, we obtain <span
 class="math display">\[\int_{g \in G} \langle \mathop{\mathrm{Ad}}(g)
 \phi_1, \phi_2 \rangle \,d g
     \langle g v_1, v_2 \rangle = \mathop{\mathrm{vol}}(J) %
@@ -2653,7 +2682,7 @@ so that <span class="math inline">\(\pi\)</span> is the one-dimensional
 representation corresponding to the character <span
 class="math inline">\(G \ni g \mapsto \eta(\mathop{\mathrm{nr}}(g)) \in
 \{\pm 1\}\)</span>, as in §<a href="#sec-2-4-2"
-data-reference-type="ref" data-reference="sec-2-4-2">2.4.2</a>. Let
+data-reference-type="ref" data-reference="sec-2-4-2">3.4.2</a>. Let
 <span class="math inline">\(v_1,v_2 \in \pi\)</span>. Recalling that
 <span class="math inline">\([G:J] = 2\)</span>, we have <span id="eqn:local-rallis-ipf-integral-nonsplit-finite" class="math display">\[\label{eqn:local-rallis-ipf-integral-nonsplit-finite}\tag{3.15}
   \int_{g \in G} \langle \mathop{\mathrm{Ad}}(g) e_J, e_J
@@ -2908,7 +2937,7 @@ Kirillov model <span
 class="math inline">\(\mathcal{K}(\pi_\mathfrak{p},\psi_\mathfrak{p})\)</span>
 and satisfies <span class="math inline">\(W_\mathfrak{p} =
 W_{\pi_\mathfrak{p}}^0\)</span> (see §<a href="#sec-2-4-3"
-data-reference-type="ref" data-reference="sec-2-4-3">2.4.3</a>) for
+data-reference-type="ref" data-reference="sec-2-4-3">3.4.3</a>) for
 almost all finite <span class="math inline">\(\mathfrak{p}\)</span>. The
 following residue calculation is standard and may be derived from, for
 instance, <a href="#ref-michel-2009" class="citation" data-cites="michel-2009">(Michel and
@@ -2929,7 +2958,7 @@ class="math inline">\(L\)</span>-function</h5>
 <p>For <span class="math inline">\(\pi\)</span>, <span
 class="math inline">\(S\)</span> as in the lemma of §<a
 href="#sec-3-3-2" data-reference-type="ref"
-data-reference="sec-3-3-2">3.2.2</a>, the <em>partial adjoint <span
+data-reference="sec-3-3-2">4.2.2</a>, the <em>partial adjoint <span
 class="math inline">\(L\)</span>-function</em> is defined for <span
 class="math inline">\(\mathrm{Re}(s) &gt; 1\)</span> by the
 absolutely-convergent Euler product <span
@@ -3021,7 +3050,7 @@ class="math inline">\(J_\mathfrak{p}
 \leqslant\operatorname{PB}^\times_\mathfrak{p}\)</span> denote the image
 of <span class="math inline">\(R_\mathfrak{p}^\times\)</span>, as in §<a
 href="#sec-2-4" data-reference-type="ref"
-data-reference="sec-2-4">2.4</a>, and set <span class="math inline">\(J
+data-reference="sec-2-4">3.4</a>, and set <span class="math inline">\(J
 := \prod_{\mathfrak{p} \notin S} J_\mathfrak{p}\)</span>. Suppose that
 <span class="math inline">\(f = f_S \otimes (\otimes_{\mathfrak{p}
 \notin S} T_{y_\mathfrak{p}})\)</span> for some <span
@@ -3078,7 +3107,7 @@ class="math inline">\(\mathrm{Re}(s) \geqslant 1/2\)</span> (see, e.g.,
 <p>Set <span class="math inline">\(L^{(S)}(\mathop{\mathrm{ad}}\pi,s) :=
 L^{(S)}(\mathop{\mathrm{ad}}\pi_{\mathop{\mathrm{JL}}}, s)\)</span> (see
 §<a href="#sec:adjoint-l-function" data-reference-type="ref"
-data-reference="sec:adjoint-l-function">3.2.3</a>). By <a href="#ref-HL94"
+data-reference="sec:adjoint-l-function">4.2.3</a>). By <a href="#ref-HL94"
 class="citation" data-cites="HL94">(Hoffstein and Lockhart 1994)</a>
 (cf. <a href="#ref-2009arXiv0904.2429B" class="citation" data-cites="2009arXiv0904.2429B">(Blomer and
 Harcos 2010, sec. 2.9)</a>), one has <span id="eq:HL" class="math display">\[\label{eq:HL}\tag{4.10}
@@ -3402,7 +3431,7 @@ class="math inline">\(\sum_{v \in L - \{0\}} |\phi(t v)| =
 <span class="math inline">\(\mathbb{Z}\)</span>-basis of <span
 class="math inline">\(L\)</span>, we reduce to Lemma <a
 href="#lem:cheap-lattice-sum-bound-Rn-Zn" data-reference-type="ref"
-data-reference="lem:cheap-lattice-sum-bound-Rn-Zn">6</a>. ◻</p>
+data-reference="lem:cheap-lattice-sum-bound-Rn-Zn">1</a>. ◻</p>
 </div>
 <h5 id="sec-3-5-4">§4.5.3. Simple estimates for theta functions</h5>
 <p>Recall that the <em>Iwasawa decomposition</em> asserts that each
@@ -3475,9 +3504,9 @@ may reduce to the case <span class="math inline">\(k = 1\)</span> and
 <span class="math inline">\(g = 1\)</span>, in which the required
 estimate follows from Lemma <a
 href="#lem:cheap-lattice-sum-bound-adelic" data-reference-type="ref"
-data-reference="lem:cheap-lattice-sum-bound-adelic">7</a> of §<a
+data-reference="lem:cheap-lattice-sum-bound-adelic">2</a> of §<a
 href="#sec:simple-estimates-for-lattice-sums" data-reference-type="ref"
-data-reference="sec:simple-estimates-for-lattice-sums">3.5.2</a>. ◻</p>
+data-reference="sec:simple-estimates-for-lattice-sums">4.5.2</a>. ◻</p>
 </div>
 <div id="lem:crude-bound-for-elementary-theta-functions" class="lemma">
 <p><em>Lemma 9</em>. For <span class="math inline">\(\phi \in
@@ -3490,7 +3519,7 @@ class="math inline">\(\theta_{\psi}(\phi;s) \ll
 <p><em>Proof.</em> We argue as in the proof of Lemma <a
 href="#lem:crude-bound-for-cuspidal-theta-functions"
 data-reference-type="ref"
-data-reference="lem:crude-bound-for-cuspidal-theta-functions">8</a>, but
+data-reference="lem:crude-bound-for-cuspidal-theta-functions">1</a>, but
 take into account the contribution from <span class="math inline">\(0
 \in F\)</span> to the definition of <span
 class="math inline">\(\theta_{\psi}(\phi)\)</span>. ◻</p>
@@ -3547,9 +3576,9 @@ follows readily from the definitions of those norms. The second estimate
 follows similarly, using Lemma <a
 href="#lem:crude-bound-for-cuspidal-theta-functions"
 data-reference-type="ref"
-data-reference="lem:crude-bound-for-cuspidal-theta-functions">8</a> of
+data-reference="lem:crude-bound-for-cuspidal-theta-functions">1</a> of
 §<a href="#sec-3-5-4" data-reference-type="ref"
-data-reference="sec-3-5-4">3.5.3</a>. ◻</p>
+data-reference="sec-3-5-4">4.5.3</a>. ◻</p>
 </div>
 <h5 id="sec:quantitative-factorization">§4.5.5. Factorization</h5>
 <p>Let <span class="math inline">\(V&#39;, V&#39;&#39;\)</span> be
@@ -3609,7 +3638,7 @@ class="math inline">\(\theta_i := \theta_{\tau_i}(\phi_i&#39;)\)</span>
 and <span class="math inline">\(h_i :=
 \theta_{\tau_i}(\phi_i&#39;&#39;,\Psi_i)\)</span>. (The definition makes
 sense: <em>a priori</em> estimates as in §<a href="#sec-3-5-4"
-data-reference-type="ref" data-reference="sec-3-5-4">3.5.3</a> and the
+data-reference-type="ref" data-reference="sec-3-5-4">4.5.3</a> and the
 density of <span class="math inline">\(\mathcal{S}(\mathbb{A}) \otimes
 \mathcal{S}(B_\mathbb{A}^0)\)</span> in <span
 class="math inline">\(\mathcal{S}(B_\mathbb{A})\)</span> allow us to
@@ -3642,7 +3671,7 @@ data-reference="sec:factorization-weil-repn">3.2.4</a>.</em></p>
 <div class="proof">
 <p><em>Proof.</em> The lemma of §<a
 href="#sec:quantitative-factorization" data-reference-type="ref"
-data-reference="sec:quantitative-factorization">3.5.5</a> reduces the
+data-reference="sec:quantitative-factorization">4.5.5</a> reduces the
 general case of Proposition <a
 href="#prop:main-error-estimate-global-adelic-general"
 data-reference-type="ref"
@@ -3651,7 +3680,7 @@ the special case in which <span class="math inline">\(\phi_i =
 \phi_i&#39; \otimes \phi_i&#39;&#39;\)</span> for <span
 class="math inline">\(i=1,2\)</span>, which follows from the lemma of
 §<a href="#sec-3-5-3" data-reference-type="ref"
-data-reference="sec-3-5-3">3.5.4</a> upon recalling from <a
+data-reference="sec-3-5-3">4.5.4</a> upon recalling from <a
 href="#eq:equivariance-ttf" data-reference-type="eqref"
 data-reference="eq:equivariance-ttf">\((4.14)\)</a> that
 <span class="math inline">\(\theta_{\psi_\tau}\)</span> intertwines
@@ -3943,7 +3972,7 @@ class="math inline">\(y\)</span>, the sum over <span
 class="math inline">\(\tau_1, \tau_2\)</span> has only finitely many
 nonzero summands, each of which consists of an inner product whose
 convergence is clear (see §<a href="#sec-3-5-4"
-data-reference-type="ref" data-reference="sec-3-5-4">3.5.3</a>). The
+data-reference-type="ref" data-reference="sec-3-5-4">4.5.3</a>). The
 expansion <a
 href="#eqn:simliitude-theta-expand-as-sum-of-pure-tensors-and-over-a"
 data-reference-type="eqref"
@@ -4027,7 +4056,7 @@ class="math display">\[\frac{L^{(S)}(\pi,\tfrac{1}{2})}{\zeta_F^{(S)}(2)}
 \rangle_{\operatorname{PB}^\times} \, d g\]</span> with <span
 class="math inline">\(L^{(S)}(\pi,\tfrac{1}{2})\)</span> as in §<a
 href="#sec:standard-l-function" data-reference-type="ref"
-data-reference="sec:standard-l-function">3.3.3</a>.</p></li>
+data-reference="sec:standard-l-function">4.3.3</a>.</p></li>
 </ol>
 </div>
 <h5 id="sec:induction-omega">§4.7.3. Induction to <span
@@ -4059,11 +4088,11 @@ data-reference="eq:thet-:=-thet">\((4.27)\)</a>. The relevance of
 <span class="math inline">\(\mathfrak{m}\)</span> may be inferred from
 §<a href="#sec:unfold-inner-product-nontraditional-theta-over-sl2"
 data-reference-type="ref"
-data-reference="sec:unfold-inner-product-nontraditional-theta-over-sl2">3.6.5</a>.</p>
+data-reference="sec:unfold-inner-product-nontraditional-theta-over-sl2">4.6.5</a>.</p>
 <p>The definition makes sense: as in the proof of §<a
 href="#sec:unfold-inner-product-nontraditional-theta-over-sl2"
 data-reference-type="ref"
-data-reference="sec:unfold-inner-product-nontraditional-theta-over-sl2">3.6.5</a>,
+data-reference="sec:unfold-inner-product-nontraditional-theta-over-sl2">4.6.5</a>,
 the <span class="math inline">\(y\)</span>-integral is really a finite
 sum, and the sum over <span class="math inline">\(\tau_1,
 \tau_2\)</span> has only finitely many nonzero summands. Each summand
@@ -4073,7 +4102,7 @@ class="math inline">\(\mathcal{S}(\mathbb{A}) \otimes
 continuously to <span class="math inline">\(\mathcal{S}(B_\mathbb{A})
 \otimes \mathcal{A}_0\)</span> by the <em>a priori</em> estimates of §<a
 href="#sec-3-5-4" data-reference-type="ref"
-data-reference="sec-3-5-4">3.5.3</a>.</p>
+data-reference="sec-3-5-4">4.5.3</a>.</p>
 <div class="lemma*">
 <p><em>Lemma 13</em>. Let <span class="math inline">\(\pi_1, \pi_2
 \subseteq L^2([\operatorname{PB}^\times])\)</span> be cuspidal
@@ -4111,9 +4140,9 @@ we may assume that <span class="math inline">\(\mathfrak{S} \phi_i =
 \phi_i\)</span>, or equivalently, that <span
 class="math inline">\(\phi_i&#39;(t,x) = \phi_i&#39;(t,-x)\)</span>. By
 the lemmas of §<a href="#sec:elem-theta-ipf" data-reference-type="ref"
-data-reference="sec:elem-theta-ipf">3.7.1</a> and §<a
+data-reference="sec:elem-theta-ipf">4.7.1</a> and §<a
 href="#sec:ternary-theta-ipf" data-reference-type="ref"
-data-reference="sec:ternary-theta-ipf">3.7.2</a>, we have <span
+data-reference="sec:ternary-theta-ipf">4.7.2</a>, we have <span
 class="math inline">\(\langle \theta_1, \theta_2 \rangle = 0\)</span>
 unless <span class="math inline">\(\tau_1 = \tau_2\)</span> and then
 <span class="math inline">\(\langle h_1, h_2 \rangle = 0\)</span> unless
@@ -4160,7 +4189,7 @@ class="math inline">\(F\)</span>, containing all archimedean places as
 well as any finite places at which <span
 class="math inline">\(B\)</span> ramifies. Retain the (unsurprising)
 notation of §<a href="#sec-3-1" data-reference-type="ref"
-data-reference="sec-3-1">3.1</a>.</p>
+data-reference="sec-3-1">4.1</a>.</p>
 <p>Since <span class="math inline">\(B\)</span> is non-split, the
 quotient <span class="math inline">\([\operatorname{PB}^\times]=
 \operatorname{PB}^\times \backslash
@@ -4190,9 +4219,9 @@ of <span class="math inline">\(R_\mathfrak{p}^\times\)</span>.</p></li>
 \leqslant\mathcal{A}\)</span>: the orthogonal complement of the
 one-dimensional subrepresentations. (We had earlier, in §<a
 href="#sec-3-5" data-reference-type="ref"
-data-reference="sec-3-5">3.5</a> and §<a href="#sec:induction-omega"
+data-reference="sec-3-5">4.5</a> and §<a href="#sec:induction-omega"
 data-reference-type="ref"
-data-reference="sec:induction-omega">3.7.3</a>, used the same symbol to
+data-reference="sec:induction-omega">4.7.3</a>, used the same symbol to
 denote some <em>larger</em> spaces than what we call here <span
 class="math inline">\(\mathcal{A}_0\)</span>. This abuse of notation
 should introduce no confusion.)</p></li>
@@ -4229,7 +4258,7 @@ class="math inline">\(\pi \in A_0\)</span> is cuspidal. Let <span
 class="math inline">\(L^{(S)}(\pi,s)\)</span>, <span
 class="math inline">\(L^{(S)}(\mathop{\mathrm{ad}}\pi,s)\)</span> be as
 in §<a href="#sec:standard-l-function" data-reference-type="ref"
-data-reference="sec:standard-l-function">3.3.3</a>.</p>
+data-reference="sec:standard-l-function">4.3.3</a>.</p>
 <h4 id="sec-4-2">§5.2. Key definitions<span
 id="sec:main-general-estimate-key-defns"
 label="sec:main-general-estimate-key-defns"></span></h4>
@@ -4288,7 +4317,7 @@ The integral converges absolutely (see §<a
 href="#sec:local-convergence-lemmas" data-reference-type="ref"
 data-reference="sec:local-convergence-lemmas">3.1.6</a>,
 §<a href="#sec:local-integrals-for-rallis-ipf" data-reference-type="ref"
-data-reference="sec:local-integrals-for-rallis-ipf">2.4.4</a>).</p>
+data-reference="sec:local-integrals-for-rallis-ipf">3.4.4</a>).</p>
 <h5 id="sec:heartsuit">§5.2.4. Thickening <span
 class="math inline">\(\operatorname{PB}^\times\)</span> inside <span
 class="math inline">\(B\)</span></h5>
@@ -4388,7 +4417,7 @@ class="math inline">\(\mathcal{C}(\phi_i)\)</span> denotes a quantity
 that varies continuously with <span
 class="math inline">\(\phi_i\)</span> (see §<a
 href="#sec:some-asympt-notat" data-reference-type="ref"
-data-reference="sec:some-asympt-notat">3.5.1</a>). The implied constants
+data-reference="sec:some-asympt-notat">4.5.1</a>). The implied constants
 and the uniformity in the continuity of <span
 class="math inline">\(\mathcal{C}(.)\)</span> depend at most upon <span
 class="math inline">\(F,\psi,S,W_S\)</span>.</em></p></li>
@@ -4396,14 +4425,14 @@ class="math inline">\(F,\psi,S,W_S\)</span>.</em></p></li>
 class="math inline">\(\varepsilon_{\tau_1,\tau_2}\)</span> factors
 explicitly through the theta correspondence in the sense of §<a
 href="#sec-4-5-5" data-reference-type="ref"
-data-reference="sec-4-5-5">4.4.9</a>.</em></p></li>
+data-reference="sec-4-5-5">5.4.9</a>.</em></p></li>
 </ol>
 </div>
 <p>The proof of Theorem <a href="#thm:main-estimate-general-variance"
 data-reference-type="ref"
 data-reference="thm:main-estimate-general-variance">4</a> occupies §<a
 href="#sec:proof-theor-refthm:m" data-reference-type="ref"
-data-reference="sec:proof-theor-refthm:m">4.4</a>.</p>
+data-reference="sec:proof-theor-refthm:m">5.4</a>.</p>
 <div class="remark">
 <p><em>Remark 6</em>. In applications of Theorem <a
 href="#thm:main-estimate-general-variance" data-reference-type="ref"
@@ -4474,7 +4503,7 @@ data-reference="sec:global-measures">4.1.3</a>.</p>
 <h5 id="sec-2-5">§5.4.2. The <span class="math inline">\(\heartsuit\)</span>
 operator: local</h5>
 <p>Suppose temporarily (for §<a href="#sec-2-5"
-data-reference-type="ref" data-reference="sec-2-5">4.4.2</a> only) that
+data-reference-type="ref" data-reference="sec-2-5">5.4.2</a> only) that
 <span class="math inline">\(k\)</span> is a local field, <span
 class="math inline">\(\psi\)</span> is a nontrivial unitary character of
 <span class="math inline">\(k\)</span>, <span
@@ -4537,11 +4566,11 @@ class="math inline">\(\phi_\mathfrak{p}^0 \in
 \Omega_\mathfrak{p}\)</span> is defined with respect to <span
 class="math inline">\(R_\mathfrak{p}\)</span> (see §<a
 href="#sec:dist-elem" data-reference-type="ref"
-data-reference="sec:dist-elem">2.2.6</a>). This definition and that of
+data-reference="sec:dist-elem">3.2.6</a>). This definition and that of
 §<a href="#sec:heartsuit" data-reference-type="ref"
-data-reference="sec:heartsuit">4.2.4</a> are obviously similar; we
+data-reference="sec:heartsuit">5.2.4</a> are obviously similar; we
 record their precise relationship below in §<a href="#sec-4-5-5"
-data-reference-type="ref" data-reference="sec-4-5-5">4.4.9</a>.</p>
+data-reference-type="ref" data-reference="sec-4-5-5">5.4.9</a>.</p>
 <p>By <a href="#eqn:local-heartsuit-formula" data-reference-type="eqref"
 data-reference="eqn:local-heartsuit-formula">\((5.5)\)</a>
 and the lemma of §<a href="#sec:hecke-kernels-local"
@@ -4564,9 +4593,9 @@ data-reference-type="eqref"
 data-reference="eqn:local-norm-heartsuit-f">\((5.6)\)</a>
 with Lemma <a href="#lem:norm-of-distinguished-vector-in-Omega-local"
 data-reference-type="ref"
-data-reference="lem:norm-of-distinguished-vector-in-Omega-local">3</a>
+data-reference="lem:norm-of-distinguished-vector-in-Omega-local">1</a>
 of §<a href="#sec:dist-elem" data-reference-type="ref"
-data-reference="sec:dist-elem">2.2.6</a>, one obtains <span id="eqn:norm-of-heartsuit-f-global" class="math display">\[\label{eqn:norm-of-heartsuit-f-global}\tag{5.8}
+data-reference="sec:dist-elem">3.2.6</a>, one obtains <span id="eqn:norm-of-heartsuit-f-global" class="math display">\[\label{eqn:norm-of-heartsuit-f-global}\tag{5.8}
   \|\heartsuit f\|^2_{\Omega}
   =
   \|f\|_{L^2(\operatorname{PB}^\times_S)}^2
@@ -4585,7 +4614,7 @@ C_c^\infty(\operatorname{PB}^\times_S)\)</span>, the quantity <span
 class="math inline">\(\mathfrak{m}(\heartsuit f, \heartsuit f, \Psi_1,
 \Psi_2)\)</span> (see §<a href="#sec:induction-omega"
 data-reference-type="ref"
-data-reference="sec:induction-omega">3.7.3</a>) equals <span
+data-reference="sec:induction-omega">4.7.3</a>) equals <span
 class="math display">\[c_2 L^{(S)}(\pi,\tfrac{1}{2}) \int_{g \in
 \operatorname{PB}_S^\times} \langle \mathop{\mathrm{Ad}}(g) \mathfrak{S}
 f, \mathfrak{S} f \rangle_{L^2(\operatorname{PB}_S^\times)} \langle
@@ -4603,7 +4632,7 @@ where <span id="eq:defn-c2-frak-W" class="math display">\[\label{eq:defn-c2-frak
 <div class="proof">
 <p><em>Proof.</em> By the lemma of §<a href="#sec:induction-omega"
 data-reference-type="ref"
-data-reference="sec:induction-omega">3.7.3</a>, the polarization of <a
+data-reference="sec:induction-omega">4.7.3</a>, the polarization of <a
 href="#eqn:norm-of-heartsuit-f-global" data-reference-type="eqref"
 data-reference="eqn:norm-of-heartsuit-f-global">\((5.8)\)</a>
 and the commutativity <span class="math inline">\(\heartsuit
@@ -4631,9 +4660,9 @@ class="math inline">\(W_\pi : \mathbb{A}^\times \rightarrow
 W_S(y_S) \prod_{\mathfrak{p} \notin S}
 W_{\pi_\mathfrak{p}}^0(y_\mathfrak{p})\)</span> (see §<a
 href="#sec:aut-forms-fourier-exp" data-reference-type="ref"
-data-reference="sec:aut-forms-fourier-exp">3.2.1</a>, §<a
+data-reference="sec:aut-forms-fourier-exp">4.2.1</a>, §<a
 href="#sec-3-3-2" data-reference-type="ref"
-data-reference="sec-3-3-2">3.2.2</a>).</p>
+data-reference="sec-3-3-2">4.2.2</a>).</p>
 <div class="lemma*">
 <p><em>Lemma 15</em>. One has <span class="math inline">\(\|\Phi_\pi\|^2
 = c_1 L^{(S)}(\mathop{\mathrm{ad}}\pi,1)\)</span>, where <span id="eq:c-of-frak-W-defn" class="math display">\[\label{eq:c-of-frak-W-defn}\tag{5.10}
@@ -4657,9 +4686,9 @@ the injectivity of <span class="math inline">\(\pi \mapsto
 href="#eq:c-of-frak-W-defn" data-reference-type="eqref"
 data-reference="eq:c-of-frak-W-defn">\((5.10)\)</a> is a
 consequence of the lemma of §<a href="#sec-3-3-2"
-data-reference-type="ref" data-reference="sec-3-3-2">3.2.2</a> and the
+data-reference-type="ref" data-reference="sec-3-3-2">4.2.2</a> and the
 corresponding local calculation (§<a href="#sec-2-3"
-data-reference-type="ref" data-reference="sec-2-3">2.3</a>). ◻</p>
+data-reference-type="ref" data-reference="sec-2-3">3.3</a>). ◻</p>
 </div>
 <h5 id="sec:35ac3e5750">§5.4.5. The normalizing scalar</h5>
 <p>Recall from <a href="#eq:c-of-frak-W-defn"
@@ -4699,7 +4728,7 @@ it suffices to show that <span class="math inline">\(\| \Phi_\pi
 \|_{L^p([\operatorname{PGL}_2])} \ll C(\pi)^{O(1)}\)</span>. The case
 <span class="math inline">\(p=2\)</span> follows from the lemma of §<a
 href="#sec:Phi-pi" data-reference-type="ref"
-data-reference="sec:Phi-pi">4.4.4</a> and <a href="#eq:HL"
+data-reference="sec:Phi-pi">5.4.4</a> and <a href="#eq:HL"
 data-reference-type="eqref" data-reference="eq:HL">\((4.10)\)</a>. The case
 <span class="math inline">\(p=\infty\)</span> reduces to the case <span
 class="math inline">\(p=2\)</span> by axioms (S2a) and (S3b) of <a href="#ref-michel-2009"
@@ -4726,9 +4755,9 @@ class="math inline">\(\Phi_2 := \sum_{\pi \in A_0^S} \omega_\pi( f,\Psi)
 equality of their Whittaker functions <span class="math inline">\(W_1,
 W_2 : \mathbb{A}^\times \rightarrow \mathbb{C}\)</span> as defined in
 §<a href="#sec:aut-forms-fourier-exp" data-reference-type="ref"
-data-reference="sec:aut-forms-fourier-exp">3.2.1</a>. By the lemma of
+data-reference="sec:aut-forms-fourier-exp">4.2.1</a>. By the lemma of
 §<a href="#sec:four-expans" data-reference-type="ref"
-data-reference="sec:four-expans">3.6.3</a> and <a
+data-reference="sec:four-expans">4.6.3</a> and <a
 href="#eqn:formulas-for-heartsuit-f-global" data-reference-type="eqref"
 data-reference="eqn:formulas-for-heartsuit-f-global">\((5.7)\)</a>,
 we have <span class="math display">\[W_1(y) = \sum_{\gamma \in
@@ -4738,7 +4767,7 @@ T_{y_\mathfrak{p}}(g_\mathfrak{p}^{-1} \gamma g_\mathfrak{p}) \,d
 g.\]</span> The definition of <span
 class="math inline">\(\Phi_\pi\)</span> implies (using Lemma <a
 href="#lem:abs-conv-of-silly-sum" data-reference-type="ref"
-data-reference="lem:abs-conv-of-silly-sum">10</a> to justify the
+data-reference="lem:abs-conv-of-silly-sum">1</a> to justify the
 interchange of summation with the Fourier integral over the compact
 group <span class="math inline">\(\mathbb{A}/F\)</span>) that <span
 class="math display">\[W_2(y) = \sum_{\pi \in A_0^S} \omega_\pi( f,\Psi)
@@ -4772,7 +4801,7 @@ data-reference="eqn:key-local-identity-relating-whittaker-and-hecke">\((3.13)\)<
 <p><em>Remark 5</em>. Lemma <a
 href="#lem:fourier-coefficients-of-nontraditional-theta-lifts"
 data-reference-type="ref"
-data-reference="lem:fourier-coefficients-of-nontraditional-theta-lifts">11</a>
+data-reference="lem:fourier-coefficients-of-nontraditional-theta-lifts">2</a>
 and its proof are in the spirit of arguments of Shimizu <a href="#ref-MR0333081"
 class="citation" data-cites="MR0333081">(Shimizu 1972, sec. 4)</a>,
 but we were unable to relate them precisely (e.g., by deducing one from
@@ -4825,13 +4854,13 @@ data-reference-type="ref"
 data-reference="sec:main-estimate-for-equidistribution-pairs-theta">4.5.6</a>.
 The definitions makes sense for the same reasons as in §<a
 href="#sec:induction-omega" data-reference-type="ref"
-data-reference="sec:induction-omega">3.7.3</a>. The identity <span id="eqn:c1-times-error-equals-bla" class="math display">\[\label{eqn:c1-times-error-equals-bla}\tag{5.13}
+data-reference="sec:induction-omega">4.7.3</a>. The identity <span id="eqn:c1-times-error-equals-bla" class="math display">\[\label{eqn:c1-times-error-equals-bla}\tag{5.13}
   \mathcal{V}(\phi_1,\phi_2,\Psi_1,\Psi_2)
   = c_1^{-1} \langle \Theta(\phi_1, \Psi_1), \Theta(\phi_2, \Psi_2)
 \rangle.\]</span> follows from §<a
 href="#sec:unfold-inner-product-nontraditional-theta-over-sl2"
 data-reference-type="ref"
-data-reference="sec:unfold-inner-product-nontraditional-theta-over-sl2">3.6.5</a>
+data-reference="sec:unfold-inner-product-nontraditional-theta-over-sl2">4.6.5</a>
 when <span class="math inline">\(\phi\)</span> is a pure tensor, hence
 in general by linearity.</p>
 <h5 id="sec:main-identity">§5.4.8. The main identities</h5>
@@ -4858,11 +4887,11 @@ href="#eqn:c1-times-error-equals-bla" data-reference-type="eqref"
 data-reference="eqn:c1-times-error-equals-bla">\((5.13)\)</a>,
 Lemma <a href="#lem:fourier-coefficients-of-nontraditional-theta-lifts"
 data-reference-type="ref"
-data-reference="lem:fourier-coefficients-of-nontraditional-theta-lifts">11</a>
+data-reference="lem:fourier-coefficients-of-nontraditional-theta-lifts">2</a>
 of §<a href="#sec-4-5-2" data-reference-type="ref"
-data-reference="sec-4-5-2">4.4.6</a>, and the lemma of §<a
+data-reference="sec-4-5-2">5.4.6</a>, and the lemma of §<a
 href="#sec:Phi-pi" data-reference-type="ref"
-data-reference="sec:Phi-pi">4.4.4</a>, <span
+data-reference="sec:Phi-pi">5.4.4</a>, <span
 class="math display">\[\begin{align}
     \mathcal{V}(\heartsuit f,\heartsuit f,\Psi_1,\Psi_2)
     &amp;=
@@ -4890,7 +4919,7 @@ class="math display">\[\begin{align}
 <p><a href="#eq:M-equals-Mf" data-reference-type="eqref"
 data-reference="eq:M-equals-Mf">\((5.15)\)</a>: by the lemma of
 §<a href="#sec-3-6" data-reference-type="ref"
-data-reference="sec-3-6">4.4.3</a> and <a href="#eqn:relation-c1-c2-c"
+data-reference="sec-3-6">5.4.3</a> and <a href="#eqn:relation-c1-c2-c"
 data-reference-type="eqref"
 data-reference="eqn:relation-c1-c2-c">\((5.11)\)</a>.</p>
 <p><a href="#eq:Vf-equals-Mf-plus-E" data-reference-type="eqref"
@@ -4907,7 +4936,7 @@ href="#prop:main-error-estimate-global-adelic-general"
 data-reference-type="ref"
 data-reference="prop:main-error-estimate-global-adelic-general">1</a>
 (see §<a href="#sec-3-5-5" data-reference-type="ref"
-data-reference="sec-3-5-5">3.5.6</a>) and Proposition <a
+data-reference="sec-3-5-5">4.5.6</a>) and Proposition <a
 href="#prop:after-extracting-main-term" data-reference-type="ref"
 data-reference="prop:after-extracting-main-term">2</a> to prove Theorem
 <a href="#thm:main-estimate-general-variance" data-reference-type="ref"
@@ -5010,7 +5039,7 @@ class="math inline">\(\operatorname{O}_1(F)\)</span>-invariance,” “<span
 class="math inline">\(\mathop{\mathrm{SO}}(B_S^0)\)</span>-invariance”
 and “metaplectic invariance” follow from §<a
 href="#sec:equivariance-summary-for-E-tau-tau" data-reference-type="ref"
-data-reference="sec:equivariance-summary-for-E-tau-tau">3.5.7</a>.</p></li>
+data-reference="sec:equivariance-summary-for-E-tau-tau">4.5.7</a>.</p></li>
 <li><p>The “main estimate” is the content of Proposition <a
 href="#prop:main-error-estimate-global-adelic-general"
 data-reference-type="ref"
@@ -5073,7 +5102,7 @@ define the compact open subgroup <span
 class="math inline">\(J_\mathfrak{p}
 \leqslant\operatorname{PB}^\times_\mathfrak{p}\)</span> as in §<a
 href="#sec-2-4" data-reference-type="ref"
-data-reference="sec-2-4">2.4</a> by taking for <span
+data-reference="sec-2-4">3.4</a> by taking for <span
 class="math inline">\(J_\mathfrak{p}\)</span> the image of <span
 class="math inline">\(R_\mathfrak{p}^\times\)</span> if <span
 class="math inline">\(\mathfrak{p}\)</span> is finite and taking <span
@@ -5083,7 +5112,7 @@ class="math inline">\(\mathfrak{p}\)</span> is infinite. Set <span
 class="math inline">\(J := \prod_{\mathfrak{p} \neq \mathfrak{q}}
 J_\mathfrak{p}\)</span>. In addition to the notation of §<a
 href="#sec-4-1" data-reference-type="ref"
-data-reference="sec-4-1">4.1</a>, we now introduce a superscripted <span
+data-reference="sec-4-1">5.1</a>, we now introduce a superscripted <span
 class="math inline">\(J\)</span>, as in <span
 class="math inline">\(\mathcal{A}^J, \mathcal{A}_0^J, \pi^J\)</span> to
 denote the <span class="math inline">\(J\)</span>-fixed subspace. We
@@ -5119,7 +5148,7 @@ class="math inline">\(\omega_\pi(f,\Psi) := \sum_{\varphi \in
 \varphi \rangle\)</span>. Then <span
 class="math inline">\(\omega_\pi(\tilde{f},\Psi) =
 \omega_\pi(f,\Psi)\)</span> (see §<a href="#sec:omega-pi"
-data-reference-type="ref" data-reference="sec:omega-pi">4.2.1</a> for
+data-reference-type="ref" data-reference="sec:omega-pi">5.2.1</a> for
 the definition of the left hand side). Since <span
 class="math inline">\(\dim(\pi_\mathfrak{p}) = 1\)</span> for all <span
 class="math inline">\(\mathfrak{p} \in S - \{\mathfrak{q} \}\)</span>,
@@ -5222,7 +5251,7 @@ data-reference="sec:orgb2d0a08">1.8</a>, while <span
 class="math inline">\(\mathcal{V}_f\)</span> and <span
 class="math inline">\(\mathcal{V}_{\tilde{f}}\)</span> are as in §<a
 href="#sec-4-4-1" data-reference-type="ref"
-data-reference="sec-4-4-1">4.5.1</a>. We identify <span
+data-reference="sec-4-4-1">5.5.1</a>. We identify <span
 class="math inline">\(\tau \in F ^\times\)</span> with its image in
 <span class="math inline">\(\mathbb{R}^\times\)</span> via the given
 archimedean place <span class="math inline">\(\mathfrak{q}\)</span>.
@@ -5290,7 +5319,7 @@ and “fixed”).</p>
 <p>The microlocal lift measures <span
 class="math inline">\(\mu_\pi\)</span> are defined (§<a
 href="#sec:constr-mu-pi-ZW" data-reference-type="ref"
-data-reference="sec:constr-mu-pi-ZW">1.5</a>) using differential
+data-reference="sec:constr-mu-pi-ZW">6.5</a>) using differential
 operators (namely, raising and lowering operators), but our methods
 apply most naturally to the distributions <span
 class="math inline">\(\mu(\pi(f), \cdot)\)</span> attached in §<a
@@ -5305,7 +5334,7 @@ data-cites="nelson-venkatesh-1">(Nelson and Venkatesh 2021)</a>,
 whose specialization to <span
 class="math inline">\(\operatorname{PGL}_2(\mathbb{R})\)</span> we
 recall in §<a href="#sec:operator-calculus" data-reference-type="ref"
-data-reference="sec:operator-calculus">1.7</a>. Having constructed
+data-reference="sec:operator-calculus">6.7</a>. Having constructed
 microlocal lift measures in this way, we are in good position to apply
 Theorem <a href="#thm:var-2" data-reference-type="ref"
 data-reference="thm:var-2">3</a>, and must then estimate the “main” and
@@ -5446,7 +5475,7 @@ e.g., <a href="#ref-nelson-venkatesh-1" class="citation" data-cites="nelson-venk
 Venkatesh 2021, sec. 6)</a> or <a href="#ref-MR1701415" class="citation"
 data-cites="MR1701415">(Kirillov 1999)</a> for further details, and
 the calculations of §<a href="#sec:orge0a88b2" data-reference-type="ref"
-data-reference="sec:orge0a88b2">3.2</a> for some explicit formulas). For
+data-reference="sec:orge0a88b2">8.2</a> for some explicit formulas). For
 each <span class="math inline">\(\xi \in \mathcal{O}\)</span>, the
 tangent space <span class="math inline">\(T_\xi \mathcal{O}\)</span>
 identifies with the space of vectors <span class="math inline">\(\{x
@@ -5681,7 +5710,7 @@ class="math inline">\(L(\dotsb)\)</span> denotes the finite part of an
 <div class="proof">
 <p><em>Proof of Lemma <a href="#lem:trivial-vanishing"
 data-reference-type="ref"
-data-reference="lem:trivial-vanishing">12</a>.</em> Since the
+data-reference="lem:trivial-vanishing">1</a>.</em> Since the
 distributions <span class="math inline">\(\mu_\pi\)</span> are invariant
 by the involutory Hecke operators <span
 class="math inline">\(T_p\)</span> (<span class="math inline">\(p \in
@@ -5773,7 +5802,7 @@ we may write <span class="math inline">\(|\mu_\pi(\Psi)|^2 =
 \mathcal{L}(\pi,\sigma)
 |\mu_\pi^{\mathop{\mathrm{loc}}}(\Psi)|^2\)</span>, say. One can show by
 arguments as in §<a href="#sec:orge0a88b2" data-reference-type="ref"
-data-reference="sec:orge0a88b2">3.2</a> and <a href="#ref-nelson-padic-que" class="citation"
+data-reference="sec:orge0a88b2">8.2</a> and <a href="#ref-nelson-padic-que" class="citation"
 data-cites="nelson-padic-que">(Nelson 2018, sec. 6.3)</a> that the
 leading order asymptotics as <span
 class="math inline">\(\mathop{\mathrm{h}}\rightarrow 0\)</span> of <span
@@ -6125,7 +6154,7 @@ S^{\infty}_\delta\)</span> has the property that the image under the
 invariant polynomial <span class="math inline">\(\Lambda :
 \mathfrak{g}^\wedge \rightarrow \mathbb{R}\)</span> (see §<a
 href="#sec:lie-algebra" data-reference-type="ref"
-data-reference="sec:lie-algebra">1.1</a>) of the support of <span
+data-reference="sec:lie-algebra">6.1</a>) of the support of <span
 class="math inline">\(a\)</span> is separated by at least <span
 class="math inline">\({\mathop{\mathrm{h}}}^{1/2-\varepsilon}\)</span>
 from <span class="math inline">\({\mathop{\mathrm{h}}}^2
@@ -6160,7 +6189,7 @@ integral operators <span class="math inline">\(\pi(f)\)</span> with
 construction of the microlocal lift <span
 class="math inline">\(\mu_\pi\)</span> recorded in §<a
 href="#sec:constr-mu-pi-ZW" data-reference-type="ref"
-data-reference="sec:constr-mu-pi-ZW">1.5</a> is in terms of differential
+data-reference="sec:constr-mu-pi-ZW">6.5</a> is in terms of differential
 operators. We thus encounter the problem of constructing <span
 class="math inline">\(\mu_\pi\)</span>, or at least some asymptotically
 equivalent distributions, using integral operators.</p>
@@ -6286,7 +6315,7 @@ class="math inline">\(\tau\)</span>, and <span id="eq:trace-estimate-in-localize
 <p><em>Proof.</em> We have <span class="math inline">\(a^2(\xi) \ll
 {\mathop{\mathrm{h}}}^{-2 \delta}\)</span>. By the lemma of §<a
 href="#sec:coadjoint-orbits" data-reference-type="ref"
-data-reference="sec:coadjoint-orbits">1.2</a> and the hypotheses
+data-reference="sec:coadjoint-orbits">6.2</a> and the hypotheses
 concerning <span
 class="math inline">\(|\mathop{\mathrm{h}}\tau|\)</span> and the support
 of <span class="math inline">\(a\)</span>, the set <span
@@ -6298,7 +6327,7 @@ href="#eq:trace-estimate-in-localized-case" data-reference-type="eqref"
 data-reference="eq:trace-estimate-in-localized-case">\((7.3)\)</a>
 thus follows from §<a href="#sec:opp-trace-estimates"
 data-reference-type="ref"
-data-reference="sec:opp-trace-estimates">1.7.10</a>. In particular, the
+data-reference="sec:opp-trace-estimates">6.7.10</a>. In particular, the
 operator <span class="math inline">\(T\)</span> is positive-definite
 with <span class="math inline">\(\mathop{\mathrm{trace}}(T) \ll
 1\)</span>.</p>
@@ -6433,7 +6462,7 @@ class="math inline">\(\tau\)</span>. Then <span id="eq:mu-T-Psi-approximates-etc
 </div>
 <p>The proof is given in §<a href="#sec:calc-with-rais"
 data-reference-type="ref"
-data-reference="sec:calc-with-rais">2.2</a>.</p>
+data-reference="sec:calc-with-rais">7.2</a>.</p>
 <div class="remark">
 <p><em>Remark 10</em>. The estimate <a
 href="#eq:mu-T-Psi-approximates-etc" data-reference-type="eqref"
@@ -6444,17 +6473,17 @@ implies in particular that <span class="math inline">\(\mu(T,\Psi) =
 estimate is inadequate for our applications, in which we exploit
 crucially that <span class="math inline">\(\mathcal{L}\)</span> is
 “bounded on average” (see §<a href="#sec:defn-f"
-data-reference-type="ref" data-reference="sec:defn-f">3.1</a>).</p>
+data-reference-type="ref" data-reference="sec:defn-f">8.1</a>).</p>
 </div>
 <div class="remark">
 <p><em>Remark 11</em>. Although Lemma <a href="#thm:characterize-mu-pi"
-data-reference-type="ref" data-reference="thm:characterize-mu-pi">15</a>
+data-reference-type="ref" data-reference="thm:characterize-mu-pi">2</a>
 is formulated in terms of <span class="math inline">\(L\)</span>-values,
 it does not fundamentally exploit the arithmeticity of <span
 class="math inline">\(\Gamma \backslash G\)</span>. What matters are the
 properties of <span class="math inline">\(\mathcal{L}\)</span>
 enunciated in §<a href="#sec:branch-coeff" data-reference-type="ref"
-data-reference="sec:branch-coeff">1.6</a>, which make sense for general
+data-reference="sec:branch-coeff">6.6</a>, which make sense for general
 finite volume quotients (see <a href="#ref-nelson-venkatesh-1" class="citation"
 data-cites="nelson-venkatesh-1">(Nelson and Venkatesh 2021, sec.
 1.4)</a>, <a href="#ref-MR2726097" class="citation" data-cites="MR2726097">(Bernstein
@@ -6462,7 +6491,7 @@ and Reznikov 2010)</a>).</p>
 </div>
 <div class="remark">
 <p><em>Remark 12</em>. Lemma <a href="#thm:characterize-mu-pi"
-data-reference-type="ref" data-reference="thm:characterize-mu-pi">15</a>
+data-reference-type="ref" data-reference="thm:characterize-mu-pi">2</a>
 may be used to give a proof of the asymptotic <span
 class="math inline">\(H\)</span>-invariance of the measures <span
 class="math inline">\(\mu_\pi\)</span>, roughly in the spirit of <a href="#ref-nelson-venkatesh-1"
@@ -6483,9 +6512,9 @@ class="math inline">\(g \cdot \tau\)</span>, and</p></li>
 <h4 id="sec:calc-with-rais">§7.2. Calculations with raising and lowering
 operators</h4>
 <p>Here we record the proof of Lemma <a href="#thm:characterize-mu-pi"
-data-reference-type="ref" data-reference="thm:characterize-mu-pi">15</a>
+data-reference-type="ref" data-reference="thm:characterize-mu-pi">2</a>
 of §<a href="#sec:states-approx-microlocal" data-reference-type="ref"
-data-reference="sec:states-approx-microlocal">2.1</a>. The proof is a
+data-reference="sec:states-approx-microlocal">7.1</a>. The proof is a
 bit tedious, but not difficult, and unrelated to the main novelties of
 this work. It is basically a quantification of the arguments used to
 prove <a href="#eq:mu-T-Psi-vs-mu-pi-Psi-simple"
@@ -6509,7 +6538,7 @@ We have <span class="math inline">\(\pi \cong
 class="math inline">\(\pi(t,\varepsilon)\)</span> as <span
 class="math inline">\(L^2(\mathbb{Z})\)</span> as in §<a
 href="#sec:constr-irred-unit" data-reference-type="ref"
-data-reference="sec:constr-irred-unit">1</a>. There is then a unique
+data-reference="sec:constr-irred-unit">6</a>. There is then a unique
 equivariant (isometric) isomorphism <span class="math inline">\(j_\pi :
 L^2(\mathbb{Z}) \rightarrow \pi\)</span> that maps the basis element
 <span class="math inline">\(e_0\)</span> to <span
@@ -6651,7 +6680,7 @@ translates to <span id="eqn:T-X-cons" class="math display">\[\label{eqn:T-X-cons
 \operatorname{O}({\mathop{\mathrm{h}}}^\delta).\]</span> We record details
 concerning this deduction at the end of §<a href="#sec:calc-with-rais"
 data-reference-type="ref"
-data-reference="sec:calc-with-rais">2.2</a>.</p>
+data-reference="sec:calc-with-rais">7.2</a>.</p>
 <p>Recall that <span class="math inline">\(\Psi(q,\xi) = 0\)</span>
 unless <span class="math inline">\(|\xi| \leqslant C\)</span> for some
 fixed <span class="math inline">\(C\)</span>. We have the trivial bound
@@ -7036,7 +7065,7 @@ then the estimate <a href="#eq:bad-trace-pi-estimate"
 data-reference-type="eqref"
 data-reference="eq:bad-trace-pi-estimate">\((7.30)\)</a>
 follows from §<a href="#sec:clean-up" data-reference-type="ref"
-data-reference="sec:clean-up">1.7.11</a>, while <a
+data-reference="sec:clean-up">6.7.11</a>, while <a
 href="#eq:bad-pi-estimate-for-T-pi-Psi" data-reference-type="eqref"
 data-reference="eq:bad-pi-estimate-for-T-pi-Psi">\((7.32)\)</a>
 follows from <a href="#eq:bad-trace-pi-estimate"
@@ -7066,7 +7095,7 @@ data-reference-type="eqref"
 data-reference="eq:compare-with-microlocal">\((7.31)\)</a>,
 we combine the lemmas of §<a href="#sec:states-approx-microlocal"
 data-reference-type="ref"
-data-reference="sec:states-approx-microlocal">2.1</a>. ◻</p>
+data-reference="sec:states-approx-microlocal">7.1</a>. ◻</p>
 </div>
 <h3 id="sec:35ac3e57a1">§8. Proofs of main results</h3>
 <p>Following the sketch of §<a href="#sec:sketch-deduct-theor"
@@ -7081,7 +7110,7 @@ verified in the following subsections, followed by the modifications
 needed for the holomorphic case.</p>
 <h4 id="sec:defn-f">§8.1. Quantum variance sums via integral operators</h4>
 <p>Recall from §<a href="#sec:org8bcf1bd" data-reference-type="ref"
-data-reference="sec:org8bcf1bd">2.3</a> that we have chosen <span
+data-reference="sec:org8bcf1bd">7.3</a> that we have chosen <span
 class="math inline">\(k \in \mathcal{K}\)</span> and a corresponding
 symbol <span class="math inline">\(a \in \tilde{\mathcal{K}}\)</span>.
 Then <span class="math display">\[f := {\mathop{\mathrm{h}}}^{3/2}
@@ -7100,7 +7129,7 @@ class="math inline">\(\pi(f) = {\mathop{\mathrm{h}}}^{1/2} T_\pi\)</span>
 with <span class="math inline">\(T_\pi :=
 \mathop{\mathrm{h}}{\mathop{\mathrm{Op}}}_{\mathop{\mathrm{h}}}(a:\pi)^2\)</span>
 as in the lemma of §<a href="#sec:org8bcf1bd" data-reference-type="ref"
-data-reference="sec:org8bcf1bd">2.3</a>. Recall from §<a
+data-reference="sec:org8bcf1bd">7.3</a>. Recall from §<a
 href="#sec:orgb2d0a08" data-reference-type="ref"
 data-reference="sec:orgb2d0a08">1.8</a> that <span id="eq:recap-defn-cal-V" class="math display">\[\label{eq:recap-defn-cal-V}\tag{8.1}
   \mathcal{V}(f)
@@ -7234,7 +7263,7 @@ data-reference="thm:var-3">1</a>.</p>
 <p>We note for future reference that for <span class="math inline">\(x
 \in \mathcal{G}\)</span> (see §<a href="#sec:kirillov-formula"
 data-reference-type="ref"
-data-reference="sec:kirillov-formula">1.4</a>), <span
+data-reference="sec:kirillov-formula">6.4</a>), <span
 class="math display">\[f(\exp(x)) = {\mathop{\mathrm{h}}}^{3/2}
 {\mathop{\mathrm{jac}}}^{-1/2}(x)
 b^\vee_{\mathop{\mathrm{h}}}(x),\]</span> where <span
@@ -7262,7 +7291,7 @@ class="math inline">\(G\)</span>. Let <span class="math inline">\(d
 x\)</span> denote the compatibly normalized Haar measure on <span
 class="math inline">\(\mathfrak{g}\)</span> (§<a
 href="#sec:kirillov-formula" data-reference-type="ref"
-data-reference="sec:kirillov-formula">1.4</a>), and let <span
+data-reference="sec:kirillov-formula">6.4</a>), and let <span
 class="math inline">\(d \xi\)</span> denote the corresponding dual
 measure on <span class="math inline">\(\mathfrak{g}^\wedge\)</span>, so
 that for instance <span class="math inline">\(\phi(0) = \int_{x \in
@@ -7322,7 +7351,7 @@ supported on <span class="math inline">\(\{\xi : \Lambda(\xi) &lt;
 of all choices of Haar measure, it is convenient to make explicit
 choices for the proof. Recall the coordinates and notation of §<a
 href="#sec:lie-algebra" data-reference-type="ref"
-data-reference="sec:lie-algebra">1.1</a>. We assume that <span
+data-reference="sec:lie-algebra">6.1</a>. We assume that <span
 class="math inline">\(d x = \frac{1}{ \pi } d x_1 \, d x_2 \, d
 x_3\)</span>. This normalizes a Haar measure <span
 class="math inline">\(d g\)</span> on <span
@@ -7343,7 +7372,7 @@ canonical <span class="math inline">\(2\)</span>-form <span
 class="math inline">\(\omega\)</span> on <span
 class="math inline">\(\mathcal{O}(-t^2)\)</span> (§<a
 href="#sec:coadjoint-orbits" data-reference-type="ref"
-data-reference="sec:coadjoint-orbits">1.2</a>) at the point <span
+data-reference="sec:coadjoint-orbits">6.2</a>) at the point <span
 class="math inline">\(\xi(t)\)</span>. Under the differentiated orbit
 map <span class="math inline">\(\mathfrak{g} \rightarrow
 T_{\xi(t)}(\mathcal{O}(-t^2))\)</span>, we have <span
@@ -7466,7 +7495,7 @@ class="math inline">\(\Phi(g) \ll
 \|\mathop{\mathrm{Ad}}(g)\|^{-\eta}\)</span> for some fixed <span
 class="math inline">\(\eta &gt; 0\)</span> by standard bounds for matrix
 coefficients (§<a href="#sec-2-1-4" data-reference-type="ref"
-data-reference="sec-2-1-4">2.1.5</a>), while <span
+data-reference="sec-2-1-4">3.1.5</a>), while <span
 class="math inline">\(\langle g \cdot b, b \rangle_{\mathfrak{g}^\wedge}
 \ll \|\mathop{\mathrm{Ad}}(g)\|^{-1}\)</span> by direct calculation.
 Since <span class="math inline">\(\int_{g \in G}
@@ -7724,7 +7753,7 @@ class="math display">\[q^\tau(v) := \frac{W(\tau \rho(v)^2) }{ |\tau
 \rho(v)^2| } {\mathop{\mathrm{jac}}}^{-1/2} \chi&#39;(\theta(v))\]</span>
 and <span class="math inline">\(\phi := b^\vee\)</span>, with <span
 class="math inline">\(b\)</span> as in §<a href="#sec:defn-f"
-data-reference-type="ref" data-reference="sec:defn-f">3.1</a>. We see
+data-reference-type="ref" data-reference="sec:defn-f">8.1</a>. We see
 then by unwinding the definitions that for <span class="math inline">\(v
 \in \mathcal{M}\)</span>, <span class="math display">\[\heartsuit^{\tau}
 f(v) = q^\tau(v) {\mathop{\mathrm{h}}}^{-3/2}
@@ -7843,19 +7872,19 @@ vector <span class="math inline">\(\varphi_\pi\)</span>. One can
 motivate the definition of <span class="math inline">\(\xi
 &#39;(t)\)</span>, as in §<a href="#sec:states-approx-microlocal"
 data-reference-type="ref"
-data-reference="sec:states-approx-microlocal">2.1</a>, in terms of the
+data-reference="sec:states-approx-microlocal">7.1</a>, in terms of the
 approximate symmetries of <span
 class="math inline">\(\varphi_\pi\)</span>. As partial motivation, we
 note that <span class="math inline">\(W \varphi_\pi = W(\xi &#39;(k))
 \varphi_\pi\)</span>.</p>
 <p>The analogue of Lemma <a href="#lem:WW" data-reference-type="ref"
 data-reference="lem:WW">2</a> of §<a href="#sec:branch-coeff"
-data-reference-type="ref" data-reference="sec:branch-coeff">1.6</a>
+data-reference-type="ref" data-reference="sec:branch-coeff">6.6</a>
 remains valid, with the same proof.</p>
 <p>The analogue of Lemma <a href="#thm:characterize-mu-pi"
-data-reference-type="ref" data-reference="thm:characterize-mu-pi">15</a>
+data-reference-type="ref" data-reference="thm:characterize-mu-pi">2</a>
 of §<a href="#sec:states-approx-microlocal" data-reference-type="ref"
-data-reference="sec:states-approx-microlocal">2.1</a>, obtained by</p>
+data-reference="sec:states-approx-microlocal">7.1</a>, obtained by</p>
 <ul>
 <li><p>replacing the assumption <span class="math inline">\(\lambda_\pi
 &lt; 0\)</span> with <span class="math inline">\(\lambda_\pi &gt;
@@ -7866,7 +7895,7 @@ data-reference="sec:states-approx-microlocal">2.1</a>, obtained by</p>
 </ul>
 <p>remains valid, by similar arguments.</p>
 <p>In §<a href="#sec:org8bcf1bd" data-reference-type="ref"
-data-reference="sec:org8bcf1bd">2.3</a>, we now define <span
+data-reference="sec:org8bcf1bd">7.3</a>, we now define <span
 class="math inline">\(\tilde{K}\)</span> by requiring that <span
 class="math inline">\(a\)</span> be supported in a <span
 class="math inline">\(\operatorname{O}({\mathop{\mathrm{h}}}^\delta)\)</span>
@@ -7877,16 +7906,16 @@ the “new” value of <span class="math inline">\(w\)</span>. We define
 <span class="math inline">\(\mathcal{K} \subseteq
 C_c^\infty(\mathbb{R}_{&gt;0})\)</span> analogously. The analogue of the
 lemma of §<a href="#sec:org8bcf1bd" data-reference-type="ref"
-data-reference="sec:org8bcf1bd">2.3</a> then holds, with the same
+data-reference="sec:org8bcf1bd">7.3</a> then holds, with the same
 proof.</p>
 <p>The discussion of §<a href="#sec:defn-f" data-reference-type="ref"
-data-reference="sec:defn-f">3.1</a> applies upon replacing each
+data-reference="sec:defn-f">8.1</a> applies upon replacing each
 occurrence of <span class="math inline">\(-\lambda_\pi\)</span> with
 <span class="math inline">\(\lambda_\pi\)</span>.</p>
 <p>Once we have chosen the measure on <span
 class="math inline">\(H\)</span> carefully, the lemma of §<a
 href="#sec:orge0a88b2" data-reference-type="ref"
-data-reference="sec:orge0a88b2">3.2</a> will hold upon replacing <span
+data-reference="sec:orge0a88b2">8.2</a> will hold upon replacing <span
 class="math inline">\(\Lambda(\xi) &lt; 0\)</span> with <span
 class="math inline">\(\Lambda(\xi) &gt; 0\)</span> in the support
 condition and <span class="math inline">\(\mathcal{O}(-t^2)\)</span>
@@ -7903,7 +7932,7 @@ class="math inline">\(1\)</span>-form on <span
 class="math inline">\(\mathfrak{h}\)</span> that, after complexifying
 and conjugating <span class="math inline">\(H\)</span> to the diagonal
 subgroup, is given in the coordinates of §<a href="#sec:lie-algebra"
-data-reference-type="ref" data-reference="sec:lie-algebra">1.1</a> by
+data-reference-type="ref" data-reference="sec:lie-algebra">6.1</a> by
 <span class="math inline">\(d x_1\)</span>. We verify readily that the
 appropriate Haar on <span class="math inline">\(H\)</span> is thus <span
 class="math inline">\(\int _{H} f := \int _{\theta \in \mathbb{R} / 2
@@ -7911,7 +7940,7 @@ class="math inline">\(\int _{H} f := \int _{\theta \in \mathbb{R} / 2
 <span class="math inline">\(\mathop{\mathrm{vol}}(H) = 2
 \pi\)</span>.</p>
 <p>The error estimates (§<a href="#sec:org543f416"
-data-reference-type="ref" data-reference="sec:org543f416">3.3</a>) go
+data-reference-type="ref" data-reference="sec:org543f416">8.3</a>) go
 through without modification.</p>
 <p>We obtain in this way a result exactly analogous to Theorem <a
 href="#thm:var-3" data-reference-type="ref"
@@ -8037,7 +8066,7 @@ data-reference="eqn:limiting-variance-formula">\((1.10)\)</a>
 obtained in our main result (or more precisely, its unweighted variant
 discussed in §<a href="#sec:remov-arithm-weights-1"
 data-reference-type="ref"
-data-reference="sec:remov-arithm-weights-1">4.1</a>). This serves both
+data-reference="sec:remov-arithm-weights-1">9.1</a>). This serves both
 to check of the correctness of our results and to offer some perspective
 on the deviation in behavior of variance sums between arithmetic and
 non-arithmetic settings.</p>
@@ -8321,7 +8350,7 @@ We may take <span class="math inline">\(f\)</span> essentially (i.e., up
 to the constant factor <span
 class="math inline">\({\mathop{\mathrm{h}}}^{1/2}\)</span>) as in §<a
 href="#sec:defn-f" data-reference-type="ref"
-data-reference="sec:defn-f">3.1</a>, with <span
+data-reference="sec:defn-f">8.1</a>, with <span
 class="math inline">\(k\)</span> approximating the characteristic
 function of the interval <span class="math inline">\((-1,0)\)</span>. We
 assume that <span class="math inline">\(\pi = \overline{\pi}\)</span>
@@ -8390,7 +8419,7 @@ normalized bi-<span class="math inline">\(J_p\)</span>-invariant matrix
 coefficient of <span class="math inline">\(\sigma\)</span> at <span
 class="math inline">\(p\)</span>, as in §<a
 href="#sec:remov-arithm-weights-1" data-reference-type="ref"
-data-reference="sec:remov-arithm-weights-1">4.1</a>, while at <span
+data-reference="sec:remov-arithm-weights-1">9.1</a>, while at <span
 class="math inline">\(\mathfrak{q}\)</span> we take the usual matrix
 coefficient. The local integrals <span
 class="math inline">\(I_p\)</span> have been computed. The local
@@ -8413,7 +8442,7 @@ For finite primes <span class="math inline">\(p \notin S\)</span>, we
 have <span class="math inline">\(I_p = L_p(\sigma,\tfrac{1}{2} ) (1 -
 \frac{\lambda_\sigma(p)}{|p|^{3/2} + |p|^{1/2}})\)</span> by §<a
 href="#sec:remov-arithm-weights-1" data-reference-type="ref"
-data-reference="sec:remov-arithm-weights-1">4.1</a>. Modulo identifying
+data-reference="sec:remov-arithm-weights-1">9.1</a>. Modulo identifying
 <span class="math inline">\(\prod_{p \notin S} L_p(\sigma,\tfrac{1}{2}
 )\)</span> with <span class="math inline">\(L^{(S)}(\sigma,\tfrac{1}{2}
 )\)</span>, we derive from <a href="#eqn:general-QV-prediction"
@@ -8444,12 +8473,12 @@ class="math display">\[c_\sigma &#39;
 with the unweighted variant of Theorem <a href="#thm:var-3"
 data-reference-type="ref" data-reference="thm:var-3">1</a> discussed in
 §<a href="#sec:remov-arithm-weights-1" data-reference-type="ref"
-data-reference="sec:remov-arithm-weights-1">4.1</a>.</p>
+data-reference="sec:remov-arithm-weights-1">9.1</a>.</p>
 <h5 id="sec:35ac3e57b1">§9.2.5. Comparison with <span
 class="math inline">\(L\)</span>-function heuristics</h5>
 <p>Thirdly, we verify that the predictions of §<a
 href="#sec:general-heur" data-reference-type="ref"
-data-reference="sec:general-heur">4.2.2</a>, and hence likewise our main
+data-reference="sec:general-heur">9.2.2</a>, and hence likewise our main
 results, are (unsurprisingly) consistent with the triple product formula
 and standard heuristics for averages of families of <span
 class="math inline">\(L\)</span>-functions. We include this discussion
