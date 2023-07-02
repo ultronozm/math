@@ -287,6 +287,22 @@ document.querySelectorAll(\".toggle-proof\").forEach(function(toggle) {
   });
 });
 </script>
+<script>
+document.querySelector(\"#toggle-all-proofs\").addEventListener(\"click\", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(\".proof-content\");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === \"none\") {
+      proof.style.display = \"inline\";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = \"none\";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
 "
   "Scripts to add to HTML files."
   :type 'string)
@@ -316,12 +332,15 @@ document.querySelectorAll(\".toggle-proof\").forEach(function(toggle) {
     (insert "  <link rel=\"stylesheet\" href=\"tex.css\">
 ")))
 
-(defun tex2html-add-tex-pdf-links ()
+(defun tex2html-add-tex-pdf-links (&optional file-name)
   (interactive)
   (goto-char (point-min))
   (when-let ((style-beg (search-forward "<style>" nil t))
 	     (body-beg (search-forward "<body>" nil t))
-	     (base-filename (file-name-nondirectory (file-name-sans-extension (buffer-file-name)))))
+	     (base-filename
+	      (file-name-nondirectory (file-name-sans-extension
+				       (or file-name
+					   (buffer-file-name))))))
     (goto-char body-beg)
     (insert
      (format "
@@ -331,8 +350,15 @@ document.querySelectorAll(\".toggle-proof\").forEach(function(toggle) {
       <a href=\"%s.pdf\" class=\"my-link\">pdf</a>
       <a href=\"https://github.com/ultronozm/math/commits/main/%s.tex\" class=\"my-link\">history</a>
       <a href=\".\" class=\"my-link\">home</a>
-    </div>
-"
+    </div>"
+	     ;; "
+;;     <div class=\"my-links-container-2\"> <!-- new div for the second row -->
+;;       <a href=\"#\" id=\"toggle-all-proofs\">Hide all proofs</a>
+;;       <a href=\"new-link-1\" class=\"my-link-2\">new link 1</a>
+;;       <a href=\"new-link-2\" class=\"my-link-2\">new link 2</a>
+;;       <a href=\"new-link-3\" class=\"my-link-2\">new link 3</a>
+;;     </div>
+;; "
 	     (czm/format-git-time-string
 	      (shell-command-to-string
 	       (concat "git log -1 --format=%aI -- " (concat base-filename ".tex"))))
@@ -352,7 +378,17 @@ document.querySelectorAll(\".toggle-proof\").forEach(function(toggle) {
       }
       .my-link {
         margin-left: 10px;
-      }")))
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+")))
 
 (defun tex2html-convert-file (&optional filename out-dir out-filename)
   "Converts a LaTeX file to HTML using pandoc and applies postprocessing.
@@ -402,7 +438,9 @@ The output directory and output filename can be optionally specified."
 	(with-temp-buffer
 	  ;; read contents of html file into buffer
 	  (insert-file-contents output-file)
+	  (tex2html-add-style-to-html-head)
 	  (tex2html-postprocess-html-buffer auxfile external-auxfiles)
+	  (tex2html-add-tex-pdf-links output-file)
 	  (write-file output-file)
 	  )
 	;; (or
