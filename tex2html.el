@@ -79,8 +79,8 @@
 	   (folded-text (concat proof-text " (...)"))
 	   (replacement (format "<div class=\"proof\"><p>\n<a href=\"#\" class=\"toggle-proof\"><em data-default-text=\"%s\" data-folded-text=\"%s\">%s</em></a>\n<span class=\"proof-content\">" proof-text folded-text proof-text)))
       (replace-match replacement))
-    (re-search-forward "</p>\n</div>")
-    (replace-match "</span>\n</div>")
+    ;; (re-search-forward "</p>\n</div>")
+    ;; (replace-match "</span>\n</div>")
     ))
 
 (defun tex2html-postprocess-html-buffer (&optional auxfile external-auxfiles)
