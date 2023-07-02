@@ -63,6 +63,26 @@
 	  )
 	files))))
 
+(defun tex2html-postprocess-make-proof-links-toggleable ()
+  "Make proof links toggleable."
+  (interactive)
+  (goto-char (point-min))
+  (when (re-search-forward "</body>" nil t)
+    (replace-match (concat tex2html-scripts "\n</body>")))
+  (goto-char (point-min))
+  (while (re-search-forward "<div class=\"proof\">[\n\r[:blank:]]*<p>\\(<em>\\(.*?\\)</em>\\)" nil t)
+    (save-match-data
+      (search-backward "<div" nil t)
+      (sgml-skip-tag-forward 1)
+      (replace-match "</span></div>"))
+    (let* ((proof-text (match-string 2))
+	   (folded-text (concat proof-text " (...)"))
+	   (replacement (format "<div class=\"proof\"><p>\n<a href=\"#\" class=\"toggle-proof\"><em data-default-text=\"%s\" data-folded-text=\"%s\">%s</em></a>\n<span class=\"proof-content\">" proof-text folded-text proof-text)))
+      (replace-match replacement))
+    (re-search-forward "</p>\n</div>")
+    (replace-match "</span>\n</div>")
+    ))
+
 (defun tex2html-postprocess-html-buffer (&optional auxfile external-auxfiles)
   "Update an HTML buffer with MathJax code created using pandoc from a LaTeX file."
   (interactive)
@@ -204,7 +224,10 @@
 	       (html-file (concat (file-name-sans-extension pdf-file) ".html")))
 	  (replace-match html-file t t nil 1))))
 
-    ;; Step 8: fix theorem numbering.
+    ;; Step 8: make proof environments toggleable
+    (tex2html-postprocess-make-proof-links-toggleable)
+
+    ;; Step 9: fix theorem numbering.
     ;; Disabling for now due to a bug in pandoc: https://github.com/jgm/pandoc/issues/8872
     ;; (goto-char (point-min))
     ;; (while (search-forward "<div" nil t)
@@ -245,6 +268,27 @@
         async>
 </script>"
   "Script to add comments to HTML files (specific to my repo)."
+  :type 'string)
+
+(defcustom tex2html-scripts
+  "<script>
+document.querySelectorAll(\".toggle-proof\").forEach(function(toggle) {
+  toggle.addEventListener(\"click\", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === \"none\") {
+      content.style.display = \"inline\";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = \"none\";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+"
+  "Scripts to add to HTML files."
   :type 'string)
 
 (defun tex2html-add-comment-script ()
