@@ -17,6 +17,16 @@
       .my-link {
         margin-left: 10px;
       }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -197,7 +207,6 @@
       <a href="https://github.com/ultronozm/math/commits/main/20230605T102114__epfl-conference-arstafant.tex" class="my-link">history</a>
       <a href="." class="my-link">home</a>
     </div>
-
 <header id="title-block-header">
 <h1 class="title">Notes from ArStAFANT</h1>
 <div class="abstract">
@@ -1401,8 +1410,9 @@ in <span class="math inline">\(S_{2 \lambda } (2 N, \chi^2
 </div>
 <p>Here <span class="math display">\[\theta (\tau) = \sum_{n \in
 \mathbb{Z} } q^{n^2 } \in M_{1/4} (4).\]</span></p>
-<div class="proof">
-<p><em>Sketch of proof.</em> The coefficient of the product are given by
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Sketch of proof." data-folded-text="Sketch of proof. (...)">Sketch of proof.</em></a>
+<span class="proof-content"> The coefficient of the product are given by
 <span class="math display">\[b (n) = \sum_{m \in \mathbb{Z} } a \left(
 \frac{n - m^2 }{4} \right).\]</span> Then <span id="eqn:d1bbf2625e99" class="math display">\[\label{eqn:d1bbf2625e99}\tag{4}
     b (n^2 )
@@ -1425,7 +1435,7 @@ class="math display">\[\sum_{d | n} \sum_{e | \tfrac{n}{a}}
     a_{f^2 } \left( \frac{n}{e d} \right).\]</span> Then <span
 class="math display">\[a_{f^2 } (n)
     = \sum \left( \sum a_f (m) a_f (n - m ) \right) q^n.\]</span> ◻</p>
-</div>
+</span></div>
 <div class="example">
 <p><strong>Example 21</strong>. Let <span class="math inline">\(f =
 \eta^2 \eta_{1 1 }^2\)</span>. Then, since <span
@@ -1647,8 +1657,9 @@ class="math display">\[\frac{\lVert
     \quad
     \text{under GRH.}\]</span></em></p>
 </div>
-<div class="proof">
-<p><em>Idea of proof.</em> The idea is as follows. Write <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Idea of proof." data-folded-text="Idea of proof. (...)">Idea of proof.</em></a>
+<span class="proof-content"> The idea is as follows. Write <span
 class="math inline">\(z = x + i y\)</span>. Then the contribution of
 <span class="math inline">\(a_F (S)\)</span> is negligible unless <span
 class="math inline">\(S y\)</span> is negligible, with eigenvalue <span
@@ -1657,7 +1668,7 @@ class="math display">\[\frac{k}{4 \pi } + \operatorname{O}\left(\sqrt{k
 <p>Now count such <span class="math inline">\(S\)</span> and apply <a
 href="#eqn:d1bc2b8774a0" data-reference-type="eqref"
 data-reference="eqn:d1bc2b8774a0">\((5)\)</a>. ◻</p>
-</div>
+</span></div>
 <h3 id="general-case">General case</h3>
 <div class="theorem">
 <p><strong>Theorem 28</strong> (C., Moyer?-Balbesteros?, Saha). <em>Let
@@ -3836,8 +3847,9 @@ class="math inline">\(\mathcal{F}_d\)</span> equidistributes on <span
 class="math inline">\(X_3\)</span> as <span class="math inline">\(d
 \rightarrow \infty\)</span>.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> The proof really hangs by a thread. It uses,
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> The proof really hangs by a thread. It uses,
 critically, ergodic theory and number theory. It can’t get by without
 one or the other.</p>
 <ol>
@@ -3860,7 +3872,7 @@ zeta function <span class="math inline">\(\zeta_E (s)\)</span>. A
 subconvex bound now yields enropy positivity.</p></li>
 </ol>
 <p> ◻</p>
-</div>
+</span></div>
 <p>We now discuss some work in progress with Matz. We want a similar
 theorem, but for a different group. Change <span
 class="math inline">\({\mathop{\mathrm{PGL}}}_3\)</span> to <span
@@ -3971,6 +3983,39 @@ Zhang, <em>Analytic twists of <span
 class="math inline">\({\mathop{\mathrm{GL}}}_2 \times
 {\mathop{\mathrm{GL}}}_2\)</span> automorphic forms and
 applications</em></h1>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
 <script src="https://giscus.app/client.js"
         data-repo="Ultronozm/math"
         data-repo-id="R_kgDOJlhjqQ"
