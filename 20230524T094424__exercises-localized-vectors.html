@@ -17,6 +17,16 @@
       .my-link {
         margin-left: 10px;
       }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -216,7 +226,6 @@
       <a href="https://github.com/ultronozm/math/commits/main/20230524T094424__exercises-localized-vectors.tex" class="my-link">history</a>
       <a href="." class="my-link">home</a>
     </div>
-
 <header id="title-block-header">
 <h1 class="title">Some exercises concerning localized vectors in low
 rank</h1>
@@ -495,8 +504,9 @@ data-reference="proposition:d1a913c915d4">2</a>, or as many parts of it
 as you can, on your own, without reading what’s written here in
 detail.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Since <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Since <span
 class="math inline">\(\mathop{\mathrm{SO}}(3)\)</span> is compact, we
 know by the Peter–Weyl theorem that <span
 class="math inline">\(\pi\)</span> is finite-dimensional. There is thus
@@ -572,7 +582,7 @@ data-reference="eqn:d1a94c62c57d">\((3.11)\)</a>, we deduce that
 <span class="math inline">\(e_m\)</span> and <span
 class="math inline">\(e_{m + 1}\)</span> have the same norm, so the
 induction follows as claimed. ◻</p>
-</div>
+</span></div>
 <p>The integer <span class="math inline">\(\ell\)</span> as in the
 conclusion of Proposition <a href="#proposition:d1a913c915d4"
 data-reference-type="ref"
@@ -788,11 +798,12 @@ class="math inline">\(\{m \in \mathbb{Z} : |m| \geq k\}\)</span>, on
 which the Lie algebra elements act by the same formulas as above, but
 with <span class="math inline">\(\varepsilon= 1\)</span>.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Similar to that of Proposition <a
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Similar to that of Proposition <a
 href="#proposition:d1a913c915d4" data-reference-type="ref"
 data-reference="proposition:d1a913c915d4">2</a>. ◻</p>
-</div>
+</span></div>
 <p>The tempered irreducible representations are the <span
 class="math inline">\(\pi(k)\)</span> and the <span
 class="math inline">\(\pi(t,\varepsilon)\)</span> with <span
@@ -1446,6 +1457,39 @@ Compact Hyperbolic Surfaces.”</span> <em>Duke Math. J.</em> 55 (4):
 href="https://doi.org/10.1215/S0012-7094-87-05546-3">https://doi.org/10.1215/S0012-7094-87-05546-3</a>.
 </div>
 </div>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
 <script src="https://giscus.app/client.js"
         data-repo="Ultronozm/math"
         data-repo-id="R_kgDOJlhjqQ"

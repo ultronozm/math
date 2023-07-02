@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Paul D. Nelson" />
-  <meta name="dcterms.date" content="2023-06-23" />
+  <meta name="dcterms.date" content="2023-07-02" />
   <title>Quantum variance on quaternion algebras, III</title>
   <link rel="stylesheet" href="tex.css">
   <style>
@@ -19,6 +19,16 @@
       .my-link {
         margin-left: 10px;
       }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -218,11 +228,10 @@
       <a href="https://github.com/ultronozm/math/commits/main/var-quat-3-submitted.tex" class="my-link">history</a>
       <a href="." class="my-link">home</a>
     </div>
-
 <header id="title-block-header">
 <h1 class="title">Quantum variance on quaternion algebras, III</h1>
 <p class="author">Paul D. Nelson</p>
-<p class="date">2023-06-23</p>
+<p class="date">2023-07-02</p>
 <div class="abstract">
 <div class="abstract-title">Abstract</div>
 <p>We determine the asymptotic quantum variance of microlocal lifts of
@@ -1824,8 +1833,9 @@ class="math inline">\(\mathop{\mathrm{vol}}(G) = 4
 \pi^2\)</span>.</p></li>
 </ol>
 </div>
-<div class="proof">
-<p><em>Proof.</em> For (i)—(iii), we may reduce by dimensional analysis
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> For (i)—(iii), we may reduce by dimensional analysis
 to the case <span class="math inline">\(\Delta = 1\)</span>. The
 required formulas then follow from <a
 href="#eqn:compatibility-squaring-map-local-measure"
@@ -1853,7 +1863,7 @@ and the substitution <span class="math inline">\(z \mapsto z / (2 \pi
 class="math inline">\((2 \pi)^2 = \mathop{\mathrm{vol}}(G) \int_{z \in
 \mathbb{R}^\times} |z|^4 e^{-|z|^2} \, \frac{d z}{|z|} =
 \mathop{\mathrm{vol}}(G)\)</span>. ◻</p>
-</div>
+</span></div>
 <h5 id="sec:cartan-decomposition">§3.1.4. Cartan decomposition</h5>
 <p>Suppose <span class="math inline">\(B = M_2(k)\)</span>, so that
 <span class="math inline">\(G = \operatorname{PGL}_2(k)\)</span>. Let
@@ -2294,8 +2304,9 @@ class="math inline">\(\operatorname{PGL}_2(\mathfrak{o})
 <p><em>Lemma 3</em>. <span class="math inline">\(\|\phi^0\|^2_{\Omega} =
 \mathop{\mathrm{vol}}(R)\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Since <span class="math inline">\(\phi\)</span> takes
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Since <span class="math inline">\(\phi\)</span> takes
 values in <span class="math inline">\(\{0 ,1\}\)</span>, one has <span
 class="math display">\[\|\phi^0\|^2_{\Omega} = \int_{t \in k^\times /
 k^{\times 2}} |t|^2 \int_{x \in B} \phi^0(t,x)
@@ -2312,7 +2323,7 @@ z}{|z|} \, d_2^\times t = \int_{x \in k^\times}
 <a href="#eqn:compatibility-squaring-map-local-measure"
 data-reference-type="eqref"
 data-reference="eqn:compatibility-squaring-map-local-measure">\((3.2)\)</a>. ◻</p>
-</div>
+</span></div>
 <p>Let <span class="math inline">\(K \leqslant G\)</span> denote the
 image of <span class="math inline">\(R^\times\)</span>. We may then fix
 an identification <span class="math inline">\(B = M_2(k)\)</span> under
@@ -2333,11 +2344,12 @@ class="math inline">\(\langle \mathop{\mathrm{Ad}}(g) \phi_1, \phi_2
 \rangle_{\Omega} = q^{-m} \langle \phi_1, \phi_2
 \rangle_{\Omega}\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> We expand the definitions and use that <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We expand the definitions and use that <span
 class="math inline">\(\mathop{\mathrm{vol}}(g R g^{-1} \cap R) = q^{-m}
 \mathop{\mathrm{vol}}(R)\)</span>. ◻</p>
-</div>
+</span></div>
 <h4 id="sec-2-3">§3.3. Generic representations of <span
 class="math inline">\(\operatorname{PGL}_2\)</span></h4>
 <p>We refer to <a href="#ref-MR1431508" class="citation" data-cites="MR1431508">(Bump 1997,
@@ -2471,8 +2483,9 @@ class="math inline">\(\phi^0 \in \Omega\)</span> is the distinguished
 element (§<a href="#sec:dist-elem" data-reference-type="ref"
 data-reference="sec:dist-elem">3.2.6</a>).</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> We must verify that <span id="eq:formula-for-hecke-kernel" class="math display">\[\label{eq:formula-for-hecke-kernel}\tag{3.11}
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We must verify that <span id="eq:formula-for-hecke-kernel" class="math display">\[\label{eq:formula-for-hecke-kernel}\tag{3.11}
     |y|^{-1} \mathop{\mathrm{vol}}(J) T_y(g) =
     \frac{
       \int_{z \in k^\times}
@@ -2503,7 +2516,7 @@ iff the left hand side of <a href="#eq:formula-for-hecke-kernel"
 data-reference-type="eqref"
 data-reference="eq:formula-for-hecke-kernel">\((3.11)\)</a>
 is nonzero. ◻</p>
-</div>
+</span></div>
 <h5 id="sec-2-4-2">§3.4.2. Hecke functionals and standard <span
 class="math inline">\(L\)</span>-factors</h5>
 <p>Continue to assume that <span class="math inline">\(k\)</span> is
@@ -2638,8 +2651,9 @@ by the distinguished element <span class="math inline">\(\phi^0 \in
 converging absolutely.</p></li>
 </ol>
 </div>
-<div class="proof">
-<p><em>Proof.</em> For (i), see <a href="#ref-MR1431508" class="citation"
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> For (i), see <a href="#ref-MR1431508" class="citation"
 data-cites="MR1431508">(Bump 1997, Thm 4.6.7)</a>. For (ii), the
 convergence follows from §<a href="#sec:local-convergence-lemmas"
 data-reference-type="ref"
@@ -2676,7 +2690,7 @@ u_i (1 + q^{-1} t_i) ( 1 - t_i)^{-1} = L(\pi,\tfrac{1}{2}) \Sigma
 class="math inline">\(\{i, i&#39;\} = \{1,2\}\)</span>. Direct
 calculation gives <span class="math inline">\(\Sigma &#39; =
 \zeta_k(2)^{-1}\)</span>, as required. ◻</p>
-</div>
+</span></div>
 <p>Suppose now that <span class="math inline">\(B\)</span> is non-split,
 so that <span class="math inline">\(\pi\)</span> is the one-dimensional
 representation corresponding to the character <span
@@ -3384,13 +3398,14 @@ be fixed. For each <span class="math inline">\(\phi \in
 \mathbb{Z}^n - \{0\}} |\phi(t v)| \ll |t|^{-A}
 \mathcal{C}(\phi)\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> The left hand side of the required estimate is
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> The left hand side of the required estimate is
 bounded by <span class="math display">\[C |t|^{-A} \sup_{x \in
 \mathbb{R}^n} |x|^{n+1+A} |\phi(x)|\]</span> with <span
 class="math inline">\(C := |t_0|^{-(n+1)} \sum_{v \in \mathbb{Z}^n -
 \{0\}} |v|^{-(n+1+A)} &lt; \infty\)</span>. ◻</p>
-</div>
+</span></div>
 <div id="lem:cheap-lattice-sum-bound-adelic" class="lemma">
 <p><em>Lemma 7</em>. Let <span class="math inline">\(V\)</span> be a
 vector space over <span class="math inline">\(F\)</span>. Let <span
@@ -3402,8 +3417,9 @@ class="math inline">\(|y| &gt; t_0\)</span>, one has <span
 class="math inline">\(\sum_{v \in V - \{0\}} |\phi(y v)| \ll |y|^{-A}
 \mathcal{C}(\phi)\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Let <span class="math inline">\(\mathbb{A}^{(1)} :=
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Let <span class="math inline">\(\mathbb{A}^{(1)} :=
 \{y \in \mathbb{A}^\times : |y| = 1\}\)</span> denote the subgroup of
 norm one ideles. By the compactness of <span
 class="math inline">\(\mathbb{A}^{(1)} / F^\times\)</span> and the
@@ -3432,7 +3448,7 @@ class="math inline">\(\sum_{v \in L - \{0\}} |\phi(t v)| =
 class="math inline">\(L\)</span>, we reduce to Lemma <a
 href="#lem:cheap-lattice-sum-bound-Rn-Zn" data-reference-type="ref"
 data-reference="lem:cheap-lattice-sum-bound-Rn-Zn">1</a>. ◻</p>
-</div>
+</span></div>
 <h5 id="sec-3-5-4">§4.5.3. Simple estimates for theta functions</h5>
 <p>Recall that the <em>Iwasawa decomposition</em> asserts that each
 <span class="math inline">\(s \in
@@ -3482,8 +3498,9 @@ class="math inline">\(\theta_{\psi}(\phi,\Psi;s) \ll
 \mathop{\mathrm{ht}}(s)^{-A} \mathcal{C}(\phi) \|\Psi
 \|_{L^1}\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Since <span class="math inline">\(\Psi\)</span> has
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Since <span class="math inline">\(\Psi\)</span> has
 mean zero, <span class="math display">\[\theta_{\psi}(\phi,\Psi;s) =
 \int_{g \in [\operatorname{PB}^\times]} \Psi(g) \sum_{v \in V - \{0\}}
 \rho_{\mathop{\mathrm{Weil}}}^{\psi,V}(s,\mathop{\mathrm{Ad}}(g))
@@ -3507,7 +3524,7 @@ href="#lem:cheap-lattice-sum-bound-adelic" data-reference-type="ref"
 data-reference="lem:cheap-lattice-sum-bound-adelic">2</a> of §<a
 href="#sec:simple-estimates-for-lattice-sums" data-reference-type="ref"
 data-reference="sec:simple-estimates-for-lattice-sums">4.5.2</a>. ◻</p>
-</div>
+</span></div>
 <div id="lem:crude-bound-for-elementary-theta-functions" class="lemma">
 <p><em>Lemma 9</em>. For <span class="math inline">\(\phi \in
 \mathcal{S}(\mathbb{A})\)</span> and <span class="math inline">\(s \in
@@ -3515,15 +3532,16 @@ data-reference="sec:simple-estimates-for-lattice-sums">4.5.2</a>. ◻</p>
 class="math inline">\(\theta_{\psi}(\phi;s) \ll
 \mathop{\mathrm{ht}}(s)^{1/4} \mathcal{C}(\phi)\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> We argue as in the proof of Lemma <a
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We argue as in the proof of Lemma <a
 href="#lem:crude-bound-for-cuspidal-theta-functions"
 data-reference-type="ref"
 data-reference="lem:crude-bound-for-cuspidal-theta-functions">1</a>, but
 take into account the contribution from <span class="math inline">\(0
 \in F\)</span> to the definition of <span
 class="math inline">\(\theta_{\psi}(\phi)\)</span>. ◻</p>
-</div>
+</span></div>
 <h5 id="sec-3-5-3">§4.5.4. Main estimate: the case of pure tensors</h5>
 <div id="lem:main-result-for-theta-squared" class="lemma*">
 <p><em>Lemma 5</em>. Let <span class="math inline">\(\phi_1&#39;,
@@ -3546,8 +3564,9 @@ class="math display">\[\langle \theta_1 \cdot
 \prod_{i=1,2} \mathcal{C}(\phi_i&#39;) \mathcal{C}(\phi_i&#39;&#39;)
 \|\Psi_i\|_{L^1} \right).\]</span></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> The main result of <a href="#ref-nelson-theta-squared" class="citation"
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> The main result of <a href="#ref-nelson-theta-squared" class="citation"
 data-cites="nelson-theta-squared">(Nelson 2021b)</a> gives an
 estimate essentially of the required shape, but instead with the error
 term <span class="math inline">\(\Xi(s) \mathcal{S}(\phi_1&#39;)
@@ -3579,7 +3598,7 @@ data-reference-type="ref"
 data-reference="lem:crude-bound-for-cuspidal-theta-functions">1</a> of
 §<a href="#sec-3-5-4" data-reference-type="ref"
 data-reference="sec-3-5-4">4.5.3</a>. ◻</p>
-</div>
+</span></div>
 <h5 id="sec:quantitative-factorization">§4.5.5. Factorization</h5>
 <p>Let <span class="math inline">\(V&#39;, V&#39;&#39;\)</span> be
 vector spaces over <span class="math inline">\(F\)</span> and <span
@@ -3602,12 +3621,13 @@ class="math inline">\(\mathcal{C}\)</span> depends only upon <span
 class="math inline">\(\mathcal{C} &#39;\)</span> and <span
 class="math inline">\(\mathcal{C} &#39;&#39;\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> This is essentially the Schwartz kernel theorem, as
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> This is essentially the Schwartz kernel theorem, as
 extended by Bruhat <a href="#ref-MR0140941" class="citation" data-cites="MR0140941">(Bruhat
 1961, sec. 5)</a>, and follows from a standard “square-root of a
 partition of unity” argument. ◻</p>
-</div>
+</span></div>
 <h5 id="sec-3-5-5">§4.5.6. Main estimate: the general case<span
 id="sec:main-estimate-for-equidistribution-pairs-theta"
 label="sec:main-estimate-for-equidistribution-pairs-theta"></span></h5>
@@ -3668,8 +3688,9 @@ operator <span class="math inline">\(1 \otimes
 href="#sec:factorization-weil-repn" data-reference-type="ref"
 data-reference="sec:factorization-weil-repn">3.2.4</a>.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> The lemma of §<a
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> The lemma of §<a
 href="#sec:quantitative-factorization" data-reference-type="ref"
 data-reference="sec:quantitative-factorization">4.5.5</a> reduces the
 general case of Proposition <a
@@ -3686,7 +3707,7 @@ data-reference="eq:equivariance-ttf">\((4.14)\)</a> that
 <span class="math inline">\(\theta_{\psi_\tau}\)</span> intertwines
 <span class="math inline">\(\rho_{0}^{\tau}\)</span> with <span
 class="math inline">\(\rho_{\mathop{\mathrm{reg}}}\)</span>. ◻</p>
-</div>
+</span></div>
 <h5 id="sec:equivariance-summary-for-E-tau-tau">§4.5.7. Invariance
 properties</h5>
 <p>We record these for later use.</p>
@@ -3717,8 +3738,9 @@ one has <span class="math display">\[\begin{align}
   
 \end{align}\]</span></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> The first two identities follow from <a
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> The first two identities follow from <a
 href="#eq:action-of-S-on-pure-tensors-for-B" data-reference-type="eqref"
 data-reference="eq:action-of-S-on-pure-tensors-for-B">\((4.18)\)</a>
 and <a href="#eqn:O1-invariance-elementary-theta-fn"
@@ -3738,7 +3760,7 @@ data-reference="eq:action-of-S-on-pure-tensors-for-B-0">\((4.17)\)</a>,
 data-reference-type="eqref"
 data-reference="eq:action-of-S-on-pure-tensors-for-B">\((4.18)\)</a>
 and the translation invariance of the Petersson inner product. ◻</p>
-</div>
+</span></div>
 <h4 id="sec-3-2-9">§4.6. Simillitude theta functions<span
 id="sec:non-traditional-theta-lifts"
 label="sec:non-traditional-theta-lifts"></span></h4>
@@ -3872,8 +3894,9 @@ class="math inline">\(W(\Theta(\phi,\Psi),y) := \int_{g \in
 \operatorname{PB}^\times} |y| \phi(y \mathop{\mathrm{nr}}(\gamma)^{-1},
 g^{-1} \gamma g) \,d g\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> By direct unfolding as in <a href="#ref-MR0333081" class="citation"
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> By direct unfolding as in <a href="#ref-MR0333081" class="citation"
 data-cites="MR0333081">(Shimizu 1972)</a>, one has for <span
 class="math inline">\(g \in
 \operatorname{PB}^\times_{\mathbb{A}}\)</span> that <span
@@ -3889,7 +3912,7 @@ class="math inline">\(W(\Theta(\phi),\mathop{\mathrm{Ad}}(g),y) :=
 \mathop{\mathrm{nr}}(\gamma)^{-1}, g^{-1} \gamma g)\)</span>. We
 conclude by integrating against <span
 class="math inline">\(\Psi\)</span>. ◻</p>
-</div>
+</span></div>
 <h5 id="sec:35ac3e570e">§4.6.4. Restriction to <span
 class="math inline">\({\mathop{\mathrm{SL}}}_2\)</span></h5>
 <p>Let <span class="math inline">\(\phi, \Psi\)</span> be as above.</p>
@@ -3911,8 +3934,9 @@ class="math inline">\(s \in {\mathop{\mathrm{SL}}}_2(\mathbb{A})\)</span>,
     \theta_{\psi^\tau}(\phi&#39;[\tau y];s)
     \theta_{\psi^\tau}(\phi&#39;&#39;[\tau y],\Psi;s).\]</span></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> We derive first using <a
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We derive first using <a
 href="#defn:theta-knerle-for-Omega" data-reference-type="eqref"
 data-reference="defn:theta-knerle-for-Omega">\((4.23)\)</a>
 that for <span class="math inline">\(g \in
@@ -3929,7 +3953,7 @@ class="math display">\[\Theta(\phi;s a(y),g) = \frac{1}{2} \sum_{\tau
 \theta_{\psi^\tau}(\phi&#39;[\tau y];s)
 \theta_{\psi^\tau}(\phi&#39;&#39;[\tau y];s,g).\]</span> We integrate
 against <span class="math inline">\(\Psi\)</span> to conclude. ◻</p>
-</div>
+</span></div>
 <h5
 id="sec:unfold-inner-product-nontraditional-theta-over-sl2">§4.6.5. Unfolding
 the inner product</h5>
@@ -3961,8 +3985,9 @@ with both sides converging absolutely: <span id="eq:inner-product-pgl2-made-into
 := \theta_{\psi^{\tau_i}}(\phi_i&#39;&#39;[\tau_i
 y],\Psi_i).\]</span></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> The left hand side is an inner product of cusp forms,
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> The left hand side is an inner product of cusp forms,
 hence convergent. On the right hand side, we may replace the <span
 class="math inline">\(y\)</span>-integral by a finite sum, since the
 domain <span class="math inline">\(\mathbb{A}^{\times} / F^{\times }
@@ -3987,7 +4012,7 @@ data-reference="eq:sl2-vs-pgl2-integrals">\((4.2)\)</a>
 relating integrals over <span
 class="math inline">\([\operatorname{PGL}_2]\)</span> and <span
 class="math inline">\([{\mathop{\mathrm{SL}}}_2]\)</span>. ◻</p>
-</div>
+</span></div>
 <div class="remark*">
 <p><em>Remark 4</em>. In this paper, we consider several expressions
 shaped like the right hand side of <a
@@ -4126,8 +4151,9 @@ class="math display">\[\frac{L^{(S)}(\pi,\tfrac{1}{2})}{\zeta_F^{(S)}(2)}
 \Psi_2 \rangle_{\operatorname{PB}^\times} \,d g.\]</span></p></li>
 </ol>
 </div>
-<div class="proof">
-<p><em>Proof.</em> It suffices to consider the case that <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> It suffices to consider the case that <span
 class="math inline">\(\phi_1, \phi_2\)</span> admit factorizations as in
 the definition of <span class="math inline">\(\mathfrak{m}\)</span>. By
 <a href="#eqn:O1-invariance-elementary-theta-fn"
@@ -4169,7 +4195,7 @@ class="math display">\[= \int_{y \in \mathbb{A}^{\times} /
 \phi_2[y] \rangle_{L^2(B_\mathbb{A})} \, d_2^\times y = \langle
 \mathop{\mathrm{Ad}}(g) \phi_1, \phi_2 \rangle_{\Omega}\]</span> combine
 to give the required conclusion. ◻</p>
-</div>
+</span></div>
 <h3 id="sec-4">§5. Estimates for general quantum variance sums<span
 id="sec:estimates-general-var"
 label="sec:estimates-general-var"></span></h3>
@@ -4629,8 +4655,9 @@ where <span id="eq:defn-c2-frak-W" class="math display">\[\label{eq:defn-c2-frak
     |W_S|^2(y)
     \, \frac{d y}{|y|}.\]</span></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> By the lemma of §<a href="#sec:induction-omega"
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> By the lemma of §<a href="#sec:induction-omega"
 data-reference-type="ref"
 data-reference="sec:induction-omega">4.7.3</a>, the polarization of <a
 href="#eqn:norm-of-heartsuit-f-global" data-reference-type="eqref"
@@ -4647,7 +4674,7 @@ data-reference="eqn:local-rallis-ipf-unram-calc">\((3.14)\)</a>
 data-reference-type="eqref"
 data-reference="eqn:generic-at-each-place-if-not-1-diml">\((4.5)\)</a>
 to verify its hypotheses). ◻</p>
-</div>
+</span></div>
 <h5 id="sec:Phi-pi">§5.4.4. A specific Eichler/Jacquet–Langlands lift</h5>
 <p>For <span class="math inline">\(\pi \in A_0^S\)</span>, let <span
 class="math inline">\(\Phi_\pi \in \pi_{\mathop{\mathrm{JL}}}\)</span>
@@ -4676,8 +4703,9 @@ data-reference="sec-3-3-2">4.2.2</a>).</p>
 distinct, then <span class="math inline">\(\langle \Phi_{\pi}, \Phi_{\pi
 &#39;} \rangle = 0\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> The conclusion in the case <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> The conclusion in the case <span
 class="math inline">\(\pi \neq \pi &#39;\)</span> is the multiplicity
 one theorem for <span
 class="math inline">\(\operatorname{PB}^\times\)</span> combined with
@@ -4689,7 +4717,7 @@ consequence of the lemma of §<a href="#sec-3-3-2"
 data-reference-type="ref" data-reference="sec-3-3-2">4.2.2</a> and the
 corresponding local calculation (§<a href="#sec-2-3"
 data-reference-type="ref" data-reference="sec-2-3">3.3</a>). ◻</p>
-</div>
+</span></div>
 <h5 id="sec:35ac3e5750">§5.4.5. The normalizing scalar</h5>
 <p>Recall from <a href="#eq:c-of-frak-W-defn"
 data-reference-type="eqref"
@@ -4717,8 +4745,9 @@ class="math inline">\(\Psi \in \mathcal{A}_0^S\)</span>.</p>
 |\omega_\pi( f,\Psi)| \| \Phi_\pi \|_{L^p([\operatorname{PGL}_2])} &lt;
 \infty\)</span> for <span class="math inline">\(p=2,\infty\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> By <a
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> By <a
 href="#eq:rapid-convergence-of-pretrace-formula"
 data-reference-type="eqref"
 data-reference="eq:rapid-convergence-of-pretrace-formula">\((4.7)\)</a>
@@ -4738,15 +4767,16 @@ class="math inline">\(\mathcal{S}_d(\Phi_\pi)\)</span> may be estimated
 using <a href="#ref-michel-2009" class="citation" data-cites="michel-2009">(Michel and
 Venkatesh 2010, sec. 3.2.5)</a>. A direct proof of this convergence
 also follows by a rearrangement of the arguments given below. ◻</p>
-</div>
+</span></div>
 <div id="lem:fourier-coefficients-of-nontraditional-theta-lifts"
 class="lemma">
 <p><em>Lemma 11</em>. <span class="math inline">\(\Theta(\heartsuit
 f,\Psi) = \sum_{\pi \in A_0^S} \omega_\pi( f,\Psi)
 \Phi_\pi\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Set <span class="math inline">\(\Phi_1 :=
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Set <span class="math inline">\(\Phi_1 :=
 \Theta(\heartsuit f,\Psi)\)</span> and <span
 class="math inline">\(\Phi_2 := \sum_{\pi \in A_0^S} \omega_\pi( f,\Psi)
 \Phi_\pi\)</span>; we must show that <span class="math inline">\(\Phi_1
@@ -4796,7 +4826,7 @@ class="math inline">\(W_{\pi_\mathfrak{p}}^0(y_\mathfrak{p}) =
 href="#eqn:key-local-identity-relating-whittaker-and-hecke"
 data-reference-type="eqref"
 data-reference="eqn:key-local-identity-relating-whittaker-and-hecke">\((3.13)\)</a>). ◻</p>
-</div>
+</span></div>
 <div class="remark*">
 <p><em>Remark 5</em>. Lemma <a
 href="#lem:fourier-coefficients-of-nontraditional-theta-lifts"
@@ -4880,8 +4910,9 @@ class="math inline">\(\Psi_1,\Psi_2 \in \mathcal{A}_0^S\)</span>. Then
     \mathcal{E}(\heartsuit f, \heartsuit f,
     \Psi_1, \Psi_2).\]</span></em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> <a href="#eq:V-equals-Vf" data-reference-type="eqref"
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> <a href="#eq:V-equals-Vf" data-reference-type="eqref"
 data-reference="eq:V-equals-Vf">\((5.14)\)</a>: By <a
 href="#eqn:c1-times-error-equals-bla" data-reference-type="eqref"
 data-reference="eqn:c1-times-error-equals-bla">\((5.13)\)</a>,
@@ -4929,7 +4960,7 @@ data-reference="eq:V-equals-Vf">\((5.14)\)</a>, <a
 href="#eq:M-equals-Mf" data-reference-type="eqref"
 data-reference="eq:M-equals-Mf">\((5.15)\)</a> and the definition
 of <span class="math inline">\(\mathcal{E}\)</span>. ◻</p>
-</div>
+</span></div>
 <h5 id="sec-4-5-5">§5.4.9. Completion of the proof</h5>
 <p>We now apply Proposition <a
 href="#prop:main-error-estimate-global-adelic-general"
@@ -5510,8 +5541,9 @@ subset <span class="math inline">\(\{\xi \in \mathcal{O} : |\xi - \tau|
 &lt; r\}\)</span> of <span class="math inline">\(\mathcal{O}\)</span> is
 <span class="math inline">\(\operatorname{O}(r^2)\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Each <span class="math inline">\(\tau \in
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Each <span class="math inline">\(\tau \in
 \mathfrak{g}^\wedge - \{0\}\)</span> is regular, i.e., the differential
 of the invariant polynomial <span class="math inline">\(\Lambda\)</span>
 is nonzero at <span class="math inline">\(\tau\)</span>. On a small
@@ -5525,7 +5557,7 @@ follows for <span class="math inline">\(\tau\)</span> in a small fixed
 neighborhood of each fixed element of <span
 class="math inline">\(\mathfrak{g}^\wedge - \{0\}\)</span>, then in
 general by continuity and compactness. ◻</p>
-</div>
+</span></div>
 <h4 id="sec:prelims-representations">§6.3. Representations</h4>
 <p>Let <span class="math inline">\(\pi\)</span> be an irreducible
 unitary representation of <span class="math inline">\(G\)</span>. Then
@@ -5753,8 +5785,9 @@ fixed eigenfunction. Then <span id="eq:WW-upper-bound" class="math display">\[\l
       \ll 1.\]</span></p></li>
 </ol>
 </div>
-<div class="proof">
-<p><em>Proof.</em> We may assume that <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We may assume that <span
 class="math inline">\(\Psi\)</span> is a <span
 class="math inline">\(K^1\)</span>-eigenvector. There are two cases:</p>
 <ul>
@@ -5790,7 +5823,7 @@ from <a href="#eq:WW-lower-bound" data-reference-type="eqref"
 data-reference="eq:WW-lower-bound">\((6.5)\)</a> and the
 trivial bound <span class="math inline">\(\mu_\pi(\Psi) \ll
 1\)</span>. ◻</p>
-</div>
+</span></div>
 <div class="remark*">
 <p><em>Remark 6</em>. Since we require here estimates rather than
 explicit formulas, we sketch an alternative proof of Lemma <a
@@ -6311,8 +6344,9 @@ class="math inline">\(\tau\)</span>, and <span id="eq:trace-estimate-in-localize
 \operatorname{O}({\mathop{\mathrm{h}}}^{1-\delta})
     = \operatorname{O}(1).\]</span></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> We have <span class="math inline">\(a^2(\xi) \ll
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We have <span class="math inline">\(a^2(\xi) \ll
 {\mathop{\mathrm{h}}}^{-2 \delta}\)</span>. By the lemma of §<a
 href="#sec:coadjoint-orbits" data-reference-type="ref"
 data-reference="sec:coadjoint-orbits">6.2</a> and the hypotheses
@@ -6427,7 +6461,7 @@ p T) = \operatorname{O}({\mathop{\mathrm{h}}}^{J&#39;})\)</span>.</p></li>
 </ul>
 <p>We conclude by combining these estimates and taking <span
 class="math inline">\(J\)</span> large enough. ◻</p>
-</div>
+</span></div>
 <p>We verify next the promised relationship between the above definition
 and <span class="math inline">\(\mu_\pi\)</span>.</p>
 <div id="thm:characterize-mu-pi" class="lemma">
@@ -6860,8 +6894,9 @@ v, v \rangle \rvert^{1/2} \leqslant\lvert \langle a v - v, v \rangle
 \rvert^{1/2} + \lvert \langle b v - v, v \rangle \rvert
 ^{1/2}.\]</span></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Introduce the abbreviations <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Introduce the abbreviations <span
 class="math display">\[\varepsilon_a := \lvert \langle a v - v, v
 \rangle \rvert^{1/2},
     \quad
@@ -6887,7 +6922,7 @@ class="math display">\[\langle a b v - v, v \rangle =
 v, v \rangle| \leqslant\varepsilon_a^2 + \varepsilon_b^2 + 2
 \varepsilon_a \varepsilon_b = (\varepsilon_a +
 \varepsilon_b)^2.\]</span> The required inequality follows. ◻</p>
-</div>
+</span></div>
 <div class="corollary*">
 <p><em>Corollary 1</em>. For <span class="math inline">\(a \in
 \mathop{\mathrm{U}}(V)\)</span>, <span class="math inline">\(v \in
@@ -6896,8 +6931,9 @@ have <span id="eq:lvertlangle-an-v" class="math display">\[\label{eq:lvertlangle
     \lvert\langle a^n v - v, v \rangle \rvert \leqslant n^2  \lvert
 \langle a v - v, v \rangle \rvert.\]</span></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> It suffices to consider the case <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> It suffices to consider the case <span
 class="math inline">\(n \geqslant 0\)</span>; otherwise, replace <span
 class="math inline">\((n,a)\)</span> with <span
 class="math inline">\((-n, a^{-1})\)</span> and use that <span
@@ -6907,7 +6943,7 @@ a^{-1} v - v, v \rangle}.\]</span> The required inequality is clear when
 class="math inline">\(n \geqslant 2\)</span>, we induct; the induction
 step is given by the lemma with <span class="math inline">\(b :=
 a^{n-1}\)</span>. ◻</p>
-</div>
+</span></div>
 <div class="remark*">
 <p><em>Remark 7</em>. By taking <span class="math inline">\(V\)</span>
 to be <span class="math inline">\(\mathbb{C}^2\)</span> with the
@@ -7059,8 +7095,9 @@ If <span class="math inline">\(\pi\)</span> is bad, then <span id="eq:bad-pi-est
 \lambda_\pi  \rangle^{-\infty}).\]</span></p></li>
 </ol>
 </div>
-<div class="proof">
-<p><em>Proof.</em> If <span class="math inline">\(\pi\)</span> is bad,
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> If <span class="math inline">\(\pi\)</span> is bad,
 then the estimate <a href="#eq:bad-trace-pi-estimate"
 data-reference-type="eqref"
 data-reference="eq:bad-trace-pi-estimate">\((7.30)\)</a>
@@ -7096,7 +7133,7 @@ data-reference="eq:compare-with-microlocal">\((7.31)\)</a>,
 we combine the lemmas of §<a href="#sec:states-approx-microlocal"
 data-reference-type="ref"
 data-reference="sec:states-approx-microlocal">7.1</a>. ◻</p>
-</div>
+</span></div>
 <h3 id="sec:35ac3e57a1">§8. Proofs of main results</h3>
 <p>Following the sketch of §<a href="#sec:sketch-deduct-theor"
 data-reference-type="ref"
@@ -7167,8 +7204,9 @@ A_0\)</span>. Then <span id="eq:SZ-upper-bound-2" class="math display">\[\label{
     \mathcal{L}(\pi,\sigma)
     \ll 1.\]</span></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> This can be deduced using an approximate functional
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> This can be deduced using an approximate functional
 equation and the Kuznetsov formula as in the work of Luo–Sarnak–Zhao
 (who in fact obtain and require asymptotic formulas with strong error
 terms rather than merely upper bounds <a href="#eq:SZ-upper-bound-2"
@@ -7219,7 +7257,7 @@ data-reference="eqn:req-I">\((1.20)\)</a> and <a href="#eqn:req-E"
 data-reference-type="eqref" data-reference="eqn:req-E">\((1.21)\)</a>,
 given below, do not depend upon the lemma that we are proving, so our
 argument is non-circular.) ◻</p>
-</div>
+</span></div>
 <p>We now verify <a href="#eqn:req-V" data-reference-type="eqref"
 data-reference="eqn:req-V">\((1.19)\)</a>. The contribution from bad
 <span class="math inline">\(\pi\)</span> to <a
@@ -7346,8 +7384,9 @@ supported on <span class="math inline">\(\{\xi : \Lambda(\xi) &lt;
     \, d \omega (\xi ) \, d \omega (\eta )
     \, \frac{d t}{2 \pi }.\]</span></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Although both sides of the identity are independent
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Although both sides of the identity are independent
 of all choices of Haar measure, it is convenient to make explicit
 choices for the proof. Recall the coordinates and notation of §<a
 href="#sec:lie-algebra" data-reference-type="ref"
@@ -7442,7 +7481,7 @@ class="math display">\[\begin{align}
       \, \frac{t^2 \, d t}{2 \pi },
   
 \end{align}\]</span> which simplifies to the required formula. ◻</p>
-</div>
+</span></div>
 <p>We now verify <a href="#eqn:req-I" data-reference-type="eqref"
 data-reference="eqn:req-I">\((1.20)\)</a>, which we copy here for
 convenience: <span class="math display">\[\mathcal{I}(f)
@@ -7698,8 +7737,9 @@ observation unsurprising:</p>
 class="math inline">\(\phi \mapsto \Phi_{\mathop{\mathrm{h}}}\)</span>
 is equicontinuous for the Schwartz topology.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> The derivatives of the map <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> The derivatives of the map <span
 class="math inline">\((t,u) \mapsto q(t+\mathop{\mathrm{h}}u)\)</span>
 are uniformly bounded.</p>
 <p>Moreover, the derivatives of the map <span
@@ -7732,7 +7772,7 @@ class="math inline">\(|{\mathop{\mathrm{h}}}^{-1} \theta(t +
 derivatives of <span
 class="math inline">\(\Phi_{\mathop{\mathrm{h}}}\)</span> follows from
 that of <span class="math inline">\(\phi\)</span>. ◻</p>
-</div>
+</span></div>
 <p>We now apply these considerations to establish <a href="#eqn:req-E"
 data-reference-type="eqref" data-reference="eqn:req-E">\((1.21)\)</a>,
 which we copy here for convenience: <span
@@ -8052,12 +8092,13 @@ by the following local calculation:</p>
 \frac{1}{\zeta_p(2)} (1 - \frac{\lambda_\sigma(p)}{|p|^{3/2} +
 |p|^{1/2}})\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> This follows by direct calculation with the Macdonald
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> This follows by direct calculation with the Macdonald
 formula <a href="#ref-MR1431508" class="citation" data-cites="MR1431508">(Bump 1997, Thm
 4.6.6)</a> and the Cartan decomposition; we leave it to the
 interested reader. ◻</p>
-</div>
+</span></div>
 <h4 id="sec:heuristics">§9.2. Heuristics</h4>
 <p>In this section, we record a heuristic derivation of the limiting
 variance <a href="#eqn:limiting-variance-formula"
@@ -8906,6 +8947,39 @@ only over even integers.<a href="#fnref2" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
 <script src="https://giscus.app/client.js"
         data-repo="Ultronozm/math"
         data-repo-id="R_kgDOJlhjqQ"
