@@ -17,6 +17,16 @@
       .my-link {
         margin-left: 10px;
       }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -216,7 +226,6 @@
       <a href="https://github.com/ultronozm/math/commits/main/20230522T150333__microlocal-localized-vectors.tex" class="my-link">history</a>
       <a href="." class="my-link">home</a>
     </div>
-
 <header id="title-block-header">
 <h1 class="title">Some basics on localized vectors in representations of
 Lie groups</h1>
@@ -409,11 +418,12 @@ class="math inline">\(\beta + \operatorname{O}(r)\)</span>.</p></li>
 class="math inline">\(\alpha + \operatorname{O}(1/r)\)</span>.</p></li>
 </ol>
 </div>
-<div class="proof">
-<p><em>Proof.</em> This follows from the fact that the Fourier transform
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> This follows from the fact that the Fourier transform
 defines a topological automorphism of the Schwartz space, together with
 standard intertwining properties of the Fourier transform. ◻</p>
-</div>
+</span></div>
 <h1 id="sec:d1a8de614cc9">§3. Definition of localized vectors</h1>
 <p>Let <span class="math inline">\(G\)</span> be a fixed real Lie group.
 We denote by <span class="math inline">\(\mathfrak{g}\)</span> its Lie
@@ -559,12 +569,13 @@ localized at <span class="math inline">\(\tau\)</span> in the sense of
 Definition <a href="#definition:d1a913bed772" data-reference-type="ref"
 data-reference="definition:d1a913bed772">3.3</a>.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> This follows by combining <a href="#ref-2021arXiv210915230N" class="citation"
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> This follows by combining <a href="#ref-2021arXiv210915230N" class="citation"
 data-cites="2021arXiv210915230N">(Nelson 2021, Lem 14.5, Thm
 14.12)</a> with <span class="math inline">\(\mathop{\mathrm{h}}=
 1/T\)</span>. ◻</p>
-</div>
+</span></div>
 <h1 id="sec:d1a8de61510d">§4. Existence and uniqueness</h1>
 <div id="definition:d1aa02656e49" class="definition">
 <p><strong>Definition 9</strong>. We say that an element <span
@@ -755,14 +766,15 @@ class="math inline">\(\mathcal{R}_{\tau,\varepsilon}\)</span> such that
 <span class="math display">\[\mathop{\mathrm{Op}}(a) v \approx
 v.\]</span></em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> This follows from the proof of <a href="#ref-2021arXiv210915230N" class="citation"
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> This follows from the proof of <a href="#ref-2021arXiv210915230N" class="citation"
 data-cites="2021arXiv210915230N">(Nelson 2021, Thm 17.12)</a> (direct
 link: Theorem <a href="standard.html#thm:appr-idemp" data-reference-type="ref"
 data-reference="thm:appr-idemp">17.12</a>). The idea is to
 integrate by parts with respect to the center of the universal
 enveloping algebra. ◻</p>
-</div>
+</span></div>
 <div class="remark">
 <p><strong>Remark 14</strong>. The Fourier transform <span
 class="math inline">\(a^\vee\)</span> is, up to a normalizing scalar, a
@@ -896,8 +908,9 @@ be chosen to have the further property that <span id="eqn:d1a8de4497e0" class="m
 = T^{-\dim(H)/2 + o(1)}.\]</span></em></p></li>
 </ol>
 </div>
-<div class="proof">
-<p><em>Proof.</em> The general algebraic assertions concerning <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> The general algebraic assertions concerning <span
 class="math inline">\(\mathcal{O}_{\pi,\sigma}\)</span> will be
 discussed elsewhere.</p>
 <p>For the proof of <a href="#eqn:d1a8de4497e0"
@@ -925,7 +938,7 @@ be evaluated exactly.</p>
 <p>In the general linear case, we argue instead using local zeta
 integrals and the fact that <span class="math inline">\(v\)</span> can
 be chosen to be a normalized bump function in the Kirillov model. ◻</p>
-</div>
+</span></div>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="list">
 <div id="ref-MR701565" class="csl-entry" role="listitem">
@@ -953,6 +966,39 @@ orbit method and analysis of automorphic forms</span>.”</span> <em>Acta
 Math.</em> 226 (1): 1–209.
 </div>
 </div>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
 <script src="https://giscus.app/client.js"
         data-repo="Ultronozm/math"
         data-repo-id="R_kgDOJlhjqQ"
