@@ -17,6 +17,16 @@
       .my-link {
         margin-left: 10px;
       }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -186,7 +196,6 @@
       <a href="https://github.com/ultronozm/math/commits/main/20230614T131043__bike-helmet-on-the-desk.tex" class="my-link">history</a>
       <a href="." class="my-link">home</a>
     </div>
-
 <nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#this-is-a-section" id="toc-this-is-a-section">This is a
@@ -198,14 +207,48 @@ section</a></li>
 <p><strong>Theorem 1</strong>. <em>My bike helmet is on the
 desk.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> I put it there. Also, consider equation <a
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> I put it there. Also, consider equation <a
 href="20230614T131127__rings-of-differential-operators-blue-book-on-the-desk.html#eqn:d1be095e232e" data-reference-type="eqref"
 data-reference="eqn:d1be095e232e">\((1)\)</a> in <a
 href="20230614T131127__rings-of-differential-operators-blue-book-on-the-desk.html">this
 note</a>. ◻</p>
-</div>
+</span></div>
 <p><span class="math inline">\(x + y = z\)</span></p>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
 <script src="https://giscus.app/client.js"
         data-repo="Ultronozm/math"
         data-repo-id="R_kgDOJlhjqQ"
