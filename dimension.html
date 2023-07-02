@@ -18,6 +18,16 @@
       .my-link {
         margin-left: 10px;
       }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -187,7 +197,6 @@
       <a href="https://github.com/ultronozm/math/commits/main/dimension.tex" class="my-link">history</a>
       <a href="." class="my-link">home</a>
     </div>
-
 <header id="title-block-header">
 <h1 class="title">Commutative algebra: some basics on Krull
 dimension</h1>
@@ -316,8 +325,9 @@ inequality:</p>
 class="math inline">\(\mathop{\mathrm{height}}(\mathfrak{a}) +
 \dim(A/\mathfrak{a}) \leq \dim(A)\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> It suffices to show that if <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> It suffices to show that if <span
 class="math inline">\(\mathop{\mathrm{height}}(\mathfrak{a}) \geq
 r\)</span> and <span class="math inline">\(\dim(A/\mathfrak{a}) \geq
 s\)</span>, then <span class="math inline">\(\dim(A) \geq r +
@@ -338,7 +348,7 @@ class="math display">\[\mathfrak{p}_0 \subsetneq \dotsb \subsetneq
     \mathfrak{q}_s\]</span> is a chain of primes in <span
 class="math inline">\(A\)</span> of length <span
 class="math inline">\(r+s\)</span>. ◻</p>
-</div>
+</span></div>
 <p>We also note:</p>
 <div id="lem:local-ring-height-equals-dim" class="lemma">
 <p><strong>Lemma 2</strong>. Let <span
@@ -346,8 +356,9 @@ class="math inline">\((A,\mathfrak{m})\)</span> be a local ring. Then
 <span class="math inline">\(\dim(A) =
 \mathop{\mathrm{height}}(\mathfrak{m})\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Let <span class="math inline">\(\mathfrak{p}_0
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Let <span class="math inline">\(\mathfrak{p}_0
 \subsetneq \dotsb \subsetneq
   \mathfrak{p}_r\)</span> be a chain of primes in <span
 class="math inline">\(A\)</span>. By enlarging this chain if necessary,
@@ -356,7 +367,7 @@ we may assume that <span class="math inline">\(\mathfrak{p}_r =
 class="math inline">\(\dim(A)\)</span> and <span
 class="math inline">\(\mathop{\mathrm{height}}(\mathfrak{m})\)</span>
 may be taken over the same chains of primes. ◻</p>
-</div>
+</span></div>
 <h1 id="sec:org60bbe56">§3. Geometric interpretations</h1>
 <p>Reference for this section: exercises in Chapter 1 of
 Atiyah–Macdonald.</p>
@@ -450,8 +461,9 @@ inclusion-reversing bijections between the set of radical ideals of
 <span class="math inline">\(\mathop{\mathrm{Spec}}(A)\)</span>.</p></li>
 </ol>
 </div>
-<div class="proof">
-<p><em>Proof.</em> The maps <span class="math inline">\(I\)</span> and
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> The maps <span class="math inline">\(I\)</span> and
 <span class="math inline">\(V\)</span> are readily seen to be
 inclusion-reversing (cf. Exercise Sheet #1).</p>
 <ol type="i">
@@ -476,7 +488,7 @@ V(I(X))\)</span>, as required.</p></li>
 <li><p>Immediate by the above.</p></li>
 </ol>
 <p> ◻</p>
-</div>
+</span></div>
 <div class="lemma">
 <p><strong>Lemma 4</strong>. Let <span class="math inline">\(X\)</span>
 be a closed subset of <span
@@ -624,8 +636,9 @@ class="math inline">\(f|_{X} = 0\)</span> but <span
 class="math inline">\(f|_{Z_j} \neq 0\)</span> for all <span
 class="math inline">\(j\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> We verify that if <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We verify that if <span
 class="math inline">\(\mathfrak{a}\)</span> is not contained in any of
 the <span class="math inline">\(\mathfrak{p}_j\)</span>, then it is not
 contained in their union. For this we may induct on <span
@@ -652,7 +665,7 @@ class="math inline">\(\mathfrak{p}_i\)</span> for any <span
 class="math inline">\(i\)</span>, hence <span
 class="math inline">\(\mathfrak{a}\)</span> is not contained in the
 union of the <span class="math inline">\(\mathfrak{p}_i\)</span>. ◻</p>
-</div>
+</span></div>
 <h1 id="sec:org49d017a">§5. Artin rings</h1>
 <div id="thm:artin-vs-noeth-dim0" class="theorem">
 <p><strong>Theorem 6</strong>. <em>Let <span
@@ -796,8 +809,9 @@ denotes the localization map.</p>
 class="math inline">\(\ker(\iota) = \cap_{n \geq 0}
 \mathfrak{p}^{(n)}\)</span>.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Set <span class="math inline">\(\mathfrak{m} :=
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Set <span class="math inline">\(\mathfrak{m} :=
 \iota_* \mathfrak{p}\)</span>. We have <span
 class="math inline">\(\ker(\iota) = \iota^{(-1)}(0)\)</span> and <span
 class="math inline">\(\iota^{-1}(\cap_{n \geq 0} \mathfrak{m}^n) =
@@ -809,7 +823,7 @@ data-reference-type="ref" data-reference="cor:krull-intersection2">9</a>
 of the Krull intersection theorem applied to the Noetherian local ring
 <span
 class="math inline">\((A_\mathfrak{p},\mathfrak{m})\)</span>. ◻</p>
-</div>
+</span></div>
 <h1 id="sec:orgd3770e5">§8. Krull’s theorems on heights and dimensions</h1>
 <h2 id="sec:orgb8870ab">§8.1. Principal ideal theorem</h2>
 <p>We start with the special case to which the general one will
@@ -830,8 +844,9 @@ class="math inline">\(f \in \mathfrak{m}\)</span>. Then <span
 class="math inline">\(\mathop{\mathrm{Spec}}(A) = \{\mathfrak{m},
 (0)\}\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Let <span class="math inline">\(\mathfrak{p}\)</span>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Let <span class="math inline">\(\mathfrak{p}\)</span>
 be any prime in <span class="math inline">\(A\)</span> other than <span
 class="math inline">\(\mathfrak{m}\)</span>. Necessarily <span
 class="math inline">\(\mathfrak{p} \subsetneq \mathfrak{m}\)</span>; our
@@ -897,7 +912,7 @@ Nakayama’s lemma that <span class="math inline">\(M = 0\)</span>. Thus
 <span class="math inline">\(\mathfrak{p}^{(n)} =
 \mathfrak{p}^{(n+1)}\)</span> for large <span
 class="math inline">\(n\)</span>, as was to be shown. ◻</p>
-</div>
+</span></div>
 <div id="thm:krull-principal-ideal" class="theorem">
 <p><strong>Theorem 13</strong>. <em>Let <span
 class="math inline">\(A\)</span> be a Noetherian ring, and let <span
@@ -927,8 +942,9 @@ fact from linear algebra that the kernel of a linear functional has
 codimension <span class="math inline">\(\leq 1\)</span>, with equality
 whenever the functional is nonzero.)</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> To deduce (ii) from (i), suppose that some minimal
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> To deduce (ii) from (i), suppose that some minimal
 prime <span class="math inline">\(\mathfrak{p}\)</span> of <span
 class="math inline">\((f)\)</span> has <span
 class="math inline">\(\mathop{\mathrm{height}}(\mathfrak{p}) =
@@ -954,7 +970,7 @@ Noetherian domain whose maximal ideal <span
 class="math inline">\(\mathfrak{p}_2\)</span> is a minimal prime of
 <span class="math inline">\((f)\)</span>. We now appeal to the previous
 lemma. ◻</p>
-</div>
+</span></div>
 <p>We will often apply the above result in a local context:</p>
 <div id="cor:krull-pith-local" class="corollary">
 <p><strong>Corollary 14</strong>. <em>Let <span
@@ -966,13 +982,14 @@ unique prime containing <span class="math inline">\(f\)</span>, thus
 <span class="math inline">\(\dim(A) =
 \mathop{\mathrm{height}}(\mathfrak{m}) \leq 1\)</span>.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Given that <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Given that <span
 class="math inline">\(\mathfrak{m}\)</span> is maximal, our assumption
 is equivalent to requiring that <span
 class="math inline">\(\mathfrak{m}\)</span> be a minimal prime of <span
 class="math inline">\((f)\)</span>. ◻</p>
-</div>
+</span></div>
 <p>For the sake of illustration, let’s reformulate Theorem <a
 href="#thm:krull-principal-ideal" data-reference-type="ref"
 data-reference="thm:krull-principal-ideal">13</a> in the contrapositive.
@@ -1005,8 +1022,9 @@ closed subset <span class="math inline">\(Y_2 \subsetneq Y_1 \subsetneq
 Y_0\)</span> with <span class="math inline">\(Y_1 \subseteq
 Z(f)\)</span>.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> We need only show that (i) implies (ii). If (ii)
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We need only show that (i) implies (ii). If (ii)
 fails, then we may find <span class="math inline">\(f \in
 \mathfrak{p}_2\)</span> not contained in any intermediary primes. In
 other words, after replacing <span class="math inline">\(A\)</span> with
@@ -1020,7 +1038,7 @@ theorem, it follows that <span
 class="math inline">\(\mathop{\mathrm{height}}(\mathfrak{p}_2) \leq
 1\)</span>; thus there exist no intermediary primes, and so (i)
 fails. ◻</p>
-</div>
+</span></div>
 <h2 id="sec:orgbe18c9e">§8.2. Dimension theorem</h2>
 <div id="thm:krull-dimn-thm" class="theorem">
 <p><strong>Theorem 16</strong>. <em>Let <span
@@ -1072,8 +1090,9 @@ for which <span class="math inline">\(Z\)</span> is an irreducible
 component of <span
 class="math inline">\(V(g_1,\dotsc,g_{r-1})\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Since <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Since <span
 class="math inline">\(\mathfrak{m}\)</span> is the unique prime ideal
 containing <span class="math inline">\((f_1,\dotsc,f_r)\)</span>, we may
 assume after reindexing <span
@@ -1160,7 +1179,7 @@ the dimension of each such component by <span
 class="math inline">\(1\)</span>.)</p></li>
 </ol>
 <p> ◻</p>
-</div>
+</span></div>
 <p>We now deduce Theorem <a href="#thm:krull-dimn-thm"
 data-reference-type="ref" data-reference="thm:krull-dimn-thm">16</a>. We
 must show that if <span class="math inline">\(\mathfrak{p}\)</span> is a
@@ -1199,23 +1218,25 @@ ring <span class="math inline">\(A\)</span>. Then <span
 class="math inline">\(\mathop{\mathrm{height}}(\mathfrak{a}) &lt;
 \infty\)</span>.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Write <span class="math inline">\(\mathfrak{a} =
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Write <span class="math inline">\(\mathfrak{a} =
 (f_1,\dotsc,f_r)\)</span>. Then <span
 class="math inline">\(\mathop{\mathrm{height}}(\mathfrak{a}) \leq
 r\)</span>. ◻</p>
-</div>
+</span></div>
 <div class="corollary">
 <p><strong>Corollary 19</strong>. <em>Let <span
 class="math inline">\((A,\mathfrak{m})\)</span> be a Noetherian local
 ring. Then <span class="math inline">\(\dim(A) =
 \mathop{\mathrm{height}}(\mathfrak{m}) &lt; \infty\)</span>.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Use Lemma <a href="#lem:local-ring-height-equals-dim"
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Use Lemma <a href="#lem:local-ring-height-equals-dim"
 data-reference-type="ref"
 data-reference="lem:local-ring-height-equals-dim">2</a>. ◻</p>
-</div>
+</span></div>
 <div class="remark">
 <p><strong>Remark 20</strong>. Dimension theory works best for
 <em>local</em> Noetherian rings: there exist non-local Noetherian rings
@@ -1243,8 +1264,9 @@ class="math inline">\(\mathop{\mathrm{height}}(f_1,\dotsc,f_i) =
 i\)</span> for all <span class="math inline">\(s \leq i \leq
 r\)</span>.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> It suffices (after finitely many iterations) to
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> It suffices (after finitely many iterations) to
 consider the case <span class="math inline">\(s = r-1\)</span>. For each
 minimal prime <span class="math inline">\(\mathfrak{q}\)</span> of <span
 class="math inline">\((f_1,\dotsc,f_{r-1})\)</span>, we have <span
@@ -1283,7 +1305,7 @@ class="math inline">\(\mathop{\mathrm{height}}(\mathfrak{q}) &gt;
 \mathop{\mathrm{height}}(\mathfrak{q} &#39;)= r-1\)</span>. This forces
 <span class="math inline">\(\mathop{\mathrm{height}}(\mathfrak{q}) =
 r\)</span>, as required. ◻</p>
-</div>
+</span></div>
 <div class="remark">
 <p><strong>Remark 22</strong>. It may be instructive to recast in
 geometric terms some parts of the proof given above. Our hypothesis is
@@ -1330,10 +1352,11 @@ class="math inline">\(V(f_1,\dotsc,f_r) \subseteq
 \mathop{\mathrm{Spec}}(A)\)</span> for some <span
 class="math inline">\(f_1,\dotsc,f_r \in A\)</span>.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> We apply the previous result with <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We apply the previous result with <span
 class="math inline">\(s = 0\)</span>. ◻</p>
-</div>
+</span></div>
 <p>Here’s a slightly sharper variant:</p>
 <div class="theorem">
 <p><strong>Theorem 24</strong>. <em>Let <span
@@ -1376,12 +1399,13 @@ component of <span
 class="math inline">\(V(f_1,\dotsc,f_i)\)</span>.</em></p></li>
 </ul>
 </div>
-<div class="proof">
-<p><em>Proof.</em> We argue by induction as above, choosing <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We argue by induction as above, choosing <span
 class="math inline">\(f_{i+1}\)</span> to belong to <span
 class="math inline">\(\mathfrak{p}_{i+1}\)</span> but not to any minimal
 prime of <span class="math inline">\((f_1,\dotsc,f_i)\)</span>. ◻</p>
-</div>
+</span></div>
 <h1 id="sec:orgfa54a11">§9. Systems of parameters</h1>
 <h2 id="sec:org815b8ba">§9.1. A characterization of dimension</h2>
 <div id="lem:easy-equivalences-before-system-of-params" class="lemma">
@@ -1403,12 +1427,13 @@ class="math inline">\(\mathop{\mathrm{rad}}((x_1,\dotsc,x_n)) =
 is <span class="math inline">\(\mathfrak{m}\)</span>-primary.</p></li>
 </ol>
 </div>
-<div class="proof">
-<p><em>Proof.</em> The equivalence of (i),(ii) and (iii) follows from
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> The equivalence of (i),(ii) and (iii) follows from
 the assumption that <span class="math inline">\(\mathfrak{m}\)</span> is
 maximal. The equivalence of (iii) and (iv) follows from the fact that an
 ideal is primary whenever its radical is a maximal ideal. ◻</p>
-</div>
+</span></div>
 <div id="thm:dimension-in-terms-of-params" class="theorem">
 <p><strong>Theorem 26</strong>. <em>Let <span
 class="math inline">\((A,\mathfrak{m})\)</span> be a Noetherian local
@@ -1425,8 +1450,9 @@ are satisfied, i.e., <span class="math display">\[\dim(A) = \min \{n
   V((x_1,\dotsc,x_n)) = \{\mathfrak{m} \}
   \}.\]</span></em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> If there exist <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> If there exist <span
 class="math inline">\(x_1,\dotsc,x_n\)</span> with <span
 class="math inline">\(V((x_1,\dotsc,x_n)) =
   \{\mathfrak{m} \}\)</span> then Krull’s dimension theorem implies that
@@ -1439,7 +1465,7 @@ data-reference="cor:existence-parameters-for-prime">23</a>) implies that
 there exist <span class="math inline">\(x_1,\dotsc,x_n\)</span> with
 <span class="math inline">\(V((x_1,\dotsc,x_n)) =
   \{\mathfrak{m} \}\)</span>. ◻</p>
-</div>
+</span></div>
 <p>Theorem <a href="#thm:dimension-in-terms-of-params"
 data-reference-type="ref"
 data-reference="thm:dimension-in-terms-of-params">26</a> will be very
@@ -1486,8 +1512,9 @@ satisfies the following general dimension lower-bound:</p>
 <p><strong>Lemma 28</strong>. <span
 class="math inline">\(\dim(\overline{A}) \geq \dim(A) - r\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Write <span class="math inline">\(s =
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Write <span class="math inline">\(s =
 \dim(\overline{A})\)</span>. Choose elements <span
 class="math inline">\(y_1,\dotsc,y_s \in A\)</span> whose images <span
 class="math inline">\(\overline{y_1},\dotsc,\overline{y_s} \in
@@ -1501,7 +1528,7 @@ only prime containing <span
 class="math inline">\((x_1,\dotsc,x_r,y_1,\dotsc,y_s)\)</span>. From
 this we deduce the upper bound <span class="math inline">\(\dim(A) \leq
 r + s\)</span>, which rearranges to the required inequality. ◻</p>
-</div>
+</span></div>
 <div id="thm:extensions-systems-params" class="theorem">
 <p><strong>Theorem 29</strong>. <em>Among the following assertions, (i)
 implies (ii) and (iii), while (ii) and (iii) are equivalent.</em></p>
@@ -1517,8 +1544,9 @@ class="math inline">\(\mathfrak{m}\)</span>.</em></p></li>
 r\)</span>.</em></p></li>
 </ol>
 </div>
-<div class="proof">
-<p><em>Proof.</em>  </p>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content">  </p>
 <ul>
 <li><p>(i) implies (ii): Set <span class="math inline">\(n :=
 \mathop{\mathrm{height}}(\mathfrak{m}) = \dim(A)\)</span>. Then every
@@ -1579,7 +1607,7 @@ class="math inline">\(x_1,\dotsc,x_r\)</span> to a system of parameters
 for <span class="math inline">\(\mathfrak{m}\)</span>.</p></li>
 </ul>
 <p> ◻</p>
-</div>
+</span></div>
 <div class="corollary">
 <p><strong>Corollary 30</strong>. <em>Let <span
 class="math inline">\((A,\mathfrak{m})\)</span> be a Noetherian local
@@ -1587,8 +1615,9 @@ ring, and let <span class="math inline">\(f \in \mathfrak{m}\)</span> be
 a non-zerodivisor. Then <span class="math display">\[\dim(A/(f)) =
 \dim(A) - 1.\]</span></em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Since <span class="math inline">\(f\)</span> is a
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Since <span class="math inline">\(f\)</span> is a
 non-zerodivisor, Krull’s principal ideal theorem implies that <span
 class="math inline">\(\mathop{\mathrm{height}}((f)) = 1\)</span>.
 Theorem <a href="#thm:extensions-systems-params"
@@ -1601,7 +1630,7 @@ class="math inline">\(f,y_1,\dotsc,y_s\)</span> for <span
 class="math inline">\(A\)</span>, with <span class="math inline">\(s :=
 \dim(A/(f))\)</span>. In particular, <span class="math inline">\(\dim(A)
 = s + 1\)</span>, as required. ◻</p>
-</div>
+</span></div>
 <h1 id="sec:org80bf51b">§10. Dimensions of polynomial rings</h1>
 <div class="theorem">
 <p><strong>Theorem 31</strong>. <em>Let <span
@@ -1610,8 +1639,9 @@ class="math inline">\(n \in \mathbb{Z}_{\geq 0}\)</span>. Then <span
 class="math display">\[\dim A[X_1,\dotsc,X_n] = \dim A +
 n.\]</span></em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> By iterating, it suffices to consider the case <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> By iterating, it suffices to consider the case <span
 class="math inline">\(n=1\)</span>. Set <span class="math inline">\(r :=
 \dim(A)\)</span>. We must verify that <span class="math inline">\(\dim
 A[X] = r + 1\)</span>. Let <span class="math inline">\(\mathfrak{p}_0
@@ -1662,7 +1692,7 @@ data-reference-type="ref"
 data-reference="thm:dimension-in-terms-of-params">26</a> that <span
 class="math inline">\(\dim(A) = \mathop{\mathrm{height}}(\mathfrak{m})
 \leq r + 1\)</span>, as required. ◻</p>
-</div>
+</span></div>
 <p>For example:</p>
 <div class="proposition">
 <p><strong>Proposition 32</strong>. <em>Let <span
@@ -1677,8 +1707,9 @@ class="math inline">\(A_\mathfrak{m}\)</span> is a local ring of
 dimension <span class="math inline">\(n\)</span>, whose maximal ideal is
 generated by a system of parameters.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> The ideals <span class="math inline">\(\mathfrak{p}_i
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> The ideals <span class="math inline">\(\mathfrak{p}_i
 := (X_1-x_1, \dotsc, X_i - x_i)\)</span> (<span
 class="math inline">\(i=0..n\)</span>) are prime, distinct and
 increasing to <span class="math inline">\(\mathfrak{p}_n =
@@ -1694,7 +1725,7 @@ identity <span class="math inline">\(\dim(A_\mathfrak{m}) =
 \mathop{\mathrm{height}}(\mathfrak{m})\)</span> and the fact that <span
 class="math inline">\(\mathfrak{m}\)</span> is generated by <span
 class="math inline">\(X_1-x_1,\dotsc,X_n-x_n\)</span>. ◻</p>
-</div>
+</span></div>
 <h1 id="sec:org3fde1d4">§11. Preliminaries on regular local rings</h1>
 <p>Let <span class="math inline">\((A,\mathfrak{m})\)</span> be a
 Noetherian local ring of dimension <span class="math inline">\(d :=
@@ -1718,8 +1749,9 @@ parameters.</p></li>
 = d\)</span>.</p></li>
 </ol>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Set <span class="math inline">\(r := \dim_k
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Set <span class="math inline">\(r := \dim_k
 \mathfrak{m} / \mathfrak{m}^2\)</span>.</p>
 <p>For the first inequality, suppose <span
 class="math inline">\(x_1,\dotsc,x_{r} \in \mathfrak{m}\)</span> have
@@ -1744,7 +1776,7 @@ generate <span
 class="math inline">\(\mathfrak{m}/\mathfrak{m}^2\)</span>, hence (by
 Nakayama) generate <span class="math inline">\(\mathfrak{m}\)</span>,
 giving (i). ◻</p>
-</div>
+</span></div>
 <h1 id="sec:org4afff50">§12. Basics on integral extensions</h1>
 <p>Let <span class="math inline">\(A \subseteq B\)</span> be rings. The
 discussion that follows applies with minor modifications to any <span
@@ -1843,12 +1875,13 @@ class="math inline">\(A\)</span>. Then <span
 class="math inline">\(x\)</span> is integral over <span
 class="math inline">\(B\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Clear: a monic equation satisfied by <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Clear: a monic equation satisfied by <span
 class="math inline">\(x\)</span> with coefficients in <span
 class="math inline">\(A\)</span> also has coefficients in <span
 class="math inline">\(B\)</span>. ◻</p>
-</div>
+</span></div>
 <div class="lemma">
 <p><strong>Lemma 36</strong>. Let <span class="math inline">\(A
 \subseteq B \subseteq C\)</span> be rings, with <span
@@ -1859,15 +1892,16 @@ class="math inline">\(B\)</span>. Then <span
 class="math inline">\(C\)</span> is finite over <span
 class="math inline">\(A\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> By hypothesis, we have <span class="math inline">\(B
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> By hypothesis, we have <span class="math inline">\(B
 = \sum_i A x_i\)</span> and <span class="math inline">\(C = \sum_j B
 y_j\)</span> for some finite collections <span
 class="math inline">\(\{x_i\} \subseteq B\)</span>, <span
 class="math inline">\(\{y_j\} \subseteq C\)</span>. Then <span
 class="math display">\[C = \sum_j (\sum_i A x_i) y_j
   = \sum_{i,j} A x_i y_j.\]</span> ◻</p>
-</div>
+</span></div>
 <div class="lemma">
 <p><strong>Lemma 37</strong>. Let <span
 class="math inline">\(x_1,\dotsc,x_n \in B\)</span> be integral over
@@ -1875,8 +1909,9 @@ class="math inline">\(x_1,\dotsc,x_n \in B\)</span> be integral over
 class="math inline">\(A[x_1,\dotsc,x_n]\)</span> is a finite over <span
 class="math inline">\(A\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> We induct on <span class="math inline">\(n\)</span>.
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We induct on <span class="math inline">\(n\)</span>.
 The case <span class="math inline">\(n = 1\)</span> follows from the
 theorem. For <span class="math inline">\(n &gt; 1\)</span>, we see that
 <span class="math inline">\(A[x_1,\dotsc,x_n]\)</span> is integral and
@@ -1884,7 +1919,7 @@ hence finite over <span
 class="math inline">\(A[x_1,\dotsc,x_{n-1}]\)</span>, which is in turn
 finite over <span class="math inline">\(A\)</span>; we then conclude by
 the previous lemma. ◻</p>
-</div>
+</span></div>
 <div class="corollary">
 <p><strong>Corollary 38</strong>. <em>The following are equivalent for
 an extension of rings <span class="math inline">\(A \subset
@@ -1897,13 +1932,14 @@ finitely-generated over <span
 class="math inline">\(A\)</span>.</em></p></li>
 </ol>
 </div>
-<div class="proof">
-<p><em>Proof.</em> If <span class="math inline">\(B\)</span> is finite
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> If <span class="math inline">\(B\)</span> is finite
 over <span class="math inline">\(A\)</span>, then the equivalence “(iii)
 implies (i)” proved above shows that it is integral over <span
 class="math inline">\(A\)</span>; on the other hand, it is clearly
 finitely-generated. The converse is given by the preceeding lemma. ◻</p>
-</div>
+</span></div>
 <div class="corollary">
 <p><strong>Corollary 39</strong>. <em>The set of elements <span
 class="math inline">\(x \in B\)</span> that are integral over <span
@@ -1911,8 +1947,9 @@ class="math inline">\(A\)</span> forms an <span
 class="math inline">\(A\)</span>-subalgebra of <span
 class="math inline">\(B\)</span>.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> If <span class="math inline">\(x,y \in B\)</span> are
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> If <span class="math inline">\(x,y \in B\)</span> are
 integral over <span class="math inline">\(A\)</span>, then the previous
 results show that <span class="math inline">\(A[x,y]\)</span> is finite
 over <span class="math inline">\(A\)</span>, hence integral over <span
@@ -1921,7 +1958,7 @@ class="math inline">\(a_1 x + a_2 y\)</span> (for <span
 class="math inline">\(a_1,a_2 \in A\)</span>) and <span
 class="math inline">\(x y\)</span> are integral over <span
 class="math inline">\(A\)</span>. ◻</p>
-</div>
+</span></div>
 <div class="definition">
 <p><strong>Definition 40</strong>. Let <span class="math inline">\(A
 \subseteq B\)</span> be rings. The <em>integral closure <span
@@ -1949,8 +1986,9 @@ class="math inline">\(B\)</span>, then <span
 class="math inline">\(C\)</span> is integral over <span
 class="math inline">\(A\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Let <span class="math inline">\(x \in C\)</span>; we
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Let <span class="math inline">\(x \in C\)</span>; we
 must check that <span class="math inline">\(x\)</span> is integral over
 <span class="math inline">\(A\)</span>. Since <span
 class="math inline">\(C\)</span> is integral over <span
@@ -1971,7 +2009,7 @@ href="#thm:characterizing-integrality" data-reference-type="ref"
 data-reference="thm:characterizing-integrality">34</a>, we conclude that
 <span class="math inline">\(x\)</span> is integral over <span
 class="math inline">\(A\)</span>. ◻</p>
-</div>
+</span></div>
 <div class="corollary">
 <p><strong>Corollary 42</strong>. <em>Let <span
 class="math inline">\(\overline{A}\)</span> denote the integral closure
@@ -1993,9 +2031,10 @@ multiplicative subset. Then <span class="math inline">\(S^{-1} A \subset
 S^{-1} B\)</span> is integral.</p></li>
 </ol>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Just do it. ◻</p>
-</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Just do it. ◻</p>
+</span></div>
 <div class="definition">
 <p><strong>Definition 44</strong>. We say that an integral domain <span
 class="math inline">\(A\)</span> is <em>normal</em> if it is integrally
@@ -2006,8 +2045,9 @@ closed in its field of fractions <span class="math inline">\(K :=
 <p><strong>Lemma 45</strong>. Let <span class="math inline">\(A\)</span>
 be a UFD. Then <span class="math inline">\(A\)</span> is normal.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Suppose <span class="math inline">\(r/s \in K :=
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Suppose <span class="math inline">\(r/s \in K :=
 \mathop{\mathrm{Frac}}(A)\)</span> is integral over <span
 class="math inline">\(A\)</span>, where <span class="math inline">\(r,s
 \in A\)</span> are coprime. Then <span class="math inline">\((r/s)^n +
@@ -2021,7 +2061,7 @@ class="math inline">\(r^n\)</span>; since <span
 class="math inline">\(r,s\)</span> are coprime, we must have <span
 class="math inline">\(s \in A^\times\)</span>, and so <span
 class="math inline">\(r/s \in A\)</span>. ◻</p>
-</div>
+</span></div>
 <div class="example">
 <p><strong>Example 46</strong>. In particular, <span
 class="math inline">\(\mathbb{Z}\)</span> and <span
@@ -2081,8 +2121,9 @@ each maximal ideal <span class="math inline">\(\mathfrak{m}\)</span> of
 <span class="math inline">\(A\)</span>.</p></li>
 </ol>
 </div>
-<div class="proof">
-<p><em>Proof.</em> (i) implies (ii): Welp, let <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> (i) implies (ii): Welp, let <span
 class="math inline">\(x \in K\)</span> be integral over <span
 class="math inline">\(S^{-1} A\)</span>. Write down a monic equation.
 Clearing denominators, we deduce that <span class="math inline">\(s
@@ -2106,7 +2147,7 @@ a finite sum with <span class="math inline">\(a_\mathfrak{m} \in
 A\)</span>, almost all zero. Then <span class="math inline">\(x = \sum
 a_\mathfrak{m} b_\mathfrak{m} x\)</span> is integral over <span
 class="math inline">\(A\)</span>. ◻</p>
-</div>
+</span></div>
 <h1 id="sec:org5a401b5">§13. Lying over</h1>
 <div class="lemma">
 <p><strong>Lemma 48</strong>. Let <span class="math inline">\(A
@@ -2119,8 +2160,9 @@ prime, then <span class="math inline">\(\mathfrak{p} := \mathfrak{q}
 \cap A\)</span> is maximal if and only if <span
 class="math inline">\(\mathfrak{q}\)</span> is maximal.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Suppose <span class="math inline">\(A\)</span> is a
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Suppose <span class="math inline">\(A\)</span> is a
 field. Let <span class="math inline">\(x \in B\)</span> is nonzero.
 Write <span class="math inline">\(x^n + a_1 x^{n-1} + \dotsb + a_n =
 0\)</span>, with <span class="math inline">\(n\)</span> minimal. Since
@@ -2135,7 +2177,7 @@ class="math inline">\(1/x \in B\)</span>. Write <span
 class="math inline">\((1/x)^n + a_1 (1/x)^{n-1} + \dotsb + a_n =
 0\)</span>. Then <span class="math display">\[1/x = - (a_1 + a_2 x +
 \dotsb + a_n x^{n-1}) \in A.\]</span> ◻</p>
-</div>
+</span></div>
 <div class="corollary">
 <p><strong>Corollary 49</strong>. <em>Let <span
 class="math inline">\((A,\mathfrak{p})\)</span> be a local ring and
@@ -2146,11 +2188,12 @@ Then <span class="math display">\[\{\text{maximal ideals $\mathfrak{m}
   \{\text{primes $\mathfrak{q} \subset B$} : \mathfrak{q} \cap A =
 \mathfrak{p} \}.\]</span></em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> We apply the lemma, taking into account that <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We apply the lemma, taking into account that <span
 class="math inline">\(\mathfrak{p}\)</span> is the only maximal ideal of
 <span class="math inline">\(A\)</span>. ◻</p>
-</div>
+</span></div>
 <div class="theorem">
 <p><strong>Theorem 50</strong>. <em>Let <span class="math inline">\(A
 \subseteq B\)</span> be integral. Then the natural map <span
@@ -2176,8 +2219,9 @@ lie over the same prime of <span class="math inline">\(A\)</span>, then
 \implies \mathfrak{q} = \mathfrak{q} &#39;\)</span>.</em></p></li>
 </ol>
 </div>
-<div class="proof">
-<p><em>Proof.</em> The extension <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> The extension <span
 class="math inline">\(A_\mathfrak{p} \subset B_\mathfrak{p}\)</span>
 remains integral. The primes of <span class="math inline">\(B\)</span>
 lying over <span class="math inline">\(\mathfrak{p}\)</span> correspond
@@ -2190,7 +2234,7 @@ class="math inline">\(B_\mathfrak{p}\)</span>. We have <span
 class="math inline">\(B_\mathfrak{p} \neq 0\)</span>, so maximal ideals
 exist, and it is clear that no inclusion relations exist between maximal
 ideals. ◻</p>
-</div>
+</span></div>
 <h1 id="sec:orgf2a76c1">§14. Going up</h1>
 <p>We say that an extension of rings <span class="math inline">\(A
 \subseteq B\)</span> satisfies <em>going up</em> if whenever <span
@@ -2220,12 +2264,13 @@ class="math inline">\(i \leq
 class="math inline">\(A \subset B\)</span> satisfies “going
 up”.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Apply “lying over” to the prime <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Apply “lying over” to the prime <span
 class="math inline">\(\mathfrak{p} &#39; / \mathfrak{p}\)</span> of
 <span class="math inline">\(A/\mathfrak{p}\)</span> inside <span
 class="math inline">\(B/\mathfrak{q}\)</span>. ◻</p>
-</div>
+</span></div>
 <p>As an application:</p>
 <div class="proposition">
 <p><strong>Proposition 52</strong>. <em>Let <span
@@ -2243,8 +2288,9 @@ class="math inline">\(\mathop{\mathrm{height}}(\mathfrak{b}) \leq
 \mathop{\mathrm{height}}(\mathfrak{a})\)</span>.</em></p></li>
 </ol>
 </div>
-<div class="proof">
-<p><em>Proof.</em> (i): A chain of primes in <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> (i): A chain of primes in <span
 class="math inline">\(B\)</span> lies over a chain of primes in <span
 class="math inline">\(A\)</span>. The constituents of the latter are
 distinct by the “non-inclusions” theorem. Thus <span
@@ -2270,7 +2316,7 @@ class="math inline">\(\mathfrak{p}\)</span> was arbitrary, we conclude
 upon taking infima that <span
 class="math inline">\(\mathop{\mathrm{height}}(\mathfrak{b}) \leq
 \mathop{\mathrm{height}}(\mathfrak{a})\)</span>. ◻</p>
-</div>
+</span></div>
 <h1 id="sec:org5aca683">§15. Galois action on primes</h1>
 <div class="lemma">
 <p><strong>Lemma 53</strong>. Let <span class="math inline">\(A\)</span>
@@ -2507,8 +2553,9 @@ class="math inline">\(f_n\)</span>. Then <span
 class="math inline">\(A\)</span> is integral over <span
 class="math inline">\(k[y]\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Our hypothesis implies that <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Our hypothesis implies that <span
 class="math inline">\(f = a X^n + \dotsb\)</span>, where <span
 class="math inline">\(a \neq 0\)</span> and <span
 class="math inline">\(\dotsb\)</span> consists of lower order terms in
@@ -2517,7 +2564,7 @@ class="math inline">\(k[Y]\)</span>. This relation taken in the quotient
 ring <span class="math inline">\(A\)</span> shows that <span
 class="math inline">\(x\)</span> is integral over <span
 class="math inline">\(y\)</span>. ◻</p>
-</div>
+</span></div>
 <div class="corollary">
 <p><strong>Corollary 57</strong>. <em>Let <span class="math inline">\(a
 \in k\)</span>. Suppose <span class="math inline">\(Y - a X\)</span>
@@ -2525,10 +2572,11 @@ does not divide <span class="math inline">\(f_n\)</span>. Then <span
 class="math inline">\(A\)</span> is integral over <span
 class="math inline">\(k[y - a x]\)</span>.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Apply the lemma with modified coordinates <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Apply the lemma with modified coordinates <span
 class="math inline">\(X&#39; := X, Y &#39; := Y - a X\)</span>. ◻</p>
-</div>
+</span></div>
 <div class="corollary">
 <p><strong>Corollary 58</strong>. <em>Suppose the field <span
 class="math inline">\(k\)</span> is infinite. Then there exists <span
@@ -2536,8 +2584,9 @@ class="math inline">\(a \in k\)</span> so that <span
 class="math inline">\(A\)</span> is integral over <span
 class="math inline">\(k[y-ax]\)</span>.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Over an algebraic closure <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Over an algebraic closure <span
 class="math inline">\(\overline{k}\)</span>, we may factor <span
 class="math inline">\(f_n = \prod_{i=1..n} (a_i x - b_i y)\)</span> for
 some <span class="math inline">\(a_i,b_i \in \overline{k}\)</span> with
@@ -2545,7 +2594,7 @@ some <span class="math inline">\(a_i,b_i \in \overline{k}\)</span> with
 choose <span class="math inline">\(a \in k\)</span> not equal to any of
 the ratios <span class="math inline">\(b_i/a_i\)</span> and apply the
 previous corollary. ◻</p>
-</div>
+</span></div>
 <p>This completes the proof of Noether normalization for <span
 class="math inline">\(A = k[X,Y]/(f)\)</span> in the special case that
 <span class="math inline">\(k\)</span> is infinite. What if <span
@@ -2594,8 +2643,9 @@ class="math inline">\(A = k[X,Y]/(f)\ni x,y\)</span> as above. Then
 class="math inline">\(k[z]\)</span> with <span class="math inline">\(z
 := y - x^s\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> (Not clear whether there’s any point in writing this
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> (Not clear whether there’s any point in writing this
 all out; might already be clear enough.) We expand out <span
 class="math inline">\(0 = f(x,y) = f(x,x^s+z)\)</span> as above. Say
 <span class="math inline">\(f(X,Y) = \sum_{\alpha \in I} c_\alpha
@@ -2624,7 +2674,7 @@ class="math display">\[0 = f(x,x^s + z)
 class="math inline">\(\dotsb\)</span> as above. Thus <span
 class="math inline">\(x\)</span> is integral over <span
 class="math inline">\(k[z]\)</span>. ◻</p>
-</div>
+</span></div>
 <p>More generally, let’s suppose now that we have a ring <span
 class="math inline">\(A\)</span> of dimension <span
 class="math inline">\(d\)</span> with <span
@@ -2689,12 +2739,13 @@ and</em></p></li>
 (y_1,\dotsc,y_r)\)</span>.</em></p></li>
 </ol>
 </div>
-<div class="proof">
-<p><em>Proof.</em> We induct on <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We induct on <span
 class="math inline">\(r\)</span>.</p>
 <p>If <span class="math inline">\(r = 0\)</span>, then <span
 class="math inline">\(A/\mathfrak{a}\)</span> ◻</p>
-</div>
+</span></div>
 <p>&lt;++&gt;</p>
 <p>For Noether normalization, I think 13.1 in Eisenbud looks like a
 pretty good treatment. It also leads readily to the dimension formulas
@@ -2711,8 +2762,9 @@ class="math inline">\(k[X_1,\dotsc,X_d] \hookrightarrow A\)</span>.
 (Okay, need to know that finite implies integral for the application
 below.)</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> We write <span class="math inline">\(A =
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We write <span class="math inline">\(A =
 k[Y_1,\dotsc,Y_n]/\mathfrak{p}\)</span>, and induct on <span
 class="math inline">\(n\)</span>. Then <span class="math inline">\(d
 \leq n\)</span>. If <span class="math inline">\(d = n\)</span>, then
@@ -2762,7 +2814,7 @@ number of generators of <span class="math inline">\(A\)</span>. If <span
 class="math inline">\(A\)</span> admits <span
 class="math inline">\(d\)</span> generators, then it’s a polynomial
 ring, so you’re done. Then you can avoid some futzing. ◻</p>
-</div>
+</span></div>
 <h1 id="sec:org12a4f19">§19. Dimension vs. transcendence degree</h1>
 <div class="theorem">
 <p><strong>Theorem 62</strong>. <em>Let <span
@@ -2772,8 +2824,9 @@ finitely-generated <span class="math inline">\(k\)</span>-algebra. Then
 <span class="math inline">\(\dim( A) = {\mathop{\mathrm{trdeg}}}_k
 (\mathop{\mathrm{Frac}}(A))\)</span>.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Consider first the case that <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Consider first the case that <span
 class="math inline">\(A = k[X_1,\dotsc,X_n]\)</span> is a polynomial
 ring in <span class="math inline">\(n\)</span> indeterminates. We’ve
 seen then that <span class="math inline">\(\dim(A) = n\)</span>, while
@@ -2790,7 +2843,7 @@ class="math inline">\(\dim(A) = d\)</span>. Moreover, the field
 extension <span class="math inline">\(\mathop{\mathrm{Frac}}(A) /
 \mathop{\mathrm{Frac}}(k[X_1,\dotsc,X_d])\)</span> is algebraic, so the
 two fields have the same transcendence degree. ◻</p>
-</div>
+</span></div>
 <div class="theorem">
 <p><strong>Theorem 63</strong>. <em>Let <span
 class="math inline">\(A\)</span> be as above. Then <span
@@ -2801,9 +2854,10 @@ class="math inline">\(\mathop{\mathrm{height}}(\mathfrak{m}) =
 \dim(A)\)</span> for every maximal ideal <span
 class="math inline">\(\mathfrak{m}\)</span>.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> DFD ◻</p>
-</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> DFD ◻</p>
+</span></div>
 <h1 id="sec:orgd85e6aa">§20. Valuation rings</h1>
 <p>Let <span class="math inline">\(K\)</span> be a field, and let <span
 class="math inline">\((G, +, 0, \leq)\)</span> be a totally ordered
@@ -2839,8 +2893,9 @@ class="math inline">\((A,\mathfrak{m})\)</span> is a local ring with
 unit group <span class="math inline">\(A^\times = \{x \in K^\times :
 v(x) = 0\}\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em>  </p>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content">  </p>
 <ul>
 <li><p><span class="math inline">\(\mathfrak{m}\)</span> is an abelian
 group: if <span class="math inline">\(v(x) &gt; 0\)</span> and <span
@@ -2865,7 +2920,7 @@ class="math inline">\((A,\mathfrak{m})\)</span> is local and <span
 class="math inline">\(A^\times\)</span> is as described.</p></li>
 </ul>
 <p> ◻</p>
-</div>
+</span></div>
 <p>It is customary extend such a valuation to a map <span
 class="math inline">\(v : K \rightarrow G \cup \{\infty \}\)</span>,
 where <span class="math inline">\(n \leq \infty\)</span> for all <span
@@ -2950,8 +3005,9 @@ has <span class="math inline">\(x \in A\)</span> or <span
 class="math inline">\(x^{-1} \in A\)</span> (or both).</p></li>
 </ol>
 </div>
-<div class="proof">
-<p><em>Proof.</em> (i) implies (ii): Suppose <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> (i) implies (ii): Suppose <span
 class="math inline">\(v : K \rightarrow G \cup \{\infty\}\)</span> is a
 valuation with valuation ring <span class="math inline">\(A\)</span>, so
 that <span class="math inline">\(A = \{x \in K : v(x) \geq 0
@@ -2991,7 +3047,7 @@ class="math inline">\(v(x) \leq v(x+y)\)</span>, as required.</p>
 class="math inline">\(x \in A \cdot 1\)</span>, so <span
 class="math inline">\(A\)</span> is the valuation ring of <span
 class="math inline">\(v\)</span>. ◻</p>
-</div>
+</span></div>
 <div class="example">
 <p><strong>Example 68</strong>. <span class="math inline">\(A :=
 k[x^2,x^3] \subseteq K = k(x)\)</span> is not a valuation ring: the
@@ -3008,20 +3064,22 @@ class="math inline">\(v(x_1) &lt; v(x_2) \leq v(x_3) \leq \dotsb \leq
 v(x_n)\)</span>, then <span class="math inline">\(v(x_1 + \dotsb + x_n)
 = v(x_1)\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Suppose for instance that <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Suppose for instance that <span
 class="math inline">\(v(x) &lt; v(y)\)</span>. Then <span
 class="math inline">\(y/x \in \mathfrak{m}\)</span>, hence <span
 class="math inline">\(1 + y/x \in A^\times\)</span>, hence <span
 class="math inline">\(v(1+y/x) = 0\)</span>, hence <span
 class="math inline">\(v(x+y) = v(x) v(1+y/x) = v(x)\)</span>. The second
 assertion follows by induction. ◻</p>
-</div>
+</span></div>
 <div class="lemma">
 <p><strong>Lemma 70</strong>. Valuation rings are normal.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Let <span class="math inline">\(v :
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Let <span class="math inline">\(v :
 K^\times  \rightarrow G\)</span> be a valuation with valuation ring
 <span class="math inline">\(A\)</span>. Let <span
 class="math inline">\(x \in K\)</span> be integral over <span
@@ -3035,7 +3093,7 @@ class="math inline">\(v(x^n) &lt; v(x^{i}) \leq v(a_i x^i)\)</span>. By
 the strengthened ultrametric inequality, it follows that <span
 class="math display">\[\infty = v(0) = v(x^n + \dotsb + a_n) = v(x^n)
 &lt; 0,\]</span> a contradiction. ◻</p>
-</div>
+</span></div>
 <div class="theorem">
 <p><strong>Theorem 71</strong>. <em>Let <span
 class="math inline">\(A\)</span> be an integral domain with field of
@@ -3046,8 +3104,9 @@ all valuation rings <span class="math inline">\(B\)</span> of <span
 class="math inline">\(K\)</span> containing <span
 class="math inline">\(A\)</span>.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> If <span class="math inline">\(x \in K\)</span> is
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> If <span class="math inline">\(x \in K\)</span> is
 integral over <span class="math inline">\(A\)</span>, then it is also
 integral over each valuation ring <span class="math inline">\(B\)</span>
 of <span class="math inline">\(K\)</span> containing <span
@@ -3149,7 +3208,7 @@ valuation ring? If <span class="math inline">\(y \in K - B\)</span> then
 you need to show that <span class="math inline">\(B[y] = B\)</span>, for
 instance, by verifying that <span class="math inline">\(\mathfrak{p}
 B[y] \neq B[y]\)</span>. Why should that be? ◻</p>
-</div>
+</span></div>
 <p>The key step is that if <span
 class="math inline">\(\mathfrak{p}\)</span> is a prime in <span
 class="math inline">\(A\)</span> and <span
@@ -3191,15 +3250,16 @@ K\)</span> there exists <span class="math inline">\(n \geq 0\)</span> so
 that <span class="math inline">\(x \mathfrak{p}^n \subseteq
 A\)</span>.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> It suffices to show for each <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> It suffices to show for each <span
 class="math inline">\(0 \neq y \in A\)</span> that one has <span
 class="math inline">\(\mathfrak{p}^n \subseteq (y)\)</span> for some
 <span class="math inline">\(n\)</span>. This follows from the fact that
 <span class="math inline">\(A/(y)\)</span> is an Artin local ring with
 maximal ideal <span class="math inline">\(\mathfrak{p}/(y)\)</span>,
 which is thus its nilradical. ◻</p>
-</div>
+</span></div>
 <div class="lemma">
 <p><strong>Lemma 73</strong>. Suppose <span class="math inline">\(y \in
 K\)</span> satisfies <span class="math inline">\(\mathfrak{p} y
@@ -3211,8 +3271,9 @@ or</p></li>
 class="math inline">\(A\)</span>.</p></li>
 </ol>
 </div>
-<div class="proof">
-<p><em>Proof.</em> If <span class="math inline">\(\mathfrak{p} y =
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> If <span class="math inline">\(\mathfrak{p} y =
 A\)</span>, then we can write <span class="math inline">\(t y =
 1\)</span> for some <span class="math inline">\(t \in
 \mathfrak{p}\)</span>. Otherwise <span
@@ -3221,7 +3282,7 @@ since <span class="math inline">\(\mathfrak{p}\)</span> is a
 finitely-generated <span class="math inline">\(A\)</span>-module, it
 follows that <span class="math inline">\(y\)</span> is integral over
 <span class="math inline">\(A\)</span>. ◻</p>
-</div>
+</span></div>
 <p>In other words, every element of <span
 class="math inline">\(\mathfrak{p}^{-1}\)</span> is either (..)</p>
 <div class="theorem">
@@ -3229,8 +3290,9 @@ class="math inline">\(\mathfrak{p}^{-1}\)</span> is either (..)</p>
 class="math inline">\(A\)</span> is normal, then <span
 class="math inline">\(A\)</span> is a DVR.</em></p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> Let <span
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Let <span
 class="math inline">\((B,\mathfrak{m})\)</span> be a valuation ring in
 <span class="math inline">\(K\)</span> that contains <span
 class="math inline">\(A\)</span> and for which <span
@@ -3264,7 +3326,7 @@ class="math inline">\(y\)</span> is integral over <span
 class="math inline">\(A\)</span>, whence by the normality of <span
 class="math inline">\(A\)</span> that <span class="math inline">\(y \in
 A\)</span>, contradiction. ◻</p>
-</div>
+</span></div>
 <h1 id="sec:org75bf553">§22. The future</h1>
 <h2 id="sec:orge6fe150">§22.1. Some exercises</h2>
 <h3 id="sec:org29f0766">§22.1.1. </h3>
@@ -3395,6 +3457,39 @@ not, exactly? Okay, well, we can compute pretty easily the dimension of
 <span class="math inline">\(d - \dim \operatorname{span}
   \{\overline{f_1},\dotsc,\overline{f_r}\}\)</span>.</p>
 <h3 id="sec:orgdd66e74">§22.1.5. </h3>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
 <script src="https://giscus.app/client.js"
         data-repo="Ultronozm/math"
         data-repo-id="R_kgDOJlhjqQ"

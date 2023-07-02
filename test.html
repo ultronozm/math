@@ -17,6 +17,16 @@
       .my-link {
         margin-left: 10px;
       }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -216,7 +226,6 @@
       <a href="https://github.com/ultronozm/math/commits/main/test.tex" class="my-link">history</a>
       <a href="." class="my-link">home</a>
     </div>
-
 <header id="title-block-header">
 <h1 class="title">Doesn’t matter</h1>
 <div class="abstract">
@@ -252,9 +261,10 @@ also <a href="#ref-2021arXiv210915230N" class="citation" data-cites="2021arXiv21
 <div id="lemma:35ac221761" class="lemma">
 <p><strong>Lemma 1</strong>. This is my lemma.</p>
 </div>
-<div class="proof">
-<p><em>Proof.</em> I said so. ◻</p>
-</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> I said so. ◻</p>
+</span></div>
 <p>By Lemma <a href="#lemma:35ac221761" data-reference-type="ref"
 data-reference="lemma:35ac221761">1</a>, whatever.</p>
 <p>They say that lunch time only comes once a day. Be prepared.</p>
@@ -309,6 +319,39 @@ class="math inline">\(L\)</span></span>-functions</span>.”</span>
 href="https://arxiv.org/abs/2109.15230">https://arxiv.org/abs/2109.15230</a>.
 </div>
 </div>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
 <script src="https://giscus.app/client.js"
         data-repo="Ultronozm/math"
         data-repo-id="R_kgDOJlhjqQ"
