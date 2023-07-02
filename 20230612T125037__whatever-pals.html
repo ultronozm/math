@@ -17,6 +17,16 @@
       .my-link {
         margin-left: 10px;
       }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
     html {
       color: #1a1a1a;
       background-color: #fdfdfd;
@@ -182,7 +192,6 @@
       <a href="https://github.com/ultronozm/math/commits/main/20230612T125037__whatever-pals.tex" class="my-link">history</a>
       <a href="." class="my-link">home</a>
     </div>
-
 <nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#hello-pals" id="toc-hello-pals">Hello pals</a></li>
@@ -195,6 +204,39 @@
 <p>Check out <a href="20230612T124951__i-dont-know-trial-okay.html">this
 document</a>.</p>
 <p>I’m also changing this file.</p>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
 <script src="https://giscus.app/client.js"
         data-repo="Ultronozm/math"
         data-repo-id="R_kgDOJlhjqQ"
