@@ -60,6 +60,11 @@ div.summary
     margin-left: 10px;
 }
 
+.theorem-header {
+    font-size: 1.0em;
+    line-height: 1.5;
+}
+
 html {
     line-height: 1.5;
     font-family: Georgia, serif;
