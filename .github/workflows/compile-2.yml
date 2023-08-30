@@ -75,7 +75,7 @@ jobs:
           if [[ "${{ github.event_name }}" == "push" ]]; then          
             git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep .tex | grep -v $EXCLUDE_FILES | while read file; do
               echo "Converting $file to html"
-              docker run --volume "`pwd`:`pwd`" --workdir "`pwd`" pandoc/core:3.1 --standalone "$file" -o "${file%.tex}.html" --mathjax --citeproc
+              docker run --volume "`pwd`:`pwd`" --workdir "`pwd`" pandoc/core:3.1 --standalone "$file" -o "${file%.tex}.html" --mathjax --citeproc --toc
               echo "Listing files in the current directory:"
               ls -al
               sudo chown runner:docker "${file%.tex}.html"
@@ -85,7 +85,7 @@ jobs:
           elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             find . -maxdepth 1 -name "*.tex" | grep -v $EXCLUDE_FILES | while read file; do
               echo "Converting $file to html"
-              docker run --volume "`pwd`:`pwd`" --workdir "`pwd`" pandoc/core:3.1 --standalone "$file" -o "${file%.tex}.html" --mathjax --citeproc
+              docker run --volume "`pwd`:`pwd`" --workdir "`pwd`" pandoc/core:3.1 --standalone "$file" -o "${file%.tex}.html" --mathjax --citeproc --toc
               echo "Listing files in the current directory:"
               ls -al
               sudo chown runner:docker "${file%.tex}.html"
