@@ -1,0 +1,275 @@
+\documentclass[reqno]{amsart} \input{common.tex} \numberwithin{theorem}{section} \numberwithin{equation}{section}
+
+\begin{document}
+
+These are notes for an ongoing Fall 2023 course on the Riemann zeta function and its generalizations, $L$-functions.  These notes will be filled in as we go.
+
+\newpage
+\section{Background}
+
+\subsection{General notation}
+$\mathbb{R}^+ := (0,\infty)$.
+
+\subsection{Asymptotic notation}
+We use the equivalent notations
+\begin{equation*}
+  A = \O(B), \qquad A \ll B,
+  \qquad B \gg A
+\end{equation*}
+to denote that
+\begin{equation*}
+\lvert A \rvert \leq C \lvert B \rvert
+\end{equation*}
+for some ``constant'' $C$.  The precise meaning of ``constant'' will either be specified or clear from context.
+
+\subsection{Holomorphic continuation}
+
+\begin{theorem}[Identity principle for holomorphic functions]
+  Let $U \subset \mathbb{C} $ be a connected open set.  Let $f, g : U \rightarrow \mathbb{C} $ be holomorphic functions.  If $f = g$ on a set with a limit point in $U$, then $f = g$ on all of $U$.
+\end{theorem}
+\begin{corollary}\label{corollary:cj3vqbthht}
+  Let $U \subset \Omega \subseteq \mathbb{C} $ be open subsets, with $U$ nonempty and $\Omega$ connected.  Let $f : U \rightarrow \mathbb{C}$ be a holomorphic function.  Then there is at most one extension of $f$ to a holomorphic function $\Omega \rightarrow \mathbb{C}$.
+\end{corollary}
+
+\subsection{Cauchy's integral formula}
+\begin{theorem}
+  Let $f : U \rightarrow \mathbb{C} $ be a holomorphic function defined on an open subset $U$.  Let $\gamma$ be a closed rectifiable curve in $U$.  Then $\int_\gamma f(z) \, d z = 0$.
+\end{theorem}
+
+\begin{theorem}\label{theorem:cj3vqbjd26}
+  Let $0 \leq a < b \leq \infty$.  Let $f(z)$ be a holomorphic function on the annulus $\{z \in \mathbb{C} : a < \lvert z \rvert < b\}$ given by a convergent Laurent series
+  \begin{equation*}
+    f(z) = \sum_{n \in \mathbb{Z} } c_n z^n.
+  \end{equation*}
+  \begin{enumerate}
+  \item For any $r \in (a,b)$ and $n \in \mathbb{Z}$, we have
+    \begin{align*}
+      c_n &=  \oint_{\lvert z \rvert = r} \frac{f(z)}{z^{n}} \, \frac{d z}{2 \pi i z} \\
+          &= \frac{1}{2 \pi r^n } \int_{\theta = 0 }^{2 \pi } f (r e^{i \theta }) e^{- i n \theta } \,d \theta.
+    \end{align*}
+  \item For each compact subset $E$ of $(a,b)$, there exists $M \geq 0$ so that for all $r \in E$, we have
+    \begin{equation}\label{eq:cj3vqbiupy}
+      \sum_{n \in \mathbb{Z}} \lvert c_n \rvert r^n \leq M.
+    \end{equation}
+  \end{enumerate}
+\end{theorem}
+
+\subsection{Holomorphy of limits and series}
+\begin{theorem}\label{theorem:cj3vqa91ti}
+  Let $U$ be an open subset of the complex plane.  Let $f_n$ be a sequence of holomorphic functions on $U$.
+  \begin{enumerate}
+  \item Suppose that the sequence $f_n$ converges pointwise to some function $f$, uniformly on compact subsets of $U$.  Then $f$ is holomorphic.
+  \item Suppose that the partial sums $\sum_{n \leq N} f_n$ converge pointwise to some function $f$, uniformly on compact subsets of $U$.  Then the sum $\sum_n f_n$ is holomorphic.
+  \end{enumerate}
+\end{theorem}
+
+\newpage
+\section{Asymptotics and meromorphic continuation}
+We consider a Laurent series
+\begin{equation*}
+f (z) = \sum_{n \in \mathbb{Z} } c_n z^n.
+\end{equation*}
+Here the $c_n$ are complex coefficients, while $z$ is a nonzero complex argument.  We assume that this series converges absolutely for at least one value of $z$.
+
+\begin{lemma}\label{lemma:cj3vqafpa6}
+  There is a unique maximal open subinterval $(a,b)$ of $\mathbb{R}^+$ on which $f$ converges absolutely.  Its endpoints are given explicitly by
+  \begin{equation*}
+a = \inf \left\{ r \in \mathbb{R}^+ : \sum_n \lvert c_n \rvert r^n < \infty  \right\},
+\end{equation*}
+
+\begin{equation*}
+ b = \sup \left\{ r \in \mathbb{R}^+ : \sum_n \lvert c_n \rvert r^n < \infty  \right\}.
+\end{equation*}
+\end{lemma}
+We refer to the interval $(a,b)$ as the \emph{fundamental interval} for $f$ (or for the $c_n$).
+
+The fundamental interval controls the growth of the coefficients $c_n$ as $n \rightarrow \pm \infty$:
+\begin{lemma}
+  Let $b^- < b$ and $a^+ > a$.  Then
+  \begin{equation*}
+    c_n \ll {(b^-)}^{-n} \quad \text{ as } n \rightarrow \infty
+  \end{equation*}
+  and
+  \begin{equation*}
+    c_n \ll {(a^+)}^{-n} \quad \text{ as } n \rightarrow -\infty.
+  \end{equation*}
+\end{lemma}
+
+Set
+\begin{equation*}
+\mathcal{C} (a, b) := \left\{ z \in \mathbb{C} : \lvert z  \rvert \in (a,b) \right\}.
+\end{equation*}
+
+\begin{lemma}
+$f(z)$ defines a holomorphic function on $\mathcal{C}(a,b)$.
+\end{lemma}
+\begin{proof}
+  Follows from Theorem~\ref{theorem:cj3vqa91ti}.
+\end{proof}
+
+\begin{lemma}\label{lemma:cj3vqbs30d}
+$f$ does not extend to a holomorphic function on $\mathcal{C}(A,B)$ for any strictly larger interval $(A,B) \supsetneq (a,b)$.
+\end{lemma}
+\begin{proof}
+  Suppose otherwise.  Let $r \in (A,B) - (a,b)$.  Then by Cauchy's integral formula (specifically, the estimate~\eqref{eq:cj3vqbiupy} of Theorem~\ref{theorem:cj3vqbjd26}), we see that $\sum_{n \in \mathbb{Z}} \lvert c_n \rvert r^n < \infty$.  This contradicts the formula for $a$ and $b$ given in Lemma~\ref{lemma:cj3vqafpa6}.
+\end{proof}
+
+\begin{note}
+  It can happen that $f$ extends to a \emph{meromorphic} function on some strictly larger annulus (unique, in view of Corollary~\ref{corollary:cj3vqbthht}).  By Lemma~\ref{lemma:cj3vqbs30d}, this can only happen if $f$ has a pole at some point on the boundary of the fundamental annulus.
+\end{note}
+
+\begin{example}
+  Take
+  \begin{equation*}
+    c_n =
+    \begin{cases}
+      2^n & \text{ if } n \geq 0, \\
+      0 & \text{ if } n < 0.
+    \end{cases}
+  \end{equation*}
+  Then the fundamental interval is $(a, b) = (0, 1/2)$.  However, the function $f(z)$, defined initially for $\lvert z \rvert < 1/2$, evaluates to a rational function:
+  \begin{equation*}
+    f(z) = \sum_{n \geq 0} 2^n z^n
+    = \frac{1}{1 - 2 z}.
+  \end{equation*}
+  This is meromorphic on the entire complex plane; the only pole is a simple one at $z = 1/2$, with residue $-1/2$.
+\end{example}
+
+The possibility of meromorphically extending $f$ corresponds to the coefficients $c_n$ having asymptotic expansions as $n \rightarrow \pm \infty$.  For example:
+\begin{lemma}[Meromorphic continuation vs. asymptotic expansion, special case]\label{lemma:cj3vqfrerl}
+  Let $f$ and $(a,b)$ be as above.  Let $\beta \in \mathbb{C}$ with $\lvert \beta \rvert = b$.  Let $B > b$ and $\gamma \in \mathbb{C} $.  Then the following are equivalent:
+  \begin{enumerate}[(i)]
+  \item\label{enumerate:cj3vqef009} $f$ extends to a meromorphic function on $\mathcal{C}(a, B)$ with a unique simple pole at $z = \beta$ with residue $\gamma$.
+  \item\label{enumerate:cj3vqef2m9} For each $B^- < B$, we have as $n \rightarrow \infty$ that
+    \begin{equation*}
+      c_n = - \gamma \beta ^{-n-1} + \O \left( {(B^-)}^{-n} \right),
+    \end{equation*}
+    
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  To see that~\eqref{enumerate:cj3vqef009} implies~\eqref{enumerate:cj3vqef2m9}, we start with Cauchy's integral formula on the disc of radius $b^-$ for some $b^- \in (a,b)$, then shift the contour, picking up the contribution of the unique pole:
+  \begin{align}
+    c_n
+    &= \oint_{\lvert z \rvert = b^-} \frac{f(z)}{z^{n}} \, \frac{d z}{2 \pi i z} \nonumber
+      \\
+    &= \oint_{\lvert z \rvert = B^-} \frac{f(z)}{z^{n}} \, \frac{d z}{2 \pi i z} \label{align:cj3vqg2jvd}
+      - \frac{\gamma}{\beta^{n+1}}.
+  \end{align}
+  We then estimate this last integral using that $f$ is bounded on compact sets.
+
+  Conversely, to verify that~\eqref{enumerate:cj3vqef2m9} implies~\eqref{enumerate:cj3vqef009}, we define the coefficients
+  \begin{equation*}
+b_n :=
+\begin{cases}
+- \gamma \beta^{- n - 1 } &  \text{ if } n \geq 0, \\
+0 & \text{ if } n < 0,
+\end{cases}
+\end{equation*}
+The corresponding series
+\begin{equation*}
+f_+(z) := \sum_{n \in \mathbb{Z} } b_n z^n
+\end{equation*}
+may be evaluated explicitly: a simple geometric series calculation, left to the reader, gives
+\begin{equation*}
+  f_+(z) = \frac{\gamma}{z - \beta }.
+\end{equation*}
+Our hypothesis concerning the $c_n$ reads
+\begin{equation}\label{eq:cj3vqey6o9}
+  b_n - c_n = \O \left( {(B^-)}^{-n} \right) \quad \text{ as } n \rightarrow \infty.
+\end{equation}
+On the other hand, because $f$ has fundamental interval $(a,b)$ and $b_n$ vanishes as $n \rightarrow -\infty$, we have for each $a^+ > a$ that
+\begin{equation}\label{eq:cj3vqey9fd}
+b_n - c_n = \O \left( {(a^+)}^{-n} \right) \quad \text{ as } n \rightarrow -\infty.
+\end{equation}
+From~\eqref{eq:cj3vqey6o9} and~\eqref{eq:cj3vqey9fd}, we deduce that the series $f - f_+$ with coefficients $c_n - b_n$ has fundamental interval containing $(a,B)$.  This implies that the function
+\begin{equation*}
+f(z) - \frac{\gamma }{z - \beta },
+\end{equation*}
+defined initially as a holomorphic function on $\mathcal{C}(a,b)$, extends to a holomorphic function on $\mathcal{C}(a,B)$.  Equivalently, $f$ extends to a meromorphic function on $\mathcal{C}(a,B)$ with polar behavior as described in~\eqref{enumerate:cj3vqef2m9}.
+\end{proof}
+
+\begin{exercise}
+  Generalize the above lemma to describe in terms of the coefficients $c_n$ what it means for $f$ to extend to a meromorphic function on $\mathcal{C}(A,B)$ for some $A < a$ and $B > b$, allowing the possibility of multiple poles of arbitrary order.
+\end{exercise}
+
+\begin{exercise}
+  Let $c_n$ denote the Fibonacci sequence, thus $c_n = 0$ for $n < 0$ and
+  \begin{equation*}
+    c_0 = 1, \quad c_1 = 1, \quad
+    c_{n+2} - c_{n+1} - c_n = 0.
+  \end{equation*}
+  This exercise rederives a standard formula for this sequence in a way that is intended to illustrate the technique of Lemma~\ref{lemma:cj3vqfrerl}.
+  \begin{enumerate}
+    \item Verify by crude estimation that the fundamental interval for the series $f(z) = \sum_n c_n z^n$ contains $(0,1/2)$.
+    \item Show that
+      \begin{equation*}
+        f(z) = \frac{1}{1 - z - z^2} =
+        \frac{1}{(1 - z/\varphi) ( 1 - z / \varphi ')},
+      \end{equation*}
+      where
+      \begin{equation*}
+        \varphi = \frac{1 + \sqrt{5}}{2} = 1.618 \dotsb, \quad
+        \varphi ' = \frac{1 - \sqrt{5}}{2} = -0.618 \dotsb.
+      \end{equation*}
+    \item Following the proof of Lemma~\ref{lemma:cj3vqfrerl}, show that
+      \begin{equation*}
+        c_n = \frac{\varphi^n - {(\varphi ')}^n }{\varphi - \varphi ' }.
+      \end{equation*}
+      (Use that $f(z) \ll |z|^2$ for $|z| \geq 2$ to show that the ``remainder term'', namely the integral in \eqref{align:cj3vqg2jvd}, tends to zero as $B^- \rightarrow \infty $.)
+    \end{enumerate}
+\end{exercise}
+
+\newpage
+\section{The zeta function}
+
+\subsection{Overview}
+The Riemann zeta function is defined for a complex number $s$ by the series
+\begin{equation*}
+\zeta (s) = \sum_{n \geq 1} \frac{1}{n^s }.
+\end{equation*}
+\begin{lemma}
+The series converges absolutely for $\Re(s) > 1$, uniformly for $\Re(s) \geq 1 + \eps$ for each $\eps > 0$.
+\end{lemma}
+\begin{proof}
+  Using the identity
+  \begin{equation*}
+    \left\lvert \frac{1}{n^s} \right\rvert = \frac{1}{n^{\Re(s)}},
+  \end{equation*}
+  we reduce to the case that $s$ is real, in which this is a familiar consequence of the integral test.
+\end{proof}
+
+Our first main goal in the course is to explain the following basic facts.
+\begin{theorem}
+The Riemann zeta function admits a meromorphic continuation to the entire complex plane.  It is holomorphic away from a simple pole at $s = 1$, where it has residue $1$.  It admits a functional equation relating $\zeta (s)$ to $\zeta (1-s)$.
+\end{theorem}
+
+One historical motivation for considering the zeta function at complex arguments comes from the prime number theorem.
+\begin{theorem}[Prime number theorem]
+  Let $\pi(x) := \# \left\{ \text{primes } p \leq x \right\}$ denote the prime counting function.  Then
+  \begin{equation*}
+    \frac{\pi(x)}{x / \log x} \rightarrow 1
+    \text{ as } x \rightarrow \infty.
+  \end{equation*}
+\end{theorem}
+This is related to the following analytic fact concerning the zeros of the zeta function.
+\begin{theorem}[Prime number theorem, formulated in terms of $\zeta$]\label{theorem:cj3vp9l79t}
+We have $\zeta(s) = 0$ only if $\Re(s) < 1$.
+\end{theorem}
+\begin{remark}
+  Even the statement of Theorem~\ref{theorem:cj3vp9l79t} is not clear without knowing the meromorphic continuation of $\zeta$.  This may offer some motivation for understanding the latter.
+\end{remark}
+We expect stronger nonvanishing properties:
+\begin{conjecture}[Riemann Hypothesis]
+We have $\zeta(s) = 0$ only if $\Re(s) < 1/2$.
+\end{conjecture}
+This corresponds to a conjectural stronger form of the prime number theorem, namely that
+\begin{equation*}
+  \pi(x) = \int_2^x \frac{t}{\log t} \, d t
+  + \O (x^{1/2} \log x).
+\end{equation*}
+
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
