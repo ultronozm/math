@@ -209,7 +209,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2023-09-01 15:12:18
+2023-09-02 01:56:52
       <a href="2023-introduction-to-zeta-and-l-functions.tex" class="my-link">tex</a>
       <a href="2023-introduction-to-zeta-and-l-functions.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/2023-introduction-to-zeta-and-l-functions.tex" class="my-link">history</a>
@@ -812,8 +812,14 @@ form <span class="math display">\[n \mapsto n^a \beta^{- n},\]</span>
 where <span class="math inline">\(a \in \mathbb{Z}_{\geq 0}\)</span> and
 <span class="math inline">\(\beta \in \mathbb{C}^\times\)</span>.</p>
 </div>
+<div class="remark">
+<p><strong>Remark 20</strong>. The intrinsic interpretation of this
+definition is that the finite functions are those whose translates span
+a finite-dimensional subspace of the space of all functions <span
+class="math inline">\(\mathbb{Z} \rightarrow \mathbb{C}\)</span>.</p>
+</div>
 <div class="definition">
-<p><strong>Definition 20</strong>. Let us say that a function <span
+<p><strong>Definition 21</strong>. Let us say that a function <span
 class="math inline">\(c : \mathbb{Z} \rightarrow \mathbb{C}\)</span> is
 <em>regularizable</em> if for each <span class="math inline">\(0 &lt; A
 &lt; B &lt; \infty\)</span>, there exist finite functions <span
@@ -824,11 +830,11 @@ c_-(n) + \operatorname{O}(A^{-n}) \text{ as } n \rightarrow
 -\infty.\]</span></p>
 </div>
 <div class="example">
-<p><strong>Example 21</strong>. Any finite function is
+<p><strong>Example 22</strong>. Any finite function is
 regularizable.</p>
 </div>
 <div id="definition:cj4ss5ec2g" class="definition">
-<p><strong>Definition 22</strong>. Given a regularizable function <span
+<p><strong>Definition 23</strong>. Given a regularizable function <span
 class="math inline">\(c\)</span> as above, we may define its
 <em>regularized generating function</em> <span id="eq:cj4ss5ffxd" class="math display">\[\label{eq:cj4ss5ffxd}\tag{3.7}
     f(z) := \sum_{n \in \mathbb{Z} }^{\mathop{\mathrm{reg}}} c(n)
@@ -852,7 +858,7 @@ class="math inline">\(c_-\)</span>). We then set <span
 class="math display">\[f(z) := f_+(z) + f_-(z).\]</span></p>
 </div>
 <div id="lemma:cj4ss2kx0v" class="lemma">
-<p><strong>Lemma 23</strong>. The above definition is independent of the
+<p><strong>Lemma 24</strong>. The above definition is independent of the
 choice of <span class="math inline">\(N\)</span>.</p>
 </div>
 <div class="proof"><p>
@@ -863,7 +869,7 @@ class="math inline">\(f_{\pm}\)</span> and subtracting the same
 polynomial from <span class="math inline">\(f_{\mp}\)</span>. ◻</p>
 </span></div>
 <div id="lemma:cj4ss2nscv" class="lemma">
-<p><strong>Lemma 24</strong>. Suppose that <span
+<p><strong>Lemma 25</strong>. Suppose that <span
 class="math inline">\(c(n)\)</span> is regularizable, and let <span
 class="math inline">\(k \in \mathbb{Z}\)</span>. Then the shifted
 sequence <span class="math inline">\(d(n) := c(n+k)\)</span> is also
@@ -883,7 +889,7 @@ z^n.\]</span></p>
 <a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
 <span class="proof-content"> This may be deduced from Lemma <a
 href="#lemma:cj4ss2kx0v" data-reference-type="ref"
-data-reference="lemma:cj4ss2kx0v">3.16</a>. ◻</p>
+data-reference="lemma:cj4ss2kx0v">3.17</a>. ◻</p>
 </span></div>
 <div id="exercise:cj4ss5ia8l" class="exercise">
 <p><strong>Exercise 3</strong>. Show that if <span
@@ -891,10 +897,10 @@ class="math inline">\(c\)</span> is a finite function, then its
 regularized generating function vanishes. [This can be seen via explicit
 calculation using the definition, or, as in lecture, from Lemma <a
 href="#lemma:cj4ss2nscv" data-reference-type="ref"
-data-reference="lemma:cj4ss2nscv">3.17</a>.]</p>
+data-reference="lemma:cj4ss2nscv">3.18</a>.]</p>
 </div>
 <div class="example">
-<p><strong>Example 25</strong>. Take <span class="math display">\[c_n =
+<p><strong>Example 26</strong>. Take <span class="math display">\[c_n =
 n^3 e^{- 2^{- n^2 }}.\]</span> Then the series <span
 class="math inline">\(f\)</span> converges absolutely nowhere: the
 fundamental interval is empty. But we can still define its regularized
@@ -904,7 +910,7 @@ everywhere convergent series <span id="eq:cj4ss5ikdb" class="math display">\[\la
 \sum_{n \in \mathbb{Z} } (c_n - n^3) z^n.\]</span> Note that the
 individual pieces <span class="math inline">\(f_{\pm}\)</span> as in
 Definition <a href="#definition:cj4ss5ec2g" data-reference-type="ref"
-data-reference="definition:cj4ss5ec2g">3.15</a> are not entire functions
+data-reference="definition:cj4ss5ec2g">3.16</a> are not entire functions
 of <span class="math inline">\(z\)</span>: they have quadruple poles at
 <span class="math inline">\(z=1\)</span>, in view of Example <a
 href="#example:cj4ss5hv85" data-reference-type="ref"
@@ -941,7 +947,7 @@ Since <span class="math inline">\(c_n^S \leq n!\)</span>, we see that
 the series converges absolutely for <span class="math inline">\(|z| &lt;
 1\)</span>.</p>
 <div class="example">
-<p><strong>Example 26</strong>. We have <span
+<p><strong>Example 27</strong>. We have <span
 class="math display">\[f^{\mathbb{N} } (z) = \sum_{n \geq 0} z^n =
 \frac{1}{1-z}
     = \exp \log \frac{1}{1 - z}
@@ -949,13 +955,13 @@ class="math display">\[f^{\mathbb{N} } (z) = \sum_{n \geq 0} z^n =
     \exp \sum _{n \geq 1} \frac{z^n}{n}.\]</span></p>
 </div>
 <div class="example">
-<p><strong>Example 27</strong>. We have <span
+<p><strong>Example 28</strong>. We have <span
 class="math display">\[f^{\{1\}}(z) = \sum_{n \geq 0} \frac{z^n}{n!} =
 \exp z
     = \exp \sum_{n = 1} \frac{z^n }{n}.\]</span></p>
 </div>
 <div class="lemma">
-<p><strong>Lemma 28</strong>. We have <span
+<p><strong>Lemma 29</strong>. We have <span
 class="math display">\[f^S(z) = \exp \sum_{n \in S}
 \frac{z^n}{n}.\]</span></p>
 </div>
@@ -1015,7 +1021,7 @@ class="math inline">\(\leq \ell\)</span>.</p>
 <h2 id="series-that-do-not-admit-meromorphic-continuations">Series that
 do not admit meromorphic continuations</h2>
 <div id="example:cj4ss1hy2q" class="example">
-<p><strong>Example 29</strong>. The series <span
+<p><strong>Example 30</strong>. The series <span
 class="math display">\[\sum_{n \geq 1} \log(n) z^n\]</span> converges
 absolutely for <span class="math inline">\(\lvert z \rvert &lt;
 1\)</span>, but does not continue meromorphically to <span
@@ -1037,7 +1043,7 @@ polynomial but slower than any non-constant polynomials.</p>
 <div class="question">
 <p><strong>Question 1</strong>. Does the series in Example <a
 href="#example:cj4ss1hy2q" data-reference-type="ref"
-data-reference="example:cj4ss1hy2q">3.22</a> continue to any open set
+data-reference="example:cj4ss1hy2q">3.23</a> continue to any open set
 strictly containing the unit disc?</p>
 </div>
 <div class="exercise">
@@ -1045,7 +1051,7 @@ strictly containing the unit disc?</p>
 class="math display">\[\sum_{n \geq 1} n^{1 / n} z^n.\]</span></p>
 </div>
 <div class="example">
-<p><strong>Example 30</strong>. For <span class="math inline">\(k \geq
+<p><strong>Example 31</strong>. For <span class="math inline">\(k \geq
 0\)</span> and <span class="math inline">\(n \in \mathbb{Z}_{\geq
 1}\)</span>, define <span class="math display">\[\sigma_k(n) := \sum_{d
 | n} d^k,\]</span> where <span class="math inline">\(d\)</span> runs
@@ -1056,7 +1062,7 @@ class="math inline">\(n\)</span>. The series <span
 class="math display">\[\sum_{n \geq 0} \sigma_k (n) z^n\]</span>
 converges absolutely on the disc <span class="math inline">\(\lvert z
 \rvert &lt; 1\)</span>. It does not extend to a meromorphic function on
-any strictly larger open subset. This can be seen most efficiently using
+any strictly larger open set. This can be seen most efficiently using
 the basic theory of modular forms, which we discuss later in the
 course.</p>
 </div>
@@ -1067,7 +1073,7 @@ class="math inline">\(s\)</span> by the series <span
 class="math display">\[\zeta (s) = \sum_{n \geq 1} \frac{1}{n^s
 }.\]</span></p>
 <div class="lemma">
-<p><strong>Lemma 31</strong>. The series converges absolutely for <span
+<p><strong>Lemma 32</strong>. The series converges absolutely for <span
 class="math inline">\(\Re(s) &gt; 1\)</span>, uniformly for <span
 class="math inline">\(\Re(s) \geq 1 + \varepsilon\)</span> for each
 <span class="math inline">\(\varepsilon&gt; 0\)</span>.</p>
@@ -1083,7 +1089,7 @@ consequence of the integral test. ◻</p>
 <p>Our first main goal in the course is to explain the following basic
 facts.</p>
 <div class="theorem">
-<p><strong>Theorem 32</strong>. <em>The Riemann zeta function admits a
+<p><strong>Theorem 33</strong>. <em>The Riemann zeta function admits a
 meromorphic continuation to the entire complex plane. It is holomorphic
 away from a simple pole at <span class="math inline">\(s = 1\)</span>,
 where it has residue <span class="math inline">\(1\)</span>. It admits a
@@ -1094,7 +1100,7 @@ functional equation relating <span class="math inline">\(\zeta
 <p>One historical motivation for considering the zeta function at
 complex arguments comes from the prime number theorem.</p>
 <div class="theorem">
-<p><strong>Theorem 33</strong> (Prime number theorem). <em>Let <span
+<p><strong>Theorem 34</strong> (Prime number theorem). <em>Let <span
 class="math inline">\(\pi(x) := \# \left\{ \text{primes } p \leq x
 \right\}\)</span> denote the prime counting function. Then <span
 class="math display">\[\frac{\pi(x)}{x / \log x} \rightarrow 1
@@ -1103,13 +1109,13 @@ class="math display">\[\frac{\pi(x)}{x / \log x} \rightarrow 1
 <p>This is related to the following analytic fact concerning the zeros
 of the zeta function.</p>
 <div id="theorem:cj3vp9l79t" class="theorem">
-<p><strong>Theorem 34</strong> (Prime number theorem, formulated in
+<p><strong>Theorem 35</strong> (Prime number theorem, formulated in
 terms of <span class="math inline">\(\zeta\)</span>). <em>We have <span
 class="math inline">\(\zeta(s) = 0\)</span> only if <span
 class="math inline">\(\Re(s) &lt; 1\)</span>.</em></p>
 </div>
 <div class="remark">
-<p><strong>Remark 35</strong>. Even the statement of Theorem <a
+<p><strong>Remark 36</strong>. Even the statement of Theorem <a
 href="#theorem:cj3vp9l79t" data-reference-type="ref"
 data-reference="theorem:cj3vp9l79t">4.4</a> is not clear without knowing
 the meromorphic continuation of <span
