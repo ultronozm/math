@@ -5,6 +5,13 @@
 These are notes for an ongoing Fall 2023 course on the Riemann zeta function and its generalizations, $L$-functions.  These notes will be filled in as we go.
 
 \newpage
+
+\section{References thus far}
+\begin{itemize}
+\item Generating functions and asymptotics: \cite[\S5.2]{MR2172781}
+\item Mellin transform and asymptotics: \cite{zagier-mellin}
+\end{itemize}
+
 \section{Background}
 
 \subsection{General notation}
@@ -18,7 +25,7 @@ We use the equivalent notations
 \end{equation*}
 to denote that
 \begin{equation*}
-\lvert A \rvert \leq C \lvert B \rvert
+  \lvert A \rvert \leq C \lvert B \rvert
 \end{equation*}
 for some ``constant'' $C$.  The precise meaning of ``constant'' will either be specified or clear from context.
 
@@ -58,7 +65,7 @@ for some ``constant'' $C$.  The precise meaning of ``constant'' will either be s
   Let $U$ be an open subset of $\mathbb{C}$, let $f : U \rightarrow \mathbb{C} $ be meromorphic.  Let $\gamma$ be a smooth closed curve in $U$, oriented counterclockwise, that does not pass through any pole of $f$.  Then
   \begin{equation*}
     \int_\gamma f(z) \, d z = 2 \pi i \sum_{\substack{z \in \operatorname{interior}(\gamma) \\ \text{pole of $f$}}} \operatorname{res}_z(f).
-\end{equation*}
+  \end{equation*}
 \end{theorem}
 \begin{remark}
   Let $0 < r < R$.  Let $f$ be a meromorphic function on a neighborhood of the annulus $\{z : r < |z| < R\}$ that has no poles on either of the circles $|z| = r, R$.  Then
@@ -74,7 +81,7 @@ for some ``constant'' $C$.  The precise meaning of ``constant'' will either be s
       }
     }
     \res_z(f).
-\end{equation*}
+  \end{equation*}
 \end{remark}
 
 \subsection{Holomorphy of limits and series}
@@ -88,24 +95,23 @@ for some ``constant'' $C$.  The precise meaning of ``constant'' will either be s
 
 \newpage
 \section{Asymptotics and meromorphic continuation}
+Reference:~\cite[\S5.2]{MR2172781}.
 
-Reference: generatingfunctionology, section 5.2.
-
-
+\subsection{Setup}
 We consider a Laurent series
 \begin{equation*}
-f (z) = \sum_{n \in \mathbb{Z} } c_n z^n.
+  f (z) = \sum_{n \in \mathbb{Z} } c_n z^n.
 \end{equation*}
 Here the $c_n$ are complex coefficients, while $z$ is a nonzero complex argument.  We assume that this series converges absolutely for at least one value of $z$.
 
 \begin{lemma}\label{lemma:cj3vqafpa6}
   There is a unique maximal open subinterval $(a,b)$ of $\mathbb{R}^+$ on which $f$ converges absolutely.  Its endpoints are given explicitly by
   \begin{equation*}
-a = \inf \left\{ r \in \mathbb{R}^+ : \sum_n \lvert c_n \rvert r^n < \infty  \right\},
-\end{equation*}
+    a = \inf \left\{ r \in \mathbb{R}^+ : \sum_n \lvert c_n \rvert r^n < \infty  \right\},
+  \end{equation*}
 
 \begin{equation*}
- b = \sup \left\{ r \in \mathbb{R}^+ : \sum_n \lvert c_n \rvert r^n < \infty  \right\}.
+  b = \sup \left\{ r \in \mathbb{R}^+ : \sum_n \lvert c_n \rvert r^n < \infty  \right\}.
 \end{equation*}
 \end{lemma}
 We refer to the interval $(a,b)$ as the \emph{fundamental interval} for $f$ (or for the $c_n$).
@@ -124,18 +130,20 @@ The fundamental interval controls the growth of the coefficients $c_n$ as $n \ri
 
 Set
 \begin{equation*}
-\mathcal{C} (a, b) := \left\{ z \in \mathbb{C} : \lvert z  \rvert \in (a,b) \right\}.
+  \mathcal{C} (a, b) := \left\{ z \in \mathbb{C} : \lvert z  \rvert \in (a,b) \right\}.
 \end{equation*}
 
 \begin{lemma}
-$f(z)$ defines a holomorphic function on $\mathcal{C}(a,b)$.
+  $f(z)$ defines a holomorphic function on $\mathcal{C}(a,b)$.
 \end{lemma}
 \begin{proof}
   Follows from Theorem~\ref{theorem:cj3vqa91ti}.
 \end{proof}
 
+\subsection{Basic study of meromorphic continuation}
+
 \begin{lemma}\label{lemma:cj3vqbs30d}
-$f$ does not extend to a holomorphic function on $\mathcal{C}(A,B)$ for any strictly larger interval $(A,B) \supsetneq (a,b)$.
+  $f$ does not extend to a holomorphic function on $\mathcal{C}(A,B)$ for any strictly larger interval $(A,B) \supsetneq (a,b)$.
 \end{lemma}
 \begin{proof}
   Suppose otherwise.  Let $r \in (A,B) - (a,b)$.  Then by Cauchy's integral formula (specifically, the estimate~\eqref{eq:cj3vqbiupy} of Theorem~\ref{theorem:cj3vqbjd26}), we see that $\sum_{n \in \mathbb{Z}} \lvert c_n \rvert r^n < \infty$.  This contradicts the formula for $a$ and $b$ given in Lemma~\ref{lemma:cj3vqafpa6}.
@@ -171,7 +179,6 @@ The possibility of meromorphically extending $f$ corresponds to the coefficients
     \begin{equation}\label{eq:cj3wnbmxaw}
       c_n = - \gamma \beta ^{-n-1} + \O \left( {(B^-)}^{-n} \right),
     \end{equation}
-    
   \end{enumerate}
 \end{lemma}
 \begin{proof}
@@ -213,8 +220,15 @@ The possibility of meromorphically extending $f$ corresponds to the coefficients
   \begin{equation*}
     f(z) - \frac{\gamma }{z - \beta },
   \end{equation*}
-defined initially as a holomorphic function on $\mathcal{C}(a,b)$, extends to a holomorphic function on $\mathcal{C}(a,B)$.  Equivalently, $f$ extends to a meromorphic function on $\mathcal{C}(a,B)$ with polar behavior as described in~\eqref{enumerate:cj3vqef2m9}.
+  defined initially as a holomorphic function on $\mathcal{C}(a,b)$, extends to a holomorphic function on $\mathcal{C}(a,B)$.  Equivalently, $f$ extends to a meromorphic function on $\mathcal{C}(a,B)$ with polar behavior as described in~\eqref{enumerate:cj3vqef2m9}.
 \end{proof}
+
+\begin{exercise}
+  Generalize the above lemma to describe in terms of the coefficients $c_n$ what it means for $f$ to extend to a meromorphic function on $\mathcal{C}(A,B)$ for some $A < a$ and $B > b$, allowing the possibility of multiple poles of arbitrary order.
+\end{exercise}
+
+\subsection{Further examples}
+
 
 \begin{example}
   Suppose that
@@ -231,10 +245,6 @@ defined initially as a holomorphic function on $\mathcal{C}(a,b)$, extends to a 
   \end{equation*}
   The function $f$ extends meromorphically, having a simple pole at $z = \beta$ with residue $-\beta$.  The sequence $c_n$ has the asymptotic behavior indicated in~\eqref{eq:cj3wnbmxaw}, in a very strong sense: the sequence is \emph{equal} to the asymptotic.
 \end{example}
-
-\begin{exercise}
-  Generalize the above lemma to describe in terms of the coefficients $c_n$ what it means for $f$ to extend to a meromorphic function on $\mathcal{C}(A,B)$ for some $A < a$ and $B > b$, allowing the possibility of multiple poles of arbitrary order.
-\end{exercise}
 
 \begin{exercise}
   Let $c_n$ denote the Fibonacci sequence, thus $c_n = 0$ for $n < 0$ and
@@ -263,7 +273,7 @@ defined initially as a holomorphic function on $\mathcal{C}(a,b)$, extends to a 
   \end{enumerate}
 \end{exercise}
 
-\begin{example}
+\begin{example}\label{example:cj4ss5hv85}
   Let $\beta \in \mathbb{C} - \{0\}$ and $a \in \mathbb{Z}_{\geq 0}$.  Then one verifies by induction on $a$, using differentiation, that
   \begin{equation*}
     \frac{1}{(z - \beta)^{a+1}} =
@@ -304,115 +314,272 @@ defined initially as a holomorphic function on $\mathcal{C}(a,b)$, extends to a 
   \end{equation*}
   The fundamental interval is thus $(1,\infty)$: the series $f(z) = \sum_{n} c_n z^n$ converges absolutely for $|z| > 1$ and defines a holomorphic function there.  We will show that $f$ \emph{extends to a meromorphic function on} $\mathbb{C} - \{0\}$\emph{, which is holomorphic away from simple poles at} $1 / 2^k$ \emph{(for} $k \in \mathbb{Z}_{\geq 0}$\emph{) with residue} $(-1/4)^k / k!$\emph{.}  To that end, observe first that the contribution to $f$ from $n \geq 0$, namely
   \begin{equation*}
-f_+(z) := \sum_{n > 0} c_n z^n,
-\end{equation*}
-converges absolutely and is thus holomorphic on the entire complex plane.  The meromorphic continuation of $f$ thereby reduces to that of the complementary sum
-\begin{equation*}
-f_-(z) := \sum_{n \leq  0} c_n z^n.
-\end{equation*}
-Inspired by Lemma~\ref{lemma:cj3vqfrerl}, we study the asymptotics of the coefficients $c_n$ as $n \rightarrow - \infty$.  These are described by the Taylor series of the exponential functions:
+    f_+(z) := \sum_{n > 0} c_n z^n,
+  \end{equation*}
+  converges absolutely and is thus holomorphic on the entire complex plane.  The meromorphic continuation of $f$ thereby reduces to that of the complementary sum
   \begin{equation*}
-e^{x} = \sum_{k \geq 0} \frac{x^k }{k!}.
-\end{equation*}
-By estimating the tail of this series, we sees that for $x = \O(1)$ and $M = \O(1)$, we have
-\begin{equation*}
-e^x = \sum_{k = 0}^{N-1} \frac{x^k}{k!} + \O (x^M).
-\end{equation*}
-It follows that for $n \leq 0$,
-\begin{equation}\label{eq:cj3wnu8lqf}
-c_n = \sum_{k = 0}^{N-1} \frac{{(-2^n)}^k}{k!} + \O (2^{nM}).
-\end{equation}
-By the method of proof of Lemma~\ref{lemma:cj3vqfrerl}, we deduce from this estimate that $f_-$ the required assertions concerning the meromorphic continuation of $f$.  Let us spell this deduction out for the sake of practice.  Set
-\begin{equation*}
- g_k(z) := 
-  \sum_{n \leq 0}
-  \frac{{(-2^n)}^k}{k!} z^n.
-\end{equation*}
-The estimate~\eqref{eq:cj3wnu8lqf} implies that the modified series
-\begin{equation}\label{eq:cj3wnu7518}
-   f_-(z)
-  -
-  \sum_{k = 0}^{N-1}
-  g_k(z)
-  = 
-  \sum_{n \leq 0}
-  \left( c_n -
-    \sum_{k = 0}^{N-1} \frac{{(-2^n)}^k}{k!}
-  \right) z^n
-\end{equation}
-converges absolutely for $\lvert z \rvert > 1 / 2^M$, hence defines a holomorphic function there.  On the other hand, for $\lvert z \rvert > 1$, we see by summing the geometric series that
-\begin{equation*}
-  g_k(z)
-  =
-  \frac{{(-1)}^k}{k!}
-  \frac{1}{1 - 1 / 2^k z}
-  =
-  \frac{{(-1/2)}^k}{k!}
-  \frac{z}{z - 1 / 2^k}.
-\end{equation*}
-Thus $g_k$ extends to a meromorphic function whose only pole is a simple one at $z = 1/2^k$ with residue ${(-1/4)}^k  / k!$.  It follows that $f$ has the claimed meromorphic properties.
+    f_-(z) := \sum_{n \leq  0} c_n z^n.
+  \end{equation*}
+  Inspired by Lemma~\ref{lemma:cj3vqfrerl}, we study the asymptotics of the coefficients $c_n$ as $n \rightarrow - \infty$.  These are described by the Taylor series of the exponential functions:
+  \begin{equation*}
+    e^{x} = \sum_{k \geq 0} \frac{x^k }{k!}.
+  \end{equation*}
+  By estimating the tail of this series, we sees that for $x = \O(1)$ and $M = \O(1)$, we have
+  \begin{equation*}
+    e^x = \sum_{k = 0}^{N-1} \frac{x^k}{k!} + \O (x^M).
+  \end{equation*}
+  It follows that for $n \leq 0$,
+  \begin{equation}\label{eq:cj3wnu8lqf}
+    c_n = \sum_{k = 0}^{N-1} \frac{{(-2^n)}^k}{k!} + \O (2^{nM}).
+  \end{equation}
+  By the method of proof of Lemma~\ref{lemma:cj3vqfrerl}, we deduce from this estimate that $f_-$ the required assertions concerning the meromorphic continuation of $f$.  Let us spell this deduction out for the sake of practice.  Set
+  \begin{equation*}
+    g_k(z) := 
+    \sum_{n \leq 0}
+    \frac{{(-2^n)}^k}{k!} z^n.
+  \end{equation*}
+  The estimate~\eqref{eq:cj3wnu8lqf} implies that the modified series
+  \begin{equation}\label{eq:cj3wnu7518}
+    f_-(z)
+    -
+    \sum_{k = 0}^{N-1}
+    g_k(z)
+    = 
+    \sum_{n \leq 0}
+    \left( c_n -
+      \sum_{k = 0}^{N-1} \frac{{(-2^n)}^k}{k!}
+    \right) z^n
+  \end{equation}
+  converges absolutely for $\lvert z \rvert > 1 / 2^M$, hence defines a holomorphic function there.  On the other hand, for $\lvert z \rvert > 1$, we see by summing the geometric series that
+  \begin{equation*}
+    g_k(z)
+    =
+    \frac{{(-1)}^k}{k!}
+    \frac{1}{1 - 1 / 2^k z}
+    =
+    \frac{{(-1/2)}^k}{k!}
+    \frac{z}{z - 1 / 2^k}.
+  \end{equation*}
+  Thus $g_k$ extends to a meromorphic function whose only pole is a simple one at $z = 1/2^k$ with residue ${(-1/4)}^k / k!$.  It follows that $f$ has the claimed meromorphic properties.
 \end{example}
 
-TODO: I'll add some more systematic notes on regularization later.
+\subsection{Regularization}
 
 \begin{remark}
   We can cases view $f(1)$ as the ``regularized sum'' of the (possibly divergent) series $\sum_n c_n$:
   \begin{equation*}
-\sum_{n}^{\reg} c_n := \left( \sum_n c_n z^n \right)|_{z=1}, 
-\end{equation*}
-keeping in mind here that the series may initially convergent away from the point $z=1$, so that the specialization is understood as the result of analytic continuation.  We make this definition whenever the series is holomorphic at $z=1$.
+    \sum_{n}^{\reg} c_n := \left( \sum_n c_n z^n \right)|_{z=1}, 
+  \end{equation*}
+  keeping in mind here that the series may initially convergent away from the point $z=1$, so that the specialization is understood as the result of analytic continuation.  We make this definition whenever the series is holomorphic at $z=1$.
 
-For example,
+  For example,
   \begin{equation*}
     \sum_{n \geq 0}^{\reg} (-1)^n
     =
     \left( \sum_{n \geq 0} (-1)^n z^n \right)|_{z=1}
     = \frac{1}{1 + z} \vert_{z=1} = \frac{1}{2}.
-\end{equation*}
-In this example, we may understand $f(1)$ as the limit of the quantities $f(z)$ for $z < 1$ as $z \rightarrow 1$, and also as the Cesaro mean of the partial sums of the series $\sum_{n \geq 0} (-1)^n$, so the interpretation of $f(1)$ as a regularized sum makes intuitive sense.
+  \end{equation*}
+  In this example, we may understand $f(1)$ as the limit of the quantities $f(z)$ for $z < 1$ as $z \rightarrow 1$, and also as the Cesaro mean of the partial sums of the series $\sum_{n \geq 0} (-1)^n$, so the interpretation of $f(1)$ as a regularized sum makes intuitive sense.
 
-In other examples, the interpretation may be less clear.  For example,
-\begin{equation*}
-  \sum_{n \geq 0}^{\reg} 10^n =
-  \left( \sum_{n \geq 0} 10^n z^n \right)|_{z=1}
-  =
-  \frac{1}{1 - 10 z} \vert_{z=1} =
-  \frac{-1}{9},
-\end{equation*}
-the intuitive meaning of which may be less clear.  One way to understand the regularization is as follows: the value $f(1)$ is insensitive to replacing the sequence $(c_n)_n$ by any of its shifts $(c_{n+k})_n$.  Setting
-\begin{equation*}
-S := \sum_{n \geq 0}^{\reg} 10^n,
-\end{equation*}
-we should thus have
-\begin{equation*}
-  10 S = \sum_{n \geq 0}^{\reg} 10^{n+1}
-= 1 + S,
-\end{equation*}
-from which it follows that $S = -1/9$.
+  In other examples, the interpretation may be less clear.  For example,
+  \begin{equation*}
+    \sum_{n \geq 0}^{\reg} 10^n =
+    \left( \sum_{n \geq 0} 10^n z^n \right)|_{z=1}
+    =
+    \frac{1}{1 - 10 z} \vert_{z=1} =
+    \frac{-1}{9},
+  \end{equation*}
+  the intuitive meaning of which may be less clear.  One way to understand the regularization is as follows: the value $f(1)$ is insensitive to replacing the sequence $(c_n)_n$ by any of its shifts $(c_{n+k})_n$.  Setting
+  \begin{equation*}
+    S := \sum_{n \geq 0}^{\reg} 10^n,
+  \end{equation*}
+  we should thus have
+  \begin{equation*}
+    10 S = \sum_{n \geq 0}^{\reg} 10^{n+1}
+    = 1 + S,
+  \end{equation*}
+  from which it follows that $S = -1/9$.
 \end{remark}
+
+
+In fact, we can define regularized sums even in cases where the series does not converge at any point.  The idea is to split the sum into two pieces, one near $+\infty$ and the other near $-\infty$, then to meromorphically continue each part from some initial domain and add together the resulting meromorphic continuations.  This is the content of the following definitions and results.
+\begin{definition}
+  Let us say that a function $\mathbb{Z} \rightarrow \mathbb{C}$ is \emph{finite} if it is a finite linear combination of functions of the form
+  \begin{equation*}
+    n \mapsto n^a \beta^{- n},
+  \end{equation*}
+  where $a \in \mathbb{Z}_{\geq 0}$ and $\beta \in \mathbb{C}^\times$.
+\end{definition}
+\begin{definition}
+  Let us say that a function $c : \mathbb{Z} \rightarrow \mathbb{C}$ is \emph{regularizable} if for each $0 < A < B < \infty$, there exist finite functions $c_{\pm}$ so that
+  \begin{equation*}
+    c(n) = c_+(n) + \O(B^{-n}) \text{ as } n \rightarrow \infty,
+  \end{equation*}
+  \begin{equation*}
+    c(n) = c_-(n) + \O(A^{-n}) \text{ as } n \rightarrow -\infty.
+  \end{equation*}
+\end{definition}
+\begin{example}
+Any finite function is regularizable.
+\end{example}
+\begin{definition}\label{definition:cj4ss5ec2g}
+  Given a regularizable function $c$ as above, we may define its \emph{regularized generating function}
+  \begin{equation}\label{eq:cj4ss5ffxd}
+    f(z) := \sum_{n \in \mathbb{Z} }^{\reg} c(n) z^n,
+  \end{equation}
+  which will be a meromorphic function of $z \in \mathbb{C}^\times$, as follows.  Choose $N \in \mathbb{Z}$.  Define
+  \begin{equation*}
+    f_+(z) := \sum_{n \geq N} c(n) z^n,
+  \end{equation*}
+  initially for $\lvert z \rvert$ sufficiently small, then in general by meromorphic continuation (with poles described by the asymptotics of $c$ as $n \rightarrow \infty$, corresponding to terms of $c_+$).  Similarly, we define
+  \begin{equation*}
+    f_-(z) := \sum_{n < N} c(n) z^n,
+  \end{equation*}
+  initially for $\lvert z \rvert$ sufficiently large, then in general by meromorphic continuation (with poles described by the asymptotics of $c$ as $n \rightarrow -\infty$, corresponding to terms of $c_-$).  We then set
+  \begin{equation*}
+    f(z) := f_+(z) + f_-(z).
+  \end{equation*}
+\end{definition}
+\begin{lemma}\label{lemma:cj4ss2kx0v}
+  The above definition is independent of the choice of $N$.
+\end{lemma}
+\begin{proof}
+  Modifying $N$ has the effect of adding a polynomial to $f_{\pm}$ and subtracting the same polynomial from $f_{\mp}$.
+\end{proof}
+\begin{lemma}\label{lemma:cj4ss2nscv}
+  Suppose that $c(n)$ is regularizable, and let $k \in \mathbb{Z}$.  Then the shifted sequence $d(n) := c(n+k)$ is also regularizable.  The regularized generating function $g$ for $d$ is related to the generating function $f$ for $c$ via
+  \begin{equation*}
+    g(z) = z^{-k} f(z).
+  \end{equation*}
+  In other words,
+  \begin{equation*}
+    \sum_{n \in \mathbb{Z}}^{\reg} c(n) z^n
+    = 
+    z^k \sum_{n \in \mathbb{Z}}^{\reg} c(n+k) z^n.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  This may be deduced from Lemma \ref{lemma:cj4ss2kx0v}.
+\end{proof}
+\begin{exercise}\label{exercise:cj4ss5ia8l}
+  Show that if $c$ is a finite function, then its regularized generating function vanishes.  [This can be seen via explicit calculation using the definition, or, as in lecture, from Lemma \ref{lemma:cj4ss2nscv}.]
+\end{exercise}
 
 \begin{example}
   Take
   \begin{equation*}
-c_n = n^3 e^{- 2^{- n^2 }}.
-\end{equation*}
-Then the series $f$ converges absolutely nowhere: the fundamental interval is empty.  But we can regularize it to get a well-defined $f$.  TODO: expand.
-
-Idea: meromorphically continue positive and negative parts separately, take the sum of these on intersections of domains of definition.
-
-TODO: expansion of $c_n$.
-
-Only pole for both $f_+$ and $f_-$ is at one; quadruple pole, with residues that cancel.
+    c_n = n^3 e^{- 2^{- n^2 }}.
+  \end{equation*}
+  Then the series $f$ converges absolutely nowhere: the fundamental interval is empty.  But we can still define its regularized generating function, which is actually an entire function of $n$: it may be written explicitly as the everywhere convergent series
+  \begin{equation}\label{eq:cj4ss5ikdb}
+\sum_{n \in \mathbb{Z} } (c_n - n^3) z^n.
+\end{equation}
+Note that the individual pieces $f_{\pm}$ as in Definition~\ref{definition:cj4ss5ec2g} are not entire functions of $z$: they have quadruple poles at $z=1$, in view of Example~\ref{example:cj4ss5hv85}.  However, the poles cancel thanks to Exercise~\ref{exercise:cj4ss5ia8l}, so their sum is the entire function~\eqref{eq:cj4ss5ikdb}.
 \end{example}
 
-\begin{example}
-  TODO.  For $a \in \mathbb{Z}_{\geq 0}$ and $\beta \in \mathbb{C}^\times$, take
-  \begin{equation*}
-c_n := n^a \beta^{- n}.
-\end{equation*}
-Then we claim that the regularized generating function $f$ vanishes identically.
 
-TODO: one way to see this is to derive that $f(z) = (z / \beta) f(z)$.
+\subsection{Permutations without small cycles}
+Reference:~\cite[p176]{MR2172781}.
+
+Let $S(n)$ denote the symmetric group, consisting of permutations $\sigma$ of the set $ \{1, \dotsc, n\}$.  We have $\# S(n) = n!$.
+
+Each permutation may be written uniquely as a product of disjoint cyclic permutations of some lengths $n_1, \dotsc, n_k \in \mathbb{Z}_{\geq 1}$, where $n_1 + \dotsb + n_k = n$.
+
+For each subset $S$ of $\mathbb{N} := \mathbb{Z}_{\geq 1}$ and each $n \geq 0$, let $c_n^S$ denote the number of permutations $\sigma \in S(n)$ each of whose cycle lengths $n_j$ lies in $S$.  We denote by
+\begin{equation*}
+  f^S(z) := \sum_{n \geq 0} \frac{c_n^S}{n!} z^n
+\end{equation*}
+the ``exponential generating function'' of this sequence.  Since $c_n^S \leq n!$, we see that the series converges absolutely for $|z| < 1$.
+\begin{example}
+  We have
+  \begin{equation*}
+    f^{\mathbb{N} } (z) = \sum_{n \geq 0} z^n = \frac{1}{1-z}
+    = \exp \log \frac{1}{1 - z}
+    =
+    \exp \sum _{n \geq 1} \frac{z^n}{n}.
+  \end{equation*}
+\end{example}
+\begin{example}
+  We have
+  \begin{equation*}
+    f^{\{1\}}(z) = \sum_{n \geq 0} \frac{z^n}{n!} = \exp z
+    = \exp \sum_{n = 1} \frac{z^n }{n}.
+  \end{equation*}
+\end{example}
+\begin{lemma}
+  We have
+  \begin{equation*}
+    f^S(z) = \exp \sum_{n \in S} \frac{z^n}{n}.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  Using the series definition $\exp x = \sum_{k \geq 0} x^k / k!$, we see that
+  \begin{equation*}
+    \exp \sum_{n \in S} \frac{z^n}{n}
+    = \sum_{k \geq 0}
+    \frac{1}{k!}
+    \sum_{n_1, \dotsc, n_k \in S}
+    \frac{z^{n _1 + \dotsb + n_k}}{n_1 \dotsb n_k}.
+  \end{equation*}
+  Our task is thus to verify that
+  \begin{equation}\label{eq:cj4sszpnpp}
+    c_n^S = \sum_{k \geq 0}
+    \sum_{
+      \substack{
+        n_1, \dotsc, n_k \in S : \\
+        n_1 + \dotsb + n_k = n
+      }
+    }
+    \frac{n!}{k ! n_1 \dotsb n_k}.
+  \end{equation}
+  The set of permutations attached to a given multiset of lengths $\{n_1, \dotsc, n_k\}$ is a conjugacy class in $S(n)$.  The size of that conjugacy class is described by the orbit-centralizer formula.  The centralizer of a permutation is the group generated by each of the cycles in the decomposition; this group has order $n_1 \dotsb n_k$.  It follows that the conjugacy class has size
+  \begin{equation*}
+    \frac{n!}{n_1 \dotsb n_k}.
+  \end{equation*}
+  Since the order of the $n_j$ doesn't matter, we deduce the claimed formula \eqref{eq:cj4sszpnpp}.
+\end{proof}
+
+As an application, take $S$ to consist of all integers greater than some given integer $\ell$.  Then
+\begin{equation*}
+  f^S(z) = \exp \left(  \sum_{n \geq 1} \frac{z^n}{ n } - \sum_{n = 1}^{\ell} \frac{z^n }{n}\right)
+  =
+  \frac{1}{1 - z} \exp \left( - \sum_{n = 1}^{\ell} \frac{z^n }{n} \right).
+\end{equation*}
+This defines a meromorphic function on the entire complex plane, whose only pole is a simple one at $z = 1$.  By the usual analysis, we deduce the following asymptotic formula for the coefficients of $f^S$:
+\begin{equation}\label{eq:cj4ssz06pg}
+  \frac{c_n^S}{n!} = \exp \left( - \sum_{n = 1 }^{\ell} \frac{z^n }{n} \right) + \O(B^{-n}),
+\end{equation}
+for fixed $\ell$ and fixed $B < \infty$.
+
+We may interpret the left hand side of \eqref{eq:cj4ssz06pg} as the probability that a random permutation of length $n$ has no cycles of length $\leq \ell$.
+
+\subsection{Series that do not admit meromorphic continuations}
+\begin{example}\label{example:cj4ss1hy2q}
+  The series
+  \begin{equation*}
+    \sum_{n \geq 1} \log(n) z^n
+  \end{equation*}
+  converges absolutely for $\lvert z \rvert < 1$, but does not continue meromorphically to $|z| < r$ for any $r > 1$, because $\log(n)$ cannot be approximated up to error $\O(r^{-n})$ by a finite linear combination of the functions $n^a \beta^{-n}$ ($a \in \mathbb{Z}_{\geq 0}$, $\beta \in \mathbb{C}^\times$).  Indeed, we would need to have each $\beta = 1$, so the main point is to check that $\log(n)$ cannot be approximated exponentially well by a polynomial.  This is because $\log(n)$ grows faster than any constant polynomial but slower than any non-constant polynomials.
+\end{example}
+\begin{question}
+  Does the series in Example \ref{example:cj4ss1hy2q} continue to any open set strictly containing the unit disc?
+\end{question}
+\begin{example}
+  A similar analysis should apply to the series
+  \begin{equation*}
+    \sum_{n \geq 1} n^{1 / n} z^n.
+  \end{equation*}
+\end{example}
+\begin{example}
+  For $k \geq 0$ and $n \in \mathbb{Z}_{\geq 1}$, define
+  \begin{equation*}
+    \sigma_k(n) := \sum_{d | n} d^k,
+  \end{equation*}
+  where $d$ runs over the positive divisors of $n$.  For example, $\sigma_0(n) = \tau(n)$ is the number of positive divisors of $n$.  The series
+  \begin{equation*}
+    \sum_{n \geq 0} \sigma_k (n) z^n
+  \end{equation*}
+  converges absolutely on the disc $\lvert z \rvert < 1$.  It does not extend to a meromorphic function on any strictly larger open subset.  This can be seen most efficiently using the basic theory of modular forms, which we discuss later in the course.
 \end{example}
 
 \newpage
@@ -421,10 +588,10 @@ TODO: one way to see this is to derive that $f(z) = (z / \beta) f(z)$.
 \subsection{Overview}
 The Riemann zeta function is defined for a complex number $s$ by the series
 \begin{equation*}
-\zeta (s) = \sum_{n \geq 1} \frac{1}{n^s }.
+  \zeta (s) = \sum_{n \geq 1} \frac{1}{n^s }.
 \end{equation*}
 \begin{lemma}
-The series converges absolutely for $\Re(s) > 1$, uniformly for $\Re(s) \geq 1 + \eps$ for each $\eps > 0$.
+  The series converges absolutely for $\Re(s) > 1$, uniformly for $\Re(s) \geq 1 + \eps$ for each $\eps > 0$.
 \end{lemma}
 \begin{proof}
   Using the identity
@@ -436,7 +603,7 @@ The series converges absolutely for $\Re(s) > 1$, uniformly for $\Re(s) \geq 1 +
 
 Our first main goal in the course is to explain the following basic facts.
 \begin{theorem}
-The Riemann zeta function admits a meromorphic continuation to the entire complex plane.  It is holomorphic away from a simple pole at $s = 1$, where it has residue $1$.  It admits a functional equation relating $\zeta (s)$ to $\zeta (1-s)$.
+  The Riemann zeta function admits a meromorphic continuation to the entire complex plane.  It is holomorphic away from a simple pole at $s = 1$, where it has residue $1$.  It admits a functional equation relating $\zeta (s)$ to $\zeta (1-s)$.
 \end{theorem}
 
 One historical motivation for considering the zeta function at complex arguments comes from the prime number theorem.
@@ -449,20 +616,21 @@ One historical motivation for considering the zeta function at complex arguments
 \end{theorem}
 This is related to the following analytic fact concerning the zeros of the zeta function.
 \begin{theorem}[Prime number theorem, formulated in terms of $\zeta$]\label{theorem:cj3vp9l79t}
-We have $\zeta(s) = 0$ only if $\Re(s) < 1$.
+  We have $\zeta(s) = 0$ only if $\Re(s) < 1$.
 \end{theorem}
 \begin{remark}
   Even the statement of Theorem~\ref{theorem:cj3vp9l79t} is not clear without knowing the meromorphic continuation of $\zeta$.  This may offer some motivation for understanding the latter.
 \end{remark}
 We expect stronger nonvanishing properties:
 \begin{conjecture}[Riemann Hypothesis]
-We have $\zeta(s) = 0$ only if $\Re(s) < 1/2$.
+  We have $\zeta(s) = 0$ only if $\Re(s) < 1/2$.
 \end{conjecture}
 This corresponds to a conjectural stronger form of the prime number theorem, namely that
 \begin{equation*}
   \pi(x) = \int_2^x \frac{t}{\log t} \, d t
   + \O (x^{1/2} \log x).
 \end{equation*}
+
 
 
 
