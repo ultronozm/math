@@ -190,7 +190,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2023-08-30 14:56:21
+2023-09-01 11:36:08
       <a href="2023-introduction-to-zeta-and-l-functions.tex" class="my-link">tex</a>
       <a href="2023-introduction-to-zeta-and-l-functions.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/2023-introduction-to-zeta-and-l-functions.tex" class="my-link">history</a>
@@ -294,10 +294,42 @@ class="math inline">\(r \in E\)</span>, we have <span id="eq:cj3vqbiupy" class="
 M.\]</span></em></p></li>
 </ol>
 </div>
+<div id="theorem:cj3wnb89dd" class="theorem">
+<p><strong>Theorem 5</strong>. <em>Let <span
+class="math inline">\(U\)</span> be an open subset of <span
+class="math inline">\(\mathbb{C}\)</span>, let <span
+class="math inline">\(f : U \rightarrow \mathbb{C}\)</span> be
+meromorphic. Let <span class="math inline">\(\gamma\)</span> be a smooth
+closed curve in <span class="math inline">\(U\)</span>, oriented
+counterclockwise, that does not pass through any pole of <span
+class="math inline">\(f\)</span>. Then <span
+class="math display">\[\int_\gamma f(z) \, d z = 2 \pi i
+\sum_{\substack{z \in \operatorname{interior}(\gamma) \\ \text{pole of
+$f$}}} \operatorname{res}_z(f).\]</span></em></p>
+</div>
+<div class="remark">
+<p><strong>Remark 6</strong>. Let <span class="math inline">\(0 &lt; r
+&lt; R\)</span>. Let <span class="math inline">\(f\)</span> be a
+meromorphic function on a neighborhood of the annulus <span
+class="math inline">\(\{z : r &lt; |z| &lt; R\}\)</span> that has no
+poles on either of the circles <span class="math inline">\(|z| = r,
+R\)</span>. Then <span class="math display">\[\oint_{|z| = R} f(z) \, d
+z
+    =
+    \oint_{|z| = r} f(z) \, d z
+    + 2 \pi i \sum_{
+      \substack{
+        r &lt; |z| &lt; R
+        \\
+        \text{pole of $f$}
+      }
+    }
+    {\mathop{\mathrm{res}}}_z(f).\]</span></p>
+</div>
 <h2 id="holomorphy-of-limits-and-series">Holomorphy of limits and
 series</h2>
 <div id="theorem:cj3vqa91ti" class="theorem">
-<p><strong>Theorem 5</strong>. <em>Let <span
+<p><strong>Theorem 7</strong>. <em>Let <span
 class="math inline">\(U\)</span> be an open subset of the complex plane.
 Let <span class="math inline">\(f_n\)</span> be a sequence of
 holomorphic functions on <span
@@ -318,6 +350,7 @@ holomorphic.</em></p></li>
 </div>
 <h1 id="asymptotics-and-meromorphic-continuation">Asymptotics and
 meromorphic continuation</h1>
+<p>Reference: generatingfunctionology, section 5.2.</p>
 <p>We consider a Laurent series <span class="math display">\[f (z) =
 \sum_{n \in \mathbb{Z} } c_n z^n.\]</span> Here the <span
 class="math inline">\(c_n\)</span> are complex coefficients, while <span
@@ -325,7 +358,7 @@ class="math inline">\(z\)</span> is a nonzero complex argument. We
 assume that this series converges absolutely for at least one value of
 <span class="math inline">\(z\)</span>.</p>
 <div id="lemma:cj3vqafpa6" class="lemma">
-<p><strong>Lemma 6</strong>. There is a unique maximal open subinterval
+<p><strong>Lemma 8</strong>. There is a unique maximal open subinterval
 <span class="math inline">\((a,b)\)</span> of <span
 class="math inline">\(\mathbb{R}^+\)</span> on which <span
 class="math inline">\(f\)</span> converges absolutely. Its endpoints are
@@ -343,7 +376,7 @@ class="math inline">\(c_n\)</span>).</p>
 <span class="math inline">\(c_n\)</span> as <span
 class="math inline">\(n \rightarrow \pm \infty\)</span>:</p>
 <div class="lemma">
-<p><strong>Lemma 7</strong>. Let <span class="math inline">\(b^- &lt;
+<p><strong>Lemma 9</strong>. Let <span class="math inline">\(b^- &lt;
 b\)</span> and <span class="math inline">\(a^+ &gt; a\)</span>. Then
 <span class="math display">\[c_n \ll {(b^-)}^{-n} \quad \text{ as } n
 \rightarrow \infty\]</span> and <span class="math display">\[c_n \ll
@@ -352,7 +385,7 @@ b\)</span> and <span class="math inline">\(a^+ &gt; a\)</span>. Then
 <p>Set <span class="math display">\[\mathcal{C} (a, b) := \left\{ z \in
 \mathbb{C} : \lvert z  \rvert \in (a,b) \right\}.\]</span></p>
 <div class="lemma">
-<p><strong>Lemma 8</strong>. <span class="math inline">\(f(z)\)</span>
+<p><strong>Lemma 10</strong>. <span class="math inline">\(f(z)\)</span>
 defines a holomorphic function on <span
 class="math inline">\(\mathcal{C}(a,b)\)</span>.</p>
 </div>
@@ -360,11 +393,11 @@ class="math inline">\(\mathcal{C}(a,b)\)</span>.</p>
 <a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
 <span class="proof-content"> Follows from Theorem <a href="#theorem:cj3vqa91ti"
 data-reference-type="ref"
-data-reference="theorem:cj3vqa91ti">1.5</a>. ◻</p>
+data-reference="theorem:cj3vqa91ti">1.7</a>. ◻</p>
 </span></div>
 <div id="lemma:cj3vqbs30d" class="lemma">
-<p><strong>Lemma 9</strong>. <span class="math inline">\(f\)</span> does
-not extend to a holomorphic function on <span
+<p><strong>Lemma 11</strong>. <span class="math inline">\(f\)</span>
+does not extend to a holomorphic function on <span
 class="math inline">\(\mathcal{C}(A,B)\)</span> for any strictly larger
 interval <span class="math inline">\((A,B) \supsetneq
 (a,b)\)</span>.</p>
@@ -386,7 +419,7 @@ href="#lemma:cj3vqafpa6" data-reference-type="ref"
 data-reference="lemma:cj3vqafpa6">2.1</a>. ◻</p>
 </span></div>
 <div class="note">
-<p><strong>Note 10</strong>. It can happen that <span
+<p><strong>Note 12</strong>. It can happen that <span
 class="math inline">\(f\)</span> extends to a <em>meromorphic</em>
 function on some strictly larger annulus (unique, in view of
 Corollary <a href="#corollary:cj3vqbthht" data-reference-type="ref"
@@ -397,7 +430,7 @@ class="math inline">\(f\)</span> has a pole at some point on the
 boundary of the fundamental annulus.</p>
 </div>
 <div class="example">
-<p><strong>Example 11</strong>. Take <span class="math display">\[c_n =
+<p><strong>Example 13</strong>. Take <span class="math display">\[c_n =
     \begin{cases}
       2^n &amp; \text{ if } n \geq 0, \\
       0 &amp; \text{ if } n &lt; 0.
@@ -418,7 +451,7 @@ class="math inline">\(c_n\)</span> having asymptotic expansions as <span
 class="math inline">\(n \rightarrow \pm \infty\)</span>. For
 example:</p>
 <div id="enumerate:cj3vqef2m9" class="lemma">
-<p><strong>Lemma 12</strong> (Meromorphic continuation vs. asymptotic
+<p><strong>Lemma 14</strong> (Meromorphic continuation vs. asymptotic
 expansion, special case). <span id="lemma:cj3vqfrerl"
 label="lemma:cj3vqfrerl"></span> Let <span
 class="math inline">\(f\)</span> and <span
@@ -436,9 +469,9 @@ class="math inline">\(f\)</span> extends to a meromorphic function on
 simple pole at <span class="math inline">\(z = \beta\)</span> with
 residue <span class="math inline">\(\gamma\)</span>.</p></li>
 <li><p>For each <span class="math inline">\(B^- &lt; B\)</span>, we have
-as <span class="math inline">\(n \rightarrow \infty\)</span> that <span
-class="math display">\[c_n = - \gamma \beta ^{-n-1} +
-\operatorname{O}\left( {(B^-)}^{-n} \right),\]</span></p></li>
+as <span class="math inline">\(n \rightarrow \infty\)</span> that <span id="eq:cj3wnbmxaw" class="math display">\[\label{eq:cj3wnbmxaw}\tag{2.1}
+      c_n = - \gamma \beta ^{-n-1} + \operatorname{O}\left( {(B^-)}^{-n}
+\right),\]</span></p></li>
 </ol>
 </div>
 <div class="proof"><p>
@@ -455,9 +488,9 @@ picking up the contribution of the unique pole: <span id="align:cj3vqg2jvd" clas
     c_n
     &amp;= \oint_{\lvert z \rvert = b^-} \frac{f(z)}{z^{n}} \, \frac{d
 z}{2 \pi i z} \nonumber
-      \\
+    \\
     &amp;= \oint_{\lvert z \rvert = B^-} \frac{f(z)}{z^{n}} \, \frac{d
-z}{2 \pi i z} \label{align:cj3vqg2jvd}\tag{2.1}
+z}{2 \pi i z} \label{align:cj3vqg2jvd}\tag{2.2}
       - \frac{\gamma}{\beta^{n+1}}.
   
 \end{align}\]</span> We then estimate this last integral using that
@@ -468,29 +501,29 @@ data-reference="enumerate:cj3vqef2m9">\((ii)\)</a>
 implies <a href="#enumerate:cj3vqef009" data-reference-type="eqref"
 data-reference="enumerate:cj3vqef009">\((i)\)</a>, we
 define the coefficients <span class="math display">\[b_n :=
-\begin{cases}
-- \gamma \beta^{- n - 1 } &amp;  \text{ if } n \geq 0, \\
-0 &amp; \text{ if } n &lt; 0,
-\end{cases}\]</span> The corresponding series <span
+    \begin{cases}
+      - \gamma \beta^{- n - 1 } &amp;  \text{ if } n \geq 0, \\
+      0 &amp; \text{ if } n &lt; 0,
+    \end{cases}\]</span> The corresponding series <span
 class="math display">\[f_+(z) := \sum_{n \in \mathbb{Z} } b_n
 z^n\]</span> may be evaluated explicitly: a simple geometric series
 calculation, left to the reader, gives <span
 class="math display">\[f_+(z) = \frac{\gamma}{z - \beta }.\]</span> Our
 hypothesis concerning the <span class="math inline">\(c_n\)</span> reads
-<span id="eq:cj3vqey6o9" class="math display">\[\label{eq:cj3vqey6o9}\tag{2.2}
-  b_n - c_n = \operatorname{O}\left( {(B^-)}^{-n} \right) \quad \text{
+<span id="eq:cj3vqey6o9" class="math display">\[\label{eq:cj3vqey6o9}\tag{2.3}
+    b_n - c_n = \operatorname{O}\left( {(B^-)}^{-n} \right) \quad \text{
 as } n \rightarrow \infty.\]</span> On the other hand, because <span
 class="math inline">\(f\)</span> has fundamental interval <span
 class="math inline">\((a,b)\)</span> and <span
 class="math inline">\(b_n\)</span> vanishes as <span
 class="math inline">\(n \rightarrow -\infty\)</span>, we have for each
-<span class="math inline">\(a^+ &gt; a\)</span> that <span id="eq:cj3vqey9fd" class="math display">\[\label{eq:cj3vqey9fd}\tag{2.3}
-b_n - c_n = \operatorname{O}\left( {(a^+)}^{-n} \right) \quad \text{ as
-} n \rightarrow -\infty.\]</span> From <a href="#eq:cj3vqey6o9"
+<span class="math inline">\(a^+ &gt; a\)</span> that <span id="eq:cj3vqey9fd" class="math display">\[\label{eq:cj3vqey9fd}\tag{2.4}
+    b_n - c_n = \operatorname{O}\left( {(a^+)}^{-n} \right) \quad \text{
+as } n \rightarrow -\infty.\]</span> From <a href="#eq:cj3vqey6o9"
 data-reference-type="eqref"
-data-reference="eq:cj3vqey6o9">\((2.2)\)</a> and <a
+data-reference="eq:cj3vqey6o9">\((2.3)\)</a> and <a
 href="#eq:cj3vqey9fd" data-reference-type="eqref"
-data-reference="eq:cj3vqey9fd">\((2.3)\)</a>, we deduce that the
+data-reference="eq:cj3vqey9fd">\((2.4)\)</a>, we deduce that the
 series <span class="math inline">\(f - f_+\)</span> with coefficients
 <span class="math inline">\(c_n - b_n\)</span> has fundamental interval
 containing <span class="math inline">\((a,B)\)</span>. This implies that
@@ -505,6 +538,24 @@ behavior as described in <a href="#enumerate:cj3vqef2m9"
 data-reference-type="eqref"
 data-reference="enumerate:cj3vqef2m9">\((ii)\)</a>. ◻</p>
 </span></div>
+<div class="example">
+<p><strong>Example 15</strong>. Suppose that <span
+class="math display">\[c_n =
+    \begin{cases}
+      \beta^{- n} &amp; \text{ if } n \geq 0, \\
+      0 &amp; \text{ if } n &lt; 0,
+    \end{cases}\]</span> so that, initially for <span
+class="math inline">\(\lvert z \rvert &lt; |\beta|\)</span>, <span
+class="math display">\[f (z) = \sum_{n \geq 0} \beta^{-n} z^n =
+\frac{1}{1 - z / \beta }.\]</span> The function <span
+class="math inline">\(f\)</span> extends meromorphically, having a
+simple pole at <span class="math inline">\(z = \beta\)</span> with
+residue <span class="math inline">\(-\beta\)</span>. The sequence <span
+class="math inline">\(c_n\)</span> has the asymptotic behavior indicated
+in <a href="#eq:cj3wnbmxaw" data-reference-type="eqref"
+data-reference="eq:cj3wnbmxaw">\((2.1)\)</a>, in a very strong
+sense: the sequence is <em>equal</em> to the asymptotic.</p>
+</div>
 <div class="exercise">
 <p><strong>Exercise 1</strong>. Generalize the above lemma to describe
 in terms of the coefficients <span class="math inline">\(c_n\)</span>
@@ -532,10 +583,10 @@ series <span class="math inline">\(f(z) = \sum_n c_n z^n\)</span>
 contains <span class="math inline">\((0,1/2)\)</span>.</p></li>
 <li><p>Show that <span class="math display">\[f(z) = \frac{1}{1 - z -
 z^2} =
-        \frac{1}{(1 - z/\varphi) ( 1 - z / \varphi &#39;)},\]</span>
-where <span class="math display">\[\varphi = \frac{1 + \sqrt{5}}{2} =
-1.618 \dotsb, \quad
-        \varphi &#39; = \frac{1 - \sqrt{5}}{2} = -0.618
+      \frac{1}{(1 - z/\varphi) ( 1 - z / \varphi &#39;)},\]</span> where
+<span class="math display">\[\varphi = \frac{1 + \sqrt{5}}{2} = 1.618
+\dotsb, \quad
+      \varphi &#39; = \frac{1 - \sqrt{5}}{2} = -0.618
 \dotsb.\]</span></p></li>
 <li><p>Following the proof of Lemma <a href="#lemma:cj3vqfrerl"
 data-reference-type="ref"
@@ -544,12 +595,183 @@ data-reference="lemma:cj3vqfrerl">2.7</a>, show that
 }{\varphi - \varphi &#39; }.\]</span> (Use that <span
 class="math inline">\(f(z) \ll |z|^2\)</span> for <span
 class="math inline">\(|z| \geq 2\)</span> to show that the “remainder
-term”, namely the integral in <a href="#align:cj3vqg2jvd"
+term”, namely the integral in <a href="#align:cj3vqg2jvd"
 data-reference-type="eqref"
-data-reference="align:cj3vqg2jvd">\((2.1)\)</a>, tends to zero
+data-reference="align:cj3vqg2jvd">\((2.2)\)</a>, tends to zero
 as <span class="math inline">\(B^- \rightarrow
 \infty\)</span>.)</p></li>
 </ol>
+</div>
+<div class="example">
+<p><strong>Example 16</strong>. Let <span class="math inline">\(\beta
+\in \mathbb{C} - \{0\}\)</span> and <span class="math inline">\(a \in
+\mathbb{Z}_{\geq 0}\)</span>. Then one verifies by induction on <span
+class="math inline">\(a\)</span>, using differentiation, that <span
+class="math display">\[\frac{1}{(z - \beta)^{a+1}} =
+    (-\beta)^{-a-1}
+    \sum_{n \geq 0}
+    \binom{n + a}{n} \beta^{-n} z^n,\]</span> where the binomial
+coefficient expands to a polynomial of degree <span
+class="math inline">\(a\)</span> in <span
+class="math inline">\(n\)</span>: <span
+class="math display">\[\binom{n+a}{a} = \frac{(n+a)!}{a! n!} =
+    \frac{(n+1) (n+2) \dotsb (n+a)}{a!}.\]</span> More generally, given
+any coefficients <span class="math inline">\(c_0, c_1\dotsc,
+c_k\)</span>, we have <span class="math display">\[\sum_{k=0}^{a}
+    \frac{c_k}{(z - \beta)^{k+1}} = \sum_{n \geq 0} P(n) \beta^{-n}
+z^n\]</span> for some polynomial <span
+class="math inline">\(P(n)\)</span> of degree at most <span
+class="math inline">\(a\)</span>. Conversely, given such a polynomial,
+we may find coefficients so that the above identity holds.</p>
+</div>
+<div class="example">
+<p><strong>Example 17</strong>. Take <span class="math display">\[c_n:=
+e^{- 2^n }.\]</span> Observe that <span class="math display">\[c_n
+\rightarrow
+    \begin{cases}
+      0 &amp;  \text{ if } n \rightarrow \infty, \\
+      1 &amp; \text{ if } n \rightarrow - \infty.
+    \end{cases}\]</span> Moreover, as <span class="math inline">\(n
+\rightarrow \infty\)</span>, the convergence of the <span
+class="math inline">\(c_n\)</span> to zero is rapid in the sense that
+for each <span class="math inline">\(B &lt; \infty\)</span>, we have
+<span class="math display">\[c_n \ll B^{-n}.\]</span> The fundamental
+interval is thus <span class="math inline">\((1,\infty)\)</span>: the
+series <span class="math inline">\(f(z) = \sum_{n} c_n z^n\)</span>
+converges absolutely for <span class="math inline">\(|z| &gt; 1\)</span>
+and defines a holomorphic function there. We will show that <span
+class="math inline">\(f\)</span> <em>extends to a meromorphic function
+on</em> <span class="math inline">\(\mathbb{C} - \{0\}\)</span><em>,
+which is holomorphic away from simple poles at</em> <span
+class="math inline">\(1 / 2^k\)</span> <em>(for</em> <span
+class="math inline">\(k \in \mathbb{Z}_{\geq 0}\)</span><em>) with
+residue</em> <span class="math inline">\((-1/4)^k /
+k!\)</span><em>.</em> To that end, observe first that the contribution
+to <span class="math inline">\(f\)</span> from <span
+class="math inline">\(n \geq 0\)</span>, namely <span
+class="math display">\[f_+(z) := \sum_{n &gt; 0} c_n z^n,\]</span>
+converges absolutely and is thus holomorphic on the entire complex
+plane. The meromorphic continuation of <span
+class="math inline">\(f\)</span> thereby reduces to that of the
+complementary sum <span class="math display">\[f_-(z) := \sum_{n
+\leq  0} c_n z^n.\]</span> Inspired by Lemma <a href="#lemma:cj3vqfrerl"
+data-reference-type="ref"
+data-reference="lemma:cj3vqfrerl">2.7</a>, we study the
+asymptotics of the coefficients <span class="math inline">\(c_n\)</span>
+as <span class="math inline">\(n \rightarrow - \infty\)</span>. These
+are described by the Taylor series of the exponential functions: <span
+class="math display">\[e^{x} = \sum_{k \geq 0} \frac{x^k }{k!}.\]</span>
+By estimating the tail of this series, we sees that for <span
+class="math inline">\(x = \operatorname{O}(1)\)</span> and <span
+class="math inline">\(M = \operatorname{O}(1)\)</span>, we have <span
+class="math display">\[e^x = \sum_{k = 0}^{N-1} \frac{x^k}{k!} +
+\operatorname{O}(x^M).\]</span> It follows that for <span
+class="math inline">\(n \leq 0\)</span>, <span id="eq:cj3wnu8lqf" class="math display">\[\label{eq:cj3wnu8lqf}\tag{2.5}
+c_n = \sum_{k = 0}^{N-1} \frac{{(-2^n)}^k}{k!} +
+\operatorname{O}(2^{nM}).\]</span> By the method of proof of Lemma <a
+href="#lemma:cj3vqfrerl" data-reference-type="ref"
+data-reference="lemma:cj3vqfrerl">2.7</a>, we deduce from
+this estimate that <span class="math inline">\(f_-\)</span> the required
+assertions concerning the meromorphic continuation of <span
+class="math inline">\(f\)</span>. Let us spell this deduction out for
+the sake of practice. Set <span class="math display">\[g_k(z) :=
+  \sum_{n \leq 0}
+  \frac{{(-2^n)}^k}{k!} z^n.\]</span> The estimate <a
+href="#eq:cj3wnu8lqf" data-reference-type="eqref"
+data-reference="eq:cj3wnu8lqf">\((2.5)\)</a> implies that the
+modified series <span id="eq:cj3wnu7518" class="math display">\[\label{eq:cj3wnu7518}\tag{2.6}
+   f_-(z)
+  -
+  \sum_{k = 0}^{N-1}
+  g_k(z)
+  =
+  \sum_{n \leq 0}
+  \left( c_n -
+    \sum_{k = 0}^{N-1} \frac{{(-2^n)}^k}{k!}
+  \right) z^n\]</span> converges absolutely for <span
+class="math inline">\(\lvert z \rvert &gt; 1 / 2^M\)</span>, hence
+defines a holomorphic function there. On the other hand, for <span
+class="math inline">\(\lvert z \rvert &gt; 1\)</span>, we see by summing
+the geometric series that <span class="math display">\[g_k(z)
+  =
+  \frac{{(-1)}^k}{k!}
+  \frac{1}{1 - 1 / 2^k z}
+  =
+  \frac{{(-1/2)}^k}{k!}
+  \frac{z}{z - 1 / 2^k}.\]</span> Thus <span
+class="math inline">\(g_k\)</span> extends to a meromorphic function
+whose only pole is a simple one at <span class="math inline">\(z =
+1/2^k\)</span> with residue <span class="math inline">\({(-1/4)}^k  /
+k!\)</span>. It follows that <span class="math inline">\(f\)</span> has
+the claimed meromorphic properties.</p>
+</div>
+<p>TODO: I’ll add some more systematic notes on regularization
+later.</p>
+<div class="remark">
+<p><strong>Remark 18</strong>. We can cases view <span
+class="math inline">\(f(1)\)</span> as the “regularized sum” of the
+(possibly divergent) series <span class="math inline">\(\sum_n
+c_n\)</span>: <span
+class="math display">\[\sum_{n}^{\mathop{\mathrm{reg}}} c_n := \left(
+\sum_n c_n z^n \right)|_{z=1},\]</span> keeping in mind here that the
+series may initially convergent away from the point <span
+class="math inline">\(z=1\)</span>, so that the specialization is
+understood as the result of analytic continuation. We make this
+definition whenever the series is holomorphic at <span
+class="math inline">\(z=1\)</span>.</p>
+<p>For example, <span class="math display">\[\sum_{n \geq
+0}^{\mathop{\mathrm{reg}}} (-1)^n
+    =
+    \left( \sum_{n \geq 0} (-1)^n z^n \right)|_{z=1}
+    = \frac{1}{1 + z} \vert_{z=1} = \frac{1}{2}.\]</span> In this
+example, we may understand <span class="math inline">\(f(1)\)</span> as
+the limit of the quantities <span class="math inline">\(f(z)\)</span>
+for <span class="math inline">\(z &lt; 1\)</span> as <span
+class="math inline">\(z \rightarrow 1\)</span>, and also as the Cesaro
+mean of the partial sums of the series <span
+class="math inline">\(\sum_{n \geq 0} (-1)^n\)</span>, so the
+interpretation of <span class="math inline">\(f(1)\)</span> as a
+regularized sum makes intuitive sense.</p>
+<p>In other examples, the interpretation may be less clear. For example,
+<span class="math display">\[\sum_{n \geq 0}^{\mathop{\mathrm{reg}}}
+10^n =
+  \left( \sum_{n \geq 0} 10^n z^n \right)|_{z=1}
+  =
+  \frac{1}{1 - 10 z} \vert_{z=1} =
+  \frac{-1}{9},\]</span> the intuitive meaning of which may be less
+clear. One way to understand the regularization is as follows: the value
+<span class="math inline">\(f(1)\)</span> is insensitive to replacing
+the sequence <span class="math inline">\((c_n)_n\)</span> by any of its
+shifts <span class="math inline">\((c_{n+k})_n\)</span>. Setting <span
+class="math display">\[S := \sum_{n \geq 0}^{\mathop{\mathrm{reg}}}
+10^n,\]</span> we should thus have <span class="math display">\[10 S =
+\sum_{n \geq 0}^{\mathop{\mathrm{reg}}} 10^{n+1}
+= 1 + S,\]</span> from which it follows that <span
+class="math inline">\(S = -1/9\)</span>.</p>
+</div>
+<div class="example">
+<p><strong>Example 19</strong>. Take <span class="math display">\[c_n =
+n^3 e^{- 2^{- n^2 }}.\]</span> Then the series <span
+class="math inline">\(f\)</span> converges absolutely nowhere: the
+fundamental interval is empty. But we can regularize it to get a
+well-defined <span class="math inline">\(f\)</span>. TODO: expand.</p>
+<p>Idea: meromorphically continue positive and negative parts
+separately, take the sum of these on intersections of domains of
+definition.</p>
+<p>TODO: expansion of <span class="math inline">\(c_n\)</span>.</p>
+<p>Only pole for both <span class="math inline">\(f_+\)</span> and <span
+class="math inline">\(f_-\)</span> is at one; quadruple pole, with
+residues that cancel.</p>
+</div>
+<div class="example">
+<p><strong>Example 20</strong>. TODO. For <span class="math inline">\(a
+\in \mathbb{Z}_{\geq 0}\)</span> and <span class="math inline">\(\beta
+\in \mathbb{C}^\times\)</span>, take <span class="math display">\[c_n :=
+n^a \beta^{- n}.\]</span> Then we claim that the regularized generating
+function <span class="math inline">\(f\)</span> vanishes
+identically.</p>
+<p>TODO: one way to see this is to derive that <span
+class="math inline">\(f(z) = (z / \beta) f(z)\)</span>.</p>
 </div>
 <h1 id="the-zeta-function">The zeta function</h1>
 <h2 id="overview">Overview</h2>
@@ -558,7 +780,7 @@ class="math inline">\(s\)</span> by the series <span
 class="math display">\[\zeta (s) = \sum_{n \geq 1} \frac{1}{n^s
 }.\]</span></p>
 <div class="lemma">
-<p><strong>Lemma 13</strong>. The series converges absolutely for <span
+<p><strong>Lemma 21</strong>. The series converges absolutely for <span
 class="math inline">\(\Re(s) &gt; 1\)</span>, uniformly for <span
 class="math inline">\(\Re(s) \geq 1 + \varepsilon\)</span> for each
 <span class="math inline">\(\varepsilon&gt; 0\)</span>.</p>
@@ -574,7 +796,7 @@ consequence of the integral test. ◻</p>
 <p>Our first main goal in the course is to explain the following basic
 facts.</p>
 <div class="theorem">
-<p><strong>Theorem 14</strong>. <em>The Riemann zeta function admits a
+<p><strong>Theorem 22</strong>. <em>The Riemann zeta function admits a
 meromorphic continuation to the entire complex plane. It is holomorphic
 away from a simple pole at <span class="math inline">\(s = 1\)</span>,
 where it has residue <span class="math inline">\(1\)</span>. It admits a
@@ -585,7 +807,7 @@ functional equation relating <span class="math inline">\(\zeta
 <p>One historical motivation for considering the zeta function at
 complex arguments comes from the prime number theorem.</p>
 <div class="theorem">
-<p><strong>Theorem 15</strong> (Prime number theorem). <em>Let <span
+<p><strong>Theorem 23</strong> (Prime number theorem). <em>Let <span
 class="math inline">\(\pi(x) := \# \left\{ \text{primes } p \leq x
 \right\}\)</span> denote the prime counting function. Then <span
 class="math display">\[\frac{\pi(x)}{x / \log x} \rightarrow 1
@@ -594,13 +816,13 @@ class="math display">\[\frac{\pi(x)}{x / \log x} \rightarrow 1
 <p>This is related to the following analytic fact concerning the zeros
 of the zeta function.</p>
 <div id="theorem:cj3vp9l79t" class="theorem">
-<p><strong>Theorem 16</strong> (Prime number theorem, formulated in
+<p><strong>Theorem 24</strong> (Prime number theorem, formulated in
 terms of <span class="math inline">\(\zeta\)</span>). <em>We have <span
 class="math inline">\(\zeta(s) = 0\)</span> only if <span
 class="math inline">\(\Re(s) &lt; 1\)</span>.</em></p>
 </div>
 <div class="remark">
-<p><strong>Remark 17</strong>. Even the statement of Theorem <a
+<p><strong>Remark 25</strong>. Even the statement of Theorem <a
 href="#theorem:cj3vp9l79t" data-reference-type="ref"
 data-reference="theorem:cj3vp9l79t">3.4</a> is not clear without knowing
 the meromorphic continuation of <span
