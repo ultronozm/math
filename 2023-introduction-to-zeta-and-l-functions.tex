@@ -54,6 +54,29 @@ for some ``constant'' $C$.  The precise meaning of ``constant'' will either be s
   \end{enumerate}
 \end{theorem}
 
+\begin{theorem}\label{theorem:cj3wnb89dd}
+  Let $U$ be an open subset of $\mathbb{C}$, let $f : U \rightarrow \mathbb{C} $ be meromorphic.  Let $\gamma$ be a smooth closed curve in $U$, oriented counterclockwise, that does not pass through any pole of $f$.  Then
+  \begin{equation*}
+    \int_\gamma f(z) \, d z = 2 \pi i \sum_{\substack{z \in \operatorname{interior}(\gamma) \\ \text{pole of $f$}}} \operatorname{res}_z(f).
+\end{equation*}
+\end{theorem}
+\begin{remark}
+  Let $0 < r < R$.  Let $f$ be a meromorphic function on a neighborhood of the annulus $\{z : r < |z| < R\}$ that has no poles on either of the circles $|z| = r, R$.  Then
+  \begin{equation*}
+    \oint_{|z| = R} f(z) \, d z
+    =
+    \oint_{|z| = r} f(z) \, d z
+    + 2 \pi i \sum_{
+      \substack{
+        r < |z| < R 
+        \\
+        \text{pole of $f$}
+      }
+    }
+    \res_z(f).
+\end{equation*}
+\end{remark}
+
 \subsection{Holomorphy of limits and series}
 \begin{theorem}\label{theorem:cj3vqa91ti}
   Let $U$ be an open subset of the complex plane.  Let $f_n$ be a sequence of holomorphic functions on $U$.
@@ -65,6 +88,10 @@ for some ``constant'' $C$.  The precise meaning of ``constant'' will either be s
 
 \newpage
 \section{Asymptotics and meromorphic continuation}
+
+Reference: generatingfunctionology, section 5.2.
+
+
 We consider a Laurent series
 \begin{equation*}
 f (z) = \sum_{n \in \mathbb{Z} } c_n z^n.
@@ -136,14 +163,14 @@ $f$ does not extend to a holomorphic function on $\mathcal{C}(A,B)$ for any stri
 \end{example}
 
 The possibility of meromorphically extending $f$ corresponds to the coefficients $c_n$ having asymptotic expansions as $n \rightarrow \pm \infty$.  For example:
-\begin{lemma}[Meromorphic continuation vs. asymptotic expansion, special case]\label{lemma:cj3vqfrerl}
+\begin{lemma}[Meromorphic continuation vs.\ asymptotic expansion, special case]\label{lemma:cj3vqfrerl}
   Let $f$ and $(a,b)$ be as above.  Let $\beta \in \mathbb{C}$ with $\lvert \beta \rvert = b$.  Let $B > b$ and $\gamma \in \mathbb{C} $.  Then the following are equivalent:
   \begin{enumerate}[(i)]
   \item\label{enumerate:cj3vqef009} $f$ extends to a meromorphic function on $\mathcal{C}(a, B)$ with a unique simple pole at $z = \beta$ with residue $\gamma$.
   \item\label{enumerate:cj3vqef2m9} For each $B^- < B$, we have as $n \rightarrow \infty$ that
-    \begin{equation*}
+    \begin{equation}\label{eq:cj3wnbmxaw}
       c_n = - \gamma \beta ^{-n-1} + \O \left( {(B^-)}^{-n} \right),
-    \end{equation*}
+    \end{equation}
     
   \end{enumerate}
 \end{lemma}
@@ -152,7 +179,7 @@ The possibility of meromorphically extending $f$ corresponds to the coefficients
   \begin{align}
     c_n
     &= \oint_{\lvert z \rvert = b^-} \frac{f(z)}{z^{n}} \, \frac{d z}{2 \pi i z} \nonumber
-      \\
+    \\
     &= \oint_{\lvert z \rvert = B^-} \frac{f(z)}{z^{n}} \, \frac{d z}{2 \pi i z} \label{align:cj3vqg2jvd}
       - \frac{\gamma}{\beta^{n+1}}.
   \end{align}
@@ -160,34 +187,50 @@ The possibility of meromorphically extending $f$ corresponds to the coefficients
 
   Conversely, to verify that~\eqref{enumerate:cj3vqef2m9} implies~\eqref{enumerate:cj3vqef009}, we define the coefficients
   \begin{equation*}
-b_n :=
-\begin{cases}
-- \gamma \beta^{- n - 1 } &  \text{ if } n \geq 0, \\
-0 & \text{ if } n < 0,
-\end{cases}
-\end{equation*}
-The corresponding series
-\begin{equation*}
-f_+(z) := \sum_{n \in \mathbb{Z} } b_n z^n
-\end{equation*}
-may be evaluated explicitly: a simple geometric series calculation, left to the reader, gives
-\begin{equation*}
-  f_+(z) = \frac{\gamma}{z - \beta }.
-\end{equation*}
-Our hypothesis concerning the $c_n$ reads
-\begin{equation}\label{eq:cj3vqey6o9}
-  b_n - c_n = \O \left( {(B^-)}^{-n} \right) \quad \text{ as } n \rightarrow \infty.
-\end{equation}
-On the other hand, because $f$ has fundamental interval $(a,b)$ and $b_n$ vanishes as $n \rightarrow -\infty$, we have for each $a^+ > a$ that
-\begin{equation}\label{eq:cj3vqey9fd}
-b_n - c_n = \O \left( {(a^+)}^{-n} \right) \quad \text{ as } n \rightarrow -\infty.
-\end{equation}
-From~\eqref{eq:cj3vqey6o9} and~\eqref{eq:cj3vqey9fd}, we deduce that the series $f - f_+$ with coefficients $c_n - b_n$ has fundamental interval containing $(a,B)$.  This implies that the function
-\begin{equation*}
-f(z) - \frac{\gamma }{z - \beta },
-\end{equation*}
+    b_n :=
+    \begin{cases}
+      - \gamma \beta^{- n - 1 } &  \text{ if } n \geq 0, \\
+      0 & \text{ if } n < 0,
+    \end{cases}
+  \end{equation*}
+  The corresponding series
+  \begin{equation*}
+    f_+(z) := \sum_{n \in \mathbb{Z} } b_n z^n
+  \end{equation*}
+  may be evaluated explicitly: a simple geometric series calculation, left to the reader, gives
+  \begin{equation*}
+    f_+(z) = \frac{\gamma}{z - \beta }.
+  \end{equation*}
+  Our hypothesis concerning the $c_n$ reads
+  \begin{equation}\label{eq:cj3vqey6o9}
+    b_n - c_n = \O \left( {(B^-)}^{-n} \right) \quad \text{ as } n \rightarrow \infty.
+  \end{equation}
+  On the other hand, because $f$ has fundamental interval $(a,b)$ and $b_n$ vanishes as $n \rightarrow -\infty$, we have for each $a^+ > a$ that
+  \begin{equation}\label{eq:cj3vqey9fd}
+    b_n - c_n = \O \left( {(a^+)}^{-n} \right) \quad \text{ as } n \rightarrow -\infty.
+  \end{equation}
+  From~\eqref{eq:cj3vqey6o9} and~\eqref{eq:cj3vqey9fd}, we deduce that the series $f - f_+$ with coefficients $c_n - b_n$ has fundamental interval containing $(a,B)$.  This implies that the function
+  \begin{equation*}
+    f(z) - \frac{\gamma }{z - \beta },
+  \end{equation*}
 defined initially as a holomorphic function on $\mathcal{C}(a,b)$, extends to a holomorphic function on $\mathcal{C}(a,B)$.  Equivalently, $f$ extends to a meromorphic function on $\mathcal{C}(a,B)$ with polar behavior as described in~\eqref{enumerate:cj3vqef2m9}.
 \end{proof}
+
+\begin{example}
+  Suppose that
+  \begin{equation*}
+    c_n =
+    \begin{cases}
+      \beta^{- n} & \text{ if } n \geq 0, \\
+      0 & \text{ if } n < 0,
+    \end{cases}
+  \end{equation*}
+  so that, initially for $\lvert z \rvert < |\beta|$,
+  \begin{equation*}
+    f (z) = \sum_{n \geq 0} \beta^{-n} z^n = \frac{1}{1 - z / \beta }.
+  \end{equation*}
+  The function $f$ extends meromorphically, having a simple pole at $z = \beta$ with residue $-\beta$.  The sequence $c_n$ has the asymptotic behavior indicated in~\eqref{eq:cj3wnbmxaw}, in a very strong sense: the sequence is \emph{equal} to the asymptotic.
+\end{example}
 
 \begin{exercise}
   Generalize the above lemma to describe in terms of the coefficients $c_n$ what it means for $f$ to extend to a meromorphic function on $\mathcal{C}(A,B)$ for some $A < a$ and $B > b$, allowing the possibility of multiple poles of arbitrary order.
@@ -201,24 +244,176 @@ defined initially as a holomorphic function on $\mathcal{C}(a,b)$, extends to a 
   \end{equation*}
   This exercise rederives a standard formula for this sequence in a way that is intended to illustrate the technique of Lemma~\ref{lemma:cj3vqfrerl}.
   \begin{enumerate}
-    \item Verify by crude estimation that the fundamental interval for the series $f(z) = \sum_n c_n z^n$ contains $(0,1/2)$.
-    \item Show that
-      \begin{equation*}
-        f(z) = \frac{1}{1 - z - z^2} =
-        \frac{1}{(1 - z/\varphi) ( 1 - z / \varphi ')},
-      \end{equation*}
-      where
-      \begin{equation*}
-        \varphi = \frac{1 + \sqrt{5}}{2} = 1.618 \dotsb, \quad
-        \varphi ' = \frac{1 - \sqrt{5}}{2} = -0.618 \dotsb.
-      \end{equation*}
-    \item Following the proof of Lemma~\ref{lemma:cj3vqfrerl}, show that
-      \begin{equation*}
-        c_n = \frac{\varphi^n - {(\varphi ')}^n }{\varphi - \varphi ' }.
-      \end{equation*}
-      (Use that $f(z) \ll |z|^2$ for $|z| \geq 2$ to show that the ``remainder term'', namely the integral in \eqref{align:cj3vqg2jvd}, tends to zero as $B^- \rightarrow \infty $.)
-    \end{enumerate}
+  \item Verify by crude estimation that the fundamental interval for the series $f(z) = \sum_n c_n z^n$ contains $(0,1/2)$.
+  \item Show that
+    \begin{equation*}
+      f(z) = \frac{1}{1 - z - z^2} =
+      \frac{1}{(1 - z/\varphi) ( 1 - z / \varphi ')},
+    \end{equation*}
+    where
+    \begin{equation*}
+      \varphi = \frac{1 + \sqrt{5}}{2} = 1.618 \dotsb, \quad
+      \varphi ' = \frac{1 - \sqrt{5}}{2} = -0.618 \dotsb.
+    \end{equation*}
+  \item Following the proof of Lemma~\ref{lemma:cj3vqfrerl}, show that
+    \begin{equation*}
+      c_n = \frac{\varphi^n - {(\varphi ')}^n }{\varphi - \varphi ' }.
+    \end{equation*}
+    (Use that $f(z) \ll |z|^2$ for $|z| \geq 2$ to show that the ``remainder term'', namely the integral in~\eqref{align:cj3vqg2jvd}, tends to zero as $B^- \rightarrow \infty $.)
+  \end{enumerate}
 \end{exercise}
+
+\begin{example}
+  Let $\beta \in \mathbb{C} - \{0\}$ and $a \in \mathbb{Z}_{\geq 0}$.  Then one verifies by induction on $a$, using differentiation, that
+  \begin{equation*}
+    \frac{1}{(z - \beta)^{a+1}} =
+    (-\beta)^{-a-1}
+    \sum_{n \geq 0}
+    \binom{n + a}{n} \beta^{-n} z^n,
+  \end{equation*}
+  where the binomial coefficient expands to a polynomial of degree $a$ in $n$:
+  \begin{equation*}
+    \binom{n+a}{a} = \frac{(n+a)!}{a! n!} =
+    \frac{(n+1) (n+2) \dotsb (n+a)}{a!}.
+  \end{equation*}
+  More generally, given any coefficients $c_0, c_1\dotsc, c_k$, we have
+  \begin{equation*}
+    \sum_{k=0}^{a}
+    \frac{c_k}{(z - \beta)^{k+1}} = \sum_{n \geq 0} P(n) \beta^{-n} z^n
+  \end{equation*}
+  for some polynomial $P(n)$ of degree at most $a$.  Conversely, given such a polynomial, we may find coefficients so that the above identity holds.
+\end{example}
+
+
+\begin{example}
+  Take
+  \begin{equation*}
+    c_n:= e^{- 2^n }.
+  \end{equation*}
+  Observe that
+  \begin{equation*}
+    c_n \rightarrow
+    \begin{cases}
+      0 &  \text{ if } n \rightarrow \infty, \\
+      1 & \text{ if } n \rightarrow - \infty.
+    \end{cases}
+  \end{equation*}
+  Moreover, as $n \rightarrow \infty$, the convergence of the $c_n$ to zero is rapid in the sense that for each $B < \infty$, we have
+  \begin{equation*}
+    c_n \ll B^{-n}.
+  \end{equation*}
+  The fundamental interval is thus $(1,\infty)$: the series $f(z) = \sum_{n} c_n z^n$ converges absolutely for $|z| > 1$ and defines a holomorphic function there.  We will show that $f$ \emph{extends to a meromorphic function on} $\mathbb{C} - \{0\}$\emph{, which is holomorphic away from simple poles at} $1 / 2^k$ \emph{(for} $k \in \mathbb{Z}_{\geq 0}$\emph{) with residue} $(-1/4)^k / k!$\emph{.}  To that end, observe first that the contribution to $f$ from $n \geq 0$, namely
+  \begin{equation*}
+f_+(z) := \sum_{n > 0} c_n z^n,
+\end{equation*}
+converges absolutely and is thus holomorphic on the entire complex plane.  The meromorphic continuation of $f$ thereby reduces to that of the complementary sum
+\begin{equation*}
+f_-(z) := \sum_{n \leq  0} c_n z^n.
+\end{equation*}
+Inspired by Lemma~\ref{lemma:cj3vqfrerl}, we study the asymptotics of the coefficients $c_n$ as $n \rightarrow - \infty$.  These are described by the Taylor series of the exponential functions:
+  \begin{equation*}
+e^{x} = \sum_{k \geq 0} \frac{x^k }{k!}.
+\end{equation*}
+By estimating the tail of this series, we sees that for $x = \O(1)$ and $M = \O(1)$, we have
+\begin{equation*}
+e^x = \sum_{k = 0}^{N-1} \frac{x^k}{k!} + \O (x^M).
+\end{equation*}
+It follows that for $n \leq 0$,
+\begin{equation}\label{eq:cj3wnu8lqf}
+c_n = \sum_{k = 0}^{N-1} \frac{{(-2^n)}^k}{k!} + \O (2^{nM}).
+\end{equation}
+By the method of proof of Lemma~\ref{lemma:cj3vqfrerl}, we deduce from this estimate that $f_-$ the required assertions concerning the meromorphic continuation of $f$.  Let us spell this deduction out for the sake of practice.  Set
+\begin{equation*}
+ g_k(z) := 
+  \sum_{n \leq 0}
+  \frac{{(-2^n)}^k}{k!} z^n.
+\end{equation*}
+The estimate~\eqref{eq:cj3wnu8lqf} implies that the modified series
+\begin{equation}\label{eq:cj3wnu7518}
+   f_-(z)
+  -
+  \sum_{k = 0}^{N-1}
+  g_k(z)
+  = 
+  \sum_{n \leq 0}
+  \left( c_n -
+    \sum_{k = 0}^{N-1} \frac{{(-2^n)}^k}{k!}
+  \right) z^n
+\end{equation}
+converges absolutely for $\lvert z \rvert > 1 / 2^M$, hence defines a holomorphic function there.  On the other hand, for $\lvert z \rvert > 1$, we see by summing the geometric series that
+\begin{equation*}
+  g_k(z)
+  =
+  \frac{{(-1)}^k}{k!}
+  \frac{1}{1 - 1 / 2^k z}
+  =
+  \frac{{(-1/2)}^k}{k!}
+  \frac{z}{z - 1 / 2^k}.
+\end{equation*}
+Thus $g_k$ extends to a meromorphic function whose only pole is a simple one at $z = 1/2^k$ with residue ${(-1/4)}^k  / k!$.  It follows that $f$ has the claimed meromorphic properties.
+\end{example}
+
+TODO: I'll add some more systematic notes on regularization later.
+
+\begin{remark}
+  We can cases view $f(1)$ as the ``regularized sum'' of the (possibly divergent) series $\sum_n c_n$:
+  \begin{equation*}
+\sum_{n}^{\reg} c_n := \left( \sum_n c_n z^n \right)|_{z=1}, 
+\end{equation*}
+keeping in mind here that the series may initially convergent away from the point $z=1$, so that the specialization is understood as the result of analytic continuation.  We make this definition whenever the series is holomorphic at $z=1$.
+
+For example,
+  \begin{equation*}
+    \sum_{n \geq 0}^{\reg} (-1)^n
+    =
+    \left( \sum_{n \geq 0} (-1)^n z^n \right)|_{z=1}
+    = \frac{1}{1 + z} \vert_{z=1} = \frac{1}{2}.
+\end{equation*}
+In this example, we may understand $f(1)$ as the limit of the quantities $f(z)$ for $z < 1$ as $z \rightarrow 1$, and also as the Cesaro mean of the partial sums of the series $\sum_{n \geq 0} (-1)^n$, so the interpretation of $f(1)$ as a regularized sum makes intuitive sense.
+
+In other examples, the interpretation may be less clear.  For example,
+\begin{equation*}
+  \sum_{n \geq 0}^{\reg} 10^n =
+  \left( \sum_{n \geq 0} 10^n z^n \right)|_{z=1}
+  =
+  \frac{1}{1 - 10 z} \vert_{z=1} =
+  \frac{-1}{9},
+\end{equation*}
+the intuitive meaning of which may be less clear.  One way to understand the regularization is as follows: the value $f(1)$ is insensitive to replacing the sequence $(c_n)_n$ by any of its shifts $(c_{n+k})_n$.  Setting
+\begin{equation*}
+S := \sum_{n \geq 0}^{\reg} 10^n,
+\end{equation*}
+we should thus have
+\begin{equation*}
+  10 S = \sum_{n \geq 0}^{\reg} 10^{n+1}
+= 1 + S,
+\end{equation*}
+from which it follows that $S = -1/9$.
+\end{remark}
+
+\begin{example}
+  Take
+  \begin{equation*}
+c_n = n^3 e^{- 2^{- n^2 }}.
+\end{equation*}
+Then the series $f$ converges absolutely nowhere: the fundamental interval is empty.  But we can regularize it to get a well-defined $f$.  TODO: expand.
+
+Idea: meromorphically continue positive and negative parts separately, take the sum of these on intersections of domains of definition.
+
+TODO: expansion of $c_n$.
+
+Only pole for both $f_+$ and $f_-$ is at one; quadruple pole, with residues that cancel.
+\end{example}
+
+\begin{example}
+  TODO.  For $a \in \mathbb{Z}_{\geq 0}$ and $\beta \in \mathbb{C}^\times$, take
+  \begin{equation*}
+c_n := n^a \beta^{- n}.
+\end{equation*}
+Then we claim that the regularized generating function $f$ vanishes identically.
+
+TODO: one way to see this is to derive that $f(z) = (z / \beta) f(z)$.
+\end{example}
 
 \newpage
 \section{The zeta function}
