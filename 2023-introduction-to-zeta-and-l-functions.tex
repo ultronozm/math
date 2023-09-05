@@ -12,8 +12,17 @@ These are notes for an ongoing Fall 2023 course on the Riemann zeta function and
 \item Mellin transform and asymptotics: \cite{zagier-mellin}
 \end{itemize}
 
+\section{Outlines thus far}
+\begin{itemize}
+\item Tuesday, 29 Aug: parts of \S\ref{sec:cj4unj5r3k}; \S\ref{sec:cj4unj5r3k} and \S\ref{sec:cj4unj5r3k}.
+\item Thursday, 31 Aug: \S\ref{sec:cj4unj3scf} and \S\ref{sec:cj4unj4gyo}
+\item Friday, 1 Sep: \S\ref{sec:cj4unj04kx} and \S\ref{sec:cj4unj06mw}
+\item Tuesday, 5 Sep: \S\ref{sec:cj4unjziaz}
+\end{itemize}
 
-\section{Background}
+
+
+\section{Background}\label{sec:cj4unj5r3k}
 
 \subsection{General notation}
 $\mathbb{R}^+ := (0,\infty)$.
@@ -95,8 +104,58 @@ for some ``constant'' $C$.  The precise meaning of ``constant'' will either be s
 \end{theorem}
 
 \newpage
-\section{Asymptotics and meromorphic continuation}
-Reference:~\cite[\S5.2]{MR2172781}.
+\subsection{Definition and basic properties of $\zeta$: overview}
+The Riemann zeta function is defined for a complex number $s$ by the series
+\begin{equation*}
+  \zeta (s) = \sum_{n \geq 1} \frac{1}{n^s }.
+\end{equation*}
+\begin{lemma}
+  The series converges absolutely for $\Re(s) > 1$, uniformly for $\Re(s) \geq 1 + \eps$ for each $\eps > 0$.
+\end{lemma}
+\begin{proof}
+  Using the identity
+  \begin{equation*}
+    \left\lvert \frac{1}{n^s} \right\rvert = \frac{1}{n^{\Re(s)}},
+  \end{equation*}
+  we reduce to the case that $s$ is real, in which this is a familiar consequence of the integral test.
+\end{proof}
+
+Our first main goal in the course is to explain the following basic facts.
+\begin{theorem}
+  The Riemann zeta function admits a meromorphic continuation to the entire complex plane.  It is holomorphic away from a simple pole at $s = 1$, where it has residue $1$.  It admits a functional equation relating $\zeta (s)$ to $\zeta (1-s)$.
+\end{theorem}
+
+One historical motivation for considering the zeta function at complex arguments comes from the prime number theorem.
+\begin{theorem}[Prime number theorem]
+  Let $\pi(x) := \# \left\{ \text{primes } p \leq x \right\}$ denote the prime counting function.  Then
+  \begin{equation*}
+    \frac{\pi(x)}{x / \log x} \rightarrow 1
+    \text{ as } x \rightarrow \infty.
+  \end{equation*}
+\end{theorem}
+This is related to the following analytic fact concerning the zeros of the zeta function.
+\begin{theorem}[Prime number theorem, formulated in terms of $\zeta$]\label{theorem:cj3vp9l79t}
+  We have $\zeta(s) = 0$ only if $\Re(s) < 1$.
+\end{theorem}
+\begin{remark}
+  Even the statement of Theorem~\ref{theorem:cj3vp9l79t} is not clear without knowing the meromorphic continuation of $\zeta$.  This may offer some motivation for understanding the latter.
+\end{remark}
+We expect stronger nonvanishing properties:
+\begin{conjecture}[Riemann Hypothesis]
+  We have $\zeta(s) = 0$ only if $\Re(s) < 1/2$.
+\end{conjecture}
+This corresponds to a conjectural stronger form of the prime number theorem, namely that
+\begin{equation*}
+  \pi(x) = \int_2^x \frac{t}{\log t} \, d t
+  + \O (x^{1/2} \log x).
+\end{equation*}
+
+
+
+
+\section{Generating series}
+Here we study the relationship between asymptotics of sequences $(c_n)_{n \in \mathbb{Z}}$ and meromorphic continuation of the associated generating series.  Reference:~\cite[\S5.2]{MR2172781}.
+
 
 \subsection{Setup}
 We consider a Laurent series
@@ -228,7 +287,7 @@ The possibility of meromorphically extending $f$ corresponds to the coefficients
   Generalize the above lemma to describe in terms of the coefficients $c_n$ what it means for $f$ to extend to a meromorphic function on $\mathcal{C}(A,B)$ for some $A < a$ and $B > b$, allowing the possibility of multiple poles of arbitrary order.
 \end{exercise}
 
-\subsection{Further examples}
+\subsection{Further examples}\label{sec:cj4unj3scf}
 
 
 \begin{example}
@@ -296,7 +355,7 @@ The possibility of meromorphically extending $f$ corresponds to the coefficients
 \end{example}
 
 
-\begin{example}
+\begin{example}\label{example:cj4ungymno}
   Take
   \begin{equation*}
     c_n:= e^{- 2^n }.
@@ -364,7 +423,7 @@ The possibility of meromorphically extending $f$ corresponds to the coefficients
   Thus $g_k$ extends to a meromorphic function whose only pole is a simple one at $z = 1/2^k$ with residue ${(-1/4)}^k / k!$.  It follows that $f$ has the claimed meromorphic properties.
 \end{example}
 
-\subsection{Regularization}
+\subsection{Regularization}\label{sec:cj4unj4gyo}
 
 \begin{remark}
   We can cases view $f(1)$ as the ``regularized sum'' of the (possibly divergent) series $\sum_n c_n$:
@@ -411,6 +470,9 @@ In fact, we can define regularized sums even in cases where the series does not 
   \end{equation*}
   where $a \in \mathbb{Z}_{\geq 0}$ and $\beta \in \mathbb{C}^\times$.
 \end{definition}
+\begin{remark}
+The intrinsic interpretation of this definition is that the finite functions are those whose translates span a finite-dimensional subspace of the space of all functions $\mathbb{Z} \rightarrow \mathbb{C}$.
+\end{remark}
 \begin{definition}
   Let us say that a function $c : \mathbb{Z} \rightarrow \mathbb{C}$ is \emph{regularizable} if for each $0 < A < B < \infty$, there exist finite functions $c_{\pm}$ so that
   \begin{equation*}
@@ -479,7 +541,7 @@ Note that the individual pieces $f_{\pm}$ as in Definition~\ref{definition:cj4ss
 \end{example}
 
 
-\subsection{Permutations without small cycles}
+\subsection{Permutations without small cycles}\label{sec:cj4unj04kx}
 Reference:~\cite[p176]{MR2172781}.
 
 Let $S(n)$ denote the symmetric group, consisting of permutations $\sigma$ of the set $ \{1, \dotsc, n\}$.  We have $\# S(n) = n!$.
@@ -554,7 +616,7 @@ for fixed $\ell$ and fixed $B < \infty$.
 
 We may interpret the left hand side of \eqref{eq:cj4ssz06pg} as the probability that a random permutation of length $n$ has no cycles of length $\leq \ell$.
 
-\subsection{Series that do not admit meromorphic continuations}
+\subsection{Series that do not admit meromorphic continuations}\label{sec:cj4unj06mw}
 \begin{example}\label{example:cj4ss1hy2q}
   The series
   \begin{equation*}
@@ -580,58 +642,220 @@ We may interpret the left hand side of \eqref{eq:cj4ssz06pg} as the probability 
   \begin{equation*}
     \sum_{n \geq 0} \sigma_k (n) z^n
   \end{equation*}
-  converges absolutely on the disc $\lvert z \rvert < 1$.  It does not extend to a meromorphic function on any strictly larger open subset.  This can be seen most efficiently using the basic theory of modular forms, which we discuss later in the course.
+  converges absolutely on the disc $\lvert z \rvert < 1$.  It does not extend to a meromorphic function on any strictly larger open set.  This can be seen most efficiently using the basic theory of modular forms, which we discuss later in the course.
 \end{example}
 
 \newpage
-\section{The zeta function}
+\section{Fourier and Mellin transforms}\label{sec:cj4unjziaz}
+Thus far we've related sequences $(c_n)_{n \in \mathbb{Z}}$ to their generating functions $\sum c_n z^n$.  We can think of such sequences as defining functions $\mathbb{Z} \rightarrow \mathbb{C}$, or equivalently, complex measures $\mu = \sum_n c_n \delta_n$ on $\mathbb{Z}$.
 
-\subsection{Overview}
-The Riemann zeta function is defined for a complex number $s$ by the series
+We now want to do something similar for measures $\mu$ on $\mathbb{R}$. We define the Fourier transform of such a measure as follows, for $s \in \mathbb{C}$:
 \begin{equation*}
-  \zeta (s) = \sum_{n \geq 1} \frac{1}{n^s }.
+  F(s) = \int_{x \in \mathbb{R} } e^{s x } \, d \mu (x).
 \end{equation*}
-\begin{lemma}
-  The series converges absolutely for $\Re(s) > 1$, uniformly for $\Re(s) \geq 1 + \eps$ for each $\eps > 0$.
+\begin{remark}
+  Typically the Fourier transform is defined first for a real variable $\xi$ by either $\int_{x \in \mathbb{R} } e^{i x \xi } \, d \mu(x)$ or $\int_{x \in \mathbb{R} } e^{-i x \xi } \, d \mu(x)$, then in general by meromorphic continuation.  The convention used above differs mildly (take $s = \pm i \xi$) and is more convenient for our purposes.
+\end{remark}
+\begin{example}
+  Suppose $\mu = \sum_{n \in \mathbb{Z} } c_n \delta_n$.  Then $F (s) = \sum c_n z^n$ with $z = e^s$.  This function satisfies the symmetry $F (s + 2 \pi i k) = F (s)$ for all $k \in \mathbb{Z}$.[\]
+\end{example}
+\begin{example}
+  Suppose $\mu = \sum_{n =1 }^\infty \delta_{- \log n}$.  Then $F (s) = \sum_1^\infty e^{s (- \log n )} = \sum_1^\infty n^{- s} = \zeta(s)$.
+\end{example}
+The main examples we consider are when $d \mu (x) = f (x) \, d x$ for some function $f : \mathbb{R} \rightarrow \mathbb{C}$, so that
+\begin{equation*}
+  F (s) = \int_{x \in \mathbb{R} } e^{s x } f (x) \, d x.
+\end{equation*}
+As in our study of series, there is a maximal open interval $(a,b)$ such that $F (s)$ converges absolutely when $\Re(s) \in (a,b)$, hence defines a holomorphic function there.
+
+
+Let's recall how the Fourier transform behaves with respect to taking derivatives and multiplying by polynomials.
+\begin{lemma}\label{lemma:cj4und9jny}
+  Given a function $f(x)$ with Fourier transform $F(s)$, the Fourier transform of its derivative $f'(x)$ is given by $-s F(s)$:
+  \begin{equation*}
+    \int e^{s x} f' (x) \, d x = -s F (s).
+  \end{equation*}
+  This formula is valid under sufficient smoothness and decay conditions, e.g., that $f$ is continuously differentiable and
+  \begin{equation*}
+    \int \left\lvert e^{s x } f (x) \right\rvert \, d x  <\infty ,
+    \quad 
+    \int \left\lvert e^{s x } f ' (x) \right\rvert \, d x < \infty,
+    \quad
+    \lim_{x \rightarrow \pm \infty} e^{s x} f(x) =0.
+  \end{equation*}
 \end{lemma}
 \begin{proof}
-  Using the identity
+  By integration by parts, we have for $- \infty < a < b < \infty$
   \begin{equation*}
-    \left\lvert \frac{1}{n^s} \right\rvert = \frac{1}{n^{\Re(s)}},
+    \int_a^b e^{s x } f ' (x) \, d x =
+    e^{s x } f(x) \vert_a^b - s \int_a^b e^{s x } f(x) \, d x.
   \end{equation*}
-  we reduce to the case that $s$ is real, in which this is a familiar consequence of the integral test.
+  Now take $(a,b) \rightarrow (-\infty,\infty)$.  Under the stated conditions, the left hand side converges to $\int e^{s x } f' (x) \, d x$ and the right hand side to $- s F(s)$.
+\end{proof}
+\begin{lemma}
+  Given a function $f(x)$ with Fourier transform $F(s)$, the Fourier transform of $x f(x)$ is given by $F'(s)$:
+  \begin{equation*}
+    \int e^{s x } x f (x) \, d x = F'(s).
+  \end{equation*}
+  This formula is valid under sufficient smoothness and decay conditions, e.g., that $f$ is continuously differentiable and
+  \begin{equation*}
+    \int \left\lvert e^{s x } f (x) \right\rvert \, d x  <\infty ,
+    \quad 
+    \int \left\lvert e^{s x } x f (x) \right\rvert \, d x < \infty.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  We differentiate under the integral sign in the definition of $F(s)$.
+\end{proof}
+One can iterate the above lemmas to work out how the Fourier transform behaves with respect to taking arbitrarily many derivatives or multiplying by general polynomials.  This leads to useful estimates for $F(s)$:
+\begin{lemma}\label{lemma:cj4ungtm6r}
+  Let $n \in \mathbb{Z}_{\geq 0}$ and $s \in \mathbb{C}$.  Then
+  \begin{equation*}
+    \lvert s \rvert^n \lvert F(s) \rvert \leq \int \left\lvert e^{s x} f^{(n)}(x) \right\rvert \, d x
+  \end{equation*}
+  assuming sufficient smoothness and decay conditions, e.g,. that $f$ is $n$ times continuously differentiable, $\lim_{x \rightarrow \pm \infty }e^{s x } f ^{(j)}(x) = 0$ for $j \leq n-1$, and $\left\lvert e^{s x } f^{(j)}(x) \right\rvert \,d x< \infty $ for $j =0, 1,\dotsc, n$.
+\end{lemma}
+\begin{proof}
+  We see by iterating Lemma \ref{lemma:cj4und9jny} that $(-s)^n F(s)$ is the Fourier transform of $f^{(n)}(x)$, i.e., that
+  \begin{equation*}
+    (-s)^n F(s) = \int e^{s x } f^{(n)} (x) \, d x.
+  \end{equation*}
+  The conclusion now follows from the triangle inequality.
 \end{proof}
 
-Our first main goal in the course is to explain the following basic facts.
-\begin{theorem}
-  The Riemann zeta function admits a meromorphic continuation to the entire complex plane.  It is holomorphic away from a simple pole at $s = 1$, where it has residue $1$.  It admits a functional equation relating $\zeta (s)$ to $\zeta (1-s)$.
-\end{theorem}
 
-One historical motivation for considering the zeta function at complex arguments comes from the prime number theorem.
-\begin{theorem}[Prime number theorem]
-  Let $\pi(x) := \# \left\{ \text{primes } p \leq x \right\}$ denote the prime counting function.  Then
-  \begin{equation*}
-    \frac{\pi(x)}{x / \log x} \rightarrow 1
-    \text{ as } x \rightarrow \infty.
-  \end{equation*}
-\end{theorem}
-This is related to the following analytic fact concerning the zeros of the zeta function.
-\begin{theorem}[Prime number theorem, formulated in terms of $\zeta$]\label{theorem:cj3vp9l79t}
-  We have $\zeta(s) = 0$ only if $\Re(s) < 1$.
-\end{theorem}
-\begin{remark}
-  Even the statement of Theorem~\ref{theorem:cj3vp9l79t} is not clear without knowing the meromorphic continuation of $\zeta$.  This may offer some motivation for understanding the latter.
-\end{remark}
-We expect stronger nonvanishing properties:
-\begin{conjecture}[Riemann Hypothesis]
-  We have $\zeta(s) = 0$ only if $\Re(s) < 1/2$.
-\end{conjecture}
-This corresponds to a conjectural stronger form of the prime number theorem, namely that
+The main way to pass from $F$ to $f$ is via the \emph{Fourier inversion formula}, which (when valid) states that
+\begin{equation}\label{eq:cj4unc4wp1}
+  f (x) = \int_{(c)} F(s) e^{- s x} \, \frac{d s }{2 \pi i}.
+\end{equation}
+Here $\int_{(c)}$ denote a complex contour integral over $s \in c + i \mathbb{R}$ for some $c \in \mathbb{R}$; in terms of the Lebesgue measure $d \xi$ on $\mathbb{R}$, the above integral may be rewritten
 \begin{equation*}
-  \pi(x) = \int_2^x \frac{t}{\log t} \, d t
-  + \O (x^{1/2} \log x).
+  \int_{\xi \in \mathbb{R}} F(c + i \xi ) e^{- (c + i \xi) x} \, \frac{d \xi  }{2 \pi}.
 \end{equation*}
+\begin{theorem}[$L^1$ Fourier inversion]
+  Suppose that the integrals
+  \begin{equation}\label{eq:cj4undvahu}
+    \int_{x \in \mathbb{R} } e^{c x} \lvert f(x) \rvert \, d x,
+  \end{equation}
+  \begin{equation}\label{eq:cj4undu69x}
+    \int_{(c)} \lvert F(s) \rvert \, d s
+  \end{equation}
+  are both finite.  Then the Fourier inversion formula \eqref{eq:cj4unc4wp1} holds.
+\end{theorem}
+It's typically easy to check when the first integral \eqref{eq:cj4undvahu} is finite.  For the second integral \eqref{eq:cj4undu69x}, we can appeal to Lemma \ref{lemma:cj4ungtm6r}, which implies that under sufficient smoothness and decay conditions,
+\begin{equation*}
+(1 + |s|^2) \lvert F(s) \rvert \leq \int \left( \lvert e^{s x } f(x) \rvert + \lvert e^{s x } f''(x) \rvert \right) \, d x.
+\end{equation*}
+The finiteness of the right hand side implies that $F(s) \ll (1 + |s|^2)^{-1}$, hence the finiteness of \eqref{eq:cj4undu69x}.
 
+
+\begin{example}\label{example:cj4uniw25n}
+  Let's work out a variant of Example \ref{example:cj4ungymno}.  Take $f(x) = e^{- e^x}$.  As $x \rightarrow \infty$, it decays rapidly, namely $f(x) \ll e^{-C x}$ for each fixed $C$.  As $x \rightarrow -\infty$, it admits an asymptotic expansion given by the Taylor series of the expansion function, e.g.,
+  \begin{equation*}
+f(x) = 1 - e^{x} + \frac{e^{2 x}}{2!} + \O (e^{3 x}).
+  \end{equation*}
+  We can argue as in Example \ref{example:cj4ungymno} that the Fourier transform
+  \begin{equation*}
+F(s) = \int e^{s x } f(x) \, d x
+  \end{equation*}
+  converges absolutely for $\Re(s) > 0$ and extends to a meromorphic function of $s$, whose only poles are simple poles at $s = -n$ for $n \in \mathbb{Z}_{\geq 0}$, with residue $(-1)^n / n!$.  For instance, to check the validity of this statement when $\Re(s) > -3$, we define
+  \begin{equation*}
+f_-(x) :=
+\begin{cases}
+1 - e^x + \frac{e^{2 x }}{ 2 !} & \text{ if } x \leq 0, \\
+0 & \text{ x > 0.}
+\end{cases}
+  \end{equation*}
+  Its Fourier transform $F_-(s)$ converges absolutely for $\Re(s) > 0$.  The Fourier transform $F(s) - F_-(s)$ of the difference $f(x) - f_-(x)$ converges absolutely for $\Re(s) > -3$, hence defines a holomorphic function in that region.  But we may evaluate $F_-(s)$ explicitly, and we see that it extends to a meromorphic function:
+  \begin{equation}\label{eq:cj4uni5pkc}
+    F_-(s) = \int _{-\infty}^0 \left( 1 - e^x + \frac{e^{2 x }}{ 2!} \right) e^{s x} \, d x
+    =
+    \frac{1}{s} - \frac{1}{s + 1} + \frac{1}{2 ! (s + 2)}.
+\end{equation}  
+\end{example}
+
+It's often useful to change coordinates.  For $x \in \mathbb{R}$, set
+\begin{equation*}
+y := e^x,
+\end{equation*}
+so that $x = \log y$.  Then $y$ lies in $\mathbb{R}^+ = \mathbb{R}^\times_+ = (0,\infty)$, and we have
+\begin{equation*}
+y^s = e^{s x}.
+\end{equation*}
+We have
+\begin{align*}
+x \rightarrow +\infty &\iff y \rightarrow \infty, \\
+x \rightarrow -\infty &\iff y \rightarrow 0.
+\end{align*}
+Given a function $f(x)$ on $\mathbb{R}$, let us define a function $h(y)$ on $\mathbb{R}^+$ in the evident way, so that
+\begin{equation*}
+h(y) = f(\log y), \quad f(x) = h(e^x).
+\end{equation*}
+The integrals of these functions are related as follows:
+\begin{equation*}
+\int f(x) \, d x = \int h(y) \, \frac{d y}{y}.
+\end{equation*}
+We abbreviate
+\begin{equation*}
+  d^\times y := \frac{d y}{y},
+\end{equation*}
+since this normalization occurs often.  It has the following useful dilation-invariance: for any $b \in \mathbb{R}^+$,
+\begin{equation*}
+\int h(b y) \,d^\times y = \int h(y) \,d^\times y.
+\end{equation*}
+The Fourier transform of $f$ may be written
+\begin{equation*}
+H(s) := \int y^s h(y) \,d^\times y.
+\end{equation*}
+It is called the \emph{Mellin transform} of $h$.
+
+\begin{example}
+  We have $e^{- e^x } = e^{- y}$, so the Fourier transform $F(s)$ considered in Example \ref{example:cj4uniw25n} may be rewritten
+  \begin{equation*}
+\Gamma(s) = \int_{\mathbb{R}^+} e^{- y } y^s \,d^\times y.
+  \end{equation*}
+  This is the $\Gamma$-function.  The  arguments of Example \ref{example:cj4uniw25n} may be rewritten in the new variables.  For example, to verify that $\Gamma(s)$, defined initially for $\Re(s) > 0$ by the above absolutely convergent integral, extends to a meromorphic function on $\Re(s) > -3$ with the prescribed polar behavior, we define
+  \begin{equation*}
+h_-(y) :=
+\begin{cases}
+1 - y + \frac{y^2}{2!} & \text{ if } 0 < y \leq 1, \\
+0 & \text{ if } y > 1.
+\end{cases}
+  \end{equation*}
+  Then $e^{-y} = h_-(y) + \O(y^3)$ as $y \rightarrow 0$, so the difference between $\Gamma(s)$ and the Mellin transform $H_-(s)$ of $h_-$ is defined for $\Re(s) > -3$ by an absolutely convergent integral, hence is holomorphic.  On the other hand, we may evaluate $H_-(s)$ explicitly; the result is as in \eqref{eq:cj4uni5pkc}.
+\end{example}
+
+\begin{example}
+  Take
+  \begin{equation*}
+h(y) = \frac{1}{e^y - 1}.
+  \end{equation*}
+  The function $y h(y)$ extends to a holomorphic function of $y$ on the disc $\{y \in \mathbb{C} : \lvert y \rvert < 2 \pi \}$, so $h$ is represented for small $y > 0$ by an absolutely convergent Laurent series of the following form:
+  \begin{equation*}
+h(y) = \frac{1}{y} + \sum_{n = 1 }^\infty \frac{B_n  }{ n !} y^{n - 1}.
+  \end{equation*}
+  Here the $B_n$ are complex coefficients, called the \emph{Bernoulli numbers}.  On the other hand, $h$ decays rapidly (like $\O(y^N)$ for any fixed $N$) as $y \rightarrow \infty$.  By the analysis we've now seen many times, we deduce that the Mellin transform $H(s)$ of $h(y)$ converges absolutely for $\Re(s) > 1$, where it defines a holomorphic function, and extends to a meromorphic function on the complex plane whose only poles are simple poles at $s = 1$ (corresponding to the $1/y$ term in the asymptotic expansion as $y \rightarrow 0$) and at $s = -n$ for each $n \in \mathbb{Z}_{\geq 0}$, with residue given by $1$ in the former case and by $B_{n+1} / (n+!)!$ in the latter.
+
+  On the other hand, we can rewrite
+  \begin{equation*}
+    h(y) = \frac{e^{- y}}{ 1 - e^{- y}}
+    = e^{- y } + e^{- 2 y } + e^{- 3 y} + \dotsb,
+  \end{equation*}
+  giving
+  \begin{equation*}
+    H(s) = \int_{\mathbb{R}^+ } y^s \sum_{n = 1 }^\infty e^{- n y } \,d^\times y.
+  \end{equation*}
+  The following calculations will show that the doubly integral/sum converges absolutely for $\Re(s) > 1$, so we may rearrange it as
+  \begin{equation*}
+\sum_{n = 1 }^\infty \int_{\mathbb{R}^+ } y^s e^{- n y } \,d^\times y.
+  \end{equation*}
+  The inner integral may be simplified by the substitution $y \mapsto y /n$.  This has no effect on the measure $d^\times y$, but replaces $y^s$ by $n^{-s} y^s$, giving
+  \begin{equation*}
+    \sum_{n = 1 }^\infty n^{- s} \int_{\mathbb{R}^+ } y^s e^{- y } \,d^\times y
+    = \zeta(s) \Gamma(s).
+  \end{equation*}
+  We see in this way that the $\zeta$ function admits a meromorphic continuation.  We'll be able to describe its poles once we explain why the $\Gamma$-function does notvanish.  Also, we may calculate in this way the values of $\zeta(-n)$ for each $n \in \mathbb{Z}_{\geq 0}$.  TODO: continue.
+\end{example}
 
 
 
