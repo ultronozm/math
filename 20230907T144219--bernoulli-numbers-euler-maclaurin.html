@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Bernoulli numbers and Euler–Maclaurin summation</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+    <div class="my-links-container">
+2023-09-07 16:26:47
+      <a href="20230907T144219--bernoulli-numbers-euler-maclaurin.tex" class="my-link">tex</a>
+      <a href="20230907T144219--bernoulli-numbers-euler-maclaurin.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20230907T144219--bernoulli-numbers-euler-maclaurin.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+<header id="title-block-header">
+<h1 class="title">Bernoulli numbers and Euler–Maclaurin summation</h1>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>Part of the course notes for <a
+href="2023-introduction-to-zeta-and-l-functions.html">this
+course</a>.</p>
+</div>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#definitions-and-statements"
+id="toc-definitions-and-statements">Definitions and statements</a></li>
+<li><a href="#applications" id="toc-applications">Applications</a>
+<ul>
+<li><a href="#sec:cj4vkfaant" id="toc-sec:cj4vkfaant">Asymptotics of
+Riemann sums</a></li>
+</ul></li>
+<li><a href="#sec:cj4vkej9k1" id="toc-sec:cj4vkej9k1">Proofs</a></li>
+</ul>
+</nav>
+<p>Here I’m recording my own notes, closely following the presentation
+of <a href="#ref-zagier-mellin" class="citation" data-cites="zagier-mellin">(Zagier 2006, sec.
+4)</a> but filling in the details. Only a small part of this material
+was covered in lecture.</p>
+<h1 id="definitions-and-statements">Definitions and statements</h1>
+<p>The Bernoulli numbers <span class="math inline">\(B_n\)</span> may be
+defined (up to conventions) by the generating function <span
+class="math display">\[\frac{1}{e^t - 1}
+  =
+  \frac{1}{t + t^2/2 + \dotsb }
+  = \sum_{n \geq 0} \frac{B_n }{ n !} t^{n - 1}.\]</span></p>
+<div class="exercise">
+<p><strong>Exercise 1</strong>. Use the methods of <a
+href="20230907T142550--generating-functions-asymptotics.html">these
+previous notes</a> to determine the leading order asymptotics of <span
+class="math inline">\(B_n\)</span> as <span class="math inline">\(n
+\rightarrow \infty\)</span>.</p>
+</div>
+<p>The Bernoulli polynomials <span class="math inline">\(B_n(x)\)</span>
+may be defined by the generating function <span id="eq:cj4sr7qmvd" class="math display">\[\label{eq:cj4sr7qmvd}\tag{1}
+\frac{e^{x t} }{ e^t - 1 } = \sum_{n \geq 0} \frac{B_n (x) }{n !}
+t^{n-1},\]</span> so that <span class="math inline">\(B_n =
+B_n(0)\)</span>.</p>
+<div class="example">
+<p><strong>Example 1</strong>. By direct calculation, we have <span id="eq:cj4sr7wpkw" class="math display">\[\label{eq:cj4sr7wpkw}\tag{2}
+    B_0(x) = 1.\]</span> <span class="math display">\[B_1(x) = x -
+\frac{1}{2},\]</span> <span class="math display">\[B_2(x) = x^2 - x +
+\frac{1}{6}.\]</span></p>
+</div>
+<div class="notation">
+<p><strong>Notation 2</strong>. For <span class="math inline">\(x \in
+\mathbb{R}\)</span>, we denote by <span class="math inline">\(\lfloor x
+\rfloor \in \mathbb{Z}\)</span> its integer part and <span
+class="math inline">\(\{x\} \in [0,1)\)</span> its fractional part,
+which are characterized by the identity <span class="math display">\[x =
+\lfloor x \rfloor + \{x\}.\]</span></p>
+</div>
+<div id="theorem:cj4vked1rh" class="theorem">
+<p><strong>Theorem 3</strong> (Euler–Maclaurin formula). <em>For
+integers <span class="math inline">\(a &lt; b\)</span>, and a smooth
+function <span class="math inline">\(f\)</span> on the real line, <span
+class="math display">\[\begin{align}
+  \int_{a}^b f (x) \, d x = \frac{f (a) }{2} + \sum_{n = a + 1}^{b - 1}
+f (n)
+  + \frac{f (b)}{2}
+  + \sum_{n = 1}^{N - 1 } \frac{(- 1 )^n B_{n + 1 }}{ (n + 1 )!}
+  \left( f^{(n) } (b ) - f^{(n )} (a) \right) \\
+  + (- 1)^N \int_{a}^b f^{(N)} (x) \frac{B_N (\{x\})}{N!} \, d x.
+\end{align}\]</span></em></p>
+</div>
+<div class="example">
+<p><strong>Example 4</strong>. In the case <span
+class="math inline">\(N=1\)</span>, this specializes to the “trapezoid
+rule”: <span class="math display">\[\int_a^b f (x) \, d x
+    =
+    \frac{f (a) }{2} + \sum_{n = a + 1}^{b - 1} f (n)
+  + \frac{f (b)}{2}
+  - \int_{a}^b \{ x - \tfrac{1}{2} \} f&#39; (x)\, d x.\]</span></p>
+</div>
+<div class="exercise">
+<p><strong>Exercise 2</strong>. Prove <a href="#sec:cj4vkej9k1"
+data-reference-type="ref" data-reference="sec:cj4vkej9k1">3</a>. [Reduce
+to the case <span class="math inline">\((a,b) = (0,1)\)</span>, then
+integrate by parts.]</p>
+</div>
+<h1 id="applications">Applications</h1>
+<p>Theorem <a href="#theorem:cj4vked1rh" data-reference-type="ref"
+data-reference="theorem:cj4vked1rh">3</a> can be useful for asymptotic
+analysis. The reference <a href="#ref-zagier-mellin" class="citation"
+data-cites="zagier-mellin">(Zagier 2006, sec. 4)</a> contains many
+interesting examples. Here is a less interesting example, which can be
+studied in other ways (e.g., using Poisson summation).</p>
+<h2 id="sec:cj4vkfaant">§2.1. Asymptotics of Riemann sums</h2>
+<p>(Compare with external §<a href="20230907T161723--poisson-summation.html#sec:cj4vkkp26q"
+data-reference-type="ref"
+data-reference="sec:cj4vkkp26q">2</a>.)</p>
+<p>Let <span class="math inline">\(f : \mathbb{R} \rightarrow
+\mathbb{C}\)</span> be smooth and compactly-supported, or more
+generally, an element of the <a
+href="https://en.wikipedia.org/wiki/Schwartz_space">Schwartz space</a>
+<span class="math inline">\(\mathcal{S}(\mathbb{R})\)</span>. Define the
+function <span class="math inline">\(g : \mathbb{R}^+ \rightarrow
+\mathbb{C}\)</span> by <span class="math display">\[g(y) := \sum_{n \in
+\mathbb{Z} } f (n y ).\]</span> Then as <span class="math inline">\(y
+\rightarrow 0\)</span>, the quantity <span class="math inline">\(y
+g(y)\)</span> is a Riemann sum, hence converges to <span
+class="math inline">\(\int f\)</span>. We will verify that this
+convergence is quite rapid:</p>
+<div class="lemma">
+<p><strong>Lemma 5</strong>. For each fixed <span
+class="math inline">\(N \geq 0\)</span>, we have for <span
+class="math inline">\(y \in (0,1)\)</span> the estimate <span
+class="math display">\[g(y) = y^{-1}  \int f +
+\operatorname{O}(y^N).\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We take the limit of Theorem <a
+href="#theorem:cj4vked1rh" data-reference-type="ref"
+data-reference="theorem:cj4vked1rh">3</a> as <span
+class="math inline">\((a,b) \rightarrow (-\infty, +\infty)\)</span>,
+applied to <span class="math inline">\(f_y(x) := f(x y)\)</span>; we can
+do this because <span class="math inline">\(f\)</span> and all its
+derivatives vanish at <span class="math inline">\(\infty\)</span>. Since
+<span class="math inline">\(f_y^{(n)}(x) = y^n f^{(n)}(x)\)</span>, we
+obtain for each <span class="math inline">\(N \geq 1\)</span>, <span
+class="math display">\[\int_{\mathbb{R} } f (x y ) \, d x = \sum_{n \in
+\mathbb{Z} } f (n y) + (- y)^N \int_{\mathbb{R} } f^{(N)} (x y)
+\frac{B_N (\{x\})}{N!} \, d x.\]</span> We see that the left hand side
+is <span class="math inline">\(y^{-1} \int f\)</span> via the
+substitution <span class="math inline">\(x \mapsto x/y\)</span>. We
+estimate the integral on the right hand side using that <span
+class="math inline">\(f^{(N)}\)</span> has finite <span
+class="math inline">\(L^1\)</span>-norm and <span
+class="math inline">\(B_N (\{x\})\)</span> is bounded, due to the
+periodicity of <span class="math inline">\(\{x\}\)</span>. The required
+conclusion follows. ◻</p>
+</span></div>
+<div class="remark">
+<p><strong>Remark 6</strong>. It’s more interesting to analyze <span
+class="math inline">\(\sum_{n \geq 0 } f(n y)\)</span> this way. We
+refer again to <a href="#ref-zagier-mellin" class="citation" data-cites="zagier-mellin">(Zagier
+2006, sec. 4)</a>.</p>
+</div>
+<h1 id="sec:cj4vkej9k1">§3. Proofs</h1>
+<p>Here we record the proof of Theorem <a href="#theorem:cj4vked1rh"
+data-reference-type="ref" data-reference="theorem:cj4vked1rh">3</a>
+(again, following the presentation of <a href="#ref-zagier-mellin" class="citation"
+data-cites="zagier-mellin">(Zagier 2006, sec. 4)</a>), after some
+preliminaries.</p>
+<div id="lemma:cj4sr702cf" class="lemma">
+<p><strong>Lemma 7</strong>. For <span class="math inline">\(n \geq
+1\)</span>, we have <span class="math display">\[B_n&#39;(x) = n
+B_{n-1}(x).\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> It suffices to show that <span
+class="math display">\[\sum_{n \geq 0} \frac{B_n&#39;(x)}{n!} t^{n-1}
+    =
+\sum_{n \geq 1} \frac{B_{n-1}(x)}{(n-1)!} t^{n-1},\]</span> or
+equivalently, that <span class="math display">\[\frac{d}{d x } \sum_{n
+\geq 0 } \frac{B_n(x)}{n!} t^{n-1} = t \sum_{n \geq 0 } \frac{B_n (x)}{
+n !} t^{n-1},\]</span> which is clear from the definition <a
+href="#eq:cj4sr7qmvd" data-reference-type="eqref"
+data-reference="eq:cj4sr7qmvd">\((1)\)</a>. ◻</p>
+</span></div>
+<div id="lemma:cj4vkas8qw" class="lemma">
+<p><strong>Lemma 8</strong>. The Bernoulli polynomials are given by the
+formula <span class="math display">\[B_n (x) = \sum_{r = 0}^n
+\binom{n}{r} B_r x^{n - r}.\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> The claimed formula holds when <span
+class="math inline">\(x=0\)</span> because the right hand side
+simplifies to <span class="math inline">\(B_n\)</span>. It also holds
+when <span class="math inline">\(n = 0\)</span> in view of <a
+href="#eq:cj4sr7wpkw" data-reference-type="eqref"
+data-reference="eq:cj4sr7wpkw">\((2)\)</a>. We may thus suppose
+by induction on <span class="math inline">\(n \geq 1\)</span> that the
+claimed formula holds for smaller values of <span
+class="math inline">\(n\)</span>.</p>
+<p>Since we have checked that the claimed formula holds when <span
+class="math inline">\(x=0\)</span>, we reduce to verifying that the
+derivatives of the two sides coincide. The derivative of the right hand
+side is <span class="math display">\[\sum_{r = 0 }^{n - 1 } \frac{n!}{r!
+(n-r)!} (n-r) B_r x^{n-1-r},\]</span> which simplifies to <span
+class="math display">\[n \sum_{r = 0 }^{n - 1 } \frac{(n-1)!}{r!
+(n-1-r)!} B_r x^{n-1-r}.\]</span> By our inductive hypothesis, this
+simplifies to <span class="math inline">\(n B_{n-1}(x)\)</span>, which,
+in view of Lemma <a href="#lemma:cj4sr702cf" data-reference-type="ref"
+data-reference="lemma:cj4sr702cf">7</a>, coincides with the derivative
+of the left hand side, <span
+class="math inline">\(B_n&#39;(x)\)</span>. ◻</p>
+</span></div>
+<div id="lemma:cj4ssc4a2b" class="lemma">
+<p><strong>Lemma 9</strong>. For each <span class="math inline">\(a \geq
+0\)</span>, we have <span class="math display">\[\int_a^{a+1} B_n(x) \,
+d x = a^n.\]</span> Here we interpret <span class="math inline">\(0^0 =
+1\)</span>.</p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> It is enough to check that <span
+class="math display">\[\int_{a}^{a+1}
+    \sum_{n \geq 0} \frac{B_n (x) }{ n ! } t^n
+    \,d x
+    = \sum_{n \geq 0} \frac{a^n}{n!} t^n,\]</span> or equivalently, in
+view of <a href="#eq:cj4sr7qmvd" data-reference-type="eqref"
+data-reference="eq:cj4sr7qmvd">\((1)\)</a>, that <span id="eq:cj4ssco825" class="math display">\[\label{eq:cj4ssco825}\tag{3}
+    \int_{a}^{a + 1 }\frac{t e^{x t} }{ e^t - 1 } \, d x = e^{a
+t}.\]</span> Indeed, we have <span
+class="math display">\[\begin{align}
+    \int_a^{a + 1 } e^{x t } \, d x
+    &amp;=
+    \frac{1}{t} e^{x t }|_{x=a}^{a+1} \\
+    &amp;=
+    \frac{e^{(a+1) t} - e^{a t}}{t} \\
+    &amp;=
+      e^{a t}
+    \frac{e^t - 1}{t},
+  
+\end{align}\]</span> from which the formula <a href="#eq:cj4ssco825"
+data-reference-type="eqref"
+data-reference="eq:cj4ssco825">\((3)\)</a> follows. ◻</p>
+</span></div>
+<div id="lemma:cj4vkapsln" class="lemma">
+<p><strong>Lemma 10</strong>. We have <span class="math display">\[B_{n}
+(x + 1 ) - B_n (x) = n x^{n - 1}.\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Combine Lemmas <a href="#lemma:cj4sr702cf"
+data-reference-type="ref" data-reference="lemma:cj4sr702cf">7</a> and <a
+href="#lemma:cj4ssc4a2b" data-reference-type="ref"
+data-reference="lemma:cj4ssc4a2b">9</a>. ◻</p>
+</span></div>
+<div class="lemma">
+<p><strong>Lemma 11</strong>. For <span class="math inline">\(n \geq
+2\)</span>, we have <span class="math display">\[B_n (1) =
+B_n.\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We need to check that <span
+class="math display">\[B_n(1) - B_n(0) = 0.\]</span> By the fundamental
+theorem of calculus, it is enough to check that <span
+class="math display">\[\int_0^1 B_n&#39;(x) \, d x = 0.\]</span> By
+Lemma <a href="#lemma:cj4sr702cf" data-reference-type="ref"
+data-reference="lemma:cj4sr702cf">7</a>, it is equivalent to check that
+<span class="math display">\[\int_0^1 B_{n - 1 } (x) \, d x =
+0.\]</span> This follows from Lemma <a href="#lemma:cj4ssc4a2b"
+data-reference-type="ref" data-reference="lemma:cj4ssc4a2b">9</a>. We
+use here that <span class="math inline">\(n-1 \geq 1\)</span>, which
+ensures that <span class="math inline">\(0^{n-1} = 0\)</span>. ◻</p>
+</span></div>
+<div class="lemma">
+<p><strong>Lemma 12</strong>. For a smooth function <span
+class="math inline">\(f\)</span> on <span
+class="math inline">\([0,1]\)</span>, we have <span
+class="math display">\[\begin{gathered}
+    \int_0^1 f^{(n)} (x) \frac{B_n (x) }{n !} \, d x
+    = - \int_0^1 f^{(n + 1 )} (x)
+    \frac{B_{n + 1 } (x) }{ (n + 1 )! } \, d x \\
+    +
+    \begin{cases}
+      \frac{f (0) + f (1) }{2} &amp; \text{ if } n = 0, \\
+      \frac{B_{n + 1}}{(n + 1 )!} \left( f^{(n)} (1) - f^{(n)}
+(0)  \right) &amp;  \text{ if } n \geq 1.
+    \end{cases}
+  
+\end{gathered}\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We integrate by parts. Take <span
+class="math display">\[u = f^{(n)}(x), \qquad v =
+\frac{B_{n+1}(x)}{(n+1)!}.\]</span> Then, by Lemma <a
+href="#lemma:cj4sr702cf" data-reference-type="ref"
+data-reference="lemma:cj4sr702cf">7</a>, <span class="math display">\[u
+\, d v  = f^{(n )} (x)  \frac{B_n (x) }{n !}.\]</span> The first term on
+the right hand side of the claimed formula is the integral of <span
+class="math inline">\(v \, d u\)</span>. The second term is <span
+class="math inline">\(u v |_{0}^1\)</span>, using here that <span
+class="math inline">\(B_m(1) = B_m(0) = B_m\)</span> for <span
+class="math inline">\(m \geq 2\)</span>, while <span
+class="math inline">\(B_1(0) = 1/2 = - B_1(0)\)</span>. ◻</p>
+</span></div>
+<p>By inducting on <span class="math inline">\(N\)</span> and using that
+<span class="math inline">\(B_0(x) = 1\)</span>, we obtain: <span
+class="math display">\[\begin{gathered}
+  \int_0^1 f(x) \, d x
+  = (-1)^N \int_0^1 f^{(N + 1 )} (x)
+  \frac{B_{N + 1 } (x) }{ (N + 1 )! } \, d x \\
+  +
+  \frac{f (0) + f (1) }{2}
+  +
+  \sum_{n = 1}^{N - 1} \frac{B_{n + 1}}{(n + 1 )!} \left( f^{(n)} (1) -
+f^{(n)} (0)  \right).
+\end{gathered}\]</span> By replacing <span
+class="math inline">\(f\)</span> with its shifts by integer and summing,
+we obtain Theorem <a href="#theorem:cj4vked1rh"
+data-reference-type="ref" data-reference="theorem:cj4vked1rh">3</a>.</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="list">
+<div id="ref-zagier-mellin" class="csl-entry" role="listitem">
+Zagier, Don. 2006. <span>“The Mellin Transform and Other Useful Analytic
+Techniques.”</span> <a
+href="http://people.mpim-bonn.mpg.de/zagier/files/tex/MellinTransform/fulltext.pdf"
+class="uri">http://people.mpim-bonn.mpg.de/zagier/files/tex/MellinTransform/fulltext.pdf</a>.
+</div>
+</div>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
