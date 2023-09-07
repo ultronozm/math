@@ -209,7 +209,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2023-09-07 14:52:09
+2023-09-07 16:26:47
       <a href="2023-introduction-to-zeta-and-l-functions.tex" class="my-link">tex</a>
       <a href="2023-introduction-to-zeta-and-l-functions.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/2023-introduction-to-zeta-and-l-functions.tex" class="my-link">history</a>
@@ -236,7 +236,17 @@ basic properties of <span class="math inline">\(\zeta\)</span>:
 overview</a></li>
 </ul></li>
 <li><a href="#sec:cj4unjziaz" id="toc-sec:cj4unjziaz">Basic analytic
-properties of <span class="math inline">\(\zeta\)</span></a></li>
+properties of <span class="math inline">\(\zeta\)</span></a>
+<ul>
+<li><a
+href="#meromorphic-continuation-and-evaluation-at-negative-integers"
+id="toc-meromorphic-continuation-and-evaluation-at-negative-integers">Meromorphic
+continuation and evaluation at negative integers</a>
+<ul>
+<li><a href="#sec:cj4vkkark8" id="toc-sec:cj4vkkark8">Another
+perspective on meromorphic continuation</a></li>
+</ul></li>
+</ul></li>
 </ul>
 </nav>
 <p>These are notes for an ongoing Fall 2023 course on the Riemann zeta
@@ -251,16 +261,18 @@ data-cites="MR2172781">(Wilf 2006, sec. 5.2)</a></p></li>
 data-cites="zagier-mellin">(Zagier 2006)</a></p></li>
 </ul>
 <h1 id="outlines-thus-far">Outlines thus far</h1>
+<p>(Some links here refer to external files; I’ll have to think of a
+good way to notate that.)</p>
 <ul>
 <li><p>Tuesday, 29 Aug: parts of §<a href="#sec:cj4unj5r3k"
 data-reference-type="ref" data-reference="sec:cj4unj5r3k">4</a>; §<a
-href="#sec:cj4unj5r3k" data-reference-type="ref"
-data-reference="sec:cj4unj5r3k">4</a> and §<a href="#sec:cj4unj5r3k"
-data-reference-type="ref"
-data-reference="sec:cj4unj5r3k">4</a>.</p></li>
+href="20230907T142550--generating-functions-asymptotics.html#sec:cj4vkkg5ah" data-reference-type="ref"
+data-reference="sec:cj4vkkg5ah">1</a>, §<a
+href="20230907T142550--generating-functions-asymptotics.html#sec:cj4vkkg9es" data-reference-type="ref"
+data-reference="sec:cj4vkkg9es">2</a></p></li>
 <li><p>Thursday, 31 Aug: §<a href="20230907T142550--generating-functions-asymptotics.html#sec:cj4unj3scf"
 data-reference-type="ref"
-data-reference="sec:cj4unj3scf">3</a> and §<a
+data-reference="sec:cj4unj3scf">3</a>, §<a
 href="20230907T142550--generating-functions-asymptotics.html#sec:cj4unj4gyo" data-reference-type="ref"
 data-reference="sec:cj4unj4gyo">4</a></p></li>
 <li><p>Friday, 1 Sep: §<a href="20230907T142550--generating-functions-asymptotics.html#sec:cj4unj04kx"
@@ -270,6 +282,10 @@ href="20230907T142550--generating-functions-asymptotics.html#sec:cj4unj06mw" dat
 data-reference="sec:cj4unj06mw">6</a></p></li>
 <li><p>Tuesday, 5 Sep: §<a href="#sec:cj4unjziaz"
 data-reference-type="ref" data-reference="sec:cj4unjziaz">5</a></p></li>
+<li><p>Thursday, 7 Sep: §<a href="#sec:cj4vkkark8"
+data-reference-type="ref" data-reference="sec:cj4vkkark8">5.1.1</a>, §<a
+href="20230907T144219--bernoulli-numbers-euler-maclaurin.html#sec:cj4vkfaant" data-reference-type="ref"
+data-reference="sec:cj4vkfaant">2.1</a></p></li>
 </ul>
 <h1
 id="course-notes-that-ive-since-split-off-into-separate-files">Course
@@ -284,6 +300,9 @@ functions and asymptotics</a></p></li>
 <li><p><a
 href="20230907T143130--fourier-and-mellin-transforms.html">Fourier and
 Mellin transforms</a></p></li>
+<li><p><a
+href="20230907T144219--bernoulli-numbers-euler-maclaurin.html">Bernoulli
+numbers and Euler–Maclaurin summation</a></p></li>
 </ul>
 <h1 id="sec:cj4unj5r3k">§4. Background</h1>
 <h2 id="general-notation">General notation</h2>
@@ -365,20 +384,23 @@ theorem, namely that <span class="math display">\[\pi(x) = \int_2^x
   + \operatorname{O}(x^{1/2} \log x).\]</span></p>
 <h1 id="sec:cj4unjziaz">§5. Basic analytic properties of <span
 class="math inline">\(\zeta\)</span></h1>
-<div class="example">
-<p><strong>Example 6</strong>. Take <span class="math display">\[h(y) =
-\frac{1}{e^y - 1}.\]</span> The function <span class="math inline">\(y
-h(y)\)</span> extends to a holomorphic function of <span
-class="math inline">\(y\)</span> on the disc <span
-class="math inline">\(\{y \in \mathbb{C} : \lvert y \rvert &lt; 2 \pi
-\}\)</span>, so <span class="math inline">\(h\)</span> is represented
-for small <span class="math inline">\(y &gt; 0\)</span> by an absolutely
-convergent Laurent series of the following form: <span
+<h2
+id="meromorphic-continuation-and-evaluation-at-negative-integers">Meromorphic
+continuation and evaluation at negative integers</h2>
+<p>Take <span class="math display">\[h(y) = \frac{1}{e^y - 1}.\]</span>
+The function <span class="math inline">\(y h(y)\)</span> extends to a
+holomorphic function of <span class="math inline">\(y\)</span> on the
+disc <span class="math inline">\(\{y \in \mathbb{C} : \lvert y \rvert
+&lt; 2 \pi \}\)</span>, so <span class="math inline">\(h\)</span> is
+represented for small <span class="math inline">\(y &gt; 0\)</span> by
+an absolutely convergent Laurent series of the following form: <span
 class="math display">\[h(y) = \frac{1}{y} + \sum_{n = 1 }^\infty
 \frac{B_n  }{ n !} y^{n - 1}.\]</span> Here the <span
 class="math inline">\(B_n\)</span> are complex coefficients, called the
-<em>Bernoulli numbers</em>. On the other hand, <span
-class="math inline">\(h\)</span> decays rapidly (like <span
+<em>Bernoulli numbers</em> (see <a
+href="20230907T144219--bernoulli-numbers-euler-maclaurin.html">this
+note</a>). On the other hand, <span class="math inline">\(h\)</span>
+decays rapidly (like <span
 class="math inline">\(\operatorname{O}(y^N)\)</span> for any fixed <span
 class="math inline">\(N\)</span>) as <span class="math inline">\(y
 \rightarrow \infty\)</span>. By the analysis we’ve now seen many times,
@@ -398,7 +420,7 @@ by <span class="math inline">\(B_{n+1} / (n+!)!\)</span> in the
 latter.</p>
 <p>On the other hand, we can rewrite <span class="math display">\[h(y) =
 \frac{e^{- y}}{ 1 - e^{- y}}
-    = e^{- y } + e^{- 2 y } + e^{- 3 y} + \dotsb,\]</span> giving <span
+  = e^{- y } + e^{- 2 y } + e^{- 3 y} + \dotsb,\]</span> giving <span
 class="math display">\[H(s) = \int_{\mathbb{R}^+ } y^s \sum_{n = 1
 }^\infty e^{- n y } \,d^\times y.\]</span> The following calculations
 will show that the doubly integral/sum converges absolutely for <span
@@ -411,7 +433,7 @@ class="math inline">\(d^\times y\)</span>, but replaces <span
 class="math inline">\(y^s\)</span> by <span class="math inline">\(n^{-s}
 y^s\)</span>, giving <span class="math display">\[\sum_{n = 1 }^\infty
 n^{- s} \int_{\mathbb{R}^+ } y^s e^{- y } \,d^\times y
-    = \zeta(s) \Gamma(s).\]</span> We see in this way that the <span
+  = \zeta(s) \Gamma(s).\]</span> We see in this way that the <span
 class="math inline">\(\zeta\)</span> function admits a meromorphic
 continuation. Since the <span
 class="math inline">\(\Gamma\)</span>-function <a
@@ -427,7 +449,214 @@ class="math inline">\(\zeta(-n)\)</span> for each <span
 class="math inline">\(n \in \mathbb{Z}_{\geq 0}\)</span>: <span
 class="math display">\[\zeta(-n) = (-1)^n \frac{B_{n + 1}}{ n +
 1}.\]</span></p>
+<h3 id="sec:cj4vkkark8">§5.1.1. Another perspective on meromorphic
+continuation</h3>
+<p>Given <span class="math inline">\(f : \mathbb{R} \rightarrow
+\mathbb{C}\)</span> of sufficient decay at infinity, we define <span
+class="math inline">\(g : \mathbb{R}^+ \rightarrow \mathbb{C}\)</span>
+by <span class="math display">\[g(y) := \sum_{n \in \mathbb{Z} } f(n
+y).\]</span> We assume henceforth that <span
+class="math inline">\(f\)</span> lies in the <a
+href="https://en.wikipedia.org/wiki/Schwartz_space">Schwartz space</a>
+<span class="math inline">\(\mathcal{S}(\mathbb{R})\)</span>.</p>
+<p>The asymptotics of <span class="math inline">\(g(y)\)</span> are
+described as follows.</p>
+<div class="lemma">
+<p><strong>Lemma 6</strong>. Let <span class="math inline">\(f \in
+\mathcal{S}(R)\)</span>.</p>
+<ol>
+<li><p>As <span class="math inline">\(y \rightarrow \infty\)</span>, we
+have <span id="eq:cj4vkfq4ku" class="math display">\[\label{eq:cj4vkfq4ku}\tag{5.1}
+g(y) = f(0) + \operatorname{O}(y^{-N})\]</span> for each fixed <span
+class="math inline">\(N\)</span>.</p></li>
+<li><p>As <span class="math inline">\(y \rightarrow 0\)</span>, we have
+<span id="eq:cj4vkfrkjf" class="math display">\[\label{eq:cj4vkfrkjf}\tag{5.2}
+g(y) = y^{-1} \int_{\mathbb{R} } f(x) \, d x  +
+\operatorname{O}(y^{N})\]</span> for each fixed <span
+class="math inline">\(N\)</span>.</p></li>
+</ol>
 </div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> The first estimate <a href="#eq:cj4vkfq4ku"
+data-reference-type="eqref"
+data-reference="eq:cj4vkfq4ku">\((5.1)\)</a> is an easy exercise
+using the definition of the Schwartz space. The second estimate <a
+href="#eq:cj4vkfrkjf" data-reference-type="eqref"
+data-reference="eq:cj4vkfrkjf">\((5.2)\)</a> may be proved either
+via Euler–Maclaurin summation (see external §<a href="20230907T144219--bernoulli-numbers-euler-maclaurin.html#sec:cj4vkfaant"
+data-reference-type="ref"
+data-reference="sec:cj4vkfaant">2.1</a>) or Poisson
+summation (see external §<a href="#sec:cj4vkkp26q"
+data-reference-type="ref"
+data-reference="sec:cj4vkkp26q"></a>). ◻</p>
+</span></div>
+<p>Assuming that <span class="math inline">\(f(0)\)</span> and <span
+class="math inline">\(\int f\)</span> are nonzero, it follows that the
+Mellin transform of <span class="math inline">\(g\)</span> does not
+converge absolutely at any point. We can still define a regularized
+Mellin transform <span class="math display">\[G(s) = \int_{\mathbb{R}^+
+}^{\mathop{\mathrm{reg}}} y^s g (y) \,d^\times y,\]</span> like in §<a
+href="20230907T142550--generating-functions-asymptotics.html#sec:cj4unj4gyo" data-reference-type="ref"
+data-reference="sec:cj4unj4gyo">4</a>, by splitting the
+integral into two pieces (e.g, the contributions of <span
+class="math inline">\((0,1)\)</span> and <span
+class="math inline">\((1,\infty\)</span>)), meromorphically continuing
+each piece, and then summing the results on their domain of overlap (if
+any).</p>
+<div class="lemma">
+<p><strong>Lemma 7</strong>. <span class="math inline">\(G(s)\)</span>
+defines a meromorphic function on the complex plane whose only poles at
+simple ones:</p>
+<ul>
+<li><p>at <span class="math inline">\(s = 1\)</span>, with residue <span
+class="math inline">\(f(0)\)</span>, and</p></li>
+<li><p>at <span class="math inline">\(s = 0\)</span>, with residue <span
+class="math inline">\(- \int_{\mathbb{R}} f(x) \,d x\)</span>.</p></li>
+</ul>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Let’s carry this out in detail, applying the recipe
+of external §<a href="20230907T143130--fourier-and-mellin-transforms.html#sec:cj4vkf4yvq" data-reference-type="ref"
+data-reference="sec:cj4vkf4yvq">2</a>.</p>
+<ul>
+<li><p>We see from <a href="#eq:cj4vkfq4ku" data-reference-type="eqref"
+data-reference="eq:cj4vkfq4ku">\((5.1)\)</a> that the integral
+<span class="math display">\[G_-(s) := \int_0^1 y^s g(y) \,d^\times
+y\]</span> converges absolutely for <span class="math inline">\(\Re(s)
+&lt; 0\)</span> and extends to a meromorphic function of <span
+class="math inline">\(s\)</span>, whose only pole is a simple pole at
+<span class="math inline">\(s = 1\)</span> of residue <span
+class="math inline">\(f(0)\)</span>. Indeed, <span
+class="math display">\[G_-(s) = \int_0^1 y^s \left( g (y) - f(0) \right)
+\,d^\times y + f(0) \underbrace
+{
+\int_0^1 y^s \,d^\times y
+}_{
+\frac{1}{s}
+},\]</span> where the first integral on the right hand side converges
+absolutely for all <span class="math inline">\(s\)</span>.</p></li>
+<li><p>We see from <a href="#eq:cj4vkfrkjf" data-reference-type="eqref"
+data-reference="eq:cj4vkfrkjf">\((5.2)\)</a> that the integral
+<span class="math display">\[G_+(s) := \int_1^\infty y^s g(y) \,d^\times
+y\]</span> converges absolutely for <span class="math inline">\(\Re(s)
+&gt; 1\)</span> and extends to a meromorphic function of <span
+class="math inline">\(s\)</span>, whose only pole is a simple pole at
+<span class="math inline">\(s = 0\)</span> of residue <span
+class="math inline">\(- I_f\)</span>, where <span
+class="math inline">\(I_f := \int_{\mathbb{R} } f (x) \, d x\)</span>.
+Indeed, <span class="math display">\[G_+(s) = \int_0^1 y^s \left(g (y) -
+y^{-1} I_f \right) \,d^\times y
+    + \left( I_f \right)
+    \underbrace
+{
+\int_1^\infty y^{s - 1} \,d^\times y
+}_{
+\frac{-1}{s - 1}
+}.\]</span></p></li>
+</ul>
+<p> ◻</p>
+</span></div>
+<p>We denote henceforth by <span class="math inline">\(\mathcal{F}
+f\)</span> the (normalized) Fourier transform <span
+class="math display">\[\mathcal{F} f (\xi) := \int_{x \in \mathbb{R} }
+f(x) e^{- 2 \pi i x \xi } \, d x.\]</span></p>
+<div id="lemma:cj4vkjxr7m" class="lemma">
+<p><strong>Lemma 8</strong>. Write <span class="math inline">\(G(s) =
+G_f(s)\)</span> to indicate the dependence upon <span
+class="math inline">\(f\)</span>. Then we have the following functional
+equation: <span class="math display">\[G_f(s) = G_{\mathcal{F}
+f}(1-s).\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> This is a consequence of the Poisson summation
+formula (see external <a href="#eq:cj4vkktmw8"
+data-reference-type="eqref"
+data-reference="eq:cj4vkktmw8">\(()\)</a>) <span
+class="math display">\[\sum_{n \in \mathbb{Z} } f (n y) = y^{-1} \sum_{n
+\in \mathbb{Z} } \mathcal{F} f (n / y).\]</span> Writing <span
+class="math inline">\(g_f\)</span> to indicate the dependence of <span
+class="math inline">\(g\)</span> upon <span
+class="math inline">\(f\)</span>, the above identity reads <span
+class="math display">\[g_f(y) = y^{-1} g_{\mathcal{F} f}(1/y).\]</span>
+Taking the (regularized) Mellin transform of both sides yields <span
+class="math display">\[G_f(s) =
+\int_{\mathbb{R}^+}^{\mathop{\mathrm{reg}}} y^{s-1} g_{\mathcal{F}
+f}(1/y) \,d^\times y.\]</span> To evaluate this last integral, we
+substitute <span class="math inline">\(y \mapsto 1/y\)</span>, which
+leaves the measure <span class="math inline">\(d^\times y\)</span>
+invariant (and is unaffected by the regularization). This gives <span
+class="math display">\[G_f(s) =
+\int_{\mathbb{R}^+}^{\mathop{\mathrm{reg}}} y^{1-s} g_{\mathcal{F} f}(y)
+\,d^\times y = G_{\mathcal{F} f}(1-s),\]</span> as required. ◻</p>
+</span></div>
+<p>We suppose henceforth that <span class="math inline">\(f\)</span> is
+even. This is without much loss of generality – any function can be
+written as a sum of even and odd functions, and if <span
+class="math inline">\(f\)</span> is odd, then <span
+class="math inline">\(g\)</span> vanishes identically.</p>
+<div class="exercise">
+<p><strong>Exercise 1</strong>. Let <span class="math inline">\(f \in
+\mathcal{S}(\mathbb{R})\)</span> be even. Show that the Mellin transform
+<span class="math display">\[F(s) := \int y^s f (y) \,d^\times
+y\]</span> converges initially for <span class="math inline">\(\Re(s)
+&gt; 0\)</span> and extends to a meromorphic function on the complex
+plane, whose only poles are simple ones at <span class="math inline">\(s
+= - 2n\)</span> for <span class="math inline">\(n \in \mathbb{Z}_{\geq
+0}\)</span> with residue <span
+class="math display">\[{\mathop{\mathrm{res}}}_{s = - 2 n} F(s) =
+\frac{1}{(2 n)!} f^{(2 n)}(0).\]</span> [Use Taylor’s theorem with
+remainder, and note that the odd Taylor coefficients vanish in view of
+the evenness assumption on <span class="math inline">\(f\)</span>.]</p>
+</div>
+<div class="example">
+<p><strong>Example 9</strong>. Take <span class="math inline">\(f(x) :=
+e^{- \pi x^2}\)</span>. Then <span id="eq:cj4vkj6hym" class="math display">\[\label{eq:cj4vkj6hym}\tag{5.3}
+F(s) = \pi^{- s / 2 } \Gamma (s / 2),\]</span> as one sees by
+substituting <span class="math inline">\(y \mapsto \sqrt{y}\)</span> and
+then <span class="math inline">\(y \mapsto y / \pi\)</span> in the
+defining integral. This has poles in the expected places.</p>
+</div>
+<p>For <span class="math inline">\(f\)</span> even, we have <span
+class="math display">\[g(y) = f(0) + 2 \sum_{n = 1 }^\infty f(n
+y).\]</span> Using that the constant function <span
+class="math inline">\(1\)</span> has vanishing regularized Mellin
+transform (for reasons similar to external Exercise <a
+href="20230907T142550--generating-functions-asymptotics.html#exercise:cj4ss5ia8l" data-reference-type="ref"
+data-reference="exercise:cj4ss5ia8l">3</a>), we see
+that <span class="math inline">\(G(s)\)</span> admits the following
+absolutely convergent integral representation for <span
+class="math inline">\(\Re(s) &gt; 1\)</span>: <span
+class="math display">\[G(s) = 2 \int_{\mathbb{R}^+ } y^s \sum_{n = 1
+}^\infty f (n y ) \,d^\times y.\]</span> By substituting <span
+class="math inline">\(y \mapsto y / n\)</span>, we see that <span
+class="math display">\[G(s) = 2 \zeta(s) F(s), \qquad F(s) := \int y^s
+f(y) \,d^\times y.\]</span> This gives another proof of the meromorphic
+behavior of <span class="math inline">\(\zeta\)</span>. TODO: say
+more.</p>
+<p>We can also deduce the functional equation:</p>
+<div class="theorem">
+<p><strong>Theorem 10</strong>. <em>We have <span
+class="math display">\[\xi(s) := \pi^{- s / 2 } \Gamma (s/ 2 ) \zeta(s)
+= \xi (1 - s).\]</span></em></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Take <span class="math inline">\(f(x) := e^{- \pi
+x^2}\)</span>. By <a href="#eq:cj4vkj6hym" data-reference-type="eqref"
+data-reference="eq:cj4vkj6hym">\((5.3)\)</a>, we then have <span
+class="math inline">\(G_f(s) = \xi(s)\)</span>. On the other hand, by
+the well-known <a
+href="https://mathworld.wolfram.com/FourierTransformGaussian.html">formula</a>
+for the Fourier transform of a Gaussian, we have <span
+class="math inline">\(\mathcal{F} f = f\)</span>. By Lemma <a
+href="#lemma:cj4vkjxr7m" data-reference-type="ref"
+data-reference="lemma:cj4vkjxr7m">5.3</a>, it follows that <span
+class="math inline">\(G_f (s) = G_f (1 - s)\)</span>. The claimed
+formula follows. ◻</p>
+</span></div>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="list">
 <div id="ref-MR2172781" class="csl-entry" role="listitem">

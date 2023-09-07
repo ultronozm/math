@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Poisson summation</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+    <div class="my-links-container">
+2023-09-07 16:26:47
+      <a href="20230907T161723--poisson-summation.tex" class="my-link">tex</a>
+      <a href="20230907T161723--poisson-summation.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20230907T161723--poisson-summation.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+<header id="title-block-header">
+<h1 class="title">Poisson summation</h1>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>Part of the course notes for <a
+href="2023-introduction-to-zeta-and-l-functions.html">this
+course</a>.</p>
+</div>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#statement" id="toc-statement">Statement</a></li>
+<li><a href="#sec:cj4vkkp26q" id="toc-sec:cj4vkkp26q">Application to
+asymptotics of Riemann sums</a></li>
+</ul>
+</nav>
+<h1 id="statement">Statement</h1>
+<p>Let <span class="math inline">\(f\)</span> be an element of the <a
+href="https://en.wikipedia.org/wiki/Schwartz_space">Schwartz space</a>
+<span class="math inline">\(\mathcal{S}(\mathbb{R})\)</span>. Denote by
+<span class="math inline">\(\mathcal{F} f\)</span> the (normalized)
+Fourier transform <span class="math display">\[\mathcal{F} f (\xi) :=
+\int_{x \in \mathbb{R} } f(x) e^{- 2 \pi i x \xi } \, d x.\]</span></p>
+<div class="theorem">
+<p><strong>Theorem 1</strong>. <em>We have <span
+class="math display">\[\sum_{n \in \mathbb{Z} } f (n) = \sum_{n \in
+\mathbb{Z} } \mathcal{F} f (n).\]</span></em></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> TODO ◻</p>
+</span></div>
+<p>It is often useful to apply this formula to the dilated function
+<span class="math display">\[f_y(x) := f(x y)\]</span> for some <span
+class="math inline">\(y &gt; 0\)</span>. The Fourier transform of this
+dilate is given by <span class="math display">\[\mathcal{F} f_y(x) =
+y^{-1} \mathcal{F} f(x /y).\]</span> Thus <span id="eq:cj4vkktmw8" class="math display">\[\label{eq:cj4vkktmw8}\tag{1}
+  \sum_{n \in \mathbb{Z} } f (n y) = y^{-1} \sum_{n \in \mathbb{Z} }
+\mathcal{F} f (n / y).\]</span></p>
+<h1 id="sec:cj4vkkp26q">§2. Application to asymptotics of Riemann sums</h1>
+<p>(Compare with external §<a href="20230907T144219--bernoulli-numbers-euler-maclaurin.html#sec:cj4vkfaant"
+data-reference-type="ref"
+data-reference="sec:cj4vkfaant">2.1</a>.)</p>
+<div class="lemma">
+<p><strong>Lemma 2</strong>. Let <span class="math inline">\(f \in
+\mathcal{S}(\mathbb{R})\)</span>. For <span class="math inline">\(y \in
+(0,1)\)</span>, we have <span class="math display">\[\sum_{n \in
+\mathbb{Z} } f(n y) = y^{-1}  \int f + \operatorname{O}(y^N)\]</span>
+for each fixed <span class="math inline">\(N\)</span>.</p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We apply Poisson summation in the form <a
+href="#eq:cj4vkktmw8" data-reference-type="eqref"
+data-reference="eq:cj4vkktmw8">\((1)\)</a>. We simplify the
+contribution from <span class="math inline">\(n=0\)</span> to the right
+hand side of <a href="#eq:cj4vkktmw8" data-reference-type="eqref"
+data-reference="eq:cj4vkktmw8">\((1)\)</a> using that <span
+class="math display">\[\mathcal{F} f(0) = \int f.\]</span> We leave to
+the reader the exercise of verifying that the contribution from <span
+class="math inline">\(n \neq 0\)</span> is acceptable. ◻</p>
+</span></div>
+<p>TODO: etc</p>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
