@@ -1,0 +1,80 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\begin{document}
+
+\usepackage{xr-hyper}
+\externaldocument{2023-introduction-to-zeta-and-l-functions}
+
+\title{Complex analytic preliminaries}
+\begin{abstract}
+  Part of the course notes for \href{2023-introduction-to-zeta-and-l-functions.pdf}{this course}.
+\end{abstract}
+
+\section{Holomorphic continuation}
+
+\begin{theorem}[Identity principle for holomorphic functions]
+  Let $U \subset \mathbb{C} $ be a connected open set.  Let $f, g : U \rightarrow \mathbb{C} $ be holomorphic functions.  If $f = g$ on a set with a limit point in $U$, then $f = g$ on all of $U$.
+\end{theorem}
+\begin{corollary}\label{corollary:cj3vqbthht}
+  Let $U \subset \Omega \subseteq \mathbb{C} $ be open subsets, with $U$ nonempty and $\Omega$ connected.  Let $f : U \rightarrow \mathbb{C}$ be a holomorphic function.  Then there is at most one extension of $f$ to a holomorphic function $\Omega \rightarrow \mathbb{C}$.
+\end{corollary}
+
+\section{Cauchy's integral formula}
+\begin{theorem}
+  Let $f : U \rightarrow \mathbb{C} $ be a holomorphic function defined on an open subset $U$.  Let $\gamma$ be a closed rectifiable curve in $U$.  Then $\int_\gamma f(z) \, d z = 0$.
+\end{theorem}
+
+\begin{theorem}\label{theorem:cj3vqbjd26}
+  Let $0 \leq a < b \leq \infty$.  Let $f(z)$ be a holomorphic function on the annulus $\{z \in \mathbb{C} : a < \lvert z \rvert < b\}$ given by a convergent Laurent series
+  \begin{equation*}
+    f(z) = \sum_{n \in \mathbb{Z} } c_n z^n.
+  \end{equation*}
+  \begin{enumerate}
+  \item For any $r \in (a,b)$ and $n \in \mathbb{Z}$, we have
+    \begin{align*}
+      c_n &=  \oint_{\lvert z \rvert = r} \frac{f(z)}{z^{n}} \, \frac{d z}{2 \pi i z} \\
+          &= \frac{1}{2 \pi r^n } \int_{\theta = 0 }^{2 \pi } f (r e^{i \theta }) e^{- i n \theta } \,d \theta.
+    \end{align*}
+  \item For each compact subset $E$ of $(a,b)$, there exists $M \geq 0$ so that for all $r \in E$, we have
+    \begin{equation}\label{eq:cj3vqbiupy}
+      \sum_{n \in \mathbb{Z}} \lvert c_n \rvert r^n \leq M.
+    \end{equation}
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}\label{theorem:cj3wnb89dd}
+  Let $U$ be an open subset of $\mathbb{C}$, let $f : U \rightarrow \mathbb{C} $ be meromorphic.  Let $\gamma$ be a smooth closed curve in $U$, oriented counterclockwise, that does not pass through any pole of $f$.  Then
+  \begin{equation*}
+    \int_\gamma f(z) \, d z = 2 \pi i \sum_{\substack{z \in \operatorname{interior}(\gamma) \\ \text{pole of $f$}}} \operatorname{res}_z(f).
+  \end{equation*}
+\end{theorem}
+\begin{remark}
+  Let $0 < r < R$.  Let $f$ be a meromorphic function on a neighborhood of the annulus $\{z : r < |z| < R\}$ that has no poles on either of the circles $|z| = r, R$.  Then
+  \begin{equation*}
+    \oint_{|z| = R} f(z) \, d z
+    =
+    \oint_{|z| = r} f(z) \, d z
+    + 2 \pi i \sum_{
+      \substack{
+        r < |z| < R 
+        \\
+        \text{pole of $f$}
+      }
+    }
+    \res_z(f).
+  \end{equation*}
+\end{remark}
+
+\section{Holomorphy of limits and series}
+\begin{theorem}\label{theorem:cj3vqa91ti}
+  Let $U$ be an open subset of the complex plane.  Let $f_n$ be a sequence of holomorphic functions on $U$.
+  \begin{enumerate}
+  \item Suppose that the sequence $f_n$ converges pointwise to some function $f$, uniformly on compact subsets of $U$.  Then $f$ is holomorphic.
+  \item Suppose that the partial sums $\sum_{n \leq N} f_n$ converge pointwise to some function $f$, uniformly on compact subsets of $U$.  Then the sum $\sum_n f_n$ is holomorphic.
+  \end{enumerate}
+\end{theorem}
+
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
