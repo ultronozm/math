@@ -1,0 +1,197 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\begin{document}
+
+\usepackage{xr-hyper}
+\externaldocument{2023-introduction-to-zeta-and-l-functions}
+\externaldocument{20230907T142550--generating-functions-asymptotics.tex}
+
+\title{Fourier and Mellin transforms}
+
+\begin{abstract}
+  Part of the course notes for \href{2023-introduction-to-zeta-and-l-functions.pdf}{this course}.
+\end{abstract}
+
+Thus far (in these \href{20230907T142550--generating-functions-asymptotics.tex.pdf}{previous notes}), we've related sequences $(c_n)_{n \in \mathbb{Z}}$ to their generating functions $\sum c_n z^n$.  We can think of such sequences as defining functions $\mathbb{Z} \rightarrow \mathbb{C}$, or equivalently, complex measures $\mu = \sum_n c_n \delta_n$ on $\mathbb{Z}$.
+
+We now want to do something similar for measures $\mu$ on $\mathbb{R}$. We define the Fourier transform of such a measure as follows, for $s \in \mathbb{C}$:
+\begin{equation*}
+  F(s) = \int_{x \in \mathbb{R} } e^{s x } \, d \mu (x).
+\end{equation*}
+\begin{remark}
+  Typically the Fourier transform is defined first for a real variable $\xi$ by either $\int_{x \in \mathbb{R} } e^{i x \xi } \, d \mu(x)$ or $\int_{x \in \mathbb{R} } e^{-i x \xi } \, d \mu(x)$, then in general by meromorphic continuation.  The convention used above differs mildly (take $s = \pm i \xi$) and is more convenient for our purposes.
+\end{remark}
+\begin{example}
+  Suppose $\mu = \sum_{n \in \mathbb{Z} } c_n \delta_n$.  Then $F (s) = \sum c_n z^n$ with $z = e^s$.  This function satisfies the symmetry $F (s + 2 \pi i k) = F (s)$ for all $k \in \mathbb{Z}$.
+\end{example}
+\begin{example}
+  Suppose $\mu = \sum_{n =1 }^\infty \delta_{- \log n}$.  Then $F (s) = \sum_1^\infty e^{s (- \log n )} = \sum_1^\infty n^{- s} = \zeta(s)$.
+\end{example}
+The main examples we consider are when $d \mu (x) = f (x) \, d x$ for some function $f : \mathbb{R} \rightarrow \mathbb{C}$, so that
+\begin{equation*}
+  F (s) = \int_{x \in \mathbb{R} } e^{s x } f (x) \, d x.
+\end{equation*}
+As in our study of series, there is a maximal open interval $(a,b)$ such that $F (s)$ converges absolutely when $\Re(s) \in (a,b)$, hence defines a holomorphic function there.
+
+
+Let's recall how the Fourier transform behaves with respect to taking derivatives and multiplying by polynomials.
+\begin{lemma}\label{lemma:cj4und9jny}
+  Given a function $f(x)$ with Fourier transform $F(s)$, the Fourier transform of its derivative $f'(x)$ is given by $-s F(s)$:
+  \begin{equation*}
+    \int e^{s x} f' (x) \, d x = -s F (s).
+  \end{equation*}
+  This formula is valid under sufficient smoothness and decay conditions, e.g., that $f$ is continuously differentiable and
+  \begin{equation*}
+    \int \left\lvert e^{s x } f (x) \right\rvert \, d x  <\infty ,
+    \quad 
+    \int \left\lvert e^{s x } f ' (x) \right\rvert \, d x < \infty,
+    \quad
+    \lim_{x \rightarrow \pm \infty} e^{s x} f(x) =0.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  By integration by parts, we have for $- \infty < a < b < \infty$
+  \begin{equation*}
+    \int_a^b e^{s x } f ' (x) \, d x =
+    e^{s x } f(x) \vert_a^b - s \int_a^b e^{s x } f(x) \, d x.
+  \end{equation*}
+  Now take $(a,b) \rightarrow (-\infty,\infty)$.  Under the stated conditions, the left hand side converges to $\int e^{s x } f' (x) \, d x$ and the right hand side to $- s F(s)$.
+\end{proof}
+\begin{lemma}
+  Given a function $f(x)$ with Fourier transform $F(s)$, the Fourier transform of $x f(x)$ is given by $F'(s)$:
+  \begin{equation*}
+    \int e^{s x } x f (x) \, d x = F'(s).
+  \end{equation*}
+  This formula is valid under sufficient smoothness and decay conditions, e.g., that $f$ is continuously differentiable and
+  \begin{equation*}
+    \int \left\lvert e^{s x } f (x) \right\rvert \, d x  <\infty ,
+    \quad 
+    \int \left\lvert e^{s x } x f (x) \right\rvert \, d x < \infty.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  We differentiate under the integral sign in the definition of $F(s)$.
+\end{proof}
+One can iterate the above lemmas to work out how the Fourier transform behaves with respect to taking arbitrarily many derivatives or multiplying by general polynomials.  This leads to useful estimates for $F(s)$:
+\begin{lemma}\label{lemma:cj4ungtm6r}
+  Let $n \in \mathbb{Z}_{\geq 0}$ and $s \in \mathbb{C}$.  Then
+  \begin{equation*}
+    \lvert s \rvert^n \lvert F(s) \rvert \leq \int \left\lvert e^{s x} f^{(n)}(x) \right\rvert \, d x
+  \end{equation*}
+  assuming sufficient smoothness and decay conditions, e.g,. that $f$ is $n$ times continuously differentiable, $\lim_{x \rightarrow \pm \infty }e^{s x } f ^{(j)}(x) = 0$ for $j \leq n-1$, and $\left\lvert e^{s x } f^{(j)}(x) \right\rvert \,d x< \infty $ for $j =0, 1,\dotsc, n$.
+\end{lemma}
+\begin{proof}
+  We see by iterating Lemma \ref{lemma:cj4und9jny} that $(-s)^n F(s)$ is the Fourier transform of $f^{(n)}(x)$, i.e., that
+  \begin{equation*}
+    (-s)^n F(s) = \int e^{s x } f^{(n)} (x) \, d x.
+  \end{equation*}
+  The conclusion now follows from the triangle inequality.
+\end{proof}
+
+
+The main way to pass from $F$ to $f$ is via the \emph{Fourier inversion formula}, which (when valid) states that
+\begin{equation}\label{eq:cj4unc4wp1}
+  f (x) = \int_{(c)} F(s) e^{- s x} \, \frac{d s }{2 \pi i}.
+\end{equation}
+Here $\int_{(c)}$ denote a complex contour integral over $s \in c + i \mathbb{R}$ for some $c \in \mathbb{R}$; in terms of the Lebesgue measure $d \xi$ on $\mathbb{R}$, the above integral may be rewritten
+\begin{equation*}
+  \int_{\xi \in \mathbb{R}} F(c + i \xi ) e^{- (c + i \xi) x} \, \frac{d \xi  }{2 \pi}.
+\end{equation*}
+\begin{theorem}[$L^1$ Fourier inversion]
+  Suppose that the integrals
+  \begin{equation}\label{eq:cj4undvahu}
+    \int_{x \in \mathbb{R} } e^{c x} \lvert f(x) \rvert \, d x,
+  \end{equation}
+  \begin{equation}\label{eq:cj4undu69x}
+    \int_{(c)} \lvert F(s) \rvert \, d s
+  \end{equation}
+  are both finite.  Then the Fourier inversion formula \eqref{eq:cj4unc4wp1} holds.
+\end{theorem}
+It's typically easy to check when the first integral \eqref{eq:cj4undvahu} is finite.  For the second integral \eqref{eq:cj4undu69x}, we can appeal to Lemma \ref{lemma:cj4ungtm6r}, which implies that under sufficient smoothness and decay conditions,
+\begin{equation*}
+(1 + |s|^2) \lvert F(s) \rvert \leq \int \left( \lvert e^{s x } f(x) \rvert + \lvert e^{s x } f''(x) \rvert \right) \, d x.
+\end{equation*}
+The finiteness of the right hand side implies that $F(s) \ll (1 + |s|^2)^{-1}$, hence the finiteness of \eqref{eq:cj4undu69x}.
+
+
+\begin{example}\label{example:cj4uniw25n}
+  Let's work out a variant of Example \ref{example:cj4ungymno}.  Take $f(x) = e^{- e^x}$.  As $x \rightarrow \infty$, it decays rapidly, namely $f(x) \ll e^{-C x}$ for each fixed $C$.  As $x \rightarrow -\infty$, it admits an asymptotic expansion given by the Taylor series of the expansion function, e.g.,
+  \begin{equation*}
+f(x) = 1 - e^{x} + \frac{e^{2 x}}{2!} + \O (e^{3 x}).
+  \end{equation*}
+  We can argue as in Example \ref{example:cj4ungymno} that the Fourier transform
+  \begin{equation*}
+F(s) = \int e^{s x } f(x) \, d x
+  \end{equation*}
+  converges absolutely for $\Re(s) > 0$ and extends to a meromorphic function of $s$, whose only poles are simple poles at $s = -n$ for $n \in \mathbb{Z}_{\geq 0}$, with residue $(-1)^n / n!$.  For instance, to check the validity of this statement when $\Re(s) > -3$, we define
+  \begin{equation*}
+f_-(x) :=
+\begin{cases}
+1 - e^x + \frac{e^{2 x }}{ 2 !} & \text{ if } x \leq 0, \\
+0 & \text{ x > 0.}
+\end{cases}
+  \end{equation*}
+  Its Fourier transform $F_-(s)$ converges absolutely for $\Re(s) > 0$.  The Fourier transform $F(s) - F_-(s)$ of the difference $f(x) - f_-(x)$ converges absolutely for $\Re(s) > -3$, hence defines a holomorphic function in that region.  But we may evaluate $F_-(s)$ explicitly, and we see that it extends to a meromorphic function:
+  \begin{equation}\label{eq:cj4uni5pkc}
+    F_-(s) = \int _{-\infty}^0 \left( 1 - e^x + \frac{e^{2 x }}{ 2!} \right) e^{s x} \, d x
+    =
+    \frac{1}{s} - \frac{1}{s + 1} + \frac{1}{2 ! (s + 2)}.
+\end{equation}  
+\end{example}
+
+It's often useful to change coordinates.  For $x \in \mathbb{R}$, set
+\begin{equation*}
+y := e^x,
+\end{equation*}
+so that $x = \log y$.  Then $y$ lies in $\mathbb{R}^+ = \mathbb{R}^\times_+ = (0,\infty)$, and we have
+\begin{equation*}
+y^s = e^{s x}.
+\end{equation*}
+We have
+\begin{align*}
+x \rightarrow +\infty &\iff y \rightarrow \infty, \\
+x \rightarrow -\infty &\iff y \rightarrow 0.
+\end{align*}
+Given a function $f(x)$ on $\mathbb{R}$, let us define a function $h(y)$ on $\mathbb{R}^+$ in the evident way, so that
+\begin{equation*}
+h(y) = f(\log y), \quad f(x) = h(e^x).
+\end{equation*}
+The integrals of these functions are related as follows:
+\begin{equation*}
+\int f(x) \, d x = \int h(y) \, \frac{d y}{y}.
+\end{equation*}
+We abbreviate
+\begin{equation*}
+  d^\times y := \frac{d y}{y},
+\end{equation*}
+since this normalization occurs often.  It has the following useful dilation-invariance: for any $b \in \mathbb{R}^+$,
+\begin{equation*}
+\int h(b y) \,d^\times y = \int h(y) \,d^\times y.
+\end{equation*}
+The Fourier transform of $f$ may be written
+\begin{equation*}
+H(s) := \int y^s h(y) \,d^\times y.
+\end{equation*}
+It is called the \emph{Mellin transform} of $h$.
+
+\begin{example}
+  We have $e^{- e^x } = e^{- y}$, so the Fourier transform $F(s)$ considered in Example \ref{example:cj4uniw25n} may be rewritten
+  \begin{equation*}
+\Gamma(s) = \int_{\mathbb{R}^+} e^{- y } y^s \,d^\times y.
+  \end{equation*}
+  This is the $\Gamma$-function.  The  arguments of Example \ref{example:cj4uniw25n} may be rewritten in the new variables.  For example, to verify that $\Gamma(s)$, defined initially for $\Re(s) > 0$ by the above absolutely convergent integral, extends to a meromorphic function on $\Re(s) > -3$ with the prescribed polar behavior, we define
+  \begin{equation*}
+h_-(y) :=
+\begin{cases}
+1 - y + \frac{y^2}{2!} & \text{ if } 0 < y \leq 1, \\
+0 & \text{ if } y > 1.
+\end{cases}
+  \end{equation*}
+  Then $e^{-y} = h_-(y) + \O(y^3)$ as $y \rightarrow 0$, so the difference between $\Gamma(s)$ and the Mellin transform $H_-(s)$ of $h_-$ is defined for $\Re(s) > -3$ by an absolutely convergent integral, hence is holomorphic.  On the other hand, we may evaluate $H_-(s)$ explicitly; the result is as in \eqref{eq:cj4uni5pkc}.
+\end{example}
+
+
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
