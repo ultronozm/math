@@ -4,6 +4,7 @@
 \externaldocument{20230907T142550--generating-functions-asymptotics}
 \externaldocument{20230907T143130--fourier-and-mellin-transforms}
 \externaldocument{20230907T143521--complex-analysis-preliminaries}
+\externaldocument{20230907T144219--bernoulli-numbers-euler-maclaurin}
 
 \begin{document}
  
@@ -16,11 +17,13 @@ These are notes for an ongoing Fall 2023 course on the Riemann zeta function and
 \end{itemize}
 
 \section{Outlines thus far}
+(Some links here refer to external files; I'll have to think of a good way to notate that.)
 \begin{itemize}
-\item Tuesday, 29 Aug: parts of \S\ref{sec:cj4unj5r3k}; \S\ref{sec:cj4unj5r3k} and \S\ref{sec:cj4unj5r3k}.
-\item Thursday, 31 Aug: \S\ref{sec:cj4unj3scf} and \S\ref{sec:cj4unj4gyo}
+\item Tuesday, 29 Aug: parts of \S\ref{sec:cj4unj5r3k}; \S\ref{sec:cj4vkkg5ah}, \S\ref{sec:cj4vkkg9es}
+\item Thursday, 31 Aug: \S\ref{sec:cj4unj3scf}, \S\ref{sec:cj4unj4gyo}
 \item Friday, 1 Sep: \S\ref{sec:cj4unj04kx} and \S\ref{sec:cj4unj06mw}
 \item Tuesday, 5 Sep: \S\ref{sec:cj4unjziaz}
+\item Thursday, 7 Sep: \S\ref{sec:cj4vkkark8}, \S\ref{sec:cj4vkfaant}
 \end{itemize}
 
 
@@ -29,6 +32,7 @@ These are notes for an ongoing Fall 2023 course on the Riemann zeta function and
 \item \href{20230907T143521--complex-analysis-preliminaries.pdf}{Complex-analytic preliminaries}
 \item \href{20230907T142550--generating-functions-asymptotics.pdf}{Generating functions and asymptotics}
 \item \href{20230907T143130--fourier-and-mellin-transforms.pdf}{Fourier and Mellin transforms}
+\item \href{20230907T144219--bernoulli-numbers-euler-maclaurin.pdf}{Bernoulli numbers and Euler--Maclaurin summation}
 \end{itemize}
 
 
@@ -106,44 +110,193 @@ This corresponds to a conjectural stronger form of the prime number theorem, nam
 \section{Basic analytic properties of $\zeta$}\label{sec:cj4unjziaz}
 
 
-
-
-
-\begin{example}
-  Take
-  \begin{equation*}
-h(y) = \frac{1}{e^y - 1}.
-  \end{equation*}
-  The function $y h(y)$ extends to a holomorphic function of $y$ on the disc $\{y \in \mathbb{C} : \lvert y \rvert < 2 \pi \}$, so $h$ is represented for small $y > 0$ by an absolutely convergent Laurent series of the following form:
-  \begin{equation*}
-h(y) = \frac{1}{y} + \sum_{n = 1 }^\infty \frac{B_n  }{ n !} y^{n - 1}.
-  \end{equation*}
-  Here the $B_n$ are complex coefficients, called the \emph{Bernoulli numbers}.  On the other hand, $h$ decays rapidly (like $\O(y^N)$ for any fixed $N$) as $y \rightarrow \infty$.  By the analysis we've now seen many times, we deduce that the Mellin transform $H(s)$ of $h(y)$ converges absolutely for $\Re(s) > 1$, where it defines a holomorphic function, and extends to a meromorphic function on the complex plane whose only poles are simple poles at $s = 1$ (corresponding to the $1/y$ term in the asymptotic expansion as $y \rightarrow 0$) and at $s = -n$ for each $n \in \mathbb{Z}_{\geq 0}$, with residue given by $1$ in the former case and by $B_{n+1} / (n+!)!$ in the latter.
-
-  On the other hand, we can rewrite
-  \begin{equation*}
-    h(y) = \frac{e^{- y}}{ 1 - e^{- y}}
-    = e^{- y } + e^{- 2 y } + e^{- 3 y} + \dotsb,
-  \end{equation*}
-  giving
-  \begin{equation*}
-    H(s) = \int_{\mathbb{R}^+ } y^s \sum_{n = 1 }^\infty e^{- n y } \,d^\times y.
-  \end{equation*}
-  The following calculations will show that the doubly integral/sum converges absolutely for $\Re(s) > 1$, so we may rearrange it as
-  \begin{equation*}
-\sum_{n = 1 }^\infty \int_{\mathbb{R}^+ } y^s e^{- n y } \,d^\times y.
-  \end{equation*}
-  The inner integral may be simplified by the substitution $y \mapsto y /n$.  This has no effect on the measure $d^\times y$, but replaces $y^s$ by $n^{-s} y^s$, giving
-  \begin{equation*}
-    \sum_{n = 1 }^\infty n^{- s} \int_{\mathbb{R}^+ } y^s e^{- y } \,d^\times y
-    = \zeta(s) \Gamma(s).
-  \end{equation*}
-  We see in this way that the $\zeta$ function admits a meromorphic continuation.  Since the $\Gamma$-function \href{https://www.proofwiki.org/wiki/Zeroes_of_Gamma_Function}{does not vanish}, we deduce that the only pole of $\zeta$ is the simple one at $s=1$, with residue $s=0$.  Also, since we have computed the residues of both $\Gamma(s)$ and $\zeta(s) \Gamma(s)$ at the nonpositive integers, we may calculate in this way the values of $\zeta(-n)$ for each $n \in \mathbb{Z}_{\geq 0}$:
-  \begin{equation*}
-\zeta(-n) = (-1)^n \frac{B_{n + 1}}{ n + 1}.
+\subsection{Meromorphic continuation and evaluation at negative integers}
+Take
+\begin{equation*}
+  h(y) = \frac{1}{e^y - 1}.
 \end{equation*}
+The function $y h(y)$ extends to a holomorphic function of $y$ on the disc $\{y \in \mathbb{C} : \lvert y \rvert < 2 \pi \}$, so $h$ is represented for small $y > 0$ by an absolutely convergent Laurent series of the following form:
+\begin{equation*}
+  h(y) = \frac{1}{y} + \sum_{n = 1 }^\infty \frac{B_n  }{ n !} y^{n - 1}.
+\end{equation*}
+Here the $B_n$ are complex coefficients, called the \emph{Bernoulli numbers} (see \href{20230907T144219--bernoulli-numbers-euler-maclaurin.pdf}{this note}).  On the other hand, $h$ decays rapidly (like $\O(y^N)$ for any fixed $N$) as $y \rightarrow \infty$.  By the analysis we've now seen many times, we deduce that the Mellin transform $H(s)$ of $h(y)$ converges absolutely for $\Re(s) > 1$, where it defines a holomorphic function, and extends to a meromorphic function on the complex plane whose only poles are simple poles at $s = 1$ (corresponding to the $1/y$ term in the asymptotic expansion as $y \rightarrow 0$) and at $s = -n$ for each $n \in \mathbb{Z}_{\geq 0}$, with residue given by $1$ in the former case and by $B_{n+1} / (n+!)!$ in the latter.
+
+On the other hand, we can rewrite
+\begin{equation*}
+  h(y) = \frac{e^{- y}}{ 1 - e^{- y}}
+  = e^{- y } + e^{- 2 y } + e^{- 3 y} + \dotsb,
+\end{equation*}
+giving
+\begin{equation*}
+  H(s) = \int_{\mathbb{R}^+ } y^s \sum_{n = 1 }^\infty e^{- n y } \,d^\times y.
+\end{equation*}
+The following calculations will show that the doubly integral/sum converges absolutely for $\Re(s) > 1$, so we may rearrange it as
+\begin{equation*}
+  \sum_{n = 1 }^\infty \int_{\mathbb{R}^+ } y^s e^{- n y } \,d^\times y.
+\end{equation*}
+The inner integral may be simplified by the substitution $y \mapsto y /n$.  This has no effect on the measure $d^\times y$, but replaces $y^s$ by $n^{-s} y^s$, giving
+\begin{equation*}
+  \sum_{n = 1 }^\infty n^{- s} \int_{\mathbb{R}^+ } y^s e^{- y } \,d^\times y
+  = \zeta(s) \Gamma(s).
+\end{equation*}
+We see in this way that the $\zeta$ function admits a meromorphic continuation.  Since the $\Gamma$-function \href{https://www.proofwiki.org/wiki/Zeroes_of_Gamma_Function}{does not vanish}, we deduce that the only pole of $\zeta$ is the simple one at $s=1$, with residue $s=0$.  Also, since we have computed the residues of both $\Gamma(s)$ and $\zeta(s) \Gamma(s)$ at the nonpositive integers, we may calculate in this way the values of $\zeta(-n)$ for each $n \in \mathbb{Z}_{\geq 0}$:
+\begin{equation*}
+  \zeta(-n) = (-1)^n \frac{B_{n + 1}}{ n + 1}.
+\end{equation*}
+
+\subsubsection{Another perspective on meromorphic continuation}\label{sec:cj4vkkark8}
+Given $f : \mathbb{R} \rightarrow \mathbb{C}$ of sufficient decay at infinity, we define $g : \mathbb{R}^+ \rightarrow \mathbb{C} $ by
+\begin{equation*}
+g(y) := \sum_{n \in \mathbb{Z} } f(n y).
+\end{equation*}
+We assume henceforth that $f$ lies in the \href{https://en.wikipedia.org/wiki/Schwartz_space}{Schwartz space} $\mathcal{S}(\mathbb{R})$.
+
+The asymptotics of $g(y)$ are described as follows.
+\begin{lemma}
+  Let $f \in \mathcal{S}(R)$.
+  \begin{enumerate}
+\item 
+  As $y \rightarrow \infty$, we have
+  \begin{equation}\label{eq:cj4vkfq4ku}
+g(y) = f(0) + \O(y^{-N})
+  \end{equation}
+  for each fixed $N$.
+\item As $y \rightarrow 0$, we have
+  \begin{equation}\label{eq:cj4vkfrkjf}
+g(y) = y^{-1} \int_{\mathbb{R} } f(x) \, d x  + \O (y^{N})
+  \end{equation}
+  for each fixed $N$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+The first estimate \eqref{eq:cj4vkfq4ku} is an easy exercise using the definition of the Schwartz space.  The second estimate \eqref{eq:cj4vkfrkjf} may be proved either via Euler--Maclaurin summation (see external \S\ref{sec:cj4vkfaant}) or Poisson summation (see external \S\ref{sec:cj4vkkp26q}).
+\end{proof}
+
+Assuming that $f(0)$ and $\int f$ are nonzero, it follows that the Mellin transform of $g$ does not converge absolutely at any point.  We can still define a regularized Mellin transform
+\begin{equation*}
+G(s) = \int_{\mathbb{R}^+ }^{\reg} y^s g (y) \,d^\times y,
+\end{equation*}
+like in \S\ref{sec:cj4unj4gyo}, by splitting the integral into two pieces (e.g, the contributions of $(0,1)$ and $(1,\infty$)), meromorphically continuing each piece, and then summing the results on their domain of overlap (if any).
+
+\begin{lemma}
+  $G(s)$ defines a meromorphic function on the complex plane whose only poles at simple ones:
+  \begin{itemize}
+\item at $s = 1$, with residue $f(0)$, and
+\item at $s = 0$, with residue $ - \int_{\mathbb{R}} f(x) \,d x $.
+\end{itemize}
+\end{lemma}
+\begin{proof}
+Let's carry this out in detail, applying the recipe of external \S\ref{sec:cj4vkf4yvq}.
+\begin{itemize}
+\item We see from \eqref{eq:cj4vkfq4ku} that the integral
+  \begin{equation*}
+G_-(s) := \int_0^1 y^s g(y) \,d^\times y
+  \end{equation*}
+  converges absolutely for $\Re(s) < 0$ and extends to a meromorphic function of $s$, whose only pole is a simple pole at $s = 1$ of residue $f(0)$.  Indeed,
+  \begin{equation*}
+G_-(s) = \int_0^1 y^s \left( g (y) - f(0) \right) \,d^\times y + f(0) \underbrace
+{
+\int_0^1 y^s \,d^\times y
+}_{
+\frac{1}{s}
+},
+  \end{equation*}
+  where the first integral on the right hand side converges absolutely for all $s$.
+\item We see from \eqref{eq:cj4vkfrkjf} that the integral
+  \begin{equation*}
+G_+(s) := \int_1^\infty y^s g(y) \,d^\times y
+  \end{equation*}
+  converges absolutely for $\Re(s) > 1$ and extends to a meromorphic function of $s$, whose only pole is a simple pole at $s = 0$ of residue $- I_f$, where $I_f := \int_{\mathbb{R} } f (x) \, d x$.  Indeed,
+  \begin{equation*}
+    G_+(s) = \int_0^1 y^s \left(g (y) - y^{-1} I_f \right) \,d^\times y
+    + \left( I_f \right)
+    \underbrace
+{
+\int_1^\infty y^{s - 1} \,d^\times y
+}_{
+\frac{-1}{s - 1}
+}.
+\end{equation*}
+\end{itemize}
+\end{proof}
+
+We denote henceforth by $\mathcal{F} f$ the (normalized) Fourier transform
+  \begin{equation*}
+\mathcal{F} f (\xi) := \int_{x \in \mathbb{R} } f(x) e^{- 2 \pi i x \xi } \, d x.
+\end{equation*}
+
+\begin{lemma}\label{lemma:cj4vkjxr7m}
+  Write $G(s) = G_f(s)$ to indicate the dependence upon $f$.  Then we have the following functional equation:
+  \begin{equation*}
+G_f(s) = G_{\mathcal{F} f}(1-s).
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  This is a consequence of the Poisson summation formula (see external \eqref{eq:cj4vkktmw8}) 
+  \begin{equation*}
+    \sum_{n \in \mathbb{Z} } f (n y) = y^{-1} \sum_{n \in \mathbb{Z} } \mathcal{F} f (n / y).
+  \end{equation*}
+  Writing $g_f$ to indicate the dependence of $g$ upon $f$, the above identity reads
+  \begin{equation*}
+    g_f(y) = y^{-1} g_{\mathcal{F} f}(1/y).
+  \end{equation*}
+  Taking the (regularized) Mellin transform of both sides yields
+  \begin{equation*}
+    G_f(s) = \int_{\mathbb{R}^+}^{\reg} y^{s-1} g_{\mathcal{F} f}(1/y) \,d^\times y.
+  \end{equation*}
+  To evaluate this last integral, we substitute $y \mapsto 1/y$, which leaves the measure $d^\times y$ invariant (and is unaffected by the regularization).  This gives
+  \begin{equation*}
+    G_f(s) = \int_{\mathbb{R}^+}^{\reg} y^{1-s} g_{\mathcal{F} f}(y) \,d^\times y = G_{\mathcal{F} f}(1-s),
+  \end{equation*}
+  as required.
+\end{proof}
+
+
+We suppose henceforth that $f$ is even.  This is without much loss of generality -- any function can be written as a sum of even and odd functions, and if $f$ is odd, then $g$ vanishes identically.
+
+\begin{exercise}
+  Let $f \in \mathcal{S}(\mathbb{R})$ be even.  Show that the Mellin transform
+  \begin{equation*}
+F(s) := \int y^s f (y) \,d^\times y
+  \end{equation*}
+  converges initially for $\Re(s) > 0$ and extends to a meromorphic function on the complex plane, whose only poles are simple ones at $s = - 2n$ for $n \in \mathbb{Z}_{\geq 0}$ with residue
+  \begin{equation*}
+\res_{s = - 2 n} F(s) = \frac{1}{(2 n)!} f^{(2 n)}(0).
+  \end{equation*}
+  [Use Taylor's theorem with remainder, and note that the odd Taylor coefficients vanish in view of the evenness assumption on $f$.]
+\end{exercise}
+\begin{example}
+  Take $f(x) := e^{- \pi x^2}$.  Then
+  \begin{equation}\label{eq:cj4vkj6hym}
+F(s) = \pi^{- s / 2 } \Gamma (s / 2),
+  \end{equation}
+  as one sees by substituting $y \mapsto \sqrt{y}$ and then $y \mapsto y / \pi$ in the defining integral.  This has poles in the expected places.
 \end{example}
 
+For $f$ even, we have
+\begin{equation*}
+g(y) = f(0) + 2 \sum_{n = 1 }^\infty f(n y).
+\end{equation*}
+Using that the constant function $1$ has vanishing regularized Mellin transform (for reasons similar to external Exercise \ref{exercise:cj4ss5ia8l}), we see that $G(s)$ admits the following absolutely convergent integral representation for $\Re(s) > 1$:
+\begin{equation*}
+G(s) = 2 \int_{\mathbb{R}^+ } y^s \sum_{n = 1 }^\infty f (n y ) \,d^\times y.
+\end{equation*}
+By substituting $y \mapsto y / n$, we see that
+\begin{equation*}
+G(s) = 2 \zeta(s) F(s), \qquad F(s) := \int y^s f(y) \,d^\times y.
+\end{equation*}
+This gives another proof of the meromorphic behavior of $\zeta$.  TODO: say more.
+
+We can also deduce the functional equation:
+\begin{theorem}
+  We have
+  \begin{equation*}
+\xi(s) := \pi^{- s / 2 } \Gamma (s/ 2 ) \zeta(s) = \xi (1 - s).
+\end{equation*}
+\end{theorem}
+\begin{proof}
+  Take $f(x) := e^{- \pi x^2}$.  By \eqref{eq:cj4vkj6hym}, we then have $G_f(s) = \xi(s)$.  On the other hand, by the well-known \href{https://mathworld.wolfram.com/FourierTransformGaussian.html}{formula} for the Fourier transform of a Gaussian, we have $\mathcal{F} f = f$.  By Lemma \ref{lemma:cj4vkjxr7m}, it follows that $G_f (s) = G_f (1 - s)$.  The claimed formula follows.
+\end{proof}
 
 
 

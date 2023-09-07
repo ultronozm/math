@@ -1,0 +1,268 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\usepackage{xr-hyper}
+\externaldocument{2023-introduction-to-zeta-and-l-functions}
+\externaldocument{20230907T142550--generating-functions-asymptotics}
+\externaldocument{20230907T161723--poisson-summation}
+
+\begin{document}
+
+\title{Bernoulli numbers and Euler--Maclaurin summation}
+\begin{abstract}
+  Part of the course notes for \href{2023-introduction-to-zeta-and-l-functions.pdf}{this course}.
+\end{abstract}
+
+
+
+Here I'm recording my own notes, closely following the presentation of \cite[\S4]{zagier-mellin} but filling in the details.  Only a small part of this material was covered in lecture.
+
+
+\section{Definitions and statements}
+
+The Bernoulli numbers $B_n$ may be defined (up to conventions) by the generating function
+\begin{equation*}
+  \frac{1}{e^t - 1}
+  =
+  \frac{1}{t + t^2/2 + \dotsb }
+  = \sum_{n \geq 0} \frac{B_n }{ n !} t^{n - 1}.
+\end{equation*}
+\begin{exercise}
+Use the methods of \href{20230907T142550--generating-functions-asymptotics.pdf}{these previous notes} to determine the leading order asymptotics of $B_n$ as $n \rightarrow \infty$.
+\end{exercise}
+The Bernoulli polynomials $B_n(x)$ may be defined by the generating function
+\begin{equation}\label{eq:cj4sr7qmvd}
+\frac{e^{x t} }{ e^t - 1 } = \sum_{n \geq 0} \frac{B_n (x) }{n !} t^{n-1},
+\end{equation}
+so that $B_n = B_n(0)$.
+
+
+\begin{example}
+  By direct calculation, we have
+  \begin{equation}\label{eq:cj4sr7wpkw}
+    B_0(x) = 1.
+  \end{equation}
+  \begin{equation*}
+    B_1(x) = x - \frac{1}{2},
+  \end{equation*}
+  \begin{equation*}
+    B_2(x) = x^2 - x + \frac{1}{6}.
+  \end{equation*}
+\end{example}
+
+\begin{notation}
+  For $x \in \mathbb{R}$, we denote by $\lfloor x \rfloor \in \mathbb{Z}$ its integer part and $\{x\} \in [0,1)$ its fractional part, which are characterized by the identity
+  \begin{equation*}
+x = \lfloor x \rfloor + \{x\}.
+\end{equation*}
+\end{notation}
+
+
+\begin{theorem}[Euler--Maclaurin formula]\label{theorem:cj4vked1rh}
+  For integers $a < b$, and a smooth function $f$ on the real line,
+\begin{align*}
+  \int_{a}^b f (x) \, d x = \frac{f (a) }{2} + \sum_{n = a + 1}^{b - 1} f (n)
+  + \frac{f (b)}{2} 
+  + \sum_{n = 1}^{N - 1 } \frac{(- 1 )^n B_{n + 1 }}{ (n + 1 )!}
+  \left( f^{(n) } (b ) - f^{(n )} (a) \right) \\
+  + (- 1)^N \int_{a}^b f^{(N)} (x) \frac{B_N (\{x\})}{N!} \, d x.
+\end{align*}
+\end{theorem}
+
+\begin{example}
+  In the case $N=1$, this specializes to the ``trapezoid rule'':
+  \begin{equation*}
+    \int_a^b f (x) \, d x
+    =
+    \frac{f (a) }{2} + \sum_{n = a + 1}^{b - 1} f (n)
+  + \frac{f (b)}{2} 
+  - \int_{a}^b \{ x - \tfrac{1}{2} \} f' (x)\, d x.
+\end{equation*}
+\end{example}
+\begin{exercise}
+Prove \ref{sec:cj4vkej9k1}.  [Reduce to the case $(a,b) = (0,1)$, then integrate by parts.]
+\end{exercise}
+
+\section{Applications}
+
+Theorem \ref{theorem:cj4vked1rh} can be useful for asymptotic analysis.  The reference \cite[\S4]{zagier-mellin} contains many interesting examples.  Here is a less interesting example, which can be studied in other ways (e.g., using Poisson summation).
+
+\subsection{Asymptotics of Riemann sums}\label{sec:cj4vkfaant}
+(Compare with external \S\ref{sec:cj4vkkp26q}.)
+
+Let $f : \mathbb{R} \rightarrow \mathbb{C}$ be smooth and compactly-supported, or more generally, an element of the \href{https://en.wikipedia.org/wiki/Schwartz_space}{Schwartz space} $\mathcal{S}(\mathbb{R})$.  Define the function $g : \mathbb{R}^+ \rightarrow \mathbb{C}$ by
+\begin{equation*}
+g(y) := \sum_{n \in \mathbb{Z} } f (n y ).
+\end{equation*}
+Then as $y \rightarrow 0$, the quantity $y g(y)$ is a Riemann sum, hence converges to $\int f$.  We will verify that this convergence is quite rapid:
+\begin{lemma}
+  For each fixed $N \geq 0$, we have for $y \in (0,1)$ the estimate
+  \begin{equation*}
+g(y) = y^{-1}  \int f + \O(y^N).
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  We take the limit of Theorem \ref{theorem:cj4vked1rh} as $(a,b) \rightarrow (-\infty, +\infty)$, applied to $f_y(x) := f(x y)$; we can do this because $f$ and all its derivatives vanish at $\infty$.  Since $f_y^{(n)}(x) = y^n f^{(n)}(x)$, we obtain for each $N \geq 1$,
+  \begin{equation*}
+\int_{\mathbb{R} } f (x y ) \, d x = \sum_{n \in \mathbb{Z} } f (n y) + (- y)^N \int_{\mathbb{R} } f^{(N)} (x y) \frac{B_N (\{x\})}{N!} \, d x.
+  \end{equation*}
+  We see that the left hand side is $y^{-1} \int f$ via the substitution $x \mapsto x/y$.  We estimate the integral on the right hand side using that $f^{(N)}$ has finite $L^1$-norm and $B_N (\{x\})$ is bounded, due to the periodicity of $\{x\}$.  The required conclusion follows.
+\end{proof}
+
+\begin{remark}
+It's more interesting to analyze $\sum_{n \geq 0 } f(n y)$ this way.  We refer again to \cite[\S4]{zagier-mellin}.
+\end{remark}
+
+
+\section{Proofs}\label{sec:cj4vkej9k1}
+
+Here we record the proof of Theorem \ref{theorem:cj4vked1rh} (again, following the presentation of \cite[\S4]{zagier-mellin}), after some preliminaries.
+
+
+\begin{lemma}\label{lemma:cj4sr702cf}
+  For $n \geq 1$, we have
+  \begin{equation*}
+B_n'(x) = n B_{n-1}(x).
+\end{equation*}
+\end{lemma}
+\begin{proof}
+  It suffices to show that
+  \begin{equation*}
+    \sum_{n \geq 0} \frac{B_n'(x)}{n!} t^{n-1}
+    =
+\sum_{n \geq 1} \frac{B_{n-1}(x)}{(n-1)!} t^{n-1},
+\end{equation*}
+or equivalently, that
+\begin{equation*}
+\frac{d}{d x } \sum_{n \geq 0 } \frac{B_n(x)}{n!} t^{n-1} = t \sum_{n \geq 0 } \frac{B_n (x)}{ n !} t^{n-1},
+\end{equation*}
+which is clear from the definition \eqref{eq:cj4sr7qmvd}.
+\end{proof}
+
+\begin{lemma}\label{lemma:cj4vkas8qw}
+The Bernoulli polynomials are given by the formula
+\begin{equation*}
+B_n (x) = \sum_{r = 0}^n \binom{n}{r} B_r x^{n - r}.
+\end{equation*}
+\end{lemma}
+\begin{proof}
+  The claimed formula holds when $x=0$ because the right hand side simplifies to $B_n$.  It also holds when $n = 0$ in view of \eqref{eq:cj4sr7wpkw}.  We may thus suppose by induction on $n \geq 1$ that the claimed formula holds for smaller values of $n$.
+
+  Since we have checked that the claimed formula holds when $x=0$, we reduce to verifying that the derivatives of the two sides coincide.  The derivative of the right hand side is
+  \begin{equation*}
+\sum_{r = 0 }^{n - 1 } \frac{n!}{r! (n-r)!} (n-r) B_r x^{n-1-r},
+\end{equation*}
+which simplifies to
+\begin{equation*}
+ n \sum_{r = 0 }^{n - 1 } \frac{(n-1)!}{r! (n-1-r)!} B_r x^{n-1-r}.
+\end{equation*}
+By our inductive hypothesis, this simplifies to $n B_{n-1}(x)$, which, in view of Lemma \ref{lemma:cj4sr702cf}, coincides with the derivative of the left hand side, $B_n'(x)$.
+\end{proof}
+
+\begin{lemma}\label{lemma:cj4ssc4a2b}
+  For each $a \geq 0$, we have
+  \begin{equation*}
+    \int_a^{a+1} B_n(x) \, d x = a^n.
+  \end{equation*}
+  Here we interpret $0^0 = 1$.
+\end{lemma}
+\begin{proof}
+  It is enough to check that
+  \begin{equation*}
+    \int_{a}^{a+1}
+    \sum_{n \geq 0} \frac{B_n (x) }{ n ! } t^n
+    \,d x
+    = \sum_{n \geq 0} \frac{a^n}{n!} t^n,
+  \end{equation*}
+  or equivalently, in view of \eqref{eq:cj4sr7qmvd}, that
+  \begin{equation}\label{eq:cj4ssco825}
+    \int_{a}^{a + 1 }\frac{t e^{x t} }{ e^t - 1 } \, d x = e^{a t}.
+  \end{equation}
+  Indeed, we have
+  \begin{align*}
+    \int_a^{a + 1 } e^{x t } \, d x
+    &=
+    \frac{1}{t} e^{x t }|_{x=a}^{a+1} \\
+    &=
+    \frac{e^{(a+1) t} - e^{a t}}{t} \\
+    &=
+      e^{a t}
+    \frac{e^t - 1}{t},
+  \end{align*}
+  from which the formula \eqref{eq:cj4ssco825} follows.
+\end{proof}
+
+
+\begin{lemma}\label{lemma:cj4vkapsln}
+  We have
+  \begin{equation*}
+B_{n} (x + 1 ) - B_n (x) = n x^{n - 1}.
+\end{equation*}
+\end{lemma}
+\begin{proof}
+  Combine Lemmas \ref{lemma:cj4sr702cf} and \ref{lemma:cj4ssc4a2b}.
+\end{proof}
+
+\begin{lemma}
+  For $n \geq 2$, we have
+  \begin{equation*}
+B_n (1) = B_n.
+\end{equation*}
+\end{lemma}
+\begin{proof}
+  We need to check that
+  \begin{equation*}
+    B_n(1) - B_n(0) = 0.
+  \end{equation*}
+  By the fundamental theorem of calculus, it is enough to check that
+  \begin{equation*}
+    \int_0^1 B_n'(x) \, d x = 0.
+  \end{equation*}
+  By Lemma \ref{lemma:cj4sr702cf}, it is equivalent to check that
+  \begin{equation*}
+    \int_0^1 B_{n - 1 } (x) \, d x = 0.
+  \end{equation*}
+  This follows from Lemma \ref{lemma:cj4ssc4a2b}.  We use here that $n-1 \geq 1$, which ensures that $0^{n-1} = 0$.
+\end{proof}
+
+\begin{lemma}
+  For a smooth function $f$ on $[0,1]$, we have
+  \begin{multline*}
+    \int_0^1 f^{(n)} (x) \frac{B_n (x) }{n !} \, d x
+    = - \int_0^1 f^{(n + 1 )} (x)
+    \frac{B_{n + 1 } (x) }{ (n + 1 )! } \, d x \\
+    +
+    \begin{cases}
+      \frac{f (0) + f (1) }{2} & \text{ if } n = 0, \\
+      \frac{B_{n + 1}}{(n + 1 )!} \left( f^{(n)} (1) - f^{(n)} (0)  \right) &  \text{ if } n \geq 1.
+    \end{cases}
+  \end{multline*}
+\end{lemma}
+\begin{proof}
+  We integrate by parts.  Take
+  \begin{equation*}
+u = f^{(n)}(x), \qquad v = \frac{B_{n+1}(x)}{(n+1)!}.
+  \end{equation*}
+  Then, by Lemma \ref{lemma:cj4sr702cf},
+  \begin{equation*}
+u \, d v  = f^{(n )} (x)  \frac{B_n (x) }{n !}.
+  \end{equation*}
+  The first term on the right hand side of the claimed formula is the integral of $v \, d u$.  The second term is $u v |_{0}^1$, using here that $B_m(1) = B_m(0) = B_m$ for $m \geq 2$, while $B_1(0) = 1/2 = - B_1(0)$.
+\end{proof}
+
+By inducting on $N$ and using that $B_0(x) = 1$, we obtain:
+\begin{multline*}
+  \int_0^1 f(x) \, d x
+  = (-1)^N \int_0^1 f^{(N + 1 )} (x)
+  \frac{B_{N + 1 } (x) }{ (N + 1 )! } \, d x \\
+  +
+  \frac{f (0) + f (1) }{2}
+  + 
+  \sum_{n = 1}^{N - 1} \frac{B_{n + 1}}{(n + 1 )!} \left( f^{(n)} (1) - f^{(n)} (0)  \right).
+\end{multline*}
+By replacing $f$ with its shifts by integer and summing, we obtain Theorem \ref{theorem:cj4vked1rh}.
+
+
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}

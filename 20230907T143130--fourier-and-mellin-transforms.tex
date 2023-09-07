@@ -12,6 +12,9 @@
   Part of the course notes for \href{2023-introduction-to-zeta-and-l-functions.pdf}{this course}.
 \end{abstract}
 
+\section{Basic definitions and properties}
+
+
 Thus far (in these \href{20230907T142550--generating-functions-asymptotics.tex.pdf}{previous notes}), we've related sequences $(c_n)_{n \in \mathbb{Z}}$ to their generating functions $\sum c_n z^n$.  We can think of such sequences as defining functions $\mathbb{Z} \rightarrow \mathbb{C}$, or equivalently, complex measures $\mu = \sum_n c_n \delta_n$ on $\mathbb{Z}$.
 
 We now want to do something similar for measures $\mu$ on $\mathbb{R}$. We define the Fourier transform of such a measure as follows, for $s \in \mathbb{C}$:
@@ -112,6 +115,8 @@ It's typically easy to check when the first integral \eqref{eq:cj4undvahu} is fi
 (1 + |s|^2) \lvert F(s) \rvert \leq \int \left( \lvert e^{s x } f(x) \rvert + \lvert e^{s x } f''(x) \rvert \right) \, d x.
 \end{equation*}
 The finiteness of the right hand side implies that $F(s) \ll (1 + |s|^2)^{-1}$, hence the finiteness of \eqref{eq:cj4undu69x}.
+
+\section{Meromorphic continuation and asymptotics}\label{sec:cj4vkf4yvq}
 
 
 \begin{example}\label{example:cj4uniw25n}

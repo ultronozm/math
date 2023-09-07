@@ -1,0 +1,66 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\usepackage{xr-hyper}
+\externaldocument{2023-introduction-to-zeta-and-l-functions}
+\externaldocument{20230907T144219--bernoulli-numbers-euler-maclaurin}
+
+\begin{document}
+
+\title{Poisson summation}
+\begin{abstract}
+  Part of the course notes for \href{2023-introduction-to-zeta-and-l-functions.pdf}{this course}.
+\end{abstract}
+
+\section{Statement}
+Let $f$ be an element of the \href{https://en.wikipedia.org/wiki/Schwartz_space}{Schwartz space} $\mathcal{S}(\mathbb{R})$.  Denote by $\mathcal{F} f$ the (normalized) Fourier transform
+\begin{equation*}
+  \mathcal{F} f (\xi) := \int_{x \in \mathbb{R} } f(x) e^{- 2 \pi i x \xi } \, d x.
+\end{equation*}
+\begin{theorem}
+  We have
+  \begin{equation*}
+    \sum_{n \in \mathbb{Z} } f (n) = \sum_{n \in \mathbb{Z} } \mathcal{F} f (n). 
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  TODO
+\end{proof}
+
+It is often useful to apply this formula to the dilated function
+\begin{equation*}
+  f_y(x) := f(x y)
+\end{equation*}
+for some $y > 0$.  The Fourier transform of this dilate is given by
+\begin{equation*}
+  \mathcal{F} f_y(x) = y^{-1} \mathcal{F} f(x /y).
+\end{equation*}
+Thus
+\begin{equation}\label{eq:cj4vkktmw8}
+  \sum_{n \in \mathbb{Z} } f (n y) = y^{-1} \sum_{n \in \mathbb{Z} } \mathcal{F} f (n / y).
+\end{equation}
+
+
+\section{Application to asymptotics of Riemann sums}\label{sec:cj4vkkp26q}
+(Compare with external \S\ref{sec:cj4vkfaant}.)
+
+\begin{lemma}
+  Let $f \in \mathcal{S}(\mathbb{R})$.  For $y \in (0,1)$, we have
+  \begin{equation*}
+    \sum_{n \in \mathbb{Z} } f(n y) = y^{-1}  \int f + \O(y^N)
+  \end{equation*}
+  for each fixed $N$.
+\end{lemma}
+\begin{proof}
+  We apply Poisson summation in the form \eqref{eq:cj4vkktmw8}.  We simplify the contribution from $n=0$ to the right hand side of \eqref{eq:cj4vkktmw8} using that
+  \begin{equation*}
+\mathcal{F} f(0) = \int f.
+  \end{equation*}
+  We leave to the reader the exercise of verifying that the contribution from $n \neq 0$ is acceptable.
+\end{proof}
+
+TODO: etc
+
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
