@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Fourier and Mellin transforms</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+    <div class="my-links-container">
+2023-09-07 14:52:09
+      <a href="20230907T143130--fourier-and-mellin-transforms.tex" class="my-link">tex</a>
+      <a href="20230907T143130--fourier-and-mellin-transforms.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20230907T143130--fourier-and-mellin-transforms.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+<header id="title-block-header">
+<h1 class="title">Fourier and Mellin transforms</h1>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>Part of the course notes for <a
+href="2023-introduction-to-zeta-and-l-functions.html">this
+course</a>.</p>
+</div>
+</header>
+<p>Thus far (in these <a
+href="20230907T142550--generating-functions-asymptotics.tex.pdf">previous
+notes</a>), we’ve related sequences <span class="math inline">\((c_n)_{n
+\in \mathbb{Z}}\)</span> to their generating functions <span
+class="math inline">\(\sum c_n z^n\)</span>. We can think of such
+sequences as defining functions <span class="math inline">\(\mathbb{Z}
+\rightarrow \mathbb{C}\)</span>, or equivalently, complex measures <span
+class="math inline">\(\mu = \sum_n c_n \delta_n\)</span> on <span
+class="math inline">\(\mathbb{Z}\)</span>.</p>
+<p>We now want to do something similar for measures <span
+class="math inline">\(\mu\)</span> on <span
+class="math inline">\(\mathbb{R}\)</span>. We define the Fourier
+transform of such a measure as follows, for <span
+class="math inline">\(s \in \mathbb{C}\)</span>: <span
+class="math display">\[F(s) = \int_{x \in \mathbb{R} } e^{s x } \, d \mu
+(x).\]</span></p>
+<div class="remark">
+<p><strong>Remark 1</strong>. Typically the Fourier transform is defined
+first for a real variable <span class="math inline">\(\xi\)</span> by
+either <span class="math inline">\(\int_{x \in \mathbb{R} } e^{i x \xi }
+\, d \mu(x)\)</span> or <span class="math inline">\(\int_{x \in
+\mathbb{R} } e^{-i x \xi } \, d \mu(x)\)</span>, then in general by
+meromorphic continuation. The convention used above differs mildly (take
+<span class="math inline">\(s = \pm i \xi\)</span>) and is more
+convenient for our purposes.</p>
+</div>
+<div class="example">
+<p><strong>Example 2</strong>. Suppose <span class="math inline">\(\mu =
+\sum_{n \in \mathbb{Z} } c_n \delta_n\)</span>. Then <span
+class="math inline">\(F (s) = \sum c_n z^n\)</span> with <span
+class="math inline">\(z = e^s\)</span>. This function satisfies the
+symmetry <span class="math inline">\(F (s + 2 \pi i k) = F (s)\)</span>
+for all <span class="math inline">\(k \in \mathbb{Z}\)</span>.</p>
+</div>
+<div class="example">
+<p><strong>Example 3</strong>. Suppose <span class="math inline">\(\mu =
+\sum_{n =1 }^\infty \delta_{- \log n}\)</span>. Then <span
+class="math inline">\(F (s) = \sum_1^\infty e^{s (- \log n )} =
+\sum_1^\infty n^{- s} = \zeta(s)\)</span>.</p>
+</div>
+<p>The main examples we consider are when <span class="math inline">\(d
+\mu (x) = f (x) \, d x\)</span> for some function <span
+class="math inline">\(f : \mathbb{R} \rightarrow \mathbb{C}\)</span>, so
+that <span class="math display">\[F (s) = \int_{x \in \mathbb{R} } e^{s
+x } f (x) \, d x.\]</span> As in our study of series, there is a maximal
+open interval <span class="math inline">\((a,b)\)</span> such that <span
+class="math inline">\(F (s)\)</span> converges absolutely when <span
+class="math inline">\(\Re(s) \in (a,b)\)</span>, hence defines a
+holomorphic function there.</p>
+<p>Let’s recall how the Fourier transform behaves with respect to taking
+derivatives and multiplying by polynomials.</p>
+<div id="lemma:cj4und9jny" class="lemma">
+<p><strong>Lemma 4</strong>. Given a function <span
+class="math inline">\(f(x)\)</span> with Fourier transform <span
+class="math inline">\(F(s)\)</span>, the Fourier transform of its
+derivative <span class="math inline">\(f&#39;(x)\)</span> is given by
+<span class="math inline">\(-s F(s)\)</span>: <span
+class="math display">\[\int e^{s x} f&#39; (x) \, d x = -s F
+(s).\]</span> This formula is valid under sufficient smoothness and
+decay conditions, e.g., that <span class="math inline">\(f\)</span> is
+continuously differentiable and <span class="math display">\[\int
+\left\lvert e^{s x } f (x) \right\rvert \, d x  &lt;\infty ,
+    \quad
+    \int \left\lvert e^{s x } f &#39; (x) \right\rvert \, d x &lt;
+\infty,
+    \quad
+    \lim_{x \rightarrow \pm \infty} e^{s x} f(x) =0.\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> By integration by parts, we have for <span
+class="math inline">\(- \infty &lt; a &lt; b &lt; \infty\)</span> <span
+class="math display">\[\int_a^b e^{s x } f &#39; (x) \, d x =
+    e^{s x } f(x) \vert_a^b - s \int_a^b e^{s x } f(x) \, d x.\]</span>
+Now take <span class="math inline">\((a,b) \rightarrow
+(-\infty,\infty)\)</span>. Under the stated conditions, the left hand
+side converges to <span class="math inline">\(\int e^{s x } f&#39; (x)
+\, d x\)</span> and the right hand side to <span class="math inline">\(-
+s F(s)\)</span>. ◻</p>
+</span></div>
+<div class="lemma">
+<p><strong>Lemma 5</strong>. Given a function <span
+class="math inline">\(f(x)\)</span> with Fourier transform <span
+class="math inline">\(F(s)\)</span>, the Fourier transform of <span
+class="math inline">\(x f(x)\)</span> is given by <span
+class="math inline">\(F&#39;(s)\)</span>: <span
+class="math display">\[\int e^{s x } x f (x) \, d x =
+F&#39;(s).\]</span> This formula is valid under sufficient smoothness
+and decay conditions, e.g., that <span class="math inline">\(f\)</span>
+is continuously differentiable and <span class="math display">\[\int
+\left\lvert e^{s x } f (x) \right\rvert \, d x  &lt;\infty ,
+    \quad
+    \int \left\lvert e^{s x } x f (x) \right\rvert \, d x &lt;
+\infty.\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We differentiate under the integral sign in the
+definition of <span class="math inline">\(F(s)\)</span>. ◻</p>
+</span></div>
+<p>One can iterate the above lemmas to work out how the Fourier
+transform behaves with respect to taking arbitrarily many derivatives or
+multiplying by general polynomials. This leads to useful estimates for
+<span class="math inline">\(F(s)\)</span>:</p>
+<div id="lemma:cj4ungtm6r" class="lemma">
+<p><strong>Lemma 6</strong>. Let <span class="math inline">\(n \in
+\mathbb{Z}_{\geq 0}\)</span> and <span class="math inline">\(s \in
+\mathbb{C}\)</span>. Then <span class="math display">\[\lvert s \rvert^n
+\lvert F(s) \rvert \leq \int \left\lvert e^{s x} f^{(n)}(x) \right\rvert
+\, d x\]</span> assuming sufficient smoothness and decay conditions,
+e.g,. that <span class="math inline">\(f\)</span> is <span
+class="math inline">\(n\)</span> times continuously differentiable,
+<span class="math inline">\(\lim_{x \rightarrow \pm \infty }e^{s x } f
+^{(j)}(x) = 0\)</span> for <span class="math inline">\(j \leq
+n-1\)</span>, and <span class="math inline">\(\left\lvert e^{s x }
+f^{(j)}(x) \right\rvert \,d x&lt; \infty\)</span> for <span
+class="math inline">\(j =0, 1,\dotsc, n\)</span>.</p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We see by iterating Lemma <a href="#lemma:cj4und9jny"
+data-reference-type="ref" data-reference="lemma:cj4und9jny">4</a> that
+<span class="math inline">\((-s)^n F(s)\)</span> is the Fourier
+transform of <span class="math inline">\(f^{(n)}(x)\)</span>, i.e., that
+<span class="math display">\[(-s)^n F(s) = \int e^{s x } f^{(n)} (x) \,
+d x.\]</span> The conclusion now follows from the triangle
+inequality. ◻</p>
+</span></div>
+<p>The main way to pass from <span class="math inline">\(F\)</span> to
+<span class="math inline">\(f\)</span> is via the <em>Fourier inversion
+formula</em>, which (when valid) states that <span id="eq:cj4unc4wp1" class="math display">\[\label{eq:cj4unc4wp1}\tag{1}
+  f (x) = \int_{(c)} F(s) e^{- s x} \, \frac{d s }{2 \pi i}.\]</span>
+Here <span class="math inline">\(\int_{(c)}\)</span> denote a complex
+contour integral over <span class="math inline">\(s \in c + i
+\mathbb{R}\)</span> for some <span class="math inline">\(c \in
+\mathbb{R}\)</span>; in terms of the Lebesgue measure <span
+class="math inline">\(d \xi\)</span> on <span
+class="math inline">\(\mathbb{R}\)</span>, the above integral may be
+rewritten <span class="math display">\[\int_{\xi \in \mathbb{R}} F(c + i
+\xi ) e^{- (c + i \xi) x} \, \frac{d \xi  }{2 \pi}.\]</span></p>
+<div class="theorem">
+<p><strong>Theorem 7</strong> (<span class="math inline">\(L^1\)</span>
+Fourier inversion). <em>Suppose that the integrals <span id="eq:cj4undvahu" class="math display">\[\label{eq:cj4undvahu}\tag{2}
+    \int_{x \in \mathbb{R} } e^{c x} \lvert f(x) \rvert \, d x,\]</span>
+<span id="eq:cj4undu69x" class="math display">\[\label{eq:cj4undu69x}\tag{3}
+    \int_{(c)} \lvert F(s) \rvert \, d s\]</span> are both finite. Then
+the Fourier inversion formula <a href="#eq:cj4unc4wp1"
+data-reference-type="eqref"
+data-reference="eq:cj4unc4wp1">\((1)\)</a> holds.</em></p>
+</div>
+<p>It’s typically easy to check when the first integral <a
+href="#eq:cj4undvahu" data-reference-type="eqref"
+data-reference="eq:cj4undvahu">\((2)\)</a> is finite. For the
+second integral <a href="#eq:cj4undu69x" data-reference-type="eqref"
+data-reference="eq:cj4undu69x">\((3)\)</a>, we can appeal to
+Lemma <a href="#lemma:cj4ungtm6r" data-reference-type="ref"
+data-reference="lemma:cj4ungtm6r">6</a>, which implies that under
+sufficient smoothness and decay conditions, <span
+class="math display">\[(1 + |s|^2) \lvert F(s) \rvert \leq \int \left(
+\lvert e^{s x } f(x) \rvert + \lvert e^{s x } f&#39;&#39;(x) \rvert
+\right) \, d x.\]</span> The finiteness of the right hand side implies
+that <span class="math inline">\(F(s) \ll (1 + |s|^2)^{-1}\)</span>,
+hence the finiteness of <a href="#eq:cj4undu69x"
+data-reference-type="eqref"
+data-reference="eq:cj4undu69x">\((3)\)</a>.</p>
+<div id="example:cj4uniw25n" class="example">
+<p><strong>Example 8</strong>. Let’s work out a variant of Example <a
+href="20230907T142550--generating-functions-asymptotics.html#example:cj4ungymno" data-reference-type="ref"
+data-reference="example:cj4ungymno">10</a>. Take <span
+class="math inline">\(f(x) = e^{- e^x}\)</span>. As <span
+class="math inline">\(x \rightarrow \infty\)</span>, it decays rapidly,
+namely <span class="math inline">\(f(x) \ll e^{-C x}\)</span> for each
+fixed <span class="math inline">\(C\)</span>. As <span
+class="math inline">\(x \rightarrow -\infty\)</span>, it admits an
+asymptotic expansion given by the Taylor series of the expansion
+function, e.g., <span class="math display">\[f(x) = 1 - e^{x} +
+\frac{e^{2 x}}{2!} + \operatorname{O}(e^{3 x}).\]</span> We can argue as
+in Example <a href="20230907T142550--generating-functions-asymptotics.html#example:cj4ungymno" data-reference-type="ref"
+data-reference="example:cj4ungymno">10</a> that the
+Fourier transform <span class="math display">\[F(s) = \int e^{s x } f(x)
+\, d x\]</span> converges absolutely for <span
+class="math inline">\(\Re(s) &gt; 0\)</span> and extends to a
+meromorphic function of <span class="math inline">\(s\)</span>, whose
+only poles are simple poles at <span class="math inline">\(s =
+-n\)</span> for <span class="math inline">\(n \in \mathbb{Z}_{\geq
+0}\)</span>, with residue <span class="math inline">\((-1)^n /
+n!\)</span>. For instance, to check the validity of this statement when
+<span class="math inline">\(\Re(s) &gt; -3\)</span>, we define <span
+class="math display">\[f_-(x) :=
+\begin{cases}
+1 - e^x + \frac{e^{2 x }}{ 2 !} &amp; \text{ if } x \leq 0, \\
+0 &amp; \text{ x &gt; 0.}
+\end{cases}\]</span> Its Fourier transform <span
+class="math inline">\(F_-(s)\)</span> converges absolutely for <span
+class="math inline">\(\Re(s) &gt; 0\)</span>. The Fourier transform
+<span class="math inline">\(F(s) - F_-(s)\)</span> of the difference
+<span class="math inline">\(f(x) - f_-(x)\)</span> converges absolutely
+for <span class="math inline">\(\Re(s) &gt; -3\)</span>, hence defines a
+holomorphic function in that region. But we may evaluate <span
+class="math inline">\(F_-(s)\)</span> explicitly, and we see that it
+extends to a meromorphic function: <span id="eq:cj4uni5pkc" class="math display">\[\label{eq:cj4uni5pkc}\tag{4}
+    F_-(s) = \int _{-\infty}^0 \left( 1 - e^x + \frac{e^{2 x }}{ 2!}
+\right) e^{s x} \, d x
+    =
+    \frac{1}{s} - \frac{1}{s + 1} + \frac{1}{2 ! (s + 2)}.\]</span></p>
+</div>
+<p>It’s often useful to change coordinates. For <span
+class="math inline">\(x \in \mathbb{R}\)</span>, set <span
+class="math display">\[y := e^x,\]</span> so that <span
+class="math inline">\(x = \log y\)</span>. Then <span
+class="math inline">\(y\)</span> lies in <span
+class="math inline">\(\mathbb{R}^+ = \mathbb{R}^\times_+ =
+(0,\infty)\)</span>, and we have <span class="math display">\[y^s = e^{s
+x}.\]</span> We have <span class="math display">\[\begin{align}
+x \rightarrow +\infty &amp;\iff y \rightarrow \infty, \\
+x \rightarrow -\infty &amp;\iff y \rightarrow 0.
+\end{align}\]</span> Given a function <span
+class="math inline">\(f(x)\)</span> on <span
+class="math inline">\(\mathbb{R}\)</span>, let us define a function
+<span class="math inline">\(h(y)\)</span> on <span
+class="math inline">\(\mathbb{R}^+\)</span> in the evident way, so that
+<span class="math display">\[h(y) = f(\log y), \quad f(x) =
+h(e^x).\]</span> The integrals of these functions are related as
+follows: <span class="math display">\[\int f(x) \, d x = \int h(y) \,
+\frac{d y}{y}.\]</span> We abbreviate <span
+class="math display">\[d^\times y := \frac{d y}{y},\]</span> since this
+normalization occurs often. It has the following useful
+dilation-invariance: for any <span class="math inline">\(b \in
+\mathbb{R}^+\)</span>, <span class="math display">\[\int h(b y)
+\,d^\times y = \int h(y) \,d^\times y.\]</span> The Fourier transform of
+<span class="math inline">\(f\)</span> may be written <span
+class="math display">\[H(s) := \int y^s h(y) \,d^\times y.\]</span> It
+is called the <em>Mellin transform</em> of <span
+class="math inline">\(h\)</span>.</p>
+<div class="example">
+<p><strong>Example 9</strong>. We have <span class="math inline">\(e^{-
+e^x } = e^{- y}\)</span>, so the Fourier transform <span
+class="math inline">\(F(s)\)</span> considered in Example <a
+href="#example:cj4uniw25n" data-reference-type="ref"
+data-reference="example:cj4uniw25n">8</a> may be rewritten <span
+class="math display">\[\Gamma(s) = \int_{\mathbb{R}^+} e^{- y } y^s
+\,d^\times y.\]</span> This is the <span
+class="math inline">\(\Gamma\)</span>-function. The arguments of Example
+<a href="#example:cj4uniw25n" data-reference-type="ref"
+data-reference="example:cj4uniw25n">8</a> may be rewritten in the new
+variables. For example, to verify that <span
+class="math inline">\(\Gamma(s)\)</span>, defined initially for <span
+class="math inline">\(\Re(s) &gt; 0\)</span> by the above absolutely
+convergent integral, extends to a meromorphic function on <span
+class="math inline">\(\Re(s) &gt; -3\)</span> with the prescribed polar
+behavior, we define <span class="math display">\[h_-(y) :=
+\begin{cases}
+1 - y + \frac{y^2}{2!} &amp; \text{ if } 0 &lt; y \leq 1, \\
+0 &amp; \text{ if } y &gt; 1.
+\end{cases}\]</span> Then <span class="math inline">\(e^{-y} = h_-(y) +
+\operatorname{O}(y^3)\)</span> as <span class="math inline">\(y
+\rightarrow 0\)</span>, so the difference between <span
+class="math inline">\(\Gamma(s)\)</span> and the Mellin transform <span
+class="math inline">\(H_-(s)\)</span> of <span
+class="math inline">\(h_-\)</span> is defined for <span
+class="math inline">\(\Re(s) &gt; -3\)</span> by an absolutely
+convergent integral, hence is holomorphic. On the other hand, we may
+evaluate <span class="math inline">\(H_-(s)\)</span> explicitly; the
+result is as in <a href="#eq:cj4uni5pkc" data-reference-type="eqref"
+data-reference="eq:cj4uni5pkc">\((4)\)</a>.</p>
+</div>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
