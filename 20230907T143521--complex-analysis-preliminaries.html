@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Complex analytic preliminaries</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+    <div class="my-links-container">
+2023-09-07 14:40:10
+      <a href="20230907T143521--complex-analysis-preliminaries.tex" class="my-link">tex</a>
+      <a href="20230907T143521--complex-analysis-preliminaries.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20230907T143521--complex-analysis-preliminaries.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+<header id="title-block-header">
+<h1 class="title">Complex analytic preliminaries</h1>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>Part of the course notes for <a
+href="2023-introduction-to-zeta-and-l-functions.html">this
+course</a>.</p>
+</div>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#holomorphic-continuation"
+id="toc-holomorphic-continuation">Holomorphic continuation</a></li>
+<li><a href="#cauchys-integral-formula"
+id="toc-cauchys-integral-formula">Cauchy’s integral formula</a></li>
+<li><a href="#holomorphy-of-limits-and-series"
+id="toc-holomorphy-of-limits-and-series">Holomorphy of limits and
+series</a></li>
+</ul>
+</nav>
+<h1 id="holomorphic-continuation">Holomorphic continuation</h1>
+<div class="theorem">
+<p><strong>Theorem 1</strong> (Identity principle for holomorphic
+functions). <em>Let <span class="math inline">\(U \subset
+\mathbb{C}\)</span> be a connected open set. Let <span
+class="math inline">\(f, g : U \rightarrow \mathbb{C}\)</span> be
+holomorphic functions. If <span class="math inline">\(f = g\)</span> on
+a set with a limit point in <span class="math inline">\(U\)</span>, then
+<span class="math inline">\(f = g\)</span> on all of <span
+class="math inline">\(U\)</span>.</em></p>
+</div>
+<div id="corollary:cj3vqbthht" class="corollary">
+<p><strong>Corollary 2</strong>. <em>Let <span class="math inline">\(U
+\subset \Omega \subseteq \mathbb{C}\)</span> be open subsets, with <span
+class="math inline">\(U\)</span> nonempty and <span
+class="math inline">\(\Omega\)</span> connected. Let <span
+class="math inline">\(f : U \rightarrow \mathbb{C}\)</span> be a
+holomorphic function. Then there is at most one extension of <span
+class="math inline">\(f\)</span> to a holomorphic function <span
+class="math inline">\(\Omega \rightarrow \mathbb{C}\)</span>.</em></p>
+</div>
+<h1 id="cauchys-integral-formula">Cauchy’s integral formula</h1>
+<div class="theorem">
+<p><strong>Theorem 3</strong>. <em>Let <span class="math inline">\(f : U
+\rightarrow \mathbb{C}\)</span> be a holomorphic function defined on an
+open subset <span class="math inline">\(U\)</span>. Let <span
+class="math inline">\(\gamma\)</span> be a closed rectifiable curve in
+<span class="math inline">\(U\)</span>. Then <span
+class="math inline">\(\int_\gamma f(z) \, d z = 0\)</span>.</em></p>
+</div>
+<div id="theorem:cj3vqbjd26" class="theorem">
+<p><strong>Theorem 4</strong>. <em>Let <span class="math inline">\(0
+\leq a &lt; b \leq \infty\)</span>. Let <span
+class="math inline">\(f(z)\)</span> be a holomorphic function on the
+annulus <span class="math inline">\(\{z \in \mathbb{C} : a &lt; \lvert z
+\rvert &lt; b\}\)</span> given by a convergent Laurent series <span
+class="math display">\[f(z) = \sum_{n \in \mathbb{Z} } c_n
+z^n.\]</span></em></p>
+<ol>
+<li><p><em>For any <span class="math inline">\(r \in (a,b)\)</span> and
+<span class="math inline">\(n \in \mathbb{Z}\)</span>, we have <span
+class="math display">\[\begin{align}
+      c_n &amp;=  \oint_{\lvert z \rvert = r} \frac{f(z)}{z^{n}} \,
+\frac{d z}{2 \pi i z} \\
+          &amp;= \frac{1}{2 \pi r^n } \int_{\theta = 0 }^{2 \pi } f (r
+e^{i \theta }) e^{- i n \theta } \,d \theta.
+    
+\end{align}\]</span></em></p></li>
+<li><p><em>For each compact subset <span
+class="math inline">\(E\)</span> of <span
+class="math inline">\((a,b)\)</span>, there exists <span
+class="math inline">\(M \geq 0\)</span> so that for all <span
+class="math inline">\(r \in E\)</span>, we have <span id="eq:cj3vqbiupy" class="math display">\[\label{eq:cj3vqbiupy}\tag{1}
+      \sum_{n \in \mathbb{Z}} \lvert c_n \rvert r^n \leq
+M.\]</span></em></p></li>
+</ol>
+</div>
+<div id="theorem:cj3wnb89dd" class="theorem">
+<p><strong>Theorem 5</strong>. <em>Let <span
+class="math inline">\(U\)</span> be an open subset of <span
+class="math inline">\(\mathbb{C}\)</span>, let <span
+class="math inline">\(f : U \rightarrow \mathbb{C}\)</span> be
+meromorphic. Let <span class="math inline">\(\gamma\)</span> be a smooth
+closed curve in <span class="math inline">\(U\)</span>, oriented
+counterclockwise, that does not pass through any pole of <span
+class="math inline">\(f\)</span>. Then <span
+class="math display">\[\int_\gamma f(z) \, d z = 2 \pi i
+\sum_{\substack{z \in \operatorname{interior}(\gamma) \\ \text{pole of
+$f$}}} \operatorname{res}_z(f).\]</span></em></p>
+</div>
+<div class="remark">
+<p><strong>Remark 6</strong>. Let <span class="math inline">\(0 &lt; r
+&lt; R\)</span>. Let <span class="math inline">\(f\)</span> be a
+meromorphic function on a neighborhood of the annulus <span
+class="math inline">\(\{z : r &lt; |z| &lt; R\}\)</span> that has no
+poles on either of the circles <span class="math inline">\(|z| = r,
+R\)</span>. Then <span class="math display">\[\oint_{|z| = R} f(z) \, d
+z
+    =
+    \oint_{|z| = r} f(z) \, d z
+    + 2 \pi i \sum_{
+      \substack{
+        r &lt; |z| &lt; R
+        \\
+        \text{pole of $f$}
+      }
+    }
+    {\mathop{\mathrm{res}}}_z(f).\]</span></p>
+</div>
+<h1 id="holomorphy-of-limits-and-series">Holomorphy of limits and
+series</h1>
+<div id="theorem:cj3vqa91ti" class="theorem">
+<p><strong>Theorem 7</strong>. <em>Let <span
+class="math inline">\(U\)</span> be an open subset of the complex plane.
+Let <span class="math inline">\(f_n\)</span> be a sequence of
+holomorphic functions on <span
+class="math inline">\(U\)</span>.</em></p>
+<ol>
+<li><p><em>Suppose that the sequence <span
+class="math inline">\(f_n\)</span> converges pointwise to some function
+<span class="math inline">\(f\)</span>, uniformly on compact subsets of
+<span class="math inline">\(U\)</span>. Then <span
+class="math inline">\(f\)</span> is holomorphic.</em></p></li>
+<li><p><em>Suppose that the partial sums <span
+class="math inline">\(\sum_{n \leq N} f_n\)</span> converge pointwise to
+some function <span class="math inline">\(f\)</span>, uniformly on
+compact subsets of <span class="math inline">\(U\)</span>. Then the sum
+<span class="math inline">\(\sum_n f_n\)</span> is
+holomorphic.</em></p></li>
+</ol>
+</div>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
