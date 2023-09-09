@@ -183,43 +183,43 @@ like in \S\ref{sec:cj4unj4gyo}, by splitting the integral into two pieces (e.g, 
 \begin{lemma}
   $G(s)$ defines a meromorphic function on the complex plane whose only poles at simple ones:
   \begin{itemize}
-\item at $s = 1$, with residue $f(0)$, and
-\item at $s = 0$, with residue $ - \int_{\mathbb{R}} f(x) \,d x $.
+\item at $s = 0$, with residue $-f(0)$, and
+\item at $s = 1$, with residue $\int_{\mathbb{R}} f(x) \,d x $.
 \end{itemize}
 \end{lemma}
 \begin{proof}
-Let's carry this out in detail, applying the recipe of external \S\ref{sec:cj4vkf4yvq}.
-\begin{itemize}
-\item We see from \eqref{eq:cj4vkfq4ku} that the integral
-  \begin{equation*}
-G_-(s) := \int_0^1 y^s g(y) \,d^\times y
-  \end{equation*}
-  converges absolutely for $\Re(s) < 0$ and extends to a meromorphic function of $s$, whose only pole is a simple pole at $s = 1$ of residue $f(0)$.  Indeed,
-  \begin{equation*}
-G_-(s) = \int_0^1 y^s \left( g (y) - f(0) \right) \,d^\times y + f(0) \underbrace
-{
-\int_0^1 y^s \,d^\times y
-}_{
-\frac{1}{s}
-},
-  \end{equation*}
-  where the first integral on the right hand side converges absolutely for all $s$.
-\item We see from \eqref{eq:cj4vkfrkjf} that the integral
-  \begin{equation*}
-G_+(s) := \int_1^\infty y^s g(y) \,d^\times y
-  \end{equation*}
-  converges absolutely for $\Re(s) > 1$ and extends to a meromorphic function of $s$, whose only pole is a simple pole at $s = 0$ of residue $- I_f$, where $I_f := \int_{\mathbb{R} } f (x) \, d x$.  Indeed,
-  \begin{equation*}
-    G_+(s) = \int_0^1 y^s \left(g (y) - y^{-1} I_f \right) \,d^\times y
-    + \left( I_f \right)
-    \underbrace
-{
-\int_1^\infty y^{s - 1} \,d^\times y
-}_{
-\frac{-1}{s - 1}
-}.
-\end{equation*}
-\end{itemize}
+  Let's carry this out in detail, applying the recipe of external \S\ref{sec:cj4vkf4yvq}.
+  \begin{itemize}
+  \item We see from \eqref{eq:cj4vkfq4ku} that the integral
+    \begin{equation*}
+      G_+(s) := \int_1^\infty y^s g(y) \,d^\times y
+    \end{equation*}
+    converges absolutely for $\Re(s) < 0$ and extends to a meromorphic function of $s$, whose only pole is a simple pole at $s = 0$ of residue $-f(0)$.  Indeed,
+    \begin{equation*}
+      G_+(s) = \int_1^\infty y^s \left(g (y) - f(0) \right) \,d^\times y
+      + f(0)
+      \underbrace
+      {
+        \int_1^\infty y^{s} \,d^\times y
+      }_{
+        -1/s
+      },
+    \end{equation*}
+    where the first integral on the right hand side converges absolutely for all $s$.
+  \item We see from \eqref{eq:cj4vkfrkjf} that the integral
+    \begin{equation*}
+      G_-(s) := \int_0^1 y^s g(y) \,d^\times y
+    \end{equation*}
+    converges absolutely for $\Re(s) > 1$ and extends to a meromorphic function of $s$, whose only pole is a simple pole at $s = 0$ of residue $I_f$, where $I_f := \int_{\mathbb{R} } f (x) \, d x$.  Indeed,
+    \begin{equation*}
+      G_-(s) = \int_0^1 y^s \left( g (y) - y^{-1} I_f \right) \,d^\times y + I_f \underbrace
+      {
+        \int_0^1 y^{s-1} \,d^\times y
+      }_{
+        1/(s-1)
+      }.
+    \end{equation*}
+  \end{itemize}
 \end{proof}
 
 We denote henceforth by $\mathcal{F} f$ the (normalized) Fourier transform
