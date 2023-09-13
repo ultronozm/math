@@ -192,7 +192,26 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -203,7 +222,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2023-09-13 07:52:49
+2023-09-13 08:00:08
       <a href="p-squared.tex" class="my-link">tex</a>
       <a href="p-squared.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/p-squared.tex" class="my-link">history</a>
@@ -350,17 +369,15 @@ groups. Recent works on this topic include</p>
 <ul>
 <li><p>an approach to the analytic test vector problem based on the
 orbit method, applied to the asymptotic evaluations of moments
-(see <span class="citation"
-data-cites="nelson-venkatesh-1">(<strong>nelson-venkatesh-1?</strong>)</span>),
-and</p></li>
+(see <a href="#ref-nelson-venkatesh-1" class="citation" data-cites="nelson-venkatesh-1">(Nelson and
+Venkatesh 2021)</a>), and</p></li>
 <li><p>subconvex bounds on <span
 class="math inline">\({\mathop{\mathrm{U}}}_{n+1} \times
 {\mathop{\mathrm{U}}}_n\)</span> and <span
-class="math inline">\({\mathop{\mathrm{GL}}}_n\)</span> (see <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n\)</span> (see <a href="#ref-2020arXiv201202187N 2021arXiv210915230N"
 class="citation"
-data-cites="2020arXiv201202187N 2021arXiv210915230N">(<strong>2020arXiv201202187N?</strong>;
-<strong>2021arXiv210915230N?</strong>)</span> and announcement talks of
-Marshall).</p></li>
+data-cites="2020arXiv201202187N 2021arXiv210915230N">(Nelson 2023,
+2021)</a> and announcement talks of Marshall).</p></li>
 </ul>
 <p>These works study sequences of automorphic forms whose ramification
 increases inside some <em>fixed</em> finite set of places, a setup known
@@ -442,20 +459,19 @@ with suitable normalization of measure, <span id="eq:cj3tfrrhlc" class="math dis
    =
    \mathcal{L}(\pi, \sigma)
   \int_{H(F_S)} \langle h v, v   \rangle \langle u, h u \rangle \, d
-h.\]</span> We refer to <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>
-for further details. It has been conjectured by Ichino–Ikeda <span
-class="citation"
-data-cites="MR2585578">(<strong>MR2585578?</strong>)</span> and N.
-Harris <span class="citation"
-data-cites="MR3159075">(<strong>MR3159075?</strong>)</span> that if
-<span class="math inline">\(S\)</span> is large enough in the sense
-recorded in <span class="citation"
-data-cites="MR2585578">(<strong>MR2585578?</strong>)</span>, then <span
-class="math inline">\(\mathcal{L}(\pi,\sigma)\)</span> is given by a
-ratio of <span class="math inline">\(L\)</span>-values, namely, with
-notation as in <span class="citation"
-data-cites="MR4426741">(<strong>MR4426741?</strong>)</span>, <span id="eqn:20230517061322" class="math display">\[\label{eqn:20230517061322}\tag{1.2}
+h.\]</span> We refer to <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, sec. 3.7)</a> for
+further details. It has been conjectured by Ichino–Ikeda <a href="#ref-MR2585578"
+class="citation" data-cites="MR2585578">(Ichino and Ikeda 2010)</a>
+and N. Harris <a href="#ref-MR3159075" class="citation" data-cites="MR3159075">(Harris
+2014)</a> that if <span class="math inline">\(S\)</span> is large
+enough in the sense recorded in <a href="#ref-MR2585578" class="citation"
+data-cites="MR2585578">(Ichino and Ikeda 2010, sec. 1)</a>, then
+<span class="math inline">\(\mathcal{L}(\pi,\sigma)\)</span> is given by
+a ratio of <span class="math inline">\(L\)</span>-values, namely, with
+notation as in <a href="#ref-MR4426741" class="citation"
+data-cites="MR4426741">(Beuzart-Plessis, Chaudouard, and Zydor
+2022)</a>, <span id="eqn:20230517061322" class="math display">\[\label{eqn:20230517061322}\tag{1.2}
   \mathcal{L}(\pi,\sigma)
   =
   2^{- \beta}
@@ -464,9 +480,9 @@ data-cites="MR4426741">(<strong>MR4426741?</strong>)</span>, <span id="eqn:20230
 \boxtimes {\sigma}^{\vee},1)}
   \Delta_G^{(S)}.\]</span> This expectation has been proved at least
 when <span class="math inline">\(\pi\)</span> and <span
-class="math inline">\(\sigma\)</span> are tempered at all places <span
-class="citation"
-data-cites="MR4426741">(<strong>MR4426741?</strong>)</span>.</p>
+class="math inline">\(\sigma\)</span> are tempered at all places <a href="#ref-MR4426741"
+class="citation" data-cites="MR4426741">(Beuzart-Plessis, Chaudouard,
+and Zydor 2022)</a>.</p>
 <h2 id="sec:cj4vjf3x2x">§1.3. Main result</h2>
 <p>We establish a subconvex bound on <span
 class="math inline">\({\mathop{\mathrm{U}}}_{n+1} \times
@@ -484,11 +500,11 @@ G, H\)</span> as in §<a href="#sec:cj3siudn3c" data-reference-type="ref"
 data-reference="sec:cj3siudn3c">1.2</a>, as well as a finite set <span
 class="math inline">\(S\)</span> of of places of <span
 class="math inline">\(F\)</span>, large enough in the sense specified
-in <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>.
-Let <span class="math inline">\(\mathcal{F}\)</span> be a family of
-tuples <span class="math inline">\((\pi,\sigma, \mathfrak{p},
-\mathfrak{q})\)</span> satisfying the following conditions:</em></p>
+in <a href="#ref-2020arXiv201202187N" class="citation" data-cites="2020arXiv201202187N">(Nelson 2023,
+sec. 3.6)</a>. Let <span class="math inline">\(\mathcal{F}\)</span>
+be a family of tuples <span class="math inline">\((\pi,\sigma,
+\mathfrak{p}, \mathfrak{q})\)</span> satisfying the following
+conditions:</em></p>
 <ol type="a">
 <li><p><em><span class="math inline">\(\pi\)</span> and <span
 class="math inline">\(\sigma\)</span> are cuspidal automorphic
@@ -498,11 +514,10 @@ characters.</em></p></li>
 <li><p><em><span class="math inline">\(\mathfrak{p} \notin S\)</span> is
 a non-archimedean place (or prime ideal) of <span
 class="math inline">\(F\)</span> at which <span
-class="math inline">\(E/F\)</span> splits, so that (see <span
-class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>)
-<span class="math display">\[(G(F_\mathfrak{p}), H(F_\mathfrak{p}))
-\cong ({\mathop{\mathrm{GL}}}_{n+1}(F_\mathfrak{p}),
+class="math inline">\(E/F\)</span> splits, so that (see <a href="#ref-2020arXiv201202187N"
+class="citation" data-cites="2020arXiv201202187N">(Nelson 2023, sec.
+3.3)</a>) <span class="math display">\[(G(F_\mathfrak{p}),
+H(F_\mathfrak{p})) \cong ({\mathop{\mathrm{GL}}}_{n+1}(F_\mathfrak{p}),
 {\mathop{\mathrm{GL}}}_n(F_\mathfrak{p})).\]</span></em></p></li>
 <li><p><em><span class="math inline">\((\pi,\sigma)\)</span> is locally
 distinguished: there is a nonzero <span
@@ -512,9 +527,9 @@ class="math inline">\(\pi \rightarrow \sigma\)</span>.</em></p></li>
 representations <span class="math inline">\(\pi\)</span> and <span
 class="math inline">\(\sigma\)</span> are tempered, and their depth is
 uniformly bounded as <span class="math inline">\((\pi,\sigma)\)</span>
-traverses <span class="math inline">\(\mathcal{F}\)</span> (see <span
-class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>).</em></p></li>
+traverses <span class="math inline">\(\mathcal{F}\)</span> (see <a href="#ref-2020arXiv201202187N"
+class="citation" data-cites="2020arXiv201202187N">(Nelson 2023, sec.
+1.3)</a>).</em></p></li>
 <li><p><em>Outside <span class="math inline">\(S \cup \{\mathfrak{p}
 \}\)</span>, the representations <span
 class="math inline">\(\pi\)</span> and <span
@@ -523,8 +538,9 @@ class="math inline">\(\sigma\)</span> satisfies a uniform bound towards
 Ramanujan at places where <span class="math inline">\(E/F\)</span>
 splits: it is <span class="math inline">\(\vartheta\)</span>-tempered at
 such places for some fixed <span class="math inline">\(0 \leq \vartheta
-&lt; 1/2\)</span> (see <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>).</em></p></li>
+&lt; 1/2\)</span> (see <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, sec.
+5.2.1)</a>).</em></p></li>
 <li><p><em><span class="math inline">\(\mathfrak{q}\)</span> is a
 positive power of the prime ideal <span
 class="math inline">\(\mathfrak{p}\)</span>.</em></p></li>
@@ -607,16 +623,14 @@ class="math inline">\(\sigma\)</span> are everywhere tempered), the
 estimate <a href="#eq:cj3tfrulcn" data-reference-type="eqref"
 data-reference="eq:cj3tfrulcn">\((1.8)\)</a> improves upon the
 convexity bound, which would assert the same for some <span
-class="math inline">\(\delta_n \leq 0\)</span> (see <span
-class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>,
-Proof of Cor 1.2)</span> for details). In the case <span
+class="math inline">\(\delta_n \leq 0\)</span> (see <a href="#ref-2020arXiv201202187N"
+class="citation" data-cites="2020arXiv201202187N">(Nelson 2023, Proof of
+Cor 1.2)</a> for details). In the case <span
 class="math inline">\(n+1 = 2\)</span>, such an estimate has been known
-for a while <span class="citation"
-data-cites="michel-2009">(<strong>michel-2009?</strong>)</span>. When
-<span class="math inline">\(n+1 \geq 3\)</span>, such an estimate is
-new; we will show then that <a href="#eq:cj3tfrulcn"
-data-reference-type="eqref"
+for a while <a href="#ref-michel-2009" class="citation" data-cites="michel-2009">(Michel and
+Venkatesh 2010)</a>. When <span class="math inline">\(n+1 \geq
+3\)</span>, such an estimate is new; we will show then that <a
+href="#eq:cj3tfrulcn" data-reference-type="eqref"
 data-reference="eq:cj3tfrulcn">\((1.8)\)</a> holds for any <span id="eq:cj3ubs6lvw" class="math display">\[\label{eq:cj3ubs6lvw}\tag{1.9}
   \delta_n &lt; \frac{1 - 2 \vartheta }{4 n(n+1) (A + 1 - 2 \vartheta
 )},
@@ -632,10 +646,9 @@ upon <span class="math inline">\(\delta_n\)</span>).</p>
 challenge of improving the numerical strength of the exponent <a
 href="#eq:cj3ubs6lvw" data-reference-type="eqref"
 data-reference="eq:cj3ubs6lvw">\((1.9)\)</a>. Several avenues for
-doing so were mentioned in <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>,
-Rmk 1.4)</span>, many of which could be pursued in the present
-context.</p>
+doing so were mentioned in <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, Rmk 1.4)</a>, many of
+which could be pursued in the present context.</p>
 </div>
 <div id="remark:cj3u9062fs" class="remark">
 <p><strong>Remark 3</strong>. The “large conductor” assumption <a
@@ -643,10 +656,9 @@ href="#eqn:cj2dzunqa6" data-reference-type="eqref"
 data-reference="eqn:cj2dzunqa6">\((1.6)\)</a> is the most serious
 one — it is an open problem to give any genuine subconvex bound for
 <span class="math inline">\({\mathop{\mathrm{GL}}}_3\)</span> or higher in
-any case where the conductor drops (see the final paragraph of <span
-class="citation"
-data-cites="2021arXiv210915230N">(<strong>2021arXiv210915230N?</strong>)</span>
-and references).</p>
+any case where the conductor drops (see the final paragraph of <a href="#ref-2021arXiv210915230N"
+class="citation" data-cites="2021arXiv210915230N">(Nelson 2021, sec.
+1.4)</a> and references).</p>
 </div>
 <h2 id="sec:cj4vjryk3u">§1.5. Related results</h2>
 <p>In talks starting in March 2018, Simon Marshall tentatively announced
@@ -669,17 +681,16 @@ non-archimedean place.</p></li>
 </ol>
 <p>An important input to his arguments is a certain <em>volume
 bound</em> (see §<a href="#sec:cj3ubuyr8u" data-reference-type="ref"
-data-reference="sec:cj3ubuyr8u">1.7</a> and <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>),
-which Marshall announces he can establish assuming <a
+data-reference="sec:cj3ubuyr8u">1.7</a> and <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, sec. 1.5)</a>), which
+Marshall announces he can establish assuming <a
 href="#enumerate:20230516210021" data-reference-type="eqref"
 data-reference="enumerate:20230516210021">\((i)\)</a>
 and <a href="#enumerate:20230516210903" data-reference-type="eqref"
 data-reference="enumerate:20230516210903">\((ii)\)</a>.</p>
-<p>The paper <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>
-gave analogues of Theorem <a href="#theorem:cj3ngw7u2s"
-data-reference-type="ref"
+<p>The paper <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023)</a> gave analogues of
+Theorem <a href="#theorem:cj3ngw7u2s" data-reference-type="ref"
 data-reference="theorem:cj3ngw7u2s">1.1</a> at an
 archimedean place <span class="math inline">\(\mathfrak{p}\)</span>
 (without assuming “principal series” or “<span
@@ -689,10 +700,10 @@ to the non-archimedean “<span
 class="math inline">\(\mathfrak{p}\)</span> fixed” case of Theorem <a
 href="#theorem:cj3ngw7u2s" data-reference-type="ref"
 data-reference="theorem:cj3ngw7u2s">1.1</a>; for
-instance, the volume bound <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>,
-Thm 15.2)</span> was established over any fixed local field, without
-assuming wall-avoidance.</p>
+instance, the volume bound <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, Thm 15.2)</a> was
+established over any fixed local field, without assuming
+wall-avoidance.</p>
 <p>In summary, the “<span class="math inline">\(\mathfrak{p}\)</span>
 fixed” case of Theorem <a href="#theorem:cj3ngw7u2s"
 data-reference-type="ref"
@@ -748,16 +759,15 @@ expansion <span id="eq:cj3tv4jpta" class="math display">\[\label{eq:cj3tv4jpta}\
 class="math inline">\(v\)</span> and <span
 class="math inline">\(u\)</span> and a factorizable test function <span
 class="math inline">\(\omega\)</span>. Their local components at the
-“uninteresting” places are chosen in a soft and general way <span
-class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>.
-The key point is to choose the components <span
+“uninteresting” places are chosen in a soft and general way <a href="#ref-2020arXiv201202187N"
+class="citation" data-cites="2020arXiv201202187N">(Nelson 2023, sec.
+5)</a>. The key point is to choose the components <span
 class="math inline">\(v_\mathfrak{p}, u_\mathfrak{p}\)</span> and <span
 class="math inline">\(\omega_\mathfrak{p}\)</span> at the “interesting”
 place and then to establish the required estimates. The proof may be
-divided into roughly the following steps (see <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>
-for a more leisurely overview).</p>
+divided into roughly the following steps (see <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, sec. 2)</a> for a more
+leisurely overview).</p>
 <ol>
 <li><p><span id="enumerate:cj3ubymeey"
 label="enumerate:cj3ubymeey"></span> For an individual representation
@@ -765,8 +775,9 @@ label="enumerate:cj3ubymeey"></span> For an individual representation
 class="math inline">\(G\)</span>, a construction of vectors <span
 class="math inline">\(v \in \pi\)</span> that are
 <em>microlocalized</em> with respect to some parameter <span
-class="math inline">\(\tau\)</span> <span class="citation"
-data-cites="nelson-venkatesh-1">(<strong>nelson-venkatesh-1?</strong>)</span>.</p></li>
+class="math inline">\(\tau\)</span> <a href="#ref-nelson-venkatesh-1" class="citation"
+data-cites="nelson-venkatesh-1">(Nelson and Venkatesh 2021, sec.
+1.7)</a>.</p></li>
 <li><p><span id="enumerate:cj3ubymf5o"
 label="enumerate:cj3ubymf5o"></span> For a pair <span
 class="math inline">\((\pi,\sigma)\)</span> as above, a study of the
@@ -775,13 +786,15 @@ at which microlocalized vectors <span class="math inline">\(v \in
 \pi\)</span> and <span class="math inline">\(u \in \sigma\)</span>
 exist, that are <em>compatible</em> in the sense that <span
 class="math inline">\(\tau\)</span> restricts to <span
-class="math inline">\(\tau_H\)</span> <span class="citation"
-data-cites="nelson-venkatesh-1">(<strong>nelson-venkatesh-1?</strong>)</span>.</p></li>
+class="math inline">\(\tau_H\)</span> <a href="#ref-nelson-venkatesh-1" class="citation"
+data-cites="nelson-venkatesh-1">(Nelson and Venkatesh 2021, secs.
+13–14)</a>.</p></li>
 <li><p><span id="enumerate:cj3ubymh5v"
 label="enumerate:cj3ubymh5v"></span> Spectral estimates: the estimation
 (in particular, lower bound) of integrals of matrix coefficients of
-microlocalized vectors <span class="citation"
-data-cites="nelson-venkatesh-1">(<strong>nelson-venkatesh-1?</strong>)</span>.</p></li>
+microlocalized vectors <a href="#ref-nelson-venkatesh-1" class="citation"
+data-cites="nelson-venkatesh-1">(Nelson and Venkatesh 2021, sec.
+18)</a>.</p></li>
 <li><p><span id="enumerate:cj3ubymi4d"
 label="enumerate:cj3ubymi4d"></span> Geometric estimates, namely the
 “volume bound”, which is the key technical problem that arises when
@@ -796,18 +809,16 @@ paper:</p>
 construction of microlocalized vectors particularly concrete (§<a
 href="#sec:part-body-paper" data-reference-type="ref"
 data-reference="sec:part-body-paper">8</a>).</p></li>
-<li><p>The study of compatible parameters was addressed in <span
-class="citation"
-data-cites="nelson-venkatesh-1">(<strong>nelson-venkatesh-1?</strong>)</span>
-over any base field of characteristic zero; we have found it convenient
-here to extend that study to a general base ring (§<a
-href="#sec:20230514080526" data-reference-type="ref"
+<li><p>The study of compatible parameters was addressed in <a href="#ref-nelson-venkatesh-1"
+class="citation" data-cites="nelson-venkatesh-1">(Nelson and Venkatesh
+2021, secs. 13–14)</a> over any base field of characteristic zero; we
+have found it convenient here to extend that study to a general base
+ring (§<a href="#sec:20230514080526" data-reference-type="ref"
 data-reference="sec:20230514080526">4</a>), using arguments quite
 similar to those in <em>loc. cit.</em></p></li>
-<li><p>The spectral estimates proceed in our context as in <span
-class="citation"
-data-cites="nelson-venkatesh-1">(<strong>nelson-venkatesh-1?</strong>)</span>,
-with simplification.</p></li>
+<li><p>The spectral estimates proceed in our context as in <a href="#ref-nelson-venkatesh-1"
+class="citation" data-cites="nelson-venkatesh-1">(Nelson and Venkatesh
+2021, sec. 18)</a>, with simplification.</p></li>
 </ol>
 <p>The focus of this paper is thus on the geometric estimates, namely,
 in establishing a volume bound that is uniform in <span
@@ -816,23 +827,21 @@ starting in §<a href="#sec:cj3ubuyr8u" data-reference-type="ref"
 data-reference="sec:cj3ubuyr8u">1.7</a>.</p>
 <div class="remark">
 <p><strong>Remark 5</strong>. The method and ideas employed here have a
-long history. We refer to <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>
-for an overview, but emphasize the use of amplification following
-Duke–Friedlander–Iwaniec <span class="citation"
-data-cites="MR1942691 DFI94 MR1923476">(<strong>MR1942691?</strong>;
-<strong>DFI94?</strong>; <strong>MR1923476?</strong>)</span>, the
-systematic study of period integrals and test vectors following
-Bernstein–Reznikov <span class="citation"
-data-cites="MR2726097">(<strong>MR2726097?</strong>)</span>,
-Venkatesh <span class="citation"
-data-cites="venkatesh-2005">(<strong>venkatesh-2005?</strong>)</span>
-and Michel–Venkatesh <span class="citation"
-data-cites="michel-2009">(<strong>michel-2009?</strong>)</span>, and the
-influential papers of Sarnak <span class="citation"
-data-cites="MR780071">(<strong>MR780071?</strong>)</span> and
-Iwaniec–Sarnak <span class="citation"
-data-cites="iwan-sar">(<strong>iwan-sar?</strong>)</span>.</p>
+long history. We refer to <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, sec. 2.6)</a> for an
+overview, but emphasize the use of amplification following
+Duke–Friedlander–Iwaniec <a href="#ref-MR1942691 DFI94 MR1923476" class="citation"
+data-cites="MR1942691 DFI94 MR1923476">(Iwaniec 2002; Duke, Friedlander,
+and Iwaniec 1994, 2002)</a>, the systematic study of period integrals
+and test vectors following Bernstein–Reznikov <a href="#ref-MR2726097" class="citation"
+data-cites="MR2726097">(Bernstein and Reznikov 2010)</a>,
+Venkatesh <a href="#ref-venkatesh-2005" class="citation" data-cites="venkatesh-2005">(Venkatesh
+2010)</a> and Michel–Venkatesh <a href="#ref-michel-2009" class="citation"
+data-cites="michel-2009">(Michel and Venkatesh 2010)</a>, and the
+influential papers of Sarnak <a href="#ref-MR780071" class="citation"
+data-cites="MR780071">(Sarnak 1985)</a> and Iwaniec–Sarnak <a href="#ref-iwan-sar"
+class="citation" data-cites="iwan-sar">(Iwaniec and Sarnak
+1995)</a>.</p>
 </div>
 <div id="remark:cj3u9047n5" class="remark">
 <p><strong>Remark 6</strong>. To simplify the statement of Theorem <a
@@ -901,15 +910,14 @@ href="#enumerate:cj3ubymi4d" data-reference-type="eqref"
 data-reference="enumerate:cj3ubymi4d">\((4)\)</a> in the
 proof strategy outlined above; for instance, in place of the volume
 bound, one might need to estimate character sums (see the third
-paragraph of <span class="citation"
-data-cites="2021arXiv210915230N">(<strong>2021arXiv210915230N?</strong>)</span>
-and references). This seems to us an interesting direction for future
+paragraph of <a href="#ref-2021arXiv210915230N" class="citation"
+data-cites="2021arXiv210915230N">(Nelson 2021, sec. 1.4)</a> and
+references). This seems to us an interesting direction for future
 work.</p>
 </div>
 <div id="remark:cj3ubsydvn" class="remark">
-<p><strong>Remark 8</strong>. Using the methods of <span
-class="citation"
-data-cites="2021arXiv210915230N">(<strong>2021arXiv210915230N?</strong>)</span>,
+<p><strong>Remark 8</strong>. Using the methods of <a href="#ref-2021arXiv210915230N"
+class="citation" data-cites="2021arXiv210915230N">(Nelson 2021)</a>,
 it should be possible to extend Theorem <a href="#theorem:cj3ngw7u2s"
 data-reference-type="ref"
 data-reference="theorem:cj3ngw7u2s">1.1</a> to the
@@ -931,13 +939,11 @@ data-reference="remark:cj3ubzzdb9">1.7</a>.</p>
 </div>
 <div id="remark:cj3u905a9t" class="remark">
 <p><strong>Remark 9</strong>. One motivation for studying horizontal
-aspects comes from conjectures and results of Lapid–Mao <span
-class="citation"
-data-cites="MR3267120 MR3619910 MR3649366">(<strong>MR3267120?</strong>;
-<strong>MR3619910?</strong>; <strong>MR3649366?</strong>)</span>, which
-relate quadratic twists of self-dual standard <span
-class="math inline">\(L\)</span>-functions on <span
-class="math inline">\({\mathop{\mathrm{GL}}}_n\)</span> to Fourier
+aspects comes from conjectures and results of Lapid–Mao <a href="#ref-MR3267120 MR3619910 MR3649366"
+class="citation" data-cites="MR3267120 MR3619910 MR3649366">(Lapid and
+Mao 2015, 2017b, 2017a)</a>, which relate quadratic twists of
+self-dual standard <span class="math inline">\(L\)</span>-functions on
+<span class="math inline">\({\mathop{\mathrm{GL}}}_n\)</span> to Fourier
 coefficients of automorphic forms on <span
 class="math inline">\({\mathop{\mathrm{Mp}}}_{2n}\)</span>. Estimates for
 such coefficients could have applications to representation problems
@@ -956,13 +962,12 @@ data-reference-type="ref" data-reference="Probleminformal">1.10</a>. The
 asymptotic determination of <a href="#eq:cj3tv4jpta"
 data-reference-type="eqref"
 data-reference="eq:cj3tv4jpta">\((1.11)\)</a> reduces to the volume
-bound as in previous work (see <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>
-or §<a href="#Sec:bilinear" data-reference-type="ref"
+bound as in previous work (see <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, sec. 1.5.3)</a> or §<a
+href="#Sec:bilinear" data-reference-type="ref"
 data-reference="Sec:bilinear">7</a>). Cases of the volume bound
-sufficient for the depth aspect were established in <span
-class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>,
+sufficient for the depth aspect were established in <a href="#ref-2020arXiv201202187N"
+class="citation" data-cites="2020arXiv201202187N">(Nelson 2023)</a>,
 using reductions specific to that aspect (see §<a href="#sec:cj4t64wm4h"
 data-reference-type="ref" data-reference="sec:cj4t64wm4h">1.9</a> for
 details). We develop a different approach (§<a href="#sec:cj4t647ljn"
@@ -1016,12 +1021,12 @@ polynomials of <span class="math inline">\(\tau\)</span> and <span
 class="math inline">\(\tau_H\)</span> generate the unit ideal. This is
 an avatar for the “large conductor” assumption <a href="#eqn:cj3ngvwrm4"
 data-reference-type="eqref"
-data-reference="eqn:cj3ngvwrm4">\((1.7)\)</a> (see <span
-class="citation"
-data-cites="nelson-venkatesh-1">(<strong>nelson-venkatesh-1?</strong>)</span>)
-and is equivalent to the geometric invariant theory notion of stability
-(see <span class="citation"
-data-cites="nelson-venkatesh-1">(<strong>nelson-venkatesh-1?</strong>)</span>).</p>
+data-reference="eqn:cj3ngvwrm4">\((1.7)\)</a> (see <a href="#ref-nelson-venkatesh-1"
+class="citation" data-cites="nelson-venkatesh-1">(Nelson and Venkatesh
+2021, sec. 15)</a>) and is equivalent to the geometric invariant
+theory notion of stability (see <a href="#ref-nelson-venkatesh-1" class="citation"
+data-cites="nelson-venkatesh-1">(Nelson and Venkatesh 2021, sec.
+14)</a>).</p>
 <div id="Probleminformal" class="problem">
 <p><strong>Problem 10</strong>. Fix a stable element <span
 class="math inline">\(\tau \in M\)</span>. Fix <span
@@ -1047,9 +1052,9 @@ class="math inline">\(F\)</span>. In §<a href="#sec:cj4t647ljn"
 data-reference-type="ref" data-reference="sec:cj4t647ljn">1.8</a>, we
 summarize the proof. In §<a href="#sec:cj4t64wm4h"
 data-reference-type="ref" data-reference="sec:cj4t64wm4h">1.9</a>, we
-explain why the depth aspect treatment given in <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>
-is not uniform.</p>
+explain why the depth aspect treatment given in <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023)</a> is not
+uniform.</p>
 <h2 id="sec:cj4t647ljn">§1.8. The approach of this paper</h2>
 <p>The volume bound controls elements of <span
 class="math inline">\(H_{\tau_H}\)</span> lying close to a certain
@@ -1180,9 +1185,8 @@ class="math inline">\(a\)</span> whose vanishing forces <span
 class="math inline">\(a^2\)</span> to be central. We refer to §<a
 href="#sec:analysis-first-derivatives" data-reference-type="ref"
 data-reference="sec:analysis-first-derivatives">5.4</a> for details.
-This step of the argument generalizes the approach of <span
-class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>,
+This step of the argument generalizes the approach of <a href="#ref-2020arXiv201202187N"
+class="citation" data-cites="2020arXiv201202187N">(Nelson 2023)</a>,
 recalled below in §<a href="#sec:cj4t64wm4h" data-reference-type="ref"
 data-reference="sec:cj4t64wm4h">1.9</a>, which amounts to studying just
 the linear coefficient for the central direction in <span
@@ -1219,16 +1223,15 @@ data-reference-type="ref" data-reference="sec:cj4t69an73">1.9.3</a>)
 that <span class="math inline">\(a\)</span> is close to the identity.
 Then <span class="math inline">\(a^2 \in \mathbf{Z}(R) \implies a \in
 \mathbf{Z}(R)\)</span>, so the “linear” part of above argument suffices,
-yielding a simpler proof than in <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>
-of the volume bound required in the depth aspect (see Remark <a
+yielding a simpler proof than in <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023)</a> of the volume
+bound required in the depth aspect (see Remark <a
 href="#Remark:recoverLiealgproof" data-reference-type="ref"
 data-reference="Remark:recoverLiealgproof">5.14</a>).</p>
 </div>
 <h2 id="sec:cj4t64wm4h">§1.9. Available treatment in the depth aspect</h2>
-<p>We indicate here why the approach to the volume bound given in <span
-class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>
+<p>We indicate here why the approach to the volume bound given in <a href="#ref-2020arXiv201202187N"
+class="citation" data-cites="2020arXiv201202187N">(Nelson 2023)</a>
 does not apply in horizontal aspects, motivating the approach described
 above and pursued in this paper.</p>
 <h3 id="the-short-spectral-projector-omega">The short spectral projector
@@ -1253,37 +1256,35 @@ class="math inline">\(\mathfrak{q}\)</span> to the diagonal.</p>
 <h3 id="reductions">Reductions</h3>
 <p>The depth aspect case of the volume bound (i.e., <span
 class="math inline">\(\mathfrak{p}\)</span> fixed) was addressed
-in <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>
-following a series of reductions:</p>
+in <a href="#ref-2020arXiv201202187N" class="citation" data-cites="2020arXiv201202187N">(Nelson
+2023)</a> following a series of reductions:</p>
 <ol type="i">
-<li><p><strong>Reduction to the near-identity case</strong>. By <span
-class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>,
-it is not necessary to solve Problem <a href="#Probleminformal"
-data-reference-type="ref" data-reference="Probleminformal">1.10</a> in
-general — it suffices to treat the “near-identity” case, where <span
+<li><p><strong>Reduction to the near-identity case</strong>. By <a href="#ref-2020arXiv201202187N"
+class="citation" data-cites="2020arXiv201202187N">(Nelson 2023, sec.
+15)</a>, it is not necessary to solve Problem <a
+href="#Probleminformal" data-reference-type="ref"
+data-reference="Probleminformal">1.10</a> in general — it suffices to
+treat the “near-identity” case, where <span
 class="math inline">\(a\)</span> lies in an arbitrarily small (but
 fixed) neighborhood of the identity (see §<a href="#sec:cj4t69an73"
 data-reference-type="ref"
 data-reference="sec:cj4t69an73">1.9.3</a>).</p></li>
 <li><p><strong>Reduction to the Lie algebra</strong>. The near-identity
-case reduces further, via Lie-theoretic arguments <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>,
-to a Lie algebra problem, where <span
+case reduces further, via Lie-theoretic arguments <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, sec. 16)</a>, to a Lie
+algebra problem, where <span
 class="math inline">\(\mathop{\mathrm{Lie}}(H_{\tau_H})\)</span> plays
 the role of <span class="math inline">\(H_{\tau_H}\)</span>.</p></li>
 <li><p><strong>Reduction to central directions</strong>. The Lie algebra
 problem concerns certain subspaces of <span
 class="math inline">\(\mathop{\mathrm{Lie}}(H_{\tau_H})\)</span>, whose
 definition we omit here. The problem is to show that the subspaces are
-not the entire space. This problem was addressed in <span
-class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>
-by showing that the subspaces do not contain the one-dimensional central
-subspace; in effect, this shows that central cosets in <span
-class="math inline">\(H_{\tau_H} \cap K\)</span> suffice to solve
-Problem <a href="#Probleminformal" data-reference-type="ref"
+not the entire space. This problem was addressed in <a href="#ref-2020arXiv201202187N"
+class="citation" data-cites="2020arXiv201202187N">(Nelson 2023, sec.
+17)</a> by showing that the subspaces do not contain the
+one-dimensional central subspace; in effect, this shows that central
+cosets in <span class="math inline">\(H_{\tau_H} \cap K\)</span> suffice
+to solve Problem <a href="#Probleminformal" data-reference-type="ref"
 data-reference="Probleminformal">1.10</a>.</p></li>
 </ol>
 <p>These reductions fail in horizontal aspects, for independent
@@ -1316,8 +1317,8 @@ data-reference="sec:cj4t64wm4h">1.9</a> by explaining the
 “near-identity” reduction mentioned above, whose failure in horizontal
 aspects motivates why the geometric estimates in this paper are of
 “algebro-geometric” rather than “Lie-algebraic” flavor compared to those
-in <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>.</p>
+in <a href="#ref-2020arXiv201202187N" class="citation" data-cites="2020arXiv201202187N">(Nelson
+2023)</a>.</p>
 <p>Fix a small natural number <span class="math inline">\(d\)</span>.
 Let <span class="math inline">\(K[d]\)</span> denote the <span
 class="math inline">\(d\)</span>th principal congruence subgroup of
@@ -1371,18 +1372,17 @@ maximal compact subgroup <span class="math inline">\(K\)</span>.</p>
 It culminates in our main local result, Theorem <a
 href="#theorem:main-local-result" data-reference-type="ref"
 data-reference="theorem:main-local-result">9.1</a>,
-which is a direct analogue of its archimedean counterpart, <span
-class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>,
-Theorem 4.2)</span>. The auxiliary arguments of <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>
+which is a direct analogue of its archimedean counterpart, <a href="#ref-2020arXiv201202187N"
+class="citation" data-cites="2020arXiv201202187N">(Nelson 2023, Theorem
+4.2)</a>. The auxiliary arguments of <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, secs. 4–6)</a>
 (concerning “uninteresting” places, amplification, counting,
 etc.) combine with our main local result to yield a subconvex bound,
-exactly as in <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>.
-While our local analysis is logically self-contained, its global
-motivation might be clarified by skimming <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>.</p>
+exactly as in <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023)</a>. While our local
+analysis is logically self-contained, its global motivation might be
+clarified by skimming <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, sec. 6)</a>.</p>
 <p>We conclude with the detailed breakdown. §<a href="#sec:notation"
 data-reference-type="ref" data-reference="sec:notation">2</a>–§<a
 href="#sec:cyclic-matrices" data-reference-type="ref"
@@ -1416,14 +1416,13 @@ data-reference-type="ref" data-reference="sec:mainlocal">9</a>
 establishes our main local result (Theorem <a
 href="#theorem:main-local-result" data-reference-type="ref"
 data-reference="theorem:main-local-result">9.1</a>),
-a uniform non-archimedean analogue of <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>,
-Theorem 4.2)</span>. §<a href="#Sec:final" data-reference-type="ref"
+a uniform non-archimedean analogue of <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, Theorem 4.2)</a>. §<a
+href="#Sec:final" data-reference-type="ref"
 data-reference="Sec:final">10</a> combines our main local result with
-the auxiliary arguments of <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>
-to complete the proof of Theorem <a href="#theorem:cj3ngw7u2s"
-data-reference-type="ref"
+the auxiliary arguments of <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023)</a> to complete the
+proof of Theorem <a href="#theorem:cj3ngw7u2s" data-reference-type="ref"
 data-reference="theorem:cj3ngw7u2s">1.1</a>.</p>
 <h2 id="acknowledgment">Acknowledgment</h2>
 <p>Y.H. is supported by the National Key Research and Development
@@ -1646,9 +1645,9 @@ corresponding bold-faced group schemes.</p>
 R[X]\]</span> its characteristic polynomial. It is a monic polynomial
 whose degree is the rank of <span
 class="math inline">\(\mathbf{V}\)</span>. We recall the Cayley–Hamilton
-theorem (see <span class="citation"
-data-cites="MR1322960">(<strong>MR1322960?</strong>, Theorem
-4.3)</span>): <span class="math inline">\(P_\tau(\tau) = 0\)</span>.</p>
+theorem (see <a href="#ref-MR1322960" class="citation" data-cites="MR1322960">(Eisenbud
+1995, Theorem 4.3)</a>): <span class="math inline">\(P_\tau(\tau) =
+0\)</span>.</p>
 <div id="definition:cyclic" class="definition">
 <p><strong>Definition 15</strong>. Let <span class="math inline">\(\tau
 \in M\)</span>. We say that <span class="math inline">\(v \in V\)</span>
@@ -1714,9 +1713,8 @@ is surjective, in which case it is an isomorphism.</p>
 <a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
 <span class="proof-content"> The first statement follows from the Cayley–Hamilton
 theorem, the second from the fact that any surjective map of free
-modules of the same finite rank is an isomorphism <span class="citation"
-data-cites="MR1322960">(<strong>MR1322960?</strong>, Corollary
-4.4a)</span>. ◻</p>
+modules of the same finite rank is an isomorphism <a href="#ref-MR1322960" class="citation"
+data-cites="MR1322960">(Eisenbud 1995, Corollary 4.4a)</a>. ◻</p>
 </span></div>
 <p>In particular, each cyclic element <span
 class="math inline">\(\tau\)</span> admits a <em>cyclic basis</em> <span
@@ -1813,26 +1811,27 @@ the subset of stable elements.</p>
 </div>
 <div class="remark">
 <p><strong>Remark 24</strong>. This condition was studied by
-Rallis–Schiffmann <span class="citation"
-data-cites="2007arXiv0705.2168R">(<strong>2007arXiv0705.2168R?</strong>)</span>
-under the name “regular”, and also in <span class="citation"
-data-cites="nelson-venkatesh-1">(<strong>nelson-venkatesh-1?</strong>)</span>,
-where it was related (for <span class="math inline">\(R\)</span> a field
-of characteristic zero) to the geometric invariant theory notion of
-stability. See especially <span class="citation"
-data-cites="2007arXiv0705.2168R">(<strong>2007arXiv0705.2168R?</strong>,
-Thm 6.1)</span> and <span class="citation"
-data-cites="nelson-venkatesh-1">(<strong>nelson-venkatesh-1?</strong>,
-Lem 14.8)</span>. Many of the results of this section were established
-in <span class="citation"
-data-cites="nelson-venkatesh-1">(<strong>nelson-venkatesh-1?</strong>)</span>
-when <span class="math inline">\(R\)</span> is a field of characteristic
-zero, and in some respects, more systematically and generally (e.g.,
-also for orthogonal GGP pairs). We have chosen to give short proofs of
-what we require, repeating or adapting the arguments of the cited
-reference. The adapted arguments could likely be extended to the
-orthogonal case along the same lines as in <span class="citation"
-data-cites="nelson-venkatesh-1">(<strong>nelson-venkatesh-1?</strong>)</span>.</p>
+Rallis–Schiffmann <a href="#ref-2007arXiv0705.2168R" class="citation"
+data-cites="2007arXiv0705.2168R">(Rallis and Schiffmann 2007)</a>
+under the name “regular”, and also in <a href="#ref-nelson-venkatesh-1" class="citation"
+data-cites="nelson-venkatesh-1">(Nelson and Venkatesh 2021, sec.
+14)</a>, where it was related (for <span
+class="math inline">\(R\)</span> a field of characteristic zero) to the
+geometric invariant theory notion of stability. See especially <a href="#ref-2007arXiv0705.2168R"
+class="citation" data-cites="2007arXiv0705.2168R">(Rallis and Schiffmann
+2007, Thm 6.1)</a> and <a href="#ref-nelson-venkatesh-1" class="citation"
+data-cites="nelson-venkatesh-1">(Nelson and Venkatesh 2021, Lem
+14.8)</a>. Many of the results of this section were established
+in <a href="#ref-nelson-venkatesh-1" class="citation" data-cites="nelson-venkatesh-1">(Nelson and
+Venkatesh 2021, secs. 13–14)</a> when <span
+class="math inline">\(R\)</span> is a field of characteristic zero, and
+in some respects, more systematically and generally (e.g., also for
+orthogonal GGP pairs). We have chosen to give short proofs of what we
+require, repeating or adapting the arguments of the cited reference. The
+adapted arguments could likely be extended to the orthogonal case along
+the same lines as in <a href="#ref-nelson-venkatesh-1" class="citation"
+data-cites="nelson-venkatesh-1">(Nelson and Venkatesh 2021, sec.
+14)</a>.</p>
 </div>
 <div id="example:cj3twmtcpz" class="example">
 <p><strong>Example 25</strong>. Suppose <span
@@ -1898,15 +1897,13 @@ class="math inline">\(P_{\tau_H} = P_H\)</span>.</p>
 <span class="proof-content"> One can deduce the existence of <span
 class="math inline">\(\tau\)</span> directly from the spherical property
 of <span class="math inline">\(H \hookrightarrow G \times H\)</span>
-(see <span class="citation"
-data-cites="nelson-venkatesh-1">(<strong>nelson-venkatesh-1?</strong>)</span>).
-For variety of exposition, we record an “explicit” construction,
-following <span class="citation"
-data-cites="MR3164988">(<strong>MR3164988?</strong>)</span>. Supposing
-for instance that <span class="math inline">\(H =
-{\mathop{\mathrm{GL}}}_2(R) \hookrightarrow G =
-{\mathop{\mathrm{GL}}}_3(R)\)</span>, embedded as the upper-left block, we
-take <span class="math display">\[\tau =
+(see <a href="#ref-nelson-venkatesh-1" class="citation" data-cites="nelson-venkatesh-1">(Nelson and
+Venkatesh 2021, sec. 14.6)</a>). For variety of exposition, we record
+an “explicit” construction, following <a href="#ref-MR3164988" class="citation"
+data-cites="MR3164988">(Zhang 2014, sec. 6.2)</a>. Supposing for
+instance that <span class="math inline">\(H = {\mathop{\mathrm{GL}}}_2(R)
+\hookrightarrow G = {\mathop{\mathrm{GL}}}_3(R)\)</span>, embedded as the
+upper-left block, we take <span class="math display">\[\tau =
     \begin{pmatrix}
       a _1  &amp; 1 &amp; 0 \\
       a _2 &amp; 0 &amp; 1 \\
@@ -2019,9 +2016,9 @@ algebraically closed field. Then <span
 class="math inline">\(P_\tau\)</span> and <span
 class="math inline">\(P_{\tau_H}\)</span> share a common root <span
 class="math inline">\(c\)</span>. The remainder of the proof closely
-follows that of <span class="citation"
-data-cites="nelson-venkatesh-1">(<strong>nelson-venkatesh-1?</strong>,
-Lemma 14.4)</span>. We may find</p>
+follows that of <a href="#ref-nelson-venkatesh-1" class="citation"
+data-cites="nelson-venkatesh-1">(Nelson and Venkatesh 2021, Lemma
+14.4)</a>. We may find</p>
 <ul>
 <li><p>an eigenvector <span class="math inline">\(v \in V_H\)</span> for
 <span class="math inline">\(\tau_H\)</span> with eigenvalue <span
@@ -2828,9 +2825,8 @@ Theorem <a href="#theorem:characterization-of-tangential-points"
 data-reference-type="ref"
 data-reference="theorem:characterization-of-tangential-points">5.5</a>
 lead to a much simpler proof of the following generalizations of
-Theorem <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>,
-Theorem 16.3)</span>: <em>for each ring</em> <span
+Theorem <a href="#ref-2020arXiv201202187N" class="citation" data-cites="2020arXiv201202187N">(Nelson
+2023, Theorem 16.3)</a>: <em>for each ring</em> <span
 class="math inline">\(R\)</span> <em>with</em> <span
 class="math inline">\(2 \in R^\times\)</span><em>, each</em> <span
 class="math inline">\(\tau \in
@@ -3405,10 +3401,10 @@ class="math display">\[d_H(g) := \min\left(1,
       \lvert c/d \rvert_F,
       \lvert c&#39;/d&#39; \rvert_F
     \right\}
-  \right).\]</span> This definition differs mildly from that in <span
-class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>,
-but agrees up to a constant factor, for reasons explained there.</p>
+  \right).\]</span> This definition differs mildly from that in <a href="#ref-2020arXiv201202187N"
+class="citation" data-cites="2020arXiv201202187N">(Nelson 2023, sec.
+4.2)</a>, but agrees up to a constant factor, for reasons explained
+there.</p>
 <div id="lemma:let-d-geq-0-g-in-k_g-be-such-that-begin-g-in-k_h-k"
 class="lemma">
 <p><strong>Lemma 53</strong>. Let <span class="math inline">\({\ell}
@@ -3727,28 +3723,26 @@ we deduce the required bound. ◻</p>
 involving a <em>fixed</em> local field of characteristic zero, the
 “near-identity reduction” (see §<a href="#sec:cj4t69an73"
 data-reference-type="ref" data-reference="sec:cj4t69an73">1.9.3</a>
-and <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>)
-reduces our task, as far as volume bounds like in Theorem <a
-href="#theorem:volume-bound" data-reference-type="ref"
+and <a href="#ref-2020arXiv201202187N" class="citation" data-cites="2020arXiv201202187N">(Nelson
+2023, sec. 15.6)</a>) reduces our task, as far as volume bounds like
+in Theorem <a href="#theorem:volume-bound" data-reference-type="ref"
 data-reference="theorem:volume-bound">6.7</a> are concerned, to the case
 that <span class="math inline">\(a\)</span> is close to the identity
-element. In that case, an adequate volume bound follows from <span
-class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>,
-Theorem 15.2)</span>. The novelty of Theorem <a
-href="#theorem:volume-bound" data-reference-type="ref"
-data-reference="theorem:volume-bound">6.7</a> relative to the cited
-result is its validity for all <span class="math inline">\(a\)</span> in
-the maximal compact subgroup, uniformly in the local field. The
-restriction to characteristic <span class="math inline">\(\neq
-2\)</span> in Theorem <a href="#theorem:volume-bound"
+element. In that case, an adequate volume bound follows from <a href="#ref-2020arXiv201202187N"
+class="citation" data-cites="2020arXiv201202187N">(Nelson 2023, Theorem
+15.2)</a>. The novelty of Theorem <a href="#theorem:volume-bound"
 data-reference-type="ref" data-reference="theorem:volume-bound">6.7</a>
-is thus harmless in applications. With additional work, this restriction
-could be eliminated in the case of a non-archimedean local field of
-characteristic zero and residue characteristic <span
-class="math inline">\(2\)</span>, basically because the proof of
-Theorem <a href="#theorem:main-transversality-general-ring"
+relative to the cited result is its validity for all <span
+class="math inline">\(a\)</span> in the maximal compact subgroup,
+uniformly in the local field. The restriction to characteristic <span
+class="math inline">\(\neq 2\)</span> in Theorem <a
+href="#theorem:volume-bound" data-reference-type="ref"
+data-reference="theorem:volume-bound">6.7</a> is thus harmless in
+applications. With additional work, this restriction could be eliminated
+in the case of a non-archimedean local field of characteristic zero and
+residue characteristic <span class="math inline">\(2\)</span>, basically
+because the proof of Theorem <a
+href="#theorem:main-transversality-general-ring"
 data-reference-type="ref"
 data-reference="theorem:main-transversality-general-ring">5.1</a>
 requires only a bounded number of divisions by <span
@@ -3822,11 +3816,11 @@ probability measures.</em></p>
 </div>
 <div class="proof"><p>
 <a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
-<span class="proof-content"> We closely follow the proof of <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>,
-Thm 15.1, Lem 15.3)</span>. By Cauchy–Schwarz, we have <span
-class="math inline">\(I \leq \sqrt{I_1 I_2}\)</span>, where <span
-class="math display">\[I_1 :=\frac{1}{\lvert H \rvert^2}
+<span class="proof-content"> We closely follow the proof of <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, Thm 15.1, Lem
+15.3)</a>. By Cauchy–Schwarz, we have <span class="math inline">\(I
+\leq \sqrt{I_1 I_2}\)</span>, where <span class="math display">\[I_1
+:=\frac{1}{\lvert H \rvert^2}
     \sum _{
       \substack{
         x, y \in H :  \\
@@ -3927,12 +3921,11 @@ data-reference-type="ref" data-reference="example:cj3m0jzefl">8.9</a> for
 some special cases).</p>
 <p>We note that many of the ideas and results recorded in this section
 are well-known in the type theory literature, going back to work of Howe
-from the 1970s (see, e.g., <span class="citation"
-data-cites="MR0579176 MR0327982">(<strong>MR0579176?</strong>;
-<strong>MR0327982?</strong>)</span> and <span class="citation"
-data-cites="MR2016587">(<strong>MR2016587?</strong>)</span>). The cited
-works would be most relevant to the special cases of our results where
-<span class="math inline">\(\tau\)</span> and <span
+from the 1970s (see, e.g., <a href="#ref-MR0579176 MR0327982" class="citation"
+data-cites="MR0579176 MR0327982">(Howe 1977, 1973)</a> and <a href="#ref-MR2016587"
+class="citation" data-cites="MR2016587">(Baruch 2003, sec. 5)</a>).
+The cited works would be most relevant to the special cases of our
+results where <span class="math inline">\(\tau\)</span> and <span
 class="math inline">\(\tau_H\)</span> are diagonalizable, a condition
 that corresponds to the “wall-avoidance” hypothesis <a
 href="#enumerate:20230516210021" data-reference-type="eqref"
@@ -4146,10 +4139,10 @@ may be understood as the conductor of the Rankin–Selberg convolution
 equality <a href="#eqn:20230516200301" data-reference-type="eqref"
 data-reference="eqn:20230516200301">\((8.4)\)</a> may be
 understood as an analogue of the “no conductor dropping” or “uniform
-growth” conditions considered in <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>
-and <span class="citation"
-data-cites="2021arXiv210915230N">(<strong>2021arXiv210915230N?</strong>)</span>.</p>
+growth” conditions considered in <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023)</a> and <a href="#ref-2021arXiv210915230N"
+class="citation" data-cites="2021arXiv210915230N">(Nelson
+2021)</a>.</p>
 </div>
 <div id="example:cj3m0jzefl" class="example">
 <p><strong>Example 68</strong>. When <span
@@ -5069,20 +5062,20 @@ and Lemma <a href="#Lem:supercuspidalregular" data-reference-type="ref"
 data-reference="Lem:supercuspidalregular">8.26</a>, we deduce that the
 pair <span class="math inline">\((\pi,\sigma)\)</span> is stable at
 depth <span class="math inline">\(\mathfrak{q}^2\)</span>.</p>
-<p>The conductor formula follows readily from <span class="citation"
-data-cites="MR1606410">(<strong>MR1606410?</strong>, Theorem
-6.5(ii))</span>. Indeed, observe first that <span
+<p>The conductor formula follows readily from <a href="#ref-MR1606410" class="citation"
+data-cites="MR1606410">(Bushnell, Henniart, and Kutzko 1998, Theorem
+6.5(ii))</a>. Indeed, observe first that <span
 class="math inline">\(\pi,\sigma\)</span> are “completely distinct” in
-the sense of <span class="citation"
-data-cites="MR1606410">(<strong>MR1606410?</strong>)</span>, so the
-cited result is applicable. The ramification indices <span
+the sense of <a href="#ref-MR1606410" class="citation" data-cites="MR1606410">(Bushnell,
+Henniart, and Kutzko 1998, sec. 6.2)</a>, so the cited result is
+applicable. The ramification indices <span
 class="math inline">\(e_i\)</span> there are all <span
 class="math inline">\(1\)</span> in our case. The claimed conductor
 formula follows by writing <span
 class="math inline">\(\mathfrak{q}=\mathfrak{p}^k\)</span> and taking
-<span class="math inline">\(m=2k-1\)</span> in <span class="citation"
-data-cites="MR1606410">(<strong>MR1606410?</strong>, Theorem
-6.5(ii))</span>. ◻</p>
+<span class="math inline">\(m=2k-1\)</span> in <a href="#ref-MR1606410" class="citation"
+data-cites="MR1606410">(Bushnell, Henniart, and Kutzko 1998, Theorem
+6.5(ii))</a>. ◻</p>
 </span></div>
 <div class="remark">
 <p><strong>Remark 88</strong>. Note that the additional condition in the
@@ -5112,9 +5105,8 @@ data-reference="sec:local-fields-congruence-subgroups">2.4</a>.</p>
 <h2 id="statement-of-result">Statement of result</h2>
 <p>The following may be understood as a non-archimedean analogue,
 uniform with respect to variation of the local field, of the archimedean
-result <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>,
-Thm 4.2)</span>. It encapsulates the local results needed to prove
+result <a href="#ref-2020arXiv201202187N" class="citation" data-cites="2020arXiv201202187N">(Nelson
+2023, Thm 4.2)</a>. It encapsulates the local results needed to prove
 Theorem <a href="#theorem:cj3ngw7u2s" data-reference-type="ref"
 data-reference="theorem:cj3ngw7u2s">1.1</a>.</p>
 <div id="enumerate:20230517165012" class="theorem">
@@ -5195,9 +5187,10 @@ data-reference-type="ref"
 data-reference="sec:proof-main-local-compact">9.4</a>, following some
 preliminaries.</p>
 <h2 id="sec:20230517161735">§9.2. Stability and matrix coefficients</h2>
-<p>Here we adapt some arguments from <span class="citation"
-data-cites="nelson-venkatesh-1">(<strong>nelson-venkatesh-1?</strong>)</span>
-to the non-archimedean setting, where they simplify considerably.</p>
+<p>Here we adapt some arguments from <a href="#ref-nelson-venkatesh-1" class="citation"
+data-cites="nelson-venkatesh-1">(Nelson and Venkatesh 2021, sec.
+19)</a> to the non-archimedean setting, where they simplify
+considerably.</p>
 <div id="enumerate:cj3twlzxgy" class="lemma">
 <p><strong>Lemma 90</strong>. <span
 id="lemma:matrix-coefficients-and-stability-one-rep"
@@ -5276,9 +5269,9 @@ h^{-1}\)</span> such that <span id="eqn:k1-cap-h-k1-h-1-" class="math display">\
 </div>
 <div class="proof"><p>
 <a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
-<span class="proof-content"> The proof is an adaptation of <span class="citation"
-data-cites="nelson-venkatesh-1">(<strong>nelson-venkatesh-1?</strong>,
-Lemma 19.7)</span>. We will show more precisely that there exists <span
+<span class="proof-content"> The proof is an adaptation of <a href="#ref-nelson-venkatesh-1" class="citation"
+data-cites="nelson-venkatesh-1">(Nelson and Venkatesh 2021, Lemma
+19.7)</a>. We will show more precisely that there exists <span
 class="math display">\[u \in K(\mathfrak{q}^2) \cap h K(\mathfrak{q}) h
 ^{-1}\]</span> such that <span class="math inline">\(\chi _\tau (h ^{-1}
 u h) \neq 1\)</span>. This suffices in view of the fact that <span
@@ -5689,9 +5682,9 @@ data-reference="theorem:cj3ngw7u2s">1.1</a>, from our
 main local result, Theorem <a href="#theorem:main-local-result"
 data-reference-type="ref"
 data-reference="theorem:main-local-result">9.1</a>.
-The deduction is exactly as in <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>,
-so we will be brief. We denote in what follows by <span
+The deduction is exactly as in <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, sec. 6)</a>, so we
+will be brief. We denote in what follows by <span
 class="math inline">\(\mathbb{Z}_{\mathfrak{l}} \leq
 F_{\mathfrak{l}}\)</span> the ring of integers in the completion of
 <span class="math inline">\(F\)</span> at a finite place <span
@@ -5775,51 +5768,46 @@ class="math inline">\((\mathcal{F},\alpha,\varepsilon,
 </div>
 <div class="proof"><p>
 <a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
-<span class="proof-content"> This follows from the arguments of <span
-class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>,
-applied with <span class="math inline">\(Q=T^{1/2}\)</span>. The
-positive-definiteness assumption is used in two ways: so that the
+<span class="proof-content"> This follows from the arguments of <a href="#ref-2020arXiv201202187N"
+class="citation" data-cites="2020arXiv201202187N">(Nelson 2023, sec.
+6)</a>, applied with <span class="math inline">\(Q=T^{1/2}\)</span>.
+The positive-definiteness assumption is used in two ways: so that the
 quotient <span class="math inline">\(H(F) \backslash
 H(\mathbb{A})\)</span> is compact, and so that each of the groups <span
 class="math inline">\(G\)</span> and <span
 class="math inline">\(H\)</span> are compact at infinity. This last
-property is used in applying <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>,
-Lem 5.1)</span>.</p>
-<p>In more detail, we repeat <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>
+property is used in applying <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, Lem 5.1)</a>.</p>
+<p>In more detail, we repeat <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, secs. 6.1–6.4)</a>
 verbatim (omitting the adjective “archimedean” in a couple places — this
-property is never used). In the first line of <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>,
-we observe that the integrand in <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>
-is now invariant merely under <span
+property is never used). In the first line of <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, sec. 6.5.1)</a>, we
+observe that the integrand in <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, (6.5))</a> is now
+invariant merely under <span
 class="math inline">\(\prod_{\mathfrak{l}\notin S \cup \{\mathfrak{p}\}}
 H(\mathbb{Z}_\mathfrak{l})\)</span>, rather than the larger group <span
 class="math inline">\(\prod_{\mathfrak{l}\notin S}
 H(\mathbb{Z}_\mathfrak{l})\)</span>. (This is because of a difference in
-conventions: in <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>,
-<span class="math inline">\(S\)</span> contains the interesting place,
-while here, it does not.) In the subsequent estimates, we accordingly
-replace the factorizable neighborhood <span
+conventions: in <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023)</a>, <span
+class="math inline">\(S\)</span> contains the interesting place, while
+here, it does not.) In the subsequent estimates, we accordingly replace
+the factorizable neighborhood <span
 class="math inline">\(\Theta_S\)</span> with <span
 class="math display">\[\Theta_{S \cup \{\mathfrak{p}\}} := \Theta_S
-H(\mathbb{Z}_\mathfrak{p}).\]</span> The remainder of <span
-class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>
-is unchanged. The integral on the left hand side of <a
-href="#eqn:20230517152904" data-reference-type="eqref"
+H(\mathbb{Z}_\mathfrak{p}).\]</span> The remainder of <a href="#ref-2020arXiv201202187N"
+class="citation" data-cites="2020arXiv201202187N">(Nelson 2023, secs.
+6.5.1–6.5.2)</a> is unchanged. The integral on the left hand side
+of <a href="#eqn:20230517152904" data-reference-type="eqref"
 data-reference="eqn:20230517152904">\((10.1)\)</a> arises
 naturally following the proof<a href="#fn2" class="footnote-ref"
-id="fnref2" role="doc-noteref"><sup>2</sup></a> of <span
-class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>,
-Lem 6.7)</span>. We feed the resulting estimate into the summary
-of <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>)</span>
-to obtain the stated bound. ◻</p>
+id="fnref2" role="doc-noteref"><sup>2</sup></a> of <a href="#ref-2020arXiv201202187N"
+class="citation" data-cites="2020arXiv201202187N">(Nelson 2023, Lem
+6.7)</a>. We feed the resulting estimate into the summary of <a href="#ref-2020arXiv201202187N"
+class="citation" data-cites="2020arXiv201202187N">(Nelson 2023, sec.
+6.6)</a> to obtain the stated bound. ◻</p>
 </span></div>
 <p>We now apply Theorem <a href="#theorem:main-local-result"
 data-reference-type="ref"
@@ -5867,91 +5855,161 @@ class="math display">\[\frac{\mathcal{L}(\pi,\sigma)}{ T^{n (n + 1 )/2 +
   T^{-\delta}, \quad
   \delta := \frac{1 - 2 \vartheta }{4 (A + 1 - 2 \vartheta
 )}.\]</span></p>
-<div class="thebibliography">
-<p><span>10</span></p>
-<p>Ehud Moshe Baruch. Bessel functions for <span>GL</span>(3) over a
-<span><span class="math inline">\(p\)</span></span>-adic field. ,
-211(1):1–33, 2003.</p>
-<p>Joseph Bernstein and Andre Reznikov. Subconvexity bounds for triple
-<span><span class="math inline">\(L\)</span></span>-functions and
-representation theory. , 172(3):1679–1718, 2010.</p>
-<p>Raphaël Beuzart-Plessis, Pierre-Henri Chaudouard, and MichałZydor.
-The global <span>G</span>an-<span>G</span>ross-<span>P</span>rasad
-conjecture for unitary groups: the endoscopic case. , 135:183–336,
-2022.</p>
-<p>Colin J. Bushnell, Guy M. Henniart, and Philip C. Kutzko. Local
-<span>R</span>ankin-<span>S</span>elberg convolutions for <span><span
-class="math inline">\({\rm GL}_n\)</span></span>: explicit conductor
-formula. , 11(3):703–730, 1998.</p>
-<p>Colin J. Bushnell and Philip C. Kutzko. , volume 129 of
-<span><em>Annals of Mathematics Studies</em></span>. Princeton
-University Press, Princeton, NJ, 1993.</p>
-<p>Wolfram Decker, Gert-Martin Greuel, Gerhard Pfister, and Hans
-Schönemann. <span>4-3-1</span> — <span>A</span> computer algebra system
-for polynomial computations. <a href="http://www.singular.uni-kl.de"
-class="uri">http://www.singular.uni-kl.de</a>, 2023.</p>
-<p>W. Duke, J. B. Friedlander, and H. Iwaniec. Bounds for automorphic
-<span><span class="math inline">\(L\)</span></span>-functions.
-<span>II</span>. , 115(2):219–239, 1994.</p>
-<p>W. Duke, J. B. Friedlander, and H. Iwaniec. The subconvexity problem
-for <span>A</span>rtin <span><span
-class="math inline">\(L\)</span></span>-functions. , 149(3):489–577,
-2002.</p>
-<p>David Eisenbud. , volume 150 of <span><em>Graduate Texts in
-Mathematics</em></span>. Springer-Verlag, New York, 1995. With a view
-toward algebraic geometry.</p>
-<p>R. Neal Harris. The refined <span>G</span>ross-<span>P</span>rasad
-conjecture for unitary groups. , (2):303–389, 2014.</p>
-<p>Roger E. Howe. On the principal series of <span><span
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="list">
+<div id="ref-MR2016587" class="csl-entry" role="listitem">
+Baruch, Ehud Moshe. 2003. <span>“Bessel Functions for <span>GL</span>(3)
+over a <span><span class="math inline">\(p\)</span></span>-Adic
+Field.”</span> <em>Pacific J. Math.</em> 211 (1): 1–33. <a
+href="https://doi.org/10.2140/pjm.2003.211.1">https://doi.org/10.2140/pjm.2003.211.1</a>.
+</div>
+<div id="ref-MR2726097" class="csl-entry" role="listitem">
+Bernstein, Joseph, and Andre Reznikov. 2010. <span>“Subconvexity Bounds
+for Triple <span><span class="math inline">\(L\)</span></span>-Functions
+and Representation Theory.”</span> <em>Ann. Of Math. (2)</em> 172 (3):
+1679–1718. <a
+href="https://doi.org/10.4007/annals.2010.172.1679">https://doi.org/10.4007/annals.2010.172.1679</a>.
+</div>
+<div id="ref-MR4426741" class="csl-entry" role="listitem">
+Beuzart-Plessis, Raphaël, Pierre-Henri Chaudouard, and Michał Zydor.
+2022. <span>“The Global
+<span>G</span>an-<span>G</span>ross-<span>P</span>rasad Conjecture for
+Unitary Groups: The Endoscopic Case.”</span> <em>Publ. Math. Inst.
+Hautes Études Sci.</em> 135: 183–336. <a
+href="https://doi.org/10.1007/s10240-021-00129-1">https://doi.org/10.1007/s10240-021-00129-1</a>.
+</div>
+<div id="ref-MR1606410" class="csl-entry" role="listitem">
+Bushnell, Colin J., Guy M. Henniart, and Philip C. Kutzko. 1998.
+<span>“Local <span>R</span>ankin-<span>S</span>elberg Convolutions for
+<span><span class="math inline">\({\rm GL}_n\)</span></span>: Explicit
+Conductor Formula.”</span> <em>J. Amer. Math. Soc.</em> 11 (3): 703–30.
+<a
+href="https://doi.org/10.1090/S0894-0347-98-00270-7">https://doi.org/10.1090/S0894-0347-98-00270-7</a>.
+</div>
+<div id="ref-DFI94" class="csl-entry" role="listitem">
+Duke, W., J. B. Friedlander, and H. Iwaniec. 1994. <span>“Bounds for
+Automorphic <span><span
+class="math inline">\(L\)</span></span>-Functions.
+<span>II</span>.”</span> <em>Invent. Math.</em> 115 (2): 219–39.
+</div>
+<div id="ref-MR1923476" class="csl-entry" role="listitem">
+———. 2002. <span>“The Subconvexity Problem for <span>A</span>rtin
+<span><span class="math inline">\(L\)</span></span>-Functions.”</span>
+<em>Invent. Math.</em> 149 (3): 489–577. <a
+href="https://doi.org/10.1007/s002220200223">https://doi.org/10.1007/s002220200223</a>.
+</div>
+<div id="ref-MR1322960" class="csl-entry" role="listitem">
+Eisenbud, David. 1995. <em>Commutative Algebra</em>. Vol. 150. Graduate
+Texts in Mathematics. Springer-Verlag, New York. <a
+href="https://doi.org/10.1007/978-1-4612-5350-1">https://doi.org/10.1007/978-1-4612-5350-1</a>.
+</div>
+<div id="ref-MR3159075" class="csl-entry" role="listitem">
+Harris, R. Neal. 2014. <span>“The Refined
+<span>G</span>ross-<span>P</span>rasad Conjecture for Unitary
+Groups.”</span> <em>Int. Math. Res. Not. IMRN</em>, no. 2: 303–89.
+</div>
+<div id="ref-MR0327982" class="csl-entry" role="listitem">
+Howe, Roger E. 1973. <span>“On the Principal Series of <span><span
 class="math inline">\({\rm Gl}\sb{n}\)</span></span> over <span><span
-class="math inline">\(p\)</span></span>-adic fields. , 177:275–286,
-1973.</p>
-<p>Roger E. Howe. Kirillov theory for compact <span><span
-class="math inline">\(p\)</span></span>-adic groups. , 73(2):365–381,
-1977.</p>
-<p>Atsushi Ichino and Tamutsu Ikeda. On the periods of automorphic forms
-on special orthogonal groups and the
-<span>G</span>ross-<span>P</span>rasad conjecture. , 19(5):1378–1425,
-2010.</p>
-<p>Henryk Iwaniec. , volume 53 of <span> <em>Graduate Studies in
-Mathematics</em></span>. American Mathematical Society, Providence, RI,
-second edition, 2002.</p>
-<p>Henryk Iwaniec and Peter Sarnak. norms of eigenfunctions of
-arithmetic surfaces. , 141(2):301–320, 1995.</p>
-<p>Erez Lapid and Zhengyu Mao. A conjecture on
-<span>W</span>hittaker-<span>F</span>ourier coefficients of cusp forms.
-, 146:448–505, 2015.</p>
-<p>Erez Lapid and Zhengyu Mao. Whittaker-<span>F</span>ourier
-coefficients of cusp forms on <span><span
-class="math inline">\(\widetilde{\rm
-  Sp}_n\)</span></span>: reduction to a local statement. , 139(1):1–55,
-2017.</p>
-<p>Erez Lapid and Zhengyu Mao. On an analogue of the
-<span>I</span>chino-<span>I</span>keda conjecture for
-<span>W</span>hittaker coefficients on the metaplectic group. ,
-11(3):713–765, 2017.</p>
-<p>Philippe Michel and Akshay Venkatesh. The subconvexity problem for
-<span><span class="math inline">\({\rm GL}_2\)</span></span>. ,
-(111):171–271, 2010.</p>
-<p>Allen Moy and Gopal Prasad. Unrefined minimal <span>K</span>-types
-for p-adic groups. , 116(1):393–408, December 1994.</p>
-<p>Paul D. Nelson. Spectral aspect subconvex bounds for <span><span
-class="math inline">\(U_{n+1} \times U_n\)</span></span>. ,
-232(3):1273–1438, 2023.</p>
-<p>Paul D. <span>Nelson</span>. . , page arXiv:2109.15230, September
-2021.</p>
-<p>Paul D. <span>Nelson</span> and A. <span>Venkatesh</span>. . ,
-226(1):1–209, 2021.</p>
-<p>S. <span>Rallis</span> and G. <span>Schiffmann</span>. . , May
-2007.</p>
-<p>Peter Sarnak. Fourth moments of <span>G</span>rössencharakteren zeta
-functions. , 38(2):167–178, 1985.</p>
-<p><span>The Sage Developers</span>. , 2023. .</p>
-<p>Akshay Venkatesh. Sparse equidistribution problems, period bounds and
-subconvexity. , 172(2):989–1094, 2010.</p>
-<p>Wei Zhang. Automorphic period and the central value of
-<span>R</span>ankin-<span>S</span>elberg <span>L</span>-function. ,
-27(2):541–612, 2014.</p>
+class="math inline">\(p\)</span></span>-Adic Fields.”</span> <em>Trans.
+Amer. Math. Soc.</em> 177: 275–86. <a
+href="https://doi.org/10.2307/1996596">https://doi.org/10.2307/1996596</a>.
+</div>
+<div id="ref-MR0579176" class="csl-entry" role="listitem">
+———. 1977. <span>“Kirillov Theory for Compact <span><span
+class="math inline">\(p\)</span></span>-Adic Groups.”</span> <em>Pacific
+J. Math.</em> 73 (2): 365–81. <a
+href="http://projecteuclid.org/euclid.pjm/1102810616">http://projecteuclid.org/euclid.pjm/1102810616</a>.
+</div>
+<div id="ref-MR2585578" class="csl-entry" role="listitem">
+Ichino, Atsushi, and Tamutsu Ikeda. 2010. <span>“On the Periods of
+Automorphic Forms on Special Orthogonal Groups and the
+<span>G</span>ross-<span>P</span>rasad Conjecture.”</span> <em>Geom.
+Funct. Anal.</em> 19 (5): 1378–1425. <a
+href="https://doi.org/10.1007/s00039-009-0040-4">https://doi.org/10.1007/s00039-009-0040-4</a>.
+</div>
+<div id="ref-MR1942691" class="csl-entry" role="listitem">
+Iwaniec, Henryk. 2002. <em>Spectral Methods of Automorphic Forms</em>.
+Second. Vol. 53. Graduate Studies in Mathematics. Providence, RI:
+American Mathematical Society.
+</div>
+<div id="ref-iwan-sar" class="csl-entry" role="listitem">
+Iwaniec, Henryk, and Peter Sarnak. 1995. <span>“<span><span
+class="math inline">\(L^\infty\)</span></span> Norms of Eigenfunctions
+of Arithmetic Surfaces.”</span> <em>Ann. Of Math. (2)</em> 141 (2):
+301–20. <a
+href="https://doi.org/10.2307/2118522">https://doi.org/10.2307/2118522</a>.
+</div>
+<div id="ref-MR3267120" class="csl-entry" role="listitem">
+Lapid, Erez, and Zhengyu Mao. 2015. <span>“A Conjecture on
+<span>W</span>hittaker-<span>F</span>ourier Coefficients of Cusp
+Forms.”</span> <em>J. Number Theory</em> 146: 448–505. <a
+href="https://doi.org/10.1016/j.jnt.2013.10.003">https://doi.org/10.1016/j.jnt.2013.10.003</a>.
+</div>
+<div id="ref-MR3649366" class="csl-entry" role="listitem">
+———. 2017a. <span>“On an Analogue of the
+<span>I</span>chino-<span>I</span>keda Conjecture for
+<span>W</span>hittaker Coefficients on the Metaplectic Group.”</span>
+<em>Algebra Number Theory</em> 11 (3): 713–65. <a
+href="https://doi.org/10.2140/ant.2017.11.713">https://doi.org/10.2140/ant.2017.11.713</a>.
+</div>
+<div id="ref-MR3619910" class="csl-entry" role="listitem">
+———. 2017b. <span>“Whittaker-<span>F</span>ourier Coefficients of Cusp
+Forms on <span><span class="math inline">\(\widetilde{\rm
+Sp}_n\)</span></span>: Reduction to a Local Statement.”</span> <em>Amer.
+J. Math.</em> 139 (1): 1–55. <a
+href="https://doi.org/10.1353/ajm.2017.0000">https://doi.org/10.1353/ajm.2017.0000</a>.
+</div>
+<div id="ref-michel-2009" class="csl-entry" role="listitem">
+Michel, Philippe, and Akshay Venkatesh. 2010. <span>“The Subconvexity
+Problem for <span><span class="math inline">\({\rm
+GL}_2\)</span></span>.”</span> <em>Publ. Math. Inst. Hautes Études
+Sci.</em>, no. 111: 171–271. <a
+href="https://doi.org/10.1007/s10240-010-0025-8">https://doi.org/10.1007/s10240-010-0025-8</a>.
+</div>
+<div id="ref-2021arXiv210915230N" class="csl-entry" role="listitem">
+Nelson, Paul D. 2021. <span>“<span class="nocase">Bounds for standard
+<span><span
+class="math inline">\(L\)</span></span>-functions</span>.”</span>
+<em>arXiv e-Prints</em>, September, arXiv:2109.15230. <a
+href="https://arxiv.org/abs/2109.15230">https://arxiv.org/abs/2109.15230</a>.
+</div>
+<div id="ref-2020arXiv201202187N" class="csl-entry" role="listitem">
+———. 2023. <span>“Spectral Aspect Subconvex Bounds for <span><span
+class="math inline">\(U_{n+1} \times U_n\)</span></span>.”</span>
+<em>Invent. Math.</em> 232 (3): 1273–1438. <a
+href="https://doi.org/10.1007/s00222-023-01180-x">https://doi.org/10.1007/s00222-023-01180-x</a>.
+</div>
+<div id="ref-nelson-venkatesh-1" class="csl-entry" role="listitem">
+Nelson, Paul D., and A. Venkatesh. 2021. <span>“<span class="nocase">The
+orbit method and analysis of automorphic forms</span>.”</span> <em>Acta
+Math.</em> 226 (1): 1–209.
+</div>
+<div id="ref-2007arXiv0705.2168R" class="csl-entry" role="listitem">
+Rallis, S., and G. Schiffmann. 2007. <span>“<span
+class="nocase">Multiplicity one Conjectures</span>.”</span> <em>ArXiv
+e-Prints</em>, May. <a
+href="https://arxiv.org/abs/0705.2168">https://arxiv.org/abs/0705.2168</a>.
+</div>
+<div id="ref-MR780071" class="csl-entry" role="listitem">
+Sarnak, Peter. 1985. <span>“Fourth Moments of
+<span>G</span>rössencharakteren Zeta Functions.”</span> <em>Comm. Pure
+Appl. Math.</em> 38 (2): 167–78. <a
+href="https://doi.org/10.1002/cpa.3160380204">https://doi.org/10.1002/cpa.3160380204</a>.
+</div>
+<div id="ref-venkatesh-2005" class="csl-entry" role="listitem">
+Venkatesh, Akshay. 2010. <span>“Sparse Equidistribution Problems, Period
+Bounds and Subconvexity.”</span> <em>Ann. Of Math. (2)</em> 172 (2):
+989–1094. <a
+href="https://doi.org/10.4007/annals.2010.172.989">https://doi.org/10.4007/annals.2010.172.989</a>.
+</div>
+<div id="ref-MR3164988" class="csl-entry" role="listitem">
+Zhang, Wei. 2014. <span>“Automorphic Period and the Central Value of
+<span>R</span>ankin-<span>S</span>elberg
+<span>L</span>-Function.”</span> <em>J. Amer. Math. Soc.</em> 27 (2):
+541–612. <a
+href="https://doi.org/10.1090/S0894-0347-2014-00784-0">https://doi.org/10.1090/S0894-0347-2014-00784-0</a>.
+</div>
 </div>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
@@ -5963,10 +6021,9 @@ components Singular <span class="citation"
 data-cites="DGPS">(<strong>DGPS?</strong>)</span> and GiNaC) and Emacs
 Calc<a href="#fnref1" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>We note that the statement of <span class="citation"
-data-cites="2020arXiv201202187N">(<strong>2020arXiv201202187N?</strong>,
-Lem 6.7)</span> contains a regrettable typo, introduced in the final
-revision: <span
+<li id="fn2"><p>We note that the statement of <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, Lem 6.7)</a> contains
+a regrettable typo, introduced in the final revision: <span
 class="math inline">\({d_{H_\mathfrak{q}}(\gamma)}^{-1/2}\)</span>
 should be <span
 class="math inline">\({d_{H_\mathfrak{q}}(\gamma)}^{-1}\)</span>. This
