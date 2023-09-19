@@ -1,0 +1,158 @@
+\documentclass[11pt]{amsart}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+
+\usepackage{ytableau}
+\usepackage{xcolor}
+ 
+\usepackage[all]{xy}
+\usepackage{appendix}
+
+\theoremstyle{definition}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{eg}[defi]{Example}
+\newtheorem{rem}[defi]{Remark}
+\newtheorem{prop}[defi]{Proposition}
+\newtheorem{lem}[defi]{Lemma}
+\newtheorem{theo}[defi]{Theorem}
+\newtheorem{q}{Question}
+\newtheorem{con}{Construction}
+\newtheorem{ex}[defi]{Exercise}
+\newtheorem{cor}[defi]{Corrollary}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\title{Discrete Fourier transform}
+\begin{abstract}
+  Part of the course notes for \href{2023-introduction-to-zeta-and-l-functions.pdf}{this course}.  Sergey's notes for his lectures on the discrete Fourier transform.
+\end{abstract}
+\author{S. A.}
+
+
+
+\begin{document}
+
+\maketitle
+\section{The group of characters for $A$}
+Consider a finite Abelian group $A$. Recall that a group map $\chi:\ A\to \C^*$ is called a character of $A$. Notice that since for every $a\in A$ there exists $s:\ a^s=1$, the absolute value $|\chi(a)|=1$, i.e. the image of $\chi$ belongs to the circle subgroup $S=\{\alpha\in\C| \ |\alpha|=1\}$. 
+
+We define the product of characters $\chi_1\chi_2$ pointwise. The trivial chracter is the unit function, the inverse character $\chi^{-1}(a)=\overline{\chi(a)}$.  
+\begin{defi}
+    The group of characters of $A$ is called the Pontryagin dual group and is denoted by $\hat{A}$.
+\end{defi}
+Denote the vector space of complex valued functions on $A$ (resp. on $\hat{A}$) by $C(A)$
+(resp. by $C(A)$).
+\begin{eg}
+\begin{enumerate}
+    \item Any number $c\in\C$ defines a constant function, in particular $1$ is the unit function in $C(A)$. Notice that pointwise multiplication makes $C(A)$ into an associative algebra with the unit.
+    \item Any element $a\in A$ gives rise to a delta function $\delta_a$ whose value equals $1$ at $a$ and $0$ at all other elements of $A$.
+    \item Certainly any character $\chi\in \hat{A}$ provides an element in $C(A)$.
+\end{enumerate}
+\end{eg}
+\begin{rem} It is known from the algebra course that as elements of $C(A)$ all characters are linearly independent. In particular, the cardinality of $\hat{A}$ is no greater than the number of elements in $A$.
+\end{rem}
+\begin{eg} Take the finite cyclic group $A=\Z/n=\{1,s,\ldots,s^{n-1}\}$. Then any $k\in\{0,\ldots,n-1\}$
+ provides a character $\chi_k:\ \Z/n\to \C^*, s^m\mapsto \xi^{mk}$. Here $\xi$ denotes a chosen primitive root of unity of degree $n$. In particular, $\hat{A}$ is a cyclic group of the same order. It is isomorphic to $A$ non-canonically. 
+
+ Classification Theorem for finite Abelian groups implies that for any such $A$ the group $\hat{A}$ is non-canonically isomorphic to $A$.
+\end{eg}
+The vector space $C(A)$ (resp. $C(\hat{A})$) is equipped with a Hermitian form: 
+$$
+\langle f,g\rangle=\sum_{a\in A}f(a)\overline g(a).$$
+\begin{rem}
+    Notice that the functions $\delta_a, \ a\in A,$ form an orthonormal basis of $C(A)$.
+\end{rem}
+\begin{lem} Let $\chi_1$ and $\chi_2$ be two different characters of $A$. Then as elements of $C(A)$ they are orthogonal to each other. 
+\end{lem}
+\begin{proof}
+    Let $b\in A$ be an element such that $\chi_1(b)\ne\chi_2(b)$. We have
+    $$\langle \chi_1,\chi_2\rangle=\sum_{a\in A}\chi_1(a)\overline \chi_2(a)=
+    \sum_{a\in A}\chi_1(ab)\overline \chi_2(ab)=(\sum_{a\in A}\chi_1(a)\overline \chi_2(a))\chi_1(b)\chi_2^{-1}(b). 
+    $$
+    By our choice of $b\in A$, the first factor in the last expression equals to $0$.
+\end{proof}
+\begin{lem}
+The map $A\to \hat{\hat{A}},\ a\to \hat{a},\ \hat{a}(\chi)=\chi(a)$, provides a canonical isomorphism between $A$ and the double Pontryagin dual group of $A$.
+\end{lem}
+\begin{proof}
+    We know that the source and the target of the canonical map have the same cardinality. It is clear that the map respects multiplication in the group. Moreover, for any non-unit $a$, the character $\hat{a}$ is non-trivial. It follows that the map is an injective. Thus it is an isoporphism.
+\end{proof}
+\section{Discrete Fourier transform}
+\begin{defi}
+    The vector space map $$F:\ C(A)\to C(\hat{A}), \ F(f)(\chi)=\sum_{a\in A}f(a)\overline{\chi(a)},$$ is called the Fourier transform for the group $A$.
+\end{defi}
+\begin{eg}
+\begin{enumerate} Let us calculate some examples:
+\item
+$F(\delta_a)(\chi)=\overline{\chi(a)}=\hat{a}^{-1}(\chi).$ 
+\item 
+$F(1)(\chi)=\sum_{a\in A}\overline{\chi(a)}$. It is known that for a non-trivial character such sum equals to $0$. The value at $\chi_0$ equals to $\#(A)$. Thus we have $F(1)=\delta_{\chi_0}$.
+\item 
+More generally, $F(\chi_1)(\chi_2)=\langle\chi_1,\chi_2\rangle=0$ for $\chi_1\ne\chi_2$. We have $F(\chi)(\chi)=\langle\chi,\chi\rangle=\#(A)$. It follows that $F(\chi)=\#(A)\delta_\chi$.
+\end{enumerate}
+\end{eg}
+\begin{cor}
+    It follows that the Fourier transform $F=F_A$ is an isomorphism of the vector spaces $C(A)$ and $C(\hat{A})$ with its inverse equal to $\#(A)F_{\hat{A}}$.
+\end{cor}
+\begin{rem}
+    We have checked that an orthogonal basis in $C(A)$ is mapped to an orthogonal basis in $C(\hat{A})$. Thus up to a scalar multiple $F$ is an isometry. 
+\end{rem}
+\begin{defi} Given a map of finite sets $\alpha:\ X\to Y)$, consider the pull back morphism 
+$$\alpha^*:\ C(Y)\to C(X),\ \alpha^*(f)(x)=f(\alpha(x))$$
+and the push forward morphism
+$$\alpha_*:\ C(X)\to C(Y),\ \alpha_*(f)(y)=\sum_{\alpha(x)=y}f(x).$$
+\end{defi}
+\begin{rem}
+    \begin{enumerate}
+    \item The pull-back map respects the pointwise product of functions.
+    \item For two maps $\alpha:\ X\to Y$ and $\beta:\ Y\to Z$ we have 
+    $$(\beta\circ\alpha)^*=\alpha^*\circ\beta^*,\ (\beta\circ\alpha)_*=\beta_*\circ\alpha_*$$. This is a direct calculation. 
+        \end{enumerate}
+\end{rem}
+Let $\alpha: B\to A$ be a morphism of finite Abelian groups. Then any character of $A$ defines a character of $B$. We obtain the Pontryagin dual map $\hat{\alpha}:\ \hat{A}\to \hat{B}$.
+\begin{lem} We have $(\hat{\alpha})^*\circ F=F\circ \alpha_*$.
+\end{lem}
+We introduce the second multiplication on $C(A)$. Denote the multiplication map $A\times A\to A$ by $m$.
+\begin{defi} For $f,g \in C(A)$ denote the function on $A\times A$ given by $(a,b)\mapsto f(a)g(b)$ by $f\times g$. The convolution $f\star g=m_*(f\times g)$.
+\end{defi}
+\begin{rem} 
+\begin{enumerate}
+\item The element $\delta_1$ is the unit for the operation. 
+\item One checks directly that convolution is associative.
+\item Compare the definition of convolution with the following observation. Denote the diagonal embedding $A\to A\times A$ by $\Delta$. The pointwise product of functions is given by $f\cdot g=\Delta^*(f\times g)$.
+\end{enumerate}
+\end{rem}
+\begin{lem} We have $F(f\star g)=F(f)\cdot F(g)$.
+\end{lem}
+\begin{proof}
+Consider the map $\hat{m}:\ \hat{A}\to \hat{A}\times \hat{A}$. We have
+$$\hat{m}(\chi)(a,b)=\chi(ab)=\chi(a)\chi(b)=(\chi\times \chi)(a,b).$$ Thus the Pontryagin dual for the product map is the diagonal embedding. The proof follows.
+\end{proof}
+Consider the argument shift operation $L_a:\ C(A)\to C(A), (L_af)(b)=f(a+b).$
+\begin{lem}
+ We have $(F\circ L_a)(f)=\hat{a}\cdot F(f)$.   
+\end{lem}
+\begin{proof}
+    The key observation in the proof is that $L_a(f)=\delta_a\star f$. Then use the previous Lemma.
+\end{proof}
+
+\section{Generalized Poisson summation}
+Below we describe the setting for Poisson summation. Let $A$ be a finite Abelian group with a subgroup $B$. 
+Consider the embedding map $i:\ B\to A$ and the projection map $p:\ A\to A/B$. The map $\hat{i}$ is surjective, its kernel $B^\perp$ consists of characters $\chi$ whose restriction to $B$ is trivial. We identify the kernel with $\widehat{(A/B)}$.
+\begin{theo} For  $f\in C(A)$, for any $a\in A$, we have 
+$$
+\sum_{b\in B}f(a+b)=\sum_{\chi\in B^\perp}F(f)(\chi)\overline{\chi}(a).$$
+\end{theo}
+    
+\begin{proof}
+    First notice that LHS in the formula in question equals $p_*(f)(aB)$. From Section 2  we know that the latter equals $F_{A/B}^{-1}\circ (\hat{p})^*\circ F_A$. Notice that
+    $$F_{A/B}^{-1}\circ (\hat{p})^*\circ F_A(f)(aB)=
+    \sum_{\chi\in B^\perp }F(f)(\chi)\overline{\chi}(a).$$
+\end{proof}
+\end{document}
