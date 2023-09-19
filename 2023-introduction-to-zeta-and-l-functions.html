@@ -209,7 +209,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2023-09-11 08:28:43
+2023-09-19 16:18:14
       <a href="2023-introduction-to-zeta-and-l-functions.tex" class="my-link">tex</a>
       <a href="2023-introduction-to-zeta-and-l-functions.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/2023-introduction-to-zeta-and-l-functions.tex" class="my-link">history</a>
@@ -244,19 +244,25 @@ id="toc-meromorphic-continuation-and-evaluation-at-negative-integers">Meromorphi
 continuation and evaluation at negative integers</a></li>
 <li><a href="#sec:cj4vkkark8" id="toc-sec:cj4vkkark8">Another
 perspective on the meromorphic continuation</a></li>
+<li><a href="#sec:cj4020t3kt" id="toc-sec:cj4020t3kt">Euler
+product</a></li>
 </ul></li>
 </ul>
 </nav>
 <p>These are notes for an ongoing Fall 2023 course on the Riemann zeta
 function and its generalizations, <span
-class="math inline">\(L\)</span>-functions. These notes will be filled
-in as we go.</p>
+class="math inline">\(L\)</span>-functions, taught with Sergey Arkhipov.
+These notes will be filled in as we go.</p>
 <h1 id="references-thus-far">References thus far</h1>
 <ul>
 <li><p>Generating functions and asymptotics: <a href="#ref-MR2172781" class="citation"
 data-cites="MR2172781">(Wilf 2006, sec. 5.2)</a></p></li>
 <li><p>Mellin transform and asymptotics: <a href="#ref-zagier-mellin" class="citation"
 data-cites="zagier-mellin">(Zagier 2006)</a></p></li>
+<li><p>Zeros of zeta and the prime number theorem: <a href="#ref-Dav80"
+class="citation" data-cites="Dav80">(Davenport 1980)</a>, <a
+href="https://terrytao.wordpress.com/2014/12/09/254a-notes-2-complex-analytic-multiplicative-number-theory/">Tao’s
+notes</a></p></li>
 </ul>
 <h1 id="outlines-thus-far">Outlines thus far</h1>
 <p>(Some links here refer to external files; I’ll have to think of a
@@ -284,6 +290,14 @@ data-reference-type="ref" data-reference="sec:cj4unjziaz">5</a></p></li>
 data-reference-type="ref" data-reference="sec:cj4vkkark8">5.2</a>, §<a
 href="20230907T144219--bernoulli-numbers-euler-maclaurin.html#sec:cj4vkfaant" data-reference-type="ref"
 data-reference="sec:cj4vkfaant">2.1</a></p></li>
+<li><p>Tuesday, 12 Sep and Thursday, 14 Sep: Fourier transform,
+Pontryagin duality, Poisson summation (see <a
+href="20230919T144827--discrete-fourier-transform.html">these notes</a>
+and the book <a href="#ref-MR3289059" class="citation" data-cites="MR3289059">(Deitmar and
+Echterhoff 2014)</a>)</p></li>
+<li><p>Tuesday, 19 Sep: Euler products, relevance of zeta zeros to
+asymptotics §<a href="#sec:cj4020t3kt" data-reference-type="ref"
+data-reference="sec:cj4020t3kt">5.3</a></p></li>
 </ul>
 <h1
 id="course-notes-that-ive-since-split-off-into-separate-files">Course
@@ -657,8 +671,197 @@ data-reference="lemma:cj4vkjxr7m">5.3</a>, it follows that <span
 class="math inline">\(G_f (s) = G_f (1 - s)\)</span>. The claimed
 formula follows. ◻</p>
 </span></div>
+<h2 id="sec:cj4020t3kt">§5.3. Euler product</h2>
+<p>The link between the zeta function and the prime numbers is given by
+the following alternative formula:</p>
+<div class="lemma">
+<p><strong>Lemma 11</strong>. For <span class="math inline">\(\Re(s)
+&gt; 1\)</span>, we have <span class="math display">\[\zeta(s) = \prod_p
+\frac{1}{1 - p^{- s}},\]</span> where the product ranges over the primes
+<span class="math inline">\(p\)</span> and converges absolutely. In
+particular, <span class="math display">\[\zeta(s) \neq 0 \text{ for }
+\Re(s) &gt; 1.\]</span></p>
+</div>
+<p>Here we say that an infinite product <em>converges absolutely</em> if
+it converges to the same nonzero value for any rearrangement of the
+factors.</p>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We first observe that for <span
+class="math inline">\(S\)</span> any finite set of primes, we have <span
+class="math display">\[\prod_{p \in S}
+    \frac{1}{1 - p^{- s}}
+    = \prod_{p \in S}
+    \sum_{k \geq 0} \frac{1}{ p^{k s}}
+    =
+    \sum_{n \in \mathbb{N}(S)}
+    \frac{1}{n^s},\]</span> where <span
+class="math inline">\(\mathbb{N}(S)\)</span> denotes the set of natural
+numbers each of whose prime factors lie in <span
+class="math inline">\(S\)</span>. This identity follows from the
+fundamental theorem of arithmetic, which implies that every element of
+<span class="math inline">\(\mathbb{N}(S)\)</span> may be written
+uniquely as a product of powers of elements of <span
+class="math inline">\(S\)</span>. We now take the limit as <span
+class="math inline">\(S \rightarrow \mathbb{N}\)</span>.</p>
+<p>It remains to check that the product converges to a nonzero limit. A
+general fact is that if <span class="math inline">\(\sum_p |a_p| &lt;
+\infty\)</span>, then the product <span class="math inline">\(\prod_{p}
+(1 + a_p)\)</span> converges to a limit, and that limit is nonzero
+provided that each factor <span class="math inline">\(1 + a_p\)</span>
+is nonzero. Applying this facts with <span class="math inline">\(a_p =
+p^{-s}\)</span> gives what was claimed. ◻</p>
+</span></div>
+<p>As a basic illustration of the resulting link between the zeta
+function and the primes, we verify the following:</p>
+<div class="lemma">
+<p><strong>Lemma 12</strong>. Let <span class="math inline">\(s &gt;
+1\)</span> be real, tending to <span class="math inline">\(1\)</span>.
+Then <span class="math display">\[\sum_p \frac{1}{ p^s } = \log
+\frac{1}{1 - s} + \operatorname{O}(1).\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Using the Taylor series for the logarithm, we compute
+<span id="eq:cj402w3a5w" class="math display">\[\label{eq:cj402w3a5w}\tag{5.4}
+    \log \zeta (s) = \sum_p \log \left( \frac{1}{1 - p^{- s}} \right)
+    =
+    \sum_p \sum_{k \geq 1} \frac{p^{- k s }}{ k}.\]</span> We leave it
+to the reader to check that <span class="math display">\[\sum_{k \geq 2}
+\frac{p^{- k s}}{ k }  = \operatorname{O}(1)\]</span> in the indicated
+range. ◻</p>
+</span></div>
+<div class="corollary">
+<p><strong>Corollary 13</strong>. <em><span class="math inline">\(\sum_p
+1 / p = \infty\)</span>.</em></p>
+</div>
+<p>More generally, while the logarithm <span class="math inline">\(\log
+\zeta(s)\)</span> is multi-valued, the logarithmic derivative <span
+class="math display">\[\left( \log \zeta(s) \right) &#39;
+  = \frac{\zeta &#39;}{\zeta } (s)\]</span> is single-valued. It may be
+computed by differentiating <a href="#eq:cj402w3a5w"
+data-reference-type="eqref"
+data-reference="eq:cj402w3a5w">\((5.4)\)</a>: <span
+class="math display">\[- \frac{\zeta &#39;}{ \zeta } (s) = \sum _p (\log
+p) \sum_{k \geq 1} p^{- k s} = \sum_n \frac{\Lambda(n) }{n^s},\]</span>
+where the <em>von Mangoldt function</em> <span
+class="math inline">\(\Lambda(n)\)</span> is defined by <span
+class="math display">\[\Lambda(n) :=
+\begin{cases}
+\log p &amp; \text{ if } n = p ^k, \\
+0 &amp; \text{ otherwise.}
+\end{cases}\]</span></p>
+<p>Our general discussion suggests a relationship between the
+asymptotics of <span class="math inline">\(\Lambda(n)\)</span> and the
+meromorphic behavior of <span class="math inline">\(- \zeta &#39; /
+\zeta\)</span>. The poles of the latter may be described as follows.
+Suppose that <span class="math inline">\(\rho \in \mathbb{C}\)</span> is
+a point at which <span class="math inline">\(\zeta\)</span> has a zero
+of order <span class="math inline">\(m \in \mathbb{Z}\)</span>, i.e.,
+<span class="math inline">\(\zeta(s) \sim c (s - \rho)^m\)</span> for
+some <span class="math inline">\(c \in \mathbb{C}^\times\)</span> as
+<span class="math inline">\(s \rightarrow \rho\)</span>. Then <span
+class="math display">\[- \frac{\zeta&#39;}{\zeta}(s) \sim \frac{- m }{s
+- \rho}.\]</span> Therefore the poles of <span class="math inline">\(-
+\zeta &#39; / \zeta\)</span> are all simple, and occur at</p>
+<ul>
+<li><p>the (unique simple) pole <span class="math inline">\(\rho =
+1\)</span> of <span class="math inline">\(\zeta\)</span>, with residue
+<span class="math inline">\(1\)</span>, and</p></li>
+<li><p>at the zeros <span class="math inline">\(\rho\)</span> of <span
+class="math inline">\(\zeta\)</span>, with residue <span
+class="math inline">\(-m\)</span>, where <span class="math inline">\(m
+\geq 1\)</span> denotes the order of the zero.</p></li>
+</ul>
+<p>Suppose, for instance, that we wish to understand the asymptotics of
+a sum like <span class="math display">\[S := \sum_n \Lambda (n) f \left(
+\frac{n}{x} \right).\]</span> Here <span class="math inline">\(f \in
+C_c^\infty (\mathbb{R}^+ )\)</span> is fixed, while we think of <span
+class="math inline">\(x &gt; 1\)</span> as a parameter tending off to
+infinity. To do this, we expand <span class="math inline">\(f\)</span>
+using its Mellin transform, which gives <span class="math display">\[f
+\left( \frac{n}{x} \right) = \int_{(c)} F (s) \left( \frac{x}{n}
+\right)^s \, \frac{d s}{2 \pi i}.\]</span> Here <span
+class="math inline">\(c \in \mathbb{R}\)</span> is any real number. The
+double sum/integral obtained by inserting this expansion into the
+definition of <span class="math inline">\(S\)</span> converges
+absolutely for <span class="math inline">\(c &gt; 1\)</span>, where we
+may rearrange it to obtain <span class="math display">\[S = \int_{(c)} F
+(s) x^s \underbrace
+{
+  \sum_n
+\frac{\Lambda (n)}{ n^s }
+}_{
+  - \frac{\zeta &#39; }{\zeta }(s)
+}\, \frac{d s}{2 \pi i}.\]</span> We would now like to shift the contour
+to the left.</p>
+<p>Working formally for the moment, we pick up contributiones from the
+poles of <span class="math inline">\(\zeta\)</span> at <span
+class="math inline">\(1\)</span> and its zeros <span
+class="math inline">\(\rho\)</span>, giving for any <span
+class="math inline">\(c \in \mathbb{R}\)</span> (thought of as large and
+negative) <span class="math display">\[S =
+  F(1) x
+  -
+  \sum_{\rho}
+  F(\rho) x^\rho
+  +
+  \int_{(c)} F(s) x^s \left( -\frac{\zeta &#39; }{\zeta }(s) \right) \,
+\frac{d s}{2 \pi i}.\]</span> We might hope that the remainder term
+defined by the integral is small if <span
+class="math inline">\(c\)</span> is sufficiently negative. To implement
+such an argument rigorously requires some control on the growth of zeta
+in vertical directions, which we will address shortly. Ignoring such
+details for the moment, one can see from such expansions why the zeros
+of <span class="math inline">\(\zeta\)</span> play such a large role in
+describing the asymptotics of sums over primes such as <span
+class="math inline">\(S\)</span>. For instance, if we know that each
+<span class="math inline">\(\rho\)</span> has real part strictly less
+than <span class="math inline">\(1\)</span>, then the corresponding term
+<span class="math inline">\(F(\rho) x^\rho\)</span> has lesser magnitude
+than <span class="math inline">\(x\)</span> as <span
+class="math inline">\(x \rightarrow \infty\)</span>.</p>
+<p>Here’s a basic lemma controlling the number of zeros in vertical
+strips:</p>
+<div class="lemma">
+<p><strong>Lemma 14</strong>. For any <span class="math inline">\(T \geq
+0\)</span>, we have <span class="math display">\[\# \left\{ \rho :
+\zeta(\rho) = 0, \Re(\rho) \geq 0, \lvert \Im(\rho) \rvert \in [T, T +
+1] \right\}
+    \ll \log (3 + T).\]</span></p>
+</div>
+<p>The inputs to the proof are</p>
+<ol>
+<li><p>the functional equation, which reduces our task to the case <span
+class="math inline">\(\Re(\rho) \geq 1/2\)</span>,</p></li>
+<li><p><a
+href="https://en.wikipedia.org/wiki/Jensen%27s_formula">Jensen’s
+formula</a>, and</p></li>
+<li><p>a crude upper bound on the <span
+class="math inline">\(\zeta\)</span> function.</p></li>
+</ol>
+<div class="lemma">
+<p><strong>Lemma 15</strong>. For <span class="math inline">\(s = \sigma
++ it\)</span> with <span class="math inline">\(\sigma \geq
+1/100\)</span>, we have <span class="math display">\[\log \lvert
+\zeta(s) \rvert \leq C \log (3 + \lvert t \rvert)\]</span> for some
+absolute constant <span class="math inline">\(C\)</span>.</p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Next time. ◻</p>
+</span></div>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="list">
+<div id="ref-Dav80" class="csl-entry" role="listitem">
+Davenport, Harold. 1980. <em>Multiplicative Number Theory</em>. Second.
+Vol. 74. Graduate Texts in Mathematics. New York: Springer-Verlag.
+</div>
+<div id="ref-MR3289059" class="csl-entry" role="listitem">
+Deitmar, Anton, and Siegfried Echterhoff. 2014. <em>Principles of
+Harmonic Analysis</em>. Second. Universitext. Springer, Cham. <a
+href="https://doi.org/10.1007/978-3-319-05792-7">https://doi.org/10.1007/978-3-319-05792-7</a>.
+</div>
 <div id="ref-MR2172781" class="csl-entry" role="listitem">
 Wilf, Herbert S. 2006. <em>Generatingfunctionology</em>. Third. A K
 Peters, Ltd., Wellesley, MA.
