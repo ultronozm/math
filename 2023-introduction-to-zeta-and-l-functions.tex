@@ -5,15 +5,17 @@
 \externaldocument{20230907T143130--fourier-and-mellin-transforms}
 \externaldocument{20230907T143521--complex-analysis-preliminaries}
 \externaldocument{20230907T144219--bernoulli-numbers-euler-maclaurin}
+\externaldocument{20230919T144827--discrete-fourier-transform}
 
 \begin{document}
  
-These are notes for an ongoing Fall 2023 course on the Riemann zeta function and its generalizations, $L$-functions.  These notes will be filled in as we go.
+These are notes for an ongoing Fall 2023 course on the Riemann zeta function and its generalizations, $L$-functions, taught with Sergey Arkhipov.  These notes will be filled in as we go.
 
 \section{References thus far}
 \begin{itemize}
 \item Generating functions and asymptotics: \cite[\S5.2]{MR2172781}
 \item Mellin transform and asymptotics: \cite{zagier-mellin}
+\item Zeros of zeta and the prime number theorem: \cite{Dav80}, \href{https://terrytao.wordpress.com/2014/12/09/254a-notes-2-complex-analytic-multiplicative-number-theory/}{Tao's notes}
 \end{itemize}
 
 \section{Outlines thus far}
@@ -24,6 +26,8 @@ These are notes for an ongoing Fall 2023 course on the Riemann zeta function and
 \item Friday, 1 Sep: \S\ref{sec:cj4unj04kx} and \S\ref{sec:cj4unj06mw}
 \item Tuesday, 5 Sep: \S\ref{sec:cj4unjziaz}
 \item Thursday, 7 Sep: \S\ref{sec:cj4vkkark8}, \S\ref{sec:cj4vkfaant}
+\item Tuesday, 12 Sep and Thursday, 14 Sep: Fourier transform, Pontryagin duality, Poisson summation (see \href{20230919T144827--discrete-fourier-transform.pdf}{these notes} and the book \cite{MR3289059})
+\item Tuesday, 19 Sep: Euler products, relevance of zeta zeros to asymptotics \S\ref{sec:cj4020t3kt}
 \end{itemize}
 
 
@@ -300,7 +304,145 @@ We can also deduce the functional equation:
   Take $f(x) := e^{- \pi x^2}$.  By \eqref{eq:cj4vkj6hym}, we then have $G_f(s) = \xi(s)$.  On the other hand, by the well-known \href{https://mathworld.wolfram.com/FourierTransformGaussian.html}{formula} for the Fourier transform of a Gaussian, we have $\mathcal{F} f = f$.  By Lemma \ref{lemma:cj4vkjxr7m}, it follows that $G_f (s) = G_f (1 - s)$.  The claimed formula follows.
 \end{proof}
 
+\subsection{Euler product}\label{sec:cj4020t3kt}
+The link between the zeta function and the prime numbers is given by the following alternative formula:
+\begin{lemma}
+  For $\Re(s) > 1$, we have
+\begin{equation*}
+\zeta(s) = \prod_p \frac{1}{1 - p^{- s}},
+\end{equation*}
+where the product ranges over the primes $p$ and converges absolutely.  In particular,
+\begin{equation*}
+\zeta(s) \neq 0 \text{ for } \Re(s) > 1.
+\end{equation*}
+\end{lemma}
+Here we say that an infinite product \emph{converges absolutely} if it converges to the same nonzero value for any rearrangement of the factors.
+\begin{proof}
+  We first observe that for $S$ any finite set of primes, we have
+  \begin{equation*}
+    \prod_{p \in S}
+    \frac{1}{1 - p^{- s}}
+    = \prod_{p \in S}
+    \sum_{k \geq 0} \frac{1}{ p^{k s}}
+    =
+    \sum_{n \in \mathbb{N}(S)}
+    \frac{1}{n^s},
+  \end{equation*}
+  where $\mathbb{N}(S)$ denotes the set of natural numbers each of whose prime factors lie in $S$.  This identity follows from the fundamental theorem of arithmetic, which implies that every element of $\mathbb{N}(S)$ may be written uniquely as a product of powers of elements of $S$.  We now take the limit as $S \rightarrow \mathbb{N}$.
 
+  It remains to check that the product converges to a nonzero limit.  A general fact is that if $\sum_p |a_p| < \infty$, then the product $\prod_{p} (1 + a_p)$ converges to a limit, and that limit is nonzero provided that each factor $1 + a_p$ is nonzero.  Applying this facts with $a_p = p^{-s}$ gives what was claimed.
+\end{proof}
+
+
+As a basic illustration of the resulting link between the zeta function and the primes, we verify the following:
+\begin{lemma}
+  Let $s > 1$ be real, tending to $1$.  Then
+  \begin{equation*}
+\sum_p \frac{1}{ p^s } = \log \frac{1}{1 - s} + \O(1).
+\end{equation*}
+\end{lemma}
+\begin{proof}
+  Using the Taylor series for the logarithm, we compute
+  \begin{equation}\label{eq:cj402w3a5w}
+    \log \zeta (s) = \sum_p \log \left( \frac{1}{1 - p^{- s}} \right)
+    =
+    \sum_p \sum_{k \geq 1} \frac{p^{- k s }}{ k}.
+  \end{equation}
+  We leave it to the reader to check that
+  \begin{equation}
+\sum_{k \geq 2} \frac{p^{- k s}}{ k }  = \O(1)
+  \end{equation}
+  in the indicated range.
+\end{proof}
+\begin{corollary}
+$\sum_p 1 / p = \infty$.
+\end{corollary}
+
+More generally, while the logarithm $\log \zeta(s)$ is multi-valued, the logarithmic derivative
+\begin{equation*}
+  \left( \log \zeta(s) \right) '
+  = \frac{\zeta '}{\zeta } (s) 
+\end{equation*}
+is single-valued.  It may be computed by differentiating \eqref{eq:cj402w3a5w}:
+\begin{equation*}
+- \frac{\zeta '}{ \zeta } (s) = \sum _p (\log p) \sum_{k \geq 1} p^{- k s} = \sum_n \frac{\Lambda(n) }{n^s},
+\end{equation*}
+where the \emph{von Mangoldt function} $\Lambda(n)$ is defined by
+\begin{equation*}
+\Lambda(n) :=
+\begin{cases}
+\log p & \text{ if } n = p ^k, \\
+0 & \text{ otherwise.}
+\end{cases}
+\end{equation*}
+
+
+Our general discussion suggests a relationship between the asymptotics of $\Lambda(n)$ and the meromorphic behavior of $- \zeta ' / \zeta$.  The poles of the latter may be described as follows.  Suppose that $\rho \in \mathbb{C}$ is a point at which $\zeta$ has a zero of order $m \in \mathbb{Z}$, i.e., $\zeta(s) \sim c (s - \rho)^m$ for some $c \in \mathbb{C}^\times$ as $s \rightarrow \rho$.  Then
+\begin{equation*}
+- \frac{\zeta'}{\zeta}(s) \sim \frac{- m }{s - \rho}.
+\end{equation*}
+Therefore the poles of $- \zeta ' / \zeta $ are all simple, and occur at
+\begin{itemize}
+\item the (unique simple) pole $\rho = 1$ of $\zeta$, with residue $1$, and
+\item at the zeros $\rho$ of $\zeta$, with residue $-m$, where $m \geq 1$ denotes the order of the zero.
+\end{itemize}
+
+Suppose, for instance, that we wish to understand the asymptotics of a sum like
+\begin{equation*}
+S := \sum_n \Lambda (n) f \left( \frac{n}{x} \right).
+\end{equation*}
+Here $f \in C_c^\infty (\mathbb{R}^+ )$ is fixed, while we think of $x > 1$ as a parameter tending off to infinity.  To do this, we expand $f$ using its Mellin transform, which gives
+\begin{equation*}
+f \left( \frac{n}{x} \right) = \int_{(c)} F (s) \left( \frac{x}{n} \right)^s \, \frac{d s}{2 \pi i}.
+\end{equation*}
+Here $c \in \mathbb{R}$ is any real number.  The double sum/integral obtained by inserting this expansion into the definition of $S$ converges absolutely for $c > 1$, where we may rearrange it to obtain
+\begin{equation*}
+S = \int_{(c)} F (s) x^s \underbrace
+{
+  \sum_n 
+\frac{\Lambda (n)}{ n^s } 
+}_{
+  - \frac{\zeta ' }{\zeta }(s)
+}\, \frac{d s}{2 \pi i}.
+\end{equation*}
+We would now like to shift the contour to the left.
+
+Working formally for the moment, we pick up contributiones from the poles of $\zeta$ at $1$ and its zeros $\rho$, giving for any $c \in \mathbb{R}$ (thought of as large and negative)
+\begin{equation*}
+  S =
+  F(1) x
+  -
+  \sum_{\rho}
+  F(\rho) x^\rho
+  + 
+  \int_{(c)} F(s) x^s \left( -\frac{\zeta ' }{\zeta }(s) \right) \, \frac{d s}{2 \pi i}.
+\end{equation*}
+We might hope that the remainder term defined by the integral is small if $c$ is sufficiently negative.  To implement such an argument rigorously requires some control on the growth of zeta in vertical directions, which we will address shortly.  Ignoring such details for the moment, one can see from such expansions why the zeros of $\zeta$ play such a large role in describing the asymptotics of sums over primes such as $S$.  For instance, if we know that each $\rho$ has real part strictly less than $1$, then the corresponding term $F(\rho) x^\rho$ has lesser magnitude than $x$ as $x \rightarrow \infty$.
+
+Here's a basic lemma controlling the number of zeros in vertical strips:
+\begin{lemma}
+  For any $T \geq 0$, we have
+  \begin{equation*}
+    \# \left\{ \rho : \zeta(\rho) = 0, \Re(\rho) \geq 0, \lvert \Im(\rho) \rvert \in [T, T + 1] \right\}
+    \ll \log (3 + T).
+  \end{equation*}
+\end{lemma}
+The inputs to the proof are
+\begin{enumerate}
+\item the functional equation, which reduces our task to the case $\Re(\rho) \geq 1/2$,
+\item \href{https://en.wikipedia.org/wiki/Jensen\%27s_formula}{Jensen's formula}, and
+\item a crude upper bound on the $\zeta$ function.
+\end{enumerate}
+\begin{lemma}
+  For $s = \sigma + it $ with $\sigma \geq 1/100$, we have
+  \begin{equation*}
+\log \lvert \zeta(s) \rvert \leq C \log (3 + \lvert t \rvert)
+  \end{equation*}
+  for some absolute constant $C$.
+\end{lemma}
+\begin{proof}
+Next time.
+\end{proof}
 
 
 \bibliography{refs}{} \bibliographystyle{plain}
