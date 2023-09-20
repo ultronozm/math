@@ -37,14 +37,13 @@
   "Return a hash table of label numbers from the given aux-file."
   (let ((hash (make-hash-table :test 'equal)))
     (when (file-exists-p aux-file)
-      (with-current-buffer (find-file-noselect aux-file)
-	(save-excursion
-	  (goto-char (point-min))
-	  (while (re-search-forward "\\\\newlabel{\\([^}]+\\)}.*?{{\\([^}]+\\)}" nil t)
-	    (let ((label (match-string 1))
-		  (number (match-string 2)))
-	      (puthash label number hash))))
-	(kill-buffer)))
+      (with-temp-buffer
+        (insert-file-contents aux-file)
+	(goto-char (point-min))
+	(while (re-search-forward "\\\\newlabel{\\([^}]+\\)}.*?{{\\([^}]+\\)}" nil t)
+	  (let ((label (match-string 1))
+		(number (match-string 2)))
+	    (puthash label number hash)))))
     hash))
 
 
