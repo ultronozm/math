@@ -11,17 +11,17 @@
   Part of the course notes for \href{2023-introduction-to-zeta-and-l-functions.pdf}{this course}.
 \end{abstract}
 
-\section{Holomorphic continuation}
+\section{Holomorphic continuation}\label{sec:cj41z47j43}
 
-\begin{theorem}[Identity principle for holomorphic functions]
+\begin{theorem}[Identity principle for holomorphic functions]\label{theorem:cj41z47je7}
   Let $U \subset \mathbb{C} $ be a connected open set.  Let $f, g : U \rightarrow \mathbb{C} $ be holomorphic functions.  If $f = g$ on a set with a limit point in $U$, then $f = g$ on all of $U$.
 \end{theorem}
 \begin{corollary}\label{corollary:cj3vqbthht}
   Let $U \subset \Omega \subseteq \mathbb{C} $ be open subsets, with $U$ nonempty and $\Omega$ connected.  Let $f : U \rightarrow \mathbb{C}$ be a holomorphic function.  Then there is at most one extension of $f$ to a holomorphic function $\Omega \rightarrow \mathbb{C}$.
 \end{corollary}
 
-\section{Cauchy's integral formula}
-\begin{theorem}
+\section{Cauchy's integral formula}\label{sec:cj41z47ie0}
+\begin{theorem}\label{theorem:cj41z47hph}
   Let $f : U \rightarrow \mathbb{C} $ be a holomorphic function defined on an open subset $U$.  Let $\gamma$ be a closed rectifiable curve in $U$.  Then $\int_\gamma f(z) \, d z = 0$.
 \end{theorem}
 
@@ -49,7 +49,7 @@
     \int_\gamma f(z) \, d z = 2 \pi i \sum_{\substack{z \in \operatorname{interior}(\gamma) \\ \text{pole of $f$}}} \operatorname{res}_z(f).
   \end{equation*}
 \end{theorem}
-\begin{remark}
+\begin{remark}\label{remark:cj41z47fjv}
   Let $0 < r < R$.  Let $f$ be a meromorphic function on a neighborhood of the annulus $\{z : r < |z| < R\}$ that has no poles on either of the circles $|z| = r, R$.  Then
   \begin{equation*}
     \oint_{|z| = R} f(z) \, d z
@@ -66,7 +66,7 @@
   \end{equation*}
 \end{remark}
 
-\section{Holomorphy of limits and series}
+\section{Holomorphy of limits and series}\label{sec:cj41z47df7}
 \begin{theorem}\label{theorem:cj3vqa91ti}
   Let $U$ be an open subset of the complex plane.  Let $f_n$ be a sequence of holomorphic functions on $U$.
   \begin{enumerate}
@@ -74,6 +74,212 @@
   \item Suppose that the partial sums $\sum_{n \leq N} f_n$ converge pointwise to some function $f$, uniformly on compact subsets of $U$.  Then the sum $\sum_n f_n$ is holomorphic.
   \end{enumerate}
 \end{theorem}
+
+\section{Blashke factors}\label{sec:cj41z47br7}
+\begin{definition}\label{definition:cj41z47aw9}
+  Let $\alpha \in \mathbb{C}$ with $\lvert \alpha  \rvert < 1$.  The \emph{Blashke factor} $B_\alpha$ is the function
+  \begin{equation*}
+B_\alpha(z) := \frac{\alpha - z }{ 1- \bar{\alpha } z}.
+  \end{equation*}
+\end{definition}
+\begin{lemma}\label{lemma:cj41z469wv}
+The Blashke factors enjoy the following properties:
+\begin{enumerate}
+\item $B_\alpha(0) = \alpha$ and $B_\alpha(\alpha) = 0$.
+\item $B_\alpha$ defines a holomorphic automorphism of the unit disc $\{z : \lvert z \rvert < 1\}$, with inverse $B_\alpha$ (i.e., $B_\alpha(B_\alpha(z)) = z$).
+\item $\lvert B_\alpha(z) \rvert = 1$ for all $z$ with $\lvert z \rvert = 1$.
+\end{enumerate}
+\end{lemma}
+
+\section{Harmonic functions}\label{sec:cj41z468dg}
+Let $U$ be an open subset of the plane $\mathbb{C}$.
+
+\subsection{Definition}\label{sec:cj41z467iy}
+
+\begin{definition}\label{definition:cj41z466s8}
+We say that a smooth function $u : U \rightarrow \mathbb{R}$ is \emph{harmonic} if $u_{x x} + u_{y y} = 0$.
+\end{definition}
+
+\subsection{Relation with holomorphic functions}\label{sec:cj41z46427}
+
+\begin{lemma}
+  Let $f : U \rightarrow \mathbb{C}$ be holomorphic.  Then, writing $f = u + i v$, with $u, v : U \rightarrow \mathbb{R}$, we have that $u$ is harmonic.  Conversely, if $U$ is simply-connected, then every harmonic $u$ arises in this way for some holomorphic $f$.
+\end{lemma}
+\begin{proof}
+The first claim follows from the Cauchy-Riemann equations.  For the second claim, we solve the Cauchy-Riemann equations to find $v$ such that $f = u + i v$ is holomorphic on each connected component of $U$.
+\end{proof}
+
+\subsection{Mean value theorems}\label{sec:cj41z4625i}
+For the following results, let $u : U \rightarrow \mathbb{R}$ be harmonic, and suppose that $U$ contains the disc $\{z : \lvert z - z_0 \rvert \leq r\}$.
+\begin{lemma}\label{lemma:cj41z461iw}
+  We have
+  \begin{equation*}
+u(z_0) = \int_{0}^{2 \pi } u (z_0 + r e^{i \theta }) \, \frac{d \theta }{ 2 \pi }.
+\end{equation*}
+\end{lemma}
+\begin{proof}
+We may assume that $U$ is simply-connected.  The claim then follows from the Cauchy integral formula applied to a holomorphic $f$ with $\Re(f) = u$.
+\end{proof}
+
+\begin{lemma}\label{lemma:cj41z46r5i}
+  For $\lvert z - z_0 \rvert \leq r$, we have
+  \begin{equation*}
+    u(z) = \int_0^{2 \pi } u (z_0 + r e^{i \theta }) \Re \frac{r e^{i \theta } + (z - z_0 )}{r e^{i \theta } - (z - z_0 )}
+    \, \frac{d \theta }{2 \pi }.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  We can reduce to the previous lemma using Blashke factors.  Alternatively, we can reduce first to the case $z_0 = 0$ and $r = 1$ and $0 < z < 1$.  Then Cauchy's integral formula reads
+  \begin{equation*}
+    f(z) =
+    \int_{w : \lvert w \rvert = r}
+    f(w)
+    \underbrace
+{
+\frac{1}{2} \left(
+      \frac{w + z}{w - z}
+      + 
+      \frac{w^{-1}  + z}{w^{-1}  - z}
+    \right)
+}_{
+\Re \left( \frac{w + z}{w - z} \right)
+}
+\, \frac{d w}{2 \pi i},
+  \end{equation*}
+  which yields the required formula upon taking real parts.
+\end{proof}
+
+\begin{lemma}\label{lemma:cj41z46zau}
+  For $\lvert z - z_0 \rvert \leq r_0 < r$, we have
+  \begin{equation*}
+    \lvert u(z) \rvert \leq \frac{r + r_0}{r - r_0}
+\int_{0 }^{2 \pi } \lvert u (z_0 + r e^{i \theta }) \rvert \, \frac{d \theta }{2 \pi}.    
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+We apply Lemma \ref{lemma:cj41z46r5i} and majorize the integrand in absolute value.
+\end{proof}
+
+\subsection{Approximate factorizations of holomorphic functions}\label{sec:cj41z5fwla}
+The next lemma closely follows the presentation of Theorem 21 of \href{these notes}{https://terrytao.wordpress.com/2014/12/05/245a-supplement-2-a-little-bit-of-complex-and-fourier-analysis/}.
+
+\begin{lemma}\label{lemma:cj41z5hd4a}
+  Fix $0 < c_2 < c_1 < 1$.  Let $f$ be a holomorphic function, on a neighborhood of $\bar{D}$, where $D := \{\lvert z - z_0 \rvert < r\}$.  Assume that $f(z_0) \neq 0$.  Assume given $M \geq 1$ so that whenever $|z - z_0| = r$, we have
+  \begin{equation*}
+    \lvert f(z) \rvert \leq M \lvert f(z_0) \rvert.
+\end{equation*}
+  Let $\rho$ run over the zeros of $f$, counted with multiplicity.  Then
+  \begin{equation*}
+    \# \left\{ \rho : \lvert \rho - z_0 \rvert \leq c_1 r \right\} \ll_{c_1} \log M
+  \end{equation*}
+  and
+  \begin{equation*}
+    \frac{f'}{f}(z) = \sum_{
+      \lvert \rho - z_0 \rvert \leq c_1 r
+    }
+    \frac{1}{ z - \rho } + \O_{c_1, c_2} \left( \frac{\log M}{r} \right).
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  By replacing $f(z)$ with $f(z_0 + z)$, we may assume that $z_0 = 0$.  By writing $f(z) = g( r z)$ (so that $f'(z) = r g'(r z)$, hence $\frac{g'}{g}(r z) = \frac{1}{r} \frac{f'}{f}(z)$), we reduce to the case $r = 1$. Our task is then to show that
+  \begin{equation}\label{eq:cj41zznej1}
+    \# \left\{ \rho : \lvert \rho  \rvert \leq c_1 \right\} \ll_{c_1} \log M
+  \end{equation}
+  and that for $\lvert z \rvert \leq c_2$, we have
+  \begin{equation}\label{eq:cj41zzn7hn}
+    \frac{f ' }{f}(z) = \sum_{\lvert \rho \rvert \leq c_1}
+    \frac{1}{z - \rho }
+    + \O_{c_1, c_2} \left( \log M \right).
+  \end{equation}
+  By Jensen's formula, we have
+  \begin{equation}\label{eq:cj41zzjhfa}
+    0 \leq \sum_{\lvert \rho \rvert \leq 1} \log \frac{1}{\lvert \rho \rvert} = \int_0^{2 \pi} \frac{\log \lvert f (e^{i \theta }) \rvert}{\log \lvert f(0) \rvert} \, \frac{d \theta }{ 2 \pi } \leq \log M.
+  \end{equation}
+  On the other hand, for $\lvert \rho \rvert \leq c_1$, we have $\log 1 / \lvert \rho \rvert \geq \log 1/c_1$.  It follows that
+  \begin{equation*}
+    \# \left\{ \rho : \lvert \rho  \rvert \leq c_1 \right\}
+    \leq \frac{\log M}{ \log 1/c_1} \ll_{c_1} \log M,
+  \end{equation*}
+  whence \eqref{eq:cj41zznej1}.
+  
+  Turning to the proof of \eqref{eq:cj41zzn7hn}, we may write
+  \begin{equation*}
+    f = g \prod_{|\rho| \leq 1} B_\rho,
+  \end{equation*}
+  where $g$ is a holomorphic function on a neighborhood of $\bar{D}$ that does not vanish on $\bar{D}$.  We then have
+  \begin{equation*}
+    \frac{f'}{f} = \frac{g'}{g} + \sum_{\lvert \rho \rvert \leq 1} \frac{B_\rho '}{B_\rho}.
+  \end{equation*}
+  Below, we estimate separately the contributions to \eqref{eq:cj41zzn7hn} from $g$, from $\lvert \rho \rvert \leq c_1$, and from $c_1 < \lvert \rho \rvert \leq 1$.  The result follows by combining these estimates.
+
+  We first estimate the contribution of $g$.  We will show that
+  \begin{equation}\label{eq:cj41zxfz74}
+    \frac{g'}{g}(z) = \O_{c_1, c_2} \left( \log M \right),
+  \end{equation}
+  We may normalize $f$ so that $g(0) = 1$.  Then, since $g$ does not vanish, Jensen's formula reads
+  \begin{equation}\label{eq:cj41zze0vv}
+    \int _{0}^{2 \pi} \log \lvert g(e^{i \theta}) \rvert \, \frac{d \theta }{2 \pi } = 0.
+  \end{equation}
+  On the other hand, our hypothesis reads
+  \begin{equation*}
+    \lvert g(e^{i \theta}) \rvert = \lvert f(e^{i \theta}) \rvert \leq M \lvert f(0) \rvert = M \prod_{\rho} |\rho| \leq M,
+  \end{equation*}
+  hence
+  \begin{equation*}
+    \log \lvert g(e^{i \theta}) \rvert \leq \log M.
+  \end{equation*}
+  By combining this pointwise upper bound with the mean zero property \eqref{eq:cj41zze0vv}, we deduce that
+  \begin{equation*}
+    \int_0^{2 \pi } \left\lvert
+      \log \lvert g (e^{i \theta }) \rvert
+    \right\rvert
+    \leq \frac{1}{2} \log M.
+  \end{equation*}
+  Since $g$ does not vanish, we may find a holomorphic primitive $G$ for $g'/g$ (i.e., $G$ is a logarithm of $g$).  The Poisson integral formula gives, for $\lvert z \rvert \leq c_2$, the estimate
+  \begin{equation*}
+    \lvert \Re(G(z)) \rvert \ll_{c_2} \log  M,
+  \end{equation*}
+  together with a similar bound for the derivatives of the real part of $G$.  By the Cauchy--Riemann equations, the same bound holds for the first derivatives of the imaginary part of $G$, hence for those of $G$ itself.  The estimate \eqref{eq:cj41zxfz74} follows.
+
+  We next estimate the contribution from $\lvert \rho \rvert \leq c_1$.  After the calculation
+  \begin{equation}\label{eq:cj41z21ka5}
+    \frac{B_\rho '}{B_\rho }(z) = \frac{1}{z - \rho } - \frac{1}{z - 1 / \bar{\rho }},
+  \end{equation}
+  one term of which matches up with a term on the right hand side of \eqref{eq:cj41zzn7hn}, we see that it suffices to show that
+  \begin{equation}\label{eq:cj41zzwalu}
+    \sum_{\lvert \rho \rvert \leq c_1} \frac{1}{z - 1 / \bar{\rho }} \ll_{c_1, c_2} \log M.
+  \end{equation}
+  Since $\lvert z \rvert \leq c_2$, we have
+  \begin{equation*}
+    \left\lvert \frac{1}{z - 1 / \bar{\rho }} \right\rvert \leq \frac{1}{1/c_1 - c_2} \ll_{c_1,c_2} 1.
+  \end{equation*}
+  Therefore the required bound \eqref{eq:cj41zzwalu} follows from \eqref{eq:cj41zznej1}.
+
+  We turn finally to the contribution from $c_1 < \lvert \rho \rvert \leq 1$.  For such an element $\rho$, and $z$ with $\lvert z \rvert \leq c_2$, we have
+  \begin{equation*}
+    z - \rho \asymp _{c_1,c_2} 1, \qquad z - 1 / \bar{\rho } \asymp_{c_1,c_2} 1,
+  \end{equation*}
+  where we recall that $A \asymp B$ means that $A \ll B \ll A$.  By cross-multiplying in \eqref{eq:cj41z21ka5}, it follows that
+  \begin{equation*}
+    \frac{B_\rho '}{B_\rho }(z) \asymp_{c_1,c_2} \rho - 1 / \bar{\rho }.
+  \end{equation*}
+  On the other hand, using the Taylor expansion of the logarithm, we have
+  \begin{equation*}
+    \rho - 1 / \bar{\rho } \asymp_{c_1} 1 - |\rho|^2 \asymp_{c_2} \log \frac{1}{\lvert \rho \rvert}.
+  \end{equation*}
+  We thereby obtain
+  \begin{equation}\label{eq:cj41z3ecu9}
+    \sum_{c_1 < \lvert \rho  \rvert \leq 1} \frac{B_\rho '}{B_\rho }(z)
+    \ll_{c_1, c_2}
+    \sum_{c_1 < \lvert \rho  \rvert \leq 1}
+    \log
+    \frac{1}{\lvert \rho  \rvert}
+    \leq
+    \log M,
+  \end{equation}
+  where in the final step we appealed to \eqref{eq:cj41zzjhfa}.
+\end{proof}
+
 
 
 

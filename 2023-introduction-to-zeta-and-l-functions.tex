@@ -315,6 +315,10 @@ where the product ranges over the primes $p$ and converges absolutely.  In parti
 \begin{equation*}
 \zeta(s) \neq 0 \text{ for } \Re(s) > 1.
 \end{equation*}
+Quantitatively, for $\sigma > 1$, we have
+\begin{equation}\label{eq:cj41z53x7f}
+\lvert \zeta(\sigma + it) \rvert \geq \zeta(1 + \sigma)^{-1}.
+\end{equation}
 \end{lemma}
 Here we say that an infinite product \emph{converges absolutely} if it converges to the same nonzero value for any rearrangement of the factors.
 \begin{proof}
@@ -330,7 +334,16 @@ Here we say that an infinite product \emph{converges absolutely} if it converges
   \end{equation*}
   where $\mathbb{N}(S)$ denotes the set of natural numbers each of whose prime factors lie in $S$.  This identity follows from the fundamental theorem of arithmetic, which implies that every element of $\mathbb{N}(S)$ may be written uniquely as a product of powers of elements of $S$.  We now take the limit as $S \rightarrow \mathbb{N}$.
 
-  It remains to check that the product converges to a nonzero limit.  A general fact is that if $\sum_p |a_p| < \infty$, then the product $\prod_{p} (1 + a_p)$ converges to a limit, and that limit is nonzero provided that each factor $1 + a_p$ is nonzero.  Applying this facts with $a_p = p^{-s}$ gives what was claimed.
+  To see that the product converges to a nonzero limit, we can apply the following general fact: if $\sum_p |a_p| < \infty$, then the product $\prod_{p} (1 + a_p)$ converges to a limit, and that limit is nonzero provided that each factor $1 + a_p$ is nonzero.  Applying this facts with $a_p = p^{-s}$ gives what was claimed.
+
+
+  For the quantitative estimate \eqref{eq:cj41z53x7f}, we observe that
+  \begin{equation*}
+     \left\lvert \frac{1}{\zeta(\sigma + it)}  \right\rvert
+     = \prod_p \left\lvert 1 - p^{-s} \right\rvert
+     \leq \prod_p \left(  1 + p^{-\sigma} \right)
+     \leq \sum_n n^{-\sigma} = \zeta(1 + \sigma).
+  \end{equation*}
 \end{proof}
 
 
@@ -358,7 +371,8 @@ As a basic illustration of the resulting link between the zeta function and the 
 $\sum_p 1 / p = \infty$.
 \end{corollary}
 
-More generally, while the logarithm $\log \zeta(s)$ is multi-valued, the logarithmic derivative
+\subsection{Logarithmic derivatives}
+While the logarithm $\log \zeta(s)$ is multi-valued, the logarithmic derivative
 \begin{equation*}
   \left( \log \zeta(s) \right) '
   = \frac{\zeta '}{\zeta } (s) 
@@ -377,7 +391,7 @@ where the \emph{von Mangoldt function} $\Lambda(n)$ is defined by
 \end{equation*}
 
 
-Our general discussion suggests a relationship between the asymptotics of $\Lambda(n)$ and the meromorphic behavior of $- \zeta ' / \zeta$.  The poles of the latter may be described as follows.  Suppose that $\rho \in \mathbb{C}$ is a point at which $\zeta$ has a zero of order $m \in \mathbb{Z}$, i.e., $\zeta(s) \sim c (s - \rho)^m$ for some $c \in \mathbb{C}^\times$ as $s \rightarrow \rho$.  Then
+The general theme of this course suggests a relationship between the asymptotics of $\Lambda(n)$ and the meromorphic behavior of $- \zeta ' / \zeta$.  The poles of the latter may be described as follows.  Suppose that $\rho \in \mathbb{C}$ is a point at which $\zeta$ has a zero of order $m \in \mathbb{Z}$, i.e., $\zeta(s) \sim c (s - \rho)^m$ for some $c \in \mathbb{C}^\times$ as $s \rightarrow \rho$.  Then
 \begin{equation*}
 - \frac{\zeta'}{\zeta}(s) \sim \frac{- m }{s - \rho}.
 \end{equation*}
@@ -407,41 +421,115 @@ S = \int_{(c)} F (s) x^s \underbrace
 \end{equation*}
 We would now like to shift the contour to the left.
 
-Working formally for the moment, we pick up contributiones from the poles of $\zeta$ at $1$ and its zeros $\rho$, giving for any $c \in \mathbb{R}$ (thought of as large and negative)
+Working formally for the moment, we pick up contributiones from the poles of $\zeta$ at $1$ and its zeros $\rho$, giving
 \begin{equation*}
   S =
   F(1) x
   -
   \sum_{\rho}
   F(\rho) x^\rho
-  + 
-  \int_{(c)} F(s) x^s \left( -\frac{\zeta ' }{\zeta }(s) \right) \, \frac{d s}{2 \pi i}.
+  +
+  \dotsb,
 \end{equation*}
-We might hope that the remainder term defined by the integral is small if $c$ is sufficiently negative.  To implement such an argument rigorously requires some control on the growth of zeta in vertical directions, which we will address shortly.  Ignoring such details for the moment, one can see from such expansions why the zeros of $\zeta$ play such a large role in describing the asymptotics of sums over primes such as $S$.  For instance, if we know that each $\rho$ has real part strictly less than $1$, then the corresponding term $F(\rho) x^\rho$ has lesser magnitude than $x$ as $x \rightarrow \infty$.
+where $\dotsb$ denotes the ``remainder'' term given by an integral like $S$, but with $c$ large and negative, while $\rho$ ranges over the zeros of $\zeta$ with $\Re(\rho) > c$.  To implement such an argument rigorously requires some control over the growth of zeta and its number of zeros in vertical directions, which we will address shortly.  Ignoring such details for the moment, one can see from such expansions why the zeros of $\zeta$ play such a large role in describing the asymptotics of sums over primes such as $S$.  For instance, if we know that each $\rho$ has real part strictly less than $1$, then the corresponding term $F(\rho) x^\rho$ has lesser magnitude than $x$ as $x \rightarrow \infty$.
 
-Here's a basic lemma controlling the number of zeros in vertical strips:
+To make arguments like the above precise, we need some control over the growth of $ \zeta ' / \zeta $ in vertical strips, and also over the number of zeros.
+
+\subsection{Crude control over zeros}
+For the following, we closely follow the presentation of part 2 of \href{these notes}{https://terrytao.wordpress.com/2014/12/09/254a-notes-2-complex-analytic-multiplicative-number-theory/}.  In particular, the following results can all be sharpened a bit using the functional equation, but we won't pause to do so here.
+
+We begin by giving a simple formula for $\zeta$ valid in the critical strip $0 < \Re(s) < 1$.
 \begin{lemma}
-  For any $T \geq 0$, we have
-  \begin{equation*}
-    \# \left\{ \rho : \zeta(\rho) = 0, \Re(\rho) \geq 0, \lvert \Im(\rho) \rvert \in [T, T + 1] \right\}
-    \ll \log (3 + T).
-  \end{equation*}
-\end{lemma}
-The inputs to the proof are
-\begin{enumerate}
-\item the functional equation, which reduces our task to the case $\Re(\rho) \geq 1/2$,
-\item \href{https://en.wikipedia.org/wiki/Jensen\%27s_formula}{Jensen's formula}, and
-\item a crude upper bound on the $\zeta$ function.
-\end{enumerate}
-\begin{lemma}
-  For $s = \sigma + it $ with $\sigma \geq 1/100$, we have
-  \begin{equation*}
-\log \lvert \zeta(s) \rvert \leq C \log (3 + \lvert t \rvert)
-  \end{equation*}
-  for some absolute constant $C$.
+  For $\Re(s) > 0$, we have
+  \begin{equation}\label{eq:cj41j93u44}
+    \zeta(s) - \frac{1}{s - 1}
+    = \sum_{n = 1}^\infty \int_n^{n+1}  \left( \frac{1}{n^s }  - \frac{1}{y^s} \right)   \, d y.
+\end{equation}
+  
 \end{lemma}
 \begin{proof}
-Next time.
+  We have
+  \begin{equation*}
+    \int_1^\infty \frac{1}{y^s } \, d y = \frac{1}{s - 1},
+  \end{equation*}
+  thus
+  \begin{align*}
+    \zeta(s) - \frac{1}{s - 1}
+    &=
+      \sum_{n = 1}^\infty \frac{1}{n^s } - \int_1^\infty \frac{1}{y^s } \, d y \\
+    &=
+    \sum_{n = 1}^\infty \left( \frac{1}{n^s } - \int_n^{n+1} \frac{1}{y^s} \, d y \right) \\
+ &=
+    \sum_{n = 1}^\infty \int_n^{n+1}  \left( \frac{1}{n^s }  - \frac{1}{y^s} \right)   \, d y.
+  \end{align*}
+\end{proof}
+
+From this, we conclude a basic but useful upper bound for $\zeta$ in the critical strip.  (Much sharper forms are available, but we won't need them immediately.)
+\begin{lemma}
+  For $s = \sigma + it $ with $\sigma \geq \eps > 0$ and $\lvert t \rvert \geq 2$, we have
+  \begin{equation}\label{eq:cj41kdcbj7}
+\log \lvert \zeta(s) \rvert \leq \log (\lvert t \rvert) + \O_{\eps}(1).
+  \end{equation}
+\end{lemma}
+\begin{proof}
+  We use the mean value theorem to estimate the integrand in \eqref{eq:cj41j93u44}:
+  \begin{equation*}
+    \frac{1}{n^s }  - \frac{1}{y^s}
+    = - s \int_{t = n}^y t^{-s - 1} \, d t
+    \ll s n^{-s - 1}.
+  \end{equation*}
+  It follows that for $\Re(s) \geq \eps > 0$, we have
+  \begin{equation*}
+    \zeta(s) - \frac{1}{s - 1}
+    \ll s \sum_{n = 1}^\infty n^{-\eps - 1}
+    \ll_\eps s.
+  \end{equation*}
+  We conclude by taking the logarithm of this estimate.  We can discard the contribution of the pole because we have assumed that $\lvert t \rvert \geq 2$.
+\end{proof}
+
+With these results in hand, we can appeal to general properties of holomorphic functions to deduce the following pair of propositions:
+\begin{proposition}\label{proposition:cj41z9de5r}
+  Fix $\eps > 0$.
+  \begin{enumerate}[(i)]
+  \item\label{enumerate:cj41z9jrqm} For $t_0 \in \mathbb{R}$, the number of zeros of $\zeta$ in the rectangle $\{\sigma + i t: \eps \leq \sigma \leq 1, \lvert t - T \rvert \leq 1\}$ is $\O_\eps (\log (3 + \lvert t_0 \rvert))$.
+  \item\label{enumerate:cj41z9j28y} For $s \in \mathbb{C}$ with $\Re(s) \geq \eps$, we have
+    \begin{equation}\label{eq:cj41z82pyp}
+      \frac{\zeta ' }{\zeta }(s)
+      =
+      \frac{1}{s - 1} - \sum_{
+        \lvert \rho - s \rvert \leq \eps/2
+      }
+      \frac{1}{s - \rho } + \O_{\eps } \left( \log (3 + \lvert t \rvert) \right).
+    \end{equation}
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  We apply Lemma \ref{lemma:cj41z5hd4a} of \href{20230907T143521--complex-analysis-preliminaries.pdf}{these notes} to the function $f(s) := (s - 1) \zeta(s)$, the basepoint $s_0 := 2 + i t_0$, the radius $r := 2 - \eps/4$ and the disc $D = \{s : \lvert s - s_0 \rvert < r\}$, where $\eps > 0$ is sufficiently small.  The Euler product estimate \eqref{eq:cj41z53x7f} gives $\zeta(s_0) \asymp 1$. For $s$ with $\lvert s - s_0\rvert = r$, we have by \eqref{eq:cj41kdcbj7} $\lvert f(s) \rvert \leq M \lvert f(s_0) \rvert$ for some $M \ll \log(3 + \lvert t_0 \rvert)$.  This gives \eqref{enumerate:cj41z9jrqm}.
+
+  For \eqref{enumerate:cj41z9j28y}, we argue as in \eqref{enumerate:cj41z9jrqm} with $t_0 := \Im(s)$.  We use the bound for the number of zeros to see that \eqref{eq:cj41z82pyp} doesn't change if we modify the sum by including or excluding any zeros that are at least some fixed distance away from $s$.  This leads to the claimed estimate.
+\end{proof}
+
+
+\subsection{Contour shifting and an explicit formula}
+We can now carry out the promised contour shifting arguments.
+\begin{proposition}
+  Let $f \in C_c^\infty(\mathbb{R})$, with Mellin transform $F(s) = \int_{\mathbb{R}^+} y^s f(y) \,d^\times y$.  Let $x > 1$ and $\eps_1 > 0$.  Then there exists $\eps \in (\eps_1/2,\eps_1)$ so that
+  \begin{equation*}
+    \sum_n \Lambda (n) f \left( \frac{n}{x} \right)
+    = F(1) x + \sum_{\rho : \Re(x) > \eps } F(\rho) x^{\rho}
+    +
+    \O_{\eps} \left( x^\eps \mathcal{E}_\eps \right),
+  \end{equation*}
+  where
+  \begin{equation*}
+\mathcal{E}_{\eps} := \int_{t \in \mathbb{R} }
+      (1 + |t|) F(\eps + i t) \, d t.
+    \end{equation*}
+\end{proposition}
+Note that since $f$ is smooth, the quantity $\mathcal{E}_{\eps}$ is finite (see external Lemma \ref{lemma:cj4ungtm6r} of \href{20230907T143130--fourier-and-mellin-transforms.pdf}{these notes}).
+
+\begin{proof}
+The follows by a contour shifting argument from \eqref{eq:cj41z82pyp}, and will be presented ``next time''.  Remark that we can reduce formally to the case $x=1$, by incorporating dilation by $x$ into $f$.
 \end{proof}
 
 
