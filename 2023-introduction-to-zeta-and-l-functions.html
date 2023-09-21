@@ -209,7 +209,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2023-09-19 16:18:14
+2023-09-21 17:33:08
       <a href="2023-introduction-to-zeta-and-l-functions.tex" class="my-link">tex</a>
       <a href="2023-introduction-to-zeta-and-l-functions.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/2023-introduction-to-zeta-and-l-functions.tex" class="my-link">history</a>
@@ -246,6 +246,13 @@ continuation and evaluation at negative integers</a></li>
 perspective on the meromorphic continuation</a></li>
 <li><a href="#sec:cj4020t3kt" id="toc-sec:cj4020t3kt">Euler
 product</a></li>
+<li><a href="#logarithmic-derivatives"
+id="toc-logarithmic-derivatives">Logarithmic derivatives</a></li>
+<li><a href="#crude-control-over-zeros"
+id="toc-crude-control-over-zeros">Crude control over zeros</a></li>
+<li><a href="#contour-shifting-and-an-explicit-formula"
+id="toc-contour-shifting-and-an-explicit-formula">Contour shifting and
+an explicit formula</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -680,7 +687,10 @@ the following alternative formula:</p>
 \frac{1}{1 - p^{- s}},\]</span> where the product ranges over the primes
 <span class="math inline">\(p\)</span> and converges absolutely. In
 particular, <span class="math display">\[\zeta(s) \neq 0 \text{ for }
-\Re(s) &gt; 1.\]</span></p>
+\Re(s) &gt; 1.\]</span> Quantitatively, for <span
+class="math inline">\(\sigma &gt; 1\)</span>, we have <span id="eq:cj41z53x7f" class="math display">\[\label{eq:cj41z53x7f}\tag{5.4}
+\lvert \zeta(\sigma + it) \rvert \geq \zeta(1 +
+\sigma)^{-1}.\]</span></p>
 </div>
 <p>Here we say that an infinite product <em>converges absolutely</em> if
 it converges to the same nonzero value for any rearrangement of the
@@ -704,13 +714,22 @@ fundamental theorem of arithmetic, which implies that every element of
 uniquely as a product of powers of elements of <span
 class="math inline">\(S\)</span>. We now take the limit as <span
 class="math inline">\(S \rightarrow \mathbb{N}\)</span>.</p>
-<p>It remains to check that the product converges to a nonzero limit. A
-general fact is that if <span class="math inline">\(\sum_p |a_p| &lt;
-\infty\)</span>, then the product <span class="math inline">\(\prod_{p}
-(1 + a_p)\)</span> converges to a limit, and that limit is nonzero
-provided that each factor <span class="math inline">\(1 + a_p\)</span>
-is nonzero. Applying this facts with <span class="math inline">\(a_p =
-p^{-s}\)</span> gives what was claimed. ◻</p>
+<p>To see that the product converges to a nonzero limit, we can apply
+the following general fact: if <span class="math inline">\(\sum_p |a_p|
+&lt; \infty\)</span>, then the product <span
+class="math inline">\(\prod_{p} (1 + a_p)\)</span> converges to a limit,
+and that limit is nonzero provided that each factor <span
+class="math inline">\(1 + a_p\)</span> is nonzero. Applying this facts
+with <span class="math inline">\(a_p = p^{-s}\)</span> gives what was
+claimed.</p>
+<p>For the quantitative estimate <a href="#eq:cj41z53x7f"
+data-reference-type="eqref"
+data-reference="eq:cj41z53x7f">\((5.4)\)</a>, we observe that
+<span class="math display">\[\left\lvert \frac{1}{\zeta(\sigma +
+it)}  \right\rvert
+     = \prod_p \left\lvert 1 - p^{-s} \right\rvert
+     \leq \prod_p \left(  1 + p^{-\sigma} \right)
+     \leq \sum_n n^{-\sigma} = \zeta(1 + \sigma).\]</span> ◻</p>
 </span></div>
 <p>As a basic illustration of the resulting link between the zeta
 function and the primes, we verify the following:</p>
@@ -723,7 +742,7 @@ Then <span class="math display">\[\sum_p \frac{1}{ p^s } = \log
 <div class="proof"><p>
 <a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
 <span class="proof-content"> Using the Taylor series for the logarithm, we compute
-<span id="eq:cj402w3a5w" class="math display">\[\label{eq:cj402w3a5w}\tag{5.4}
+<span id="eq:cj402w3a5w" class="math display">\[\label{eq:cj402w3a5w}\tag{5.5}
     \log \zeta (s) = \sum_p \log \left( \frac{1}{1 - p^{- s}} \right)
     =
     \sum_p \sum_{k \geq 1} \frac{p^{- k s }}{ k}.\]</span> We leave it
@@ -735,13 +754,14 @@ range. ◻</p>
 <p><strong>Corollary 13</strong>. <em><span class="math inline">\(\sum_p
 1 / p = \infty\)</span>.</em></p>
 </div>
-<p>More generally, while the logarithm <span class="math inline">\(\log
+<h2 id="logarithmic-derivatives">Logarithmic derivatives</h2>
+<p>While the logarithm <span class="math inline">\(\log
 \zeta(s)\)</span> is multi-valued, the logarithmic derivative <span
 class="math display">\[\left( \log \zeta(s) \right) &#39;
   = \frac{\zeta &#39;}{\zeta } (s)\]</span> is single-valued. It may be
 computed by differentiating <a href="#eq:cj402w3a5w"
 data-reference-type="eqref"
-data-reference="eq:cj402w3a5w">\((5.4)\)</a>: <span
+data-reference="eq:cj402w3a5w">\((5.5)\)</a>: <span
 class="math display">\[- \frac{\zeta &#39;}{ \zeta } (s) = \sum _p (\log
 p) \sum_{k \geq 1} p^{- k s} = \sum_n \frac{\Lambda(n) }{n^s},\]</span>
 where the <em>von Mangoldt function</em> <span
@@ -751,7 +771,7 @@ class="math display">\[\Lambda(n) :=
 \log p &amp; \text{ if } n = p ^k, \\
 0 &amp; \text{ otherwise.}
 \end{cases}\]</span></p>
-<p>Our general discussion suggests a relationship between the
+<p>The general theme of this course suggests a relationship between the
 asymptotics of <span class="math inline">\(\Lambda(n)\)</span> and the
 meromorphic behavior of <span class="math inline">\(- \zeta &#39; /
 \zeta\)</span>. The poles of the latter may be described as follows.
@@ -798,58 +818,194 @@ to the left.</p>
 <p>Working formally for the moment, we pick up contributiones from the
 poles of <span class="math inline">\(\zeta\)</span> at <span
 class="math inline">\(1\)</span> and its zeros <span
-class="math inline">\(\rho\)</span>, giving for any <span
-class="math inline">\(c \in \mathbb{R}\)</span> (thought of as large and
-negative) <span class="math display">\[S =
+class="math inline">\(\rho\)</span>, giving <span
+class="math display">\[S =
   F(1) x
   -
   \sum_{\rho}
   F(\rho) x^\rho
   +
-  \int_{(c)} F(s) x^s \left( -\frac{\zeta &#39; }{\zeta }(s) \right) \,
-\frac{d s}{2 \pi i}.\]</span> We might hope that the remainder term
-defined by the integral is small if <span
-class="math inline">\(c\)</span> is sufficiently negative. To implement
-such an argument rigorously requires some control on the growth of zeta
-in vertical directions, which we will address shortly. Ignoring such
-details for the moment, one can see from such expansions why the zeros
-of <span class="math inline">\(\zeta\)</span> play such a large role in
-describing the asymptotics of sums over primes such as <span
-class="math inline">\(S\)</span>. For instance, if we know that each
-<span class="math inline">\(\rho\)</span> has real part strictly less
-than <span class="math inline">\(1\)</span>, then the corresponding term
-<span class="math inline">\(F(\rho) x^\rho\)</span> has lesser magnitude
-than <span class="math inline">\(x\)</span> as <span
-class="math inline">\(x \rightarrow \infty\)</span>.</p>
-<p>Here’s a basic lemma controlling the number of zeros in vertical
-strips:</p>
+  \dotsb,\]</span> where <span class="math inline">\(\dotsb\)</span>
+denotes the “remainder” term given by an integral like <span
+class="math inline">\(S\)</span>, but with <span
+class="math inline">\(c\)</span> large and negative, while <span
+class="math inline">\(\rho\)</span> ranges over the zeros of <span
+class="math inline">\(\zeta\)</span> with <span
+class="math inline">\(\Re(\rho) &gt; c\)</span>. To implement such an
+argument rigorously requires some control over the growth of zeta and
+its number of zeros in vertical directions, which we will address
+shortly. Ignoring such details for the moment, one can see from such
+expansions why the zeros of <span class="math inline">\(\zeta\)</span>
+play such a large role in describing the asymptotics of sums over primes
+such as <span class="math inline">\(S\)</span>. For instance, if we know
+that each <span class="math inline">\(\rho\)</span> has real part
+strictly less than <span class="math inline">\(1\)</span>, then the
+corresponding term <span class="math inline">\(F(\rho) x^\rho\)</span>
+has lesser magnitude than <span class="math inline">\(x\)</span> as
+<span class="math inline">\(x \rightarrow \infty\)</span>.</p>
+<p>To make arguments like the above precise, we need some control over
+the growth of <span class="math inline">\(\zeta &#39; / \zeta\)</span>
+in vertical strips, and also over the number of zeros.</p>
+<h2 id="crude-control-over-zeros">Crude control over zeros</h2>
+<p>For the following, we closely follow the presentation of part 2 of <a
+href="these notes">https://terrytao.wordpress.com/2014/12/09/254a-notes-2-complex-analytic-multiplicative-number-theory/</a>.
+In particular, the following results can all be sharpened a bit using
+the functional equation, but we won’t pause to do so here.</p>
+<p>We begin by giving a simple formula for <span
+class="math inline">\(\zeta\)</span> valid in the critical strip <span
+class="math inline">\(0 &lt; \Re(s) &lt; 1\)</span>.</p>
 <div class="lemma">
-<p><strong>Lemma 14</strong>. For any <span class="math inline">\(T \geq
-0\)</span>, we have <span class="math display">\[\# \left\{ \rho :
-\zeta(\rho) = 0, \Re(\rho) \geq 0, \lvert \Im(\rho) \rvert \in [T, T +
-1] \right\}
-    \ll \log (3 + T).\]</span></p>
-</div>
-<p>The inputs to the proof are</p>
-<ol>
-<li><p>the functional equation, which reduces our task to the case <span
-class="math inline">\(\Re(\rho) \geq 1/2\)</span>,</p></li>
-<li><p><a
-href="https://en.wikipedia.org/wiki/Jensen%27s_formula">Jensen’s
-formula</a>, and</p></li>
-<li><p>a crude upper bound on the <span
-class="math inline">\(\zeta\)</span> function.</p></li>
-</ol>
-<div class="lemma">
-<p><strong>Lemma 15</strong>. For <span class="math inline">\(s = \sigma
-+ it\)</span> with <span class="math inline">\(\sigma \geq
-1/100\)</span>, we have <span class="math display">\[\log \lvert
-\zeta(s) \rvert \leq C \log (3 + \lvert t \rvert)\]</span> for some
-absolute constant <span class="math inline">\(C\)</span>.</p>
+<p><strong>Lemma 14</strong>. For <span class="math inline">\(\Re(s)
+&gt; 0\)</span>, we have <span id="eq:cj41j93u44" class="math display">\[\label{eq:cj41j93u44}\tag{5.7}
+    \zeta(s) - \frac{1}{s - 1}
+    = \sum_{n = 1}^\infty \int_n^{n+1}  \left( \frac{1}{n^s }  -
+\frac{1}{y^s} \right)   \, d y.\]</span></p>
 </div>
 <div class="proof"><p>
 <a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
-<span class="proof-content"> Next time. ◻</p>
+<span class="proof-content"> We have <span class="math display">\[\int_1^\infty
+\frac{1}{y^s } \, d y = \frac{1}{s - 1},\]</span> thus <span
+class="math display">\[\begin{align}
+    \zeta(s) - \frac{1}{s - 1}
+    &amp;=
+      \sum_{n = 1}^\infty \frac{1}{n^s } - \int_1^\infty \frac{1}{y^s }
+\, d y \\
+    &amp;=
+    \sum_{n = 1}^\infty \left( \frac{1}{n^s } - \int_n^{n+1}
+\frac{1}{y^s} \, d y \right) \\
+&amp;=
+    \sum_{n = 1}^\infty \int_n^{n+1}  \left( \frac{1}{n^s }  -
+\frac{1}{y^s} \right)   \, d y.
+  
+\end{align}\]</span> ◻</p>
+</span></div>
+<p>From this, we conclude a basic but useful upper bound for <span
+class="math inline">\(\zeta\)</span> in the critical strip. (Much
+sharper forms are available, but we won’t need them immediately.)</p>
+<div class="lemma">
+<p><strong>Lemma 15</strong>. For <span class="math inline">\(s = \sigma
++ it\)</span> with <span class="math inline">\(\sigma \geq
+\varepsilon&gt; 0\)</span> and <span class="math inline">\(\lvert t
+\rvert \geq 2\)</span>, we have <span id="eq:cj41kdcbj7" class="math display">\[\label{eq:cj41kdcbj7}\tag{5.8}
+\log \lvert \zeta(s) \rvert \leq \log (\lvert t \rvert) +
+\operatorname{O}_{\varepsilon}(1).\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We use the mean value theorem to estimate the
+integrand in <a href="#eq:cj41j93u44" data-reference-type="eqref"
+data-reference="eq:cj41j93u44">\((5.7)\)</a>: <span
+class="math display">\[\frac{1}{n^s }  - \frac{1}{y^s}
+    = - s \int_{t = n}^y t^{-s - 1} \, d t
+    \ll s n^{-s - 1}.\]</span> It follows that for <span
+class="math inline">\(\Re(s) \geq \varepsilon&gt; 0\)</span>, we have
+<span class="math display">\[\zeta(s) - \frac{1}{s - 1}
+    \ll s \sum_{n = 1}^\infty n^{-\varepsilon- 1}
+    \ll_\varepsilon s.\]</span> We conclude by taking the logarithm of
+this estimate. We can discard the contribution of the pole because we
+have assumed that <span class="math inline">\(\lvert t \rvert \geq
+2\)</span>. ◻</p>
+</span></div>
+<p>With these results in hand, we can appeal to general properties of
+holomorphic functions to deduce the following pair of propositions:</p>
+<div id="enumerate:cj41z9j28y" class="proposition">
+<p><strong>Proposition 16</strong>. <em><span
+id="proposition:cj41z9de5r" label="proposition:cj41z9de5r"></span> Fix
+<span class="math inline">\(\varepsilon&gt; 0\)</span>.</em></p>
+<ol type="i">
+<li><p><em><span id="enumerate:cj41z9jrqm"
+label="enumerate:cj41z9jrqm"></span> For <span class="math inline">\(t_0
+\in \mathbb{R}\)</span>, the number of zeros of <span
+class="math inline">\(\zeta\)</span> in the rectangle <span
+class="math inline">\(\{\sigma + i t: \varepsilon\leq \sigma \leq 1,
+\lvert t - T \rvert \leq 1\}\)</span> is <span
+class="math inline">\(\operatorname{O}_\varepsilon(\log (3 + \lvert t_0
+\rvert))\)</span>.</em></p></li>
+<li><p><em>For <span class="math inline">\(s \in \mathbb{C}\)</span>
+with <span class="math inline">\(\Re(s) \geq \varepsilon\)</span>, we
+have <span id="eq:cj41z82pyp" class="math display">\[\label{eq:cj41z82pyp}\tag{5.9}
+      \frac{\zeta &#39; }{\zeta }(s)
+      =
+      \frac{1}{s - 1} - \sum_{
+        \lvert \rho - s \rvert \leq \varepsilon/2
+      }
+      \frac{1}{s - \rho } + \operatorname{O}_{\varepsilon} \left( \log
+(3 + \lvert t \rvert) \right).\]</span></em></p></li>
+</ol>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We apply Lemma <a href="20230907T143521--complex-analysis-preliminaries.html#lemma:cj41z5hd4a"
+data-reference-type="ref"
+data-reference="lemma:cj41z5hd4a">15</a> of <a
+href="20230907T143521--complex-analysis-preliminaries.html">these
+notes</a> to the function <span class="math inline">\(f(s) := (s - 1)
+\zeta(s)\)</span>, the basepoint <span class="math inline">\(s_0 := 2 +
+i t_0\)</span>, the radius <span class="math inline">\(r := 2 -
+\varepsilon/4\)</span> and the disc <span class="math inline">\(D = \{s
+: \lvert s - s_0 \rvert &lt; r\}\)</span>, where <span
+class="math inline">\(\varepsilon&gt; 0\)</span> is sufficiently small.
+The Euler product estimate <a href="#eq:cj41z53x7f"
+data-reference-type="eqref"
+data-reference="eq:cj41z53x7f">\((5.4)\)</a> gives <span
+class="math inline">\(\zeta(s_0) \asymp 1\)</span>. For <span
+class="math inline">\(s\)</span> with <span class="math inline">\(\lvert
+s - s_0\rvert = r\)</span>, we have by <a href="#eq:cj41kdcbj7"
+data-reference-type="eqref"
+data-reference="eq:cj41kdcbj7">\((5.8)\)</a> <span
+class="math inline">\(\lvert f(s) \rvert \leq M \lvert f(s_0)
+\rvert\)</span> for some <span class="math inline">\(M \ll \log(3 +
+\lvert t_0 \rvert)\)</span>. This gives <a href="#enumerate:cj41z9jrqm"
+data-reference-type="eqref"
+data-reference="enumerate:cj41z9jrqm">\((i)\)</a>.</p>
+<p>For <a href="#enumerate:cj41z9j28y" data-reference-type="eqref"
+data-reference="enumerate:cj41z9j28y">\((ii)\)</a>, we
+argue as in <a href="#enumerate:cj41z9jrqm" data-reference-type="eqref"
+data-reference="enumerate:cj41z9jrqm">\((i)\)</a> with
+<span class="math inline">\(t_0 := \Im(s)\)</span>. We use the bound for
+the number of zeros to see that <a href="#eq:cj41z82pyp"
+data-reference-type="eqref"
+data-reference="eq:cj41z82pyp">\((5.9)\)</a> doesn’t change if we
+modify the sum by including or excluding any zeros that are at least
+some fixed distance away from <span class="math inline">\(s\)</span>.
+This leads to the claimed estimate. ◻</p>
+</span></div>
+<h2 id="contour-shifting-and-an-explicit-formula">Contour shifting and
+an explicit formula</h2>
+<p>We can now carry out the promised contour shifting arguments.</p>
+<div class="proposition">
+<p><strong>Proposition 17</strong>. <em>Let <span
+class="math inline">\(f \in C_c^\infty(\mathbb{R})\)</span>, with Mellin
+transform <span class="math inline">\(F(s) = \int_{\mathbb{R}^+} y^s
+f(y) \,d^\times y\)</span>. Let <span class="math inline">\(x &gt;
+1\)</span> and <span class="math inline">\(\varepsilon_1 &gt;
+0\)</span>. Then there exists <span class="math inline">\(\varepsilon\in
+(\varepsilon_1/2,\varepsilon_1)\)</span> so that <span
+class="math display">\[\sum_n \Lambda (n) f \left( \frac{n}{x} \right)
+    = F(1) x + \sum_{\rho : \Re(x) &gt; \varepsilon} F(\rho) x^{\rho}
+    +
+    \operatorname{O}_{\varepsilon} \left(
+x^\varepsilon\mathcal{E}_\varepsilon\right),\]</span> where <span
+class="math display">\[\mathcal{E}_{\varepsilon} := \int_{t \in
+\mathbb{R} }
+      (1 + |t|) F(\varepsilon+ i t) \, d t.\]</span></em></p>
+</div>
+<p>Note that since <span class="math inline">\(f\)</span> is smooth, the
+quantity <span class="math inline">\(\mathcal{E}_{\varepsilon}\)</span>
+is finite (see external Lemma <a href="20230907T143130--fourier-and-mellin-transforms.html#lemma:cj4ungtm6r"
+data-reference-type="ref"
+data-reference="lemma:cj4ungtm6r">6</a> of <a
+href="20230907T143130--fourier-and-mellin-transforms.html">these
+notes</a>).</p>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> The follows by a contour shifting argument from <a
+href="#eq:cj41z82pyp" data-reference-type="eqref"
+data-reference="eq:cj41z82pyp">\((5.9)\)</a>, and will be
+presented “next time”. Remark that we can reduce formally to the case
+<span class="math inline">\(x=1\)</span>, by incorporating dilation by
+<span class="math inline">\(x\)</span> into <span
+class="math inline">\(f\)</span>. ◻</p>
 </span></div>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="list">
