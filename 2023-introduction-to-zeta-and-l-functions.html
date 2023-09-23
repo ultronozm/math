@@ -209,7 +209,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2023-09-21 17:52:28
+2023-09-23 22:05:34
       <a href="2023-introduction-to-zeta-and-l-functions.tex" class="my-link">tex</a>
       <a href="2023-introduction-to-zeta-and-l-functions.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/2023-introduction-to-zeta-and-l-functions.tex" class="my-link">history</a>
@@ -312,7 +312,7 @@ href="20230907T143521--complex-analysis-preliminaries.html#sec:cj41z468dg" data-
 data-reference="sec:cj41z468dg">5</a>), approximate
 factorizations of holomorphic functions (external §<a
 href="20230907T143521--complex-analysis-preliminaries.html#sec:cj41z5fwla" data-reference-type="ref"
-data-reference="sec:cj41z5fwla">5.4</a>), crude control
+data-reference="sec:cj41z5fwla">6</a>), crude control
 over zeta zeros (§<a href="#sec:cj410a1fzy" data-reference-type="ref"
 data-reference="sec:cj410a1fzy">5.5</a>)</p></li>
 </ul>
@@ -816,8 +816,8 @@ class="math inline">\(c \in \mathbb{R}\)</span> is any real number. The
 double sum/integral obtained by inserting this expansion into the
 definition of <span class="math inline">\(S\)</span> converges
 absolutely for <span class="math inline">\(c &gt; 1\)</span>, where we
-may rearrange it to obtain <span class="math display">\[S = \int_{(c)} F
-(s) x^s \underbrace
+may rearrange it to obtain <span id="eq:cj42xpi3f4" class="math display">\[\label{eq:cj42xpi3f4}\tag{5.7}
+S = \int_{(c)} F (s) x^s \underbrace
 {
   \sum_n
 \frac{\Lambda (n)}{ n^s }
@@ -866,7 +866,7 @@ class="math inline">\(\zeta\)</span> valid in the critical strip <span
 class="math inline">\(0 &lt; \Re(s) &lt; 1\)</span>.</p>
 <div class="lemma">
 <p><strong>Lemma 14</strong>. For <span class="math inline">\(\Re(s)
-&gt; 0\)</span>, we have <span id="eq:cj41j93u44" class="math display">\[\label{eq:cj41j93u44}\tag{5.7}
+&gt; 0\)</span>, we have <span id="eq:cj41j93u44" class="math display">\[\label{eq:cj41j93u44}\tag{5.8}
     \zeta(s) - \frac{1}{s - 1}
     = \sum_{n = 1}^\infty \int_n^{n+1}  \left( \frac{1}{n^s }  -
 \frac{1}{y^s} \right)   \, d y.\]</span></p>
@@ -896,7 +896,7 @@ sharper forms are available, but we won’t need them immediately.)</p>
 <p><strong>Lemma 15</strong>. For <span class="math inline">\(s = \sigma
 + it\)</span> with <span class="math inline">\(\sigma \geq
 \varepsilon&gt; 0\)</span> and <span class="math inline">\(\lvert t
-\rvert \geq 2\)</span>, we have <span id="eq:cj41kdcbj7" class="math display">\[\label{eq:cj41kdcbj7}\tag{5.8}
+\rvert \geq 2\)</span>, we have <span id="eq:cj41kdcbj7" class="math display">\[\label{eq:cj41kdcbj7}\tag{5.9}
 \log \lvert \zeta(s) \rvert \leq \log (\lvert t \rvert) +
 \operatorname{O}_{\varepsilon}(1).\]</span></p>
 </div>
@@ -904,7 +904,7 @@ sharper forms are available, but we won’t need them immediately.)</p>
 <a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
 <span class="proof-content"> We use the mean value theorem to estimate the
 integrand in <a href="#eq:cj41j93u44" data-reference-type="eqref"
-data-reference="eq:cj41j93u44">\((5.7)\)</a>: <span
+data-reference="eq:cj41j93u44">\((5.8)\)</a>: <span
 class="math display">\[\frac{1}{n^s }  - \frac{1}{y^s}
     = - s \int_{t = n}^y t^{-s - 1} \, d t
     \ll s n^{-s - 1}.\]</span> It follows that for <span
@@ -933,7 +933,7 @@ class="math inline">\(\operatorname{O}_\varepsilon(\log (3 + \lvert t_0
 \rvert))\)</span>.</em></p></li>
 <li><p><em>For <span class="math inline">\(s \in \mathbb{C}\)</span>
 with <span class="math inline">\(\Re(s) \geq \varepsilon\)</span>, we
-have <span id="eq:cj41z82pyp" class="math display">\[\label{eq:cj41z82pyp}\tag{5.9}
+have <span id="eq:cj41z82pyp" class="math display">\[\label{eq:cj41z82pyp}\tag{5.10}
       \frac{\zeta &#39; }{\zeta }(s)
       =
       \frac{1}{s - 1} - \sum_{
@@ -962,7 +962,7 @@ class="math inline">\(\zeta(s_0) \asymp 1\)</span>. For <span
 class="math inline">\(s\)</span> with <span class="math inline">\(\lvert
 s - s_0\rvert = r\)</span>, we have by <a href="#eq:cj41kdcbj7"
 data-reference-type="eqref"
-data-reference="eq:cj41kdcbj7">\((5.8)\)</a> <span
+data-reference="eq:cj41kdcbj7">\((5.9)\)</a> <span
 class="math inline">\(\lvert f(s) \rvert \leq M \lvert f(s_0)
 \rvert\)</span> for some <span class="math inline">\(M \ll \log(3 +
 \lvert t_0 \rvert)\)</span>. This gives <a href="#enumerate:cj41z9jrqm"
@@ -975,47 +975,203 @@ data-reference="enumerate:cj41z9jrqm">\((i)\)</a> with
 <span class="math inline">\(t_0 := \Im(s)\)</span>. We use the bound for
 the number of zeros to see that <a href="#eq:cj41z82pyp"
 data-reference-type="eqref"
-data-reference="eq:cj41z82pyp">\((5.9)\)</a> doesn’t change if we
+data-reference="eq:cj41z82pyp">\((5.10)\)</a> doesn’t change if we
 modify the sum by including or excluding any zeros that are at least
 some fixed distance away from <span class="math inline">\(s\)</span>.
 This leads to the claimed estimate. ◻</p>
 </span></div>
+<div id="lemma:cj42xpd5qe" class="lemma">
+<p><strong>Lemma 17</strong>. For <span class="math inline">\(C &gt;
+\varepsilon&gt; 0\)</span> and <span class="math inline">\(T \in
+\mathbb{R}\)</span>, we have <span class="math display">\[\int_{\sigma =
+\varepsilon}^{C}
+\int_{t = T-1}^{T+1}
+\left\lvert
+\frac{\zeta &#39; }{\zeta }(\sigma + i t)
+\right\rvert
+\, d t
+\, d \sigma
+\ll_{\varepsilon,C} \log (3 + \lvert T \rvert).\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> This follows upon integrating <a
+href="#eq:cj41z82pyp" data-reference-type="eqref"
+data-reference="eq:cj41z82pyp">\((5.10)\)</a>, using that <span
+class="math display">\[\int_{-R}^R
+  \int_{-R}^R
+  \frac{1}{\lvert x + i y \rvert} \, d x \, d y &lt;
+\infty.\]</span> ◻</p>
+</span></div>
 <h2 id="contour-shifting-and-an-explicit-formula">Contour shifting and
 an explicit formula</h2>
-<p>We can now carry out the promised contour shifting arguments.</p>
+<p>We can now carry out the promised contour shifting arguments. Here’s
+a typical result that one can obtain in this way. (Our arrangement is
+like Theorem 21 of <a
+href="https://terrytao.wordpress.com/2014/12/09/254a-notes-2-complex-analytic-multiplicative-number-theory/">these
+notes</a>, but with smooth weights, and should be compared against
+standard references such as <a href="#ref-Dav80" class="citation"
+data-cites="Dav80">(Davenport 1980, vol. 74, chap. 17)</a> or <a href="#ref-MR2061214"
+class="citation" data-cites="MR2061214">(Iwaniec and Kowalski 2004, vol.
+53, sec. 5.5)</a>. See also <a href="#ref-MR882550" class="citation"
+data-cites="MR882550">(Titchmarsh 1986)</a>.)</p>
 <div class="proposition">
-<p><strong>Proposition 17</strong>. <em>Let <span
+<p><strong>Proposition 18</strong>. <em>Let <span
 class="math inline">\(f \in C_c^\infty(\mathbb{R})\)</span>, with Mellin
 transform <span class="math inline">\(F(s) = \int_{\mathbb{R}^+} y^s
-f(y) \,d^\times y\)</span>. Let <span class="math inline">\(x &gt;
-1\)</span> and <span class="math inline">\(\varepsilon_1 &gt;
-0\)</span>. Then there exists <span class="math inline">\(\varepsilon\in
-(\varepsilon_1/2,\varepsilon_1)\)</span> so that <span
-class="math display">\[\sum_n \Lambda (n) f \left( \frac{n}{x} \right)
-    = F(1) x + \sum_{\rho : \Re(x) &gt; \varepsilon} F(\rho) x^{\rho}
+f(y) \,d^\times y\)</span>. Let <span class="math inline">\(x \geq
+1\)</span> and <span class="math inline">\(\varepsilon&gt; 0\)</span>.
+Then <span class="math display">\[\sum_n \Lambda (n) f \left(
+\frac{n}{x} \right)
+    = F(1) x + \sum_{\rho : \Re(\rho) &gt; \varepsilon} F(\rho) x^{\rho}
     +
-    \operatorname{O}_{\varepsilon} \left(
-x^\varepsilon\mathcal{E}_\varepsilon\right),\]</span> where <span
-class="math display">\[\mathcal{E}_{\varepsilon} := \int_{t \in
-\mathbb{R} }
-      F(\varepsilon+ i t) \log (3 + |t|) \, d t.\]</span></em></p>
+    \operatorname{O}_{\varepsilon} \left( x^\varepsilon\mathcal{E}
+\right),\]</span> where <span class="math display">\[\mathcal{E} :=
+\int_{T \in \mathbb{R} }
+    E(T)
+    \log (3 + |T|) \, d T,
+    \qquad
+    E(T) :=
+    \max_{
+      \substack{
+        \sigma \in [\varepsilon/2, \varepsilon]  \\
+         t \in [T-1, T+1]
+      }
+    }
+    \left\lvert F(\sigma  + i t) \right\rvert.\]</span></em></p>
 </div>
 <p>Note that since <span class="math inline">\(f\)</span> is smooth, the
-quantity <span class="math inline">\(\mathcal{E}_{\varepsilon}\)</span>
-is finite (see external Lemma <a href="20230907T143130--fourier-and-mellin-transforms.html#lemma:cj4ungtm6r"
-data-reference-type="ref"
+quantity <span class="math inline">\(\mathcal{E}\)</span> is finite (see
+external Lemma <a href="20230907T143130--fourier-and-mellin-transforms.html#lemma:cj4ungtm6r" data-reference-type="ref"
 data-reference="lemma:cj4ungtm6r">6</a> of <a
 href="20230907T143130--fourier-and-mellin-transforms.html">these
 notes</a>).</p>
 <div class="proof"><p>
 <a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
-<span class="proof-content"> The follows by a contour shifting argument from <a
-href="#eq:cj41z82pyp" data-reference-type="eqref"
-data-reference="eq:cj41z82pyp">\((5.9)\)</a>, and will be
-presented “next time”. Remark that we can reduce formally to the case
-<span class="math inline">\(x=1\)</span>, by incorporating dilation by
-<span class="math inline">\(x\)</span> into <span
-class="math inline">\(f\)</span>. ◻</p>
+<span class="proof-content"> To simplify notation, we can absorb <span
+class="math inline">\(x\)</span> into <span
+class="math inline">\(f\)</span>: the function <span
+class="math inline">\(f_1(y) := f(n/x)\)</span> has Mellin transform
+<span class="math inline">\(F_1(s) = x^s F(s)\)</span>, and from this we
+see easily that if we can establish the required conclusion for <span
+class="math inline">\(F_1\)</span> (with <span
+class="math inline">\(x=1\)</span>), then we obtain the required
+conclusion for <span class="math inline">\(F\)</span>. Thus, let us
+suppose without loss of generality that <span class="math inline">\(x =
+1\)</span>.</p>
+<p>As in <a href="#eq:cj42xpi3f4" data-reference-type="eqref"
+data-reference="eq:cj42xpi3f4">\((5.7)\)</a>, we have for each
+<span class="math inline">\(c &gt; 1\)</span> <span
+class="math display">\[\sum_n \Lambda (n) f \left( n \right)
+    =
+    \int_{(c)} F (s) D(s) \, \frac{d s}{2 \pi i},
+    \quad
+    D(s) := -\frac{\zeta &#39; }{\zeta }(s).\]</span> Set <span
+class="math inline">\(I_\sigma(t) := \lvert F(\sigma + i t) D(\sigma +
+it) \rvert\)</span>. By the definition of <span
+class="math inline">\(E(T)\)</span> and Lemma <a
+href="#lemma:cj42xpd5qe" data-reference-type="ref"
+data-reference="lemma:cj42xpd5qe">5.12</a>, we have <span
+class="math display">\[\begin{align}
+    \int_{\sigma = \varepsilon/ 2}^{\varepsilon}
+    \int_{t \in \mathbb{R}}
+    I_\sigma(t)
+    \, d t
+    \, d \sigma
+    &amp;\leq \int_{T \in \mathbb{R} } E(T)
+    \int_{\sigma = \varepsilon/ 2 }^{\varepsilon}
+    \int_{t = T - 1}^{T + 1}
+    \left\lvert D(\sigma+it) \right\rvert
+    \, d t
+    \, d \sigma \, d T \\
+    &amp;\ll_{\varepsilon} \mathcal{E}.
+  
+\end{align}\]</span> By the pigeonhole principle, we can find some
+<span class="math inline">\(c_0 \in (\varepsilon/2,
+\varepsilon)\)</span> so that <span id="eq:cj42xv8hdz" class="math display">\[\label{eq:cj42xv8hdz}\tag{5.11}
+I_{c_0} (t) \ll_{\varepsilon} \mathcal{E}.\]</span> By the triangle
+inequality, it follows that <span class="math display">\[\int_{(c_0)}
+F(s) D(s) \, \frac{d s}{2 \pi i } \ll _{\varepsilon}
+\mathcal{E}.\]</span> We also have, by another application of Lemma <a
+href="#lemma:cj42xpd5qe" data-reference-type="ref"
+data-reference="lemma:cj42xpd5qe">5.12</a>, <span
+class="math display">\[\begin{align}
+    \left\lvert \sum_{\rho : c_0 &lt; \Re(\rho) \leq \varepsilon}
+F(\rho)  \right\rvert
+    &amp;\leq \int_{T \in \mathbb{R} }  E(T)
+      \left(
+      \sum_{
+      \substack{
+      \rho : c_0 &lt; \Re(\rho) \leq \varepsilon,  \\
+    \Im(\rho) \in [T-1, T+1]
+    }
+    }
+    1
+    \right)
+    \, d T \\
+    &amp;\ll_{\varepsilon}\mathcal{E}.
+  
+\end{align}\]</span> Note that <a href="#eq:cj42xv8hdz"
+data-reference-type="eqref"
+data-reference="eq:cj42xv8hdz">\((5.11)\)</a> implies in particular
+that <span class="math inline">\(\zeta\)</span> has no zeros with real
+part <span class="math inline">\(c_0\)</span>. By combining the above
+estimates, we reduce to establishing the following identity: <span
+class="math display">\[\int_{(c)} F(s)  D(s) \, \frac{d s}{2 \pi i }
+    =
+    \int_{(c_0)} F(s)  D(s) \, \frac{d s}{2 \pi i }
+    +
+    F(1)
+    -
+    \sum_{\rho : \Re(\rho) &gt; c_0 } F(\rho) .\]</span> Note that each
+the integrals and sums converge absolutely, due to <a
+href="#eq:cj42xv8hdz" data-reference-type="eqref"
+data-reference="eq:cj42xv8hdz">\((5.11)\)</a>, part <a
+href="#enumerate:cj41z9jrqm" data-reference-type="eqref"
+data-reference="enumerate:cj41z9jrqm">\((i)\)</a> of
+Proposition <a href="#proposition:cj41z9de5r" data-reference-type="ref"
+data-reference="proposition:cj41z9de5r">5.11</a>,
+and the rapid decay of <span class="math inline">\(F\)</span> in
+vertical strips. It will thus suffice to find a sequence of positive
+reals <span class="math inline">\(t\)</span>, tending off to infinity,
+along which the quantities <span class="math display">\[J_t := \int_{c -
+i t}^{c + i t} F(s)  D(s) \, \frac{d s}{2 \pi i }
+    -
+    \int_{c_0 - i t}^{c_0 + i t} F(s)  D(s) \, \frac{d s}{2 \pi i }
+    -
+    F(1)
+    +
+    \sum_{
+      \substack{
+        \rho : \Re(\rho) &gt; c_0,   \\
+         \lvert \Im(\rho) \rvert &lt; t
+      }
+    } F(\rho)\]</span> tend to zero. To that end, we observe first that
+if <span class="math inline">\(t\)</span> is chosen not to coincide with
+the imaginary part of any zero of zeta, then Cauchy’s residue theorem
+gives <span class="math display">\[J_t =
+    \int_{c - i t}^{c_0 - it}
+    F(s)  D(s) \, \frac{d s}{2 \pi i }
+    -
+    \int_{c + i t}^{c_0 + it}
+    F(s)  D(s) \, \frac{d s}{2 \pi i }.\]</span> We next observe, using
+the rapid decay of <span class="math inline">\(F\)</span> and the
+triangle inequality, that for each <span class="math inline">\(T \in
+\mathbb{R}\)</span>, <span class="math display">\[\int_{t = T-1}^{T +
+1}\left\lvert J_t \right\rvert \, d t \ll_{f} \left(1 +
+|T|\right)^{-100}
+    \int_{t = T - 1}^{T + 1} \int_{\sigma = c_0}^{c}  \lvert D(\sigma +
+i t) \rvert \, d t \, d \sigma.\]</span> By another application of Lemma
+<a href="#lemma:cj42xpd5qe" data-reference-type="ref"
+data-reference="lemma:cj42xpd5qe">5.12</a>, this last double integral is
+<span class="math inline">\(\ll \log T\)</span>. By another application
+of the pigeonhole principle, we can find <span class="math inline">\(t
+\in [T-1,T+1]\)</span> such that <span class="math inline">\(J_t \ll (1
++ \lvert T \rvert)^{-99}\)</span>, say. Since <span
+class="math inline">\(T\)</span> can be taken arbitrarily large, we
+obtain the required sequence of quantities <span
+class="math inline">\(t\)</span> along which <span
+class="math inline">\(J_t \rightarrow 0\)</span>. ◻</p>
 </span></div>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="list">
@@ -1032,6 +1188,11 @@ href="https://doi.org/10.1007/978-3-319-05792-7">https://doi.org/10.1007/978-3-3
 Iwaniec, Henryk, and Emmanuel Kowalski. 2004. <em>Analytic Number
 Theory</em>. Vol. 53. American Mathematical Society Colloquium
 Publications. Providence, RI: American Mathematical Society.
+</div>
+<div id="ref-MR882550" class="csl-entry" role="listitem">
+Titchmarsh, E. C. 1986. <em>The Theory of the <span>R</span>iemann
+Zeta-Function</em>. Second. New York: The Clarendon Press Oxford
+University Press.
 </div>
 <div id="ref-MR2172781" class="csl-entry" role="listitem">
 Wilf, Herbert S. 2006. <em>Generatingfunctionology</em>. Third. A K
