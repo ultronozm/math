@@ -411,7 +411,7 @@ Here $f \in C_c^\infty (\mathbb{R}^+ )$ is fixed, while we think of $x > 1$ as a
 f \left( \frac{n}{x} \right) = \int_{(c)} F (s) \left( \frac{x}{n} \right)^s \, \frac{d s}{2 \pi i}.
 \end{equation*}
 Here $c \in \mathbb{R}$ is any real number.  The double sum/integral obtained by inserting this expansion into the definition of $S$ converges absolutely for $c > 1$, where we may rearrange it to obtain
-\begin{equation*}
+\begin{equation}\label{eq:cj42xpi3f4}
 S = \int_{(c)} F (s) x^s \underbrace
 {
   \sum_n 
@@ -419,7 +419,7 @@ S = \int_{(c)} F (s) x^s \underbrace
 }_{
   - \frac{\zeta ' }{\zeta }(s)
 }\, \frac{d s}{2 \pi i}.
-\end{equation*}
+\end{equation}
 We would now like to shift the contour to the left.
 
 Working formally for the moment, we pick up contributiones from the poles of $\zeta$ at $1$ and its zeros $\rho$, giving
@@ -510,27 +510,146 @@ With these results in hand, we can appeal to general properties of holomorphic f
   For \eqref{enumerate:cj41z9j28y}, we argue as in \eqref{enumerate:cj41z9jrqm} with $t_0 := \Im(s)$.  We use the bound for the number of zeros to see that \eqref{eq:cj41z82pyp} doesn't change if we modify the sum by including or excluding any zeros that are at least some fixed distance away from $s$.  This leads to the claimed estimate.
 \end{proof}
 
+\begin{lemma}\label{lemma:cj42xpd5qe}
+  For $C > \eps > 0$ and $T \in \mathbb{R}$, we have
+  \begin{equation*}
+\int_{\sigma = \eps }^{C}
+\int_{t = T-1}^{T+1}
+\left\lvert
+\frac{\zeta ' }{\zeta }(\sigma + i t)
+\right\rvert
+\, d t
+\, d \sigma
+\ll_{\eps,C} \log (3 + \lvert T \rvert).
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  This follows upon integrating \eqref{eq:cj41z82pyp}, using that
+\begin{equation*}
+  \int_{-R}^R
+  \int_{-R}^R
+  \frac{1}{\lvert x + i y \rvert} \, d x \, d y < \infty.
+\end{equation*}  
+\end{proof}
 
 \subsection{Contour shifting and an explicit formula}
-We can now carry out the promised contour shifting arguments.
+We can now carry out the promised contour shifting arguments.  Here's a typical result that one can obtain in this way.  (Our arrangement is like Theorem 21 of \href{https://terrytao.wordpress.com/2014/12/09/254a-notes-2-complex-analytic-multiplicative-number-theory/}{these notes}, but with smooth weights, and should be compared against standard references such as \cite[Chapter 17]{Dav80} or \cite[\S5.5]{MR2061214}.  See also \cite{MR882550}.)
 \begin{proposition}
-  Let $f \in C_c^\infty(\mathbb{R})$, with Mellin transform $F(s) = \int_{\mathbb{R}^+} y^s f(y) \,d^\times y$.  Let $x > 1$ and $\eps_1 > 0$.  Then there exists $\eps \in (\eps_1/2,\eps_1)$ so that
+  Let $f \in C_c^\infty(\mathbb{R})$, with Mellin transform $F(s) = \int_{\mathbb{R}^+} y^s f(y) \,d^\times y$.  Let $x \geq 1$ and $\eps > 0$.  Then
   \begin{equation*}
     \sum_n \Lambda (n) f \left( \frac{n}{x} \right)
-    = F(1) x + \sum_{\rho : \Re(x) > \eps } F(\rho) x^{\rho}
+    = F(1) x + \sum_{\rho : \Re(\rho) > \eps } F(\rho) x^{\rho}
     +
-    \O_{\eps} \left( x^\eps \mathcal{E}_\eps \right),
+    \O_{\eps} \left( x^\eps \mathcal{E} \right),
   \end{equation*}
   where
   \begin{equation*}
-\mathcal{E}_{\eps} := \int_{t \in \mathbb{R} }
-      F(\eps + i t) \log (3 + |t|) \, d t.
+    \mathcal{E} := \int_{T \in \mathbb{R} }
+    E(T)
+    \log (3 + |T|) \, d T,
+    \qquad
+    E(T) := 
+    \max_{
+      \substack{
+        \sigma \in [\eps/2, \eps]  \\
+         t \in [T-1, T+1]
+      }
+    }
+    \left\lvert F(\sigma  + i t) \right\rvert.
     \end{equation*}
 \end{proposition}
-Note that since $f$ is smooth, the quantity $\mathcal{E}_{\eps}$ is finite (see external Lemma \ref{lemma:cj4ungtm6r} of \href{20230907T143130--fourier-and-mellin-transforms.pdf}{these notes}).
+Note that since $f$ is smooth, the quantity $\mathcal{E}$ is finite (see external Lemma \ref{lemma:cj4ungtm6r} of \href{20230907T143130--fourier-and-mellin-transforms.pdf}{these notes}).
 
 \begin{proof}
-The follows by a contour shifting argument from \eqref{eq:cj41z82pyp}, and will be presented ``next time''.  Remark that we can reduce formally to the case $x=1$, by incorporating dilation by $x$ into $f$.
+  To simplify notation, we can absorb $x$ into $f$: the function $f_1(y) := f(n/x)$ has Mellin transform $F_1(s) = x^s F(s)$, and from this we see easily that if we can establish the required conclusion for $F_1$ (with $x=1$), then we obtain the required conclusion for $F$.  Thus, let us suppose without loss of generality that $x = 1$.
+  
+  As in \eqref{eq:cj42xpi3f4}, we have for each $c > 1$
+  \begin{equation*}
+    \sum_n \Lambda (n) f \left( n \right)
+    =
+    \int_{(c)} F (s) D(s) \, \frac{d s}{2 \pi i},
+    \quad
+    D(s) := -\frac{\zeta ' }{\zeta }(s).
+  \end{equation*}
+  Set $I_\sigma(t) := \lvert F(\sigma + i t) D(\sigma + it) \rvert$.  By the definition of $E(T)$ and Lemma \ref{lemma:cj42xpd5qe}, we have
+  \begin{align*}
+    \int_{\sigma = \eps / 2}^{\eps}
+    \int_{t \in \mathbb{R}}
+    I_\sigma(t)
+    \, d t
+    \, d \sigma
+    &\leq \int_{T \in \mathbb{R} } E(T)
+    \int_{\sigma = \eps / 2 }^{\eps }
+    \int_{t = T - 1}^{T + 1}
+    \left\lvert D(\sigma+it) \right\rvert
+    \, d t
+    \, d \sigma \, d T \\
+    &\ll_{\eps} \mathcal{E}.
+  \end{align*}
+  By the pigeonhole principle, we can find some $c_0 \in (\eps/2, \eps)$ so that
+  \begin{equation}\label{eq:cj42xv8hdz}
+I_{c_0} (t) \ll_{\eps} \mathcal{E}.
+  \end{equation}
+  By the triangle inequality, it follows that
+  \begin{equation*}
+\int_{(c_0)} F(s) D(s) \, \frac{d s}{2 \pi i } \ll _{\eps} \mathcal{E}.
+  \end{equation*}
+  We also have, by another application of Lemma \ref{lemma:cj42xpd5qe},
+  \begin{align*}
+    \left\lvert \sum_{\rho : c_0 < \Re(\rho) \leq \eps } F(\rho)  \right\rvert
+    &\leq \int_{T \in \mathbb{R} }  E(T)
+      \left(
+      \sum_{
+      \substack{
+      \rho : c_0 < \Re(\rho) \leq \eps,  \\
+    \Im(\rho) \in [T-1, T+1]
+    }
+    }
+    1
+    \right)
+    \, d T \\
+    &\ll_{\eps}\mathcal{E}.
+  \end{align*}
+  Note that \eqref{eq:cj42xv8hdz} implies in particular that $\zeta$ has no zeros with real part $c_0$.  By combining the above estimates, we reduce to establishing the following identity:
+  \begin{equation*}
+    \int_{(c)} F(s)  D(s) \, \frac{d s}{2 \pi i }
+    =
+    \int_{(c_0)} F(s)  D(s) \, \frac{d s}{2 \pi i }
+    +
+    F(1) 
+    -
+    \sum_{\rho : \Re(\rho) > c_0 } F(\rho) .
+  \end{equation*}
+  Note that each the integrals and sums converge absolutely, due to \eqref{eq:cj42xv8hdz}, part \eqref{enumerate:cj41z9jrqm} of Proposition \ref{proposition:cj41z9de5r}, and the rapid decay of $F$ in vertical strips.  It will thus suffice to find a sequence of positive reals $t$, tending off to infinity, along which the quantities
+  \begin{equation*}
+    J_t := \int_{c - i t}^{c + i t} F(s)  D(s) \, \frac{d s}{2 \pi i }
+    -
+    \int_{c_0 - i t}^{c_0 + i t} F(s)  D(s) \, \frac{d s}{2 \pi i }
+    -
+    F(1) 
+    +
+    \sum_{
+      \substack{
+        \rho : \Re(\rho) > c_0,   \\
+         \lvert \Im(\rho) \rvert < t
+      }
+    } F(\rho) 
+  \end{equation*}
+  tend to zero.  To that end, we observe first that if $t$ is chosen not to coincide with the imaginary part of any zero of zeta, then Cauchy's residue theorem gives
+  \begin{equation*}
+    J_t =
+    \int_{c - i t}^{c_0 - it}
+    F(s)  D(s) \, \frac{d s}{2 \pi i }
+    -
+    \int_{c + i t}^{c_0 + it}
+    F(s)  D(s) \, \frac{d s}{2 \pi i }.
+  \end{equation*}
+  We next observe, using the rapid decay of $F$ and the triangle inequality, that for each $T \in \mathbb{R}$,
+  \begin{equation*}
+    \int_{t = T-1}^{T + 1}\left\lvert J_t \right\rvert \, d t \ll_{f} \left(1 + |T|\right)^{-100}
+    \int_{t = T - 1}^{T + 1} \int_{\sigma = c_0}^{c}  \lvert D(\sigma + i t) \rvert \, d t \, d \sigma.
+  \end{equation*}
+  By another application of Lemma \ref{lemma:cj42xpd5qe}, this last double integral is $\ll \log T$.  By another application of the pigeonhole principle, we can find $t \in [T-1,T+1]$ such that $J_t \ll (1 + \lvert T \rvert)^{-99}$, say.  Since $T$ can be taken arbitrarily large, we obtain the required sequence of quantities $t$ along which $J_t \rightarrow 0$.
 \end{proof}
 
 
