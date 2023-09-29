@@ -1,0 +1,2560 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Notes CMI workshop New perspective in the analytic theory of automorphic forms</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+    <div class="my-links-container">
+2023-09-29 16:00:12
+      <a href="20230925T103034--clay-math-oxford.tex" class="my-link">tex</a>
+      <a href="20230925T103034--clay-math-oxford.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20230925T103034--clay-math-oxford.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+<header id="title-block-header">
+<h1 class="title">Notes CMI workshop <em>New perspective in the analytic
+theory of automorphic forms</em></h1>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>Random notes from CMI workshop <em>New perspective in the analytic
+theory of automorphic forms</em>, held at Oxford between 25 and 29
+September 2023. These notes are incomplete and have not been proofread.
+Any errors should be assumed to be due to the note-taker.</p>
+</div>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#gan-triality-and-the-spin-l-function-of-mathrmpgsp6"
+id="toc-gan-triality-and-the-spin-l-function-of-mathrmpgsp6">Gan,
+<em>Triality and the Spin <span
+class="math inline">\(L\)</span>-function of <span
+class="math inline">\(\mathrm{PGSp}(6)\)</span></em></a></li>
+<li><a
+href="#mathilde-counting-non-tempered-automorphic-forms-using-endoscopy"
+id="toc-mathilde-counting-non-tempered-automorphic-forms-using-endoscopy">Mathilde,
+<em>Counting non-tempered automorphic forms using
+endoscopy</em></a></li>
+<li><a href="#ggp-conjectures-for-bessel-periods-of-unitary-groups"
+id="toc-ggp-conjectures-for-bessel-periods-of-unitary-groups"><em>GGP
+conjectures for Bessel periods of unitary groups</em></a></li>
+<li><a href="#optimal-lifting-and-sarnaks-density-conjecture"
+id="toc-optimal-lifting-and-sarnaks-density-conjecture">Optimal lifting
+and Sarnak’s density conjecture</a></li>
+<li><a href="#jana-on-the-local-l2-bound-of-eisenstein-series"
+id="toc-jana-on-the-local-l2-bound-of-eisenstein-series">Jana, <em>On
+the local <span class="math inline">\(L^2\)</span>-bound of Eisenstein
+series</em></a></li>
+<li><a
+href="#assing-on-spherical-density-theorems-for-the-principal-congruence-subgroup-in-mathopmathrmsl_n"
+id="toc-assing-on-spherical-density-theorems-for-the-principal-congruence-subgroup-in-mathopmathrmsl_n">Assing,
+<em>On spherical density theorems for the principal congruence subgroup
+in</em> <span
+class="math inline">\({\mathop{\mathrm{SL}}}_n\)</span></a></li>
+<li><a
+href="#lapid-generic-automorphic-representations-of-classical-groups-old-and-new"
+id="toc-lapid-generic-automorphic-representations-of-classical-groups-old-and-new">Lapid,
+<em>Generic automorphic representations of classical groups: old and
+new</em></a>
+<ul>
+<li><a
+href="#müller-on-the-growth-of-torsion-in-the-cohomology-of-arithmetic-groups"
+id="toc-müller-on-the-growth-of-torsion-in-the-cohomology-of-arithmetic-groups">M<span>ü</span>ller,
+<em>On the growth of torsion in the cohomology of arithmetic
+groups</em></a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="gan-triality-and-the-spin-l-function-of-mathrmpgsp6">Gan,
+<em>Triality and the Spin <span
+class="math inline">\(L\)</span>-function of <span
+class="math inline">\(\mathrm{PGSp}(6)\)</span></em></h1>
+<p>There are two parts. The <em>global</em> part is joint with
+G. Chenevier. The <em>local</em> part is joint with G. Savin.</p>
+<p>Let’s start by recalling the rough statement of <em>Langlands
+functoriality</em>. Let’s say we have two groups <span
+class="math inline">\(G\)</span> and <span
+class="math inline">\(H\)</span>, over a local or global field <span
+class="math inline">\(F\)</span>. Let’s suppose that we have a
+homomorphism of Langlands dual groups <span class="math display">\[f :
+G^\vee  (\mathbb{C} ) \rightarrow H^\vee (\mathbb{C} ).\]</span> Then,
+associated to this map, one is supposed to get a lifting</p>
+<ul>
+<li><p>in the local setting, given by <span class="math display">\[f
+_\ast : \mathop{\mathrm{Irr}}G \rightarrow
+\mathop{\mathrm{Irr}}H\]</span> (perhaps up to <span
+class="math inline">\(L\)</span>-packets), and</p></li>
+<li><p>in the global setting, by <span class="math display">\[f _\ast :
+\mathcal{A} (G) / \sim \rightarrow \mathcal{A} (H) / \sim\]</span>
+between isomorphism classes of automorphic representations, where <span
+class="math inline">\(\sim\)</span> denotes the equivalence relation of
+<em>near equivalence</em>, which means that, given <span
+class="math inline">\(\pi = \otimes_v \pi_v\)</span> and <span
+class="math inline">\(\pi &#39; = \otimes_v \pi_v &#39;\)</span>, we
+have <span class="math inline">\(\pi \sim \pi &#39;\)</span> if for
+almost all places <span class="math inline">\(v\)</span>, we have <span
+class="math inline">\(\pi_v \cong \pi_v &#39;\)</span>.</p></li>
+</ul>
+<p>These should satisfy the compatibility that, in the global setting,
+for <span class="math inline">\(\pi \in \mathcal{A}(G)\)</span>, we
+should have <span class="math display">\[f _\ast (s (\pi_v )) = s (f
+_\ast (\pi)_v ),\]</span> where <span class="math inline">\(s (\pi_v )
+\in G^\vee / \mathrm{conj}\)</span> is the Satake parameter of <span
+class="math inline">\(\pi_v\)</span>. We then call <span
+class="math inline">\(f _\ast\)</span> a <em>weak lifting</em>.</p>
+<div class="example">
+<p><strong>Example 1</strong>. </p>
+<ol>
+<li><p><em>Adjoint</em> (Gelbart–Jacquet). <span
+class="math display">\[f = \underbrace
+      \mathop{\mathrm{Ad}}
+      : {\mathop{\mathrm{GL}}}_2 \rightarrow
+{\mathop{\mathrm{GL}}}_3,\]</span> which we can also think of as <span
+class="math inline">\(\det^{-1} \otimes
+{\mathop{\mathrm{Sym}}}^2\)</span>.</p></li>
+<li><p><em>Rankin–Selberg</em>. Ramakrishnan: <span
+class="math display">\[f = \boxtimes : {\mathop{\mathrm{GL}}}_2 \times
+{\mathop{\mathrm{GL}}}_2 \rightarrow {\mathop{\mathrm{GL}}}_4 .\]</span>
+Kim–Shahidi: <span class="math display">\[{\mathop{\mathrm{GL}}}_2 \times
+{\mathop{\mathrm{GL}}}_3 \rightarrow {\mathop{\mathrm{GL}}}_6,\]</span>
+which they used to establish functoriality of the symmetric
+cube.</p></li>
+<li><p><em>Arthur</em>: <span class="math display">\[f =
+\mathop{\mathrm{std}}: G^\vee \rightarrow {\mathop{\mathrm{GL}}}_N
+,\]</span> where <span class="math inline">\(G^\vee\)</span> is one of
+<span class="math inline">\({\mathop{\mathrm{SO}}}_{2 n}\)</span>, <span
+class="math inline">\({\mathop{\mathrm{SO}}}_{2 n + 1}\)</span>, <span
+class="math inline">\({\mathop{\mathrm{Sp}}}_{2 n}\)</span>. When the
+representation on the source group is generic, this was proved earlier
+by CKPSS using converse theorems; those methods were later extended to
+all cuspidal representations by Cai–Friedberg–Kaplan</p></li>
+</ol>
+</div>
+<p>Today we’d like to talk about three new cases of weak lifting.</p>
+<ol>
+<li><p><span class="math inline">\(\mathop{\mathrm{Ad}}:
+{\mathop{\mathrm{GL}}}_3 \rightarrow {\mathop{\mathrm{GL}}}_8\)</span> (here
+the notation refers to the dual side, at the level of complex
+points).</p></li>
+<li><p><span class="math inline">\({\mathop{\mathrm{GL}}}_2 \times
+{\mathop{\mathrm{GL}}}_4 \rightarrow
+{\mathop{\mathrm{GL}}}_8\)</span>.</p></li>
+<li><p><span class="math inline">\({\mathop{\mathrm{Spin}}}_7 =
+{\mathop{\mathrm{PGSp}}}_6^\vee \xrightarrow{\mathop{\mathrm{Spin}}}
+{\mathop{\mathrm{GL}}}_8\)</span>.</p></li>
+</ol>
+<ol>
+<li><p>These are proved under the following conditions. cuspidal <span
+class="math inline">\(\pi\)</span> of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_3\)</span> with a certain
+local property: <span class="math inline">\(\pi_{v_0 }\)</span> is a
+discrete series representation for some place <span
+class="math inline">\(v_0\)</span> (necessarily a finite place, since
+there are no discrete series for <span
+class="math inline">\({\mathop{\mathrm{GL}}}_3\)</span> at an archimedean
+place).</p></li>
+<li><p>For cuspidal representations <span class="math inline">\(\pi
+\otimes \sigma\)</span> of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2 \times
+{\mathop{\mathrm{GL}}}_4\)</span> of <em>symplectic</em> type, i.e., the
+image of the Galois representations should factor through a symplectic
+group. For <span class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span>,
+this just means that the central character is trivial. For <span
+class="math inline">\({\mathop{\mathrm{GL}}}_4\)</span>, it means that the
+<span class="math inline">\(L\)</span>-parameter factors through <span
+class="math inline">\({\mathop{\mathrm{Sp}}}_4\)</span>. So if you’d like,
+you can think of <span class="math inline">\(\pi \otimes \sigma\)</span>
+as a representation of <span
+class="math inline">\({\mathop{\mathrm{PGL}}}_2 \times
+{\mathop{\mathrm{PGSp}}}_4\)</span>, or if you’d like, of <span
+class="math inline">\({\mathop{\mathrm{SO}}}_3 \times
+{\mathop{\mathrm{SO}}}_5\)</span>.</p></li>
+<li><p>For cuspidal <span class="math inline">\(\pi\)</span> on <span
+class="math inline">\({\mathop{\mathrm{PGSp}}}_6\)</span> such that <span
+class="math inline">\(\pi |_{{\mathop{\mathrm{Sp}}}_6}\)</span> has
+generic <span class="math inline">\(A\)</span>-parameter (basically, the
+tempered case).</p></li>
+</ol>
+<p>What is common between these? They all land in <span
+class="math inline">\({\mathop{\mathrm{GL}}}_8\)</span>: in each case, we
+have a map <span class="math display">\[f : G^\vee  \rightarrow
+{\mathop{\mathrm{GL}}}_8.\]</span> But the maps factor through smaller
+maps. For example, all of these maps factor through the map <span
+class="math display">\[\mathop{\mathrm{std}}: {\mathop{\mathrm{SO}}}_8
+\rightarrow {\mathop{\mathrm{GL}}}_8.\]</span> The group <span
+class="math inline">\({\mathop{\mathrm{SO}}}_8\)</span> is not
+simply-connected, but has a simply-connected <span
+class="math inline">\(2\)</span>-fold cover <span
+class="math display">\[p : {\mathop{\mathrm{Spin}}}_8 \rightarrow
+{\mathop{\mathrm{SO}}}_8.\]</span> It turns out that we can lift <span
+class="math inline">\(f\)</span> further to a map <span
+class="math display">\[i : G^\vee \rightarrow
+{\mathop{\mathrm{Spin}}}_8.\]</span> Thus we can perform the lifting <span
+class="math inline">\(f_*\)</span> associated to <span
+class="math inline">\(f\)</span> in three steps: <span
+class="math display">\[f _\ast = {\mathop{\mathrm{std}}}_\ast \circ p
+_\ast \circ i _\ast.\]</span> Observe that:</p>
+<ul>
+<li><p><span class="math inline">\({\mathop{\mathrm{std}}}_\ast =
+\mathrm{Arthur}\)</span>.</p></li>
+<li><p><span class="math inline">\(p\)</span> is dual to <span
+class="math display">\[p^\vee : {\mathop{\mathrm{SO}}}_8 \rightarrow
+\mathrm{PGSO}_8.\]</span> Then <span class="math inline">\(p
+_\ast\)</span> is just pullback of automorphic forms along <span
+class="math inline">\(p\)</span>: <span class="math display">\[p _\ast =
+(p^\vee )^\ast.\]</span></p></li>
+<li><p>It remains to construct <span class="math inline">\(i
+_\ast\)</span>. To that end, let’s try to understand the map <span
+class="math inline">\(i\)</span> better. Let’s illustrate with the case
+<span class="math inline">\(G^\vee = {\mathop{\mathrm{Spin}}}_7\)</span>,
+which is perhaps least familiar. We have <span
+class="math inline">\({\mathop{\mathrm{SO}}}_7 \hookrightarrow
+{\mathop{\mathrm{SO}}}_8\)</span>. The cover <span
+class="math inline">\({\mathop{\mathrm{Spin}}}_8 \rightarrow
+{\mathop{\mathrm{SO}}}_8\)</span> pulls back to the cover <span
+class="math inline">\({\mathop{\mathrm{Spin}}}_7 \rightarrow
+{\mathop{\mathrm{SO}}}_7\)</span>, giving a map <span
+class="math display">\[\begin{CD}         
+      {\mathop{\mathrm{Spin}}}_7  @&gt; j&gt;&gt; {\mathop{\mathrm{Spin}}}_8
+\\
+      @VVV  @VVV \\
+      {\mathop{\mathrm{SO}}}_7  @&gt;&gt;&gt; {\mathop{\mathrm{SO}}}_8.\\
+    \end{CD}\]</span> Is this <span class="math inline">\(j\)</span> the
+same as the <span class="math inline">\(i\)</span> above?
+<strong>No</strong>. The composition <span class="math inline">\(p \circ
+j\)</span> is reducible, splitting up <span class="math inline">\(8 = 7
++ 1\)</span>. On the other hand, the composition <span
+class="math inline">\(p \circ i\)</span> is the irreducible “Spin
+representation”. We will see, however, that <span
+class="math inline">\(i\)</span> and <span
+class="math inline">\(j\)</span> are related by
+<em>triality</em>.</p></li>
+</ul>
+<p>What is <em>triality</em>? If you have some group <span
+class="math inline">\(G\)</span> over <span
+class="math inline">\(F\)</span>, then we have this short exact sequence
+<span class="math display">\[\operatorname{Inn} (G) \rightarrow
+\mathop{\mathrm{Aut}}(G) \rightarrow \mathrm{Out} (G).\]</span> We know
+also that at least for <span class="math inline">\(G\)</span>
+simply-connected or adjoint, the group <span
+class="math inline">\(\mathrm{Out}(G)\)</span> consists of automorphisms
+of the Dynkin diagram <span class="math inline">\(\mathrm{Dyn}
+(G)\)</span>: <span class="math display">\[\mathrm{Out} (G) =
+\mathop{\mathrm{Aut}}(\mathrm{Dyn} (G)).\]</span> In the case of
+interest with <span class="math inline">\(D_8\)</span>, the Dynkin
+diagram is <span class="math inline">\(D_4\)</span>: <span
+class="math display">\[\begin{tikzpicture}
+    \node[draw,circle,fill=black,inner sep=2pt] (a) at (0,0) {};
+\node[draw,circle,fill=black,inner sep=2pt] (b) at (1,0) {};
+\node[draw,circle,fill=black,inner sep=2pt] (c) at (2,0) {};
+\node[draw,circle,fill=black,inner sep=2pt] (d) at (1,1) {}; \draw (a)
+-- (b) -- (c); \draw (b) -- (d);
+  \end{tikzpicture}\]</span> The outer automorphism group is thus
+isomorphic to the symmetric group <span
+class="math inline">\(S_3\)</span> (corresponding to permutations of the
+vertices of the above diagram that fix the central vertex). Let <span
+class="math inline">\(\theta \in \S_3\)</span> be an element of order
+<span class="math inline">\(3\)</span>. Fact: <span
+class="math display">\[\begin{CD}         
+    {\mathop{\mathrm{Spin}}}_7  @&gt; j&gt;&gt; {\mathop{\mathrm{Spin}}}_8
+@&gt; \theta &gt;&gt; {\mathop{\mathrm{Spin}}}_8 \\
+    @VVV  @VVpV @VVpV \\
+    {\mathop{\mathrm{SO}}}_7  @&gt;&gt;&gt; {\mathop{\mathrm{SO}}}_8 @.
+{\mathop{\mathrm{SO}}}_8.\\
+  \end{CD}\]</span> Then <span class="math display">\[p \circ \theta
+\circ j\]</span> is the Spin representation of <span
+class="math inline">\({\mathop{\mathrm{Spin}}}_7\)</span>. In other words,
+we have <span class="math display">\[\theta \circ j = i.\]</span> From
+our <span class="math inline">\(\theta \in
+\mathop{\mathrm{Aut}}(\mathrm{Spin}_8 )\)</span>, we get <span
+class="math inline">\(\theta^\vee \in
+\mathop{\mathrm{Aut}}(\mathrm{PGSO}_8)\)</span>. We get the following
+diagram:</p>
+<p><span
+class="math display">\[\begin{tikzpicture}[descr/.style={fill=white,inner
+sep=2.5pt}]
+    \matrix (m) [matrix of math nodes, row sep=3em, column sep=2em] {
+      {\mathop{\mathrm{Spin}}}_8  &amp; G^\vee  &amp; &amp;
+{\mathop{\mathrm{GL}}}_8  \\
+      &amp; {\mathop{\mathrm{Spin}}}_8  &amp;
+{\mathop{\mathrm{Spin}}}_8  &amp; {\mathop{\mathrm{SO}}}_8  \\
+    };
+
+    \path[-&gt;,font=\scriptsize] (m-1-1) edge node[above] {$=$} (m-1-2)
+(m-1-2) edge node[right] {$j$} (m-2-2) edge node[below right] {$i$}
+(m-2-3) (m-2-2) edge node[below] {$\theta$} (m-2-3) (m-2-3) edge
+node[below] {$p$} (m-2-4) (m-2-4) edge node[right] {} (m-1-4);
+  \end{tikzpicture}\]</span></p>
+<p>The functoriality <span class="math inline">\(\theta _\ast\)</span>
+is pullback by <span class="math inline">\(\theta^\vee\)</span>, i.e.,
+we have <span class="math display">\[f^{\theta^\vee } (g) = f (
+{\theta^\vee }^{-1}(g) ).\]</span> We get <span
+class="math display">\[\overline{j} _\ast : \mathcal{A}
+({\mathop{\mathrm{Sp}}}_6 ) \rightarrow \mathcal{A}
+({\mathop{\mathrm{SO}}}_8).\]</span> This is given by the classical theta
+correspondence, say <span class="math inline">\(\Theta\)</span>. We are
+looking at a map that covers it. We get that <span
+class="math display">\[j _\ast : \mathcal{A} ({\mathop{\mathrm{PGSp}}}_6 )
+\rightarrow \mathcal{A} (\mathrm{PGSO}_8 )\]</span> is given by
+similitude <span class="math inline">\(\Theta\)</span>.</p>
+<p>How about some of the other cases, such as that of
+<em>Rankin–Selberg</em>? We still get a diagram <span
+class="math display">\[\begin{CD}         
+    {\mathop{\mathrm{Spin}}}_3  \times {\mathop{\mathrm{Spin}}}_5
+@&gt;j&gt;&gt; {\mathop{\mathrm{Spin}}}_8 \\
+    @VVV  @VVV \\
+    {\mathop{\mathrm{SO}}}_3 \times
+{\mathop{\mathrm{SO}}}_5  @&gt;&gt;\bar{j}&gt; {\mathop{\mathrm{SO}}}_8. \\
+  \end{CD}\]</span> So we get that <span class="math inline">\(p \circ
+j\)</span> is <span class="math inline">\(3 + 5\)</span>, while <span
+class="math inline">\(p \circ i\)</span> is <span
+class="math inline">\(2 \times 4\)</span>. But as before, they are
+related via the outer automorphism: we have <span
+class="math inline">\(\theta \circ j = i\)</span>.</p>
+<p>For the remaining case, we are looking at <span
+class="math inline">\(\mathop{\mathrm{Ad}}: {\mathop{\mathrm{PGL}}}_3
+\rightarrow {\mathop{\mathrm{GL}}}_8\)</span>, <span
+class="math inline">\(p : {\mathop{\mathrm{Spin}}}_8 \rightarrow
+{\mathop{\mathrm{SO}}}_8\)</span> and <span
+class="math inline">\(\tilde{\mathop{\mathrm{Ad}}} :
+{\mathop{\mathrm{PGL}}}_3 \rightarrow
+{\mathop{\mathrm{Spin}}}_8\)</span>.</p>
+<p>Fact: there are two different splittings over <span
+class="math inline">\(A_3\)</span>, given by <span
+class="math inline">\(\theta_1\)</span> and <span
+class="math inline">\(\theta_2\)</span>. We have <span
+class="math inline">\(A_3 \triangleleft S_3 = \mathrm{Out}(G)\)</span>
+which lifts to <span class="math inline">\(A_3 \rightarrow
+\mathop{\mathrm{Aut}}(G)\)</span>. We have <span
+class="math display">\[{\mathop{\mathrm{Spin}}}_8^{\theta_1 } \cong
+G_2,\]</span> <span
+class="math display">\[{\mathop{\mathrm{Spin}}}_8^{\theta_2 } \cong
+{\mathop{\mathrm{PGL}}}_3.\]</span> Apply the theory of twisted endoscopy
+to <span class="math inline">\((\mathrm{PGSO}_8, \theta )\)</span>, in
+particular, the stable twisted trace formula (Moeglin–Waldspurger). The
+twisted endoscopic groups are <span class="math inline">\(G_2\)</span>,
+<span class="math inline">\({\mathop{\mathrm{SL}}}_3\)</span> and <span
+class="math inline">\({\mathop{\mathrm{SO}}}_4\)</span>. We need <span
+class="math display">\[I^{(\mathrm{PGSO}_8, \theta )}(f) = c_1 \cdot
+S^{G_2 } (f^{G_2 })
+  + c_2 S^{{\mathop{\mathrm{SL}}}_3 } (f^{{\mathop{\mathrm{SL}}}_3 })
+  + c_3 S^{{\mathop{\mathrm{SO}}}_4 } (f^{{\mathop{\mathrm{SO}}}_4
+}),\]</span> <span class="math display">\[f  \in C_c^\infty
+(\mathrm{PGSO}_8 (\mathbb{A} )).\]</span></p>
+<p>Let’s now discuss a <em>local variant of the spin lifting</em>, joint
+with G. Savin. We would like to construct a map (local, say in the
+non-archimedean case) <span
+class="math display">\[{\mathop{\mathrm{Spin}}}_\ast :
+\mathop{\mathrm{Irr}}{\mathop{\mathrm{PGSp}}}_6 (F) \rightarrow
+\mathop{\mathrm{Irr}}{\mathop{\mathrm{GL}}}_8 (F).\]</span> First, there’s
+a theorem called theta dichotomy, which allows us to split <span
+class="math display">\[\begin{CD}         
+    \mathop{\mathrm{Irr}}{\mathop{\mathrm{PGSp}}}_6 (F) =
+{\mathop{\mathrm{Irr}}}^- {\mathop{\mathrm{PGSp}}}_6 (F)
+    \sqcup {\mathop{\mathrm{Irr}}}^+  {\mathop{\mathrm{PGSp}}}_6 (F)   @&gt;
+\Theta &gt;&gt; \mathop{\mathrm{Irr}}\mathrm{PGSO}_8 \\
+    @V {\mathop{\mathrm{Spin}}}_\ast VV  @V \theta = \mathrm{triality} VV
+\\
+    \mathop{\mathrm{Irr}}{\mathop{\mathrm{GL}}}_8 (F) @.
+\mathop{\mathrm{Irr}}\mathrm{PGSO}_8 \\
+    @VV \mathrm{Art} V  @V (p^\vee )^+  VV \\
+    \mathop{\mathrm{Irr}}{\mathop{\mathrm{SO}}}_8 (F) @=
+\mathop{\mathrm{Irr}}{\mathop{\mathrm{SO}}}_8 (F). \\
+  \end{CD}\]</span> On the other hand, we have a map <span
+class="math display">\[\Theta :
+\mathop{\mathrm{Irr}}{\mathop{\mathrm{PGSp}}}_6(F) \rightarrow
+\mathop{\mathrm{Irr}}\mathrm{PGO}_{5,1},\]</span> which we can then
+restrict to <span
+class="math display">\[\mathop{\mathrm{Irr}}\mathrm{PGSO}_{5, 1} /
+\mathrm{PGO}_{5,1},\]</span> which is the same as <span
+class="math display">\[\mathop{\mathrm{Irr}}{\mathop{\mathrm{PGL}}}_2(D) /
+\mathrm{outer}\]</span> (here <span class="math inline">\(D\)</span> is
+a quaternion division algebra over <span
+class="math inline">\(F\)</span>), which we can then lift in the spirit
+of Jacquet–Langlands to <span
+class="math display">\[\mathop{\mathrm{Irr}}{\mathop{\mathrm{PGL}}}_4 (F)
+/ \mathrm{outer},\]</span> which we can then isobaric sum back to <span
+class="math inline">\(\mathop{\mathrm{Irr}}{\mathop{\mathrm{GL}}}_8(F)\)</span>,
+i.e., <span class="math display">\[\{\pi, \pi^\vee \} \mapsto \pi
+\boxplus \pi^\vee = {\mathop{\mathrm{Ind}}}_P^{{\mathop{\mathrm{GL}}}_8 }
+\pi \times \pi^\vee.\]</span></p>
+<p>How about some <em>applications</em>? Well, we get the theory of
+<span class="math inline">\(\gamma\)</span>-factors for <span
+class="math inline">\(\mathrm{PGSO}_8 \times
+{\mathop{\mathrm{GL}}}_r\)</span> with respect to <span
+class="math display">\[\mathop{\mathrm{Spin}}\times
+\mathop{\mathrm{std}}: {\mathop{\mathrm{Spin}}}_8 (\mathbb{C} ) \times
+{\mathop{\mathrm{GL}}}_r (\mathbb{C} ) \xrightarrow{\boxtimes }
+{\mathop{\mathrm{GL}}}_8 (\mathbb{C} ) \times {\mathop{\mathrm{GL}}}_r
+(\mathbb{C}).\]</span></p>
+<div class="definition">
+<p><strong>Definition 2</strong>. We set <span
+class="math display">\[\gamma (s, \pi \otimes \sigma,
+\mathop{\mathrm{Spin}}\times \mathop{\mathrm{std}}, \psi )
+    :=
+    \gamma (s, {\mathop{\mathrm{Spin}}}_\ast (\pi) \times \sigma, \psi
+),\]</span> where the right hand side is the Rankin–Selberg <span
+class="math inline">\(\gamma\)</span>-factor.</p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 3</strong>. <em>This system of invariants has the
+following properties:</em></p>
+<ul>
+<li><p><em>Unramified property.</em></p></li>
+<li><p><em>Multiplicativity: compatibility with parabolic induction.
+(This reduces the determination of this system of invariants to the case
+of supercuspidals.)</em></p></li>
+<li><p><em>Restricted global property: if you have a cuspidal
+representation, then from these <span
+class="math inline">\(\gamma\)</span>-factors, you can define local
+<span class="math inline">\(L\)</span>-factors and <span
+class="math inline">\(\varepsilon\)</span>-factors so that the expected
+<em>functional equation</em> holds, but with the restriction that it
+holds only for <em>some</em> cuspidal representations.</em></p></li>
+</ul>
+</div>
+<div class="remark">
+<p><strong>Remark 4</strong>. These properties characterize this system
+of invariants, even with the restriction on the global property.</p>
+</div>
+<p>As a further application, we get a weak LLC for <span
+class="math inline">\({\mathop{\mathrm{PGSp}}}_6\)</span>. Usually one
+expects this to be a map <span class="math display">\[\mathrm{LLC} :
+\mathop{\mathrm{Irr}}{\mathop{\mathrm{PGSp}}}_6 \twoheadrightarrow \Phi
+({\mathop{\mathrm{PGSp}}}_6 )
+  = \left\{ \phi : \mathrm{WD}_F \rightarrow {\mathop{\mathrm{Spin}}}_7
+(\mathbb{C} ) \right\} / \sim.\]</span> We can compose with <span
+class="math display">\[\Phi ({\mathop{\mathrm{PGSp}}}_6 )
+\twoheadrightarrow \Phi_w ({\mathop{\mathrm{PGSp}}}_6 )
+  := \operatorname{image} \left( \Phi ({\mathop{\mathrm{PGSp}}}_6 )
+\xrightarrow{\mathop{\mathrm{std}}\times \mathop{\mathrm{Spin}}}
+    \Phi ({\mathop{\mathrm{Sp}}}_6 ) \times \Phi
+({\mathop{\mathrm{GL}}}_8)\right).\]</span> <span
+class="math inline">\({\mathop{\mathrm{Spin}}}_7\)</span> is not
+“acceptable” in the sense of Michael Larsen, which has the consequence
+that this last map is not injective. But if we’re assessing these <span
+class="math inline">\(L\)</span>-parameters via <span
+class="math inline">\(\mathop{\mathrm{std}}\)</span> or <span
+class="math inline">\(\mathop{\mathrm{Spin}}\)</span>, then this is
+sufficient.</p>
+<h1
+id="mathilde-counting-non-tempered-automorphic-forms-using-endoscopy">Mathilde,
+<em>Counting non-tempered automorphic forms using endoscopy</em></h1>
+<p>Joint work with Rahul Dalal.</p>
+<p>Let <span class="math inline">\(F\)</span> be a number field,w ith
+adele ring <span class="math inline">\(\mathbb{A}\)</span> and
+associated notation <span class="math inline">\(F_v, q_v,
+\mathcal{O}_F\)</span>.</p>
+<p>For <span class="math inline">\(G\)</span> reductive over <span
+class="math inline">\(F\)</span>, we get <span class="math display">\[G
+(\mathbb{A} ) \circlearrowright L^2_{\mathop{\mathrm{disc}}} \left( G
+(F) \backslash G (\mathbb{A} ) \right)
+  = \oplus_\pi m (\pi) \pi,
+  \quad
+  \pi = \pi _\infty \otimes \pi_f.\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\pi_0\)</span>: specific
+representation at <span class="math inline">\(\infty\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathfrak{n}\)</span>: ideal of <span
+class="math inline">\(\mathcal{O}_F\)</span>,</p></li>
+<li><p><span class="math inline">\(K (\mathfrak{n} ) \subset G
+(\mathbb{A}_f)\)</span>: principal level congruence subgroup,</p></li>
+</ul>
+<p><strong>Goal</strong>. Quantitative description of <span
+class="math display">\[m (\pi_0, \mathfrak{n} ) = \sum_{
+    \substack{
+      \pi :  \\
+      \pi _\infty = \pi_0
+    }
+  } m (\pi)
+  \dim \pi_f^{K (\mathfrak{n} )}.\]</span></p>
+<div class="question">
+<p><strong>Question 1</strong>. How does <span class="math inline">\(m
+(\pi_0 , \mathfrak{n} )\)</span> grow as <span
+class="math inline">\(\lvert \mathfrak{n} \rvert \rightarrow
+\infty\)</span>?</p>
+</div>
+<p>On a related note:</p>
+<div class="question">
+<p><strong>Question 2</strong>. Set <span class="math inline">\(\Gamma
+(\mathfrak{n} ) = G(F) \cap K(\mathfrak{n})\)</span>, <span
+class="math inline">\(X (\mathfrak{n} ) = \Gamma (\mathfrak{n} )
+\backslash G _\infty / K _\infty\)</span>. How does <span
+class="math inline">\(\dim H_{(2)}^i (X (\mathfrak{n}), \mathbb{C}
+)\)</span> grow as <span class="math inline">\(\mathfrak{n} \rightarrow
+\infty\)</span>? Reduces to main question via Matsushima’s formula by
+taking <span class="math inline">\(\pi_0\)</span> cohomological.</p>
+</div>
+<p>de George–Wallach (’78): <span class="math inline">\(G\)</span>
+semisimple, <span class="math inline">\(\Gamma (\mathfrak{n} )\)</span>
+compact: <span class="math display">\[\lim_{\lvert \mathfrak{n}  \rvert
+\rightarrow \infty }
+  \frac{m (\pi_0, \mathfrak{n} )}{\mathop{\mathrm{vol}}(X (\mathfrak{n}
+))}
+  =
+  \begin{cases}
+    d (\pi_0 ) &amp; \pi_0 : \text{discrete series}, \\
+    0 &amp; \text{ otherwise.}
+  \end{cases}\]</span> We have <span
+class="math display">\[\mathop{\mathrm{vol}}(X (\mathfrak{n} )) \asymp
+[K (1) : K (\mathfrak{n} )].\]</span></p>
+<p>Many results since: Delorme, Clozel, Savin, Finis–Lapid–Mueller.</p>
+<p><em>For discrete series</em>: Shin–Templier (’16):</p>
+<ul>
+<li><p>Asymptotic with error term in both the weight and level
+aspect.</p></li>
+<li><p>Sato–Tate in families.</p></li>
+</ul>
+<div class="question">
+<p><strong>Question 3</strong>. For <span
+class="math inline">\(\pi_0\)</span> non-tempered, can we find <span
+class="math inline">\(\delta (\pi_0 )\)</span> such that <span
+class="math display">\[m (\pi_0 , \mathfrak{n} ) \asymp
+\mathop{\mathrm{vol}}(X (\mathfrak{n} ))^{\delta (\pi_0)}?\]</span></p>
+</div>
+<p>If we assume Ramanujan, then there are no non-tempered
+representations. However, motivated by the idea that Ramanujan should be
+asymptotically false.</p>
+<div class="conjecture">
+<p><strong>Conjecture 1</strong> (Sarnak–Xue). <em><span
+class="math inline">\(m (\pi_0, \mathfrak{n} )
+\ll_\varepsilon\mathop{\mathrm{vol}}(X (\mathfrak{n} ))^{2 / p (\pi_0 )
++ \varepsilon}\)</span>, where <span class="math display">\[p (\pi_0 )
+:= \inf \left\{ p \geq 2 : \pi_0 \hookrightarrow L^p ( G _\infty )
+\right\}.\]</span></em></p>
+</div>
+<p>Blomer–Assing, Jana–Kamber, Marshall–Shin.</p>
+<p>Our result first concerns general cohomological representations.</p>
+<div class="theorem">
+<p><strong>Theorem 5</strong> (Dalal–GG). <em>Let <span
+class="math inline">\(E/F\)</span> be a CM field. Let <span
+class="math inline">\(G_{/F}\)</span> be unitary and defined with
+respect to <span class="math inline">\(E\)</span>. Let <span
+class="math inline">\(\pi_0\)</span> be cohomological, with <span
+class="math inline">\(\mathfrak{n}\)</span> split in <span
+class="math inline">\(E\)</span>.</em></p>
+<ol type="i">
+<li><p><em>There exists <span class="math inline">\(R (\pi_0)\)</span>,
+explicitly computable and small enough so as to be nontrivial, such that
+<span class="math display">\[m (\pi_0, \mathfrak{n} )
+\ll_\varepsilon\lvert \mathfrak{n}  \rvert^{R (\pi_0 ) +
+\varepsilon}.\]</span></em></p></li>
+<li><p><em>If, additionally, <span class="math inline">\(E/F\)</span> is
+unramified, and <span class="math inline">\(\pi_0\)</span> is “odd
+generalized Sato–Kurokawa maxed”, then we can get a weighted count: for
+any finite place <span class="math inline">\(v \nmid
+\mathfrak{n}\)</span>, and any <span class="math inline">\(f_v \in
+\mathcal{H}_v^{\mathrm{unr}} (G_v)\)</span>, we have <span
+class="math display">\[\begin{gathered}
+      \lvert \mathfrak{n}  \rvert^{- R (\pi_0 )} L_{\pi_0 }
+(\mathfrak{n} )^{-1}
+      \sum_{
+        \substack{
+          \pi :  \\
+           \pi_0 = \pi _\infty
+        }
+      }
+      m (\pi) \dim \pi_f^{K (\pi) }
+      \mathop{\mathrm{trace}}\pi_v (f_v )
+      = M (\pi_0 )
+      \mu_r^{\operatorname{Planch}(\pi_0 )} (\tilde{f}_v ) \\
+      + \operatorname{O}\left( \lvert \mathfrak{n}  \rvert^{- A} q_v^{B
++ C (f_v )} \right)
+    
+\end{gathered}\]</span> for <span
+class="math inline">\(\mathfrak{n}\)</span> large enough and for some
+(non-explicit) constants <span
+class="math inline">\(A,B,C\)</span>.</em></p></li>
+</ol>
+</div>
+<p>Some consequences:</p>
+<ul>
+<li><p>We do better than the conjecture of Sarnak–Xue for cohomological
+<span class="math inline">\(\pi_0\)</span> at split level. We can do it
+for every representation of every unitary group except a certain <span
+class="math inline">\(\mathop{\mathrm{U}}(2,2)\)</span> representation
+that Marshall also couldn’t address in his paper. We conjecture some
+sharp upper bounds.</p></li>
+<li><p>Applications to cohomology: if <span class="math inline">\(\Gamma
+(\mathfrak{n} ) \subset \mathop{\mathrm{U}}(N - a, a ) \times
+K\)</span>, then there exists <span class="math inline">\(R (i, N,
+a)\)</span> such that <span class="math display">\[\dim H^i (X
+(\mathfrak{n} ), \mathbb{C} ) \ll_\varepsilon\lvert
+\mathfrak{n}  \rvert^{R (N, i, a)}, \quad i &lt;
+\mathrm{middle}.\]</span> For example, we recover Marshall–Shin’s bound
+for <span class="math inline">\(\mathop{\mathrm{U}}(N - 1, 1)\)</span>
+of <span class="math inline">\(R (N, i, a) = N_i\)</span>. Lower bounds:
+we show that Marshall–Shin is sharp if <span class="math inline">\(i
+\equiv N-1 \pod{2}\)</span>.</p></li>
+</ul>
+<p>We also get a Sato–Tate result in families. Assuming</p>
+<ul>
+<li><p><span class="math inline">\(\pi_0\)</span>: oGSKm.</p></li>
+<li><p>Sample Satake parameters coming from places <span
+class="math inline">\(v \nmid \mathfrak{n}\)</span>, all having the same
+splitting behavior in <span class="math inline">\(E\)</span>.</p></li>
+<li><p><span class="math inline">\(\lvert \mathfrak{n}  \rvert
+\rightarrow \infty\)</span> much faster than <span
+class="math inline">\(\prod_v q_v\)</span>.</p></li>
+</ul>
+<p>We get then that Satake parameters of <span class="math inline">\(\pi
+= \pi _\infty \otimes \pi_f\)</span> equidistribute on average with
+respect to <span class="math inline">\(\mu_{\mathrm{ST}}^{ (\pi_0
+)}\)</span>, the Sato–Tate pushed forward from <span
+class="math inline">\(G (T_0)\)</span>.</p>
+<p>The theorem is conditional on the endoscopic classification for
+unitary groups, but perhaps this will be addressed even in a talk this
+week.</p>
+<p>That’s it for the applications. Now, what are the main tools for the
+proof?</p>
+<p>The main input is the endoscopic classification of representations
+(Arthur, Mok, Kaletha–Minguez–Shin–White). We’ll give only the coarsest
+outline, to explain how we use it. <span
+class="math display">\[L^2_{\mathop{\mathrm{disc}}} (G (F) \backslash G
+(\mathbb{A} ))
+  = \bigoplus_\psi \bigoplus_{\pi \in \Pi_\psi (\varepsilon_\psi )}
+\pi.\]</span> We can write <span class="math display">\[\psi =
+\boxplus_i \tau_i [d_i ],\]</span> where <span
+class="math inline">\(\tau_i\)</span> is a self-dual cuspidal on <span
+class="math inline">\({\mathop{\mathrm{GL}}}_{N_i }\)</span> and <span
+class="math inline">\(d_i\)</span> is the dimension of a representation
+of the Arthur <span
+class="math inline">\({\mathop{\mathrm{SL}}}_2\)</span>. Here <span
+class="math display">\[\psi : L_F  \times {\mathop{\mathrm{SL}}}_2
+\rightarrow {}^L G,\]</span> <span class="math display">\[\psi =
+\bigoplus_i \varphi_i \otimes v (d_i ).\]</span> Endoscopic
+decomposition mirrors the decomposition of the full spectrum of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_N\)</span>, built by from
+parabolic induction from cuspidals (Moeglin–Waldspurger). Here <span
+class="math inline">\(\Pi_\psi\)</span> is an <span
+class="math inline">\(A\)</span>-packet, while <span
+class="math inline">\(\varepsilon_\psi\)</span> encodes the arithmetic
+information.</p>
+<div class="definition">
+<p><strong>Definition 6</strong>. A <em>shape</em> of rank <span
+class="math inline">\(N\)</span> is going to be a sequence of numbers
+<span class="math display">\[\Delta = (N_i, d_i, \lambda_i )_i
+,\]</span> where <span class="math inline">\(\lambda\)</span> is a
+regular integral infinitesimal character of rank <span
+class="math inline">\(N_i\)</span>, such that <span
+class="math display">\[\sum_i N_i d_i = N.\]</span></p>
+</div>
+<div class="example">
+<p><strong>Example 7</strong>. <span
+class="math inline">\(\Sigma_\lambda := (N, 1, \lambda)\)</span>.</p>
+</div>
+<div class="example">
+<p><strong>Example 8</strong>. <span class="math inline">\(\mathrm{oGSK}
+:= (N_1, 1, \lambda_1 ) (1 , d_2, \lambda_2 ) \dotsb (1, d_r, \lambda_r
+)\)</span>, where the <span class="math inline">\(d_i\)</span> are odd
+and distinct.</p>
+</div>
+<p><span class="math inline">\(\Delta\)</span>:</p>
+<ul>
+<li><p>determines <span class="math inline">\(\psi
+_\infty\)</span></p></li>
+<li><p>right data for induction</p></li>
+<li><p><span class="math inline">\(\pi_0\)</span> gives rise to finitely
+many shapes.</p></li>
+</ul>
+<div class="remark">
+<p><strong>Remark 9</strong>. When we have these Saito–Kurokawa shapes,
+we conjecture that the correct bound should be <span
+class="math display">\[R(\chi) = \frac{1}{2} \left( N^2 + \sum_i N_i
+(N_i - d_i^2 + 1) \right).\]</span></p>
+</div>
+<p>Step 0: <span class="math display">\[\sum_{\psi \in \Delta } \sum_{
+    \substack{
+      \pi \in \Pi_\psi (\varepsilon)  \\
+       \pi _\infty = \pi_0
+    }
+  }
+  \dim \pi_f^{K (\mathfrak{n} )}
+  =
+  m_\Delta (\pi_0, \mathfrak{n} ) = I_\Delta^G (f_0 f (\mathfrak{n}
+)).\]</span>&lt;++&gt; Step 1: stabilizer. <span
+class="math display">\[I_\Delta^G (f_0 f (\mathfrak{n} )) = S^G
+(\mathrm{EP}_\lambda f (\mathfrak{n} ) )
+  + \sum_{\mathcal{H} } (- 1 )^{\mathcal{H} } I_{\Delta}^{\mathcal{H} }
+  \left( \mathrm{EP}_\lambda^{\mathcal{H} } f (\mathfrak{n}
+)^{\mathcal{H} } \right).\]</span> Here the sum over <span
+class="math inline">\(\mathcal{H}\)</span> is of lower order in <span
+class="math inline">\(\lvert \mathfrak{n} \rvert\)</span>.</p>
+<p>Next, study <span class="math inline">\(S_\Delta^G\)</span>. For
+<span class="math inline">\(\Delta = (N_i, d_i, \lambda_i )_i\)</span>,
+the dream is to show that <span class="math display">\[S_\Delta^G
+(\mathrm{EP}_\lambda (f (\mathfrak{n} )))
+  = \prod_i \left( S_{\Sigma_{\lambda_i }}^{G_i &#39;}
+    \left( \mathrm{EP}_{\lambda_i } (f (\mathfrak{n} ))^{G_i &#39;}
+\right)^{d_i } \right).\]</span></p>
+<p>Step 3: compute <span class="math inline">\(S_{\Sigma_\lambda
+}^{G}\)</span>. We can compute <span class="math inline">\(S^G
+(\mathrm{EP}_\lambda (f (\mathfrak{n} )))\)</span> (Shin–Templier). On
+the other hand, we can write it as <span
+class="math display">\[S_{\Sigma_\lambda }^G (\mathrm{EP}_\lambda (f
+(\mathfrak{n} )))
+  + \sum_{
+    \substack{
+      \Delta \neq \Sigma_\lambda :  \\
+       \inf (\Delta ) = \lambda
+    }
+  }
+  S_\Delta^G (\mathrm{EP}_\lambda (f (\mathfrak{n} ))),\]</span> where
+this last sum is of lower order in <span class="math inline">\(\lvert
+\mathfrak{n} \rvert\)</span>. That’s how we use the stable trace formula
+to induce up the results of Shin–Templier to non-tempered stuff on
+unitary groups.</p>
+<h1 id="ggp-conjectures-for-bessel-periods-of-unitary-groups"><em>GGP
+conjectures for Bessel periods of unitary groups</em></h1>
+<p>Two parts: first by Chaudouard, second by Beuzart-Plessis.</p>
+<p>In our works, these conjectures appear as consequences of general
+theorems on periods of Eisenstein series. These theorems we want to
+state in the first part of our two talks.</p>
+<p>During the talk, we will fix a quadratic extension of number fields
+<span class="math inline">\(E/F\)</span>. We also fix an integer <span
+class="math inline">\(m \geq 1\)</span>. We will consider two types of
+groups. Either a linear group <span class="math display">\[G_n =
+{\mathop{\mathrm{Res}}}_{E/F} \left( {\mathop{\mathrm{GL}}}_n (E)
+\right).\]</span> Or, if <span
+class="math inline">\(\mathcal{H}_n\)</span> denotes the set of
+isomorphism classes of hermitian forms (nondegenerate) of rank <span
+class="math inline">\(n\)</span>, then to any such hermitian form <span
+class="math inline">\(h \in \mathcal{H}_n\)</span>, we attach its group
+of isomorphisms <span class="math display">\[\mathop{\mathrm{U}}(h) :=
+\text{unitary group of } h.\]</span></p>
+<p>To state precisely the theorems about periods of Eisenstein series,
+first we want to explain which restriction we impose on the
+representations we are considering. The restrictions are stated in terms
+of Arthur parameters.</p>
+<p>Specifically, we consider regular (hermitian) Arthur parameters (for
+<span class="math inline">\(G_n\)</span>), which we call RAP for short.
+These are, by definition, automorphic representations <span
+class="math inline">\(\Pi\)</span> of <span
+class="math inline">\(G_n(\mathbb{A})\)</span> that are isobaric sums
+<span class="math display">\[\Pi = \left( \pi_1 \boxplus
+\pi_1^\ast  \right) \boxplus \dotsb \boxplus
+  \left( \pi_r \boxplus \pi_r^\ast  \right) \boxplus
+\Pi_{\mathop{\mathrm{disc}}}.\]</span> Here the <span
+class="math inline">\(\pi_i\)</span> are cuspidal representations of
+some group <span class="math inline">\(G_{n_i}\)</span>, where we assume
+given some decomposition <span class="math display">\[n = n_0 + 2 (n_1 +
+\dotsb + n_r ).\]</span> Here <span
+class="math inline">\(\pi_1^\ast\)</span> is the conjugate dual of <span
+class="math inline">\(\pi_i\)</span>. We assume also that the
+representations <span class="math inline">\(\pi_1 , \pi_1^\ast, \dotsc,
+\pi_r, \pi_r^\ast\)</span> are pairwise distinct. The discrete part is
+also an isobaric sum: <span
+class="math display">\[\Pi_{\mathop{\mathrm{disc}}} = \tau_1 \boxplus
+\dotsb \boxplus \tau_r,\]</span> where <span
+class="math inline">\(\tau_i\)</span> is a cuspidal representation of
+<span class="math inline">\(G_{m_i }\)</span> for some partition <span
+class="math display">\[n_0 = m_1 + \dotsb + m_{\ell} ,\]</span> with
+<span class="math inline">\(\tau_i = \tau_i^\ast\)</span>. We can attach
+to <span class="math inline">\(\tau_i\)</span> a sign. There is a
+dichotomy concerning Asai representations: plus and minus. Exactly one
+of them has a pole at <span class="math inline">\(s = 1\)</span>. We
+assume that <span class="math display">\[L (s, \tau_i, \mathrm{As}^{(- 1
+)^{n + 1}}) \text{ has a pole at } s = 1.\]</span> We assume also that
+<span class="math inline">\(\tau_1, \dotsc, \tau_{\ell}\)</span> are
+pairwise distinct.</p>
+<p>We say that <span class="math inline">\(\Pi\)</span> is
+<em>discrete</em> if it is equal to its discrete part, i.e., <span
+class="math inline">\(\Pi = \Pi_{\mathop{\mathrm{disc}}}\)</span>.</p>
+<p>We can <em>twist</em> our parameters. Set <span
+class="math inline">\(a_\Pi := \mathbb{R}^{r}\)</span>. Given <span
+class="math inline">\(\lambda = (\lambda_1, \dotsc, \lambda_r ) \in
+a_{\Pi }\)</span>, we can consider <span
+class="math display">\[\Pi_\lambda = \pi_1 \lvert
+\det  \rvert^{\lambda_1 } \boxplus \pi_1^\ast \lvert \det  \rvert^{-
+\lambda_1 } \boxplus \dotsb.\]</span></p>
+<p>On the other hand, let <span class="math inline">\(h \in
+\mathcal{H}_n\)</span>, <span
+class="math inline">\(\mathop{\mathrm{U}}:=
+\mathop{\mathrm{U}}(h)\)</span>. Consider pairs <span
+class="math inline">\((P, \sigma)\)</span>, where <span
+class="math inline">\(P\)</span> is a parabolic subgroup of <span
+class="math inline">\(U\)</span>, and <span
+class="math inline">\(\sigma\)</span> is a cuspidal representation of
+the Levi subgroup <span class="math inline">\(M_P\)</span>. We say that
+the weak base change <span class="math inline">\(\mathrm{WBC} (P, \sigma
+)\)</span> is <span class="math inline">\(\Pi\)</span> if:</p>
+<ul>
+<li><p>We have <span class="math display">\[M_P = G_{n_1 } \times \dotsb
+\times G_{n_r } \times \mathop{\mathrm{U}}(h_0),\]</span> where <span
+class="math display">\[h_0 \in \mathcal{H}_{n_0 }, \qquad
+    h_0 \oplus (\text{hyperbolic spaces}) = h.\]</span></p></li>
+<li><p>We have <span class="math display">\[\sigma = \pi_1 \otimes
+\dotsb \otimes \pi_r \otimes \sigma_0.\]</span></p></li>
+<li><p>We say that <span class="math inline">\(\mathrm{WBC} (\sigma_0) =
+\Pi_{\mathop{\mathrm{disc}}}\)</span> if for almost all places of <span
+class="math inline">\(F\)</span> that split in <span
+class="math inline">\(E\)</span>, we have <span
+class="math display">\[\sigma_{0, v} \otimes \sigma_{0, v}^\vee \cong
+\Pi_{\mathop{\mathrm{disc}}, v}.\]</span></p></li>
+</ul>
+<div class="remark">
+<p><strong>Remark 10</strong>. By Ramakrishnan’s result, if <span
+class="math inline">\(\Pi\)</span> exists, then it is unique. Moreover,
+if we add the unitary variant of the work of Arthur due to Mok and KMSW,
+then “weak base change” implies “base change” in the stronger sense.</p>
+</div>
+<p>We denote by <span class="math inline">\(\mathfrak{a}_P^\ast\)</span>
+the space of unramified characters of <span class="math inline">\(P
+(\mathbb{A})\)</span>. If <span class="math inline">\(\Pi = \mathrm{WBC}
+(P, \sigma)\)</span>, then <span class="math inline">\(a_P^\ast \cong
+a_\Pi^\ast\)</span>.</p>
+<p>Now we introduce periods. What is the group, and what is the
+subgroup? We fix, as before, a hermitian space <span
+class="math inline">\(h \in \mathcal{H}_n\)</span> of rank <span
+class="math inline">\(n\)</span>. The bigger group is <span
+class="math display">\[\mathop{\mathrm{U}}:= {\mathop{\mathrm{U}}}_h :=
+\mathop{\mathrm{U}}(h) \times \mathop{\mathrm{U}}(h \oplus E
+e_0),\]</span> where we add to <span class="math inline">\(h\)</span> a
+one-dimensional hermitian space. The subgroup is <span
+class="math display">\[U&#39; := U&#39;_h :=
+\mathop{\mathrm{U}}(h),\]</span> embedded diagonally: <span
+class="math inline">\(g \mapsto (g,
+\mathop{\mathrm{diag}}(g,1))\)</span>. We’re going to consider a
+representation on this product of unitary groups.</p>
+<p>We also need regular Arthur parameters, say for <span
+class="math inline">\(G_n \times G_{n + 1}\)</span>. These are <span
+class="math inline">\(\Pi = \Pi_n \otimes \Pi_{n + 1}\)</span>, where
+<span class="math inline">\(\Pi_i\)</span> are regular Arthur parameters
+of <span class="math inline">\(G_i\)</span>, and no summand in <span
+class="math inline">\(\Pi_n\)</span> is the contragredient of a summand
+in <span class="math inline">\(\Pi_{n + 1}\)</span>.</p>
+<div class="example">
+<p><strong>Example 11</strong>. If <span
+class="math inline">\(\Pi_n\)</span> or <span
+class="math inline">\(\Pi_{n + 1}\)</span> is discrete, then <span
+class="math inline">\(\Pi_n \otimes \Pi_{n + 1}\)</span> is RAP.</p>
+</div>
+<p>Suppose now that <span class="math display">\[(P, \sigma ) = (P_n
+\times P_{n + 1}, \sigma_n \times \sigma_{n + 1})\]</span> is a pair in
+<span class="math inline">\(\mathop{\mathrm{U}}\)</span>. Then we have
+<span class="math display">\[\mathrm{WBC} (P, \sigma ) = \Pi \iff
+\mathrm{WBC} (P_i, \sigma_i ) = \Pi_i.\]</span></p>
+<p>Let’s fix <span class="math inline">\(\Pi\)</span>, a regular Arthur
+parameter for <span class="math inline">\(G_{n} \times G_{n +
+1}\)</span>, and <span class="math inline">\((P, \sigma)\)</span>, a
+pair of <span class="math inline">\(\mathop{\mathrm{U}}\)</span>, such
+that <span class="math inline">\(\mathrm{WBC} (P, \sigma ) =
+\Pi\)</span>. We attach the space of automorphic forms <span
+class="math inline">\(\mathcal{A}_{P, \sigma }\)</span> inside the space
+of functions on <span class="math inline">\(M_P (F) N_P (\mathbb{A} )
+\backslash \mathop{\mathrm{U}}(\mathbb{A})\)</span>. As a
+representation, this is the induced representation <span
+class="math inline">\({\mathop{\mathrm{Ind}}}_{P (\mathbb{A} ) }^{G
+(\mathbb{A})} (\sigma)\)</span>. To any <span
+class="math inline">\(\varphi \in \mathcal{A}_{P, \sigma }\)</span> and
+<span class="math inline">\(\lambda \in \mathfrak{a}_P^\ast \otimes
+\mathbb{C}\)</span>, we can form an Eisenstein series <span
+class="math inline">\(E (\varphi, \lambda )\)</span>, given in some
+region by a series and in general by meromorphic continuation, which is
+analytic on the space of unitary unramified characters. We consider the
+following periods of Eisenstein series <span class="math inline">\(E
+(\varphi, \lambda )\)</span>: <span class="math display">\[\mathcal{P}
+(\lambda ) : \mathcal{A}_{P, \sigma } \rightarrow \mathbb{C}\]</span>
+<span class="math display">\[\varphi \mapsto \int_{[U&#39;]}^\ast E
+(\varphi, \lambda ), \qquad [U&#39;] = U &#39; (F) \backslash U&#39;
+(\mathbb{A}).\]</span> Here <span
+class="math inline">\(\int^\ast\)</span> is the regular period defined
+by Ichino–Yamana. What they did was to introduce a truncation operator
+<span class="math inline">\(\Lambda^T_m\)</span> (<span
+class="math inline">\(m\)</span> standing for “mixed” and <span
+class="math inline">\(T\)</span> a truncation parameter) which has the
+property that, when applied to Eisenstein series and restricted to <span
+class="math inline">\([U&#39;]\)</span>, one gets rapidly decreasing
+functions, so one can at least define <span
+class="math display">\[\int_{[U&#39;]} \Lambda_m^T E (\varphi, \lambda
+).\]</span> What Ichino–Yamana do is study the behavior in <span
+class="math inline">\(T\)</span> of this integral. They show that it is
+a polynomial in <span class="math inline">\(T\)</span>. The purely
+polynomial part is in fact a constant. This constant should be the
+regularized integral. But here we are lucky, because we are considering
+a regular Arthur parameter, especially with the second condition, and
+with that, this integral in fact does not depend upon <span
+class="math inline">\(T\)</span>, so remember that we start from a apir
+<span class="math inline">\((P, \sigma)\)</span> whose weak base change
+is <span class="math inline">\(\Pi\)</span> which is regular, and in
+this situation, this integral does not depend upon <span
+class="math inline">\(T\)</span>, and this gives our integral <span
+class="math inline">\(\int^\ast\)</span>.</p>
+<p>For example, if <span class="math inline">\(\Pi_n\)</span> or <span
+class="math inline">\(\Pi_{n + 1}\)</span> is discrete, then the
+integral makes sense without regularization.</p>
+<p>We now have defined enough to state our first theorem, which we call
+the GGP conjecture for Eisenstein series. (If the parameter <span
+class="math inline">\(\Pi\)</span> is discrete, then we recover the
+usual GGP conjecture.)</p>
+<div class="theorem">
+<p><strong>Theorem 12</strong> (GGP conjecture for Eisenstein series).
+<em>Let <span class="math inline">\(\Pi\)</span> be a regular Arthur
+parameter, and let <span class="math inline">\(\lambda \in i
+\mathfrak{a}_\Pi^\ast\)</span>. The following are equivalent:</em></p>
+<ol>
+<li><p><em>The Rankin–Selberg <span
+class="math inline">\(L\)</span>-function <span class="math inline">\(L
+(\tfrac{1}{2}, \Pi_\lambda ) \neq 0\)</span>.</em></p></li>
+<li><p><em>We can find <span class="math inline">\(h \in
+\mathcal{H}_n\)</span> and <span class="math inline">\((P, \sigma
+)\)</span> for <span
+class="math inline">\({\mathop{\mathrm{U}}}_h\)</span> such that <span
+class="math display">\[\mathrm{WBC} (P, \sigma) = \Pi\]</span> and <span
+class="math display">\[\mathcal{P} (\lambda)  |_{\mathcal{A}_{P,
+\sigma}} \not \equiv 0.\]</span></em></p></li>
+</ol>
+</div>
+<div class="remark">
+<p><strong>Remark 13</strong>. If <span
+class="math inline">\(\Pi\)</span> is in fact a cuspidal representation,
+then this is due to Beuzart-Plessis–Liu–Zhang–Zhu. If <span
+class="math inline">\(\Pi\)</span> is discrete, then it is due to
+Beuzart-Plessis–Chaudouard–Zydor.</p>
+</div>
+<p>We also get some factorizations in the spirit of Ichino–Ikeda. By
+multiplicity one principle, we have global and local hermitian forms
+that must agree up to a multiple, and Ichino–Ikeda predicted (at least
+for orthogonal groups) that the constant of proportionality.</p>
+<p>Let <span class="math inline">\(h \in \mathcal{H}_n\)</span>, let
+<span class="math inline">\(\Pi\)</span> be a regular Arthur parameter,
+and let <span class="math inline">\((P, \sigma)\)</span> with <span
+class="math inline">\(\mathrm{WBC} (P, \sigma) = \Pi\)</span>. Assume
+that for all <span class="math inline">\(v\)</span>, <span
+class="math inline">\(\sigma_v\)</span> is tempered. We form <span
+class="math display">\[\Sigma_v = {\mathop{\mathrm{Ind}}}_{P (F_v )}^{G
+(F_v )} (\sigma_v ), \qquad \lambda \in i \mathfrak{a}_P^\ast,\]</span>
+<span class="math display">\[\Sigma_{v, \lambda } =
+\mathop{\mathrm{Ind}}(\sigma_{\lambda, v}).\]</span> Given <span
+class="math inline">\(\varphi_v, \varphi_{v &#39;} \in
+\Sigma_v\)</span>, and an inner product <span
+class="math inline">\(\langle ,  \rangle_v\)</span> on <span
+class="math inline">\(\sigma_v\)</span> and on <span
+class="math inline">\(\Sigma_v\)</span>, we form <span
+class="math display">\[\mathcal{P}_v (\lambda, \varphi_v, \varphi_v
+&#39;)
+  =
+  \frac{\int_{U&#39; (F_v )}
+    \left( \Sigma_{U, \lambda } (h) \varphi_v, \varphi_v &#39; \right)_v
+\, d h
+  }{
+    \mathcal{L} (\tfrac{1}{2}, \Sigma_{\lambda, v})
+  }.\]</span> <span class="math display">\[\mathcal{L} (s,
+\Sigma_{\lambda, v}) = \prod_{i = 1 }^{n + 1}
+  L (s + i - 1/2, \eta_v^{\otimes i})
+  \frac{L (s, \Pi_{\lambda, v})}{ L (s + 1/2, \Pi_{\lambda, v},
+\mathrm{As}&#39;)},\]</span> where <span class="math inline">\(\eta =
+\otimes \eta_v\)</span> is the quadratic character of <span
+class="math inline">\(\mathbb{A}_F^\times\)</span> corresponding to
+<span class="math inline">\(E/F\)</span>, and <span
+class="math display">\[\mathrm{As}&#39; = \mathrm{As}^{(- 1 )^n }
+\otimes \mathrm{As}^{(- 1)^{n + 1}}.\]</span> We also need to introduce
+the Petersson inner product. On <span
+class="math inline">\(\mathcal{A}_{P, \sigma}\)</span>, we define <span
+class="math display">\[\lVert \varphi  \rVert^2 = \int_{
+    A_P^\infty M_P (F) N_P (\mathbb{A} ) \backslash U (\mathbb{A})
+  }
+  \lvert \varphi (g) \rvert^2 \, d g.\]</span> We use Tamagawa measures,
+together with a local decomposition <span class="math display">\[d g =
+\otimes_v d g_v.\]</span></p>
+<div class="theorem">
+<p><strong>Theorem 14</strong>. <em>Let <span
+class="math inline">\(\varphi \in \mathcal{A}_{P, \sigma}\)</span> be a
+factorizable vector <span class="math inline">\(\varphi = \otimes
+\varphi_v \in \otimes \Sigma_v\)</span>. Then <span
+class="math display">\[\frac{\lvert \mathcal{P} (\varphi, \lambda )
+\rvert^2 }{ \lVert \varphi  \rVert^2_{\mathrm{Pet}}}
+    = \frac{1}{2^N }
+    \cdot
+    \mathcal{L}^\ast (\tfrac{1}{2}, \Sigma_\lambda )
+    \cdot
+    \prod_v \frac{\mathcal{P} (\lambda, \varphi_v, \varphi_v )}{
+(\varphi_v, \varphi_v )_v }\]</span> where <span
+class="math display">\[\mathcal{L} (s, \Sigma_\lambda ) = \prod_v
+\mathcal{L} (s, \Sigma_{\lambda, v}),
+    \quad
+    \mathcal{L}^\ast (s, \Sigma_\lambda ) = (s - 1/2 )^{- \dim
+(\mathfrak{a}_{\Pi} )}
+    \mathcal{L} (s, \Sigma_\lambda).\]</span></em></p>
+</div>
+<p><strong>About the proof</strong>. It’s a comparison of relative trace
+formulas. Let <span class="math inline">\(G\)</span> be a reductive
+group over <span class="math inline">\(F\)</span>, and <span
+class="math inline">\(f\)</span> a test function. Then <span
+class="math display">\[k (x, y) = \sum_{\gamma \in G (F) } f (x^{-1}
+\gamma y)
+  = \sum_{\chi : \text{cusp data}} k_\chi.\]</span> We have <span
+class="math inline">\(G_1, G_2 \circlearrowright G\)</span>. We define
+<span class="math display">\[J (f) = \int_{[G_1 ]} \int_{[G_2]} K (x,y)
+\, d x \, d y,\]</span> after some regularization.</p>
+<p>For us, we take</p>
+<ul>
+<li><p><span class="math inline">\(G = {\mathop{\mathrm{U}}}_h\)</span>
+and <span class="math inline">\(G_1 = G_2 =
+\mathop{\mathrm{U}}&#39;_h\)</span>, and</p></li>
+<li><p><span class="math inline">\(G = G_{n } \times G_{n + 1}\)</span>
+and <span class="math inline">\(G_1 = G_n \hookrightarrow G\)</span> and
+<span class="math inline">\(G_2 = \mathop{\mathrm{GL}}(n, F) \times
+\mathop{\mathrm{GL}}(n + 1, F)\)</span> against something like <span
+class="math inline">\(\eta_{G_2}\)</span>.</p></li>
+</ul>
+<p>Zydor gives a RTF with coarse expansion <span
+class="math display">\[J (f) = \sum_{\chi } J_\chi (f).\]</span> For the
+proof, we compute <span class="math inline">\(J_\chi (f)\)</span>. For
+this, we have the following proposition, due to Zydor in the linear case
+and to the authors in general. We see that the contribution here
+attached to the cuspidal datum is related to the truncation that we
+mentioned.</p>
+<div class="proposition">
+<p><strong>Proposition 15</strong>. <em><span
+class="math display">\[\int_{[G_1 ] \times [G_2 ]}
+    \left( \Lambda_m^T K_\chi  \right) (x, y ) \eta^? \,d x \,d y \sim
+\text{exponential polynomial},\]</span> where <span
+class="math inline">\(\Lambda_m^T\)</span> is the truncation operator of
+Ichino–Yamana and the right hand side has constant term <span
+class="math inline">\(J_\chi (f)\)</span>.</em></p>
+</div>
+<p>Unitary case: <span class="math inline">\(\chi = (P,
+\sigma)\)</span>, <span class="math inline">\(\mathrm{WBC} (P, \sigma) =
+\Pi\)</span> (regular Arthur parameter). <span
+class="math display">\[J_\chi (f) = \int_{i \mathfrak{a}_P^\ast }
+\sum_{\varphi \in \mathcal{A}_{P, \sigma }}
+  \mathcal{P} \left( \mathop{\mathrm{Ind}}(\sigma_\lambda, f) \varphi,
+\lambda  \right)
+  \overline{\mathcal{P} (\varphi, \lambda )} \, d \lambda.\]</span> In
+the linear case, we take <span class="math display">\[\chi = (Q, \pi ),
+\quad {\mathop{\mathrm{Ind}}}_Q (\pi) = \Pi : \mathrm{RAP}.\]</span> We
+could expect that at least in the Langlands decomposition, we have an
+integral over the bigger space <span class="math display">\[J_\chi (f) =
+\int_{i \mathfrak{a}_{\Pi}^\ast } J (\lambda, f) \, d \lambda.\]</span>
+Then we have that <span class="math inline">\(J (\lambda, f)\)</span> is
+not identically zero if and only if <span class="math inline">\(L
+(\tfrac{1}{2}, \Pi_\lambda ) \neq 0\)</span>. <span
+class="math display">\[J^{\mathrm{li}} (\lambda, f) = \sum_{h \in
+\mathcal{H}_n } \sum_{
+    \substack{
+      (P, \sigma) \text{ of } {\mathop{\mathrm{U}}}_h   \\
+       \mathrm{WBC} (P, \sigma) = \Pi
+    }
+  }
+  J^{{\mathop{\mathrm{U}}}_h } (\lambda, f^h ),\]</span> where <span
+class="math inline">\({\mathop{\mathrm{Ind}}}_Q (\pi) = \Pi\)</span>: RAP
+and <span class="math display">\[f \leftrightarrow (f_h )_{h \in
+\mathcal{H}_n }\]</span> have local nonvanishing orbital integrals.</p>
+<p><strong>On to part two!</strong></p>
+<p>Let <span class="math inline">\(E/F\)</span> be a quadratic extension
+of number fields. Let <span class="math inline">\(V_m \subset V_{n +
+1}\)</span> be hermitian spaces of dimensions <span
+class="math inline">\(m\)</span> and <span class="math inline">\(n +
+1\)</span>, respectively. We assume that <span
+class="math inline">\(V_m^\perp\)</span> is odd-dimensional and
+quasi-split. Explicitly, this means that we can decompose this
+orthogonal complement as a direct sum, as follows: <span
+class="math display">\[V_m^\perp = \left( Y \oplus Y^\ast  \right)
+\oplus D,\]</span> where <span class="math inline">\(D\)</span> is a
+hermitian line and <span class="math inline">\(Y, Y^*\)</span> are
+maximal isotropic subspaces which are in duality by the hermitian form
+<span class="math inline">\(h (\cdot, \cdot )\)</span>. We denote by
+<span class="math display">\[U_m := \mathop{\mathrm{U}}(V_m),  \qquad
+{\mathop{\mathrm{U}}}_{n + 1} = \mathop{\mathrm{U}}(V_{n + 1}).\]</span>
+To this data, we can associate a Bessel subgroup and then a Bessel
+period.</p>
+<p>We need to introduce more groups.</p>
+<p>Let <span class="math display">\[P = {\mathop{\mathrm{Stab}}}_{U_{n+1}
+} \left( \langle y_1  \rangle \subsetneq \langle y_1, y_2  \rangle
+\subsetneq \dotsb \subsetneq \langle y_{1}, \dotsc,
+y_r  \rangle  \right)\]</span> be the parabolic subgroup attached to a
+complete flag in <span class="math inline">\(Y\)</span>. In matrix form,
+<span class="math display">\[P = M N
+  =
+\begin{pmatrix}
+\ast &amp; \ast &amp; \ast \\
+0 &amp; \mathop{\mathrm{U}}(D \oplus V_m ) &amp; \ast \\
+0 &amp; 0 &amp; \ast \\
+\end{pmatrix}.\]</span> We also define <span
+class="math display">\[\psi_N : [N] = N(F) \backslash N (\mathbb{A} )
+\rightarrow \mathbb{C}^\times ,\]</span> <span
+class="math display">\[\psi_N (u) = \psi \left( \sum_{i = 1}^r h (u y_{i
++ 1}, y_i^\ast) \right),\]</span> where <span
+class="math inline">\(\langle y_{r + 1} \rangle = D\)</span> and <span
+class="math inline">\(y_i^\ast\)</span> denotes the dual basis of <span
+class="math inline">\(Y^\ast\)</span> and <span
+class="math inline">\(\psi : \mathbb{A}_E / E \rightarrow
+\mathbb{C}^\times\)</span>. Bessel subgroup: <span
+class="math display">\[\mathcal{B} = {\mathop{\mathrm{U}}}_m \ltimes N
+\xrightarrow{\mathrm{diag}} \mathcal{G} = {\mathop{\mathrm{U}}}_m \times
+{\mathop{\mathrm{U}}}_{n + 1},\]</span> <span
+class="math display">\[\psi_{\mathcal{B} } = 1 \otimes \psi_N.\]</span>
+The Bessel period is then <span class="math display">\[P_{\mathcal{B} }
+: \mathcal{A}_{\mathop{\mathrm{cusp}}} (\mathcal{G} ) \rightarrow
+\mathbb{C}\]</span> <span class="math display">\[\phi \mapsto
+\int_{[\mathcal{B} ]} \phi (h) \psi_{\mathcal{B} } (h) \, d
+h.\]</span></p>
+<p>We turn to <strong>Rankin–Selberg</strong> <span
+class="math inline">\(L\)</span><strong>-functions</strong>. We consider
+<span class="math display">\[\pi = \pi_m \boxtimes \pi_{n + 1}
+\hookrightarrow \mathcal{A}_{\mathop{\mathrm{cusp}}} (\mathcal{G}
+).\]</span> We denote by <span class="math display">\[\mathrm{bc}(\pi )
+:= \mathrm{bc} (\pi_m ) \boxtimes \mathrm{bc} (\pi_{n + 1})
+  \hookrightarrow \mathcal{A} ({\mathop{\mathrm{GL}}}_{m, E} \times
+{\mathop{\mathrm{GL}}}_{n + 1, E})\]</span> the quadratic base change of
+<span class="math inline">\(\pi\)</span>. (<em>A priori</em>, it is not
+cuspidal.) The base change is known to exist in full generality by work
+of Mok and Kaletha–Minguez–Shin–White. We then set <span
+class="math display">\[L (s, \mathrm{bc} (\pi) ) := L (s, \mathrm{bc}
+(\pi_m ) \times \mathrm{bc} (\pi_{n + 1})).\]</span></p>
+<p>We turn to <strong>pure inner forms</strong>. Given another <span
+class="math inline">\(m\)</span>-dimensional hermitian space <span
+class="math inline">\(V_m &#39;\)</span>, one can first construct a
+bigger hermitian space <span class="math inline">\(V_{m +
+1}&#39;\)</span> by requiring that <span class="math display">\[V
+&#39;_{n + 1} \supset V_m &#39;, \qquad (V_m &#39;)^\perp \cong
+V_m^\perp.\]</span> This gives rise to <span
+class="math display">\[\mathcal{B}^{V_m &#39;} \hookrightarrow
+\mathcal{G}^{V_m &#39;}, \quad P_{\mathcal{B}^{V_m &#39;}}.\]</span></p>
+<div id="enumerate:cj43909e3d" class="theorem">
+<p><strong>Theorem 16</strong> (GGP conjecture). <em><span
+id="theorem:cj4394a13l" label="theorem:cj4394a13l"></span> Assume that
+<span class="math inline">\(\mathrm{bc}(\pi)\)</span> is generic. Then
+the following are equivalent:</em></p>
+<ol type="i">
+<li><p><em><span id="enumerate:cj43909hk7"
+label="enumerate:cj43909hk7"></span> <span class="math inline">\(L
+(\tfrac{1}{2}, \mathrm{bc} (\pi)) \neq 0\)</span>.</em></p></li>
+<li><p><em>There exists <span class="math inline">\(V_m &#39;\)</span>
+(with <span class="math inline">\(\dim (V_m &#39;) = m\)</span>) such
+that <span class="math display">\[\pi &#39; \hookrightarrow
+\mathcal{A}_{\mathop{\mathrm{cusp}}} (\mathcal{G}^{V_m &#39;}),\]</span>
+<span class="math display">\[\mathrm{bc} (\pi &#39;) = \mathrm{bc}
+(\pi),\]</span> <span
+class="math display">\[\mathcal{P}_{\mathcal{B}^{V_m &#39;}} |_{\pi
+&#39;} \not \equiv 0.\]</span></em></p></li>
+</ol>
+</div>
+<div class="remark">
+<p><strong>Remark 17</strong>. Jiang–Zhang have shown that <a
+href="#enumerate:cj43909e3d" data-reference-type="eqref"
+data-reference="enumerate:cj43909e3d">\((ii)\)</a> implies
+<a href="#enumerate:cj43909hk7" data-reference-type="eqref"
+data-reference="enumerate:cj43909hk7">\((i)\)</a>, using
+a different method (a generalization of the descent method). On the
+contrary, our proof uses relative trace formula techniques.</p>
+</div>
+<div class="remark">
+<p><strong>Remark 18</strong>. Need to use the completed <span
+class="math inline">\(L\)</span>-function if we don’t want to assume
+Ramanujan.</p>
+</div>
+<div id="theorem:cj4394av15" class="theorem">
+<p><strong>Theorem 19</strong> (Ichino–Ikeda conjecture). <em>Assume
+that <span class="math inline">\(\pi\)</span> is tempered everywhere
+(i.e., tempered at all places). Then for <span
+class="math display">\[\varphi = \otimes_v &#39; \varphi_v \in \pi =
+\otimes_v &#39; \pi_v,\]</span> we have <span
+class="math display">\[\frac{\left\lvert P_{\mathcal{B} }
+(\varphi)  \right\rvert^2 }{
+      \langle \varphi, \varphi  \rangle_{\mathrm{Pet}}
+    }
+    =
+    2^{- \beta }
+    \Delta^S
+    \frac{L^S  (\tfrac{1}{2}, \mathrm{bc} (\pi) )}{L^S  (1, \pi,
+\mathop{\mathrm{Ad}})}
+    \prod_{v \in S}
+    \frac{
+      P_{\mathcal{B}, v}
+      (\varphi_v, \varphi_v )
+    }{\langle \varphi_v, \varphi_v  \rangle_v },\]</span> where</em></p>
+<ul>
+<li><p><em><span class="math inline">\(\Delta^S = \prod_{i = 1 }^{n + 1}
+L^S (i, \eta^i_{E/F})\)</span>,</em></p></li>
+<li><p><em><span class="math inline">\(\langle \cdot,
+\cdot  \rangle\)</span> is an invariant inner product on <span
+class="math inline">\(\pi\)</span>,</em></p></li>
+<li><p><em><span class="math inline">\(P_{\mathcal{B}, v} (\varphi_v,
+\varphi_v ) = \int_{\mathcal{B}_v }^{\mathop{\mathrm{reg}}} \langle
+\pi_v (h) \varphi_v, \varphi_v  \rangle_v
+    \psi_{\mathcal{B}, v} (h) \, d h\)</span>.</em></p></li>
+<li><p><em>We have <span class="math display">\[\frac{P_{\mathcal{B}, v}
+(\varphi_v, \varphi_v)}{ \langle \varphi_v, \varphi_v  \rangle_v }
+      = \Delta_v \frac{L (\tfrac{1}{2}, \mathrm{bc} (\pi_v ))}{ L (1,
+\pi_v , \mathop{\mathrm{Ad}})}\]</span> for almost all <span
+class="math inline">\(v\)</span>.</em></p></li>
+<li><p><em><span class="math inline">\(2^\beta = \left\lvert S_\pi
+\right\rvert\)</span>, where <span class="math inline">\(S_\pi\)</span>
+is supposed to be the centralizer of the hypothetical Langlands
+parameter of <span class="math inline">\(\pi\)</span>, but may be
+defined more concretely by writing <span
+class="math display">\[\mathrm{bc} (\pi_m ) = \sigma_1 \boxplus \dotsb
+\boxplus \sigma_a,\]</span> <span class="math display">\[\mathrm{bc}
+(\pi_{n + 1}) = \rho_1 \boxplus \dotsb \boxplus \rho_b,\]</span> where
+the <span class="math inline">\(\sigma_i\)</span> are cuspidal conjugate
+self-dual; in that case, <span class="math inline">\(S_\pi \cong
+(\mathbb{Z} / 2)^{a + b}\)</span>.</em></p></li>
+</ul>
+<p><em>TODO: comment on the archimedean regularization for your local
+Bessel period?</em></p>
+</div>
+<div id="remark:cj4460nohy" class="remark">
+<p><strong>Remark 20</strong>. The assumption of everywhere temperedness
+can be weakened, but there is an outstanding issue at archimedean places
+for regularizing the integral of matrix coefficients.</p>
+</div>
+<div id="remark:cj4460nm8g" class="remark">
+<p><strong>Remark 21</strong>. We can write the formula in a simpler way
+by working formally: it’s just a factorization <span
+class="math display">\[\left\lvert P_{\mathcal{B} }
+(\varphi)  \right\rvert^2 = 2^{- \beta}
+    \prod_{v}^\ast  P_{\mathcal{B}, v} (\varphi_v, \varphi_v )
+    \text{ if }
+    \langle \cdot, \cdot  \rangle_{\mathrm{Pet}} = \prod_v
+\langle  \cdot, \cdot  \rangle_v.\]</span> From now on, we will use this
+shorthand for regularizing Euler products.</p>
+</div>
+<div id="remark:cj4460nl4f" class="remark">
+<p><strong>Remark 22</strong>. When <span
+class="math inline">\(\pi\)</span> is everywhere tempered, Theorem <a
+href="#theorem:cj4394av15" data-reference-type="ref"
+data-reference="theorem:cj4394av15">19</a> implies Theorem <a
+href="#theorem:cj4394a13l" data-reference-type="ref"
+data-reference="theorem:cj4394a13l">16</a>. This uses
+the following known results:</p>
+<ul>
+<li><p>the local GGP conjecture,</p></li>
+<li><p>the Arthur multiplicity formula.</p></li>
+</ul>
+</div>
+<div id="remark:cj4460nkmv" class="remark">
+<p><strong>Remark 23</strong>. We have <span
+class="math display">\[P_{\mathcal{B}, v} |_{\pi_v } \not \equiv 0
+    \iff
+    {\mathop{\mathrm{Hom}}}_{\mathcal{B}_v } (\pi_v, \psi_{\mathcal{B},
+v}) \neq 0.\]</span> Moreover, <span
+class="math display">\[M_{\mathcal{B}_v }(\pi_v ) :=
+{\mathop{\mathrm{Hom}}}_{\mathcal{B}_v } (\pi_v, \psi_{\mathcal{B},
+v})\]</span> has dimension at most one. Thus both sides are
+automatically proportional as functionals on <span
+class="math inline">\(\pi \otimes \bar{\pi }\)</span>.</p>
+</div>
+<div id="remark:cj4460ni43" class="remark">
+<p><strong>Remark 24</strong>. Define the formal symbol <span
+class="math display">\[X_{\mathcal{B} } := \mathcal{B},
+\psi_{\mathcal{B} } \backslash \mathcal{G},\]</span> which we refer to
+informally as the “Bessel variety.” We can define <span
+class="math display">\[\mathcal{S} (X_{\mathcal{B} } (\mathbb{A} )) :=
+\mathcal{S} \left( \mathcal{B} (\mathbb{A} ) \backslash \mathcal{G}
+(\mathbb{A} ), \psi_{\mathcal{B}} \right)
+    \xrightarrow{\Theta} C^\infty ([\mathcal{G} ]),\]</span> <span
+class="math display">\[\Theta_f := \sum_{\gamma \in \mathcal{B} (F)
+\backslash \mathcal{G} (F) } f (\gamma \bullet ).\]</span> Then Theorem
+<a href="#theorem:cj4394av15" data-reference-type="ref"
+data-reference="theorem:cj4394av15">19</a> is equivalent to the
+following: if <span class="math inline">\(f = \prod_v f_v\)</span>, then
+<span class="math display">\[\left\langle \Theta_{f, \pi }, \Theta_{f,
+\pi } \right\rangle_{\mathrm{Pet}}
+    = 2^{- \beta } \prod_v^\ast J_{\pi_v } (f_v, f_v ),\]</span> where
+<span class="math inline">\(\Theta_{f, \pi }\)</span> denotes the
+projection to <span class="math inline">\(\pi\)</span> and where <span
+class="math display">\[J_{\pi_v } : \mathcal{S} (X_{\mathcal{B}, v})
+\otimes \overline{\mathcal{S} (X_{\mathcal{B}, v})} \rightarrow
+\mathbb{C}\]</span> is the so-called <em>relative character</em>, given
+by a <span class="math inline">\(\mathcal{G}_v \times
+\mathcal{G}_v\)</span>-equivariant projection <span
+class="math display">\[\mathcal{S} (X_{\mathcal{B}, v}) \otimes
+\overline{\mathcal{S} (X_{\mathcal{B}, v})}
+    \rightarrow \pi_v \otimes \overline{\pi_v }\]</span> composed with
+the inner product, giving the Plancherel decomposition for <span
+class="math inline">\(L^2 (X_{\mathcal{B}, v})\)</span>, namely, we have
+<span class="math display">\[\langle f_v, f_v  \rangle_{L^2 } =
+\int_{\operatorname{Temp} (\mathcal{G}_v )}
+    J_{\pi_v } (f_v, f_v ) \, d \mu_{\mathcal{G}_v } (\pi_v ),\]</span>
+where the measure is the Plancherel measure for <span
+class="math inline">\(\mathcal{G}_v\)</span>. This perspective is due to
+Sakellaridis–Venkatesh.</p>
+</div>
+<p>We now start the second part of the talk, where we explain how we
+prove these theorems. There is actually a reduction to corank one
+periods. We need to introduce one further hermitian space. Recall that
+we have <span class="math inline">\(V_m\)</span> and <span
+class="math inline">\(V_{n + 1}\)</span>. We will include between the
+two the space <span class="math display">\[V_n = V_m \oplus (Y \oplus
+Y^\ast ) \subset V_{n + 1} = V_n \oplus D,\]</span> where the outer sums
+are orthogonal. We can then define <span class="math display">\[H =
+{\mathop{\mathrm{U}}}_n = \mathop{\mathrm{U}}(V_n )
+\xrightarrow{\mathrm{diag}} G = {\mathop{\mathrm{U}}}_n \times
+{\mathop{\mathrm{U}}}_{n + 1}.\]</span> We consider the corank one GGP
+period <span class="math display">\[P_H : \mathcal{A} (G) \rightarrow
+\mathbb{C}\]</span> <span class="math display">\[\phi \mapsto \int_{[H]}
+\phi (h) \, d h,\]</span> whenever convergent.</p>
+<p>We start by introducing the parabolic subgropu <span
+class="math inline">\(Q_n\)</span> of <span
+class="math inline">\({\mathop{\mathrm{U}}}_n\)</span>, given by <span
+class="math display">\[Q_n = {\mathop{\mathrm{Stab}}}_{U_n } (Y) = L_n
+N_Q.\]</span> We then set <span class="math display">\[Q = Q_n \times
+{\mathop{\mathrm{U}}}_{n + 1} = L N_Q.\]</span> Then <span
+class="math display">\[L = L_n \times {\mathop{\mathrm{U}}}_{n + 1} =
+{\mathop{\mathrm{GL}}}_E (Y) \times {\mathop{\mathrm{U}}}_m
+  \times {\mathop{\mathrm{U}}}_{n + 1} = {\mathop{\mathrm{GL}}}_E (Y) \times
+\mathcal{G}.\]</span> We then set <span
+class="math display">\[\mathcal{B}^L = N_Y \times \mathcal{B},\]</span>
+where <span class="math inline">\(N_Y\)</span> is the unipotent radical
+of the Borel subgroup stabilizing the flag <span
+class="math inline">\(\mathcal{F}\)</span>. It’s a maximal unipotent
+subgroup. We also take <span class="math display">\[\psi_{\mathcal{B}^L
+} = \psi_{N_Y} \otimes \psi_{\mathcal{B}},\]</span> where <span
+class="math inline">\(\psi_{N_Y}\)</span> is generic. We obtain the
+<em>Whittaker–Bessel period</em> <span
+class="math display">\[P_{\mathcal{B}^L } : \mathcal{A} (L) \rightarrow
+\mathbb{C}\]</span> <span class="math display">\[\phi \mapsto
+\int_{[\mathcal{B}^L ] } \phi (h) \psi_{\mathcal{B}^L } (h) \, d
+h.\]</span> Let us now recall a bit where we started, and then tell you
+where we’re going. We started with a cuspidal automorphic representation
+<span class="math display">\[\pi = \pi_m \boxtimes \pi_{m + 1}
+\hookrightarrow \mathcal{A}_{\mathop{\mathrm{cusp}}}
+(\mathcal{G}).\]</span> We now want to extend it to the Levi <span
+class="math inline">\(M\)</span>. We fix an automorphic representation
+<span class="math display">\[\tau \hookrightarrow \mathcal{A}
+({\mathop{\mathrm{GL}}}_E (Y)).\]</span> We also need to consider the
+twists <span class="math display">\[\tau_s := \tau \lvert \det
+\rvert^s,\]</span> taking <span class="math inline">\(s\)</span> large
+enough to make the Eisenstein series convergent. We then get <span
+class="math display">\[\tau_s \boxtimes \pi \hookrightarrow \mathcal{A}
+(L),\]</span> <span class="math display">\[\Pi_s := I_{Q
+(\mathbb{A})}^{G(\mathbb{A})} (\tau_s \boxtimes \pi ).\]</span> We set
+<span class="math display">\[\mathcal{B}^H = \left( \mathcal{B}^L
+\ltimes N_Q  \right) \cap H
+  = \left( N_Y \times \mathop{\mathrm{U}}(W)  \right) \ltimes
+N_Q.\]</span></p>
+<div id="proposition:cj4460mjr9" class="proposition">
+<p><strong>Proposition 25</strong> (Global unfolding). <em>For <span
+class="math inline">\(\Re(s)\)</span> sufficeintly large, <span
+class="math display">\[P_H \left( E_Q^G (\phi_s ) \right)
+    = \int_{\mathcal{B}^c (\mathbb{A}) \backslash H (\mathbb{A})}
+    P_{\mathcal{B}^L } (\phi_s (h)) \, d h,
+    \qquad \phi_s \in \Pi_s.\]</span></em></p>
+</div>
+<div id="remark:cj4460mibz" class="remark">
+<p><strong>Remark 26</strong>. </p>
+<ul>
+<li><p>For <span class="math display">\[\phi_s = \phi_{n, s} \otimes
+\phi_{n + 1} \in I_{Q_n }^{U_n } (\tau_s \boxtimes \pi_m ) \boxtimes
+\pi_{n + 1},\]</span> we have <span class="math display">\[P_H \left(
+E_Q^G (\phi_s ) \right)
+      = \int_{[H]}
+      E_{Q_n }^{{\mathop{\mathrm{U}}}_n } (\phi_{n , s}) \phi_{n +
+1},\]</span> which converges as soon as the Eisenstein series
+is.</p></li>
+<li><p>More generally (for <span class="math inline">\(\Re(s)\)</span>
+large enough), <span class="math display">\[\mathrm{Unf}^\ast :
+M_{\mathcal{B}^L } (\tau_s \boxtimes \pi ) =
+{\mathop{\mathrm{Hom}}}_{\mathcal{B} } (\tau_s \boxtimes \pi,
+\psi_{\mathcal{B}^L }) \rightarrow M_H (\Pi_s).\]</span> <span
+class="math display">\[\mathrm{Unf}^\ast ( \ell_{\mathbb{A}}) (\phi_s)
+      =
+      \int_{\mathcal{B}^H (\mathbb{A}) \backslash H
+(\mathbb{A})}\]</span> for <span class="math inline">\(\ell_{\mathbb{A}
+} \in \tau_s \boxtimes \pi\)</span> and <span
+class="math inline">\(\phi_s \in \pi_s\)</span>.</p></li>
+<li><p>We have <span class="math display">\[\mathrm{Unf}^\ast =
+\otimes_v &#39; \mathrm{Unf}_v^\ast ,\]</span> where <span
+class="math display">\[\mathrm{Unf}_v^\ast : M_{\mathcal{B}^L }
+(\tau_{v, s} \boxtimes \pi_v ) \rightarrow M_H (\Pi_{v, s})\]</span> if
+<span class="math inline">\(\tau_v, \pi_v\)</span> are tempered, this is
+convergent for <span class="math inline">\(\Re(s) &gt;
+-1/2\)</span>.</p></li>
+<li><p><span class="math display">\[\mathcal{P}_{N_Y, v} : \tau_v \times
+\overline{\tau_v } \rightarrow \mathbb{C}\]</span> <span
+class="math display">\[\mathcal{P}_{N_Y, v} (\theta_v, \theta_v ) =
+\int_{N_Y (F_v )}^{\mathop{\mathrm{reg}}} \langle \tau_v (u) \theta_v,
+\theta_v  \rangle_v  \psi_{N_Y } (u ) \, d u,\]</span> <span
+class="math display">\[P_{H, v} : \Pi_{s, v} \times \bar{\Pi }_{s , v }
+\rightarrow \mathbb{C},\]</span> <span
+class="math display">\[P_{\mathcal{B}^L, v} = P_{N_Y, v} \otimes
+P_{\mathcal{B}, v} \in M_{\mathcal{B}^L, v}
+      \otimes \overline{M}_{\mathcal{B}^L, v}.\]</span></p></li>
+</ul>
+</div>
+<div id="proposition:cj4460mf82" class="proposition">
+<p><strong>Proposition 27</strong> (Local unfolding). <em>If <span
+class="math inline">\(\tau_v, \pi_v\)</span> are tempered, then<span
+class="math display">\[\left( \mathrm{Unf}^\ast \otimes
+\mathrm{Unf}^\ast  \right) \left( P_{\mathcal{B}^L, v} \right) = P_{H,
+v}.\]</span></em></p>
+</div>
+<div id="proposition:cj4460mdxp" class="proposition">
+<p><strong>Proposition 28</strong> (Unramified computation). <em>For
+almost all <span class="math inline">\(v\)</span> (<span
+class="math inline">\(\tau_v, \pi_v\)</span> tempered and everything
+unramified), we have <span class="math display">\[\mathrm{Unf}^\ast
+(\ell_v) (\phi_{v,s}^0 ) =
+    \frac{L (\frac{1}{2} + s, \tau_{s, v} \times \mathrm{bc} (\pi_{n +
+1})_v)}{
+      L (1 + s, \tau_v^c \times \mathrm{bc} (\pi_m )_{v})
+      L (1 + 2 s, \tau_v, \mathrm{As}^{(- 1)^m })
+    }
+    \ell_v (\phi_{v, s}^0 (1)),\]</span> where <span
+class="math inline">\(\ell_v \in M_{\mathcal{B}^L, v}\)</span> and <span
+class="math inline">\(\phi_{v, s}^0\)</span> is spherical.</em></p>
+</div>
+<p>These propositions imply Theorem <a href="#theorem:cj4394av15"
+data-reference-type="ref" data-reference="theorem:cj4394av15">19</a>
+using two global inputs:</p>
+<ul>
+<li><p>Jacquet–Shalika (Lapid–Mao’s conjecture for <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n\)</span>), which tells us
+that for <span class="math display">\[\theta = \otimes_v \theta_v \in
+\tau,\]</span> we have <span class="math display">\[\left\lvert P_{N_Y }
+(\theta)  \right\rvert^2 = \prod_v^\ast P_{N_Y , v}
+    (\theta_v, \theta_v ),\]</span> where the bad local factors are
+essentially <span class="math inline">\(L (1, \tau,
+\mathop{\mathrm{Ad}})^{-1}\)</span>.</p></li>
+<li><p>The Ichino–Ikeda formula for <span class="math inline">\(P_H
+(E_Q^G (\phi_s ))\)</span>.</p></li>
+</ul>
+<p>To conclude, let’s explain why the map is called <span
+class="math inline">\(\mathrm{Unf}^\ast\)</span>. We will adopt the POV
+of Sakellaridis–Venkatesh and rewrite everything using
+Poincar<span>é</span> series. We have the corank one GGP variety <span
+class="math display">\[X = H \backslash G\]</span> and the
+“Bessel–Whittaker variety” <span class="math display">\[X^L =
+\mathcal{B}, \psi_{\mathcal{B} } \backslash \mathcal{G} \times N_Y ,
+\psi_Y \backslash {\mathop{\mathrm{GL}}}_E (Y),\]</span> and also <span
+class="math inline">\(X_Q = X / N_Q\)</span>.</p>
+<p>We get a commutative square <span class="math display">\[\begin{CD}
+    I_Q^G S^+(X^L(\mathbb{A})) @&gt; \Theta_{X^L} &gt;&gt; C^\infty
+(Q(F) N_Q(\mathbb{A}) \backslash G(\mathbb{A})) \\
+    @AA \mathrm{Unf} A @AAA \\
+    I_Q^G S(X_Q) @&gt; I_Q \Theta_{X_Q}&gt;&gt; C^\infty ([G]_Q ) =
+I_Q^G C^\infty ([L])\\
+    @A A \int_{N_Q(\mathbb{A})} A  @A C_Q A A \\
+    S (X(\mathbb{A})) @&gt;&gt; \Theta_X&gt; C^\infty ([G])\\
+  \end{CD}\]</span></p>
+<h1 id="optimal-lifting-and-sarnaks-density-conjecture">Optimal lifting
+and Sarnak’s density conjecture</h1>
+<p>Based on joint works with K. Golubev, S. Jana, P. Varju.</p>
+<p>Spectral gap, property <span class="math inline">\(\tau\)</span>, and
+expansion imply logarithmic diameter, lifting.</p>
+<p>Density then implies optimal lifting.</p>
+<p><span class="math display">\[\pi_q : {\mathop{\mathrm{SL}}}_n
+(\mathbb{Z} ) \rightarrow {\mathop{\mathrm{SL}}}_n (\mathbb{Z} / q
+\mathbb{Z}).\]</span> By strong approximation, this is onto.</p>
+<p>Given <span class="math inline">\(x \in {\mathop{\mathrm{SL}}}_n
+(\mathbb{Z} / q \mathbb{Z})\)</span>, want <span
+class="math inline">\(\gamma \in {\mathop{\mathrm{SL}}}_n
+(\mathbb{Z})\)</span> such that <span class="math inline">\(\pi_q
+(\gamma ) = x\)</span>, with <span class="math inline">\(\lVert
+\gamma  \rVert\)</span> minimal. We have <span
+class="math display">\[\lvert {\mathop{\mathrm{SL}}}_n (\mathbb{Z} / q
+\mathbb{Z} ) \rvert = q^{n - 1 + o (1)}.\]</span> It follows from the
+work of Duke–Rudnick–Sarnak that <span class="math display">\[\# \left\{
+\gamma \in {\mathop{\mathrm{SL}}}_n (\mathbb{Z} ) : \lVert \gamma  \rVert
+\leq T \right\}
+  \sim \mathop{\mathrm{vol}}\left\{ g \in {\mathop{\mathrm{SL}}}_n
+(\mathbb{R} ) : \lVert g  \rVert \leq T \right\}
+  \sim C_n T^{n^2 - n}.\]</span></p>
+<p>To get a good asymptotic, expect to need to take <span
+class="math display">\[T^{n^2 - n} \gg q^{n^2 - 1},\]</span> which
+translates to <span class="math display">\[T \geq q^{1  + 1 / n +
+o(1)}.\]</span></p>
+<div id="theorem:cj4460l2nz" class="theorem">
+<p><strong>Theorem 29</strong> (Jana–Kamber, following Assing–Blomer).
+<em>For each <span class="math inline">\(\varepsilon&gt; 0\)</span>, we
+have for <span class="math inline">\(q\)</span> large enough that for
+all <span class="math inline">\(x \in {\mathop{\mathrm{SL}}}_n (\mathbb{Z}
+/ q \mathbb{Z} )\)</span>, except for at most <span
+class="math inline">\(\varepsilon\left\lvert {\mathop{\mathrm{SL}}}_n
+(\mathbb{Z} / q \mathbb{Z} ) \right\rvert\)</span> many <span
+class="math inline">\(\gamma \in {\mathop{\mathrm{SL}}}_n
+(\mathbb{Z})\)</span>, there exists <span
+class="math inline">\(\gamma\)</span> with <span
+class="math inline">\(\pi_q (\gamma ) = x\)</span> such that <span
+class="math inline">\(\lVert \gamma  \rVert \leq q^{1 + 1/n +
+\varepsilon}\)</span>.</em></p>
+</div>
+<div id="theorem:cj4460l3qs" class="theorem">
+<p><strong>Theorem 30</strong> (K–Varju). <em>For each <span
+class="math inline">\(\varepsilon&gt; 0\)</span>, for <span
+class="math inline">\(q\)</span> large enough, there exists <span
+class="math inline">\(x \in {\mathop{\mathrm{SL}}}_n (\mathbb{Z} / q
+\mathbb{Z} )\)</span> such that for all <span
+class="math inline">\(\gamma \in {\mathop{\mathrm{SL}}}_n (\mathbb{Z}
+)\)</span>, there exists <span class="math inline">\(\gamma\)</span>
+with <span class="math inline">\(\pi_q (\gamma ) = x\)</span> and <span
+class="math inline">\(\lVert \gamma \rVert \geq q^{2 -
+\varepsilon}\)</span>.</em></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 31</strong>. <em>There exists <span
+class="math inline">\(C\)</span> such that for all <span
+class="math inline">\(x \in {\mathop{\mathrm{SL}}}_n (\mathbb{Z} / q
+\mathbb{Z})\)</span>, there exists <span class="math inline">\(\gamma
+\in {\mathop{\mathrm{SL}}}_n (\mathbb{Z})\)</span> such that <span
+class="math inline">\(\pi_q (x) = x\)</span> with <span
+class="math inline">\(\lVert \gamma  \rVert \leq C_n q^2 \log
+q\)</span>.</em></p>
+</div>
+<p>Let’s now discuss <em>optimal lifting</em>. Let <span
+class="math display">\[\Gamma \leq G \hookrightarrow
+{\mathop{\mathrm{SL}}}_n (\mathbb{R})\]</span> be an arithmetic group
+(semisimple, irreducible). Let <span class="math inline">\(\Gamma_q \leq
+\Gamma\)</span> be congruence lattices. Then we can more-or-less ask the
+same questions, but this time we look at the action of <span
+class="math inline">\(\Gamma\)</span> on the set <span
+class="math inline">\(\Gamma / \Gamma_q\)</span>. We get an action <span
+class="math display">\[\Gamma \circlearrowright \Gamma /
+\Gamma_q,\]</span> and we have <span class="math display">\[\# \left\{
+\gamma \in \Gamma : \lVert \gamma  \rVert \leq T \right\}
+  \asymp \mathop{\mathrm{vol}}\left\{ g \in G : \lVert g \rVert \leq T
+\right\}
+  \asymp
+  T^\alpha \log^B T.\]</span></p>
+<div id="conjecture:cj4460l5mk" class="conjecture">
+<p><strong>Conjecture 2</strong>. <em>For each <span
+class="math inline">\(\varepsilon&gt; 0\)</span>, for <span
+class="math inline">\(q\)</span> large enough, assuming that <span
+class="math inline">\(T^\alpha \geq [\Gamma : \Gamma_q ]^{1 +
+\varepsilon}\)</span>, for all <span class="math inline">\((x, y ) \in
+\Gamma / \Gamma_q\)</span> except for at most <span
+class="math inline">\(\varepsilon\lvert \Gamma /
+\Gamma_q  \rvert^2\)</span> many, there exists <span
+class="math inline">\(\gamma \in \Gamma\)</span> such that <span
+class="math inline">\(\gamma \cdot x = y\)</span> and <span
+class="math inline">\(\lVert \gamma  \rVert \leq T\)</span>.</em></p>
+</div>
+<p>Note that if <span class="math inline">\(\Gamma_q\)</span> is normal,
+then we get a statement concerning “for all <span
+class="math inline">\(x\)</span>, for almost all <span
+class="math inline">\(y\)</span>.”</p>
+<p>In particular, for <span class="math inline">\(T^\alpha \geq [\Gamma
+: \Gamma_q ]\)</span>, we can lift all elements.</p>
+<div id="example:cj4460l6xt" class="example">
+<p><strong>Example 32</strong>. Consider the action <span
+class="math display">\[{\mathop{\mathrm{SL}}}_n (\mathbb{Z})
+\circlearrowright A_q := \left\{ (a_1, \dotsc, a_n ) \in (\mathbb{Z} / q
+\mathbb{Z} )^n  : \gcd (a_1, \dotsc, a_n , q) = 1 \right\}.\]</span>
+<em>Optimal lifting</em> says here that for almost all <span
+class="math inline">\(x, y \in A_q\)</span>, there exists <span
+class="math inline">\(\gamma \in {\mathop{\mathrm{SL}}}_n
+(\mathbb{Z})\)</span> such that <span class="math display">\[\gamma
+\cdot x = y
+    \quad \text{and}
+    \quad
+    \lVert \gamma \rVert \leq q^{\frac{1}{n - 1} +
+\varepsilon}.\]</span> However, taking <span class="math display">\[x =
+e =
+    \begin{pmatrix}
+      1  \\
+      0  \\
+      0\\
+      \vdots \\
+      0
+    \end{pmatrix},
+    \quad
+    y =
+    \begin{pmatrix}
+      1  \\
+      \lfloor q/2 \rfloor  \\
+      0\\
+      \vdots \\
+      0
+    \end{pmatrix},\]</span> we have <span class="math display">\[\lVert
+\gamma  \rVert \gg q.\]</span> This is somehow related to the failure of
+the Ramanujan conjecture in this case.</p>
+</div>
+<p>Now let’s turn to <em>Sarnak–Xue counting</em>. We want to bound the
+size of the set <span class="math display">\[\# \left\{ (\gamma, x ) \in
+\Gamma \times \Gamma / \Gamma_q
+    :
+    \gamma \cdot x = x, \,
+    \lVert \gamma  \rVert \leq T
+  \right\}.\]</span> We hope for a bound like <span
+class="math display">\[\ll \left( T [\Gamma : \Gamma_q ]
+\right)^\varepsilon
+  \left( T^\alpha + T^{\alpha / 2 } [\Gamma : \Gamma_q]
+\right).\]</span> Can be used for other applications. Implies density of
+optimal lifting.</p>
+<p>Write <span class="math display">\[G = K A_+ K,
+  \quad
+  A_+ = \mathbb{R} r / W.\]</span> Get a map <span
+class="math inline">\(g \mapsto a(g) \in A_+\)</span>. Let <span
+class="math inline">\(\delta : A_+ \rightarrow \mathbb{R}^+\)</span>
+denote the modular character, given in the case of <span
+class="math inline">\({\mathop{\mathrm{SL}}}_n(\mathbb{R})\)</span> on
+<span class="math inline">\(a = \mathop{\mathrm{diag}}(a_1 &gt; \dotsb
+&gt; a_n)\)</span> by <span class="math display">\[\delta(a) = a_1^{n -
+1 } a_2^{n - 3 } \dotsb a_n^{1 - n}.\]</span> For a small ball <span
+class="math inline">\(B \subseteq A_+\)</span>, we have
+(Duke–Rudnick–Sarnak) <span class="math display">\[\#  \left\{ \gamma
+\in \gamma : a (\Gamma) = a_0 B \right\}
+  \asymp \mathop{\mathrm{vol}}\left\{ g \in G : a (g) = a_0 B \right\}
+  \asymp
+  \delta (a_0).\]</span> The strongest counting possible is that with
+respect to the norm <span class="math inline">\(\lVert \gamma \rVert =
+\delta (a (\gamma ))\)</span>.</p>
+<div id="proposition:cj4460l81z" class="proposition">
+<p><strong>Proposition 33</strong>. <em>Counting (relative to <span
+class="math inline">\(\delta\)</span>) implies optimal lifting relative
+to every <span class="math inline">\(\lVert . \rVert\)</span>.</em></p>
+</div>
+<p>Let’s briefly discuss some representation theory.</p>
+<p>Let <span class="math inline">\((\pi, V)\)</span> be an irreducible
+unitary representation of <span class="math inline">\(G\)</span>, and
+let <span class="math inline">\(v_1, v_2 \in V\)</span> be <span
+class="math inline">\(K\)</span>-finite. Set <span
+class="math display">\[f (g) := \langle v_1, \pi (g)
+v_2  \rangle\]</span> and define <span class="math display">\[p (\pi) :=
+\inf \left\{ p : f \in L^p (G)  \right\}.\]</span> Consider <span
+class="math inline">\({\mathop{\mathrm{SL}}}_n (\mathbb{R})\)</span>
+[should be <span
+class="math inline">\({\mathop{\mathrm{PGL}}}_n(\mathbb{R})\)</span>] and
+spherical representations. Get a Satake parameter <span
+class="math inline">\(s (\pi) \in \mathbb{C}^n / W\)</span>, which we
+may represent by <span class="math display">\[\left\{ (\alpha_1, \dotsc,
+\alpha_n ) : \alpha_1 + \dotsb + \alpha_n = 0 ,
+  \Re (\alpha_1 ) \geq \dotsb \geq \Re (\alpha_n )\right\}.\]</span> For
+<span class="math inline">\(\pi\)</span> trivial, we have <span
+class="math display">\[s (\pi) = \left( \frac{n - 1 }{ 2} , \frac{n -
+3}{2}, \quad, \frac{1 - n}{2} \right) = \rho \implies p (\pi) =
+\infty.\]</span> Then <span class="math display">\[\Re (s (\pi) )
+  = 0 \iff \pi: \text{tempered} \iff p (\pi) = 2.\]</span> If <span
+class="math inline">\(s (\pi) = (\alpha_1, \dotsc, \alpha_n )\)</span>,
+then <span class="math display">\[\begin{align}
+  p (\pi)
+  &amp;= \inf \left\{
+    p : \text{ for each } 1 \leq j \leq n,
+    \,
+    \sum_{i = 1}^n \Re (\alpha_i ) \leq \left( 1 - \frac{2}{p} \right)
+\Re (p_i )
+  \right\}
+  \\
+  &amp;\geq \inf \left\{ p : \Re(\alpha_1) \leq \left( 1 - \frac{2}{p}
+\right)
+    \left( \frac{n - 1}{2} \right)\right\}
+    = p &#39; (H).
+\end{align}\]</span> Also, <span class="math display">\[r (\pi) = \sum
+\left\lvert \alpha_i  \right\rvert^2 + 1.\]</span></p>
+<p>We now state a special case of a density conjecture (beyond that of
+Sarnak). We assume that <span class="math inline">\(\Gamma_q\)</span> is
+cocompact. Then <span class="math display">\[L^2 (G / \Gamma_q ) =
+\bigoplus_\pi m (\pi, \Gamma_q) \pi.\]</span> The Weyl law here says
+that the number of representations <span
+class="math inline">\(\pi\)</span> that are spherical and such that we
+can bound their complexity by some number <span
+class="math inline">\(T\)</span> behaves more-or-less like <span
+class="math inline">\(T\)</span> to some power, the precise exponent of
+which we don’t really care about, times the index: <span
+class="math display">\[\sum_{
+    \substack{
+      \pi : \text{spherical},  \\
+       \gamma (\pi) \leq T
+    }
+  }
+  m (\pi, \Gamma_q )
+  \asymp T^{C_1 } [\Gamma : \Gamma_q].\]</span> The <em>density
+conjecture</em> says <span class="math display">\[\sum_{
+    \substack{
+      \pi : \text{spherical},  \\
+      \gamma (\pi) \leq T, \\
+      p (\pi) &gt; p
+    }
+  }
+  m (\pi, \Gamma_q )
+  \ll_\varepsilon T^{C_2} \left[ \Gamma : \Gamma_q \right]^{\frac{2}{p}
++ \varepsilon}.\]</span></p>
+<p>What we have is that spherical density implies counting, which in
+turn implies optimal lifting. Again, this is in the cocompact case.</p>
+<p>Need to add Eisenstein series. <span
+class="math inline">\(\pi_t\)</span>, <span class="math inline">\(t \in
+\mathbb{R}^d\)</span>. <span class="math inline">\(p (\pi_t ) = p (\pi_0
+)\)</span>. <span class="math inline">\(\gamma (\pi_t ) \geq \gamma
+(\pi_0)\)</span>. Just add <span class="math inline">\(\pi_0\)</span> to
+the Left hand side.</p>
+<div class="theorem">
+<p><strong>Theorem 34</strong> (Jana–Kamber). <em>Assuming FLM
+properties (TWN+ and BD), we have <span
+class="math display">\[\text{spherical density} \implies
+    \text{counting and optimal lifting}.\]</span></em></p>
+</div>
+<h1 id="jana-on-the-local-l2-bound-of-eisenstein-series">Jana, <em>On
+the local <span class="math inline">\(L^2\)</span>-bound of Eisenstein
+series</em></h1>
+<p>Joint work with Amitay Kamber.</p>
+<p><strong>Motivation</strong>.</p>
+<ul>
+<li><p><u>Arithmetic</u>: start with the characteristic function <span
+class="math inline">\(h_T \in C_c \infty (K \backslash G / K)\)</span>
+of the ball of radius <span class="math inline">\(T\)</span> on <span
+class="math inline">\({\mathop{\mathrm{SL}}}_n(\mathbb{R})\)</span>, and
+try to estimate <span class="math display">\[\begin{align}
+    \sum_{\gamma \in \Gamma_q } h_T (\gamma)
+    &amp;= \sum_{\gamma \in \Gamma } h_T (e^{-1} \gamma e)
+      = k_{h_T } (e, e)
+      \approx \int_{\varphi }
+      \lvert \varphi (e) \rvert^2
+      \hat{h}_T (\theta (\varphi) ) \, d \varphi \\
+  
+\end{align}\]</span> For another example, we could take a growing
+radius ball at the archimedean place and a shrinking ball at the
+non-archimedean place: <span class="math display">\[h = 1_{B_T }^\infty
+1_{\Gamma (q) }^f.\]</span> This was relevant for the optimal lifting
+question. One can also reverse the roles: <span class="math display">\[h
+= 1_{B_\varepsilon}^\infty 1_{K \mu K}^f.\]</span> This is relevant for
+the question of the optimal Diophantine exponent (Ghosh–Gorodnik–Nevo,
+).</p></li>
+<li><p><u>Analytic</u>: try to estimate <span
+class="math display">\[\lVert \varphi |_{\Omega}
+\rVert_2^2.\]</span></p>
+<ol>
+<li><p>Let <span class="math inline">\(M\)</span> be a compact manifold,
+let <span class="math inline">\(\varphi\)</span> be an <span
+class="math inline">\(L^2\)</span>-normalized eigenfunction, and try to
+estimate its <span class="math inline">\(L^p\)</span>-norm <span
+class="math inline">\(\lVert \varphi \rVert_{L^p }\)</span> in terms of
+the Laplace eigenvalue <span
+class="math inline">\(\lambda_\varphi\)</span>? For example, what is the
+correct exponent for <span class="math display">\[\frac{\lVert
+\varphi  \rVert_{L^\infty  }}{ \lVert \varphi  \rVert_{L^2 }}
+      \ll
+      \lambda_\varphi^{?}.\]</span></p>
+<p>Avakumonic, Levitan–H<span>ö</span>rmander.</p></li>
+<li><p>Let <span class="math inline">\(M = G / K\)</span> be locally
+symmetric. Then <span class="math display">\[\frac{\lVert
+\varphi  \rVert _\infty }{ \lVert \varphi  \rVert_2 }
+      \ll
+      \lambda_\varphi^{ \frac{\dim -
+\mathop{\mathrm{rank}}}{4}}.\]</span></p></li>
+<li><p><span class="math inline">\(M = \Gamma \backslash G / K\)</span>,
+<span class="math inline">\(\varphi\)</span> is also a (cuspidal)
+eigenfunction of the full Hecke algebra (Iwaniec–Sarnak). Improvements,
+typically on a compact set.</p></li>
+</ol></li>
+</ul>
+<p>Our focus is on <em>Eisenstein series</em>. Let</p>
+<ol>
+<li><p><span class="math inline">\(G/F\)</span> be reductive,</p></li>
+<li><p><span class="math inline">\(P \leq G\)</span> be a standard
+parabolic,</p></li>
+<li><p><span class="math inline">\(P = M_P N_P\)</span>.</p></li>
+<li><p>We define <span
+class="math inline">\(\mathfrak{a}_M^\ast\)</span> to be the <span
+class="math inline">\(\mathbb{R}\)</span>-vector space of the space of
+<span class="math inline">\(F\)</span>-rational characters of <span
+class="math inline">\(M\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(\pi\)</span> be a
+<em>square-integrable</em> representation of <span
+class="math inline">\(M (\mathbb{A})\)</span>, that is to say, <span
+class="math inline">\(\pi\)</span> can be realized in <span
+class="math inline">\(L^2_{\mathop{\mathrm{disc}}}
+([M])\)</span>.</p></li>
+<li><p>We set <span class="math display">\[\mathcal{A}^2 (P) :=
+    \left\{ \varphi : N_P (\mathbb{A} ) M_P (F) \backslash G (\mathbb{A}
+) \rightarrow \mathbb{C} \middle\vert
+      \begin{gathered}
+        \varphi (a m k ) = \delta_P^{1/2} (a) \varphi (m k ) \, \forall
+k \in K, \\
+      \,
+      \varphi |_{M K} \in L^2 ([M])
+      \end{gathered}
+    \right\}.\]</span></p></li>
+</ol>
+<p>For example, if <span class="math inline">\(G =
+\mathop{\mathrm{GL}}(n)\)</span>, then <span
+class="math inline">\(P\)</span> consists of block upper-triangular
+matrices, attached to some partition <span class="math inline">\(n = n_1
++ \dotsb + n_k\)</span>. Then <span
+class="math inline">\(\mathfrak{a}_{M, \mathbb{C} }^\ast =
+\mathbb{C}^k\)</span>.</p>
+<p>We then define, for <span class="math inline">\(\lambda \in
+\mathfrak{a}_{M, \mathbb{C} }^\ast\)</span>, <span
+class="math display">\[{\mathop{\mathrm{Eis}}}_P (\varphi, \lambda ) (g )
+:=
+  \sum_{\gamma \in P (F) \backslash G (F) } \varphi (\gamma g )
+  e^{\left\langle H_m  (\gamma g), \lambda  \right\rangle}.\]</span></p>
+<div id="conjecture:cj4460lm8g" class="conjecture">
+<p><strong>Conjecture 3</strong>. <em>Let <span
+class="math inline">\(\lVert \varphi  \rVert = 1\)</span>. Then <span
+class="math display">\[\int_{\Omega }
+    \left\lvert \mathop{\mathrm{Eis}}(\varphi, \lambda )
+(x)  \right\rvert^2 \, d x
+    \ll_{\Omega}    \log \left( 1 + \lVert \lambda  \rVert +
+\nu_\varphi  \right)^{\dim \mathfrak{a}_M^G}.\]</span></em></p>
+</div>
+<div id="theorem:cj4460le6j" class="theorem">
+<p><strong>Theorem 35</strong> (J–Kamber 22+). <em>For <span
+class="math inline">\(G = \mathop{\mathrm{GL}}(n)\)</span>, we have
+<span class="math display">\[\int_{\lVert \lambda - \lambda_0 \rVert
+\leq 1 }
+    \lVert \mathop{\mathrm{Eis}}(\varphi, \lambda ) |_{\Omega}
+\rVert_2^2
+    \, d \lambda
+    \ll \log \left( 1 + \lVert \lambda_0  \rVert + \nu_\varphi  \right)
+    ^{\dim \mathfrak{a}_M^G }.\]</span></em></p>
+</div>
+<ol>
+<li><p><span class="math inline">\(G = \mathop{\mathrm{GL}}(2)\)</span>:
+Conjecture <a href="#conjecture:cj4460lm8g" data-reference-type="ref"
+data-reference="conjecture:cj4460lm8g">3</a> follows from classical
+Maass–Selberg. Here <span class="math inline">\(\dim \mathfrak{a}_M^G =
+1\)</span>.</p></li>
+<li><p><span class="math inline">\(G = \mathop{\mathrm{GL}}(3)\)</span>:
+S. D. Miller (2002): analogue of Theorem <a href="#theorem:cj4460le6j"
+data-reference-type="ref" data-reference="theorem:cj4460le6j">35</a>.
+Here <span class="math display">\[\dim \mathfrak{a}_M^G =
+    \begin{cases}
+      2 &amp; \text{ if } P = B, \\
+      1 &amp; \text{ if $P$ is maximal.}
+    \end{cases}\]</span></p></li>
+<li><p><span class="math inline">\(G = \mathop{\mathrm{GL}}(n)\)</span>:
+L. Zhong (2019): <span class="math inline">\(P \rightsquigarrow n =
+(n-1) + 1\)</span>, <span class="math inline">\(\varphi\)</span>
+trivial.</p></li>
+</ol>
+<div class="theorem">
+<p><strong>Theorem 36</strong> (J–Kamber 2022+). <em>Assume that <span
+class="math inline">\(G/F\)</span> satisfies TWN+ (tempered winding
+number) and BD (bounded degree), cf. Finis–Lapid–M<span>ü</span>ller.
+Let <span class="math inline">\(\chi\)</span> be a cuspidal datum, this
+<span class="math inline">\(\chi = (L, \sigma)\)</span> (taken up to
+<span class="math inline">\(G(F)\)</span>-conjugacy). What we prove is
+then the following: for any parabolic <span
+class="math inline">\(P\)</span>, <span class="math display">\[\int_{
+      \substack{
+        \lVert \lambda - \lambda_0  \rVert \leq 1  \\
+         \lambda \in i (\mathfrak{a}_P^G )^\ast
+      }
+    }
+    \lVert \Lambda^T \mathop{\mathrm{Eis}}(\varphi, \lambda ) \rVert_2^2
+\, d \lambda
+    \ll
+    \log \left( 1 + \lvert \lambda_0  \rvert + \nu_\sigma \right) \dim
+\mathfrak{a}_L^G F (\chi, \mathrm{triv}),\]</span> where in general, for
+a subgroup <span class="math inline">\(K \leq G (\mathbb{A}_f )\)</span>
+and <span class="math inline">\(\tau \in \Im (K _\infty )\)</span>,
+<span class="math display">\[F (\chi, K)
+    :=
+    \sum_{P}
+    \dim \left( \mathcal{A}_\chi^2 (P)^{K, \tau } \right).\]</span> Here
+<span class="math inline">\(\varphi\)</span> is chosen to lie in <span
+class="math inline">\(\mathcal{A}^2 (P)_\chi \neq 0\)</span>.</em></p>
+</div>
+<p>The reflex is to try to bound the integral in question using
+Maass–Selberg. What goes wrong there?</p>
+<ol>
+<li><p>Let’s warm up with the case of <span class="math inline">\(G =
+\mathop{\mathrm{GL}}(2)\)</span>. We have <span
+class="math display">\[\begin{align}
+  \lVert \Lambda^T \mathop{\mathrm{Eis}}(\mathbf{1}, \lambda )
+\rVert_2^2
+  &amp;=
+  \lim_{\lambda &#39; \rightarrow \lambda }
+  \frac{e^{T (\lambda &#39; - \lambda )}}{\lambda &#39; - \lambda }
+  +
+  \frac{e^{T (\lambda - \lambda &#39;)}}{\lambda - \lambda &#39;}
+  C (\lambda &#39;) \overline{C (\lambda) }
+  +
+  \frac{e^{T (\lambda + \lambda &#39;)} C(\lambda &#39;)}{\lambda +
+\lambda &#39;}
+  +
+  \frac{e^{- T (\lambda + \lambda &#39;)}}{- (\lambda + \lambda &#39;)}
+  \overline{c (\lambda)}  \\
+  &amp;= T + \frac{c&#39; (\lambda) }{c (\lambda) }
+    + \Re \left( \frac{e^{T 2 \lambda }}{ \lambda } c (\lambda) \right).
+\end{align}\]</span> Here <span class="math display">\[c
+(\lambda)  =  \frac{\xi (\lambda) }{\xi (\lambda + 1)}
+  \rightsquigarrow
+  \frac{\xi &#39; (\lambda + 1)}{\xi (\lambda + 1)}.\]</span></p></li>
+<li><p>How about the case of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n\)</span>, with <span
+class="math inline">\(\varphi\)</span> cuspidal? We get <span
+class="math display">\[\lim_{\lambda &#39; \rightarrow \lambda }
+    \sum_P \sum_{w, w&#39;}
+    \frac{\left\langle M (w, \lambda ) \varphi, M (w &#39; , \lambda
+&#39; ) \varphi  \right\rangle}{
+      \theta_P (\lambda, w, w&#39;)
+    }
+    e^{(\dotsb) T}.\]</span> This gives rise to <span
+class="math display">\[\partial_{s = 0}^{n}
+    \left(
+      \frac{L &#39; (1 + s, \pi \otimes \pi &#39;)}{L (1 + s, \pi
+\otimes \pi &#39;)}
+    \right).\]</span> So we need to know the standard zero-free region,
+or even more. But we can’t rule out the fact that <span
+class="math inline">\(n\)</span> can be relatively large.</p></li>
+<li><p>How about <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n\)</span>, when <span
+class="math inline">\(\varphi\)</span> is discrete? Then Langlands
+doesn’t even give the formula, but rather Arthur gives an approximate
+version, coming from the following fact. We know abstractly that the
+discrete series appears as a residue of cuspidal Eisenstein series, and
+you write every discrete series as a representation of cuspidal
+Eisenstein series as in this formula, apply Langlands to the latter;
+there are a few more terms, coming from extra residues. FOr general
+<span class="math inline">\(G\)</span>, TWN+ and BD bound the
+intertwining operator and its first derivative.</p></li>
+</ol>
+<p>How does our proof go? The average over <span
+class="math inline">\(\lVert \lambda - \lambda_0  \rVert \leq 1\)</span>
+mollifies the effect of any exceptional zeros. But even then, we don’t
+know how to not get such terms <span class="math inline">\(L /
+L\)</span>. That’s why we do another average over <span
+class="math inline">\(\varphi \in \mathcal{B} \left(\mathcal{A}^2
+(P)^{K_{\mathbb{A}}}_{\chi, \pi }\right)\)</span>, and sum further over
+<span class="math inline">\(P\)</span>: <span
+class="math display">\[\sum_P \sum_\pi
+  \sum_{\varphi \in \mathcal{B} \left( \mathcal{A}^2
+(P)^{K_{\mathbb{A}}}_{\chi, \pi } \right)}
+  \int_{\lVert \lambda - \lambda_0  \rVert \leq 1}
+  \lVert \Lambda^T \mathop{\mathrm{Eis}}(\varphi, \lambda )
+\rVert_2^2.\]</span> We then need Arthur’s development of the spectral
+side of the trace formula via <span class="math inline">\((G,
+M)\)</span>-family calculus, and the Finis–Lapid–M<span>"u</span>ller
+reformulation. This gives <span class="math display">\[\sum_P \sum_\pi
+\sum_L \sum_w \int_{\lvert \lambda - \lambda_0  \rvert \leq 1}
+  \mathop{\mathrm{trace}}\left(
+    M (w, L, T)
+  \right)
+  \vert_{\mathcal{A}^1 (P)_{\chi, \pi }^{K_{\mathbb{A}}}}.\]</span> To
+conclude, blah.</p>
+<h1
+id="assing-on-spherical-density-theorems-for-the-principal-congruence-subgroup-in-mathopmathrmsl_n">Assing,
+<em>On spherical density theorems for the principal congruence subgroup
+in</em> <span class="math inline">\({\mathop{\mathrm{SL}}}_n\)</span></h1>
+<p>Joint work with Blomer.</p>
+<p>We’ll look at <span
+class="math display">\[L^2_{\mathop{\mathrm{cusp}}}\left(
+{\mathop{\mathrm{SL}}}_n (\mathbb{Q} ) \backslash {\mathop{\mathrm{SL}}}_n
+(\mathbb{A} )^1 / K _\infty \right)
+  = \bigoplus_{\pi : \text{spherical at } \infty }
+  \pi.\]</span> We may factor <span class="math display">\[\pi =
+\otimes_v &#39; \pi_v.\]</span> Since the <span
+class="math inline">\(\infty\)</span>-component is spherical, we can
+associate a parameter <span class="math display">\[\pi _\infty
+\rightsquigarrow \mu_\pi (\infty ) \in \mathbb{C}^n / W.\]</span> We can
+think of <span class="math inline">\(\mu_\pi (\infty)\)</span> as a
+multiset <span class="math inline">\(\{\mu_{\pi , 1} (\infty), \dotsc,
+\mu_{\pi, n} (\infty) \}\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(\mu_\pi (\infty) \in (i \mathbb{R}
+)^n\)</span> if and only if <span class="math inline">\(\pi\)</span> is
+tempered at <span class="math inline">\(\infty\)</span>.</p></li>
+<li><p><span class="math inline">\(\mu_{\mathrm{triv}} = \left( \frac{n
+- 1}{2}, \dotsc, -\frac{n-1}{2} \right).\)</span></p></li>
+</ul>
+<p>Set <span class="math display">\[\sigma_\pi (\infty) := \max_i
+\left\lvert \Re \left( \mu_{\pi, i} (\infty)  \right)
+\right\rvert.\]</span></p>
+<div class="remark">
+<p><strong>Remark 37</strong>. </p>
+<ul>
+<li><p>This is not the same measure of non-temperedness as in Amitay
+Kamber’s talk (<span class="math inline">\(\rho (\pi _\infty
+)\)</span>).</p></li>
+<li><p>We have <span class="math display">\[\sigma_\pi (\infty) &lt;
+1/2.\]</span> Put <span
+class="math display">\[N_{\mathop{\mathrm{cusp}}} \left( K (q), M;
+\sigma  \right)
+      = \sum_{
+        \substack{
+          \pi : \text{spherical at } \infty  \\
+          \lVert \mu_\pi (\infty)  \rVert \leq M \\
+          \sigma_\pi (\infty) \geq \sigma
+        }
+      }
+      \dim \left( \pi^{K (q) } \right).\]</span> Here <span
+class="math inline">\(K (q) = K _\infty \prod_p K_p
+(q)\)</span>.</p></li>
+</ul>
+</div>
+<p>Our goal is to prove a bound of the form <span id="eq:cj4463r0qy" class="math display">\[\label{eq:cj4463r0qy}\tag{1}
+  N_{\mathop{\mathrm{cusp}}} \left( K (q) , M; \sigma  \right) \ll_{n,
+m, \varepsilon}
+  \varphi (q)
+  q^{(n^2 - 1) [1 - a \cdot \sigma ] + \varepsilon}.\]</span> For
+Sarnak’s spherical density hypothesis, we want <span
+class="math display">\[a = \frac{2}{ n - 1}.\]</span></p>
+<div class="theorem">
+<p><strong>Theorem 38</strong> (Blomer–Assing 2022). <em><a
+href="#eq:cj4463r0qy" data-reference-type="eqref"
+data-reference="eq:cj4463r0qy">\((1)\)</a> holds for <span
+class="math inline">\(q\)</span> squarefree and with <span
+class="math inline">\(a = \frac{2}{n - 1}\)</span>.</em></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 39</strong> (2023+). <em>Pretty sure that this holds
+for <span class="math inline">\(q\)</span> arbitrary, <span
+class="math inline">\(a &lt; \frac{2}{n-1}\)</span>.</em></p>
+</div>
+<p>First step of the proof is to write, with <span
+class="math inline">\(\mathfrak{o} = \mathbb{Z}_\mathfrak{p}\)</span>,
+<span class="math display">\[K_p (q) =
+\begin{pmatrix}
+1 + q \mathfrak{o}   &amp; q \mathfrak{o}  &amp;  q \mathfrak{o}  \\
+q \mathfrak{o}  &amp; 1 + q \mathfrak{o}  &amp; q \mathfrak{o}  \\
+q \mathfrak{o}  &amp; q \mathfrak{o}  &amp; 1 + q \mathfrak{o}  \\
+\end{pmatrix}.\]</span> We want to replace this thing by its conjugate
+under <span class="math display">\[D_q := \mathop{\mathrm{diag}}(q^2, q,
+1),\]</span> namely <span class="math display">\[K_p (q)^\flat :=
+  D_q^{-1} K_p (q) D_q
+  =
+  \begin{pmatrix}
+1 + q \mathfrak{o}  &amp;  \mathfrak{o}  &amp;  q^{-1} \mathfrak{o}  \\
+q^2 \mathfrak{o}  &amp; 1 + q \mathfrak{o}  &amp;  \mathfrak{o}  \\
+q^3 \mathfrak{o}  &amp; q^2 \mathfrak{o}  &amp; 1 + q \mathfrak{o} \\
+\end{pmatrix}.\]</span> To prove <a href="#eq:cj4463r0qy"
+data-reference-type="eqref"
+data-reference="eq:cj4463r0qy">\((1)\)</a>, it suffices to bound
+<span id="eq:cj4467j3w4" class="math display">\[\label{eq:cj4467j3w4}\tag{2}
+  \sum_{
+    \substack{
+      \pi : \text{spherical at } \infty,  \\
+      \lVert \mu_\pi  \rVert \leq M, \\
+      \text{central character }\lambda
+    }
+  }
+  Z^{2 \sigma_\pi (\infty) }
+  \dim \left( \pi^{K (q)^{\flat}} \right)\]</span> for sufficiently
+large <span class="math inline">\(Z\)</span>. This gives <span
+class="math display">\[N_{\mathop{\mathrm{cusp}}} \left( K (q)^\flat ;
+M, \sigma  \right)
+  \leq
+  \sum_{\dotsb } Z^{2 \sigma_p (\infty) - 2 \sigma }
+  \dim \left( \pi^{K (q)^\flat } \right)
+  \ll
+  Z^{- 2 \sigma } q^{n^2 - 1 + \varepsilon}.\]</span> To get <span
+class="math inline">\(a = \frac{2}{n - 1}\)</span>, then we need to be
+able to take <span class="math display">\[Z = q^{n + 1 -
+\varepsilon}.\]</span></p>
+<p>Need to replace the weight by something that works well with the
+Kuznetsov formula.</p>
+<div class="proposition">
+<p><strong>Proposition 40</strong>. <em>We have <span
+class="math display">\[\dim \left( \pi^{K (q)^\flat } \right)
+    \ll
+    \frac{q^{n^2 - 1}}{q^{n (n - 1) (n - 2)/6}}
+    \sum_{\varpi \in \mathcal{B} (\pi^{K_p (q)})}
+    \left\lvert W_\varpi (1)  \right\rvert^2.\]</span></em></p>
+</div>
+<p>This proposition reduces the proof of <a href="#eq:cj4467j3w4"
+data-reference-type="eqref"
+data-reference="eq:cj4467j3w4">\((2)\)</a> to <span
+class="math display">\[q^{n (n - 1 ) (n - 2) / 6} \gg \sum_\pi
+Z^{2_\sigma (\infty) }
+  \sum_{\varpi} \left\lvert W_\varpi (1)  \right\rvert^2 .\]</span> The
+right hand side relates under the Kuznetsov formula to <span
+class="math display">\[\sum_{w \in W}
+  \sum_{
+    \substack{
+      c \in \mathbb{N}^{n - 1 }  \\
+       c_i \in \mathbb{Z}
+    }
+  }
+  \frac{S_{q, w} (1, 1, c)}{ c_1 \dotsb c_{n - 1}}.\]</span></p>
+<div class="lemma">
+<p><strong>Lemma 41</strong>. We have <span class="math display">\[S_{q,
+1} (1, 1, c)
+    = 1_{c = 1} q^{n (n - 1 ) (n - 2)/6}.\]</span></p>
+</div>
+<p>This involves <span class="math display">\[X_{q, w} (c) = \left\{ (x,
+y) \in U (\mathbb{Z} ) \backslash U (\mathbb{Q} ) \times U_w
+(\mathbb{Q}) / U_w (\mathbb{Z} )
+    \middle \vert
+    x c^\ast w y \in \Gamma (q)^\flat
+  \right\},\]</span> where <span class="math display">\[c^\ast =
+\mathop{\mathrm{diag}}( 1/ c_{n - 1}, \dotsc, c_2 / c_1, c_1 ),\]</span>
+<span class="math display">\[S_{q, w} (1, 1, c)
+  = \sum_{(x,y) \in X_{q, w} (c) }
+  \theta (x) \theta (y).\]</span> Dabrowski–Reeder.</p>
+<div class="example">
+<p><strong>Example 42</strong>. Take <span
+class="math inline">\(q\)</span> prime, <span class="math inline">\(n =
+3\)</span>, <span class="math inline">\(w =
+\begin{pmatrix}
+0 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 0 \\
+\end{pmatrix}\)</span>, <span class="math inline">\(c = (q^3, s \cdot
+q^3 )\)</span>. Then <span class="math display">\[\begin{pmatrix}
+1 &amp; x &amp; y \\
+0 &amp; 1 &amp; z \\
+0 &amp; 0 &amp; 1 \\
+\end{pmatrix}
+\begin{pmatrix}
+c_2^{-1}  &amp; 0 &amp; 0 \\
+0 &amp; \frac{c_2}{c_1 } &amp; 0 \\
+0 &amp; 0 &amp; c_1  \\
+\end{pmatrix}
+\begin{pmatrix}
+0 &amp; 0 &amp; -1 \\
+0 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 0 \\
+\end{pmatrix}
+\begin{pmatrix}
+1 &amp; u &amp; v \\
+0 &amp; 1 &amp; w \\
+0 &amp; 0 &amp; 1 \\
+\end{pmatrix}
+=
+\begin{pmatrix}c_{1} y &amp; \ast &amp; \ast  \\ c_{1} z &amp; c_{1} u z
++ \frac{c_{2}}{c_{1}} &amp; \ast \\c_{1} &amp; c_{1} u &amp; c_{1}
+v\end{pmatrix}.\]</span> <span class="math inline">\(u = q^{-1}
+\bar{u}\)</span>, <span class="math inline">\(z = q^{-1}
+\bar{z}\)</span>, solve to get <span class="math inline">\(s + q \bar{u}
+\bar{z}\)</span>.</p>
+</div>
+<h1
+id="lapid-generic-automorphic-representations-of-classical-groups-old-and-new">Lapid,
+<em>Generic automorphic representations of classical groups: old and
+new</em></h1>
+<p>Let <span class="math inline">\(H \subset G\)</span> be reductive
+groups over <span class="math inline">\(F\)</span> and let <span
+class="math inline">\(\pi\)</span> be a cuspidal automorphic
+representation of <span class="math inline">\(G(\mathbb{A})\)</span>.
+Goal: <span class="math display">\[\left\lvert \int_{[H]} \varphi (h) \,
+d h \right\rvert^2 = \ast \int_{H(\mathbb{A})}
+  \left\langle \pi (h) \varphi, \varphi^\vee  \right\rangle_G \, d
+h.\]</span> Regularize using local factors of a suitable <span
+class="math inline">\(L\)</span>-function <span
+class="math inline">\(L^S (s_0, \pi, r)\)</span>.</p>
+<p>The descent construction of Ginzburg–Rallis–Soudry</p>
+<p>Let <span class="math inline">\(\pi\)</span> be an irreducible
+cuspidal representation of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n(\mathbb{A})\)</span>. Then,
+<span class="math inline">\(\pi\)</span> is self-dual if and only if
+either the symmetroc or exterior squares have a pole at <span
+class="math inline">\(s=1\)</span>. If it’s the exterior square, then
+<span class="math inline">\(n\)</span> is even and <span
+class="math inline">\(\omega_\pi = 1\)</span> (Jacquet–Shalika).</p>
+<p>Let <span class="math inline">\(\pi = \pi_1 \boxplus \dotsb \boxplus
+\pi_k\)</span>. Let <span class="math inline">\(E (\varphi, s)\)</span>
+be the Eisenstein series on <span class="math inline">\(H\)</span>, the
+split <span class="math inline">\({\mathop{\mathrm{SO}}}_{4 n}\)</span>,
+induced from <span class="math inline">\(\pi \lvert
+\det  \rvert^{s}\)</span> on the Siegel parabolic. It is defined by
+<span class="math display">\[E (h, \varphi, s) = \sum_{\gamma \in P (F)
+\backslash H (F) }
+  \varphi (\gamma h)
+  \varpi (\gamma h)^{d},
+  \quad
+  \varphi \in \mathcal{A}_{P, \pi }.\]</span></p>
+<h2
+id="müller-on-the-growth-of-torsion-in-the-cohomology-of-arithmetic-groups">M<span>ü</span>ller,
+<em>On the growth of torsion in the cohomology of arithmetic
+groups</em></h2>
+<p>Setup: easy.</p>
+<ul>
+<li><p><span class="math inline">\(\mathbf{G}\)</span>: connected,
+semisimple, linear</p></li>
+<li><p><span class="math inline">\(G = \mathbf{G}
+(\mathbb{R})\)</span></p></li>
+<li><p><span class="math inline">\(K \subset G\)</span>, <span
+class="math inline">\(\tilde{X} = G / K\)</span>, <span
+class="math inline">\(\Gamma \subset \mathbf{G} (\mathbb{Q})\)</span>,
+<span class="math inline">\(X = \Gamma \backslash
+\tilde{X}\)</span></p></li>
+<li><p><span class="math inline">\(\rho : \mathbf{G} \rightarrow
+\mathop{\mathrm{GL}}(V)\)</span> rational representation.</p></li>
+</ul>
+<p>Subspace of automorphic forms <span class="math display">\[A (\Gamma,
+G) \subset C^\infty (\gamma \backslash G).\]</span></p>
+<div class="theorem">
+<p><strong>Theorem 43</strong> (Franke). <em><span
+class="math inline">\(H^\ast (\Gamma, V) \cong H^\ast (\mathfrak{g}, K;
+A (\Gamma, G) \otimes V)\)</span>.</em></p>
+</div>
+<p>The <em>fundamental rank</em> is <span class="math display">\[\delta
+(G) := {\mathop{\mathrm{rank}}}_{\mathbb{C} } (G) -
+{\mathop{\mathrm{rank}}}_{\mathbb{C} } (K).\]</span> Let <span
+class="math inline">\(X = \Gamma \backslash \tilde{X}\)</span> be
+compact, and let <span class="math display">\[\Gamma \supset \Gamma_1
+\supset \dotsb \supset \Gamma_j \supset \dotsb\]</span> be a descending
+chain of normal subgroups of finite index with <span
+class="math inline">\(\cap_{j \geq 0} \Gamma_j  = \{1\}\)</span>. Set
+<span class="math inline">\(X_j := \Gamma_j \backslash
+\tilde{X}\)</span>.</p>
+<div class="theorem">
+<p><strong>Theorem 44</strong>. <em>The limit <span
+class="math display">\[\lim_{j \rightarrow \infty }
+    \frac{\dim H_p (X_j, \mathbb{C} )}{ [\Gamma : \Gamma_j ]}\]</span>
+something unless <span class="math inline">\(\delta (G) =0\)</span> and
+<span class="math inline">\(p = \frac{1}{2} \dim
+(\tilde{X})\)</span>.</em></p>
+</div>
+<p>This follows from a general result of L<span>ü</span>ck (1994): <span
+class="math display">\[\lim_{j \rightarrow \infty }
+  \frac{\dim H_p (X_j , \mathbb{C} )}{ [\Gamma : \Gamma_j ]}
+  = b_p^{(2)} (\tilde{X}),\]</span> the <span
+class="math inline">\(L^2\)</span>-Betti number, together with its
+explicit computation in the locally symmetric case.</p>
+<div class="example">
+<p><strong>Example 45</strong>. </p>
+<ul>
+<li><p><span class="math inline">\(\delta (G) = 0\)</span> for <span
+class="math inline">\({\mathop{\mathrm{SU}}}_{p, q}\)</span>, <span
+class="math inline">\({\mathop{\mathrm{SO}}}_{p, q}\)</span>, with <span
+class="math inline">\(p q\)</span> even,</p></li>
+<li><p><span class="math inline">\(\delta (G) = 1\)</span> for <span
+class="math inline">\({\mathop{\mathrm{SL}}}_3 (\mathbb{R})\)</span>,
+<span class="math inline">\({\mathop{\mathrm{SL}}}_4
+(\mathbb{R})\)</span>, <span
+class="math inline">\({\mathop{\mathrm{SO}}}_{p, q}\)</span>, <span
+class="math inline">\(p q\)</span> odd,</p></li>
+<li><p><span class="math inline">\(\delta (G) \geq 2\)</span> for <span
+class="math inline">\({\mathop{\mathrm{SL}}}_n (\mathbb{R})\)</span>,
+<span class="math inline">\(n \geq 5\)</span>.</p></li>
+</ul>
+</div>
+<p>Let <span class="math inline">\(M \subset V\)</span> be a <span
+class="math inline">\(\Gamma\)</span>-invariant lattice. Then <span
+class="math inline">\(H^j (\Gamma, M)\)</span> and <span
+class="math inline">\(H_j (\Gamma, M)\)</span> are finitely-generated
+<span class="math inline">\(\mathbb{Z}\)</span>-modules. If <span
+class="math inline">\(\Gamma\)</span> is torsion-free, let <span
+class="math inline">\(\mathcal{M}\)</span> be the local system of finite
+rank free <span class="math inline">\(\mathbb{Z}\)</span>-modules over
+<span class="math inline">\(X = \Gamma \backslash \tilde{X}\)</span>,
+associated to <span class="math inline">\(M\)</span>. Then <span
+class="math display">\[H_j (\Gamma, M) = H_j (X,
+\mathcal{M}).\]</span></p>
+<div class="example">
+<p><strong>Example 46</strong>. <span class="math inline">\(\rho =
+1\)</span> is the trivial representation. Then <span
+class="math inline">\(H^j (\Gamma, \mathbb{Z}) = H^j (X,
+\mathbb{Z})\)</span>.</p>
+</div>
+<div class="question">
+<p><strong>Question 4</strong>. Are there analogous results for <span
+class="math inline">\(H^j (\Gamma, M)_{\mathop{\mathrm{tors}}}\)</span>
+(resp. <span class="math inline">\(H_j (\Gamma,
+M)_{\mathop{\mathrm{tors}}}\)</span>).</p>
+</div>
+<p><strong>Motivation.</strong> Torsion classes which are eigenclasses
+of Hecke operators correspond to Galois representations over finite
+fields.</p>
+<ul>
+<li><p><span class="math inline">\(F / \mathbb{Q}\)</span> number field,
+<span class="math inline">\(F _\infty = F \otimes_{\mathbb{Q}}
+\mathbb{R}\)</span>,</p></li>
+<li><p><span class="math inline">\(K \subset {\mathop{\mathrm{GL}}}_n
+(\mathbb{A}_{F, f})\)</span> compact open subgroup,</p></li>
+<li><p><span class="math inline">\(K _\infty \subset
+{\mathop{\mathrm{GL}}}_n (F _\infty )\)</span> maximal compact
+subgroup,</p></li>
+<li><p><span class="math inline">\(\tilde{X} = {\mathop{\mathrm{GL}}}_n (F
+_\infty ) / \mathbb{R}_{&gt; 0} K _\infty\)</span>.</p></li>
+</ul>
+<p>Let <span class="math display">\[X_K := {\mathop{\mathrm{GL}}}_n (F)
+\backslash \left( \tilde{X} \times {\mathop{\mathrm{GL}}}_n
+(\mathbb{A}_{F, f}) / K \right).\]</span></p>
+<div id="conjecture:cj45oak248" class="conjecture">
+<p><strong>Conjecture 4</strong> (Ash–Serre). <em>Galois reps.</em></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 47</strong> (Scholze). <em>Yeah.</em></p>
+</div>
+<p><span class="math display">\[\mathop{\mathrm{Spin}}(7) + \frac{2}{3}
+= \int_x^y f (z) \, d z + C +
+\begin{pmatrix}
+a &amp; b \\
+c &amp; d \\
+\end{pmatrix}
+\begin{pmatrix}
+y &amp; z \\
+x &amp; e \\
+\end{pmatrix}.\]</span> The product is <span
+class="math display">\[\begin{pmatrix}a y + b x &amp; a z + e b\\c y + d
+x &amp; c z + e d\end{pmatrix}.\]</span> The cube is <span
+class="math display">\[\begin{pmatrix}2 x y z + e x z + y^{3} &amp; x
+z^{2} + y^{2} z + e y z + z e^{2}\\x^{2} z + x y^{2} + e x y + x e^{2}
+&amp; x y z + 2 e x z + e^{3}\end{pmatrix}\]</span></p>
+<p>Exotic primes: factorizations of stuff like <span
+class="math display">\[\# H_1 (\Gamma_0 (41 + 56 i),
+\mathbb{Z})_{\mathop{\mathrm{tors}}},\]</span> <span
+class="math display">\[\# H_2 (\Gamma (570),
+\mathbb{Z})_{\mathop{\mathrm{tors}}}.\]</span></p>
+<p>Growth of torsion?</p>
+<ul>
+<li><p><span class="math inline">\(\mathbf{G}\)</span>: anisotropic
+semisimple algebraic over <span
+class="math inline">\(\mathbb{Q}\)</span>,</p></li>
+<li><p><span class="math inline">\(\Gamma \subset \mathbf{G}
+(\mathbb{Q})\)</span> arithmetic subgroup,</p></li>
+<li><p><span class="math inline">\(\rho : \mathbf{G} \rightarrow
+\mathop{\mathrm{GL}}(V)\)</span> finite-dimensional rational
+representation,</p></li>
+<li><p><span class="math inline">\(M \subset V\)</span>: <span
+class="math inline">\(\Gamma\)</span>-invariant lattice.</p></li>
+</ul>
+<div id="conjecture:cj45oajukk" class="conjecture">
+<p><strong>Conjecture 5</strong> (Bergeron–Venkatesh). <em>For <span
+class="math inline">\(\Gamma_N \subset \Gamma\)</span> a sequence of
+congruence subgroups decreasing to the identity, there is a constant
+<span class="math inline">\(C_{G, M}\)</span> such that <span
+class="math display">\[\lim_{N \rightarrow \infty }
+    \frac{\log \lvert H_j (\Gamma_N, M)_{\mathop{\mathrm{tors}}}
+\rvert}{
+      [\Gamma : \Gamma_N ]
+    }
+    = C_{G, M} \mathop{\mathrm{vol}}(\Gamma \backslash
+\tilde{X}).\]</span> Moreover, <span class="math inline">\(C_{G, M} =
+0\)</span> unless <span class="math inline">\(\delta (G) = 1\)</span>
+and <span class="math display">\[j = \frac{\dim (\tilde{X})  -
+1}{2}.\]</span></em></p>
+</div>
+<p>Let</p>
+<ul>
+<li><p><span class="math inline">\(\Gamma_N\)</span>: descending
+sequence of normal subgroups,</p></li>
+<li><p><span class="math inline">\(M\)</span>: arithmetic <span
+class="math inline">\(\Gamma\)</span>-module, i.e., there is a rational
+representation <span class="math inline">\(\mathbf{G} \rightarrow
+\mathop{\mathrm{GL}}(M \otimes \mathbb{Q})\)</span>,</p></li>
+<li><p><span class="math inline">\(E_N \rightarrow \Gamma_N \backslash
+\tilde{X}\)</span>: flat vector bundle associated to <span
+class="math inline">\(\Gamma_N\)</span>-module,</p></li>
+<li><p>etc.</p></li>
+</ul>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
