@@ -35,6 +35,8 @@ These are notes for an ongoing Fall 2023 course on the Riemann zeta function and
   \item \cite[Chapter 13]{Dav80}, and
   \item part 3 of \href{these notes}{https://terrytao.wordpress.com/2014/12/09/254a-notes-2-complex-analytic-multiplicative-number-theory/}.
   \end{itemize}
+\item Tuesday, 3 October: contour shifting, especially Proposition~\ref{proposition:cj541es01g}
+\item Thursday, 4 October: deduction of the prime number theorem, \S\ref{sec:cj56fbu411}
 \end{itemize}
 
 
@@ -165,7 +167,7 @@ g(y) := \sum_{n \in \mathbb{Z} } f(n y).
 We assume henceforth that $f$ lies in the \href{https://en.wikipedia.org/wiki/Schwartz_space}{Schwartz space} $\mathcal{S}(\mathbb{R})$.
 
 The asymptotics of $g(y)$ are described as follows.
-\begin{lemma}
+\begin{lemma}\label{lemma:cj56e5j5uq}
   Let $f \in \mathcal{S}(R)$.
   \begin{enumerate}
 \item 
@@ -191,7 +193,7 @@ G(s) = \int_{\mathbb{R}^+ }^{\reg} y^s g (y) \,d^\times y,
 \end{equation*}
 like in \S\ref{sec:cj4unj4gyo}, by splitting the integral into two pieces (e.g, the contributions of $(0,1)$ and $(1,\infty$)), meromorphically continuing each piece, and then summing the results on their domain of overlap (if any).
 
-\begin{lemma}
+\begin{lemma}\label{lemma:cj56e5j3yz}
   $G(s)$ defines a meromorphic function on the complex plane whose only poles at simple ones:
   \begin{itemize}
 \item at $s = 0$, with residue $-f(0)$, and
@@ -267,7 +269,7 @@ G_f(s) = G_{\mathcal{F} f}(1-s).
 
 We suppose henceforth that $f$ is even.  This is without much loss of generality -- any function can be written as a sum of even and odd functions, and if $f$ is odd, then $g$ vanishes identically.
 
-\begin{exercise}
+\begin{exercise}\label{exercise:cj56e5j0b7}
   Let $f \in \mathcal{S}(\mathbb{R})$ be even.  Show that the Mellin transform
   \begin{equation*}
 F(s) := \int y^s f (y) \,d^\times y
@@ -278,7 +280,7 @@ F(s) := \int y^s f (y) \,d^\times y
   \end{equation*}
   [Use Taylor's theorem with remainder, and note that the odd Taylor coefficients vanish in view of the evenness assumption on $f$.]
 \end{exercise}
-\begin{example}
+\begin{example}\label{example:cj56e5io5n}
   Take $f(x) := e^{- \pi x^2}$.  Then
   \begin{equation}\label{eq:cj4vkj6hym}
 F(s) = \pi^{- s / 2 } \Gamma (s / 2),
@@ -301,7 +303,7 @@ G(s) = 2 \zeta(s) F(s), \qquad F(s) := \int y^s f(y) \,d^\times y.
 This gives another proof of the meromorphic behavior of $\zeta$.  TODO: say more.
 
 We can also deduce the functional equation:
-\begin{theorem}
+\begin{theorem}\label{theorem:cj56e5im1s}
   We have
   \begin{equation*}
 \xi(s) := \pi^{- s / 2 } \Gamma (s/ 2 ) \zeta(s) = \xi (1 - s).
@@ -313,7 +315,7 @@ We can also deduce the functional equation:
 
 \subsection{Euler product}\label{sec:cj4020t3kt}
 The link between the zeta function and the prime numbers is given by the following alternative formula:
-\begin{lemma}
+\begin{lemma}\label{lemma:cj56e5ilni}
   For $\Re(s) > 1$, we have
 \begin{equation*}
 \zeta(s) = \prod_p \frac{1}{1 - p^{- s}},
@@ -355,7 +357,7 @@ Here we say that an infinite product \emph{converges absolutely} if it converges
 
 
 As a basic illustration of the resulting link between the zeta function and the primes, we verify the following:
-\begin{lemma}
+\begin{lemma}\label{lemma:cj56e5ihnv}
   Let $s > 1$ be real, tending to $1$.  Then
   \begin{equation*}
 \sum_p \frac{1}{ p^s } = \log \frac{1}{1 - s} + \O(1).
@@ -374,7 +376,7 @@ As a basic illustration of the resulting link between the zeta function and the 
   \end{equation}
   in the indicated range.
 \end{proof}
-\begin{corollary}
+\begin{corollary}\label{corollary:cj56e5ijg7}
 $\sum_p 1 / p = \infty$.
 \end{corollary}
 
@@ -446,7 +448,7 @@ To make arguments like the above precise, we need some control over the growth o
 For the following, we closely follow the presentation of part 2 of \href{these notes}{https://terrytao.wordpress.com/2014/12/09/254a-notes-2-complex-analytic-multiplicative-number-theory/}.  In particular, the following results can all be sharpened a bit using the functional equation, but we won't pause to do so here.
 
 We begin by giving a simple formula for $\zeta$ valid in the critical strip $0 < \Re(s) < 1$.
-\begin{lemma}
+\begin{lemma}\label{lemma:cj56e5idm1}
   For $\Re(s) > 0$, we have
   \begin{equation}\label{eq:cj41j93u44}
     \zeta(s) - \frac{1}{s - 1}
@@ -472,7 +474,7 @@ We begin by giving a simple formula for $\zeta$ valid in the critical strip $0 <
 \end{proof}
 
 From this, we conclude a basic but useful upper bound for $\zeta$ in the critical strip.  (Much sharper forms are available, but we won't need them immediately.)
-\begin{lemma}
+\begin{lemma}\label{lemma:cj56e5ibho}
   For $s = \sigma + it $ with $\sigma \geq \eps > 0$ and $\lvert t \rvert \geq 2$, we have
   \begin{equation}\label{eq:cj41kdcbj7}
 \log \lvert \zeta(s) \rvert \leq \log (\lvert t \rvert) + \O_{\eps}(1).
@@ -540,7 +542,7 @@ With these results in hand, we can appeal to general properties of holomorphic f
 
 \subsection{Contour shifting and an explicit formula}
 We can now carry out the promised contour shifting arguments.  Here's a typical result that one can obtain in this way.  (Our arrangement is like Theorem 21 of \href{https://terrytao.wordpress.com/2014/12/09/254a-notes-2-complex-analytic-multiplicative-number-theory/}{these notes}, but with smooth weights, and should be compared against standard references such as \cite[Chapter 17]{Dav80} or \cite[\S5.5]{MR2061214}.  See also \cite{MR882550}.)
-\begin{proposition}
+\begin{proposition}\label{proposition:cj541es01g}
   Let $f \in C_c^\infty(\mathbb{R})$, with Mellin transform $F(s) = \int_{\mathbb{R}^+} y^s f(y) \,d^\times y$.  Let $x \geq 1$ and $\eps > 0$.  Then
   \begin{equation*}
     \sum_n \Lambda (n) f \left( \frac{n}{x} \right)
@@ -656,6 +658,215 @@ Note that since $f$ is smooth, the quantity $\mathcal{E}$ is finite (see externa
     \int_{t = T - 1}^{T + 1} \int_{\sigma = c_0}^{c}  \lvert D(\sigma + i t) \rvert \, d t \, d \sigma.
   \end{equation*}
   By another application of Lemma \ref{lemma:cj42xpd5qe}, this last double integral is $\ll \log T$.  By another application of the pigeonhole principle, we can find $t \in [T-1,T+1]$ such that $J_t \ll (1 + \lvert T \rvert)^{-99}$, say.  Since $T$ can be taken arbitrarily large, we obtain the required sequence of quantities $t$ along which $J_t \rightarrow 0$.
+\end{proof}
+
+\subsection{Zero-free regions}
+These results were presented in Sergey's lectures while I was travelling, following the reference \cite[\S3]{MR882550}.
+\begin{theorem}\label{theorem:cj541i3g6o}
+  There exists $c > 0$ so that if $\zeta(s) = 0$ for $s = \sigma + i t$, then
+  \begin{equation*}
+1 - \sigma > \frac{c}{\log (2 + \lvert t \rvert)}.
+  \end{equation*}
+  In particular, $\zeta(s) = 0$ only if $\Re(s) < 1$.
+\end{theorem}
+
+
+\subsection{Prime number theorem}\label{sec:cj56fbu411}
+
+We'll present the proof of the qualitative form, i.e., without giving an explicit error term.  First, we treat the case of a smoothly weighted sum.
+\begin{theorem}\label{theorem:cj56e013t4}
+  Fix $f \in C_c^\infty (\mathbb{R}^+ )$, with Mellin transform $F$, and let $x \rightarrow \infty$.  Then
+  \begin{equation*}
+\sum_{n} \Lambda (n) f \left( \frac{n}{x} \right) = F(1) x + o(x).
+\end{equation*}
+\end{theorem}
+\begin{proof}
+  We apply the explicit formula, as given in Proposition \ref{proposition:cj541es01g}, with some small $\eps > 0$.  The error quantity $E(T)$ is $\ll T^{-100}$, say, by the rapid decay of $F$, and so $\mathcal{E} \ll \int_{T \in \mathbb{R} } (1 + \lvert T \rvert)^{-100} \log(3 + |T|) \, d T \ll 1$.  Our task thereby reduces to showing that
+  \begin{equation}\label{eq:cj541i9qbt}
+\sum_{\rho : \Re(\rho) > \eps } F(\rho) x^\rho = o(x).
+  \end{equation}
+  
+  To that end, let us observe first that
+  \begin{equation*}
+\sum_{\rho : \Re(\rho) > \eps } \lvert F(\rho) \rvert < \infty.
+  \end{equation*}
+  Indeed, by the rapid decay of $F$, we have $F(\rho) \ll \lvert \rho \rvert^{-100}$, while by Proposition \ref{proposition:cj41z9de5r}, the number of $\rho$ with $\lvert \rho \rvert \leq T$ is $\ll T \log T$ for $T \geq 3$; the claimed convergence then follows by summing over dyadic ranges $X \leq \lvert \rho \rvert \leq 2X$.
+
+  It follows that for each $\alpha > 0$, we choose a finite multiset $\mathcal{R}$ of zeros $\rho$ as above such that the sum of $\lvert F(\rho) \rvert$ over the complement of $\mathcal{R}$ is at most $\alpha/2$.  On the other hand, for each $\rho \in \mathcal{R}$, we have by Theorem \ref{theorem:cj541i3g6o} that $\Re(\rho) < 1$, and so $\lim_{x \rightarrow \infty } F(\rho) x^{\rho-1} = 0$.  It follows that for $x > x_0(\alpha)$, the left hand side of \eqref{eq:cj541i9qbt} is bounded in magnitude by $\alpha$.  Since $\alpha > 0$ was arbitrary, we conclude that \eqref{eq:cj541i9qbt} holds, as required.
+\end{proof}
+
+Now we successively pass from this to more elementary statements.
+
+First, we approximate sharp cutoffs by smooth ones to deduce a sharply truncated dyadic estimate.
+\begin{theorem}\label{theorem:cj56e4c1fl}
+  As $x \rightarrow \infty$, we have
+\begin{equation}\label{eq:cj56e0ogug}
+\sum_{x \leq n \leq 2 x} \Lambda(n) \sim x.
+\end{equation}
+\end{theorem}
+\begin{proof}
+  For each fixed $\eps > 0$, we may find $f, f_+ \in C_c^\infty(\mathbb{R}^+)$ such that, writing $1_{A}$ for the character function of a set $A$
+  and $F, F_+ $ for the Mellin transforms,
+  \begin{equation}\label{eq:cj56e0zjto}
+    \left\lvert f(x) - 1_{[1,2]}(x) \right\rvert \leq f_+(x) \quad
+    \text{and} \quad
+     F_+(1) = \int  f_+ < \eps.
+  \end{equation}
+  (We can do this by modifying the standard proof that nonzero smooth compactly supported functions exist.)  Write $S$ for the left hand side of \eqref{eq:cj56e0ogug}, and write
+  \begin{equation*}
+    S_{f} := \sum_{n} \Lambda (n) f \left( \frac{n}{x} \right),
+    \quad S_{f_+} := \sum_{n} \Lambda (n) f_+ \left( \frac{n}{x} \right)
+  \end{equation*}
+  for the analogous smoothly-weighted sums.  We then have
+  \begin{equation}\label{eq:cj56e03cbi}
+    \left\lvert S - S_f
+    \right\rvert
+    \leq S_{f_+}.
+  \end{equation}
+  By Theorem \ref{theorem:cj56e013t4}, we have $S_f = F(1) x + o(x)$ and $S_{f_+} = F_+(1) x + o(x)$.  By \eqref{eq:cj56e0zjto}, we have $\left\lvert F(1) - 1 \right\rvert \leq F_+(1) < \eps$.  In particular, for $x$ large enough, we deduce that $\lvert S_f - x \rvert < 2 \eps x$ and $\left\lvert S_{f_+} \right\rvert < 2 \eps x$.  By the triangle inequality, it follows that $\lvert S - x \rvert < 4 \eps x$.  Since $\eps > 0$ was arbitrary, we thereby deduce the claimed estimate \eqref{eq:cj56e0ogug}.
+\end{proof}
+
+Next, we apply dyadic summation to obtain an estimate for the sum over all $n \leq x$:
+\begin{theorem}\label{theorem:cj56e5hu01}
+  As $x \rightarrow \infty$, we have
+  \begin{equation}\label{eq:cj56fbgld4}
+\sum_{n \leq x} \Lambda (n) \sim x.
+\end{equation}
+\end{theorem}
+\begin{proof}
+  For $x \geq 1$, let us define $\alpha(x)$ by writing
+  \begin{equation}\label{eq:cj56e4fgbu}
+\sum_{x < n \leq 2 x} \Lambda(n) = x (1 + \alpha (x)).
+  \end{equation}
+  By Theorem \ref{theorem:cj56e4c1fl}, we have
+  \begin{equation}\label{eq:cj56e4jf1z}
+    \alpha(x) \rightarrow 0
+  \end{equation}
+  as $x \rightarrow \infty$.  In particular, for $x$ sufficiently large, we have $\lvert \alpha(x) \rvert \leq 1$.  On the other hand, for small $x$, we see by trivial estimation that $\alpha(x)$ is uniformly bounded.  Thus there exists $C \geq 0$ so that
+  \begin{equation}\label{eq:cj56e4jjez}
+    \lvert \alpha(x) \rvert \leq C
+  \end{equation}
+  for all $x \geq 1$.
+
+  Next, letting $x \rightarrow \infty$, we write
+  \begin{equation*}
+    \sum_{n \leq x} \Lambda(n) =
+    \sum_{\frac{x}{2} < n \leq x}
+    + \sum_{\frac{x}{4} < n \leq \frac{x}{2}}
+    + \sum_{\frac{x}{8} < n \leq \frac{x}{4}} + \dotsb + \sum_{\frac{x}{2^{m+1}} < n \leq \frac{x}{2^m }},
+  \end{equation*}
+  where $m$ is chosen so that
+  \begin{equation}\label{eq:cj56e4py7n}
+\frac{x}{2^{m + 1}} < 2 \leq \frac{x}{2^m}.
+  \end{equation}
+  By applying \eqref{eq:cj56e4fgbu} to each summand, we obtain
+  \begin{equation*}
+    \sum_{n \leq x } \Lambda (n) = x \left( 1 - \frac{1}{2^{m + 1}} \right)
+    +
+    x \sum_{k = 1}^{m + 1} \frac{1}{2^k} \alpha \left( \frac{x}{ 2^k } \right).    
+  \end{equation*}
+  Fix $\eps > 0$.  We can choose $k_1 \geq 1$ so that
+  \begin{equation*}
+C \sum_{k > k_1} \frac{1}{2^k } \leq \eps.
+  \end{equation*}
+  By \eqref{eq:cj56e4jjez}, we then have
+  \begin{equation*}
+    \left\lvert x \sum_{k = k_1 + 1}^{m + 1} \frac{1}{2^k} \alpha \left( \frac{x}{ 2^k } \right) \right\rvert
+    \leq \eps x.
+  \end{equation*}
+  On the other hand, for each $k \leq k_1$, we see by \eqref{eq:cj56e4jf1z} that
+  \begin{equation*}
+x \frac{1}{2^k } \alpha \left( \frac{x}{2^k } \right) =o(x)
+  \end{equation*}
+  as $x \rightarrow \infty$.  By combining these estimates with \eqref{eq:cj56e4py7n}, we deduce that
+  \begin{equation*}
+\left\lvert \sum_{n \leq x} \Lambda (n) - x \right\rvert \leq 3 \eps x
+  \end{equation*}
+  for $x$ sufficiently large.  Since $\eps > 0$ was arbitrary, we are done.
+\end{proof}
+
+We next aim to deduce from this the prime number theorem in unweighted form:
+\begin{theorem}\label{theorem:cj56e5hrdh}
+  As $x \rightarrow \infty$, we have
+  \begin{equation*}
+\sum_{p \leq x} 1 \sim \frac{x}{\log x}.
+\end{equation*}
+\end{theorem}
+
+The proof uses the following identity.
+\begin{lemma}[Abel summation]\label{lemma:cj56e5hp8x}
+  Let $f$ be a continuously differentiable function on the interval $[a,b]$, where $a < b$ are real numbers, and let $c_n$ be a sequence of scalars, indexed by the integers, with $c_n = 0$ for $n$ sufficiently close to $-\infty$.  Then, writing
+  \begin{equation*}
+    S(t) := \sum_{n \leq t} c_n,
+  \end{equation*}
+  we have
+  \begin{equation}\label{eq:cj56e5hnf5}
+    \sum_{a < n  \leq b} f(n) c_n
+    =
+    f(b) S(b) - f(a) S(a)
+    - \int_a^b S(t) f ' (t) \, d t.
+  \end{equation}
+\end{lemma}
+\begin{proof}
+  The left hand side of \eqref{eq:cj56e5hnf5} may be understood as the \href{https://en.wikipedia.org/wiki/Riemann%E2%80%93Stieltjes_integral}{Riemann--Stieltjes integral}
+  \begin{equation*}
+\int_a^b f (t) \, d S(t).
+  \end{equation*}
+  The claimed formula follows by integration by parts for such integrals.
+
+  Alternatively, we can reduce by linearity to the case that $c_m = 1$ and $c_n = 0$ for $n \neq m$.  Then $S(t) = 1_{t \geq m}$.  The claimed identity can be verified by considering separately the cases that $m \leq  a$ or $a < m \leq  b$ or $b < m$, in which it reads respectively
+  \begin{equation*}
+0 = f(b) - f(a) - \int_a^b f'(t) \, d t,
+  \end{equation*}
+  \begin{equation*}
+f(m) = f(b) - \int_m^b f ' (t) \, d t,
+  \end{equation*}
+  \begin{equation*}
+0 = 0.
+  \end{equation*}
+\end{proof}
+\begin{example}\label{example:cj56fa3yqw}
+  If $f \equiv 1$, then \eqref{eq:cj56e5hnf5} says
+  \begin{equation*}
+    \sum_{a < n \leq b} c_n = S(b) - S(a),
+  \end{equation*}
+  which is clear.
+\end{example}
+\begin{example}\label{example:cj56fa31f5}
+  If $f(t) = t$, then \eqref{eq:cj56e5hnf5} says
+  \begin{equation*}
+\sum_{a < n \leq b} n c_n = b S(b) - a S(a) - \int_a^b S(t) \, d t.
+\end{equation*}
+\end{example}
+\begin{proof}[Proof of Theorem \ref{theorem:cj56e5hrdh}]
+  We apply Lemma~\ref{lemma:cj56e5hp8x} with $[a,b] = [\tfrac{3}{2},x]$, $c_n = \Lambda(n)$, and $f(t) = 1 / \log t$.  Then $S(t) = \sum_{n \leq t} \Lambda(t)$.  Since $f'(t) = - 1 / (t \log^2 t)$, we obtain
+  \begin{equation*}
+    \sum_{n \leq x} \frac{\Lambda(n)}{\log n}
+    = \frac{S(x)}{\log x} + \int_{\frac{3}{2}}^{x} \frac{S(t)}{t \log^2 t} \, d t.
+  \end{equation*}
+  By Theorem \eqref{eq:cj56fbgld4}, the first term on the right hand side is $\sim x / \log x$, while the second term is
+  \begin{equation*}
+    \ll \int_{\frac{3}{2}}^x \frac{d t}{\log ^2 t}.
+  \end{equation*}
+  We can estimate this last integral by splitting it into the ranges $t \leq \sqrt{x}$ and $t > \sqrt{x}$.  In the former range, we obtain $\ll \sqrt{x}$, while in the latter, we obtain $\ll x / \log ^2 x$, using that $\log \sqrt{x} \asymp \log x$.  It follows that
+  \begin{equation*}
+    \sum_{n \leq x}  \frac{\Lambda (n)}{\log n}
+    \sim \frac{x}{\log x}.
+  \end{equation*}
+  Recall that, by definition, we have $\Lambda (n) / \log n = 0$  unless $n$ is of the form $p^k $ for some prime $p$ and natural number $k$, in which case $\Lambda (n) = \log p = \tfrac{1}{k}  \log n$.  Since $p^k \leq x$ if and only if $p \leq x^{1/k}$, it follows that
+  \begin{equation*}
+    \sum_{n \leq x}  \frac{\Lambda (n)}{\log n}
+    = \pi (x) + \pi (x^{1/2} ) + \pi (x^{1/3} ) + \dotsb + \pi (x^{1 / k}),
+  \end{equation*}
+  where $\pi(x)$ is the number of primes $p \leq x$ and $k$ is the natural number for which
+  \begin{equation*}
+    x^{\frac{1}{k}} \geq 2 > x^{\frac{1}{k + 1}}.
+  \end{equation*}
+  By trivial estimation, we have $\left\lvert \pi(x) \right\rvert \leq x$ and $k \ll \log x$, hence
+  \begin{equation*}
+\pi (x^{1/2} ) + \pi (x^{1/3} ) + \dotsb + \pi (x^{1/k}) \ll x^{1/2} \log x.
+  \end{equation*}
+  This is much smaller than $x / \log x$, so we conclude as required that $\pi (x) \sim x / \log x$.
 \end{proof}
 
 
