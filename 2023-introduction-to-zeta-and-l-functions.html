@@ -209,7 +209,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2023-10-05 11:01:01
+2023-10-09 15:37:14
       <a href="2023-introduction-to-zeta-and-l-functions.tex" class="my-link">tex</a>
       <a href="2023-introduction-to-zeta-and-l-functions.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/2023-introduction-to-zeta-and-l-functions.tex" class="my-link">history</a>
@@ -253,6 +253,10 @@ zeros</a></li>
 <li><a href="#contour-shifting-and-an-explicit-formula"
 id="toc-contour-shifting-and-an-explicit-formula">Contour shifting and
 an explicit formula</a></li>
+<li><a href="#zero-free-regions" id="toc-zero-free-regions">Zero-free
+regions</a></li>
+<li><a href="#sec:cj56fbu411" id="toc-sec:cj56fbu411">Prime number
+theorem</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -326,6 +330,12 @@ chap. III)</a>, up through 3.6,</p></li>
 <li><p>part 3 of <a
 href="these notes">https://terrytao.wordpress.com/2014/12/09/254a-notes-2-complex-analytic-multiplicative-number-theory/</a>.</p></li>
 </ul></li>
+<li><p>Tuesday, 3 October: contour shifting, especially Proposition <a
+href="#proposition:cj541es01g" data-reference-type="ref"
+data-reference="proposition:cj541es01g">5.13</a></p></li>
+<li><p>Thursday, 4 October: deduction of the prime number theorem, §<a
+href="#sec:cj56fbu411" data-reference-type="ref"
+data-reference="sec:cj56fbu411">5.8</a></p></li>
 </ul>
 <h1
 id="course-notes-that-ive-since-split-off-into-separate-files">Course
@@ -502,7 +512,7 @@ href="https://en.wikipedia.org/wiki/Schwartz_space">Schwartz space</a>
 <span class="math inline">\(\mathcal{S}(\mathbb{R})\)</span>.</p>
 <p>The asymptotics of <span class="math inline">\(g(y)\)</span> are
 described as follows.</p>
-<div class="lemma">
+<div id="lemma:cj56e5j5uq" class="lemma">
 <p><strong>Lemma 6</strong>. Let <span class="math inline">\(f \in
 \mathcal{S}(R)\)</span>.</p>
 <ol>
@@ -545,7 +555,7 @@ class="math inline">\((0,1)\)</span> and <span
 class="math inline">\((1,\infty\)</span>)), meromorphically continuing
 each piece, and then summing the results on their domain of overlap (if
 any).</p>
-<div class="lemma">
+<div id="lemma:cj56e5j3yz" class="lemma">
 <p><strong>Lemma 7</strong>. <span class="math inline">\(G(s)\)</span>
 defines a meromorphic function on the complex plane whose only poles at
 simple ones:</p>
@@ -639,7 +649,7 @@ even. This is without much loss of generality – any function can be
 written as a sum of even and odd functions, and if <span
 class="math inline">\(f\)</span> is odd, then <span
 class="math inline">\(g\)</span> vanishes identically.</p>
-<div class="exercise">
+<div id="exercise:cj56e5j0b7" class="exercise">
 <p><strong>Exercise 1</strong>. Let <span class="math inline">\(f \in
 \mathcal{S}(\mathbb{R})\)</span> be even. Show that the Mellin transform
 <span class="math display">\[F(s) := \int y^s f (y) \,d^\times
@@ -653,7 +663,7 @@ class="math display">\[{\mathop{\mathrm{res}}}_{s = - 2 n} F(s) =
 remainder, and note that the odd Taylor coefficients vanish in view of
 the evenness assumption on <span class="math inline">\(f\)</span>.]</p>
 </div>
-<div class="example">
+<div id="example:cj56e5io5n" class="example">
 <p><strong>Example 9</strong>. Take <span class="math inline">\(f(x) :=
 e^{- \pi x^2}\)</span>. Then <span id="eq:cj4vkj6hym" class="math display">\[\label{eq:cj4vkj6hym}\tag{5.3}
 F(s) = \pi^{- s / 2 } \Gamma (s / 2),\]</span> as one sees by
@@ -679,7 +689,7 @@ f(y) \,d^\times y.\]</span> This gives another proof of the meromorphic
 behavior of <span class="math inline">\(\zeta\)</span>. TODO: say
 more.</p>
 <p>We can also deduce the functional equation:</p>
-<div class="theorem">
+<div id="theorem:cj56e5im1s" class="theorem">
 <p><strong>Theorem 10</strong>. <em>We have <span
 class="math display">\[\xi(s) := \pi^{- s / 2 } \Gamma (s/ 2 ) \zeta(s)
 = \xi (1 - s).\]</span></em></p>
@@ -702,7 +712,7 @@ formula follows. ◻</p>
 <h2 id="sec:cj4020t3kt">§5.3. Euler product</h2>
 <p>The link between the zeta function and the prime numbers is given by
 the following alternative formula:</p>
-<div class="lemma">
+<div id="lemma:cj56e5ilni" class="lemma">
 <p><strong>Lemma 11</strong>. For <span class="math inline">\(\Re(s)
 &gt; 1\)</span>, we have <span class="math display">\[\zeta(s) = \prod_p
 \frac{1}{1 - p^{- s}},\]</span> where the product ranges over the primes
@@ -754,7 +764,7 @@ it)}  \right\rvert
 </span></div>
 <p>As a basic illustration of the resulting link between the zeta
 function and the primes, we verify the following:</p>
-<div class="lemma">
+<div id="lemma:cj56e5ihnv" class="lemma">
 <p><strong>Lemma 12</strong>. Let <span class="math inline">\(s &gt;
 1\)</span> be real, tending to <span class="math inline">\(1\)</span>.
 Then <span class="math display">\[\sum_p \frac{1}{ p^s } = \log
@@ -771,7 +781,7 @@ to the reader to check that <span class="math display">\[\sum_{k \geq 2}
 \frac{p^{- k s}}{ k }  = \operatorname{O}(1)\]</span> in the indicated
 range. ◻</p>
 </span></div>
-<div class="corollary">
+<div id="corollary:cj56e5ijg7" class="corollary">
 <p><strong>Corollary 13</strong>. <em><span class="math inline">\(\sum_p
 1 / p = \infty\)</span>.</em></p>
 </div>
@@ -875,7 +885,7 @@ the functional equation, but we won’t pause to do so here.</p>
 <p>We begin by giving a simple formula for <span
 class="math inline">\(\zeta\)</span> valid in the critical strip <span
 class="math inline">\(0 &lt; \Re(s) &lt; 1\)</span>.</p>
-<div class="lemma">
+<div id="lemma:cj56e5idm1" class="lemma">
 <p><strong>Lemma 14</strong>. For <span class="math inline">\(\Re(s)
 &gt; 0\)</span>, we have <span id="eq:cj41j93u44" class="math display">\[\label{eq:cj41j93u44}\tag{5.8}
     \zeta(s) - \frac{1}{s - 1}
@@ -903,7 +913,7 @@ class="math display">\[\begin{align}
 <p>From this, we conclude a basic but useful upper bound for <span
 class="math inline">\(\zeta\)</span> in the critical strip. (Much
 sharper forms are available, but we won’t need them immediately.)</p>
-<div class="lemma">
+<div id="lemma:cj56e5ibho" class="lemma">
 <p><strong>Lemma 15</strong>. For <span class="math inline">\(s = \sigma
 + it\)</span> with <span class="math inline">\(\sigma \geq
 \varepsilon&gt; 0\)</span> and <span class="math inline">\(\lvert t
@@ -1026,7 +1036,7 @@ data-cites="Dav80">(Davenport 1980, vol. 74, chap. 17)</a> or <a href="#ref-MR20
 class="citation" data-cites="MR2061214">(Iwaniec and Kowalski 2004, vol.
 53, sec. 5.5)</a>. See also <a href="#ref-MR882550" class="citation"
 data-cites="MR882550">(Titchmarsh 1986)</a>.)</p>
-<div class="proposition">
+<div id="proposition:cj541es01g" class="proposition">
 <p><strong>Proposition 18</strong>. <em>Let <span
 class="math inline">\(f \in C_c^\infty(\mathbb{R})\)</span>, with Mellin
 transform <span class="math inline">\(F(s) = \int_{\mathbb{R}^+} y^s
@@ -1184,6 +1194,308 @@ obtain the required sequence of quantities <span
 class="math inline">\(t\)</span> along which <span
 class="math inline">\(J_t \rightarrow 0\)</span>. ◻</p>
 </span></div>
+<h2 id="zero-free-regions">Zero-free regions</h2>
+<p>These results were presented in Sergey’s lectures while I was
+travelling, following the reference <a href="#ref-MR882550" class="citation"
+data-cites="MR882550">(Titchmarsh 1986, sec. 3)</a>.</p>
+<div id="theorem:cj541i3g6o" class="theorem">
+<p><strong>Theorem 19</strong>. <em>There exists <span
+class="math inline">\(c &gt; 0\)</span> so that if <span
+class="math inline">\(\zeta(s) = 0\)</span> for <span
+class="math inline">\(s = \sigma + i t\)</span>, then <span
+class="math display">\[1 - \sigma &gt; \frac{c}{\log (2 + \lvert t
+\rvert)}.\]</span> In particular, <span class="math inline">\(\zeta(s) =
+0\)</span> only if <span class="math inline">\(\Re(s) &lt;
+1\)</span>.</em></p>
+</div>
+<h2 id="sec:cj56fbu411">§5.8. Prime number theorem</h2>
+<p>We’ll present the proof of the qualitative form, i.e., without giving
+an explicit error term. First, we treat the case of a smoothly weighted
+sum.</p>
+<div id="theorem:cj56e013t4" class="theorem">
+<p><strong>Theorem 20</strong>. <em>Fix <span class="math inline">\(f
+\in C_c^\infty (\mathbb{R}^+ )\)</span>, with Mellin transform <span
+class="math inline">\(F\)</span>, and let <span class="math inline">\(x
+\rightarrow \infty\)</span>. Then <span class="math display">\[\sum_{n}
+\Lambda (n) f \left( \frac{n}{x} \right) = F(1) x +
+o(x).\]</span></em></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We apply the explicit formula, as given in
+Proposition <a href="#proposition:cj541es01g" data-reference-type="ref"
+data-reference="proposition:cj541es01g">5.13</a>, with some small <span
+class="math inline">\(\varepsilon&gt; 0\)</span>. The error quantity
+<span class="math inline">\(E(T)\)</span> is <span
+class="math inline">\(\ll T^{-100}\)</span>, say, by the rapid decay of
+<span class="math inline">\(F\)</span>, and so <span
+class="math inline">\(\mathcal{E} \ll \int_{T \in \mathbb{R} } (1 +
+\lvert T \rvert)^{-100} \log(3 + |T|) \, d T \ll 1\)</span>. Our task
+thereby reduces to showing that <span id="eq:cj541i9qbt" class="math display">\[\label{eq:cj541i9qbt}\tag{5.12}
+\sum_{\rho : \Re(\rho) &gt; \varepsilon} F(\rho) x^\rho =
+o(x).\]</span></p>
+<p>To that end, let us observe first that <span
+class="math display">\[\sum_{\rho : \Re(\rho) &gt; \varepsilon} \lvert
+F(\rho) \rvert &lt; \infty.\]</span> Indeed, by the rapid decay of <span
+class="math inline">\(F\)</span>, we have <span
+class="math inline">\(F(\rho) \ll \lvert \rho \rvert^{-100}\)</span>,
+while by Proposition <a href="#proposition:cj41z9de5r"
+data-reference-type="ref"
+data-reference="proposition:cj41z9de5r">5.11</a>,
+the number of <span class="math inline">\(\rho\)</span> with <span
+class="math inline">\(\lvert \rho \rvert \leq T\)</span> is <span
+class="math inline">\(\ll T \log T\)</span> for <span
+class="math inline">\(T \geq 3\)</span>; the claimed convergence then
+follows by summing over dyadic ranges <span class="math inline">\(X \leq
+\lvert \rho \rvert \leq 2X\)</span>.</p>
+<p>It follows that for each <span class="math inline">\(\alpha &gt;
+0\)</span>, we choose a finite multiset <span
+class="math inline">\(\mathcal{R}\)</span> of zeros <span
+class="math inline">\(\rho\)</span> as above such that the sum of <span
+class="math inline">\(\lvert F(\rho) \rvert\)</span> over the complement
+of <span class="math inline">\(\mathcal{R}\)</span> is at most <span
+class="math inline">\(\alpha/2\)</span>. On the other hand, for each
+<span class="math inline">\(\rho \in \mathcal{R}\)</span>, we have by
+Theorem <a href="#theorem:cj541i3g6o" data-reference-type="ref"
+data-reference="theorem:cj541i3g6o">5.14</a> that <span
+class="math inline">\(\Re(\rho) &lt; 1\)</span>, and so <span
+class="math inline">\(\lim_{x \rightarrow \infty } F(\rho) x^{\rho-1} =
+0\)</span>. It follows that for <span class="math inline">\(x &gt;
+x_0(\alpha)\)</span>, the left hand side of <a href="#eq:cj541i9qbt"
+data-reference-type="eqref"
+data-reference="eq:cj541i9qbt">\((5.12)\)</a> is bounded in
+magnitude by <span class="math inline">\(\alpha\)</span>. Since <span
+class="math inline">\(\alpha &gt; 0\)</span> was arbitrary, we conclude
+that <a href="#eq:cj541i9qbt" data-reference-type="eqref"
+data-reference="eq:cj541i9qbt">\((5.12)\)</a> holds, as
+required. ◻</p>
+</span></div>
+<p>Now we successively pass from this to more elementary statements.</p>
+<p>First, we approximate sharp cutoffs by smooth ones to deduce a
+sharply truncated dyadic estimate.</p>
+<div id="theorem:cj56e4c1fl" class="theorem">
+<p><strong>Theorem 21</strong>. <em>As <span class="math inline">\(x
+\rightarrow \infty\)</span>, we have <span id="eq:cj56e0ogug" class="math display">\[\label{eq:cj56e0ogug}\tag{5.13}
+\sum_{x \leq n \leq 2 x} \Lambda(n) \sim x.\]</span></em></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> For each fixed <span
+class="math inline">\(\varepsilon&gt; 0\)</span>, we may find <span
+class="math inline">\(f, f_+ \in C_c^\infty(\mathbb{R}^+)\)</span> such
+that, writing <span class="math inline">\(1_{A}\)</span> for the
+character function of a set <span class="math inline">\(A\)</span> and
+<span class="math inline">\(F, F_+\)</span> for the Mellin transforms,
+<span id="eq:cj56e0zjto" class="math display">\[\label{eq:cj56e0zjto}\tag{5.14}
+    \left\lvert f(x) - 1_{[1,2]}(x) \right\rvert \leq f_+(x) \quad
+    \text{and} \quad
+     F_+(1) = \int  f_+ &lt; \varepsilon.\]</span> (We can do this by
+modifying the standard proof that nonzero smooth compactly supported
+functions exist.) Write <span class="math inline">\(S\)</span> for the
+left hand side of <a href="#eq:cj56e0ogug" data-reference-type="eqref"
+data-reference="eq:cj56e0ogug">\((5.13)\)</a>, and write <span
+class="math display">\[S_{f} := \sum_{n} \Lambda (n) f \left(
+\frac{n}{x} \right),
+    \quad S_{f_+} := \sum_{n} \Lambda (n) f_+ \left( \frac{n}{x}
+\right)\]</span> for the analogous smoothly-weighted sums. We then have
+<span id="eq:cj56e03cbi" class="math display">\[\label{eq:cj56e03cbi}\tag{5.15}
+    \left\lvert S - S_f
+    \right\rvert
+    \leq S_{f_+}.\]</span> By Theorem <a href="#theorem:cj56e013t4"
+data-reference-type="ref" data-reference="theorem:cj56e013t4">5.15</a>, we
+have <span class="math inline">\(S_f = F(1) x + o(x)\)</span> and <span
+class="math inline">\(S_{f_+} = F_+(1) x + o(x)\)</span>. By <a
+href="#eq:cj56e0zjto" data-reference-type="eqref"
+data-reference="eq:cj56e0zjto">\((5.14)\)</a>, we have <span
+class="math inline">\(\left\lvert F(1) - 1 \right\rvert \leq F_+(1) &lt;
+\varepsilon\)</span>. In particular, for <span
+class="math inline">\(x\)</span> large enough, we deduce that <span
+class="math inline">\(\lvert S_f - x \rvert &lt; 2 \varepsilon
+x\)</span> and <span class="math inline">\(\left\lvert S_{f_+}
+\right\rvert &lt; 2 \varepsilon x\)</span>. By the triangle inequality,
+it follows that <span class="math inline">\(\lvert S - x \rvert &lt; 4
+\varepsilon x\)</span>. Since <span
+class="math inline">\(\varepsilon&gt; 0\)</span> was arbitrary, we
+thereby deduce the claimed estimate <a href="#eq:cj56e0ogug"
+data-reference-type="eqref"
+data-reference="eq:cj56e0ogug">\((5.13)\)</a>. ◻</p>
+</span></div>
+<p>Next, we apply dyadic summation to obtain an estimate for the sum
+over all <span class="math inline">\(n \leq x\)</span>:</p>
+<div id="theorem:cj56e5hu01" class="theorem">
+<p><strong>Theorem 22</strong>. <em>As <span class="math inline">\(x
+\rightarrow \infty\)</span>, we have <span id="eq:cj56fbgld4" class="math display">\[\label{eq:cj56fbgld4}\tag{5.16}
+\sum_{n \leq x} \Lambda (n) \sim x.\]</span></em></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> For <span class="math inline">\(x \geq 1\)</span>,
+let us define <span class="math inline">\(\alpha(x)\)</span> by writing
+<span id="eq:cj56e4fgbu" class="math display">\[\label{eq:cj56e4fgbu}\tag{5.17}
+\sum_{x &lt; n \leq 2 x} \Lambda(n) = x (1 + \alpha (x)).\]</span> By
+Theorem <a href="#theorem:cj56e4c1fl" data-reference-type="ref"
+data-reference="theorem:cj56e4c1fl">5.16</a>, we have <span id="eq:cj56e4jf1z" class="math display">\[\label{eq:cj56e4jf1z}\tag{5.18}
+    \alpha(x) \rightarrow 0\]</span> as <span class="math inline">\(x
+\rightarrow \infty\)</span>. In particular, for <span
+class="math inline">\(x\)</span> sufficiently large, we have <span
+class="math inline">\(\lvert \alpha(x) \rvert \leq 1\)</span>. On the
+other hand, for small <span class="math inline">\(x\)</span>, we see by
+trivial estimation that <span class="math inline">\(\alpha(x)\)</span>
+is uniformly bounded. Thus there exists <span class="math inline">\(C
+\geq 0\)</span> so that <span id="eq:cj56e4jjez" class="math display">\[\label{eq:cj56e4jjez}\tag{5.19}
+    \lvert \alpha(x) \rvert \leq C\]</span> for all <span
+class="math inline">\(x \geq 1\)</span>.</p>
+<p>Next, letting <span class="math inline">\(x \rightarrow
+\infty\)</span>, we write <span class="math display">\[\sum_{n \leq x}
+\Lambda(n) =
+    \sum_{\frac{x}{2} &lt; n \leq x}
+    + \sum_{\frac{x}{4} &lt; n \leq \frac{x}{2}}
+    + \sum_{\frac{x}{8} &lt; n \leq \frac{x}{4}} + \dotsb +
+\sum_{\frac{x}{2^{m+1}} &lt; n \leq \frac{x}{2^m }},\]</span> where
+<span class="math inline">\(m\)</span> is chosen so that <span id="eq:cj56e4py7n" class="math display">\[\label{eq:cj56e4py7n}\tag{5.20}
+\frac{x}{2^{m + 1}} &lt; 2 \leq \frac{x}{2^m}.\]</span> By applying <a
+href="#eq:cj56e4fgbu" data-reference-type="eqref"
+data-reference="eq:cj56e4fgbu">\((5.17)\)</a> to each summand, we
+obtain <span class="math display">\[\sum_{n \leq x } \Lambda (n) = x
+\left( 1 - \frac{1}{2^{m + 1}} \right)
+    +
+    x \sum_{k = 1}^{m + 1} \frac{1}{2^k} \alpha \left( \frac{x}{ 2^k }
+\right).\]</span> Fix <span class="math inline">\(\varepsilon&gt;
+0\)</span>. We can choose <span class="math inline">\(k_1 \geq
+1\)</span> so that <span class="math display">\[C \sum_{k &gt; k_1}
+\frac{1}{2^k } \leq \varepsilon.\]</span> By <a href="#eq:cj56e4jjez"
+data-reference-type="eqref"
+data-reference="eq:cj56e4jjez">\((5.19)\)</a>, we then have <span
+class="math display">\[\left\lvert x \sum_{k = k_1 + 1}^{m + 1}
+\frac{1}{2^k} \alpha \left( \frac{x}{ 2^k } \right) \right\rvert
+    \leq \varepsilon x.\]</span> On the other hand, for each <span
+class="math inline">\(k \leq k_1\)</span>, we see by <a
+href="#eq:cj56e4jf1z" data-reference-type="eqref"
+data-reference="eq:cj56e4jf1z">\((5.18)\)</a> that <span
+class="math display">\[x \frac{1}{2^k } \alpha \left( \frac{x}{2^k }
+\right) =o(x)\]</span> as <span class="math inline">\(x \rightarrow
+\infty\)</span>. By combining these estimates with <a
+href="#eq:cj56e4py7n" data-reference-type="eqref"
+data-reference="eq:cj56e4py7n">\((5.20)\)</a>, we deduce that <span
+class="math display">\[\left\lvert \sum_{n \leq x} \Lambda (n) - x
+\right\rvert \leq 3 \varepsilon x\]</span> for <span
+class="math inline">\(x\)</span> sufficiently large. Since <span
+class="math inline">\(\varepsilon&gt; 0\)</span> was arbitrary, we are
+done. ◻</p>
+</span></div>
+<p>We next aim to deduce from this the prime number theorem in
+unweighted form:</p>
+<div id="theorem:cj56e5hrdh" class="theorem">
+<p><strong>Theorem 23</strong>. <em>As <span class="math inline">\(x
+\rightarrow \infty\)</span>, we have <span
+class="math display">\[\sum_{p \leq x} 1 \sim \frac{x}{\log
+x}.\]</span></em></p>
+</div>
+<p>The proof uses the following identity.</p>
+<div id="lemma:cj56e5hp8x" class="lemma">
+<p><strong>Lemma 24</strong> (Abel summation). Let <span
+class="math inline">\(f\)</span> be a continuously differentiable
+function on the interval <span class="math inline">\([a,b]\)</span>,
+where <span class="math inline">\(a &lt; b\)</span> are real numbers,
+and let <span class="math inline">\(c_n\)</span> be a sequence of
+scalars, indexed by the integers, with <span class="math inline">\(c_n =
+0\)</span> for <span class="math inline">\(n\)</span> sufficiently close
+to <span class="math inline">\(-\infty\)</span>. Then, writing <span
+class="math display">\[S(t) := \sum_{n \leq t} c_n,\]</span> we have
+<span id="eq:cj56e5hnf5" class="math display">\[\label{eq:cj56e5hnf5}\tag{5.21}
+    \sum_{a &lt; n  \leq b} f(n) c_n
+    =
+    f(b) S(b) - f(a) S(a)
+    - \int_a^b S(t) f &#39; (t) \, d t.\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> The left hand side of <a href="#eq:cj56e5hnf5"
+data-reference-type="eqref"
+data-reference="eq:cj56e5hnf5">\((5.21)\)</a> may be understood as
+the <a
+href="https://en.wikipedia.org/wiki/Riemann%E2%80%93Stieltjes_integral">Riemann–Stieltjes
+integral</a> <span class="math display">\[\int_a^b f (t) \, d
+S(t).\]</span> The claimed formula follows by integration by parts for
+such integrals.</p>
+<p>Alternatively, we can reduce by linearity to the case that <span
+class="math inline">\(c_m = 1\)</span> and <span
+class="math inline">\(c_n = 0\)</span> for <span class="math inline">\(n
+\neq m\)</span>. Then <span class="math inline">\(S(t) = 1_{t \geq
+m}\)</span>. The claimed identity can be verified by considering
+separately the cases that <span class="math inline">\(m \leq  a\)</span>
+or <span class="math inline">\(a &lt; m \leq  b\)</span> or <span
+class="math inline">\(b &lt; m\)</span>, in which it reads respectively
+<span class="math display">\[0 = f(b) - f(a) - \int_a^b f&#39;(t) \, d
+t,\]</span> <span class="math display">\[f(m) = f(b) - \int_m^b f &#39;
+(t) \, d t,\]</span> <span class="math display">\[0 = 0.\]</span> ◻</p>
+</span></div>
+<div id="example:cj56fa3yqw" class="example">
+<p><strong>Example 25</strong>. If <span class="math inline">\(f \equiv
+1\)</span>, then <a href="#eq:cj56e5hnf5" data-reference-type="eqref"
+data-reference="eq:cj56e5hnf5">\((5.21)\)</a> says <span
+class="math display">\[\sum_{a &lt; n \leq b} c_n = S(b) -
+S(a),\]</span> which is clear.</p>
+</div>
+<div id="example:cj56fa31f5" class="example">
+<p><strong>Example 26</strong>. If <span class="math inline">\(f(t) =
+t\)</span>, then <a href="#eq:cj56e5hnf5" data-reference-type="eqref"
+data-reference="eq:cj56e5hnf5">\((5.21)\)</a> says <span
+class="math display">\[\sum_{a &lt; n \leq b} n c_n = b S(b) - a S(a) -
+\int_a^b S(t) \, d t.\]</span></p>
+</div>
+<div class="proof">
+<p><em>Proof of Theorem <a href="#theorem:cj56e5hrdh"
+data-reference-type="ref"
+data-reference="theorem:cj56e5hrdh">5.18</a>.</em> We apply Lemma <a
+href="#lemma:cj56e5hp8x" data-reference-type="ref"
+data-reference="lemma:cj56e5hp8x">5.19</a> with <span
+class="math inline">\([a,b] = [\tfrac{3}{2},x]\)</span>, <span
+class="math inline">\(c_n = \Lambda(n)\)</span>, and <span
+class="math inline">\(f(t) = 1 / \log t\)</span>. Then <span
+class="math inline">\(S(t) = \sum_{n \leq t} \Lambda(t)\)</span>. Since
+<span class="math inline">\(f&#39;(t) = - 1 / (t \log^2 t)\)</span>, we
+obtain <span class="math display">\[\sum_{n \leq x}
+\frac{\Lambda(n)}{\log n}
+    = \frac{S(x)}{\log x} + \int_{\frac{3}{2}}^{x} \frac{S(t)}{t \log^2
+t} \, d t.\]</span> By Theorem <a href="#eq:cj56fbgld4"
+data-reference-type="eqref"
+data-reference="eq:cj56fbgld4">\((5.16)\)</a>, the first term on
+the right hand side is <span class="math inline">\(\sim x / \log
+x\)</span>, while the second term is <span class="math display">\[\ll
+\int_{\frac{3}{2}}^x \frac{d t}{\log ^2 t}.\]</span> We can estimate
+this last integral by splitting it into the ranges <span
+class="math inline">\(t \leq \sqrt{x}\)</span> and <span
+class="math inline">\(t &gt; \sqrt{x}\)</span>. In the former range, we
+obtain <span class="math inline">\(\ll \sqrt{x}\)</span>, while in the
+latter, we obtain <span class="math inline">\(\ll x / \log ^2
+x\)</span>, using that <span class="math inline">\(\log \sqrt{x} \asymp
+\log x\)</span>. It follows that <span class="math display">\[\sum_{n
+\leq x}  \frac{\Lambda (n)}{\log n}
+    \sim \frac{x}{\log x}.\]</span> Recall that, by definition, we have
+<span class="math inline">\(\Lambda (n) / \log n = 0\)</span> unless
+<span class="math inline">\(n\)</span> is of the form <span
+class="math inline">\(p^k\)</span> for some prime <span
+class="math inline">\(p\)</span> and natural number <span
+class="math inline">\(k\)</span>, in which case <span
+class="math inline">\(\Lambda (n) = \log p = \tfrac{1}{k}  \log
+n\)</span>. Since <span class="math inline">\(p^k \leq x\)</span> if and
+only if <span class="math inline">\(p \leq x^{1/k}\)</span>, it follows
+that <span class="math display">\[\sum_{n \leq x}  \frac{\Lambda
+(n)}{\log n}
+    = \pi (x) + \pi (x^{1/2} ) + \pi (x^{1/3} ) + \dotsb + \pi (x^{1 /
+k}),\]</span> where <span class="math inline">\(\pi(x)\)</span> is the
+number of primes <span class="math inline">\(p \leq x\)</span> and <span
+class="math inline">\(k\)</span> is the natural number for which <span
+class="math display">\[x^{\frac{1}{k}} \geq 2 &gt; x^{\frac{1}{k +
+1}}.\]</span> By trivial estimation, we have <span
+class="math inline">\(\left\lvert \pi(x) \right\rvert \leq x\)</span>
+and <span class="math inline">\(k \ll \log x\)</span>, hence <span
+class="math display">\[\pi (x^{1/2} ) + \pi (x^{1/3} ) + \dotsb + \pi
+(x^{1/k}) \ll x^{1/2} \log x.\]</span> This is much smaller than <span
+class="math inline">\(x / \log x\)</span>, so we conclude as required
+that <span class="math inline">\(\pi (x) \sim x / \log x\)</span>. ◻</p>
+</div>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="list">
 <div id="ref-Dav80" class="csl-entry" role="listitem">
