@@ -28,7 +28,7 @@ These are notes for an ongoing Fall 2023 course on the Riemann zeta function and
 \item Thursday, 7 Sep: \S\ref{sec:cj4vkkark8}, \S\ref{sec:cj4vkfaant}
 \item Tuesday, 12 Sep and Thursday, 14 Sep: Fourier transform, Pontryagin duality, Poisson summation (see \href{20230919T144827--discrete-fourier-transform.pdf}{these notes} and the book \cite{MR3289059})
 \item Tuesday, 19 Sep: Euler products, relevance of zeta zeros to asymptotics \S\ref{sec:cj4020t3kt}
-\item Thursday, 21 Sep: harmonic functions (external \S\ref{sec:cj41z468dg}), approximate factorizations of holomorphic functions (external \S\ref{sec:cj41z5fwla}), crude control over zeta zeros (\S\ref{sec:cj410a1fzy}) 
+\item Thursday, 21 Sep: harmonic functions (external \S\ref{sec:cj41z468dg}), approximate factorizations of holomorphic functions (external \S\ref{sec:cj41z5fwla}), crude control over zeta zeros (\S\ref{sec:cj410a1fzy})
 \item Tuesday, Thursday and Friday, 26--29 Sep: Sergey's lectures concerning zeroes of zeta on or near the $1$-line.  References:
   \begin{itemize}
   \item \cite[Chapter III]{MR882550}, up through 3.6,
@@ -162,7 +162,7 @@ We see in this way that the $\zeta$ function admits a meromorphic continuation. 
 
 Given $f : \mathbb{R} \rightarrow \mathbb{C}$ of sufficient decay at infinity, we define $g : \mathbb{R}^+ \rightarrow \mathbb{C} $ by
 \begin{equation*}
-g(y) := \sum_{n \in \mathbb{Z} } f(n y).
+  g(y) := \sum_{n \in \mathbb{Z} } f(n y).
 \end{equation*}
 We assume henceforth that $f$ lies in the \href{https://en.wikipedia.org/wiki/Schwartz_space}{Schwartz space} $\mathcal{S}(\mathbb{R})$.
 
@@ -170,35 +170,34 @@ The asymptotics of $g(y)$ are described as follows.
 \begin{lemma}\label{lemma:cj56e5j5uq}
   Let $f \in \mathcal{S}(R)$.
   \begin{enumerate}
-\item 
-  As $y \rightarrow \infty$, we have
-  \begin{equation}\label{eq:cj4vkfq4ku}
-g(y) = f(0) + \O(y^{-N})
-  \end{equation}
-  for each fixed $N$.
-\item As $y \rightarrow 0$, we have
-  \begin{equation}\label{eq:cj4vkfrkjf}
-g(y) = y^{-1} \int_{\mathbb{R} } f(x) \, d x  + \O (y^{N})
-  \end{equation}
-  for each fixed $N$.
-\end{enumerate}
+  \item As $y \rightarrow \infty$, we have
+    \begin{equation}\label{eq:cj4vkfq4ku}
+      g(y) = f(0) + \O(y^{-N})
+    \end{equation}
+    for each fixed $N$.
+  \item As $y \rightarrow 0$, we have
+    \begin{equation}\label{eq:cj4vkfrkjf}
+      g(y) = y^{-1} \int_{\mathbb{R} } f(x) \, d x  + \O (y^{N})
+    \end{equation}
+    for each fixed $N$.
+  \end{enumerate}
 \end{lemma}
 \begin{proof}
-The first estimate \eqref{eq:cj4vkfq4ku} is an easy exercise using the definition of the Schwartz space.  The second estimate \eqref{eq:cj4vkfrkjf} may be proved either via Euler--Maclaurin summation (see external \S\ref{sec:cj4vkfaant}) or Poisson summation (see external \S\ref{sec:cj4vkkp26q}).
+  The first estimate \eqref{eq:cj4vkfq4ku} is an easy exercise using the definition of the Schwartz space.  The second estimate \eqref{eq:cj4vkfrkjf} may be proved either via Euler--Maclaurin summation (see external \S\ref{sec:cj4vkfaant}) or Poisson summation (see external \S\ref{sec:cj4vkkp26q}).
 \end{proof}
 
 Assuming that $f(0)$ and $\int f$ are nonzero, it follows that the Mellin transform of $g$ does not converge absolutely at any point.  We can still define a regularized Mellin transform
 \begin{equation*}
-G(s) = \int_{\mathbb{R}^+ }^{\reg} y^s g (y) \,d^\times y,
+  G(s) = \int_{\mathbb{R}^+ }^{\reg} y^s g (y) \,d^\times y,
 \end{equation*}
 like in \S\ref{sec:cj4unj4gyo}, by splitting the integral into two pieces (e.g, the contributions of $(0,1)$ and $(1,\infty$)), meromorphically continuing each piece, and then summing the results on their domain of overlap (if any).
 
 \begin{lemma}\label{lemma:cj56e5j3yz}
   $G(s)$ defines a meromorphic function on the complex plane whose only poles at simple ones:
   \begin{itemize}
-\item at $s = 0$, with residue $-f(0)$, and
-\item at $s = 1$, with residue $\int_{\mathbb{R}} f(x) \,d x $.
-\end{itemize}
+  \item at $s = 0$, with residue $-f(0)$, and
+  \item at $s = 1$, with residue $\int_{\mathbb{R}} f(x) \,d x $.
+  \end{itemize}
 \end{lemma}
 \begin{proof}
   Let's carry this out in detail, applying the recipe of external \S\ref{sec:cj4vkf4yvq}.
@@ -236,18 +235,18 @@ like in \S\ref{sec:cj4unj4gyo}, by splitting the integral into two pieces (e.g, 
 \end{proof}
 
 We denote henceforth by $\mathcal{F} f$ the (normalized) Fourier transform
-  \begin{equation*}
-\mathcal{F} f (\xi) := \int_{x \in \mathbb{R} } f(x) e^{- 2 \pi i x \xi } \, d x.
+\begin{equation*}
+  \mathcal{F} f (\xi) := \int_{x \in \mathbb{R} } f(x) e^{- 2 \pi i x \xi } \, d x.
 \end{equation*}
 
 \begin{lemma}\label{lemma:cj4vkjxr7m}
   Write $G(s) = G_f(s)$ to indicate the dependence upon $f$.  Then we have the following functional equation:
   \begin{equation*}
-G_f(s) = G_{\mathcal{F} f}(1-s).
+    G_f(s) = G_{\mathcal{F} f}(1-s).
   \end{equation*}
 \end{lemma}
 \begin{proof}
-  This is a consequence of the Poisson summation formula (see external \eqref{eq:cj4vkktmw8}) 
+  This is a consequence of the Poisson summation formula (see external \eqref{eq:cj4vkktmw8})
   \begin{equation*}
     \sum_{n \in \mathbb{Z} } f (n y) = y^{-1} \sum_{n \in \mathbb{Z} } \mathcal{F} f (n / y).
   \end{equation*}
@@ -272,33 +271,33 @@ We suppose henceforth that $f$ is even.  This is without much loss of generality
 \begin{exercise}\label{exercise:cj56e5j0b7}
   Let $f \in \mathcal{S}(\mathbb{R})$ be even.  Show that the Mellin transform
   \begin{equation*}
-F(s) := \int y^s f (y) \,d^\times y
+    F(s) := \int y^s f (y) \,d^\times y
   \end{equation*}
   converges initially for $\Re(s) > 0$ and extends to a meromorphic function on the complex plane, whose only poles are simple ones at $s = - 2n$ for $n \in \mathbb{Z}_{\geq 0}$ with residue
   \begin{equation*}
-\res_{s = - 2 n} F(s) = \frac{1}{(2 n)!} f^{(2 n)}(0).
+    \res_{s = - 2 n} F(s) = \frac{1}{(2 n)!} f^{(2 n)}(0).
   \end{equation*}
   [Use Taylor's theorem with remainder, and note that the odd Taylor coefficients vanish in view of the evenness assumption on $f$.]
 \end{exercise}
 \begin{example}\label{example:cj56e5io5n}
   Take $f(x) := e^{- \pi x^2}$.  Then
   \begin{equation}\label{eq:cj4vkj6hym}
-F(s) = \pi^{- s / 2 } \Gamma (s / 2),
+    F(s) = \pi^{- s / 2 } \Gamma (s / 2),
   \end{equation}
   as one sees by substituting $y \mapsto \sqrt{y}$ and then $y \mapsto y / \pi$ in the defining integral.  This has poles in the expected places.
 \end{example}
 
 For $f$ even, we have
 \begin{equation*}
-g(y) = f(0) + 2 \sum_{n = 1 }^\infty f(n y).
+  g(y) = f(0) + 2 \sum_{n = 1 }^\infty f(n y).
 \end{equation*}
 Using that the constant function $1$ has vanishing regularized Mellin transform (for reasons similar to external Exercise \ref{exercise:cj4ss5ia8l}), we see that $G(s)$ admits the following absolutely convergent integral representation for $\Re(s) > 1$:
 \begin{equation*}
-G(s) = 2 \int_{\mathbb{R}^+ } y^s \sum_{n = 1 }^\infty f (n y ) \,d^\times y.
+  G(s) = 2 \int_{\mathbb{R}^+ } y^s \sum_{n = 1 }^\infty f (n y ) \,d^\times y.
 \end{equation*}
 By substituting $y \mapsto y / n$, we see that
 \begin{equation*}
-G(s) = 2 \zeta(s) F(s), \qquad F(s) := \int y^s f(y) \,d^\times y.
+  G(s) = 2 \zeta(s) F(s), \qquad F(s) := \int y^s f(y) \,d^\times y.
 \end{equation*}
 This gives another proof of the meromorphic behavior of $\zeta$.  TODO: say more.
 
@@ -306,8 +305,8 @@ We can also deduce the functional equation:
 \begin{theorem}\label{theorem:cj56e5im1s}
   We have
   \begin{equation*}
-\xi(s) := \pi^{- s / 2 } \Gamma (s/ 2 ) \zeta(s) = \xi (1 - s).
-\end{equation*}
+    \xi(s) := \pi^{- s / 2 } \Gamma (s/ 2 ) \zeta(s) = \xi (1 - s).
+  \end{equation*}
 \end{theorem}
 \begin{proof}
   Take $f(x) := e^{- \pi x^2}$.  By \eqref{eq:cj4vkj6hym}, we then have $G_f(s) = \xi(s)$.  On the other hand, by the well-known \href{https://mathworld.wolfram.com/FourierTransformGaussian.html}{formula} for the Fourier transform of a Gaussian, we have $\mathcal{F} f = f$.  By Lemma \ref{lemma:cj4vkjxr7m}, it follows that $G_f (s) = G_f (1 - s)$.  The claimed formula follows.
@@ -317,17 +316,17 @@ We can also deduce the functional equation:
 The link between the zeta function and the prime numbers is given by the following alternative formula:
 \begin{lemma}\label{lemma:cj56e5ilni}
   For $\Re(s) > 1$, we have
-\begin{equation*}
-\zeta(s) = \prod_p \frac{1}{1 - p^{- s}},
-\end{equation*}
-where the product ranges over the primes $p$ and converges absolutely.  In particular,
-\begin{equation*}
-\zeta(s) \neq 0 \text{ for } \Re(s) > 1.
-\end{equation*}
-Quantitatively, for $\sigma > 1$, we have
-\begin{equation}\label{eq:cj41z53x7f}
-\lvert \zeta(\sigma + it) \rvert \geq \zeta(1 + \sigma)^{-1}.
-\end{equation}
+  \begin{equation*}
+    \zeta(s) = \prod_p \frac{1}{1 - p^{- s}},
+  \end{equation*}
+  where the product ranges over the primes $p$ and converges absolutely.  In particular,
+  \begin{equation*}
+    \zeta(s) \neq 0 \text{ for } \Re(s) > 1.
+  \end{equation*}
+  Quantitatively, for $\sigma > 1$, we have
+  \begin{equation}\label{eq:cj41z53x7f}
+    \lvert \zeta(\sigma + it) \rvert \geq \zeta(1 + \sigma)^{-1}.
+  \end{equation}
 \end{lemma}
 Here we say that an infinite product \emph{converges absolutely} if it converges to the same nonzero value for any rearrangement of the factors.
 \begin{proof}
@@ -348,10 +347,10 @@ Here we say that an infinite product \emph{converges absolutely} if it converges
 
   For the quantitative estimate \eqref{eq:cj41z53x7f}, we observe that
   \begin{equation*}
-     \left\lvert \frac{1}{\zeta(\sigma + it)}  \right\rvert
-     = \prod_p \left\lvert 1 - p^{-s} \right\rvert
-     \leq \prod_p \left(  1 + p^{-\sigma} \right)
-     \leq \sum_n n^{-\sigma} = \zeta(1 + \sigma).
+    \left\lvert \frac{1}{\zeta(\sigma + it)}  \right\rvert
+    = \prod_p \left\lvert 1 - p^{-s} \right\rvert
+    \leq \prod_p \left(  1 + p^{-\sigma} \right)
+    \leq \sum_n n^{-\sigma} = \zeta(1 + \sigma).
   \end{equation*}
 \end{proof}
 
@@ -360,8 +359,8 @@ As a basic illustration of the resulting link between the zeta function and the 
 \begin{lemma}\label{lemma:cj56e5ihnv}
   Let $s > 1$ be real, tending to $1$.  Then
   \begin{equation*}
-\sum_p \frac{1}{ p^s } = \log \frac{1}{1 - s} + \O(1).
-\end{equation*}
+    \sum_p \frac{1}{ p^s } = \log \frac{1}{1 - s} + \O(1).
+  \end{equation*}
 \end{lemma}
 \begin{proof}
   Using the Taylor series for the logarithm, we compute
@@ -372,12 +371,12 @@ As a basic illustration of the resulting link between the zeta function and the 
   \end{equation}
   We leave it to the reader to check that
   \begin{equation}
-\sum_{k \geq 2} \frac{p^{- k s}}{ k }  = \O(1)
+    \sum_{k \geq 2} \frac{p^{- k s}}{ k }  = \O(1)
   \end{equation}
   in the indicated range.
 \end{proof}
 \begin{corollary}\label{corollary:cj56e5ijg7}
-$\sum_p 1 / p = \infty$.
+  $\sum_p 1 / p = \infty$.
 \end{corollary}
 
 \subsection{Logarithmic derivatives}
@@ -388,21 +387,21 @@ While the logarithm $\log \zeta(s)$ is multi-valued, the logarithmic derivative
 \end{equation*}
 is single-valued.  It may be computed by differentiating \eqref{eq:cj402w3a5w}:
 \begin{equation*}
-- \frac{\zeta '}{ \zeta } (s) = \sum _p (\log p) \sum_{k \geq 1} p^{- k s} = \sum_n \frac{\Lambda(n) }{n^s},
+  - \frac{\zeta '}{ \zeta } (s) = \sum _p (\log p) \sum_{k \geq 1} p^{- k s} = \sum_n \frac{\Lambda(n) }{n^s},
 \end{equation*}
 where the \emph{von Mangoldt function} $\Lambda(n)$ is defined by
 \begin{equation*}
-\Lambda(n) :=
-\begin{cases}
-\log p & \text{ if } n = p ^k, \\
-0 & \text{ otherwise.}
-\end{cases}
+  \Lambda(n) :=
+  \begin{cases}
+    \log p & \text{ if } n = p ^k, \\
+    0 & \text{ otherwise.}
+  \end{cases}
 \end{equation*}
 
 
 The general theme of this course suggests a relationship between the asymptotics of $\Lambda(n)$ and the meromorphic behavior of $- \zeta ' / \zeta$.  The poles of the latter may be described as follows.  Suppose that $\rho \in \mathbb{C}$ is a point at which $\zeta$ has a zero of order $m \in \mathbb{Z}$, i.e., $\zeta(s) \sim c (s - \rho)^m$ for some $c \in \mathbb{C}^\times$ as $s \rightarrow \rho$.  Then
 \begin{equation*}
-- \frac{\zeta'}{\zeta}(s) \sim \frac{- m }{s - \rho}.
+  - \frac{\zeta'}{\zeta}(s) \sim \frac{- m }{s - \rho}.
 \end{equation*}
 Therefore the poles of $- \zeta ' / \zeta $ are all simple, and occur at
 \begin{itemize}
@@ -412,21 +411,21 @@ Therefore the poles of $- \zeta ' / \zeta $ are all simple, and occur at
 
 Suppose, for instance, that we wish to understand the asymptotics of a sum like
 \begin{equation*}
-S := \sum_n \Lambda (n) f \left( \frac{n}{x} \right).
+  S := \sum_n \Lambda (n) f \left( \frac{n}{x} \right).
 \end{equation*}
 Here $f \in C_c^\infty (\mathbb{R}^+ )$ is fixed, while we think of $x > 1$ as a parameter tending off to infinity.  To do this, we expand $f$ using its Mellin transform, which gives
 \begin{equation*}
-f \left( \frac{n}{x} \right) = \int_{(c)} F (s) \left( \frac{x}{n} \right)^s \, \frac{d s}{2 \pi i}.
+  f \left( \frac{n}{x} \right) = \int_{(c)} F (s) \left( \frac{x}{n} \right)^s \, \frac{d s}{2 \pi i}.
 \end{equation*}
 Here $c \in \mathbb{R}$ is any real number.  The double sum/integral obtained by inserting this expansion into the definition of $S$ converges absolutely for $c > 1$, where we may rearrange it to obtain
 \begin{equation}\label{eq:cj42xpi3f4}
-S = \int_{(c)} F (s) x^s \underbrace
-{
-  \sum_n 
-\frac{\Lambda (n)}{ n^s } 
-}_{
-  - \frac{\zeta ' }{\zeta }(s)
-}\, \frac{d s}{2 \pi i}.
+  S = \int_{(c)} F (s) x^s \underbrace
+  {
+    \sum_n 
+    \frac{\Lambda (n)}{ n^s } 
+  }_{
+    - \frac{\zeta ' }{\zeta }(s)
+  }\, \frac{d s}{2 \pi i}.
 \end{equation}
 We would now like to shift the contour to the left.
 
@@ -453,7 +452,7 @@ We begin by giving a simple formula for $\zeta$ valid in the critical strip $0 <
   \begin{equation}\label{eq:cj41j93u44}
     \zeta(s) - \frac{1}{s - 1}
     = \sum_{n = 1}^\infty \int_n^{n+1}  \left( \frac{1}{n^s }  - \frac{1}{y^s} \right)   \, d y.
-\end{equation}
+  \end{equation}
   
 \end{lemma}
 \begin{proof}
@@ -467,9 +466,9 @@ We begin by giving a simple formula for $\zeta$ valid in the critical strip $0 <
     &=
       \sum_{n = 1}^\infty \frac{1}{n^s } - \int_1^\infty \frac{1}{y^s } \, d y \\
     &=
-    \sum_{n = 1}^\infty \left( \frac{1}{n^s } - \int_n^{n+1} \frac{1}{y^s} \, d y \right) \\
- &=
-    \sum_{n = 1}^\infty \int_n^{n+1}  \left( \frac{1}{n^s }  - \frac{1}{y^s} \right)   \, d y.
+      \sum_{n = 1}^\infty \left( \frac{1}{n^s } - \int_n^{n+1} \frac{1}{y^s} \, d y \right) \\
+    &=
+      \sum_{n = 1}^\infty \int_n^{n+1}  \left( \frac{1}{n^s }  - \frac{1}{y^s} \right)   \, d y.
   \end{align*}
 \end{proof}
 
@@ -477,7 +476,7 @@ From this, we conclude a basic but useful upper bound for $\zeta$ in the critica
 \begin{lemma}\label{lemma:cj56e5ibho}
   For $s = \sigma + it $ with $\sigma \geq \eps > 0$ and $\lvert t \rvert \geq 2$, we have
   \begin{equation}\label{eq:cj41kdcbj7}
-\log \lvert \zeta(s) \rvert \leq \log (\lvert t \rvert) + \O_{\eps}(1).
+    \log \lvert \zeta(s) \rvert \leq \log (\lvert t \rvert) + \O_{\eps}(1).
   \end{equation}
 \end{lemma}
 \begin{proof}
@@ -521,23 +520,23 @@ With these results in hand, we can appeal to general properties of holomorphic f
 \begin{lemma}\label{lemma:cj42xpd5qe}
   For $C > \eps > 0$ and $T \in \mathbb{R}$, we have
   \begin{equation*}
-\int_{\sigma = \eps }^{C}
-\int_{t = T-1}^{T+1}
-\left\lvert
-\frac{\zeta ' }{\zeta }(\sigma + i t)
-\right\rvert
-\, d t
-\, d \sigma
-\ll_{\eps,C} \log (3 + \lvert T \rvert).
+    \int_{\sigma = \eps }^{C}
+    \int_{t = T-1}^{T+1}
+    \left\lvert
+      \frac{\zeta ' }{\zeta }(\sigma + i t)
+    \right\rvert
+    \, d t
+    \, d \sigma
+    \ll_{\eps,C} \log (3 + \lvert T \rvert).
   \end{equation*}
 \end{lemma}
 \begin{proof}
   This follows upon integrating \eqref{eq:cj41z82pyp}, using that
-\begin{equation*}
-  \int_{-R}^R
-  \int_{-R}^R
-  \frac{1}{\lvert x + i y \rvert} \, d x \, d y < \infty.
-\end{equation*}  
+  \begin{equation*}
+    \int_{-R}^R
+    \int_{-R}^R
+    \frac{1}{\lvert x + i y \rvert} \, d x \, d y < \infty.
+  \end{equation*}  
 \end{proof}
 
 \subsection{Contour shifting and an explicit formula}
@@ -560,11 +559,11 @@ We can now carry out the promised contour shifting arguments.  Here's a typical 
     \max_{
       \substack{
         \sigma \in [\eps/2, \eps]  \\
-         t \in [T-1, T+1]
+        t \in [T-1, T+1]
       }
     }
     \left\lvert F(\sigma  + i t) \right\rvert.
-    \end{equation*}
+  \end{equation*}
 \end{proposition}
 Note that since $f$ is smooth, the quantity $\mathcal{E}$ is finite (see external Lemma \ref{lemma:cj4ungtm6r} of \href{20230907T143130--fourier-and-mellin-transforms.pdf}{these notes}).
 
@@ -587,20 +586,20 @@ Note that since $f$ is smooth, the quantity $\mathcal{E}$ is finite (see externa
     \, d t
     \, d \sigma
     &\leq \int_{T \in \mathbb{R} } E(T)
-    \int_{\sigma = \eps / 2 }^{\eps }
-    \int_{t = T - 1}^{T + 1}
-    \left\lvert D(\sigma+it) \right\rvert
-    \, d t
-    \, d \sigma \, d T \\
+      \int_{\sigma = \eps / 2 }^{\eps }
+      \int_{t = T - 1}^{T + 1}
+      \left\lvert D(\sigma+it) \right\rvert
+      \, d t
+      \, d \sigma \, d T \\
     &\ll_{\eps} \mathcal{E}.
   \end{align*}
   By the pigeonhole principle, we can find some $c_0 \in (\eps/2, \eps)$ so that
   \begin{equation}\label{eq:cj42xv8hdz}
-\int_{t \in \mathbb{R} } I_{c_0} (t) \ll_{\eps} \mathcal{E}.
+    \int_{t \in \mathbb{R} } I_{c_0} (t) \ll_{\eps} \mathcal{E}.
   \end{equation}
   By the triangle inequality, it follows that
   \begin{equation*}
-\int_{(c_0)} F(s) D(s) \, \frac{d s}{2 \pi i } \ll _{\eps} \mathcal{E}.
+    \int_{(c_0)} F(s) D(s) \, \frac{d s}{2 \pi i } \ll _{\eps} \mathcal{E}.
   \end{equation*}
   We also have, by another application of Lemma \ref{lemma:cj42xpd5qe},
   \begin{align*}
@@ -639,7 +638,7 @@ Note that since $f$ is smooth, the quantity $\mathcal{E}$ is finite (see externa
     \sum_{
       \substack{
         \rho : \Re(\rho) > c_0,   \\
-         \lvert \Im(\rho) \rvert < t
+        \lvert \Im(\rho) \rvert < t
       }
     } F(\rho) 
   \end{equation*}
@@ -665,7 +664,7 @@ These results were presented in Sergey's lectures while I was travelling, follow
 \begin{theorem}\label{theorem:cj541i3g6o}
   There exists $c > 0$ so that if $\zeta(s) = 0$ for $s = \sigma + i t$, then
   \begin{equation*}
-1 - \sigma > \frac{c}{\log (2 + \lvert t \rvert)}.
+    1 - \sigma > \frac{c}{\log (2 + \lvert t \rvert)}.
   \end{equation*}
   In particular, $\zeta(s) = 0$ only if $\Re(s) < 1$.
 \end{theorem}
@@ -677,18 +676,18 @@ We'll present the proof of the qualitative form, i.e., without giving an explici
 \begin{theorem}\label{theorem:cj56e013t4}
   Fix $f \in C_c^\infty (\mathbb{R}^+ )$, with Mellin transform $F$, and let $x \rightarrow \infty$.  Then
   \begin{equation*}
-\sum_{n} \Lambda (n) f \left( \frac{n}{x} \right) = F(1) x + o(x).
-\end{equation*}
+    \sum_{n} \Lambda (n) f \left( \frac{n}{x} \right) = F(1) x + o(x).
+  \end{equation*}
 \end{theorem}
 \begin{proof}
   We apply the explicit formula, as given in Proposition \ref{proposition:cj541es01g}, with some small $\eps > 0$.  The error quantity $E(T)$ is $\ll T^{-100}$, say, by the rapid decay of $F$, and so $\mathcal{E} \ll \int_{T \in \mathbb{R} } (1 + \lvert T \rvert)^{-100} \log(3 + |T|) \, d T \ll 1$.  Our task thereby reduces to showing that
   \begin{equation}\label{eq:cj541i9qbt}
-\sum_{\rho : \Re(\rho) > \eps } F(\rho) x^\rho = o(x).
+    \sum_{\rho : \Re(\rho) > \eps } F(\rho) x^\rho = o(x).
   \end{equation}
   
   To that end, let us observe first that
   \begin{equation*}
-\sum_{\rho : \Re(\rho) > \eps } \lvert F(\rho) \rvert < \infty.
+    \sum_{\rho : \Re(\rho) > \eps } \lvert F(\rho) \rvert < \infty.
   \end{equation*}
   Indeed, by the rapid decay of $F$, we have $F(\rho) \ll \lvert \rho \rvert^{-100}$, while by Proposition \ref{proposition:cj41z9de5r}, the number of $\rho$ with $\lvert \rho \rvert \leq T$ is $\ll T \log T$ for $T \geq 3$; the claimed convergence then follows by summing over dyadic ranges $X \leq \lvert \rho \rvert \leq 2X$.
 
@@ -700,17 +699,16 @@ Now we successively pass from this to more elementary statements.
 First, we approximate sharp cutoffs by smooth ones to deduce a sharply truncated dyadic estimate.
 \begin{theorem}\label{theorem:cj56e4c1fl}
   As $x \rightarrow \infty$, we have
-\begin{equation}\label{eq:cj56e0ogug}
-\sum_{x \leq n \leq 2 x} \Lambda(n) \sim x.
-\end{equation}
+  \begin{equation}\label{eq:cj56e0ogug}
+    \sum_{x \leq n \leq 2 x} \Lambda(n) \sim x.
+  \end{equation}
 \end{theorem}
 \begin{proof}
-  For each fixed $\eps > 0$, we may find $f, f_+ \in C_c^\infty(\mathbb{R}^+)$ such that, writing $1_{A}$ for the character function of a set $A$
-  and $F, F_+ $ for the Mellin transforms,
+  For each fixed $\eps > 0$, we may find $f, f_+ \in C_c^\infty(\mathbb{R}^+)$ such that, writing $1_{A}$ for the character function of a set $A$ and $F, F_+ $ for the Mellin transforms,
   \begin{equation}\label{eq:cj56e0zjto}
     \left\lvert f(x) - 1_{[1,2]}(x) \right\rvert \leq f_+(x) \quad
     \text{and} \quad
-     F_+(1) = \int  f_+ < \eps.
+    F_+(1) = \int  f_+ < \eps.
   \end{equation}
   (We can do this by modifying the standard proof that nonzero smooth compactly supported functions exist.)  Write $S$ for the left hand side of \eqref{eq:cj56e0ogug}, and write
   \begin{equation*}
@@ -730,13 +728,13 @@ Next, we apply dyadic summation to obtain an estimate for the sum over all $n \l
 \begin{theorem}\label{theorem:cj56e5hu01}
   As $x \rightarrow \infty$, we have
   \begin{equation}\label{eq:cj56fbgld4}
-\sum_{n \leq x} \Lambda (n) \sim x.
-\end{equation}
+    \sum_{n \leq x} \Lambda (n) \sim x.
+  \end{equation}
 \end{theorem}
 \begin{proof}
   For $x \geq 1$, let us define $\alpha(x)$ by writing
   \begin{equation}\label{eq:cj56e4fgbu}
-\sum_{x < n \leq 2 x} \Lambda(n) = x (1 + \alpha (x)).
+    \sum_{x < n \leq 2 x} \Lambda(n) = x (1 + \alpha (x)).
   \end{equation}
   By Theorem \ref{theorem:cj56e4c1fl}, we have
   \begin{equation}\label{eq:cj56e4jf1z}
@@ -757,7 +755,7 @@ Next, we apply dyadic summation to obtain an estimate for the sum over all $n \l
   \end{equation*}
   where $m$ is chosen so that
   \begin{equation}\label{eq:cj56e4py7n}
-\frac{x}{2^{m + 1}} < 2 \leq \frac{x}{2^m}.
+    \frac{x}{2^{m + 1}} < 2 \leq \frac{x}{2^m}.
   \end{equation}
   By applying \eqref{eq:cj56e4fgbu} to each summand, we obtain
   \begin{equation*}
@@ -767,7 +765,7 @@ Next, we apply dyadic summation to obtain an estimate for the sum over all $n \l
   \end{equation*}
   Fix $\eps > 0$.  We can choose $k_1 \geq 1$ so that
   \begin{equation*}
-C \sum_{k > k_1} \frac{1}{2^k } \leq \eps.
+    C \sum_{k > k_1} \frac{1}{2^k } \leq \eps.
   \end{equation*}
   By \eqref{eq:cj56e4jjez}, we then have
   \begin{equation*}
@@ -776,11 +774,11 @@ C \sum_{k > k_1} \frac{1}{2^k } \leq \eps.
   \end{equation*}
   On the other hand, for each $k \leq k_1$, we see by \eqref{eq:cj56e4jf1z} that
   \begin{equation*}
-x \frac{1}{2^k } \alpha \left( \frac{x}{2^k } \right) =o(x)
+    x \frac{1}{2^k } \alpha \left( \frac{x}{2^k } \right) =o(x)
   \end{equation*}
   as $x \rightarrow \infty$.  By combining these estimates with \eqref{eq:cj56e4py7n}, we deduce that
   \begin{equation*}
-\left\lvert \sum_{n \leq x} \Lambda (n) - x \right\rvert \leq 3 \eps x
+    \left\lvert \sum_{n \leq x} \Lambda (n) - x \right\rvert \leq 3 \eps x
   \end{equation*}
   for $x$ sufficiently large.  Since $\eps > 0$ was arbitrary, we are done.
 \end{proof}
@@ -789,8 +787,8 @@ We next aim to deduce from this the prime number theorem in unweighted form:
 \begin{theorem}\label{theorem:cj56e5hrdh}
   As $x \rightarrow \infty$, we have
   \begin{equation*}
-\sum_{p \leq x} 1 \sim \frac{x}{\log x}.
-\end{equation*}
+    \sum_{p \leq x} 1 \sim \frac{x}{\log x}.
+  \end{equation*}
 \end{theorem}
 
 The proof uses the following identity.
@@ -809,21 +807,21 @@ The proof uses the following identity.
 \end{lemma}
 \begin{proof}
   The left hand side of \eqref{eq:cj56e5hnf5} may be understood as the \href{https://en.wikipedia.org/wiki/Riemann%E2%80%93Stieltjes_integral}{Riemann--Stieltjes integral}
-  \begin{equation*}
-\int_a^b f (t) \, d S(t).
-  \end{equation*}
-  The claimed formula follows by integration by parts for such integrals.
+    \begin{equation*}
+      \int_a^b f (t) \, d S(t).
+    \end{equation*}
+    The claimed formula follows by integration by parts for such integrals.
 
-  Alternatively, we can reduce by linearity to the case that $c_m = 1$ and $c_n = 0$ for $n \neq m$.  Then $S(t) = 1_{t \geq m}$.  The claimed identity can be verified by considering separately the cases that $m \leq  a$ or $a < m \leq  b$ or $b < m$, in which it reads respectively
-  \begin{equation*}
-0 = f(b) - f(a) - \int_a^b f'(t) \, d t,
-  \end{equation*}
-  \begin{equation*}
-f(m) = f(b) - \int_m^b f ' (t) \, d t,
-  \end{equation*}
-  \begin{equation*}
-0 = 0.
-  \end{equation*}
+    Alternatively, we can reduce by linearity to the case that $c_m = 1$ and $c_n = 0$ for $n \neq m$.  Then $S(t) = 1_{t \geq m}$.  The claimed identity can be verified by considering separately the cases that $m \leq a$ or $a < m \leq b$ or $b < m$, in which it reads respectively
+    \begin{equation*}
+      0 = f(b) - f(a) - \int_a^b f'(t) \, d t,
+    \end{equation*}
+    \begin{equation*}
+      f(m) = f(b) - \int_m^b f ' (t) \, d t,
+    \end{equation*}
+    \begin{equation*}
+      0 = 0.
+    \end{equation*}
 \end{proof}
 \begin{example}\label{example:cj56fa3yqw}
   If $f \equiv 1$, then \eqref{eq:cj56e5hnf5} says
@@ -835,8 +833,8 @@ f(m) = f(b) - \int_m^b f ' (t) \, d t,
 \begin{example}\label{example:cj56fa31f5}
   If $f(t) = t$, then \eqref{eq:cj56e5hnf5} says
   \begin{equation*}
-\sum_{a < n \leq b} n c_n = b S(b) - a S(a) - \int_a^b S(t) \, d t.
-\end{equation*}
+    \sum_{a < n \leq b} n c_n = b S(b) - a S(a) - \int_a^b S(t) \, d t.
+  \end{equation*}
 \end{example}
 \begin{proof}[Proof of Theorem \ref{theorem:cj56e5hrdh}]
   We apply Lemma~\ref{lemma:cj56e5hp8x} with $[a,b] = [\tfrac{3}{2},x]$, $c_n = \Lambda(n)$, and $f(t) = 1 / \log t$.  Then $S(t) = \sum_{n \leq t} \Lambda(t)$.  Since $f'(t) = - 1 / (t \log^2 t)$, we obtain
@@ -853,7 +851,7 @@ f(m) = f(b) - \int_m^b f ' (t) \, d t,
     \sum_{n \leq x}  \frac{\Lambda (n)}{\log n}
     \sim \frac{x}{\log x}.
   \end{equation*}
-  Recall that, by definition, we have $\Lambda (n) / \log n = 0$  unless $n$ is of the form $p^k $ for some prime $p$ and natural number $k$, in which case $\Lambda (n) = \log p = \tfrac{1}{k}  \log n$.  Since $p^k \leq x$ if and only if $p \leq x^{1/k}$, it follows that
+  Recall that, by definition, we have $\Lambda (n) / \log n = 0$ unless $n$ is of the form $p^k $ for some prime $p$ and natural number $k$, in which case $\Lambda (n) = \log p = \tfrac{1}{k} \log n$.  Since $p^k \leq x$ if and only if $p \leq x^{1/k}$, it follows that
   \begin{equation*}
     \sum_{n \leq x}  \frac{\Lambda (n)}{\log n}
     = \pi (x) + \pi (x^{1/2} ) + \pi (x^{1/3} ) + \dotsb + \pi (x^{1 / k}),
@@ -864,11 +862,283 @@ f(m) = f(b) - \int_m^b f ' (t) \, d t,
   \end{equation*}
   By trivial estimation, we have $\left\lvert \pi(x) \right\rvert \leq x$ and $k \ll \log x$, hence
   \begin{equation*}
-\pi (x^{1/2} ) + \pi (x^{1/3} ) + \dotsb + \pi (x^{1/k}) \ll x^{1/2} \log x.
+    \pi (x^{1/2} ) + \pi (x^{1/3} ) + \dotsb + \pi (x^{1/k}) \ll x^{1/2} \log x.
   \end{equation*}
   This is much smaller than $x / \log x$, so we conclude as required that $\pi (x) \sim x / \log x$.
 \end{proof}
 
+\section{Primes in arithmetic progressions}
+\subsection{Goal}
+Next goal is to establish the prime number theorem in arithmetic progressions.
 
+Let $(a,b)$ denote the greatest common divisor of a pair of integers $a$ and $b$.  We recall that $(a,b)$ is then the nonnegative generator of the ideal generated by $a$ and $b$, hence may be written in the form $a x + b y$ for some integers $x$ and $y$.  We recall that $a$ and $b$ are called coprime if $(a,b) = 1$.
+
+For a natural number $q$, we denote by $\mathbb{Z} / q := \mathbb{Z} / q \mathbb{Z}$ the ring of residue classes modulo $q$ and by $(\mathbb{Z} / q)^\times$ its unit group, consisting of what we call the \emph{reduced} residue classes.  Each residue class $a \in \mathbb{Z} / q$ may be identified with an arithmetic progression $a + q \mathbb{Z}$.  A residue class is reduced if and only if it consists of integers coprime to $q$.  We sometimes write simply $a \pod{q}$ and $a \pod{q}^*$ to denote respectively that $a \in \mathbb{Z} / q$ and that $a \in (\mathbb{Z} / q)^\times$.  We write
+\begin{equation*}
+  \phi(q) := (\mathbb{Z} / q) ^\times
+\end{equation*}
+for the Euler $\phi$ function, which counts the reduced residue classes modulo $q$.
+
+If the residue class $a \pod{q}$ is not reduced, then it contains at most one prime number.  Indeed, our hypothesis implies that $a$ and $q$ have a common divisor $d > 1$.  Then any prime $p \equiv a \pod{q}$ is in particular divisible by $d$, hence $p = d$, as required.
+
+It follows that all but finitely many prime numbers lie in one of the reduced residue classes modulo $q$.  By the prime number theorem, we thus have for fixed $q$, as $x \rightarrow \infty$, the estimate
+\begin{equation*}
+  \sum_{a (q)^*} \sum_{
+    \substack{
+      p \leq x  \\
+      p \equiv  a(q)
+    }
+  }
+  1
+  \sim \frac{x}{ \log x}.
+\end{equation*}
+The prime number theorem says that the primes distribute evenly modulo the reduced residue classes, i.e., for each $a(q)^*$,
+\begin{equation*}
+  \sum_{
+    \substack{
+      p \leq x  \\
+      p \equiv a (q)
+    }
+  }
+  \frac{1}{\phi(q)}
+  \frac{x}{\log x}.
+\end{equation*}
+The proof will boil down to nonvanishing properties of the Dirichlet $L$-functions $L(s,\chi)$, where $\chi$ is a Dirichlet character modulo $q$.
+
+In particular, such estimates imply the infinitude of primes in arithmetic progressions (Dirichlet's theorem).
+
+\subsection{Structure of the group of reduced residue classes}\label{sec:cj56v04qkg}
+Let $q$ be a natural number.  Here we describe the structure of the group $(\mathbb{Z} / q)^\times$.  In particular, we write that group as a product of cyclic groups.
+
+By the fundamental theorem of arithmetic, we may factor $q$ as a product of prime numbers, say $q = \prod_i p_i^{a_i}$.  By the Chinese remainder theorem, the natural map
+\begin{equation*}
+  \mathbb{Z} / q \rightarrow \prod_i \mathbb{Z} / p_i^{a_i}
+\end{equation*}
+is an isomorphism of rings, hence induces an isomorphism of unit groups
+\begin{equation}\label{eq:cj56v11l5g}
+  (\mathbb{Z} / q) ^\times \cong \prod_i (\mathbb{Z} / p_i^{a_i })^\times.
+\end{equation}
+We can therefore reduce our study to the case that $q$ is a prime power.
+
+In the case that $q$ is a prime, we have the following fundamental fact from basic algebra:
+\begin{lemma}\label{lemma:cj57ckf53h}
+  For a prime number $p$, the group $(\mathbb{Z} / p )^\times $ is cyclic.
+\end{lemma}
+\begin{proof}
+  We sketch the standard proof.  Since the group $(\mathbb{Z} / p)^\times$ has order $\phi(p) = p-1$, we have $x^{p-1} = 1$ for each $x \in (\mathbb{Z} / p)^\times$.  The order of $x$ is thus some divisor $d$ of $p-1$.  On the other hand, using that $\mathbb{Z} / p$ is a field and the fundamental theorem of algebra, we know that the number of elements $x$ of order $d$ is at most what it would be if the group $(\mathbb{Z} / q)^\times$ were cyclic.  By a counting argument, it follows that that number is in fact exactly what it would be if that group were cyclic.  In particular, by taking $d = p-1$, we deduce that there exists a cyclic element.
+\end{proof}
+A \emph{primitive root} modulo $p$ is a generator $g$ of the cyclic group $(\mathbb{Z} /p )^\times $.
+
+How about for prime powers?  For an odd prime $p$ and an integer $k \geq 2$, the group $(\mathbb{Z} / p^k )^\times$ is likewise cyclic.  Indeed, we can lift a primitive root $g$ mod $p$ to a $(p-1)$st root of unity in $(\mathbb{Z} / p^k)^\times$.  Then the map
+\begin{equation}\label{eq:cj56v1ftv0}
+  \mathbb{Z} / (p-1) \times \mathbb{Z} / p^{k-1}  \rightarrow (\mathbb{Z} / p^k )^\times 
+\end{equation}
+\begin{equation*}
+  (a,b) \mapsto g^a (1 + p)^b
+\end{equation*}
+is an isomorphism.  At the prime $2$, we have the slightly more complicated isomorphism
+\label{sec:cj56v1kjb7}\begin{equation}
+  \mathbb{Z} / 2 \times \mathbb{Z} / 2^{k - 2} \rightarrow (\mathbb{Z} / 2^k )^\times 
+\end{equation}
+\begin{equation*}
+  (a, b) \mapsto (-1)^a 5^b.
+\end{equation*}
+
+\begin{example}\label{example:cj57ckfyti}
+  What are the squares in $(\mathbb{Z} / q)^\times$?  Under the isomorphism \eqref{eq:cj56v11l5g}, they correspond to products of squares in $(\mathbb{Z} / p^k)^\times$, where $p^k$ runs over the prime power factors of $q$.  If $p$ is odd, then the squares in $(\mathbb{Z} / p^k )^\times$ are the elements of the form $g^a (1 + p)^b $ for which $a \equiv 0 \pod{2}$.  If $p^k = 2$, then everything is a square.  If $p = 2$ and $k \geq 2$, then the squares are the elements of the form $(-1)^a 5^b$ for which $a \equiv 0 \pod{2}$ and $b \equiv 0 \pod{2}$.
+\end{example}
+
+
+\subsection{Characters of finite abelian groups}\label{sec:cj56v04up0}
+We recall some basics from \href{20230919T144827--discrete-fourier-transform.pdf}{Sergey's lecture} concerning the discrete Fourier transform.
+
+Let $G$ be a finite abelian group.  A \emph{character} of $G$ is a homomorphism $\chi : G \rightarrow \mathbb{C}^\times$.  Since $G$ is torsion, the image of any character consists of roots of unity, and in particular lies in the subgroup $\U(1) \leq \mathbb{C}^\times$.
+
+We write $\hat{G}$ for the set of characters of $G$.  Equipped with the operation of pointwise multiplication, this set is naturally a finite abelian group.  The identity element of $\hat{G}$ is the trivial character $1 \in \hat{G}$, which assigns the scalar $1$ to each element of $G$.
+
+The groups $G$ and $\hat{G}$ are (non-canonically) isomorphic.  One can see this using the fact that $G$ is isomorphic to a finite product of cyclic groups, together with the following explicit isomorphism in the case of a cyclic group $G = \mathbb{Z} / n$: with $e(x) := e^{2 \pi i x}$, we have
+\begin{equation*}
+  \mathbb{Z} / n \xrightarrow{\cong } \widehat{\mathbb{Z} / n},
+\end{equation*}
+\begin{equation*}
+  a \mapsto [b \mapsto e (a b / n)].
+\end{equation*}
+
+To each $f : G \rightarrow \mathbb{C}$, we associate its \emph{Fourier transform} $\hat{f} : \hat{G} \rightarrow \mathbb{C}$, defined by
+\begin{equation*}
+  \hat{f}(\chi) := \frac{1}{\lvert G \rvert} \sum_{a \in G} f(a) \chi^{-1}(a).
+\end{equation*}
+We then have the Fourier inversion formula
+\begin{equation*}
+  f = \sum_{\chi \in \hat{G}} \hat{f} (\chi) \chi 
+\end{equation*}
+and the Parseval formula
+\begin{equation*}
+  \frac{1}{\lvert G \rvert }
+  \sum_{a \in G} f_1(a) \overline{f_2(a)}
+  = \sum_{\chi \in \hat{G}}
+  f_1 (\chi) \overline{f_2 (\chi) }.
+\end{equation*}
+These may be verified by reduction to the case of cyclic groups, where they follow by summing geometric series.
+
+\subsection{Dirichlet characters}\label{sec:cj57ckezgl}
+A \emph{Dirichlet character} $\chi$ modulo $q$ is a character $\chi$ of the group $(\mathbb{Z} / q)^\times $.
+
+It is convenient to identify a character $\chi$ modulo $q$ with the function $\chi : \mathbb{Z} \rightarrow \mathbb{C}$ supported on the integers $a$ coprime to $q$ and given there by $\chi(a) := \chi(a \pod{q})$.
+
+The discussion of \S\ref{sec:cj56v04qkg} and \S\ref{sec:cj56v04up0} makes the Dirichlet characters fairly explicit:
+\begin{itemize}
+\item Suppose $q$ factors as a product of prime powers $p_i^{a_i}$.  Then any Dirichlet character $\chi$ modulo $q$ factors as a product of Dirichlet characters $\chi_i$, where $\chi_i$ factors through a Dirichlet character modulo $p_i^{a_i}$ via the map $(\mathbb{Z} / q )^\times \rightarrow (\mathbb{Z} / p_i^{a_i })^\times$.
+\item Suppose $q = p^k$ for some odd prime $p$ and $k \geq 1$.  Then, via the isomorphism \eqref{eq:cj56v1ftv0}, every Dirichlet character is uniquely of the form
+  \begin{equation}\label{eq:cj56v1takk}
+    \chi_{\xi, \eta } (g^a (1 + p)^b ) = e \left( \frac{\xi a}{p- 1} + \frac{ \eta b}{p^{k-1}} \right)
+  \end{equation}
+  for some $(\xi,\eta) \in \mathbb{Z} / (p - 1 ) \times \mathbb{Z} / p^{k - 1}$.
+\item The group $(\mathbb{Z} / 2)^\times$ is trivial, so every Dirichlet character modulo $2$ is trivial.
+\item Suppose $q = 2^k$ for some $k \geq 2$.  Then, via \ref{sec:cj56v1kjb7}, every Dirichlet character is given by
+  \begin{equation*}
+    \chi_{\xi, \eta } ((-1)^a 5^b ) = (-1)^{\xi a} e \left( \frac{\eta b}{2^{k - 2}} \right)
+  \end{equation*}
+  for some $(\xi, \eta ) \in \mathbb{Z} / 2 \times \mathbb{Z} / 2^{k - 2}$.
+\end{itemize}
+
+\begin{definition}\label{definition:cj57ckev22}
+  We say that a Dirichlet character $\chi$ is \emph{real} or \emph{quadratic} if it takes real values, or equivalently, in view of the identity $\chi(a)^{-1} = \overline{\chi(a)}$, if it satisfies $\chi^2 = 1$.
+\end{definition}
+\begin{example}\label{example:cj57ckeu1v}
+  Suppose $p$ is an odd prime.  The \emph{Legendre symbol} $x \mapsto (x | p)$ is the Dirichlet character modulo $p$ given by taking $\xi = (p-1)/2$ in \eqref{eq:cj56v1takk}, or equivalently, by
+  \begin{equation*}
+    (x|p) =
+    \begin{cases}
+      +1 & \text{ if } x \text{ is a square modulo } p, \\
+      -1 & \text{ otherwise.}
+    \end{cases}
+  \end{equation*}
+  It is the only nontrivial real character modulo $p$.  Here is a table of the Legendre symbols modulo $7$:
+  \begin{equation*}
+    \begin{array}{c|ccccccc}
+      x & 1 & 2 & 3 & 4 & 5 & 6 \\
+      \hline
+      (x|7) & +1 & +1 & -1 & +1 & -1 & -1
+    \end{array}  
+  \end{equation*}
+\end{example}
+\begin{example}\label{example:cj57cket4w}
+  There is one nontrivial character modulo $4$.  It is real, and given by
+  \begin{equation}\label{eq:cj57b1cpf8}
+    x \mapsto (-1)^{\frac{x-1}{2}}
+    =
+    \begin{cases}
+      +1 & \text{ if } x \equiv 1 \pod{4}, \\
+      -1 & \text{ if } x\equiv -1 \pod{4}.
+    \end{cases}
+  \end{equation}
+\end{example}
+\begin{example}\label{example:cj57ckes66}
+  There are three nontrivial characters modulo $8$.  They are all real, and given either by \eqref{eq:cj57b1cpf8}, by
+  \begin{equation}\label{eq:cj57b1d78t}
+    x \mapsto (- 1 )^{\frac{x^2 - 1}{8}}
+    =
+    \begin{cases}
+      +1 & \text{ if } x \equiv \pm 1 \pod{8}, \\
+      -1 & \text{ if } x \equiv \pm 5 \pod{8},
+    \end{cases}
+  \end{equation}
+  or by the product of \eqref{eq:cj57b1cpf8} and \eqref{eq:cj57b1d78t}.
+\end{example}
+
+\begin{remark}\label{remark:cj57ckerd1}
+  The nontrivial real characters modulo higher prime powers all factor through some real character modulo $4$, $8$ or an odd prime.  The real characters modulo a composite number factor as products of real characters modulo its prime power factors.
+\end{remark}
+
+\subsection{Primitive characters}\label{sec:cj57ckeqfd}
+For a divisor $d$ of $q$, we have a natural quotient map of rings $\mathbb{Z} / q \rightarrow \mathbb{Z} / d$, hence a map of unit groups $\pi_{q, d} :  (\mathbb{Z} / q)^\times \rightarrow (\mathbb{Z} / d)^\times $.  This map is surjective.  (In verifying this, we may assume that $q$ is a prime power.  For $d = 1$, we use that $(\mathbb{Z} / q)^\times $ is nontrivial. For $d > 1$, we use that any integer coprime to $d$ is also coprime to $q$.)  Letting $K_{q, d}$ denote its kernel, we obtain a short exact sequence of groups
+\begin{equation}\label{eq:cj57cjzbqc}
+1 \rightarrow K_{q, d} \rightarrow (\mathbb{Z} / q)^\times \xrightarrow{\pi_{q, d}} (\mathbb{Z} / d)^\times \rightarrow 1.
+\end{equation}
+We say that a character $\chi$ of $(\mathbb{Z} / q)^\times $ is \emph{induced} by a character $\chi_d$ of $(\mathbb{Z} / d )^\times $ if $\chi = \chi_d \circ \pi_{q, d}$.  Being induced by some character modulo $d$ is equivalent to having trivial restriction to $K_{q, d}$.  We say that a character is \emph{imprimitive} if it is induced from a character modulo $d$ for some proper divisor $d$ of $q$ (where ``proper'' means that $d \neq q$).  Otherwise, we say that a character is \emph{primitive}.  Thus, a character is primitive precisely when it has nontrivial restriction to $K_{q, d}$ for each proper divisor $d$ of $q$.
+
+\begin{exercise}\label{exercise:cj57b3j9bi}
+For Dirichlet character $\chi$ modulo $q$, there is a unique divisor $f$ of $q$ and a Dirichlet characters $\chi '$ modulo $f$ so that $\chi$ is induced by $\chi '$.
+\end{exercise}
+We refer to $f$ as in Exercise \ref{exercise:cj57b3j9bi} as the \emph{conductor} of $\chi$, and denoted it by $C(\chi) := f$.  Thus, a character $\chi$ modulo $q$ is primitive if and only if $C(\chi) = q$.
+
+
+\subsection{Gauss sums}\label{sec:cj57ckemom}
+Given characters $\psi : \mathbb{Z} / q \rightarrow \mathbb{C}^\times$ and $\chi : (\mathbb{Z} / q )^\times \rightarrow \mathbb{C}^\times$, the corresponding \emph{Gauss sum} is defined by
+\begin{equation*}
+  g_\psi (\chi ) := \sum_{a \in (\mathbb{Z} / q )^\times }
+  \chi (a) \psi (a).
+\end{equation*}
+In the special case that $\psi$ is the ``standard'' character
+\begin{equation}\label{eq:cj57b8om3u}
+  \psi(x) := \exp (2 \pi i x / q),
+\end{equation}
+we abbreviate $g (\chi ) := g_\psi (\chi)$.
+
+These sums will arise naturally in our study of the functional equation for Dirichlet $L$-functions.
+
+\begin{remark}\label{remark:cj57ckekc3}
+Gauss sums are analogous to the integrals $\Gamma(s) = \int_{\mathbb{R}^+ } y^s e^{- y } \,d^\times y$ defining the $\Gamma$-function, with $\chi$ playing the role of $\mathbb{R}^+ \ni y \mapsto y^s$ and $\psi$ that of $\mathbb{R} \ni y \mapsto e^{-y}$.  
+\end{remark}
+
+\begin{theorem}\label{theorem:cj57ckejar}
+  Let $\chi$ be a primitive Dirichlet character modulo $q$.  Then
+  \begin{equation*}
+\lvert g (\chi)  \rvert = q^{1/2} 
+\end{equation*}
+\end{theorem}
+\begin{proof}
+  We consider the function $f : \mathbb{Z} / q \rightarrow \mathbb{C}$ given by the extension-by-zero of $\chi$:
+  \begin{equation*}
+    f(a) := 1_{(a, q) = 1} \chi(a).
+  \end{equation*}
+  We define its Fourier transform $\hat{f} : \mathbb{Z} / q \rightarrow \mathbb{C}$ using the standard character \eqref{eq:cj57b8om3u} to be
+  \begin{equation}\label{eq:cj57cjccc4}
+    \hat{f}(\xi) := \frac{1}{q} \sum_{a \in \mathbb{Z} / q} f (a) \psi (\xi a).
+  \end{equation}
+  We then have $q \hat{f}(1) = g(\chi)$, so our task is to show that
+  \begin{equation*}
+    \lvert \hat{f} (1)  \rvert = q^{-1/2}.
+  \end{equation*}
+  To that end, we will show that
+  \begin{equation}\label{eq:cj57cjidbi}
+    \lvert f(\xi) \rvert = \lvert f(1) \rvert \quad \text{for } \xi \in (\mathbb{Z} / q)^\times 
+  \end{equation}
+  and
+  \begin{equation}\label{eq:cj57cjmbi7}
+    \hat{f}(\xi) = 0 \quad \text{for } \xi \in \mathbb{Z} / q - (\mathbb{Z} / q )^\times .
+  \end{equation}
+  The claim \eqref{eq:cj57cjidbi} then follows from the Parseval formula, as follows:
+  \begin{equation*}
+    \frac{\phi(q)}{q}
+    =
+    \frac{1}{q} \sum_{a \in \mathbb{Z} / q} \lvert f (a)  \rvert^2
+    = \sum_{\xi \in \mathbb{Z} / q} \lvert \hat{f} (\xi)  \rvert^2
+    = \phi (q) \lvert \hat{f} (1) \rvert^2.
+  \end{equation*}
+
+  To verify \eqref{eq:cj57cjidbi}, we apply the invertible substitution $a \mapsto \xi^{-1} a$ in \eqref{eq:cj57cjccc4} and appeal to the multiplicativity property $f (\xi^{-1} a) = \chi (\xi )^{-1} f (a) $ and the unitarity $\lvert \chi (\xi ) \rvert = 1$.
+
+  For \eqref{eq:cj57cjmbi7}, suppose that $\xi \notin (\mathbb{Z} / q)^\times$.  Then $d := q / (q,\xi)$ is a proper divisor of $q$, and for each element $b$ of the subgroup $K_{q, d}$ as in \eqref{eq:cj57cjzbqc}, we have $\xi b \equiv x \pod{q}$, hence $\psi (\xi a b) = \psi (\xi a)$.  Averaging over such identities in \eqref{eq:cj57cjccc4} and substituting $a \mapsto a b^{-1} $ yields
+  \begin{equation*}
+    \hat{f} (\xi ) = \frac{1}{q \lvert K_{q, d} \rvert}
+    \sum_{a \in \mathbb{Z} / q}
+    \psi (\xi a)
+    \sum_{b \in K_{q, d}}
+    f (a b).
+  \end{equation*}
+  Each term of this inner sum vanishes unless $a \in (\mathbb{Z} / q)^\times$, in which case that inner sum evaluates to
+  \begin{equation*}
+    \sum_{b \in K_{q,d}} \chi (a b)
+    =
+    \chi (a) \sum_{b \in K_{q, d}} \chi (b).
+  \end{equation*}
+  Since $\chi$ is assumed primitive, it has nontrivial restriction to $K_{q,d}$.  By the orthogonality of characters of finite abelian groups, that restriction is thus orthogonal to the trivial character, hence the inner sum vanishes.  We conclude as required that $\hat{f} (\xi ) = 0$.
+\end{proof}
+
+\begin{remark}\label{remark:cj57ckegpb}
+  The evaluation of $g(\chi)$ for non-primitive $\chi$ can be reduced to the primitive case, see for instance \cite[Lemma 3.1]{MR2061214}.
+\end{remark}
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
