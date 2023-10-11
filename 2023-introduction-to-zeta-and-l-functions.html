@@ -209,7 +209,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2023-10-09 15:37:14
+2023-10-11 17:53:05
       <a href="2023-introduction-to-zeta-and-l-functions.tex" class="my-link">tex</a>
       <a href="2023-introduction-to-zeta-and-l-functions.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/2023-introduction-to-zeta-and-l-functions.tex" class="my-link">history</a>
@@ -257,6 +257,22 @@ an explicit formula</a></li>
 regions</a></li>
 <li><a href="#sec:cj56fbu411" id="toc-sec:cj56fbu411">Prime number
 theorem</a></li>
+</ul></li>
+<li><a href="#primes-in-arithmetic-progressions"
+id="toc-primes-in-arithmetic-progressions">Primes in arithmetic
+progressions</a>
+<ul>
+<li><a href="#goal" id="toc-goal">Goal</a></li>
+<li><a href="#sec:cj56v04qkg" id="toc-sec:cj56v04qkg">Structure of the
+group of reduced residue classes</a></li>
+<li><a href="#sec:cj56v04up0" id="toc-sec:cj56v04up0">Characters of
+finite abelian groups</a></li>
+<li><a href="#sec:cj57ckezgl" id="toc-sec:cj57ckezgl">Dirichlet
+characters</a></li>
+<li><a href="#sec:cj57ckeqfd" id="toc-sec:cj57ckeqfd">Primitive
+characters</a></li>
+<li><a href="#sec:cj57ckemom" id="toc-sec:cj57ckemom">Gauss
+sums</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -518,11 +534,11 @@ described as follows.</p>
 <ol>
 <li><p>As <span class="math inline">\(y \rightarrow \infty\)</span>, we
 have <span id="eq:cj4vkfq4ku" class="math display">\[\label{eq:cj4vkfq4ku}\tag{5.1}
-g(y) = f(0) + \operatorname{O}(y^{-N})\]</span> for each fixed <span
-class="math inline">\(N\)</span>.</p></li>
+      g(y) = f(0) + \operatorname{O}(y^{-N})\]</span> for each fixed
+<span class="math inline">\(N\)</span>.</p></li>
 <li><p>As <span class="math inline">\(y \rightarrow 0\)</span>, we have
 <span id="eq:cj4vkfrkjf" class="math display">\[\label{eq:cj4vkfrkjf}\tag{5.2}
-g(y) = y^{-1} \int_{\mathbb{R} } f(x) \, d x  +
+      g(y) = y^{-1} \int_{\mathbb{R} } f(x) \, d x  +
 \operatorname{O}(y^{N})\]</span> for each fixed <span
 class="math inline">\(N\)</span>.</p></li>
 </ol>
@@ -666,7 +682,7 @@ the evenness assumption on <span class="math inline">\(f\)</span>.]</p>
 <div id="example:cj56e5io5n" class="example">
 <p><strong>Example 9</strong>. Take <span class="math inline">\(f(x) :=
 e^{- \pi x^2}\)</span>. Then <span id="eq:cj4vkj6hym" class="math display">\[\label{eq:cj4vkj6hym}\tag{5.3}
-F(s) = \pi^{- s / 2 } \Gamma (s / 2),\]</span> as one sees by
+    F(s) = \pi^{- s / 2 } \Gamma (s / 2),\]</span> as one sees by
 substituting <span class="math inline">\(y \mapsto \sqrt{y}\)</span> and
 then <span class="math inline">\(y \mapsto y / \pi\)</span> in the
 defining integral. This has poles in the expected places.</p>
@@ -720,7 +736,7 @@ the following alternative formula:</p>
 particular, <span class="math display">\[\zeta(s) \neq 0 \text{ for }
 \Re(s) &gt; 1.\]</span> Quantitatively, for <span
 class="math inline">\(\sigma &gt; 1\)</span>, we have <span id="eq:cj41z53x7f" class="math display">\[\label{eq:cj41z53x7f}\tag{5.4}
-\lvert \zeta(\sigma + it) \rvert \geq \zeta(1 +
+    \lvert \zeta(\sigma + it) \rvert \geq \zeta(1 +
 \sigma)^{-1}.\]</span></p>
 </div>
 <p>Here we say that an infinite product <em>converges absolutely</em> if
@@ -758,9 +774,9 @@ data-reference-type="eqref"
 data-reference="eq:cj41z53x7f">\((5.4)\)</a>, we observe that
 <span class="math display">\[\left\lvert \frac{1}{\zeta(\sigma +
 it)}  \right\rvert
-     = \prod_p \left\lvert 1 - p^{-s} \right\rvert
-     \leq \prod_p \left(  1 + p^{-\sigma} \right)
-     \leq \sum_n n^{-\sigma} = \zeta(1 + \sigma).\]</span> ◻</p>
+    = \prod_p \left\lvert 1 - p^{-s} \right\rvert
+    \leq \prod_p \left(  1 + p^{-\sigma} \right)
+    \leq \sum_n n^{-\sigma} = \zeta(1 + \sigma).\]</span> ◻</p>
 </span></div>
 <p>As a basic illustration of the resulting link between the zeta
 function and the primes, we verify the following:</p>
@@ -798,10 +814,10 @@ p) \sum_{k \geq 1} p^{- k s} = \sum_n \frac{\Lambda(n) }{n^s},\]</span>
 where the <em>von Mangoldt function</em> <span
 class="math inline">\(\Lambda(n)\)</span> is defined by <span
 class="math display">\[\Lambda(n) :=
-\begin{cases}
-\log p &amp; \text{ if } n = p ^k, \\
-0 &amp; \text{ otherwise.}
-\end{cases}\]</span></p>
+  \begin{cases}
+    \log p &amp; \text{ if } n = p ^k, \\
+    0 &amp; \text{ otherwise.}
+  \end{cases}\]</span></p>
 <p>The general theme of this course suggests a relationship between the
 asymptotics of <span class="math inline">\(\Lambda(n)\)</span> and the
 meromorphic behavior of <span class="math inline">\(- \zeta &#39; /
@@ -838,14 +854,14 @@ double sum/integral obtained by inserting this expansion into the
 definition of <span class="math inline">\(S\)</span> converges
 absolutely for <span class="math inline">\(c &gt; 1\)</span>, where we
 may rearrange it to obtain <span id="eq:cj42xpi3f4" class="math display">\[\label{eq:cj42xpi3f4}\tag{5.7}
-S = \int_{(c)} F (s) x^s \underbrace
-{
-  \sum_n
-\frac{\Lambda (n)}{ n^s }
-}_{
-  - \frac{\zeta &#39; }{\zeta }(s)
-}\, \frac{d s}{2 \pi i}.\]</span> We would now like to shift the contour
-to the left.</p>
+  S = \int_{(c)} F (s) x^s \underbrace
+  {
+    \sum_n
+    \frac{\Lambda (n)}{ n^s }
+  }_{
+    - \frac{\zeta &#39; }{\zeta }(s)
+  }\, \frac{d s}{2 \pi i}.\]</span> We would now like to shift the
+contour to the left.</p>
 <p>Working formally for the moment, we pick up contributiones from the
 poles of <span class="math inline">\(\zeta\)</span> at <span
 class="math inline">\(1\)</span> and its zeros <span
@@ -902,10 +918,10 @@ class="math display">\[\begin{align}
       \sum_{n = 1}^\infty \frac{1}{n^s } - \int_1^\infty \frac{1}{y^s }
 \, d y \\
     &amp;=
-    \sum_{n = 1}^\infty \left( \frac{1}{n^s } - \int_n^{n+1}
+      \sum_{n = 1}^\infty \left( \frac{1}{n^s } - \int_n^{n+1}
 \frac{1}{y^s} \, d y \right) \\
-&amp;=
-    \sum_{n = 1}^\infty \int_n^{n+1}  \left( \frac{1}{n^s }  -
+    &amp;=
+      \sum_{n = 1}^\infty \int_n^{n+1}  \left( \frac{1}{n^s }  -
 \frac{1}{y^s} \right)   \, d y.
   
 \end{align}\]</span> ◻</p>
@@ -918,7 +934,7 @@ sharper forms are available, but we won’t need them immediately.)</p>
 + it\)</span> with <span class="math inline">\(\sigma \geq
 \varepsilon&gt; 0\)</span> and <span class="math inline">\(\lvert t
 \rvert \geq 2\)</span>, we have <span id="eq:cj41kdcbj7" class="math display">\[\label{eq:cj41kdcbj7}\tag{5.9}
-\log \lvert \zeta(s) \rvert \leq \log (\lvert t \rvert) +
+    \log \lvert \zeta(s) \rvert \leq \log (\lvert t \rvert) +
 \operatorname{O}_{\varepsilon}(1).\]</span></p>
 </div>
 <div class="proof"><p>
@@ -1006,13 +1022,13 @@ This leads to the claimed estimate. ◻</p>
 \varepsilon&gt; 0\)</span> and <span class="math inline">\(T \in
 \mathbb{R}\)</span>, we have <span class="math display">\[\int_{\sigma =
 \varepsilon}^{C}
-\int_{t = T-1}^{T+1}
-\left\lvert
-\frac{\zeta &#39; }{\zeta }(\sigma + i t)
-\right\rvert
-\, d t
-\, d \sigma
-\ll_{\varepsilon,C} \log (3 + \lvert T \rvert).\]</span></p>
+    \int_{t = T-1}^{T+1}
+    \left\lvert
+      \frac{\zeta &#39; }{\zeta }(\sigma + i t)
+    \right\rvert
+    \, d t
+    \, d \sigma
+    \ll_{\varepsilon,C} \log (3 + \lvert T \rvert).\]</span></p>
 </div>
 <div class="proof"><p>
 <a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
@@ -1020,8 +1036,8 @@ This leads to the claimed estimate. ◻</p>
 href="#eq:cj41z82pyp" data-reference-type="eqref"
 data-reference="eq:cj41z82pyp">\((5.10)\)</a>, using that <span
 class="math display">\[\int_{-R}^R
-  \int_{-R}^R
-  \frac{1}{\lvert x + i y \rvert} \, d x \, d y &lt;
+    \int_{-R}^R
+    \frac{1}{\lvert x + i y \rvert} \, d x \, d y &lt;
 \infty.\]</span> ◻</p>
 </span></div>
 <h2 id="contour-shifting-and-an-explicit-formula">Contour shifting and
@@ -1056,7 +1072,7 @@ Then <span class="math display">\[\sum_n \Lambda (n) f \left(
     \max_{
       \substack{
         \sigma \in [\varepsilon/2, \varepsilon]  \\
-         t \in [T-1, T+1]
+        t \in [T-1, T+1]
       }
     }
     \left\lvert F(\sigma  + i t) \right\rvert.\]</span></em></p>
@@ -1100,17 +1116,17 @@ class="math display">\[\begin{align}
     \, d t
     \, d \sigma
     &amp;\leq \int_{T \in \mathbb{R} } E(T)
-    \int_{\sigma = \varepsilon/ 2 }^{\varepsilon}
-    \int_{t = T - 1}^{T + 1}
-    \left\lvert D(\sigma+it) \right\rvert
-    \, d t
-    \, d \sigma \, d T \\
+      \int_{\sigma = \varepsilon/ 2 }^{\varepsilon}
+      \int_{t = T - 1}^{T + 1}
+      \left\lvert D(\sigma+it) \right\rvert
+      \, d t
+      \, d \sigma \, d T \\
     &amp;\ll_{\varepsilon} \mathcal{E}.
   
 \end{align}\]</span> By the pigeonhole principle, we can find some
 <span class="math inline">\(c_0 \in (\varepsilon/2,
 \varepsilon)\)</span> so that <span id="eq:cj42xv8hdz" class="math display">\[\label{eq:cj42xv8hdz}\tag{5.11}
-\int_{t \in \mathbb{R} } I_{c_0} (t) \ll_{\varepsilon}
+    \int_{t \in \mathbb{R} } I_{c_0} (t) \ll_{\varepsilon}
 \mathcal{E}.\]</span> By the triangle inequality, it follows that <span
 class="math display">\[\int_{(c_0)} F(s) D(s) \, \frac{d s}{2 \pi i }
 \ll _{\varepsilon} \mathcal{E}.\]</span> We also have, by another
@@ -1165,7 +1181,7 @@ i t}^{c + i t} F(s)  D(s) \, \frac{d s}{2 \pi i }
     \sum_{
       \substack{
         \rho : \Re(\rho) &gt; c_0,   \\
-         \lvert \Im(\rho) \rvert &lt; t
+        \lvert \Im(\rho) \rvert &lt; t
       }
     } F(\rho)\]</span> tend to zero. To that end, we observe first that
 if <span class="math inline">\(t\)</span> is chosen not to coincide with
@@ -1232,7 +1248,7 @@ class="math inline">\(\ll T^{-100}\)</span>, say, by the rapid decay of
 class="math inline">\(\mathcal{E} \ll \int_{T \in \mathbb{R} } (1 +
 \lvert T \rvert)^{-100} \log(3 + |T|) \, d T \ll 1\)</span>. Our task
 thereby reduces to showing that <span id="eq:cj541i9qbt" class="math display">\[\label{eq:cj541i9qbt}\tag{5.12}
-\sum_{\rho : \Re(\rho) &gt; \varepsilon} F(\rho) x^\rho =
+    \sum_{\rho : \Re(\rho) &gt; \varepsilon} F(\rho) x^\rho =
 o(x).\]</span></p>
 <p>To that end, let us observe first that <span
 class="math display">\[\sum_{\rho : \Re(\rho) &gt; \varepsilon} \lvert
@@ -1276,7 +1292,7 @@ sharply truncated dyadic estimate.</p>
 <div id="theorem:cj56e4c1fl" class="theorem">
 <p><strong>Theorem 21</strong>. <em>As <span class="math inline">\(x
 \rightarrow \infty\)</span>, we have <span id="eq:cj56e0ogug" class="math display">\[\label{eq:cj56e0ogug}\tag{5.13}
-\sum_{x \leq n \leq 2 x} \Lambda(n) \sim x.\]</span></em></p>
+    \sum_{x \leq n \leq 2 x} \Lambda(n) \sim x.\]</span></em></p>
 </div>
 <div class="proof"><p>
 <a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
@@ -1289,7 +1305,7 @@ character function of a set <span class="math inline">\(A\)</span> and
 <span id="eq:cj56e0zjto" class="math display">\[\label{eq:cj56e0zjto}\tag{5.14}
     \left\lvert f(x) - 1_{[1,2]}(x) \right\rvert \leq f_+(x) \quad
     \text{and} \quad
-     F_+(1) = \int  f_+ &lt; \varepsilon.\]</span> (We can do this by
+    F_+(1) = \int  f_+ &lt; \varepsilon.\]</span> (We can do this by
 modifying the standard proof that nonzero smooth compactly supported
 functions exist.) Write <span class="math inline">\(S\)</span> for the
 left hand side of <a href="#eq:cj56e0ogug" data-reference-type="eqref"
@@ -1325,15 +1341,15 @@ over all <span class="math inline">\(n \leq x\)</span>:</p>
 <div id="theorem:cj56e5hu01" class="theorem">
 <p><strong>Theorem 22</strong>. <em>As <span class="math inline">\(x
 \rightarrow \infty\)</span>, we have <span id="eq:cj56fbgld4" class="math display">\[\label{eq:cj56fbgld4}\tag{5.16}
-\sum_{n \leq x} \Lambda (n) \sim x.\]</span></em></p>
+    \sum_{n \leq x} \Lambda (n) \sim x.\]</span></em></p>
 </div>
 <div class="proof"><p>
 <a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
 <span class="proof-content"> For <span class="math inline">\(x \geq 1\)</span>,
 let us define <span class="math inline">\(\alpha(x)\)</span> by writing
 <span id="eq:cj56e4fgbu" class="math display">\[\label{eq:cj56e4fgbu}\tag{5.17}
-\sum_{x &lt; n \leq 2 x} \Lambda(n) = x (1 + \alpha (x)).\]</span> By
-Theorem <a href="#theorem:cj56e4c1fl" data-reference-type="ref"
+    \sum_{x &lt; n \leq 2 x} \Lambda(n) = x (1 + \alpha (x)).\]</span>
+By Theorem <a href="#theorem:cj56e4c1fl" data-reference-type="ref"
 data-reference="theorem:cj56e4c1fl">5.16</a>, we have <span id="eq:cj56e4jf1z" class="math display">\[\label{eq:cj56e4jf1z}\tag{5.18}
     \alpha(x) \rightarrow 0\]</span> as <span class="math inline">\(x
 \rightarrow \infty\)</span>. In particular, for <span
@@ -1353,8 +1369,8 @@ class="math inline">\(x \geq 1\)</span>.</p>
     + \sum_{\frac{x}{8} &lt; n \leq \frac{x}{4}} + \dotsb +
 \sum_{\frac{x}{2^{m+1}} &lt; n \leq \frac{x}{2^m }},\]</span> where
 <span class="math inline">\(m\)</span> is chosen so that <span id="eq:cj56e4py7n" class="math display">\[\label{eq:cj56e4py7n}\tag{5.20}
-\frac{x}{2^{m + 1}} &lt; 2 \leq \frac{x}{2^m}.\]</span> By applying <a
-href="#eq:cj56e4fgbu" data-reference-type="eqref"
+    \frac{x}{2^{m + 1}} &lt; 2 \leq \frac{x}{2^m}.\]</span> By applying
+<a href="#eq:cj56e4fgbu" data-reference-type="eqref"
 data-reference="eq:cj56e4fgbu">\((5.17)\)</a> to each summand, we
 obtain <span class="math display">\[\sum_{n \leq x } \Lambda (n) = x
 \left( 1 - \frac{1}{2^{m + 1}} \right)
@@ -1423,8 +1439,8 @@ class="math inline">\(c_m = 1\)</span> and <span
 class="math inline">\(c_n = 0\)</span> for <span class="math inline">\(n
 \neq m\)</span>. Then <span class="math inline">\(S(t) = 1_{t \geq
 m}\)</span>. The claimed identity can be verified by considering
-separately the cases that <span class="math inline">\(m \leq  a\)</span>
-or <span class="math inline">\(a &lt; m \leq  b\)</span> or <span
+separately the cases that <span class="math inline">\(m \leq a\)</span>
+or <span class="math inline">\(a &lt; m \leq b\)</span> or <span
 class="math inline">\(b &lt; m\)</span>, in which it reads respectively
 <span class="math display">\[0 = f(b) - f(a) - \int_a^b f&#39;(t) \, d
 t,\]</span> <span class="math display">\[f(m) = f(b) - \int_m^b f &#39;
@@ -1478,7 +1494,7 @@ x\)</span>, using that <span class="math inline">\(\log \sqrt{x} \asymp
 class="math inline">\(p^k\)</span> for some prime <span
 class="math inline">\(p\)</span> and natural number <span
 class="math inline">\(k\)</span>, in which case <span
-class="math inline">\(\Lambda (n) = \log p = \tfrac{1}{k}  \log
+class="math inline">\(\Lambda (n) = \log p = \tfrac{1}{k} \log
 n\)</span>. Since <span class="math inline">\(p^k \leq x\)</span> if and
 only if <span class="math inline">\(p \leq x^{1/k}\)</span>, it follows
 that <span class="math display">\[\sum_{n \leq x}  \frac{\Lambda
@@ -1495,6 +1511,485 @@ class="math display">\[\pi (x^{1/2} ) + \pi (x^{1/3} ) + \dotsb + \pi
 (x^{1/k}) \ll x^{1/2} \log x.\]</span> This is much smaller than <span
 class="math inline">\(x / \log x\)</span>, so we conclude as required
 that <span class="math inline">\(\pi (x) \sim x / \log x\)</span>. ◻</p>
+</div>
+<h1 id="primes-in-arithmetic-progressions">Primes in arithmetic
+progressions</h1>
+<h2 id="goal">Goal</h2>
+<p>Next goal is to establish the prime number theorem in arithmetic
+progressions.</p>
+<p>Let <span class="math inline">\((a,b)\)</span> denote the greatest
+common divisor of a pair of integers <span
+class="math inline">\(a\)</span> and <span
+class="math inline">\(b\)</span>. We recall that <span
+class="math inline">\((a,b)\)</span> is then the nonnegative generator
+of the ideal generated by <span class="math inline">\(a\)</span> and
+<span class="math inline">\(b\)</span>, hence may be written in the form
+<span class="math inline">\(a x + b y\)</span> for some integers <span
+class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span>. We recall that <span
+class="math inline">\(a\)</span> and <span
+class="math inline">\(b\)</span> are called coprime if <span
+class="math inline">\((a,b) = 1\)</span>.</p>
+<p>For a natural number <span class="math inline">\(q\)</span>, we
+denote by <span class="math inline">\(\mathbb{Z} / q := \mathbb{Z} / q
+\mathbb{Z}\)</span> the ring of residue classes modulo <span
+class="math inline">\(q\)</span> and by <span
+class="math inline">\((\mathbb{Z} / q)^\times\)</span> its unit group,
+consisting of what we call the <em>reduced</em> residue classes. Each
+residue class <span class="math inline">\(a \in \mathbb{Z} / q\)</span>
+may be identified with an arithmetic progression <span
+class="math inline">\(a + q \mathbb{Z}\)</span>. A residue class is
+reduced if and only if it consists of integers coprime to <span
+class="math inline">\(q\)</span>. We sometimes write simply <span
+class="math inline">\(a \pod{q}\)</span> and <span
+class="math inline">\(a \pod{q}^*\)</span> to denote respectively that
+<span class="math inline">\(a \in \mathbb{Z} / q\)</span> and that <span
+class="math inline">\(a \in (\mathbb{Z} / q)^\times\)</span>. We write
+<span class="math display">\[\phi(q) := (\mathbb{Z} / q)
+^\times\]</span> for the Euler <span class="math inline">\(\phi\)</span>
+function, which counts the reduced residue classes modulo <span
+class="math inline">\(q\)</span>.</p>
+<p>If the residue class <span class="math inline">\(a \pod{q}\)</span>
+is not reduced, then it contains at most one prime number. Indeed, our
+hypothesis implies that <span class="math inline">\(a\)</span> and <span
+class="math inline">\(q\)</span> have a common divisor <span
+class="math inline">\(d &gt; 1\)</span>. Then any prime <span
+class="math inline">\(p \equiv a \pod{q}\)</span> is in particular
+divisible by <span class="math inline">\(d\)</span>, hence <span
+class="math inline">\(p = d\)</span>, as required.</p>
+<p>It follows that all but finitely many prime numbers lie in one of the
+reduced residue classes modulo <span class="math inline">\(q\)</span>.
+By the prime number theorem, we thus have for fixed <span
+class="math inline">\(q\)</span>, as <span class="math inline">\(x
+\rightarrow \infty\)</span>, the estimate <span
+class="math display">\[\sum_{a (q)^*} \sum_{
+    \substack{
+      p \leq x  \\
+      p \equiv  a(q)
+    }
+  }
+  1
+  \sim \frac{x}{ \log x}.\]</span> The prime number theorem says that
+the primes distribute evenly modulo the reduced residue classes, i.e.,
+for each <span class="math inline">\(a(q)^*\)</span>, <span
+class="math display">\[\sum_{
+    \substack{
+      p \leq x  \\
+      p \equiv a (q)
+    }
+  }
+  \frac{1}{\phi(q)}
+  \frac{x}{\log x}.\]</span> The proof will boil down to nonvanishing
+properties of the Dirichlet <span
+class="math inline">\(L\)</span>-functions <span
+class="math inline">\(L(s,\chi)\)</span>, where <span
+class="math inline">\(\chi\)</span> is a Dirichlet character modulo
+<span class="math inline">\(q\)</span>.</p>
+<p>In particular, such estimates imply the infinitude of primes in
+arithmetic progressions (Dirichlet’s theorem).</p>
+<h2 id="sec:cj56v04qkg">§6.2. Structure of the group of reduced residue
+classes</h2>
+<p>Let <span class="math inline">\(q\)</span> be a natural number. Here
+we describe the structure of the group <span
+class="math inline">\((\mathbb{Z} / q)^\times\)</span>. In particular,
+we write that group as a product of cyclic groups.</p>
+<p>By the fundamental theorem of arithmetic, we may factor <span
+class="math inline">\(q\)</span> as a product of prime numbers, say
+<span class="math inline">\(q = \prod_i p_i^{a_i}\)</span>. By the
+Chinese remainder theorem, the natural map <span
+class="math display">\[\mathbb{Z} / q \rightarrow \prod_i \mathbb{Z} /
+p_i^{a_i}\]</span> is an isomorphism of rings, hence induces an
+isomorphism of unit groups <span id="eq:cj56v11l5g" class="math display">\[\label{eq:cj56v11l5g}\tag{6.1}
+  (\mathbb{Z} / q) ^\times \cong \prod_i (\mathbb{Z} / p_i^{a_i
+})^\times.\]</span> We can therefore reduce our study to the case that
+<span class="math inline">\(q\)</span> is a prime power.</p>
+<p>In the case that <span class="math inline">\(q\)</span> is a prime,
+we have the following fundamental fact from basic algebra:</p>
+<div id="lemma:cj57ckf53h" class="lemma">
+<p><strong>Lemma 27</strong>. For a prime number <span
+class="math inline">\(p\)</span>, the group <span
+class="math inline">\((\mathbb{Z} / p )^\times\)</span> is cyclic.</p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We sketch the standard proof. Since the group <span
+class="math inline">\((\mathbb{Z} / p)^\times\)</span> has order <span
+class="math inline">\(\phi(p) = p-1\)</span>, we have <span
+class="math inline">\(x^{p-1} = 1\)</span> for each <span
+class="math inline">\(x \in (\mathbb{Z} / p)^\times\)</span>. The order
+of <span class="math inline">\(x\)</span> is thus some divisor <span
+class="math inline">\(d\)</span> of <span
+class="math inline">\(p-1\)</span>. On the other hand, using that <span
+class="math inline">\(\mathbb{Z} / p\)</span> is a field and the
+fundamental theorem of algebra, we know that the number of elements
+<span class="math inline">\(x\)</span> of order <span
+class="math inline">\(d\)</span> is at most what it would be if the
+group <span class="math inline">\((\mathbb{Z} / q)^\times\)</span> were
+cyclic. By a counting argument, it follows that that number is in fact
+exactly what it would be if that group were cyclic. In particular, by
+taking <span class="math inline">\(d = p-1\)</span>, we deduce that
+there exists a cyclic element. ◻</p>
+</span></div>
+<p>A <em>primitive root</em> modulo <span
+class="math inline">\(p\)</span> is a generator <span
+class="math inline">\(g\)</span> of the cyclic group <span
+class="math inline">\((\mathbb{Z} /p )^\times\)</span>.</p>
+<p>How about for prime powers? For an odd prime <span
+class="math inline">\(p\)</span> and an integer <span
+class="math inline">\(k \geq 2\)</span>, the group <span
+class="math inline">\((\mathbb{Z} / p^k )^\times\)</span> is likewise
+cyclic. Indeed, we can lift a primitive root <span
+class="math inline">\(g\)</span> mod <span
+class="math inline">\(p\)</span> to a <span
+class="math inline">\((p-1)\)</span>st root of unity in <span
+class="math inline">\((\mathbb{Z} / p^k)^\times\)</span>. Then the map
+<span id="eq:cj56v1ftv0" class="math display">\[\label{eq:cj56v1ftv0}\tag{6.2}
+  \mathbb{Z} / (p-1) \times \mathbb{Z} / p^{k-1}  \rightarrow
+(\mathbb{Z} / p^k )^\times\]</span> <span class="math display">\[(a,b)
+\mapsto g^a (1 + p)^b\]</span> is an isomorphism. At the prime <span
+class="math inline">\(2\)</span>, we have the slightly more complicated
+isomorphism <span id="sec:cj56v1kjb7"
+label="sec:cj56v1kjb7"></span><span class="math display">\[\mathbb{Z} /
+2 \times \mathbb{Z} / 2^{k - 2} \rightarrow (\mathbb{Z} / 2^k
+)^\times\]</span> <span class="math display">\[(a, b) \mapsto (-1)^a
+5^b.\]</span></p>
+<div id="example:cj57ckfyti" class="example">
+<p><strong>Example 28</strong>. What are the squares in <span
+class="math inline">\((\mathbb{Z} / q)^\times\)</span>? Under the
+isomorphism <a href="#eq:cj56v11l5g" data-reference-type="eqref"
+data-reference="eq:cj56v11l5g">\((6.1)\)</a>, they correspond to
+products of squares in <span class="math inline">\((\mathbb{Z} /
+p^k)^\times\)</span>, where <span class="math inline">\(p^k\)</span>
+runs over the prime power factors of <span
+class="math inline">\(q\)</span>. If <span
+class="math inline">\(p\)</span> is odd, then the squares in <span
+class="math inline">\((\mathbb{Z} / p^k )^\times\)</span> are the
+elements of the form <span class="math inline">\(g^a (1 + p)^b\)</span>
+for which <span class="math inline">\(a \equiv 0 \pod{2}\)</span>. If
+<span class="math inline">\(p^k = 2\)</span>, then everything is a
+square. If <span class="math inline">\(p = 2\)</span> and <span
+class="math inline">\(k \geq 2\)</span>, then the squares are the
+elements of the form <span class="math inline">\((-1)^a 5^b\)</span> for
+which <span class="math inline">\(a \equiv 0 \pod{2}\)</span> and <span
+class="math inline">\(b \equiv 0 \pod{2}\)</span>.</p>
+</div>
+<h2 id="sec:cj56v04up0">§6.3. Characters of finite abelian groups</h2>
+<p>We recall some basics from <a
+href="20230919T144827--discrete-fourier-transform.html">Sergey’s
+lecture</a> concerning the discrete Fourier transform.</p>
+<p>Let <span class="math inline">\(G\)</span> be a finite abelian group.
+A <em>character</em> of <span class="math inline">\(G\)</span> is a
+homomorphism <span class="math inline">\(\chi : G \rightarrow
+\mathbb{C}^\times\)</span>. Since <span class="math inline">\(G\)</span>
+is torsion, the image of any character consists of roots of unity, and
+in particular lies in the subgroup <span
+class="math inline">\(\mathop{\mathrm{U}}(1) \leq
+\mathbb{C}^\times\)</span>.</p>
+<p>We write <span class="math inline">\(\hat{G}\)</span> for the set of
+characters of <span class="math inline">\(G\)</span>. Equipped with the
+operation of pointwise multiplication, this set is naturally a finite
+abelian group. The identity element of <span
+class="math inline">\(\hat{G}\)</span> is the trivial character <span
+class="math inline">\(1 \in \hat{G}\)</span>, which assigns the scalar
+<span class="math inline">\(1\)</span> to each element of <span
+class="math inline">\(G\)</span>.</p>
+<p>The groups <span class="math inline">\(G\)</span> and <span
+class="math inline">\(\hat{G}\)</span> are (non-canonically) isomorphic.
+One can see this using the fact that <span
+class="math inline">\(G\)</span> is isomorphic to a finite product of
+cyclic groups, together with the following explicit isomorphism in the
+case of a cyclic group <span class="math inline">\(G = \mathbb{Z} /
+n\)</span>: with <span class="math inline">\(e(x) := e^{2 \pi i
+x}\)</span>, we have <span class="math display">\[\mathbb{Z} / n
+\xrightarrow{\cong } \widehat{\mathbb{Z} / n},\]</span> <span
+class="math display">\[a \mapsto [b \mapsto e (a b / n)].\]</span></p>
+<p>To each <span class="math inline">\(f : G \rightarrow
+\mathbb{C}\)</span>, we associate its <em>Fourier transform</em> <span
+class="math inline">\(\hat{f} : \hat{G} \rightarrow \mathbb{C}\)</span>,
+defined by <span class="math display">\[\hat{f}(\chi) := \frac{1}{\lvert
+G \rvert} \sum_{a \in G} f(a) \chi^{-1}(a).\]</span> We then have the
+Fourier inversion formula <span class="math display">\[f = \sum_{\chi
+\in \hat{G}} \hat{f} (\chi) \chi\]</span> and the Parseval formula <span
+class="math display">\[\frac{1}{\lvert G \rvert }
+  \sum_{a \in G} f_1(a) \overline{f_2(a)}
+  = \sum_{\chi \in \hat{G}}
+  f_1 (\chi) \overline{f_2 (\chi) }.\]</span> These may be verified by
+reduction to the case of cyclic groups, where they follow by summing
+geometric series.</p>
+<h2 id="sec:cj57ckezgl">§6.4. Dirichlet characters</h2>
+<p>A <em>Dirichlet character</em> <span
+class="math inline">\(\chi\)</span> modulo <span
+class="math inline">\(q\)</span> is a character <span
+class="math inline">\(\chi\)</span> of the group <span
+class="math inline">\((\mathbb{Z} / q)^\times\)</span>.</p>
+<p>It is convenient to identify a character <span
+class="math inline">\(\chi\)</span> modulo <span
+class="math inline">\(q\)</span> with the function <span
+class="math inline">\(\chi : \mathbb{Z} \rightarrow \mathbb{C}\)</span>
+supported on the integers <span class="math inline">\(a\)</span> coprime
+to <span class="math inline">\(q\)</span> and given there by <span
+class="math inline">\(\chi(a) := \chi(a \pod{q})\)</span>.</p>
+<p>The discussion of §<a href="#sec:cj56v04qkg"
+data-reference-type="ref" data-reference="sec:cj56v04qkg">6.2</a> and
+§<a href="#sec:cj56v04up0" data-reference-type="ref"
+data-reference="sec:cj56v04up0">6.3</a> makes the Dirichlet characters
+fairly explicit:</p>
+<ul>
+<li><p>Suppose <span class="math inline">\(q\)</span> factors as a
+product of prime powers <span class="math inline">\(p_i^{a_i}\)</span>.
+Then any Dirichlet character <span class="math inline">\(\chi\)</span>
+modulo <span class="math inline">\(q\)</span> factors as a product of
+Dirichlet characters <span class="math inline">\(\chi_i\)</span>, where
+<span class="math inline">\(\chi_i\)</span> factors through a Dirichlet
+character modulo <span class="math inline">\(p_i^{a_i}\)</span> via the
+map <span class="math inline">\((\mathbb{Z} / q )^\times \rightarrow
+(\mathbb{Z} / p_i^{a_i })^\times\)</span>.</p></li>
+<li><p>Suppose <span class="math inline">\(q = p^k\)</span> for some odd
+prime <span class="math inline">\(p\)</span> and <span
+class="math inline">\(k \geq 1\)</span>. Then, via the isomorphism <a
+href="#eq:cj56v1ftv0" data-reference-type="eqref"
+data-reference="eq:cj56v1ftv0">\((6.2)\)</a>, every Dirichlet
+character is uniquely of the form <span id="eq:cj56v1takk" class="math display">\[\label{eq:cj56v1takk}\tag{6.4}
+    \chi_{\xi, \eta } (g^a (1 + p)^b ) = e \left( \frac{\xi a}{p- 1} +
+\frac{ \eta b}{p^{k-1}} \right)\]</span> for some <span
+class="math inline">\((\xi,\eta) \in \mathbb{Z} / (p - 1 ) \times
+\mathbb{Z} / p^{k - 1}\)</span>.</p></li>
+<li><p>The group <span class="math inline">\((\mathbb{Z} /
+2)^\times\)</span> is trivial, so every Dirichlet character modulo <span
+class="math inline">\(2\)</span> is trivial.</p></li>
+<li><p>Suppose <span class="math inline">\(q = 2^k\)</span> for some
+<span class="math inline">\(k \geq 2\)</span>. Then, via <a
+href="#sec:cj56v1kjb7" data-reference-type="ref"
+data-reference="sec:cj56v1kjb7">6.2</a>, every Dirichlet
+character is given by <span class="math display">\[\chi_{\xi, \eta }
+((-1)^a 5^b ) = (-1)^{\xi a} e \left( \frac{\eta b}{2^{k - 2}}
+\right)\]</span> for some <span class="math inline">\((\xi, \eta ) \in
+\mathbb{Z} / 2 \times \mathbb{Z} / 2^{k - 2}\)</span>.</p></li>
+</ul>
+<div id="definition:cj57ckev22" class="definition">
+<p><strong>Definition 29</strong>. We say that a Dirichlet character
+<span class="math inline">\(\chi\)</span> is <em>real</em> or
+<em>quadratic</em> if it takes real values, or equivalently, in view of
+the identity <span class="math inline">\(\chi(a)^{-1} =
+\overline{\chi(a)}\)</span>, if it satisfies <span
+class="math inline">\(\chi^2 = 1\)</span>.</p>
+</div>
+<div id="example:cj57ckeu1v" class="example">
+<p><strong>Example 30</strong>. Suppose <span
+class="math inline">\(p\)</span> is an odd prime. The <em>Legendre
+symbol</em> <span class="math inline">\(x \mapsto (x | p)\)</span> is
+the Dirichlet character modulo <span class="math inline">\(p\)</span>
+given by taking <span class="math inline">\(\xi = (p-1)/2\)</span> in <a
+href="#eq:cj56v1takk" data-reference-type="eqref"
+data-reference="eq:cj56v1takk">\((6.4)\)</a>, or equivalently, by
+<span class="math display">\[(x|p) =
+    \begin{cases}
+      +1 &amp; \text{ if } x \text{ is a square modulo } p, \\
+      -1 &amp; \text{ otherwise.}
+    \end{cases}\]</span> It is the only nontrivial real character modulo
+<span class="math inline">\(p\)</span>. Here is a table of the Legendre
+symbols modulo <span class="math inline">\(7\)</span>: <span
+class="math display">\[\begin{array}{c|ccccccc}
+      x &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \\
+      \hline
+      (x|7) &amp; +1 &amp; +1 &amp; -1 &amp; +1 &amp; -1 &amp; -1
+    \end{array}\]</span></p>
+</div>
+<div id="example:cj57cket4w" class="example">
+<p><strong>Example 31</strong>. There is one nontrivial character modulo
+<span class="math inline">\(4\)</span>. It is real, and given by <span id="eq:cj57b1cpf8" class="math display">\[\label{eq:cj57b1cpf8}\tag{6.5}
+    x \mapsto (-1)^{\frac{x-1}{2}}
+    =
+    \begin{cases}
+      +1 &amp; \text{ if } x \equiv 1 \pod{4}, \\
+      -1 &amp; \text{ if } x\equiv -1 \pod{4}.
+    \end{cases}\]</span></p>
+</div>
+<div id="example:cj57ckes66" class="example">
+<p><strong>Example 32</strong>. There are three nontrivial characters
+modulo <span class="math inline">\(8\)</span>. They are all real, and
+given either by <a href="#eq:cj57b1cpf8" data-reference-type="eqref"
+data-reference="eq:cj57b1cpf8">\((6.5)\)</a>, by <span id="eq:cj57b1d78t" class="math display">\[\label{eq:cj57b1d78t}\tag{6.6}
+    x \mapsto (- 1 )^{\frac{x^2 - 1}{8}}
+    =
+    \begin{cases}
+      +1 &amp; \text{ if } x \equiv \pm 1 \pod{8}, \\
+      -1 &amp; \text{ if } x \equiv \pm 5 \pod{8},
+    \end{cases}\]</span> or by the product of <a href="#eq:cj57b1cpf8"
+data-reference-type="eqref"
+data-reference="eq:cj57b1cpf8">\((6.5)\)</a> and <a
+href="#eq:cj57b1d78t" data-reference-type="eqref"
+data-reference="eq:cj57b1d78t">\((6.6)\)</a>.</p>
+</div>
+<div id="remark:cj57ckerd1" class="remark">
+<p><strong>Remark 33</strong>. The nontrivial real characters modulo
+higher prime powers all factor through some real character modulo <span
+class="math inline">\(4\)</span>, <span class="math inline">\(8\)</span>
+or an odd prime. The real characters modulo a composite number factor as
+products of real characters modulo its prime power factors.</p>
+</div>
+<h2 id="sec:cj57ckeqfd">§6.5. Primitive characters</h2>
+<p>For a divisor <span class="math inline">\(d\)</span> of <span
+class="math inline">\(q\)</span>, we have a natural quotient map of
+rings <span class="math inline">\(\mathbb{Z} / q \rightarrow \mathbb{Z}
+/ d\)</span>, hence a map of unit groups <span
+class="math inline">\(\pi_{q, d} :  (\mathbb{Z} / q)^\times \rightarrow
+(\mathbb{Z} / d)^\times\)</span>. This map is surjective. (In verifying
+this, we may assume that <span class="math inline">\(q\)</span> is a
+prime power. For <span class="math inline">\(d = 1\)</span>, we use that
+<span class="math inline">\((\mathbb{Z} / q)^\times\)</span> is
+nontrivial. For <span class="math inline">\(d &gt; 1\)</span>, we use
+that any integer coprime to <span class="math inline">\(d\)</span> is
+also coprime to <span class="math inline">\(q\)</span>.) Letting <span
+class="math inline">\(K_{q, d}\)</span> denote its kernel, we obtain a
+short exact sequence of groups <span id="eq:cj57cjzbqc" class="math display">\[\label{eq:cj57cjzbqc}\tag{6.7}
+1 \rightarrow K_{q, d} \rightarrow (\mathbb{Z} / q)^\times
+\xrightarrow{\pi_{q, d}} (\mathbb{Z} / d)^\times \rightarrow 1.\]</span>
+We say that a character <span class="math inline">\(\chi\)</span> of
+<span class="math inline">\((\mathbb{Z} / q)^\times\)</span> is
+<em>induced</em> by a character <span
+class="math inline">\(\chi_d\)</span> of <span
+class="math inline">\((\mathbb{Z} / d )^\times\)</span> if <span
+class="math inline">\(\chi = \chi_d \circ \pi_{q, d}\)</span>. Being
+induced by some character modulo <span class="math inline">\(d\)</span>
+is equivalent to having trivial restriction to <span
+class="math inline">\(K_{q, d}\)</span>. We say that a character is
+<em>imprimitive</em> if it is induced from a character modulo <span
+class="math inline">\(d\)</span> for some proper divisor <span
+class="math inline">\(d\)</span> of <span
+class="math inline">\(q\)</span> (where “proper” means that <span
+class="math inline">\(d \neq q\)</span>). Otherwise, we say that a
+character is <em>primitive</em>. Thus, a character is primitive
+precisely when it has nontrivial restriction to <span
+class="math inline">\(K_{q, d}\)</span> for each proper divisor <span
+class="math inline">\(d\)</span> of <span
+class="math inline">\(q\)</span>.</p>
+<div id="exercise:cj57b3j9bi" class="exercise">
+<p><strong>Exercise 2</strong>. For Dirichlet character <span
+class="math inline">\(\chi\)</span> modulo <span
+class="math inline">\(q\)</span>, there is a unique divisor <span
+class="math inline">\(f\)</span> of <span
+class="math inline">\(q\)</span> and a Dirichlet characters <span
+class="math inline">\(\chi &#39;\)</span> modulo <span
+class="math inline">\(f\)</span> so that <span
+class="math inline">\(\chi\)</span> is induced by <span
+class="math inline">\(\chi &#39;\)</span>.</p>
+</div>
+<p>We refer to <span class="math inline">\(f\)</span> as in Exercise <a
+href="#exercise:cj57b3j9bi" data-reference-type="ref"
+data-reference="exercise:cj57b3j9bi">2</a> as the <em>conductor</em> of
+<span class="math inline">\(\chi\)</span>, and denoted it by <span
+class="math inline">\(C(\chi) := f\)</span>. Thus, a character <span
+class="math inline">\(\chi\)</span> modulo <span
+class="math inline">\(q\)</span> is primitive if and only if <span
+class="math inline">\(C(\chi) = q\)</span>.</p>
+<h2 id="sec:cj57ckemom">§6.6. Gauss sums</h2>
+<p>Given characters <span class="math inline">\(\psi : \mathbb{Z} / q
+\rightarrow \mathbb{C}^\times\)</span> and <span
+class="math inline">\(\chi : (\mathbb{Z} / q )^\times \rightarrow
+\mathbb{C}^\times\)</span>, the corresponding <em>Gauss sum</em> is
+defined by <span class="math display">\[g_\psi (\chi ) := \sum_{a \in
+(\mathbb{Z} / q )^\times }
+  \chi (a) \psi (a).\]</span> In the special case that <span
+class="math inline">\(\psi\)</span> is the “standard” character <span id="eq:cj57b8om3u" class="math display">\[\label{eq:cj57b8om3u}\tag{6.8}
+  \psi(x) := \exp (2 \pi i x / q),\]</span> we abbreviate <span
+class="math inline">\(g (\chi ) := g_\psi (\chi)\)</span>.</p>
+<p>These sums will arise naturally in our study of the functional
+equation for Dirichlet <span
+class="math inline">\(L\)</span>-functions.</p>
+<div id="remark:cj57ckekc3" class="remark">
+<p><strong>Remark 34</strong>. Gauss sums are analogous to the integrals
+<span class="math inline">\(\Gamma(s) = \int_{\mathbb{R}^+ } y^s e^{- y
+} \,d^\times y\)</span> defining the <span
+class="math inline">\(\Gamma\)</span>-function, with <span
+class="math inline">\(\chi\)</span> playing the role of <span
+class="math inline">\(\mathbb{R}^+ \ni y \mapsto y^s\)</span> and <span
+class="math inline">\(\psi\)</span> that of <span
+class="math inline">\(\mathbb{R} \ni y \mapsto e^{-y}\)</span>.</p>
+</div>
+<div id="theorem:cj57ckejar" class="theorem">
+<p><strong>Theorem 35</strong>. <em>Let <span
+class="math inline">\(\chi\)</span> be a primitive Dirichlet character
+modulo <span class="math inline">\(q\)</span>. Then <span
+class="math display">\[\lvert g (\chi)  \rvert =
+q^{1/2}\]</span></em></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We consider the function <span
+class="math inline">\(f : \mathbb{Z} / q \rightarrow \mathbb{C}\)</span>
+given by the extension-by-zero of <span
+class="math inline">\(\chi\)</span>: <span class="math display">\[f(a)
+:= 1_{(a, q) = 1} \chi(a).\]</span> We define its Fourier transform
+<span class="math inline">\(\hat{f} : \mathbb{Z} / q \rightarrow
+\mathbb{C}\)</span> using the standard character <a
+href="#eq:cj57b8om3u" data-reference-type="eqref"
+data-reference="eq:cj57b8om3u">\((6.8)\)</a> to be <span id="eq:cj57cjccc4" class="math display">\[\label{eq:cj57cjccc4}\tag{6.9}
+    \hat{f}(\xi) := \frac{1}{q} \sum_{a \in \mathbb{Z} / q} f (a) \psi
+(\xi a).\]</span> We then have <span class="math inline">\(q \hat{f}(1)
+= g(\chi)\)</span>, so our task is to show that <span
+class="math display">\[\lvert \hat{f} (1)  \rvert = q^{-1/2}.\]</span>
+To that end, we will show that <span id="eq:cj57cjidbi" class="math display">\[\label{eq:cj57cjidbi}\tag{6.10}
+    \lvert f(\xi) \rvert = \lvert f(1) \rvert \quad \text{for } \xi \in
+(\mathbb{Z} / q)^\times\]</span> and <span id="eq:cj57cjmbi7" class="math display">\[\label{eq:cj57cjmbi7}\tag{6.11}
+    \hat{f}(\xi) = 0 \quad \text{for } \xi \in \mathbb{Z} / q -
+(\mathbb{Z} / q )^\times .\]</span> The claim <a href="#eq:cj57cjidbi"
+data-reference-type="eqref"
+data-reference="eq:cj57cjidbi">\((6.10)\)</a> then follows from the
+Parseval formula, as follows: <span
+class="math display">\[\frac{\phi(q)}{q}
+    =
+    \frac{1}{q} \sum_{a \in \mathbb{Z} / q} \lvert f (a)  \rvert^2
+    = \sum_{\xi \in \mathbb{Z} / q} \lvert \hat{f} (\xi)  \rvert^2
+    = \phi (q) \lvert \hat{f} (1) \rvert^2.\]</span></p>
+<p>To verify <a href="#eq:cj57cjidbi" data-reference-type="eqref"
+data-reference="eq:cj57cjidbi">\((6.10)\)</a>, we apply the
+invertible substitution <span class="math inline">\(a \mapsto \xi^{-1}
+a\)</span> in <a href="#eq:cj57cjccc4" data-reference-type="eqref"
+data-reference="eq:cj57cjccc4">\((6.9)\)</a> and appeal to the
+multiplicativity property <span class="math inline">\(f (\xi^{-1} a) =
+\chi (\xi )^{-1} f (a)\)</span> and the unitarity <span
+class="math inline">\(\lvert \chi (\xi ) \rvert = 1\)</span>.</p>
+<p>For <a href="#eq:cj57cjmbi7" data-reference-type="eqref"
+data-reference="eq:cj57cjmbi7">\((6.11)\)</a>, suppose that <span
+class="math inline">\(\xi \notin (\mathbb{Z} / q)^\times\)</span>. Then
+<span class="math inline">\(d := q / (q,\xi)\)</span> is a proper
+divisor of <span class="math inline">\(q\)</span>, and for each element
+<span class="math inline">\(b\)</span> of the subgroup <span
+class="math inline">\(K_{q, d}\)</span> as in <a href="#eq:cj57cjzbqc"
+data-reference-type="eqref"
+data-reference="eq:cj57cjzbqc">\((6.7)\)</a>, we have <span
+class="math inline">\(\xi b \equiv x \pod{q}\)</span>, hence <span
+class="math inline">\(\psi (\xi a b) = \psi (\xi a)\)</span>. Averaging
+over such identities in <a href="#eq:cj57cjccc4"
+data-reference-type="eqref"
+data-reference="eq:cj57cjccc4">\((6.9)\)</a> and substituting
+<span class="math inline">\(a \mapsto a b^{-1}\)</span> yields <span
+class="math display">\[\hat{f} (\xi ) = \frac{1}{q \lvert K_{q, d}
+\rvert}
+    \sum_{a \in \mathbb{Z} / q}
+    \psi (\xi a)
+    \sum_{b \in K_{q, d}}
+    f (a b).\]</span> Each term of this inner sum vanishes unless <span
+class="math inline">\(a \in (\mathbb{Z} / q)^\times\)</span>, in which
+case that inner sum evaluates to <span class="math display">\[\sum_{b
+\in K_{q,d}} \chi (a b)
+    =
+    \chi (a) \sum_{b \in K_{q, d}} \chi (b).\]</span> Since <span
+class="math inline">\(\chi\)</span> is assumed primitive, it has
+nontrivial restriction to <span class="math inline">\(K_{q,d}\)</span>.
+By the orthogonality of characters of finite abelian groups, that
+restriction is thus orthogonal to the trivial character, hence the inner
+sum vanishes. We conclude as required that <span
+class="math inline">\(\hat{f} (\xi ) = 0\)</span>. ◻</p>
+</span></div>
+<div id="remark:cj57ckegpb" class="remark">
+<p><strong>Remark 36</strong>. The evaluation of <span
+class="math inline">\(g(\chi)\)</span> for non-primitive <span
+class="math inline">\(\chi\)</span> can be reduced to the primitive
+case, see for instance <a href="#ref-MR2061214" class="citation"
+data-cites="MR2061214">(Iwaniec and Kowalski 2004, Lemma
+3.1)</a>.</p>
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="list">
