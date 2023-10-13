@@ -179,26 +179,7 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    /* CSS for citations */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-    }
-    .hanging-indent div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }  </style>
+  </style>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -209,7 +190,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2023-10-13 12:01:11
+2023-10-13 15:46:14
       <a href="2023-introduction-to-zeta-and-l-functions.tex" class="my-link">tex</a>
       <a href="2023-introduction-to-zeta-and-l-functions.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/2023-introduction-to-zeta-and-l-functions.tex" class="my-link">history</a>
@@ -274,6 +255,9 @@ characters</a></li>
 characters</a></li>
 <li><a href="#sec:cj57ckemom" id="toc-sec:cj57ckemom">Gauss
 sums</a></li>
+<li><a href="#basics-on-dirichlet-l-functions"
+id="toc-basics-on-dirichlet-l-functions">Basics on Dirichlet <span
+class="math inline">\(L\)</span>-functions</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -283,14 +267,14 @@ class="math inline">\(L\)</span>-functions, taught with Sergey Arkhipov.
 These notes will be filled in as we go.</p>
 <h1 id="references-thus-far">References thus far</h1>
 <ul>
-<li><p>Generating functions and asymptotics: <a href="#ref-MR2172781" class="citation"
-data-cites="MR2172781">(Wilf 2006, sec. 5.2)</a></p></li>
-<li><p>Mellin transform and asymptotics: <a href="#ref-zagier-mellin" class="citation"
-data-cites="zagier-mellin">(Zagier 2006)</a></p></li>
-<li><p>Zeros of zeta and the prime number theorem: <a href="#ref-Dav80"
-class="citation" data-cites="Dav80">(Davenport 1980)</a>, <a href="#ref-MR2061214"
-class="citation" data-cites="MR2061214">(Iwaniec and Kowalski
-2004)</a>, <a
+<li><p>Generating functions and asymptotics: <span class="citation"
+data-cites="MR2172781">(<strong>MR2172781?</strong>)</span></p></li>
+<li><p>Mellin transform and asymptotics: <span class="citation"
+data-cites="zagier-mellin">(<strong>zagier-mellin?</strong>)</span></p></li>
+<li><p>Zeros of zeta and the prime number theorem: <span
+class="citation" data-cites="Dav80">(<strong>Dav80?</strong>)</span>,
+<span class="citation"
+data-cites="MR2061214">(<strong>MR2061214?</strong>)</span>, <a
 href="https://terrytao.wordpress.com/2014/12/09/254a-notes-2-complex-analytic-multiplicative-number-theory/">Tao’s
 notes</a></p></li>
 </ul>
@@ -323,8 +307,8 @@ data-reference="sec:cj4vkfaant">2.1</a></p></li>
 <li><p>Tuesday, 12 Sep and Thursday, 14 Sep: Fourier transform,
 Pontryagin duality, Poisson summation (see <a
 href="20230919T144827--discrete-fourier-transform.html">these notes</a>
-and the book <a href="#ref-MR3289059" class="citation" data-cites="MR3289059">(Deitmar and
-Echterhoff 2014)</a>)</p></li>
+and the book <span class="citation"
+data-cites="MR3289059">(<strong>MR3289059?</strong>)</span>)</p></li>
 <li><p>Tuesday, 19 Sep: Euler products, relevance of zeta zeros to
 asymptotics §<a href="#sec:cj4020t3kt" data-reference-type="ref"
 data-reference="sec:cj4020t3kt">6.3</a></p></li>
@@ -340,10 +324,11 @@ data-reference="sec:cj410a1fzy">6.5</a>)</p></li>
 concerning zeroes of zeta on or near the <span
 class="math inline">\(1\)</span>-line. References:</p>
 <ul>
-<li><p><a href="#ref-MR882550" class="citation" data-cites="MR882550">(Titchmarsh 1986,
-chap. III)</a>, up through 3.6,</p></li>
-<li><p><a href="#ref-Dav80" class="citation" data-cites="Dav80">(Davenport 1980, vol.
-74, chap. 13)</a>, and</p></li>
+<li><p><span class="citation"
+data-cites="MR882550">(<strong>MR882550?</strong>)</span>, up through
+3.6,</p></li>
+<li><p><span class="citation"
+data-cites="Dav80">(<strong>Dav80?</strong>)</span>, and</p></li>
 <li><p>part 3 of <a
 href="these notes">https://terrytao.wordpress.com/2014/12/09/254a-notes-2-complex-analytic-multiplicative-number-theory/</a>.</p></li>
 </ul></li>
@@ -365,30 +350,28 @@ data-reference="sec:cj578xc01a">7</a>)</p></li>
 <ol>
 <li><p>Beurling primes. <span class="citation"
 data-cites="MR2208947">(<strong>MR2208947?</strong>)</span>.</p></li>
-<li><p>Infinite product formula for the zeta function. <a href="#ref-Dav80"
-class="citation" data-cites="Dav80">(Davenport 1980, vol. 74, sec.
-12)</a>. Can also learn more general factorization theorem of
-holomorphic functions, see for instance <span class="citation"
+<li><p>Infinite product formula for the zeta function. <span
+class="citation" data-cites="Dav80">(<strong>Dav80?</strong>)</span>.
+Can also learn more general factorization theorem of holomorphic
+functions, see for instance <span class="citation"
 data-cites="MR1976398">(<strong>MR1976398?</strong>)</span>.</p></li>
-<li><p>Quantitative form of the prime number theorem. <a href="#ref-Dav80"
-class="citation" data-cites="Dav80">(Davenport 1980, vol. 74, secs. 18,
-20–22)</a>.</p></li>
-<li><p>Asymptotics for the number of zeros in a given region. <a href="#ref-Dav80"
-class="citation" data-cites="Dav80">(Davenport 1980, vol. 74, secs.
-15–16)</a>.</p></li>
+<li><p>Quantitative form of the prime number theorem. <span
+class="citation"
+data-cites="Dav80">(<strong>Dav80?</strong>)</span>.</p></li>
+<li><p>Asymptotics for the number of zeros in a given region. <span
+class="citation"
+data-cites="Dav80">(<strong>Dav80?</strong>)</span>.</p></li>
 <li><p>Pontryagin duality and related aspects of the Fourier transform,
 even in the setting of groups related to <span
 class="math inline">\(\mathbb{R}\)</span>, or discrete groups. See for
-instance <a href="#ref-MR1680912" class="citation" data-cites="MR1680912">(Ramakrishnan and
-Valenza 1999, vol. 186, sec. 3)</a>.</p></li>
-<li><p>Exponential sums over primes: <a href="#ref-Dav80" class="citation"
-data-cites="Dav80">(Davenport 1980, vol. 74, secs.
-24–25)</a>.</p></li>
-<li><p>Sums of three primes: <a href="#ref-Dav80" class="citation"
-data-cites="Dav80">(Davenport 1980, vol. 74, sec. 26)</a></p></li>
-<li><p>Bombieri–Vinogradov theorem: <a href="#ref-Dav80" class="citation"
-data-cites="Dav80">(Davenport 1980, vol. 74, secs.
-27–28)</a>.</p></li>
+instance <span class="citation"
+data-cites="MR1680912">(<strong>MR1680912?</strong>)</span>.</p></li>
+<li><p>Exponential sums over primes: <span class="citation"
+data-cites="Dav80">(<strong>Dav80?</strong>)</span>.</p></li>
+<li><p>Sums of three primes: <span class="citation"
+data-cites="Dav80">(<strong>Dav80?</strong>)</span></p></li>
+<li><p>Bombieri–Vinogradov theorem: <span class="citation"
+data-cites="Dav80">(<strong>Dav80?</strong>)</span>.</p></li>
 <li><p>Class number formula and related topics, e.g., class number one
 problem of Gauss.</p></li>
 <li><p>Function field analogues of <span
@@ -1097,11 +1080,12 @@ a typical result that one can obtain in this way. (Our arrangement is
 like Theorem 21 of <a
 href="https://terrytao.wordpress.com/2014/12/09/254a-notes-2-complex-analytic-multiplicative-number-theory/">these
 notes</a>, but with smooth weights, and should be compared against
-standard references such as <a href="#ref-Dav80" class="citation"
-data-cites="Dav80">(Davenport 1980, vol. 74, chap. 17)</a> or <a href="#ref-MR2061214"
-class="citation" data-cites="MR2061214">(Iwaniec and Kowalski 2004, vol.
-53, sec. 5.5)</a>. See also <a href="#ref-MR882550" class="citation"
-data-cites="MR882550">(Titchmarsh 1986)</a>.)</p>
+standard references such as <span class="citation"
+data-cites="Dav80">(<strong>Dav80?</strong>)</span> or <span
+class="citation"
+data-cites="MR2061214">(<strong>MR2061214?</strong>)</span>. See also
+<span class="citation"
+data-cites="MR882550">(<strong>MR882550?</strong>)</span>.)</p>
 <div id="proposition:cj541es01g" class="proposition">
 <p><strong>Proposition 18</strong>. <em>Let <span
 class="math inline">\(f \in C_c^\infty(\mathbb{R})\)</span>, with Mellin
@@ -1262,8 +1246,8 @@ class="math inline">\(J_t \rightarrow 0\)</span>. ◻</p>
 </span></div>
 <h2 id="zero-free-regions">Zero-free regions</h2>
 <p>These results were presented in Sergey’s lectures while I was
-travelling, following the reference <a href="#ref-MR882550" class="citation"
-data-cites="MR882550">(Titchmarsh 1986, sec. 3)</a>.</p>
+travelling, following the reference <span class="citation"
+data-cites="MR882550">(<strong>MR882550?</strong>)</span>.</p>
 <div id="theorem:cj541i3g6o" class="theorem">
 <p><strong>Theorem 19</strong>. <em>There exists <span
 class="math inline">\(c &gt; 0\)</span> so that if <span
@@ -1937,12 +1921,12 @@ class="math inline">\(C(\chi) = q\)</span>.</p>
 \rightarrow \mathbb{C}^\times\)</span> and <span
 class="math inline">\(\chi : (\mathbb{Z} / q )^\times \rightarrow
 \mathbb{C}^\times\)</span>, the corresponding <em>Gauss sum</em> is
-defined by <span class="math display">\[g_\psi (\chi ) := \sum_{a \in
-(\mathbb{Z} / q )^\times }
+defined by <span class="math display">\[\tau _\psi (\chi ) := \sum_{a
+\in (\mathbb{Z} / q )^\times }
   \chi (a) \psi (a).\]</span> In the special case that <span
 class="math inline">\(\psi\)</span> is the “standard” character <span id="eq:cj57b8om3u" class="math display">\[\label{eq:cj57b8om3u}\tag{7.8}
   \psi(x) := \exp (2 \pi i x / q),\]</span> we abbreviate <span
-class="math inline">\(g (\chi ) := g_\psi (\chi)\)</span>.</p>
+class="math inline">\(\tau (\chi ) := \tau_\psi (\chi)\)</span>.</p>
 <p>These sums will arise naturally in our study of the functional
 equation for Dirichlet <span
 class="math inline">\(L\)</span>-functions.</p>
@@ -1960,7 +1944,7 @@ class="math inline">\(\mathbb{R} \ni y \mapsto e^{-y}\)</span>.</p>
 <p><strong>Theorem 35</strong>. <em>Let <span
 class="math inline">\(\chi\)</span> be a primitive Dirichlet character
 modulo <span class="math inline">\(q\)</span>. Then <span
-class="math display">\[\lvert g (\chi)  \rvert =
+class="math display">\[\lvert \tau(\chi)  \rvert =
 q^{1/2}\]</span></em></p>
 </div>
 <div class="proof"><p>
@@ -1976,7 +1960,7 @@ href="#eq:cj57b8om3u" data-reference-type="eqref"
 data-reference="eq:cj57b8om3u">\((7.8)\)</a> to be <span id="eq:cj57cjccc4" class="math display">\[\label{eq:cj57cjccc4}\tag{7.9}
     \hat{f}(\xi) := \frac{1}{q} \sum_{a \in \mathbb{Z} / q} f (a) \psi
 (\xi a).\]</span> We then have <span class="math inline">\(q \hat{f}(1)
-= g(\chi)\)</span>, so our task is to show that <span
+= \tau(\chi)\)</span>, so our task is to show that <span
 class="math display">\[\lvert \hat{f} (1)  \rvert = q^{-1/2}.\]</span>
 To that end, we will show that <span id="eq:cj57cjidbi" class="math display">\[\label{eq:cj57cjidbi}\tag{7.10}
     \lvert f(\xi) \rvert = \lvert f(1) \rvert \quad \text{for } \xi \in
@@ -2027,57 +2011,328 @@ case that inner sum evaluates to <span class="math display">\[\sum_{b
     \chi (a) \sum_{b \in K_{q, d}} \chi (b).\]</span> Since <span
 class="math inline">\(\chi\)</span> is assumed primitive, it has
 nontrivial restriction to <span class="math inline">\(K_{q,d}\)</span>.
-By the orthogonality of characters of finite abelian groups, that
-restriction is thus orthogonal to the trivial character, hence the inner
-sum vanishes. We conclude as required that <span
-class="math inline">\(\hat{f} (\xi ) = 0\)</span>. ◻</p>
+By the orthogonality of characters of finite abelian groups (Lemma <a
+href="#lemma:cj579bytue" data-reference-type="ref"
+data-reference="lemma:cj579bytue">7.11</a> below), that restriction is
+thus orthogonal to the trivial character, hence the inner sum vanishes.
+We conclude as required that <span class="math inline">\(\hat{f} (\xi )
+= 0\)</span>. ◻</p>
 </span></div>
 <div id="remark:cj57ckegpb" class="remark">
 <p><strong>Remark 36</strong>. The evaluation of <span
-class="math inline">\(g(\chi)\)</span> for non-primitive <span
+class="math inline">\(\tau(\chi)\)</span> for non-primitive <span
 class="math inline">\(\chi\)</span> can be reduced to the primitive
-case, see for instance <a href="#ref-MR2061214" class="citation"
-data-cites="MR2061214">(Iwaniec and Kowalski 2004, Lemma
-3.1)</a>.</p>
+case, see for instance <span class="citation"
+data-cites="MR2061214">(<strong>MR2061214?</strong>, Lemma
+3.1)</span>.</p>
 </div>
-<div id="refs" class="references csl-bib-body hanging-indent"
-role="list">
-<div id="ref-Dav80" class="csl-entry" role="listitem">
-Davenport, Harold. 1980. <em>Multiplicative Number Theory</em>. Second.
-Vol. 74. Graduate Texts in Mathematics. New York: Springer-Verlag.
+<div id="lemma:cj579bytue" class="lemma">
+<p><strong>Lemma 37</strong>. Let <span class="math inline">\(G\)</span>
+be a finite abelian group. Let <span class="math inline">\(\chi\)</span>
+be a nontrivial character of <span class="math inline">\(G\)</span>.
+Then <span class="math inline">\(\sum_{a \in G} \chi (a) =
+0\)</span>.</p>
 </div>
-<div id="ref-MR3289059" class="csl-entry" role="listitem">
-Deitmar, Anton, and Siegfried Echterhoff. 2014. <em>Principles of
-Harmonic Analysis</em>. Second. Universitext. Springer, Cham. <a
-href="https://doi.org/10.1007/978-3-319-05792-7">https://doi.org/10.1007/978-3-319-05792-7</a>.
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Choose <span class="math inline">\(b \in G\)</span>
+so that <span class="math inline">\(\chi(b) \neq 1\)</span>. Then <span
+class="math inline">\(S := \sum_{a \in G} \chi(a) = \sum_{a \in G} \chi
+(a b)\)</span>, because the map <span class="math inline">\(a \mapsto a
+b\)</span> defines a permutation of <span
+class="math inline">\(G\)</span>. Since <span
+class="math inline">\(\chi(a b) = \chi(a) \chi(b)\)</span>, it follows
+that <span class="math inline">\(S = \chi(b) S\)</span>, which forces
+<span class="math inline">\(S = 0\)</span> because <span
+class="math inline">\(\chi(b) \neq 1\)</span>. (For example, if <span
+class="math inline">\(G\)</span> is cyclic, then the sum in question is
+a geometric series, and the proof amounts to the standard evaluation of
+that geometric series.) ◻</p>
+</span></div>
+<h2 id="basics-on-dirichlet-l-functions">Basics on Dirichlet <span
+class="math inline">\(L\)</span>-functions</h2>
+<p>(Sorry, just writing the notes fast for now; I’ll organize all these
+notes better at some later point.)</p>
+<p>For a Dirichlet character <span class="math inline">\(\chi\)</span>
+modulo <span class="math inline">\(q\)</span> and a complex number <span
+class="math inline">\(s\)</span>, we define the series <span
+class="math display">\[L(s,\chi) := \sum_{n = 1 }^\infty \frac{\chi (n)
+}{ n^s}.\]</span> This series converges absolutely for <span
+class="math inline">\(\Re(s) &gt; 1\)</span>. Since <span
+class="math inline">\(\chi\)</span> is multiplicative (i.e., <span
+class="math inline">\(\chi (m n) = \chi (m) \chi (n)\)</span>), we have
+the Euler product formula <span id="eq:cj579fpqu8" class="math display">\[\label{eq:cj579fpqu8}\tag{7.12}
+L (s, \chi ) = \prod_p \frac{1}{1 - \chi (p) p^{- s}},\]</span>
+generalizing that for the zeta function. Here the product over primes
+can be restricted to <span class="math inline">\(p \nmid q\)</span>,
+because when <span class="math inline">\(p \mid q\)</span>, we have
+<span class="math inline">\(\chi (p) = 0\)</span>.</p>
+<p>In discussing Dirichlet <span
+class="math inline">\(L\)</span>-functions, we can often reduce to the
+case of <em>primitive</em> Dirichlet characters, using the following
+simple observation: if <span class="math inline">\(\chi\)</span> modulo
+<span class="math inline">\(q\)</span> is induced by <span
+class="math inline">\(\chi &#39;\)</span> modulo <span
+class="math inline">\(d\)</span>, then <span class="math display">\[L
+(s, \chi ) = L (s, \chi &#39;) \prod_{
+    \substack{
+      p | q  \\
+       p \nmid d
+    }
+  }
+  (1 - p^{- s})^{-1}.\]</span></p>
+<div class="example">
+<p><strong>Example 38</strong>. Suppose that <span
+class="math inline">\(q = 4\)</span>. Then <span
+class="math inline">\((\mathbb{Z} / q)^\times \cong \mathbb{Z} /
+2\)</span>, so there are two Dirichlet characters modulo <span
+class="math inline">\(q\)</span>: the trivial character <span
+class="math inline">\(\chi_0\)</span> and the nontrivial character <span
+class="math inline">\(\chi_1\)</span>. We have <span
+class="math display">\[\chi_0(n) =
+\begin{cases}
+1 &amp;  \text{ if } n \equiv 1  \pod{2}, \\
+0 &amp; \text{ if } n \equiv 0 \pod{2},
+\end{cases}\]</span> so <span class="math display">\[\begin{align}
+    L(s,\chi_0) &amp;= 1 + \frac{1}{ 3^s } + \frac{1}{5^s } +
+\frac{1}{7^s } + \dotsb \\
+    &amp;= \prod_{p \nmid 2} \frac{1}{1 - p^{- s}} = (1 - 2 ^{-s})
+\zeta(s).
+  
+\end{align}\]</span> On the other hand, <span
+class="math display">\[\chi_1 (n) =
+\begin{cases}
+1 &amp; \text{ if } n \equiv 1 \pod{4}, \\
+-1 &amp; \text{ if } n \equiv 3 \pod{4}, \\
+0 &amp; \text{ if } n \equiv 0 \pod{2},
+\end{cases}\]</span> hence <span class="math display">\[\begin{align}
+    L (s, \chi_1 ) &amp;= 1 - \frac{1}{3^s } + \frac{1}{5^s } -
+\frac{1}{7^s } + \dotsb \\
+    &amp;= \prod_{p \nmid 2} \frac{1}{1 - \chi_1(p) p^{- s}} \\
+                   &amp;= \frac{1}{1 + 3^{- s}}
+                     \frac{1}{1 - 5^{- s}}
+                     \frac{1}{1 + 7^{- s}} \frac{1}{1 + {11}^{- s}}
+                     \frac{1}{1 - 13^{- s}} \dotsb.                     
+\end{align}\]</span></p>
 </div>
-<div id="ref-MR2061214" class="csl-entry" role="listitem">
-Iwaniec, Henryk, and Emmanuel Kowalski. 2004. <em>Analytic Number
-Theory</em>. Vol. 53. American Mathematical Society Colloquium
-Publications. Providence, RI: American Mathematical Society.
+<p>For <span class="math inline">\(\alpha \notin \mathbb{Z}_{\leq
+0}\)</span>, the Hurwitz zeta function is defined initially for <span
+class="math inline">\(\Re(s) &gt; 1\)</span> by <span
+class="math display">\[\zeta (s,\alpha) := \sum_{n = 0 }^\infty
+\frac{1}{(n + \alpha  )^s }.\]</span> For example, the case <span
+class="math inline">\(\alpha = 1\)</span> recovers the Riemann zeta
+function. Using Euler–Maclaurin summation, one can show that the Hurwitz
+zeta function continues to a meromorphic function on the complex plane
+that is holomorphic except for a simple pole at <span
+class="math inline">\(s = 1\)</span> of residue <span
+class="math inline">\(1\)</span>. For example, to derive this conclusion
+in the region <span class="math inline">\(\Re(s) &gt; 0\)</span>, one
+can use that <span class="math display">\[\zeta(s,\alpha) = \sum_{n = 0
+}^\infty
+    \underbrace
+    {
+      \left(
+        \frac{1}{(n + \alpha )^s } - \int_{x = n}^{n + 1} \frac{d x}{(x
++ \alpha )^s }
+          \right)
+}_{
+\ll \frac{s}{(\alpha + n)^{\sigma+1}}
+}
+  +
+  \underbrace
+{
+\int_0^\infty \frac{d x}{(x + \alpha)^s }
+}_{
+= \frac{\alpha^{1 - s }}{ s - 1}
+}.\]</span></p>
+<p>For a residue class <span class="math inline">\(a \pod{q}\)</span>,
+with representative <span class="math inline">\(a \in
+\mathbb{Z}\)</span> chosen so that <span class="math inline">\(0 &lt; a
+\leq q\)</span>, we have <span id="eq:cj579fmwo8" class="math display">\[\label{eq:cj579fmwo8}\tag{7.13}
+  \sum_{
+    \substack{
+      n = 1  \\
+       n \equiv a(q)
+    }
+  }^\infty \frac{1}{ n^s }
+  =
+  \sum_{n = 0 }^\infty \frac{1}{(a + q n)^s }
+  =
+  q^{- s} \zeta\left(s, \frac{a}{q}\right),\]</span> thus for a
+Dirichlet character <span class="math inline">\(\chi\)</span> modulo
+<span class="math inline">\(q\)</span>, <span id="eq:cj579b0max" class="math display">\[\label{eq:cj579b0max}\tag{7.14}
+L(s,\chi) = q^{- s} \sum_{a(q)^*} \chi (a) \zeta \left( s, \frac{a}{q}
+\right).\]</span> It follows that <span class="math inline">\(L (s,
+\chi)\)</span> admits a meromorphic continuation to the complex plane
+whose only possible pole is a simple one at <span
+class="math inline">\(s= 1\)</span> of residue <span
+class="math display">\[q^{- 1} \sum_{a (q) ^*} \chi (a).\]</span> If
+<span class="math inline">\(\chi\)</span> is not the trivial character
+modulo <span class="math inline">\(q\)</span>, then the above sum
+vanishes (Lemma <a href="#lemma:cj579bytue" data-reference-type="ref"
+data-reference="lemma:cj579bytue">7.11</a>), so <span
+class="math inline">\(L(s, \chi)\)</span> is in fact holomorphic on the
+entire complex plane.</p>
+<p>We see also from <a href="#eq:cj579b0max" data-reference-type="eqref"
+data-reference="eq:cj579b0max">\((7.14)\)</a>, as in Lemma <a
+href="#lemma:cj56e5ibho" data-reference-type="ref"
+data-reference="lemma:cj56e5ibho">6.10</a>, that for <span
+class="math inline">\(\Re(s) \geq \varepsilon&gt; 0\)</span>, we have
+<span class="math display">\[L (s, \chi ) \ll_{\varepsilon} \left( q (3
++ \lvert s \rvert) \right).\]</span> Using this estimate, we obtain
+modified forms of the factorization properties established in
+Proposition <a href="#proposition:cj41z9de5r" data-reference-type="ref"
+data-reference="proposition:cj41z9de5r">6.11</a> and
+Lemma <a href="#lemma:cj42xpd5qe" data-reference-type="ref"
+data-reference="lemma:cj42xpd5qe">6.12</a>. Sergey will discuss these
+points in detail over the coming weeks. In any event, one reason we
+often work with the Dirichlet <span
+class="math inline">\(L\)</span>-functions <span
+class="math inline">\(L(s,\chi)\)</span> rather than the Hurwitz zeta
+functions as in <a href="#eq:cj579fmwo8" data-reference-type="eqref"
+data-reference="eq:cj579fmwo8">\((7.13)\)</a> (despite the fact
+that their spans are similar) is that the multiplicativity of the
+coefficients yields the Euler product <a href="#eq:cj579fpqu8"
+data-reference-type="eqref"
+data-reference="eq:cj579fpqu8">\((7.12)\)</a>, hence a way to say
+something about prime numbers.</p>
+<p>The functional equation comes again from Poisson summation, but now
+taken modulo <span class="math inline">\(q\)</span>. Recall the usual
+Poisson summation formula: for a Schwartz function <span
+class="math inline">\(f\)</span> on <span
+class="math inline">\(\mathbb{R}\)</span>, <span
+class="math display">\[\sum_{n \in \mathbb{Z} } f (n) = \sum_{n \in
+\mathbb{Z} } \hat{f} (n),\]</span> where <span
+class="math display">\[\hat{f} (\xi ) := \int_{x \in \mathbb{R} } f (x)
+e (- x \xi ) \, d x,
+  \qquad
+  e(x) := e^{2 \pi i x}.\]</span> For an arithmetic progression <span
+class="math inline">\(a \pod {q}\)</span>, we can apply the Poisson
+summation formula to the Schwartz function <span class="math inline">\(x
+\mapsto f (a + q x)\)</span> to see that <span
+class="math display">\[\begin{align}
+  \sum_{
+  \substack{
+  n \in \mathbb{Z} :  \\
+  n \equiv a (q)
+  }
+  }
+  f (n)
+  &amp;=
+    \sum_{n \in \mathbb{Z} } f (a + q n)
+  \\
+  &amp;= \sum_{n \in \mathbb{Z} } \int_{x \in \mathbb{R} } e (- n x ) f
+(a + q x) \, d x \\
+  &amp;= \frac{1}{q} \sum_{n \in \mathbb{Z} }
+    e \left( \frac{a n }{q} \right)
+    \int_{x \in \mathbb{R} } e \left(- \frac{n x}{q} \right) f (x) \, d
+x   \\
+  &amp;= \frac{1}{q} \sum_{n \in \mathbb{Z} }
+    e \left( \frac{a n }{q} \right)
+    \hat{f} \left( \frac{n}{q} \right).
+\end{align}\]</span></p>
+<p>More generally, for any <span class="math inline">\(f _\infty \in
+\mathcal{S} (\mathbb{R} )\)</span> and <span class="math inline">\(f_q :
+\mathbb{Z} / q \rightarrow \mathbb{C}\)</span>, we have <span id="eq:cj579gae8a" class="math display">\[\label{eq:cj579gae8a}\tag{7.15}
+  \sum_{n \in \mathbb{Z} } f _\infty (n) f_q (n)
+  = \frac{1}{q^{1/2} } \sum_{n \in \mathbb{Z} } \hat{f} _\infty \left(
+\frac{n}{q} \right) \hat{f}_q (n),\]</span> where <span
+class="math display">\[\hat{f}_q (n) := \frac{1}{ q^{1/2} } \sum_{b \in
+\mathbb{Z} / q} e \left( \frac{b n}{q} \right) f_q (b).\]</span>
+(Indeed, the general case of <a href="#eq:cj579gae8a"
+data-reference-type="eqref"
+data-reference="eq:cj579gae8a">\((7.15)\)</a> reduces to the
+special case where <span class="math inline">\(f_q\)</span> is the
+characteristic function of <span class="math inline">\(a
+\pod{q}\)</span>, in which case it reduces to the formula given
+above.)</p>
+<div id="remark:cj579g6qey" class="remark">
+<p><strong>Remark 39</strong>. Another way to write <a
+href="#eq:cj579gae8a" data-reference-type="eqref"
+data-reference="eq:cj579gae8a">\((7.15)\)</a> is as follows. Set
+<span class="math inline">\(\mathcal{F} f _\infty :=
+\hat{f}_\infty\)</span> as before, and define <span
+class="math inline">\(\mathcal{F} f_q : q^{-1} \mathbb{Z} / \mathbb{Z}
+\rightarrow \mathbb{C}\)</span> by <span
+class="math display">\[\mathcal{F} f_q (b) := \frac{1}{q} \sum_{a \in
+\mathbb{Z} / q \mathbb{Z} } f_q(a) e(a b).\]</span> Then <span
+class="math display">\[\sum_{n \in \mathbb{Z} } f _\infty (n) f_q (n)
+    = \sum_{n \in q^{-1} \mathbb{Z} } \mathcal{F} f _\infty  (n)
+\mathcal{F} f_q (n).\]</span></p>
 </div>
-<div id="ref-MR1680912" class="csl-entry" role="listitem">
-Ramakrishnan, Dinakar, and Robert J. Valenza. 1999. <em>Fourier Analysis
-on Number Fields</em>. Vol. 186. Graduate Texts in Mathematics.
-Springer-Verlag, New York. <a
-href="https://doi.org/10.1007/978-1-4757-3085-2">https://doi.org/10.1007/978-1-4757-3085-2</a>.
+<div id="remark:cj579g6sq5" class="remark">
+<p><strong>Remark 40</strong>. More generally, let <span
+class="math inline">\(q_1, q_2\)</span> be natural numbers. Then the
+above discussion applies to <span class="math inline">\(f_\infty \in
+\mathcal{S}(\mathbb{R})\)</span> and <span
+class="math inline">\(f_{\mathop{\mathrm{fin}}} : q_1^{-1} \mathbb{Z} /
+q_2 \mathbb{Z} \rightarrow \mathbb{C}\)</span>, where we define <span
+class="math inline">\(\mathcal{F} f_{\mathop{\mathrm{fin}}} : q_2^{-1}
+\mathbb{Z} / q_1 \mathbb{Z} \rightarrow \mathbb{C}\)</span> by <span
+class="math display">\[\mathcal{F} f_{\mathop{\mathrm{fin}}} (b) :=
+    \frac{1}{q_2 } \sum_{a \in q_1^{-1} \mathbb{Z} / q_2 \mathbb{Z} }
+f_{\mathop{\mathrm{fin}}} (a ) e (a b).\]</span> Then <span id="eq:cj579g2o7i" class="math display">\[\label{eq:cj579g2o7i}\tag{7.16}
+    \sum_{n \in q_1^{-1} \mathbb{Z} } f _\infty (n)
+f_{\mathop{\mathrm{fin}}} (n)
+    = \sum_{n \in q_2 ^{-1} \mathbb{Z} } \mathcal{F} f _\infty  (n)
+\mathcal{F} f_{\mathop{\mathrm{fin}}} (n).\]</span></p>
 </div>
-<div id="ref-MR882550" class="csl-entry" role="listitem">
-Titchmarsh, E. C. 1986. <em>The Theory of the <span>R</span>iemann
-Zeta-Function</em>. Second. New York: The Clarendon Press Oxford
-University Press.
+<div id="remark:cj579g604l" class="remark">
+<p><strong>Remark 41</strong>. One can package all of the identities <a
+href="#eq:cj579g2o7i" data-reference-type="eqref"
+data-reference="eq:cj579g2o7i">\((7.16)\)</a> together by
+introducing the adele ring, which may be defined by taking an inverse
+limit over <span class="math inline">\(q_2\)</span> and then a direct
+limit over <span class="math inline">\(q_1\)</span>, each ordered by
+divisibility: <span class="math display">\[\mathbb{A} := \mathbb{R}
+\times \varinjlim_{q_1 } \varprojlim_{q_2 } q_1^{-1} \mathbb{Z}  / q_2
+\mathbb{Z}.\]</span> It comes with a Schwartz space <span
+class="math inline">\(\mathcal{S}(\mathbb{A})\)</span>, which is spanned
+by the functions <span class="math inline">\((x, y) \mapsto f _\infty
+(x) f_{\mathop{\mathrm{fin}}} (y)\)</span> arising in the above
+discussion, as well as a Fourier transform <span
+class="math inline">\(\mathcal{F}\)</span> extending that considered
+above. The general form of <a href="#eq:cj579g2o7i"
+data-reference-type="eqref"
+data-reference="eq:cj579g2o7i">\((7.16)\)</a> is then that for
+<span class="math inline">\(f \in \mathcal{S}(\mathbb{A})\)</span>, one
+has <span class="math display">\[\sum_{n \in \mathbb{Q} } f (n) =
+\sum_{n \in \mathbb{Q} } \mathcal{F} (n).\]</span> For details, see any
+reference on the adeles and Tate’s thesis (e.g., <span class="citation"
+data-cites="MR1680912">(<strong>MR1680912?</strong>)</span>).</p>
 </div>
-<div id="ref-MR2172781" class="csl-entry" role="listitem">
-Wilf, Herbert S. 2006. <em>Generatingfunctionology</em>. Third. A K
-Peters, Ltd., Wellesley, MA.
+<div class="example">
+<p><strong>Example 42</strong>. Let <span class="math display">\[f_q(n)
+= 1_{(n, q) = 1} \chi (n)\]</span> be a primitive Dirichlet character
+<span class="math inline">\(\chi\)</span> modulo <span
+class="math inline">\(q\)</span> extended by zero to all of <span
+class="math inline">\(\mathbb{Z} / q\)</span>, as usual. In that case,
+we see by the proof of Theorem <a href="#theorem:cj57ckejar"
+data-reference-type="ref" data-reference="theorem:cj57ckejar">7.9</a>
+that <span class="math display">\[\hat{f}_q (n) = 1_{(n,q) = 1}
+\frac{\tau(\chi) }{ q^{1/2} } \chi^{-1} (n),\]</span> so <a
+href="#eq:cj579gae8a" data-reference-type="eqref"
+data-reference="eq:cj579gae8a">\((7.15)\)</a> specializes to: for
+each <span class="math inline">\(f \in \mathcal{S}(\mathbb{R})\)</span>,
+<span id="eq:cj579g9hcr" class="math display">\[\label{eq:cj579g9hcr}\tag{7.17}
+    \sum_{n \in \mathbb{Z} } f (n) \chi (n) = \frac{\tau(\chi )}{ q }
+\sum_{n \in \mathbb{Z} } \hat{f} \left( \frac{n}{q} \right) \chi^{-1}
+(n).\]</span></p>
 </div>
-<div id="ref-zagier-mellin" class="csl-entry" role="listitem">
-Zagier, Don. 2006. <span>“The Mellin Transform and Other Useful Analytic
-Techniques.”</span> <a
-href="http://people.mpim-bonn.mpg.de/zagier/files/tex/MellinTransform/fulltext.pdf"
-class="uri">http://people.mpim-bonn.mpg.de/zagier/files/tex/MellinTransform/fulltext.pdf</a>.
+<p>The identity <a href="#eq:cj579g9hcr" data-reference-type="eqref"
+data-reference="eq:cj579g9hcr">\((7.17)\)</a> yields the functional
+equation for the Dirichlet <span
+class="math inline">\(L\)</span>-functions, as we now explain.</p>
+<div id="definition:cj579hfk0m" class="definition">
+<p><strong>Definition 43</strong>. We say that <span
+class="math inline">\(\chi\)</span> is <em>even</em>
+(resp. <em>odd</em>) if <span class="math inline">\(\chi(-1) =
+1\)</span> (resp. <span class="math inline">\(\chi(-1) =
+-1\)</span>).</p>
 </div>
-</div>
+<p>To see this, let us first introduce a dilation factor <span
+class="math inline">\(y &gt; 0\)</span>. TODO: finish writing this
+up.</p>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
   toggle.addEventListener("click", function(e) {
