@@ -1105,14 +1105,14 @@ We refer to $f$ as in Exercise \ref{exercise:cj57b3j9bi} as the \emph{conductor}
 \subsection{Gauss sums}\label{sec:cj57ckemom}
 Given characters $\psi : \mathbb{Z} / q \rightarrow \mathbb{C}^\times$ and $\chi : (\mathbb{Z} / q )^\times \rightarrow \mathbb{C}^\times$, the corresponding \emph{Gauss sum} is defined by
 \begin{equation*}
-  g_\psi (\chi ) := \sum_{a \in (\mathbb{Z} / q )^\times }
+  \tau _\psi (\chi ) := \sum_{a \in (\mathbb{Z} / q )^\times }
   \chi (a) \psi (a).
 \end{equation*}
 In the special case that $\psi$ is the ``standard'' character
 \begin{equation}\label{eq:cj57b8om3u}
   \psi(x) := \exp (2 \pi i x / q),
 \end{equation}
-we abbreviate $g (\chi ) := g_\psi (\chi)$.
+we abbreviate $\tau (\chi ) := \tau_\psi (\chi)$.
 
 These sums will arise naturally in our study of the functional equation for Dirichlet $L$-functions.
 
@@ -1123,7 +1123,7 @@ Gauss sums are analogous to the integrals $\Gamma(s) = \int_{\mathbb{R}^+ } y^s 
 \begin{theorem}\label{theorem:cj57ckejar}
   Let $\chi$ be a primitive Dirichlet character modulo $q$.  Then
   \begin{equation*}
-\lvert g (\chi)  \rvert = q^{1/2} 
+\lvert \tau(\chi)  \rvert = q^{1/2} 
 \end{equation*}
 \end{theorem}
 \begin{proof}
@@ -1135,7 +1135,7 @@ Gauss sums are analogous to the integrals $\Gamma(s) = \int_{\mathbb{R}^+ } y^s 
   \begin{equation}\label{eq:cj57cjccc4}
     \hat{f}(\xi) := \frac{1}{q} \sum_{a \in \mathbb{Z} / q} f (a) \psi (\xi a).
   \end{equation}
-  We then have $q \hat{f}(1) = g(\chi)$, so our task is to show that
+  We then have $q \hat{f}(1) = \tau(\chi)$, so our task is to show that
   \begin{equation*}
     \lvert \hat{f} (1)  \rvert = q^{-1/2}.
   \end{equation*}
@@ -1172,11 +1172,235 @@ Gauss sums are analogous to the integrals $\Gamma(s) = \int_{\mathbb{R}^+ } y^s 
     =
     \chi (a) \sum_{b \in K_{q, d}} \chi (b).
   \end{equation*}
-  Since $\chi$ is assumed primitive, it has nontrivial restriction to $K_{q,d}$.  By the orthogonality of characters of finite abelian groups, that restriction is thus orthogonal to the trivial character, hence the inner sum vanishes.  We conclude as required that $\hat{f} (\xi ) = 0$.
+  Since $\chi$ is assumed primitive, it has nontrivial restriction to $K_{q,d}$.  By the orthogonality of characters of finite abelian groups (Lemma \ref{lemma:cj579bytue} below), that restriction is thus orthogonal to the trivial character, hence the inner sum vanishes.  We conclude as required that $\hat{f} (\xi ) = 0$.
 \end{proof}
 
 \begin{remark}\label{remark:cj57ckegpb}
-  The evaluation of $g(\chi)$ for non-primitive $\chi$ can be reduced to the primitive case, see for instance \cite[Lemma 3.1]{MR2061214}.
+  The evaluation of $\tau(\chi)$ for non-primitive $\chi$ can be reduced to the primitive case, see for instance \cite[Lemma 3.1]{MR2061214}.
 \end{remark}
-\bibliography{refs}{} \bibliographystyle{plain}
+
+\begin{lemma}\label{lemma:cj579bytue}
+Let $G$ be a finite abelian group. Let $\chi$ be a nontrivial character of $G$.  Then $\sum_{a \in G} \chi (a) = 0$.
+\end{lemma}
+\begin{proof}
+  Choose $b \in G$ so that $\chi(b) \neq 1$.  Then $S := \sum_{a \in G} \chi(a) = \sum_{a \in G} \chi (a b)$, because the map $a \mapsto a b$ defines a permutation of $G$.  Since $\chi(a b) = \chi(a) \chi(b)$, it follows that $S = \chi(b) S$, which forces $S = 0$ because $\chi(b) \neq 1$.  (For example, if $G$ is cyclic, then the sum in question is a geometric series, and the proof amounts to the standard evaluation of that geometric series.)
+\end{proof}
+
+\subsection{Basics on Dirichlet $L$-functions}
+(Sorry, just writing the notes fast for now; I'll organize all these notes better at some later point.)
+
+For a Dirichlet character $\chi$ modulo $q$ and a complex number $s$, we define the series
+\begin{equation*}
+L(s,\chi) := \sum_{n = 1 }^\infty \frac{\chi (n) }{ n^s}.
+\end{bibliography*}
+This series converges absolutely for $\Re(s) > 1$.  Since $\chi$ is multiplicative (i.e., $\chi (m n) = \chi (m) \chi (n)$), we have the Euler product formula
+\begin{equation}\label{eq:cj579fpqu8}
+L (s, \chi ) = \prod_p \frac{1}{1 - \chi (p) p^{- s}},
+\end{equation}
+generalizing that for the zeta function.  Here the product over primes can be restricted to $p \nmid q$, because when $p \mid q$, we have $\chi (p) = 0$.
+
+
+In discussing Dirichlet $L$-functions, we can often reduce to the case of \emph{primitive} Dirichlet characters, using the following simple observation: if $\chi$ modulo $q$ is induced by $\chi '$ modulo $d$, then
+\begin{equation*}
+  L (s, \chi ) = L (s, \chi ') \prod_{
+    \substack{
+      p | q  \\
+       p \nmid d
+    }
+  }
+  (1 - p^{- s})^{-1}.
+\end{equation*}
+\begin{example}
+  Suppose that $q = 4$.  Then $(\mathbb{Z} / q)^\times \cong \mathbb{Z} / 2$, so there are two Dirichlet characters modulo $q$: the trivial character $\chi_0$ and the nontrivial character $\chi_1$.  We have
+  \begin{equation*}
+\chi_0(n) =
+\begin{cases}
+1 &  \text{ if } n \equiv 1  \pod{2}, \\
+0 & \text{ if } n \equiv 0 \pod{2},
+\end{cases}
+  \end{equation*}
+  so
+  \begin{align*}
+    L(s,\chi_0) &= 1 + \frac{1}{ 3^s } + \frac{1}{5^s } + \frac{1}{7^s } + \dotsb \\
+    &= \prod_{p \nmid 2} \frac{1}{1 - p^{- s}} = (1 - 2 ^{-s}) \zeta(s).
+  \end{align*}
+  On the other hand,
+  \begin{equation*}
+\chi_1 (n) =
+\begin{cases}
+1 & \text{ if } n \equiv 1 \pod{4}, \\
+-1 & \text{ if } n \equiv 3 \pod{4}, \\
+0 & \text{ if } n \equiv 0 \pod{2},
+\end{cases}
+  \end{equation*}
+  hence
+  \begin{align*}
+    L (s, \chi_1 ) &= 1 - \frac{1}{3^s } + \frac{1}{5^s } - \frac{1}{7^s } + \dotsb \\
+    &= \prod_{p \nmid 2} \frac{1}{1 - \chi_1(p) p^{- s}} \\
+                   &= \frac{1}{1 + 3^{- s}}
+                     \frac{1}{1 - 5^{- s}}
+                     \frac{1}{1 + 7^{- s}} \frac{1}{1 + {11}^{- s}}
+                     \frac{1}{1 - 13^{- s}} \dotsb.                     
+\end{align*}
+\end{example}
+
+
+For $\alpha \notin \mathbb{Z}_{\leq 0}$, the Hurwitz zeta function is defined initially for $\Re(s) > 1$ by
+\begin{equation*}
+\zeta (s,\alpha) := \sum_{n = 0 }^\infty \frac{1}{(n + \alpha  )^s }.
+\end{equation*}
+For example, the case $\alpha = 1$ recovers the Riemann zeta function.  Using Euler--Maclaurin summation, one can show that the Hurwitz zeta function continues to a meromorphic function on the complex plane that is holomorphic except for a simple pole at $s = 1$ of residue $1$.  For example, to derive this conclusion in the region $\Re(s) > 0$, one can use that
+\begin{equation*}
+  \zeta(s,\alpha) = \sum_{n = 0 }^\infty 
+    \underbrace
+    {
+      \left(
+        \frac{1}{(n + \alpha )^s } - \int_{x = n}^{n + 1} \frac{d x}{(x + \alpha )^s }
+          \right)
+}_{
+ \ll \frac{s}{(\alpha + n)^{\sigma+1}} 
+}
+  +
+  \underbrace
+{
+\int_0^\infty \frac{d x}{(x + \alpha)^s }
+}_{
+= \frac{\alpha^{1 - s }}{ s - 1}
+}.
+\end{equation*}
+
+For a residue class $a \pod{q}$, with representative $a \in \mathbb{Z}$ chosen so that $0 < a \leq q$, we have
+\begin{equation}\label{eq:cj579fmwo8}
+  \sum_{
+    \substack{
+      n = 1  \\
+       n \equiv a(q)
+    }
+  }^\infty \frac{1}{ n^s }
+  =
+  \sum_{n = 0 }^\infty \frac{1}{(a + q n)^s }
+  =
+  q^{- s} \zeta\left(s, \frac{a}{q}\right),
+\end{equation}
+thus for a Dirichlet character $\chi$ modulo $q$,
+\begin{equation}\label{eq:cj579b0max}
+L(s,\chi) = q^{- s} \sum_{a(q)^*} \chi (a) \zeta \left( s, \frac{a}{q} \right).
+\end{equation}
+It follows that $L (s, \chi)$ admits a meromorphic continuation to the complex plane whose only possible pole is a simple one at $s= 1$ of residue
+\begin{equation*}
+q^{- 1} \sum_{a (q) ^*} \chi (a).
+\end{equation*}
+If $\chi$ is not the trivial character modulo $q$, then the above sum vanishes (Lemma \ref{lemma:cj579bytue}), so $L(s, \chi)$ is in fact holomorphic on the entire complex plane.
+
+We see also from \eqref{eq:cj579b0max}, as in Lemma \ref{lemma:cj56e5ibho}, that for $\Re(s) \geq \eps > 0$, we have
+\begin{equation*}
+  L (s, \chi ) \ll_{\eps} \left( q (3 + \lvert s \rvert) \right).
+\end{equation*}
+Using this estimate, we obtain modified forms of the factorization properties established in Proposition \ref{proposition:cj41z9de5r} and Lemma \ref{lemma:cj42xpd5qe}.  Sergey will discuss these points in detail over the coming weeks.  In any event, one reason we often work with the Dirichlet $L$-functions $L(s,\chi)$ rather than the Hurwitz zeta functions as in \eqref{eq:cj579fmwo8} (despite the fact that their spans are similar) is that the multiplicativity of the coefficients yields the Euler product \eqref{eq:cj579fpqu8}, hence a way to say something about prime numbers.
+
+The functional equation comes again from Poisson summation, but now taken modulo $q$.  Recall the usual Poisson summation formula: for a Schwartz function $f$ on $\mathbb{R}$,
+\begin{equation*}
+\sum_{n \in \mathbb{Z} } f (n) = \sum_{n \in \mathbb{Z} } \hat{f} (n),
+\end{equation*}
+where
+\begin{equation*}
+  \hat{f} (\xi ) := \int_{x \in \mathbb{R} } f (x) e (- x \xi ) \, d x,
+  \qquad
+  e(x) := e^{2 \pi i x}.
+\end{equation*}
+For an arithmetic progression $a \pod {q}$, we can apply the Poisson summation formula to the Schwartz function $x \mapsto f (a + q x)$ to see that
+\begin{align*}
+  \sum_{
+  \substack{
+  n \in \mathbb{Z} :  \\
+  n \equiv a (q)
+  }
+  }
+  f (n)
+  &=
+    \sum_{n \in \mathbb{Z} } f (a + q n)
+  \\
+  &= \sum_{n \in \mathbb{Z} } \int_{x \in \mathbb{R} } e (- n x ) f (a + q x) \, d x \\
+  &= \frac{1}{q} \sum_{n \in \mathbb{Z} }
+    e \left( \frac{a n }{q} \right)
+    \int_{x \in \mathbb{R} } e \left(- \frac{n x}{q} \right) f (x) \, d x   \\
+  &= \frac{1}{q} \sum_{n \in \mathbb{Z} }
+    e \left( \frac{a n }{q} \right)
+    \hat{f} \left( \frac{n}{q} \right).
+\end{align*}
+
+More generally, for any $f _\infty \in \mathcal{S} (\mathbb{R} )$ and $f_q : \mathbb{Z} / q \rightarrow \mathbb{C} $, we have
+\begin{equation}\label{eq:cj579gae8a}
+  \sum_{n \in \mathbb{Z} } f _\infty (n) f_q (n)
+  = \frac{1}{q^{1/2} } \sum_{n \in \mathbb{Z} } \hat{f} _\infty \left( \frac{n}{q} \right) \hat{f}_q (n),
+\end{equation}
+where
+\begin{equation*}
+\hat{f}_q (n) := \frac{1}{ q^{1/2} } \sum_{b \in \mathbb{Z} / q} e \left( \frac{b n}{q} \right) f_q (b).
+\end{equation*}
+(Indeed, the general case of \eqref{eq:cj579gae8a} reduces to the special case where $f_q$ is the characteristic function of $a \pod{q}$, in which case it reduces to the formula given above.)
+
+\begin{remark}\label{remark:cj579g6qey}
+  Another way to write \eqref{eq:cj579gae8a} is as follows.  Set $\mathcal{F} f _\infty := \hat{f}_\infty$ as before, and define $\mathcal{F} f_q : q^{-1} \mathbb{Z} / \mathbb{Z} \rightarrow \mathbb{C}$ by
+  \begin{equation*}
+    \mathcal{F} f_q (b) := \frac{1}{q} \sum_{a \in \mathbb{Z} / q \mathbb{Z} } f_q(a) e(a b).
+  \end{equation*}
+  Then
+  \begin{equation*}
+    \sum_{n \in \mathbb{Z} } f _\infty (n) f_q (n)
+    = \sum_{n \in q^{-1} \mathbb{Z} } \mathcal{F} f _\infty  (n) \mathcal{F} f_q (n).
+  \end{equation*}
+\end{remark}
+\begin{remark}\label{remark:cj579g6sq5}
+More generally, let $q_1, q_2$ be natural numbers.  Then the above discussion applies to $f_\infty \in \mathcal{S}(\mathbb{R})$ and $f_{\fin} : q_1^{-1} \mathbb{Z} / q_2 \mathbb{Z} \rightarrow \mathbb{C}$, where we define $\mathcal{F} f_{\fin} : q_2^{-1} \mathbb{Z} / q_1 \mathbb{Z} \rightarrow \mathbb{C}$ by
+  \begin{equation*}
+    \mathcal{F} f_{\fin} (b) :=
+    \frac{1}{q_2 } \sum_{a \in q_1^{-1} \mathbb{Z} / q_2 \mathbb{Z} } f_{\fin} (a ) e (a b).
+  \end{equation*}
+  Then
+  \begin{equation}\label{eq:cj579g2o7i}
+    \sum_{n \in q_1^{-1} \mathbb{Z} } f _\infty (n) f_{\fin} (n)
+    = \sum_{n \in q_2 ^{-1} \mathbb{Z} } \mathcal{F} f _\infty  (n) \mathcal{F} f_{\fin} (n).
+  \end{equation}
+\begin{remark}\label{remark:cj579g604l}
+  One can package all of the identities \eqref{eq:cj579g2o7i} together by introducing the adele ring, which may be defined by taking an inverse limit over $q_2$ and then a direct limit over $q_1$, each ordered by divisibility:
+  \begin{equation*}
+\mathbb{A} := \mathbb{R} \times \varinjlim_{q_1 } \varprojlim_{q_2 } q_1^{-1} \mathbb{Z}  / q_2 \mathbb{Z}.
+  \end{equation*}
+  It comes with a Schwartz space $\mathcal{S}(\mathbb{A})$, which is spanned by the functions $(x, y) \mapsto f _\infty (x) f_{\fin} (y)$ arising in the above discussion, as well as a Fourier transform $\mathcal{F}$ extending that considered above.  The general form of \eqref{eq:cj579g2o7i} is then that for $f \in \mathcal{S}(\mathbb{A})$, one has
+  \begin{equation*}
+\sum_{n \in \mathbb{Q} } f (n) = \sum_{n \in \mathbb{Q} } \mathcal{F} (n).
+  \end{equation*}
+  For details, see any reference on the adeles and Tate's thesis (e.g., \cite{MR1680912}).
+\end{remark}
+
+\begin{example}
+  Let
+  \begin{equation*}
+    f_q(n) = 1_{(n, q) = 1} \chi (n)
+  \end{equation*}
+  be a primitive Dirichlet character $\chi$ modulo $q$ extended by zero to all of $\mathbb{Z} / q$, as usual.  In that case, we see by the proof of Theorem \ref{theorem:cj57ckejar} that
+  \begin{equation*}
+    \hat{f}_q (n) = 1_{(n,q) = 1} \frac{\tau(\chi) }{ q^{1/2} } \chi^{-1} (n),
+  \end{equation*}
+  so \eqref{eq:cj579gae8a} specializes to: for each $f \in \mathcal{S}(\mathbb{R})$,
+  \begin{equation}\label{eq:cj579g9hcr}
+    \sum_{n \in \mathbb{Z} } f (n) \chi (n) = \frac{\tau(\chi )}{ q } \sum_{n \in \mathbb{Z} } \hat{f} \left( \frac{n}{q} \right) \chi^{-1} (n).
+  \end{equation}
+\end{example}
+
+The identity \eqref{eq:cj579g9hcr} yields the functional equation for the Dirichlet $L$-functions, as we now explain.
+
+\begin{definition}\label{definition:cj579hfk0m}
+We say that $\chi$ is \emph{even} (resp.\ \emph{odd}) if $\chi(-1) = 1$ (resp.\ $\chi(-1) = -1$).
+\end{definition}
+
+To see this, let us first introduce a dilation factor $y > 0$.  TODO: finish writing this up.
+
+
+
+
+
+
+\equation{refs}{} \bibliographystyle{plain}
 \end{document}
