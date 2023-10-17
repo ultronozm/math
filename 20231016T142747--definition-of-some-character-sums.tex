@@ -1,0 +1,217 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\begin{document}
+
+In this note, we define some character sums relevant for subconvexity on $\GL_{n+1} \times \GL_n$ at ``prime depth.''
+
+Let $F$ be a finite field of order $q$.  Set
+\begin{equation*}
+  (G,H) := (\GL_{n+1}(F), \GL_n(F)),
+\end{equation*}
+with $H$ embedded as the upper-left block.  Let $(B, B_H)$ denote the upper-triangular Borel subgroups.
+
+Quasi-invariants for the two-sided action of $B \times B_H$ on $G$ (by left and right translation) are given by the following determinental minors:
+\begin{itemize}
+\item For $m = 1, \dotsc, n+1$, the ``left-and-bottom-anchored'' minors
+  \begin{equation*}
+    A_j(g) := \det
+    (g_{i j}    )_{
+      n+2-m \leq i \leq n+1
+    }^{1 \leq j \leq i}.
+  \end{equation*}
+\item For $m = 1, \dotsc, n$, the ``left-and-second-to-bottom-anchored'' minors
+  \begin{equation*}
+    B_j(g) := \det
+    (g_{i j}    )_{
+      n+1-m \leq i \leq n
+    }^{1 \leq j \leq i}.
+  \end{equation*}
+\end{itemize}
+We also adopt the convention $A_0(g) := B_0(g) := 1$.
+
+The action of $B \times B_H$ on $G$ has an open orbit, given by the nonvanishing of each of the invariants $A_1,\dotsc,A_{n+1},B_1,\dotsc,B_n$.  Let $\alpha$ be a representative for this orbit.
+\begin{example}\label{example:cj59m8hvjh}
+We could take, e.g., for $n+1 = 4$,
+\begin{equation}\label{eq:cj59nalcll}
+\alpha =
+\begin{pmatrix}
+0 & 0 & 1 & 1 \\
+0 & 1 & 1 & 0 \\
+1 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 \\
+\end{pmatrix}.
+\end{equation}
+Indeed, we then have $A_i(\alpha) = B_j(\alpha) = 1$ for all $i$ and $j$.
+\end{example}
+\begin{example}
+  One could instead take
+  \begin{equation*}
+    \alpha =
+    \begin{pmatrix}
+      1 & 0 & 0 & 1 \\
+      1 & 0 & 1 & 0 \\
+      1 & 1 & 0 & 0 \\
+      1 & 0 & 0 & 0 \\
+    \end{pmatrix}.
+  \end{equation*}
+\end{example}
+
+Let $\chi : B \rightarrow \U(1)$ and $\eta : B_H \rightarrow \U(1)$ be characters.  We define the character sum
+\begin{equation*}
+  S(\gamma) := \sum_{
+    \substack{
+      x,y \in B_H : 
+      \\
+       \alpha^{-1} y^{-1} \gamma x \alpha  \in B
+    }
+  }
+  \chi (\alpha^{-1} y^{-1} \gamma x \alpha ) \eta (x^{-1} y).
+\end{equation*}
+We would like to understand the magnitude of this sum, together with averaged variants such as
+\begin{equation*}
+\max_{x \in B_H} \sum_{y \in B_H} \lvert S(x \gamma y) \rvert.
+\end{equation*}
+\begin{remark}
+  The sum $S(\gamma)$ is $\eta$-equivariant under the action of $B_H \times B_H$, so in studying that sum, we can assume that $\gamma$ lies in a set of representatives for that action.  Generic representatives are given by, e.g., when $n+1=4$,
+  \begin{equation}\label{eq:cj59nab7hw}
+    \gamma = \begin{pmatrix}
+               0 & 0 & 1 & \gamma_1  \\
+               0 & 1 & 1 & \gamma_2  \\
+               1 & 1 & 0 &  \gamma_3  \\
+               1 & 0 & 0 & \gamma_4 \\
+             \end{pmatrix}.
+  \end{equation}
+\end{remark}
+Let $\Theta : G \rightarrow \mathbb{C}$ denote the function supported on $B_H \alpha B$ and given there by
+\begin{equation*}
+  \Theta(y \alpha z) = \eta(y) \chi(z).
+\end{equation*}
+Then
+\begin{equation*}
+  S (\gamma) = \sum_{x \in B_H}
+  \eta^{-1}(x)
+  \Theta (\gamma x \alpha).
+\end{equation*}
+
+
+\begin{lemma}
+  Define the components $\chi_j$ and $\eta_j$ of $\chi$ and $\eta$ by writing
+  \begin{equation}\label{eq:cj4y8xe8vt}
+    y = \diag(y_n,\dotsc,y_1,1), \qquad z = \diag(z_1,\dotsc,z_{n+1}),
+  \end{equation}
+  \begin{equation*}
+    \eta(y) = \prod _j \eta_j (y_j),
+    \qquad
+    \chi (z) = \prod_j \chi_j (z_j ).
+  \end{equation*}
+  Let $\alpha$ be as in Example \ref{example:cj59m8hvjh}.  Then on $B_H \alpha B$, we have
+  \begin{equation*}
+    \Theta
+    =
+    \chi_1 \left( \frac{A_1}{B_0} \right)
+  \dotsb 
+  \chi_{n+1} \left( \frac{A_{n+1}}{B_n} \right)
+  \eta_1 \left( x^{-1} \frac{B_1}{A_1} \right)
+  \dotsb 
+  \eta_{n} \left( x^{-1} \frac{B_{n}}{A_n} \right).
+  \end{equation*}
+\end{lemma}
+\begin{example}
+  Suppose that the $\eta_j$ are trivial and the $\chi_j$ are all equal.  Call their common value $\chi$.  Then
+  \begin{equation*}
+    \Theta = \chi \left( \frac{A_1 \dotsb A_{n + 1}}{ B_1 \dotsb B_n } \right).
+  \end{equation*}
+\end{example}
+\begin{example}
+For $n+1=2$ and $\gamma =
+\begin{pmatrix}
+a & b \\
+c & d \\
+\end{pmatrix}$ and $x =
+\begin{pmatrix}
+x & 0 \\
+0 & 1 \\
+\end{pmatrix}$ and $\alpha =
+\begin{pmatrix}
+1 & 1 \\
+1 & 0 \\
+\end{pmatrix}$, the invariants of
+\begin{equation*}
+  \gamma x \alpha =
+\begin{pmatrix}a x + b & a x\\c x + d & c x\end{pmatrix}
+\end{equation*}
+are given by
+\begin{equation*}
+A_1 = c x + d, \quad B_1 = a x + b, \quad A_2 = (a d - b c)x,
+\end{equation*}
+so the character sum in question is a unit scalar multiple of
+\begin{equation*}
+  \sum_{x \in F^\times }^*
+  \chi_1 (c x + d ) \chi_2 \left( \frac{x}{a x + b} \right) \eta \left( x^{-1} \frac{a x + b}{c x + d} \right).
+\end{equation*}
+By Weil, this exhibits square-root cancellation except when
+\begin{itemize}
+\item $\gamma$ is diagonal,
+\item $\gamma$ is lower-triangular and $\chi_1 = \eta$, or
+\item $\gamma$ is upper-triangular and $\chi_2 = \eta$.
+\end{itemize}
+In those cases, we don't get any cancellation.  For example, suppose that $\chi_2 = \eta = 1$.  Then the character sum is
+\begin{equation*}
+\sum_{x \in F^\times } \chi_1 (c x + d).
+\end{equation*}
+  If $\gamma$ is upper-triangular, i.e., $c = 0$, then we get no cancellation.
+
+Thus we see that ``conductor-dropping'' manifests in an expanded degeneracy locus for the character sum.
+\end{example}
+
+\begin{example}\label{example:cj59ndds8r}
+  One can check that for $n+1=3$, $\eta$ trivial, and $\gamma$ ``generic'' as in \eqref{eq:cj59nab7hw}, we have, with the notation
+  \begin{equation*}
+x =
+\begin{pmatrix}
+x_1 & x_3 & 0 \\
+0 & x_2 & 0 \\
+0 & 0 & 1 \\
+\end{pmatrix},
+\end{equation*}
+  \begin{multline*}
+    \Theta(\gamma x \alpha) =
+    \chi_1 \left(
+      \gamma_{3} + x_{3}
+    \right)
+    \\ \cdot 
+    \chi_2 \left(
+      \frac{\gamma_{2} x_{1} + \gamma_{2} x_{3} - \gamma_{3} x_{1} - \gamma_{3} x_{2} - \gamma_{3} x_{3} + x_{1} x_{2}}{\gamma_{2} + x_{2} + x_{3}}
+    \right)
+    \\ \cdot 
+    \chi_3
+    \left(
+      \frac{x_{1} x_{2} (\gamma_{1} - \gamma_{2} + \gamma_{3})}{\gamma_{1} x_{1} + \gamma_{1} x_{2} + \gamma_{1} x_{3} - \gamma_{2} x_{2} + x_{1} x_{2}}
+    \right).
+  \end{multline*}
+  Here's a more explicit example, obtained by specializing the $\gamma_j$ at random:
+  \begin{equation*}
+\chi_1 \left(
+    x_{3} - 5
+  \right)
+  \chi_2 \left(
+    \frac{x_{1} x_{2} + 7 x_{1} + 5 x_{2} + 7 x_{3}}{x_{2} + x_{3} + 2}\right)
+  \chi_3 \left(
+  - \frac{11 x_{1} x_{2}}{x_{1} x_{2} - 4 x_{1} - 6 x_{2} - 4 x_{3}}\right).
+\end{equation*}
+\end{example}
+
+\begin{question}
+  In the special case $\chi_1 = \chi_2 = \chi_3$, is the character sum obtained in \ref{example:cj59ndds8r} equivalent to that considered by Sharma, namely
+  \begin{equation*}
+    \sum_{t_1, t_2, t_3 }
+    \chi \left( \frac{t_{1} t_{3} (t_{2} + 1) (c_{2} k_{1} t_{3} + c_{2} k_{2} + t_{2})}{t_{2} (t_{1} + 1) (c_{1} t_{3} + t_{1}) (k_{1} t_{3} + k_{2})} \right)?
+  \end{equation*}
+  Maybe there's some clever change of variables relating $(t_1, t_2 , t_3 )$ to $(x_1 , x_2 , x_3 )$.
+\end{question}
+
+
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
