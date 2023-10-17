@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Definition of some character sums</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+    <div class="my-links-container">
+2023-10-16 18:21:37
+      <a href="20231016T142747--definition-of-some-character-sums.tex" class="my-link">tex</a>
+      <a href="20231016T142747--definition-of-some-character-sums.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20231016T142747--definition-of-some-character-sums.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+<header id="title-block-header">
+<h1 class="title">Definition of some character sums</h1>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>We define some character sums relevant for subconvexity on <span
+class="math inline">\({\mathop{\mathrm{GL}}}_{n+1} \times
+{\mathop{\mathrm{GL}}}_n\)</span> at “prime depth.”</p>
+</div>
+</header>
+<p>Let <span class="math inline">\(F\)</span> be a finite field of order
+<span class="math inline">\(q\)</span>. Set <span
+class="math display">\[(G,H) := ({\mathop{\mathrm{GL}}}_{n+1}(F),
+{\mathop{\mathrm{GL}}}_n(F)),\]</span> with <span
+class="math inline">\(H\)</span> embedded as the upper-left block. Let
+<span class="math inline">\((B, B_H)\)</span> denote the
+upper-triangular Borel subgroups.</p>
+<p>Quasi-invariants for the two-sided action of <span
+class="math inline">\(B \times B_H\)</span> on <span
+class="math inline">\(G\)</span> (by left and right translation) are
+given by the following determinental minors:</p>
+<ul>
+<li><p>For <span class="math inline">\(m = 1, \dotsc, n+1\)</span>, the
+“left-and-bottom-anchored” minors <span class="math display">\[A_j(g) :=
+\det
+    (g_{i j}    )_{
+      n+2-m \leq i \leq n+1
+    }^{1 \leq j \leq i}.\]</span></p></li>
+<li><p>For <span class="math inline">\(m = 1, \dotsc, n\)</span>, the
+“left-and-second-to-bottom-anchored” minors <span
+class="math display">\[B_j(g) := \det
+    (g_{i j}    )_{
+      n+1-m \leq i \leq n
+    }^{1 \leq j \leq i}.\]</span></p></li>
+</ul>
+<p>We also adopt the convention <span class="math inline">\(A_0(g) :=
+B_0(g) := 1\)</span>.</p>
+<p>The action of <span class="math inline">\(B \times B_H\)</span> on
+<span class="math inline">\(G\)</span> has an open orbit, given by the
+nonvanishing of each of the invariants <span
+class="math inline">\(A_1,\dotsc,A_{n+1},B_1,\dotsc,B_n\)</span>. Let
+<span class="math inline">\(\alpha\)</span> be a representative for this
+orbit.</p>
+<div id="example:cj59m8hvjh" class="example">
+<p><strong>Example 1</strong>. We could take, e.g., for <span
+class="math inline">\(n+1 = 4\)</span>, <span id="eq:cj59nalcll" class="math display">\[\label{eq:cj59nalcll}\tag{1}
+\alpha =
+\begin{pmatrix}
+0 &amp; 0 &amp; 1 &amp; 1 \\
+0 &amp; 1 &amp; 1 &amp; 0 \\
+1 &amp; 1 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 0 \\
+\end{pmatrix}.\]</span> Indeed, we then have <span
+class="math inline">\(A_i(\alpha) = B_j(\alpha) = 1\)</span> for all
+<span class="math inline">\(i\)</span> and <span
+class="math inline">\(j\)</span>.</p>
+</div>
+<div class="example">
+<p><strong>Example 2</strong>. One could instead take <span
+class="math display">\[\alpha =
+    \begin{pmatrix}
+      1 &amp; 0 &amp; 0 &amp; 1 \\
+      1 &amp; 0 &amp; 1 &amp; 0 \\
+      1 &amp; 1 &amp; 0 &amp; 0 \\
+      1 &amp; 0 &amp; 0 &amp; 0 \\
+    \end{pmatrix}.\]</span></p>
+</div>
+<p>Let <span class="math inline">\(\chi : B \rightarrow
+\mathop{\mathrm{U}}(1)\)</span> and <span class="math inline">\(\eta :
+B_H \rightarrow \mathop{\mathrm{U}}(1)\)</span> be characters. We define
+the character sum <span class="math display">\[S(\gamma) := \sum_{
+    \substack{
+      x,y \in B_H :
+      \\
+       \alpha^{-1} y^{-1} \gamma x \alpha  \in B
+    }
+  }
+  \chi (\alpha^{-1} y^{-1} \gamma x \alpha ) \eta (x^{-1} y).\]</span>
+We would like to understand the magnitude of this sum, together with
+averaged variants such as <span class="math display">\[\max_{x \in B_H}
+\sum_{y \in B_H} \lvert S(x \gamma y) \rvert.\]</span></p>
+<div class="remark">
+<p><strong>Remark 3</strong>. The sum <span
+class="math inline">\(S(\gamma)\)</span> is <span
+class="math inline">\(\eta\)</span>-equivariant under the action of
+<span class="math inline">\(B_H \times B_H\)</span>, so in studying that
+sum, we can assume that <span class="math inline">\(\gamma\)</span> lies
+in a set of representatives for that action. Generic representatives are
+given by, e.g., when <span class="math inline">\(n+1=4\)</span>, <span id="eq:cj59nab7hw" class="math display">\[\label{eq:cj59nab7hw}\tag{2}
+    \gamma = \begin{pmatrix}
+               0 &amp; 0 &amp; 1 &amp; \gamma_1  \\
+               0 &amp; 1 &amp; 1 &amp; \gamma_2  \\
+               1 &amp; 1 &amp; 0 &amp;  \gamma_3  \\
+               1 &amp; 0 &amp; 0 &amp; \gamma_4 \\
+             \end{pmatrix}.\]</span></p>
+</div>
+<p>Let <span class="math inline">\(\Theta : G \rightarrow
+\mathbb{C}\)</span> denote the function supported on <span
+class="math inline">\(B_H \alpha B\)</span> and given there by <span
+class="math display">\[\Theta(y \alpha z) = \eta(y) \chi(z).\]</span>
+Then <span class="math display">\[S (\gamma) = \sum_{x \in B_H}
+  \eta^{-1}(x)
+  \Theta (\gamma x \alpha).\]</span></p>
+<div class="lemma">
+<p><strong>Lemma 4</strong>. Define the components <span
+class="math inline">\(\chi_j\)</span> and <span
+class="math inline">\(\eta_j\)</span> of <span
+class="math inline">\(\chi\)</span> and <span
+class="math inline">\(\eta\)</span> by writing <span id="eq:cj4y8xe8vt" class="math display">\[\label{eq:cj4y8xe8vt}\tag{3}
+    y = \mathop{\mathrm{diag}}(y_n,\dotsc,y_1,1), \qquad z =
+\mathop{\mathrm{diag}}(z_1,\dotsc,z_{n+1}),\]</span> <span
+class="math display">\[\eta(y) = \prod _j \eta_j (y_j),
+    \qquad
+    \chi (z) = \prod_j \chi_j (z_j ).\]</span> Let <span
+class="math inline">\(\alpha\)</span> be as in Example <a
+href="#example:cj59m8hvjh" data-reference-type="ref"
+data-reference="example:cj59m8hvjh">1</a>. Then on <span
+class="math inline">\(B_H \alpha B\)</span>, we have <span
+class="math display">\[\Theta
+    =
+    \chi_1 \left( \frac{A_1}{B_0} \right)
+  \dotsb
+  \chi_{n+1} \left( \frac{A_{n+1}}{B_n} \right)
+  \eta_1 \left( x^{-1} \frac{B_1}{A_1} \right)
+  \dotsb
+  \eta_{n} \left( x^{-1} \frac{B_{n}}{A_n} \right).\]</span></p>
+</div>
+<div class="example">
+<p><strong>Example 5</strong>. Suppose that the <span
+class="math inline">\(\eta_j\)</span> are trivial and the <span
+class="math inline">\(\chi_j\)</span> are all equal. Call their common
+value <span class="math inline">\(\chi\)</span>. Then <span
+class="math display">\[\Theta = \chi \left( \frac{A_1 \dotsb A_{n + 1}}{
+B_1 \dotsb B_n } \right).\]</span></p>
+</div>
+<div class="example">
+<p><strong>Example 6</strong>. For <span
+class="math inline">\(n+1=2\)</span> and <span
+class="math inline">\(\gamma =
+\begin{pmatrix}
+a &amp; b \\
+c &amp; d \\
+\end{pmatrix}\)</span> and <span class="math inline">\(x =
+\begin{pmatrix}
+x &amp; 0 \\
+0 &amp; 1 \\
+\end{pmatrix}\)</span> and <span class="math inline">\(\alpha =
+\begin{pmatrix}
+1 &amp; 1 \\
+1 &amp; 0 \\
+\end{pmatrix}\)</span>, the invariants of <span
+class="math display">\[\gamma x \alpha =
+\begin{pmatrix}a x + b &amp; a x\\c x + d &amp; c
+x\end{pmatrix}\]</span> are given by <span class="math display">\[A_1 =
+c x + d, \quad B_1 = a x + b, \quad A_2 = (a d - b c)x,\]</span> so the
+character sum in question is a unit scalar multiple of <span
+class="math display">\[\sum_{x \in F^\times }^*
+  \chi_1 (c x + d ) \chi_2 \left( \frac{x}{a x + b} \right) \eta \left(
+x^{-1} \frac{a x + b}{c x + d} \right).\]</span> By Weil, this exhibits
+square-root cancellation except when</p>
+<ul>
+<li><p><span class="math inline">\(\gamma\)</span> is diagonal,</p></li>
+<li><p><span class="math inline">\(\gamma\)</span> is lower-triangular
+and <span class="math inline">\(\chi_1 = \eta\)</span>, or</p></li>
+<li><p><span class="math inline">\(\gamma\)</span> is upper-triangular
+and <span class="math inline">\(\chi_2 = \eta\)</span>.</p></li>
+</ul>
+<p>In those cases, we don’t get any cancellation. For example, suppose
+that <span class="math inline">\(\chi_2 = \eta = 1\)</span>. Then the
+character sum is <span class="math display">\[\sum_{x \in F^\times }
+\chi_1 (c x + d).\]</span> If <span
+class="math inline">\(\gamma\)</span> is upper-triangular, i.e., <span
+class="math inline">\(c = 0\)</span>, then we get no cancellation.</p>
+<p>Thus we see that “conductor-dropping” manifests in an expanded
+degeneracy locus for the character sum.</p>
+</div>
+<div id="example:cj59ndds8r" class="example">
+<p><strong>Example 7</strong>. One can check that for <span
+class="math inline">\(n+1=3\)</span>, <span
+class="math inline">\(\eta\)</span> trivial, and <span
+class="math inline">\(\gamma\)</span> “generic” as in <a
+href="#eq:cj59nab7hw" data-reference-type="eqref"
+data-reference="eq:cj59nab7hw">\((2)\)</a>, we have, with the
+notation <span class="math display">\[x =
+\begin{pmatrix}
+x_1 &amp; x_3 &amp; 0 \\
+0 &amp; x_2 &amp; 0 \\
+0 &amp; 0 &amp; 1 \\
+\end{pmatrix},\]</span> <span class="math display">\[\begin{gathered}
+    \Theta(\gamma x \alpha) =
+    \chi_1 \left(
+      \gamma_{3} + x_{3}
+    \right)
+    \\ \cdot
+    \chi_2 \left(
+      \frac{\gamma_{2} x_{1} + \gamma_{2} x_{3} - \gamma_{3} x_{1} -
+\gamma_{3} x_{2} - \gamma_{3} x_{3} + x_{1} x_{2}}{\gamma_{2} + x_{2} +
+x_{3}}
+    \right)
+    \\ \cdot
+    \chi_3
+    \left(
+      \frac{x_{1} x_{2} (\gamma_{1} - \gamma_{2} +
+\gamma_{3})}{\gamma_{1} x_{1} + \gamma_{1} x_{2} + \gamma_{1} x_{3} -
+\gamma_{2} x_{2} + x_{1} x_{2}}
+    \right).
+  
+\end{gathered}\]</span> Here’s a more explicit example, obtained by
+specializing the <span class="math inline">\(\gamma_j\)</span> at
+random: <span class="math display">\[\chi_1 \left(
+    x_{3} - 5
+  \right)
+  \chi_2 \left(
+    \frac{x_{1} x_{2} + 7 x_{1} + 5 x_{2} + 7 x_{3}}{x_{2} + x_{3} +
+2}\right)
+  \chi_3 \left(
+  - \frac{11 x_{1} x_{2}}{x_{1} x_{2} - 4 x_{1} - 6 x_{2} - 4
+x_{3}}\right).\]</span></p>
+</div>
+<div class="question">
+<p><strong>Question 8</strong>. In the special case <span
+class="math inline">\(\chi_1 = \chi_2 = \chi_3\)</span>, is the
+character sum obtained in <a href="#example:cj59ndds8r"
+data-reference-type="ref" data-reference="example:cj59ndds8r">7</a>
+equivalent to that considered by Sharma, namely <span
+class="math display">\[\sum_{t_1, t_2, t_3 }
+    \chi \left( \frac{t_{1} t_{3} (t_{2} + 1) (c_{2} k_{1} t_{3} + c_{2}
+k_{2} + t_{2})}{t_{2} (t_{1} + 1) (c_{1} t_{3} + t_{1}) (k_{1} t_{3} +
+k_{2})} \right)?\]</span> Maybe there is some clever change of variables
+relating <span class="math inline">\((t_1, t_2 , t_3 )\)</span> to <span
+class="math inline">\((x_1 , x_2 , x_3 )\)</span>.</p>
+</div>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
