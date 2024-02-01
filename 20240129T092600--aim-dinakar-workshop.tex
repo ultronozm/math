@@ -7,7 +7,7 @@
 \maketitle
 
 \begin{abstract}
-  Some notes from AIM workshop on arithmetic/geometric/analytic aspects of automorphic forms, held between 29 Jan and Feb 2 of 2024 (currently in progress).  These notes are incomplete and have not been proofread.  Any errors should be assumed to be due to the note-taker.  Also, I was jetlagged and may have nodded off here and there while taking notes; any incoherency might be due to that.
+  Some notes from AIM workshop on arithmetic/geometric/analytic aspects of automorphic forms, held between 29 Jan and Feb 2 of 2024 (currently in progress).  These notes are incomplete and have not been proofread.  Any errors should be assumed to be due to the note-taker.  Also, I was jetlagged and may have nodded off here and there while taking notes; any incoherence might be due to that.
 \end{abstract}
 
 \section{Chris Skinner}
@@ -73,7 +73,7 @@ We obtain results of the form
   \frac{L(f, \chi, 1)}{(2 \pi i) \Omega_f^{\pm}}  \in \mathbb{Z} [\chi],
 \end{equation*}
 where $\chi(-1) = \pm 1$.  This gives nonvanishing of $L(f, \chi, 1)$ for many $\chi$.
-\begin{question}
+\begin{question}\label{question:cnfg5jzthz}
   Which kinds of characters $\chi$ do you need?
 \end{question}
 
@@ -219,7 +219,7 @@ How about the \emph{nonvanishing problem}?  Suppose given a family
 \end{equation*}
 As $Q \rightarrow \infty$, find $\pi$ such that $L(\pi, \tfrac{1}{2}) \neq 0$?  Then, determine how many of them there are, and also consider subfamilies.
 
-\begin{example}
+\begin{example}\label{example:cnfg5jz4zo}
   $\GL_1$ twists.  $\mathcal{F}_Q = \left\{ \pi_0 \times \chi \mid\vert \chi \text{ on } F^\times \backslash \mathbb{A}_F^\times, \, C(\chi ) \asymp Q \right\}$.
   \begin{equation*}
     M_1(Q) := \sum_{\pi \in \mathcal{F}_Q } L(\pi, \tfrac{1}{2} ) \neq 0
@@ -534,7 +534,7 @@ S_n =
 \begin{equation*}
 I_n(f, s) := \int_{[H_1]} u(x) \lvert x \rvert^s K_{\tilde{f}}(x \cdot 1_n) \, d x.
 \end{equation*}
-\begin{question}
+\begin{question}\label{question:cnfg5j0r2o}
   Does there exist $f \in C_c^\infty(G(\mathbb{A}_K))$ such that
   \begin{equation*}
     \frac{d}{d s}
@@ -681,7 +681,7 @@ We have the quotient map
 \end{equation*}
 The fiber $q^{-1}(1)$ contains many cosets, but there are only two \emph{regular} cosets in that fiber.  Call these $\reg^+$ and $\reg^-$.
 
-\begin{remark}
+\begin{remark}\label{remark:cnfg5j17xi}
   What happens in the split case, here?  We would then be looking at something like $\GL_{n-1} \backslash \GL_n$, right?
 \end{remark}
 
@@ -711,7 +711,7 @@ At almost every place $v$, the local integral evaluates to $\prod L_{v , j}(s, \
 
 The upshot is that if we take the support of $f$ small enough at some place, then we only get one term in the whole expansion.
 
-\begin{remark}
+\begin{remark}\label{remark:cnfg5j2du3}
   Let $\pi$ be a representation of $\GL_n \times \GL_{n + 1}$.  Let $\varphi$ be a matrix coefficient of $\pi$, say
   \begin{equation*}
     \varphi(g) = \langle \pi(g) v, v' \rangle.
@@ -734,19 +734,19 @@ The upshot is that if we take the support of $f$ small enough at some place, the
   ).
 \end{equation*}
 
-\begin{example}
+\begin{example}\label{example:cnfg5j2iii}
   If $n = 1$, then we get
   \begin{equation*}
     L(\eta^{-1}, - s).
   \end{equation*}
 \end{example}
-\begin{example}
+\begin{example}\label{example:cnfg5j2kbr}
   If $n =2$, then we get
   \begin{equation*}
     L(\eta^{-1}, - s) L(\eta^{-2}, - 2 s -1).
   \end{equation*}
 \end{example}
-\begin{example}
+\begin{example}\label{example:cnfg5j2k8u}
   If $n=3$, then we get
   \begin{equation*}
     L(\eta^{-1}, - s) L(\eta^{-2}, - 2 s -1) L(\eta^{-2}, - 3 s - 2).
@@ -1029,7 +1029,7 @@ dimensions over $\mathbb{Z}$: $n - 1$ and $2(n - 1)$.
 
 $\varphi : [G] \rightarrow \mathbb{C}$.
 
-\begin{example}
+\begin{example}\label{example:cnfg5j3x18}
   Gross--Zagier ($n = 2$).  Let $A$ be an elliptic curve over $\mathbb{Q}$.  Take
   \begin{equation*}
     \varphi : X_0(N) \rightarrow A.
@@ -1064,7 +1064,7 @@ $\varphi : [G] \rightarrow \mathbb{C}$.
   \end{equation*}
   Block--Kato Selmer maps(t) the $H^1_f$ factor.
 
-  \begin{theorem}
+  \begin{theorem}\label{theorem:cnfg5jyfj8}
     \begin{equation*}
       \left\langle \int_{[\mathrm{Sh}(H)]} \varphi, \int_{[\mathrm{Sh}(H)]} \varphi \right\rangle_{\text{$p$-adic height}}
       \approx L_p '(\pi , \tfrac{1}{2}).
@@ -1112,7 +1112,7 @@ Qiu:
 \subsection{Introduction}
 $\mathcal{M}_{/ \mathbb{Q}}$, $L(\mathcal{M}, s)$ critical at $s = 0$. $L^{(r)}(\mathcal{M}, 0)$: Block--Kato, Selmber group.
 
-\begin{question}
+\begin{question}\label{question:cnfg5j4o4z}
   How often do we have
   \begin{equation*}
     L(\mathcal{M} \otimes \chi, 0) \neq 0
@@ -1145,7 +1145,7 @@ Set
 \end{equation*}
 In words, this is the set of characters for which the $p$-valuation of the value at $0$ of the Dirichlet $L$-function attached to $\lambda \chi$
 
-\begin{question}
+\begin{question}\label{question:cnfg5j4tbm}
   How big is $\mathfrak{X}_\lambda(F) $ as a function of $F$?
 \end{question}
 
@@ -1153,7 +1153,7 @@ Ferrero--Washington: $F_n = \ell^n$, $\# \mathfrak{X}_\lambda(F_n) \sim \varphi(
 
 As $F$ varies over primes, $\mathfrak{X}_\lambda(F) \asymp F$.
 
-\begin{theorem}[Sun--B]
+\begin{theorem}[Sun--B]\label{theorem:cnfg5jyjlh}
   Let $F$ be a prime, $p \nmid 2 \varphi(F) F N$.
   \begin{enumerate}[(a)]
   \item\label{enumerate:cnekzumaui} If $F > N$, then
@@ -1173,7 +1173,7 @@ As $F$ varies over primes, $\mathfrak{X}_\lambda(F) \asymp F$.
   \end{enumerate}
 \end{theorem}
 
-\begin{remark}
+\begin{remark}\label{remark:cnfg5j4wud}
   Some examples where $\# \mathfrak{X}_\lambda(F) \sim F$.
 \end{remark}
 
@@ -1261,7 +1261,7 @@ $N = 2$.  \textbf{Want}: $\underline{r}, \underline{s}, \underline{s'}$ such tha
 \item[$C_2$] $0 < \frac{r_j s_j(F) }{F}, \frac{r_i s_j '(F) }{F} < \frac{1}{2}$ for $1 \leq j < i < Q$.
 \end{enumerate}
 
-\begin{remark}
+\begin{remark}\label{remark:cnfg5j6hsm}
   It seems from numerics that $Q \asymp F$, but we can only do $Q \asymp F^{1/2}$.
 \end{remark}
 
@@ -1275,7 +1275,7 @@ Let $\chi \in \mathrm{Cl}_K$ denote an ideal class character.
 Consider the Rankin--Selberg convolution $L(E \times \chi, s)$, self-dual: $\eps(E_{/K}) = \pm 1$.
 
 The following question was raised in a paper of Michel--Venkatesh.
-\begin{question}
+\begin{question}\label{question:cnfg5j6lyt}
   How often are these central $L$-values $L(E \times \chi, 1)$ nonvanishing, for $\chi \in \widehat{\mathrm{Cl}_K}$ as $K$ varies?
 \end{question}
 
@@ -1288,13 +1288,13 @@ Michel--Venkatesh:
   \gg D_K^\delta \quad \text{ for } 0 < \delta < \frac{1}{2700}.
 \end{equation*}
 
-\begin{question}
+\begin{question}\label{question:cnfg5j6qpg}
   How about
 \begin{equation*}
   \# \left\{ \chi \in \widehat{\mathrm{Cl}_K} : v_P \left( L^{\mathrm{alg}}(E \times \chi, 1) \right) = 0 \right\}?
 \end{equation*}
 \end{question}
-\begin{theorem}[Hida--Tian--B]
+\begin{theorem}[Hida--Tian--B]\label{theorem:cnfg5jyk55}
   Suppose that $p \nmid 6 N_E \prod_{\ell \div N} c_{\ell}$ and $\overline{\rho_{E, p}}$ is absolutely irreducible.  Then
   \begin{equation*}
     \# \left\{ \chi \in \widehat{\mathrm{Cl}_K} : v_P \left( L^{\mathrm{alg}}(E \times \chi, 1) \right) \right\}
@@ -1307,7 +1307,7 @@ Michel--Venkatesh:
   \end{itemize}
 \end{theorem}
 
-\begin{remark}
+\begin{remark}\label{remark:cnfg5j6ys8}
   \begin{itemize}
   \item Proven via $p$-indivisibility of a toric period.
   \item Simultaneously prove result for Tate--Shafarevich groups.
@@ -1383,10 +1383,10 @@ such that whenever $j$ is a Deligne critical integer, we have
   L_p(\tilde{\pi}, \chi, j) = \frac{L(\pi \times \chi, j + \tfrac{1}{2})}{\mathrm{period}}
   \times(\text{extra factors})_{\tilde{\pi}, \chi, j}.
 \end{equation}
-\begin{remark}
+\begin{remark}\label{remark:cnfg5j6990}
   Need to control power of $p$-adic logarithm $\log_p$ in $L_p$.
 \end{remark}
-\begin{example}[Bella{\"i}che]
+\begin{example}[Bella{\"i}che]\label{example:cnfg5j7bim}
   Let $f$ be a CM modular form of weight $k$.  Let $f_\alpha$ be a refinement in the image of Coleman's $\theta^{k - 1}$.  Then for any critical integer $j$, i.e., $1 \leq j \leq k - 1$, we have
   \begin{equation*}
     L_p(f_\alpha, \chi, j) = 0 \quad \text{ for all } \chi.
@@ -1407,8 +1407,8 @@ In fact, don't need all $\chi$; suffices to know this for all sufficiently ramif
 
 How have $L_p$'s been constructed?  At least three very broad ways:
 \begin{enumerate}
-\item By hand.
-\item Using Rankin--Selberg method.  (Chris has already discussed the idea behind this; you're integrating a product of two modular forms, maybe with an Eisenstein series, and the nonvanishing of a special value is necessary to deduce that the $p$-adic $L$-function you're constructing is not the zero function.)  You construct
+\item\label{enumerate:cnfg5j8bot} By hand.
+\item\label{enumerate:cnfg5j8dm9} Using Rankin--Selberg method.  (Chris has already discussed the idea behind this; you're integrating a product of two modular forms, maybe with an Eisenstein series, and the nonvanishing of a special value is necessary to deduce that the $p$-adic $L$-function you're constructing is not the zero function.)  You construct
   \begin{equation*}
     \mathcal{L}_p(\tilde{\pi}) = \text{constant term of an Eisenstein series}.
   \end{equation*}
@@ -1469,6 +1469,184 @@ To show that this family is {\'e}tale over $W$ close to $\lambda$, you need that
 $\pi$ on $\GL_{2n}$ coming from $\Pi$ on $\GSpin(2 n + 1)$.  Expect $p$-adic families if $\tilde{\pi}$ comes from $\tilde{\Pi}$.  References: AG, DJR (ordinary), BDW (unramified), BDGJW (families unramified at $p$), DJ (Iwahori at $p$); BGW recently showed that the above expectation is correct.
 
 \section{Abhishek Saha}
+Let's work with $G := \PGSp_4 \cong \SO_5$ and its subgroup $H = \SO(2)$.
+
+Fourier coefficients of Siegel cups forms for $\Sp_4(\mathbb{Z})$.  By adelization, you end up with Bessel periods for $H$ inside $G$.  You can go back and forth very easily.  The nice thing about these Bessel periods is that if you now use the refined Gan--Gross--Prasad period formula of Ichino--Ikeda type (a theorem in this case), it tells you that once you square these Bessel periods, you get central $L$-values.  Specifically, writeh $\operatorname{AI}(\Lambda) = \theta_\Lambda$ and $\Lambda : K^\times \backslash \mathbb{A}_K^\times \rightarrow \mathbb{C}^\times$,
+\begin{equation*}
+  L(\tfrac{1}{2}, \pi \times \operatorname{AI}(\Lambda))
+  =
+  L(\tfrac{1}{2}, \mathrm{BC}_{K/\mathbb{Q}} \pi \times \Lambda).
+\end{equation*}
+
+Plan for talk:
+\begin{enumerate}[(a)]
+\item Arithmetic results on Fourier coefficients transfer to $L$-values.
+\item Analytic results on Fourier coefficients imply nonvanishing of $L$-values.
+\item Analytic results on $L$-values imply bounds on Fourier coefficients.
+\end{enumerate}
+
+\subsection{Usual notation}
+$\Gamma = \Sp_4(\mathbb{Z})$, $S_k(\Gamma)$: Siegel cusp forms of weight $k$ for $\Gamma$.
+\begin{equation*}
+  F(\gamma z) = \det(c z + d)^k F(z) \quad \text{ for all } \gamma =
+  \begin{pmatrix}
+    a    & b \\
+    c & d \\
+  \end{pmatrix} \in \Gamma.
+\end{equation*}
+\begin{equation*}
+  S_k(\Gamma) =(\text{Saito--Kurokawa space}) \oplus(\text{general type}).
+\end{equation*}
+For all $F \in S_k(\Gamma)$, we have
+\begin{equation*}
+  F(Z) \sum_{S \in \Lambda_2} a(F, S) e^{2 \pi i \trace(S Z)},
+\end{equation*}
+where
+\begin{equation*}
+  \Lambda_2 = \left\{
+    \begin{pmatrix}
+      a      & b/2 \\
+      b/2 & c \\
+    \end{pmatrix} : a, b, c \in \mathbb{Z}, a > 0, b^2 - 4 a c < 0 \right\}.
+\end{equation*}
+We have
+\begin{equation*}
+  a(F, S) = a(F, A^t S A) \quad \text{ for all } A \in \SL_2(\mathbb{Z}).
+\end{equation*}
+We write
+\begin{equation*}
+  c(S) = \gcd(a,b,c),
+  \quad \disc(S) = - 4 \det(S).
+\end{equation*}
+We can look at the quotient $\Lambda_2 / \SL_2(\mathbb{Z})$.
+
+If we have
+\begin{equation*}
+  \left\{ S \in \Lambda_2 / \SL_2(\mathbb{Z}), \disc(S) = L^2 D, c(S) = L \right\} \cong H_D,
+\end{equation*}
+the class ring group of discriminant $D$.
+
+\begin{equation*}
+  R(F, \Lambda ) = \sum_{S \in H_D } a(F, S) \Lambda(S), \quad
+  \Lambda \in \widehat{H_D}.
+\end{equation*}
+\begin{remark}\label{remark:cnfg5j8o2u}
+  $D = d M^2$, $\Lambda \in \widehat{H_D}$, $K = \mathbb{Q}(\sqrt{D})$.
+\end{remark}
+\begin{remark}\label{remark:cnfg5j8p19}
+  If $F$ is a Saito--Kurokawa lift, then all $a(F, S)$ for $S \in H_D$ are equal.
+\end{remark}
+
+Let's now turn to the automorphic perspective and discuss Bessel periods.  Let
+\begin{equation*}
+T \hookrightarrow \GSp_4 , \quad T \cong K^\times, \quad T \subset \GL_2 \subset \GSp_4.
+\end{equation*}
+There is another group
+\begin{equation*}
+  N =
+  \begin{pmatrix}
+1 &  & \ast & \ast \\
+ & 1 & \ast & \ast \\
+  &  & 1 & \\
+& & & 1 \\
+\end{pmatrix} \subseteq \GSp_4.
+\end{equation*}
+Given an automorphic form $\phi$ on $\GSp_4$ (with trivial central character, as we always assume in today's talk), and given a Hecke character $\Lambda$ of $K$ with trivial restriction to $\mathbb{Q}$, i.e., $\Lambda : \mathbb{A}_{\mathbb{Q} }^\times K^\times \backslash \mathbb{A}_K^\times \rightarrow \mathbb{C}^\times$.  Then we consider
+\begin{equation*}
+  B(\phi, \Lambda ) = \int_{[T N]}
+\phi(h) \Lambda(h) \psi_{S_d }(h) \, d h.  
+\end{equation*}
+Here
+\begin{equation*}
+\psi_T(x) := \psi(\trace(T x)),
+\end{equation*}
+where $\psi$ is a fixed nontrivial unitary character of $\mathbb{A}_{\mathbb{Q}} / \mathbb{Q}$, and
+\begin{equation*}
+S_d =
+\begin{pmatrix}
+- \frac{d}{4} & 0 \\
+0 & 1 \\
+\end{pmatrix}.
+\end{equation*}
+
+So far, we've talked about classical Fourier coefficients and this classical quantity $R(F, \Lambda)$.  We have then introduced this purely automorphic object, the Bessel period $B(\phi, \Lambda)$.  The basic ``adelization'' fact (not deep) is the following.  Let $\Phi_F$ is the adelization of $F \in S_k(\Gamma)$.  Let $D$ be a discriminant.  Let $\Lambda \in \widehat{H_D}$.
+\begin{enumerate}
+\item If $D = d$ is fundamental, then
+  \begin{equation*}
+    B(\Phi_F, \Lambda ) = \frac{2}{h_d}
+    R(F, \Lambda) e^{- 2 \pi \Tr(S_d)}.    
+  \end{equation*}
+\item In general, similar but shift $\Phi_F$.
+\end{enumerate}
+
+\begin{equation*}
+  \sum_{T \in H_d } \lvert a(F, T) \rvert^2 = \frac{h_d}{4} e^{4 \pi i \trace(S_d)}
+\sum_{\Lambda \in \widehat{H_D }} \lvert B(\Phi_F, \Lambda ) \rvert^2.  
+\end{equation*}
+
+\begin{theorem}[Conjectured by Liu 2016, proved by Furusawa--Morimoto 2022]\label{theorem:cnfg5jymlf}
+  We have
+  \begin{equation*}
+    \frac{\left\lvert B(\Phi_F, \Lambda ) \right\rvert^2 }{ \left\langle F, F \right\rangle}
+    = C \frac{L(\tfrac{1}{2}, \pi_F \times \operatorname{AI}(\Lambda))}{L(1, \pi, \Ad) L(1, \chi_d)} \prod J_v,    
+  \end{equation*}
+  where $J_v = 1$ unless $v \mid d$ or $v = \infty$.
+\end{theorem}
+
+\begin{itemize}
+\item Dickson--Pitale--S--Schmidt (2020): compute $J_v$ for $v = \infty$ and $v \mid d$.
+\item In more recent work, Furisawa--Morimoto computed $J_\infty$ for holomorphic discrete series.
+\item Comtat--Mazzee--S (2024) did the case of $D$ general.
+\end{itemize}
+The upshot is that we now have nice formulas that relate central $L$-values and Fourier coefficients.
+\begin{enumerate}[(a)]
+\item We have (for a fundamental discriminant $d$ -- we always assume that a lowercase $d$ is fundamental)
+  \begin{equation*}
+    \frac{\left\lvert \sum_{S \in H_d} a(F, S) \Lambda(S) \right\rvert^2 }{\left\langle F, F \right\rangle} = \frac{2^{- 4}(4 \pi )^{2 k + 1} \lvert d \rvert^{k - 1}}{\Gamma(2 k - 1)} \frac{L(\tfrac{1}{2}, \pi_F \times \operatorname{AI}(\Lambda))}{L(1, \pi, \Ad)}.
+  \end{equation*}
+\item We have
+  \begin{equation*}
+    \sum_{
+      \substack{
+        S \in \Lambda_2 / \SL_2(\mathbb{Z})  \\
+        c(S) = L,  \\ \disc(S) = D        
+      }
+    }
+    \lvert a(F, S) \rvert^2 \asymp \left\langle F, F \right\rangle
+    \frac{(4 \pi )^{2 k }}{\Gamma(2 k - 1)}
+    \left\lvert L^2 D \right\rvert^{k - \frac{3}{2} + \eps }
+    \sum_{\Lambda \in \widehat{H_D}} \frac{L(\tfrac{1}{2}, \pi_F \times \theta_\Lambda)}{L(1, \pi, \Ad)}.
+  \end{equation*}
+  Here $L$ always denotes the finite part of the $L$-function, omitting archimedean factors.  The implied constant is close to the archimedean factor, but not quite equal.
+\end{enumerate}
+
+Having written down this formula, we can now discuss applications.
+
+\textbf{Integrality of} $L$\textbf{-values}.  Assume that $F \in S_k(\Gamma)$ is a Hecke eigenform.  There is a nonzero scalar $c$ so that $c F$ has algebraic integral Fourier coefficients.  In particular, the sums $\sum a(F, S) \Lambda(S)$ as above are integral.
+\begin{theorem}\label{theorem:cnfg5jynuf}
+  Let $\pi$ be a cuspidal representation of $\PGSp_4(\mathbb{A})$.  Thus $\pi_p$ is unramified for all $p$.  Assume that $\pi _\infty $ is a holomorphic discrete series of weight $(k, k)$.  Then there exists $c_\pi \neq 0$ such that for all given $d< 0$, and all $\Lambda \in \widehat{H_d}$, we have that the quantities
+  \begin{equation*}
+    c_\pi \lvert d  \rvert^{k - 1} L(\tfrac{1}{2}, \pi \times \operatorname{AI}(\Lambda))
+  \end{equation*}
+  are integral.
+\end{theorem}
+
+\begin{theorem} [Jaasaari--Lester--S]\label{theorem:cnfg5kcowe}
+  Let $F \in S_k(\Gamma)$.  Then for all large enough $X$, there are at least $X^{1 - \eps}$ fundamental discriminants $d$ with $d \asymp X$ and $S$ with $\disc(S) = d$ such that
+  \begin{equation*}
+    0 \neq \lvert a(F, S) \rvert \geq \lvert d \rvert^{\frac{k}{2} - \frac{3}{4}}
+    e^{\frac{1}{82} \sqrt{\frac{\log \lvert d \rvert}{\log \log \lvert d \rvert}}}.    
+  \end{equation*}
+\end{theorem}
+\begin{corollary}\label{corollary:cnfg5kcqax}
+  For at least $X^{1 - \eps}$ fundamental discriminants $d$ as above, there exists some $\Lambda \in \widehat{H_d}$ such that $L(\tfrac{1}{2}, \pi_F \times \theta_\Lambda) \neq 0$.  In fact,
+  \begin{equation*}
+    \frac{1}{h_d } \sum_{\Lambda \in \widehat{H_d}} L(\tfrac{1}{2}, \pi_F \times \theta_\Lambda) \gg_\pi \lvert d \rvert^{-1/2} e^{\frac{1}{82}} \dotsb.
+  \end{equation*}
+\end{corollary}
+
+Our final application concerns upper bounds for Fourier coefficients.
+
 
 
 
