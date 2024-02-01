@@ -1,0 +1,1340 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\begin{document}
+
+\begin{abstract}
+  Some notes from AIM workshop on arithmetic/geometric/analytic aspects of automorphic forms, held between 29 Jan and Feb 2 of 2024 (currently in progress).  These notes are incomplete and have not been proofread.  Any errors should be assumed to be due to the note-taker.  Also, I was jetlagged and may have nodded off here and there while taking notes; any incoherency might be due to that.
+\end{abstract}
+
+\section{Chris Skinner}
+In this workshop, we have the various aspects of automorphic forms:
+\begin{itemize}
+\item analytic,
+\item arithmetic,
+\item geometric.
+\end{itemize}
+In this talk, we want to discuss the role of (automorphic) periods.  Let $G$ be a reductive group over a number field $F$.  Let $H \leq G$ be a subgroup. \emph{Period} means that we have an automorphic form $\varphi$ on $G(\mathbb{A}_F)$ and that we consider
+\begin{equation*}
+  \int_{[H]} \varphi(h) \, d h := \int_{H(F) \backslash H(\mathbb{A}_F)} \varphi(h) \, d h,
+\end{equation*}
+or more generally $\int_{[H]} \varphi(h) \psi(h) \, d h$ for some smooth function $\psi$.
+
+We want to explain today, focusing on some examples, how the geometry mediates between the analysis and the arithmetic.  This often comes from interpreting these periods geometrically.  The arithmetic can in turn feed back through the geometry to get some handle on analytic facts that we could not otherwise.
+
+Let $T \subset \GL_2 / \mathbb{Q}$ be a torus.  Then, either
+\begin{enumerate}[(i)]
+\item\label{enumerate:cnej2gipk2} $T$ is split over $\mathbb{Q}$, hence isomorphic to $\mathbb{G}_m^2$, or
+\item\label{enumerate:cnej2giqmn} $T$ is non-split over $\mathbb{Q}$, hence identifiable with $K^\times$ for an embedding of a quadratic extension $K /\mathbb{Q}$.
+\end{enumerate}
+
+In case \eqref{enumerate:cnej2gipk2}, let $\pi$ be a cuspidal automorphic representation of $\GL_2$, and let $\varphi \in \pi$.  Then
+\begin{equation*}
+  \int_{[T]} \varphi(t) \chi(t) \lvert t_1 / t_2 \rvert^s \, d^\times t
+  \, \dot{=}\,
+  L(\pi \otimes \chi, s + \tfrac{1}{2}).
+\end{equation*}
+Classically, this looks like
+\begin{equation*}
+  \int_0^\infty f(i y ) y^s \, \frac{d y}{y}
+  =(2 \pi )^{- s} \Gamma(s) L(f, s).
+\end{equation*}
+More generally, for a Dirichlet character $\chi$ modulo $M$,
+\begin{equation}\label{eq:cnej2gzxf2}
+  \sum_{a (M)} \bar{\chi}(a) \int_0^\infty f(i y + \tfrac{a}{M} ) y^s \, \frac{d y}{y}
+  =(2 \pi )^{- s} \tau(\bar{\chi})\Gamma(s) L(f \otimes \chi, s).
+\end{equation}
+If $f$ is of weight $2$, then
+\begin{equation*}
+  f(\tau) \, d \tau =: \omega_f 
+\end{equation*}
+is a differential on the modular curve $X := X_1(N)$.  We can think of the geodesics $[0,i \infty]$ and more generally $[ \tfrac{a}{M}, i \infty ]$ as defining elements of $H_1(X, \mathbb{Z})$ (``modular symbols'').  Indeed, they span this.  We can write the left hand side of \eqref{eq:cnej2gzxf2} in the form
+\begin{equation*}
+  \left\langle \Sigma \left[ \frac{a}{M} \right]  \bar{\chi}(a), \omega_f \right\rangle.
+\end{equation*}
+For a newform $f= \sum a_n q^n$, we can ask either that $a_n \in \mathbb{Q}$ or $a_n \in \mathbb{Z}$.
+
+One can define periods
+\begin{equation*}
+  \Omega_f^{\pm} \in \mathbb{C}^\times
+\end{equation*}
+such that
+\begin{equation*}
+  \eta_f^{\pm} := \frac{1}{ \Omega_f^{\pm} } \left( \omega_f \pm \overline{\omega_f} \right)
+\end{equation*}
+is integral.
+
+We obtain results of the form
+\begin{equation*}
+  \tau(\overline{\chi})
+  \frac{L(f, \chi, 1)}{(2 \pi i) \Omega_f^{\pm}}  \in \mathbb{Z} [\chi],
+\end{equation*}
+where $\chi(-1) = \pm 1$.  This gives nonvanishing of $L(f, \chi, 1)$ for many $\chi$.
+\begin{question}
+  Which kinds of characters $\chi$ do you need?
+\end{question}
+
+\textbf{Rohrlich}.  Fix a prime $p$.  There exists a $\chi$ of conductor $p^t$, for some $t$, such that $L(f, \chi, 1) \neq 0$.
+
+For $p$ odd, we have $(\mathbb{Z} / p^t)^\times \cong (\mathbb{Z} / p)^\times \times \mathbb{Z} / p^{t - 1}$. and we can ask that the ``tame'' part of $\chi$ (i.e., the restriction to $(\mathbb{Z} / p)^\times$) be fixed and sitll get such a nonvanishing result.
+
+Manin--Vishuk/Mazur--Swinnerton-Dyer/Mazur--Tate--Tefebbaum: uses modular symbols to construct $p$-adic $L$-functions:
+\begin{equation*}
+  L_p(f, \chi) =(\ast)_{\chi, f, p} \frac{L(f, \chi, 1)}{ \Omega_f^{\pm}}
+\end{equation*}
+where $\chi$ is of conductor $p^t$ and the factor $(\ast)$ is very explicit.  Writing
+\begin{equation*}
+  \varprojlim(\mathbb{Z} / p^t )^\times \cong(\mathbb{Z} / p )^\times \times \mathbb{Z}_p,
+\end{equation*}
+we have that $L_p(f, \chi )$, viewed through the $\chi$ argument as a function of the second factor $\mathbb{Z}_p$ in the above isomorphism, is analytic, hence is essentially a polynomial.  This allows us to get stronger nonvanishing results, e.g., concerning all but finitely many $\chi$.
+
+There have been some efforts to generalize the theory of modular symbols, e.g., to a reductive group $G$ and the period functional defined by certain subgroups $H$.  For example:
+\begin{itemize}
+\item $\GL_2$ over a number field
+\item $\GL_n \times \GL_{n - 1}$, Rankin--Selberg $\pi \otimes \sigma$ (Kazhdan--Mazur--Schmidt).
+\item $\GL_{2 n} \supset H = \left(
+    \begin{smallmatrix}
+      \GL_n&\\
+           &\GL_n \\
+    \end{smallmatrix}
+  \right)$, Shalika model.
+\end{itemize}
+
+Another way to get a handle on these sorts of results is through Rankin--Selberg integrals, e.g.,
+\begin{equation*}
+  \frac{\left\langle f, E_{\chi, \psi },
+      E_{(\chi \psi)^{-1}, 1}\right\rangle}{\left\langle f, f \right\rangle}
+  \, \dot{=} \,
+  \frac{L(f, \chi, 1)
+    L(f, \psi, 1)}{\Omega_f^+ \Omega_f^- }.
+\end{equation*}
+Then one can play the game: given $\chi$, choose a suitable $\psi$.
+
+Let's turn now to direction~\eqref{enumerate:cnej2giqmn}, where we have $K^\times \hookrightarrow \GL_2$.  Let's even focus on the case where $K/\mathbb{Q}$ is imaginary quadratic.  More generally, we can replace $\GL_2$ with $B^\times$ for a quaternion algebra $B$.  There are always these issues of when you have an embedding into a paritcular quaternion algebra, which is interesting arithmetic of itself.  The geometry then involves an adelic quotient
+\begin{equation*}
+  X
+  :=
+  B^\times \backslash 
+  (B \otimes \mathbb{A})^\times
+  / \mathbb{R}_{> 0} K _\infty^0 U,
+  \quad
+  U \leq(B \otimes \mathbb{A}_f)^\times.
+\end{equation*}
+There are two cases:
+\begin{enumerate}[(a)]
+\item\label{enumerate:cnej2l35vn} If it's split at the archimedean place, then we get a curve.
+\item\label{enumerate:cnej2l36ug} If it's isomorphic to Hamilton's quaternions at the archimedean place, then we get a finite set.
+\end{enumerate}
+
+We get an induced map
+\begin{equation*}
+  \mathbb{A}_{\mathbb{Q}}^\times \backslash \mathbb{A}_K^\times \rightarrow X.
+\end{equation*}
+The image is finite, consisting of certain CM or ``special'' points, defined over ray class fields of $K$.
+
+The period integrals
+\begin{equation}\label{eq:cnej2m5ln6}
+  \left\lvert \int_{[K^\times]} \varphi(t) \chi(t) \, d^\times t \right\rvert^2
+  \, \dot{=} \,
+  L(\mathrm{BC}_{\mathbb{Q}}^K(\pi) \otimes \chi, \tfrac{1}{2}).
+\end{equation}
+(Of course we need the compatibility condition $\chi|_{\mathbb{A}_\mathbb{Q}} \chi_\pi = 1$ for the integral to make sense.)
+
+In case~\eqref{enumerate:cnej2l36ug}, we have the map $\mathbb{A}_K^\times \rightarrow X$, and as we have results to the effect that the image becomes equidistributed as $\dim K \rightarrow \infty$ (Templier).
+
+Results of Vatsal, where the geometry and ergodic theory give results that one doesn't know how to obtain via traditional analytic methods.
+
+Example~\eqref{enumerate:cnej2giqmn} fits into the Gan--Gross--Prasad framework.
+\begin{itemize}
+\item $\U(2) \times \U(1)$ relates via periods to $L(\pi \otimes \chi, \tfrac{1}{2})$.
+\item $\U(n) \times \U(n - 1)$ relates via periods to $L(\pi_1 \otimes \pi_2, \tfrac{1}{2})$.
+\end{itemize}
+
+We can vary these in families.  We can mix the two, by taking the automorphic representations to be more degenerate, possibly coming from endoscopy of automorphic representations of smaller groups, e.g., characters.
+
+The $\U(n) \times \U(n-1)$ $L$-functions show up as auxiliary factors in the construction of Euler systems.
+
+Hida: apply~\eqref{eq:cnej2m5ln6} but for an Eisenstein series, use that to study $L$-values for $\chi$ in certain families.  Scope for generalizing this.
+
+
+\section{Philippe Michel}
+Now we say something about how analysts try to understand questions concerning, e.g., nonvanishing of $L$-functions.
+
+\begin{equation*}
+  L(\pi, s ) = \sum_{n \geq 1} \frac{\lambda_\pi(n)}{ n^s }
+  = \prod_p L_p(\pi, s ),
+  \quad
+  L_p(\pi, s ) = \prod_{i = 1 }^d
+  \left( 1 - \frac{\alpha_{\pi, i}(p)}{ p^s } \right)^{-1}.
+\end{equation*}
+
+There is also the archimedean factor
+\begin{equation*}
+  L _\infty(\pi, s) = \prod_{i = 1 }^d \Gamma_{\mathbb{R} } (s - \mu_{\pi, i })
+\end{equation*}
+and the functional equation
+\begin{equation*}
+  \Lambda(s) := L _\infty L(s) = \eps(\pi) q^\lambda^{1/2 - s} \Lambda(\bar{\pi}, 1 - s)
+\end{equation*}
+and the analytic conductor
+\begin{equation*}
+  q_\pi \prod_{i = 1 }^d \left( 1 + \lvert \mu_{\pi, i } - s \rvert \right).
+\end{equation*}
+We have
+\begin{equation*}
+  L(\pi, s ) \, \dot{=} \,
+  P(\varphi, \chi, s)
+  = \int_{[H]}
+  \varphi(h) \chi_s(h) \, d h.
+\end{equation*}
+
+Size of $L(\pi, s)$?  Focus on $\Re s = \tfrac{1}{2}$.
+
+The \emph{convexity} bound asserts that
+\begin{equation*}
+  L(\pi, s) \ll C(\pi, s )^{1/4 + o (1)}.
+\end{equation*}
+The \emph{subconvexity problem} is to improve $1/4$ to $1 /4 - \delta $ for some $\delta > 0$.  The first case is due to Hermann Weyl in 1921 for $L(s) = \zeta(s)$, who showed that one can replace $1/4$ with $1/6$.
+
+\begin{equation*}
+  \includegraphics[width=6.6cm,height=4.5cm]{exponent-all-2.png}
+\end{equation*}
+
+\definecolor{darkgreen}{rgb}{0.0,0.5,0}
+\begin{equation*}
+  \text{{\color{blue} Convexity bound}}
+  \quad     
+  \text{{\color{darkgreen} Lindel\"{o}f hypothesis}}
+  \quad
+  \text{\alert{Subconvexity}}
+\end{equation*}
+
+
+How about the \emph{nonvanishing problem}?  Suppose given a family
+\begin{equation*}
+\mathcal{F}_Q = \left\{ \pi : C(\pi, s) \asymp Q \right\}.
+\end{equation*}
+As $Q \rightarrow \infty$, find $\pi$ such that $L(\pi, \tfrac{1}{2}) \neq 0$?  Then, determine how many of them there are, and also consider subfamilies.
+
+\begin{example}
+  $\GL_1$ twists.  $\mathcal{F}_Q = \left\{ \pi_0 \times \chi \mid\vert \chi \text{ on } F^\times \backslash \mathbb{A}_F^\times, \, C(\chi ) \asymp Q \right\}$.
+  \begin{equation*}
+    M_1(Q) := \sum_{\pi \in \mathcal{F}_Q } L(\pi, \tfrac{1}{2} ) \neq 0
+    \text{ for } Q \rightarrow \infty.
+  \end{equation*}
+\end{example}
+
+Note that subconvexity improves upon nonvanishing:
+\begin{equation*}
+  \left\lvert \left\{ \pi : L(\pi, \tfrac{1}{2} ) \neq 0 \right\} \right\rvert
+  \gg \frac{\lvert \mathcal{F}_Q  \rvert^{1 + o(1)}}{Q^{1/4 - \delta }}.
+\end{equation*}
+
+Another way to get at nonvanishing is to consider also a second moment:
+\begin{equation*}
+  M_2(Q) := \sum_{\pi \in \mathcal{F}_Q } \lvert L(\pi, \tfrac{1}{2} )  \rvert^2
+  = \lvert \mathcal{F}_Q  \rvert^{1 + o(1)}?
+\end{equation*}
+If one can show this asymptotic, then one deduces
+\begin{equation*}
+  \left\lvert \left\{ \pi : L(\pi, \tfrac{1}{2} ) \neq 0 \right\} \right\rvert
+  = \lvert \mathcal{F}_Q  \rvert^{1 - o(1)}.
+\end{equation*}
+
+A basic tool for doing this sort of analysis is the approximate functional equation:
+\begin{equation*}
+  L(\pi, \tfrac{1}{2} ) = \sum_n \frac{\lambda_\pi(n) }{ n^{1/2} } V \left( \frac{n}{X} \right)
+  + \eps(\chi) \sum_n \frac{\overline{\lambda_\pi(n) }}{ n^{1/2} }
+  W \left( \frac{n}{Y} \right).
+\end{equation*}
+Here $X Y = Q$.  One could take, for instance, $X = Y = \sqrt{Q}$; then each sum would have length roughly $\sqrt{Q}$.  One faces in this way
+\begin{equation*}
+  \sum_{\pi \in \mathcal{F}_Q}
+  \lambda_\pi(n),
+  \quad
+  \sum_{\pi \in \mathcal{F}_Q } \lambda_\pi(m)
+  \overline{\lambda_\pi(n)} \eps(\pi)
+\end{equation*}
+which gives rise to
+\begin{equation*}
+  \sum_{\chi(q)} \chi(m) \overline{\chi(n)}
+  = \varphi(q) \delta_{m \equiv n(q)} 
+\end{equation*}
+and more generally one gets stuff that one can study using trace formulas.
+
+Another approach is to write $L(\pi, \tfrac{1}{2})$ as an automorphic period and then to use the RTF.
+
+Variant: twisted moments
+\begin{equation*}
+\sum_\pi L(\pi, \tfrac{1}{2} ) \lambda_\pi(\ell ).
+\end{equation*}
+This can be useful to single out some $\pi$ inside $\mathcal{F}_Q$.  It can sometimes be used to prove nonvanishing for a \emph{positive proportion} of $\pi$, i.e.,
+\begin{equation*}
+  \left\lvert \left\{ \pi \in \mathcal{F}_Q  : L(\pi, \tfrac{1}{2} ) \neq 0 \right\} \right\rvert
+  \geq c
+  \lvert \mathcal{F}_Q \rvert, \quad c > 0.
+\end{equation*}
+Mollification method:
+\begin{equation*}
+  \sum L(\pi, \tfrac{1}{2}) m(\pi, L),
+  \quad
+  m(\pi, L) := \sum_{\ell \leq L}
+  \frac{\mu(\ell) \lambda_\pi(\ell)}{\ell^{1/2}}.
+\end{equation*}
+Here $m(\pi,L)$ is called a \emph{mollifier}.  One takes $L := Q^\alpha$ with $\alpha > 0$ fixed.  It's chosen so that we'll have
+\begin{equation*}
+  L(\pi, \tfrac{1}{2} ) m(\pi, L) = 1 + \sum_{m \geq L}
+  \frac{\lambda_\pi(m)}{m^{1/2}}.
+\end{equation*}
+This gap in the coefficients is what allows you to get a positive proportion.  (Selberg's work on the positive proportion of zeros of zeta on the critical line.  Iwaniec--Sarnak's paper on nonvanishing.)
+
+Chinta: for $f$ of weight $2$, and $q$ prime,
+\begin{equation*}
+  \left\lvert \left\{ \chi(q) : L(f \times \chi, \tfrac{1}{2} ) \neq 0 \right\} \right\rvert
+  = q - 1 + \O \left( q^{7/8 + \eps} \right).
+\end{equation*}
+This is a very strong proportion of nonvanishing.  Nothing like this is available for, e.g., Maass forms.
+
+Let's now talk about the subconvexity problem.  This is ostensibly about a single $L$-function, but many proofs of estimates use families.  Suppose we want to show
+\begin{equation*}
+L(\pi_0, \tfrac{1}{2}  ) \ll C(\pi_0 )^{1/4 - \delta}, \quad \delta > 0.
+\end{equation*}
+Suppose that $L(\pi_0, \tfrac{1}{2} ) \geq 0$.  For $\pi_0 \in \mathcal{F}_Q$, one expects
+\begin{equation*}
+  L(\pi_0, \tfrac{1}{2} ) \leq \sum_{\pi \in \mathcal{F}_Q} L(\pi, \tfrac{1}{2} )
+\ll \lvert \mathcal{F}_Q  \rvert^{1 + o (1)}.  
+\end{equation*}
+If $\lvert \mathcal{F}_Q \rvert \leq Q^{1/4 - \delta}$, then one solves the problem.  A spectacular example can be found in the work of Conrey--Iwaniec and Petrow--Young.  They show that for a Dirichlet character $\chi$ of conductor $q$,
+\begin{equation*}
+L(\chi, \tfrac{1}{2} ) \ll q^{1/6 + o(1)}.
+\end{equation*}
+In this case, we don't have nonnegativity, so they pass to
+\begin{equation*}
+  {\left( L(\chi, \tfrac{1}{2} ) L(\bar{\chi}, \tfrac{1}{2} ) \right)}^3
+  =
+  {L(\chi \boxplus \bar{\chi}, \tfrac{1}{2} )}^3
+  = L\left(3 \boxtimes \left( \chi \boxplus \bar{\chi} \right), \tfrac{1}{2} \right).
+\end{equation*}
+They work with the family
+\begin{equation*}
+\left\{ 3 \boxtimes(f \times \chi ) : f \in S(q, \bar{\chi}^2) \right\}.
+\end{equation*}
+
+It often happens that
+\begin{equation*}
+\lvert \mathcal{F}_Q  \rvert^{1 + o(1)} = Q^{1/4}.
+\end{equation*}
+In such cases, \emph{amplification} sometimes works.
+\begin{equation*}
+  m_{\pi_0}(L) L(\pi_0, \tfrac{1}{2}) \leq \sum L(\pi, \tfrac{1}{2}) m_\pi(L)^2
+  \ll \lvert \mathcal{F}_Q  \rvert^{1 + o(1)} = Q^{1/4},
+\end{equation*}
+\begin{equation*}
+  m_\pi(L) := \sum_{\ell \leq L}
+  \frac{x_{\ell} \lambda_\pi(\ell)}{\ell^{1/2}},
+  \quad
+  m_{\pi_0 } \gg L^\alpha , \quad 0 < \alpha \leq 1/2.
+\end{equation*}
+One takes $L$ to be a small enough power of $Q$.
+
+Now let's talk about an application, returning to the setting of Chris's talk.  Take $B/\mathbb{Q}$ a quaternion algebra.  Take $G = \PB^\times \supset T \cong \Res_{K / \mathbb{Q} } \mathbb{G}_m / \mathbb{G}_m $, and $\chi$ on $T$ of weight zero.  Take $\pi_{\mathrm{JL}}$ on $G$.  Then
+\begin{equation*}
+  \frac{L(\pi_K \times \chi, \tfrac{1}{2} )}{ C(\pi_K \times \chi)^{1/4}}
+  \asymp \left\lvert \int_{[T]} \varphi(t) \chi(t) \, d t \right\rvert^2.
+\end{equation*}
+How to get something like surjectivity of quotiented-versions of the map $[T] \rightarrow [G]$, as mentioned in Chris's talk?  Average over $\chi$:
+\begin{equation*}
+  \sum_\chi
+  \frac{L(\pi_K \times \chi, \tfrac{1}{2} )}{ C(\pi_K \times \chi)^{1/4}}
+  \asymp
+  \sum_\chi 
+  \left\lvert \int_{[T]} \varphi(t) \chi(t) \, d t \right\rvert^2
+  = h_c \int_{[T]} \lvert \varphi \rvert^2
+\end{equation*}
+by Parseval.  If one can show that $\int_{[T]} \lvert \varphi \rvert^2 > 0$ as $T \rightarrow \infty$, then it will prove that at least one of the $L$-values on the left hand side does not vanish.  One has the equidistribution theorem of Duke, to the effect that $[T] \subset [G]$ is essentially equidistributed.  This means typically that $\int_{[T]} \lvert \varphi \rvert^2$ converges to $\int_{[G]} \lvert \varphi  \rvert^2$, which gives the required nonvanishing.  One can understand this spectrally:
+\begin{equation*}
+  \int_{[T]} \lvert \varphi  \rvert^2 = \int_{[T]} \sum_\psi \langle \lvert \varphi  \rvert^2, \psi \rangle \psi
+\end{equation*}
+then use that
+\begin{equation*}
+ \int_{[T]} \psi(t) \, d t \xrightarrow{?} \int_{[G]} \psi.
+\end{equation*}
+
+Vatsal setting:
+\begin{equation*}
+  \int_T \varphi(t) \bar{\varphi}(t_1 t) \, d t,
+\end{equation*}
+where $t_1$ is growing a lot with $p^k $, $k \geq 0$.  Here $t_1^h = 1$, where $h = h_K$ is the class number.  Vatsal used homogeneous dynamics, Ratner theory.
+
+We can now obtain similar assertions even when the variation is not vertical, but even when it is more oblique or horizontal.  This uses new analytic techniques and homogeneous dynamics.  Techniques of Holowinsky--Soundararajan, Einsiedler--Lindenstrauss.  One thing this uses is that $\lvert \lambda_\pi(n) \rvert$ is a multiplicative function.
+
+\section{Problem session, moderated by Abhishek Saha}
+
+\begin{enumerate}
+\item\label{enumerate:cnej3fpbu9} (Philippe Michel) Let $f$ be a modular form for $\GL_2$, let $K$ be a quadratic extension, and let $\chi$ be a class group character for $K$.  The Gross--Zagier formula relates
+  \begin{equation*}
+    L'(f \otimes \theta_\chi, 1)
+  \end{equation*}
+  to intersection numbers.  The problem is to find a form $g$ be a form on a definite quaternion (perhaps enjoying a congruence with $f$) such that the above $L$-value is directly related to
+  \begin{equation*}
+    L(g \otimes \theta_K, 1).
+  \end{equation*}
+  Philippe knows a connection between the two, but it's very loose, and one cannot deduce a lot of nonvanishing in that way.  Use that the Gross--Zagier formula uses in its local term intersection numbers defined using definite quaternion algebras.  (Templier's thesis did something more roundabout.)
+
+\item\label{enumerate:cnej3fpe3c} (Wei Zhang)
+  \begin{enumerate}
+  \item Given an automorphic representation $\pi$ on $\U(n)$, show that there exists $\sigma$ on $\U(n - 1)$, perhaps in a restricted family, so that $L '(\pi \times \sigma, \tfrac{1}{2})$ is nonzero.  (Maybe even hard if we vary over both $\pi$ and $\sigma$?)
+  \item Prove an analogue for algebraic cycles.
+  \item (Mladen Dimitrov) Is there any hope to $p$-adically interpolate derivatives?  (Some people suggested the answer ``no''.)
+  \end{enumerate}
+\item\label{enumerate:cnej3fpha2} (Chris Skinner) Equidistribution of CM points in a single modular curve.  Ilya Khayutin has analogues for joint equidistribution.  How about analogues of Ilya's results, but over a number field $F$?
+\item\label{enumerate:cnej3fqemr} Adapt techniques used to estimate automorphic periods to the setting of arithmetic GGP.
+\item\label{enumerate:cnej3fqfnd} (Mladen Dimitrov) Take your favorite reductive group $G$ over a $p$-adic local field $F$.  Take an admissible representation $\pi$.  Take a subgroup $H$.  Denote by $K_H(p^n)$ the set of elements in $G(\mathfrak{o})$ that are congruent modulo $p^n$ to something in $H(\mathfrak{o})$.  Then determine whether $\pi$ has vectors fixed under the group $K_H(p^n)$.  Does there exist such an $n$?  And what is the smallest $n$ that works?
+
+  For instance, the case of $H = \GL_{n-1} \times \GL_1$ inside $G = \GL_{n}$ is related to newvector theory (JPSS).  How about more generally $\GL_a \times \GL_b$, possibly for special $\pi$?
+\item\label{enumerate:cnej3kgqgj} (Ashey Burungale) Let $p$ be a fixed odd prime.  Consider characters of $(\mathbb{Z} / q)^\times$, where $q$ is a prime.  The question is, how many Dirichlet characters modulo $q$ have the property that $L(0, \chi )$ is $p$-indivisible?  We know $q^{1/2 - \eps}$.
+\item\label{enumerate:cnej3kgrc4} (Philippe Michel) Fix an imaginary quadratic field $K$.  We know equidistribution for CM points for order of (squarefree) conductor $C \rightarrow \infty$.  Is there an arithmetic application?  More generally, similar results in broader contexts.
+\item\label{enumerate:cnej3kgr45} (Dinakar Ramakrishnan) Given $f$ and a quadratic twist $f \otimes \chi$, can we find a quadratic character $\eta$ so that $f \otimes \eta$ and $f \otimes \chi \eta$ simultaneously have nonvanishing $L$-value?
+\item\label{enumerate:cnej3kgsw6} (Ashey Burungale) Another question, along the lines of Philippe's question.  There have been several results toward the Hecke orbit conjecture, which is a mod $p$ analogue of the Andre--Oort conjecture.  There are some results of this nature used by Hida in proving some Iwasawa-theoretic mod $p$ nonvanishing.  Given the progress on the Hecke orbit conjecture, are there potential applications along such lines?
+\item\label{enumerate:cnej3kgmi0} Take $\GL_2$ over an imaginary quadratic field.  Consider a Bianchi modular form.  How do you normalize its Whittaker expansion?
+\item\label{enumerate:cnej3kglp3} Bocherer's conjecture (now proved in many cases) relates Fourier coefficients of Siegel modular forms to $L$-values.  Let $F$ be a Siegel modular form.  Let $\Lambda$ be a character of the class group $\mathrm{Cl}_d$.  Then
+  \begin{equation*}
+    \left\lvert \sum_{s \in \mathrm{Cl}_d } a(F, S) \Lambda(S)  \right\rvert^2
+    \,\, \dot{=} \,\,
+    L(\tfrac{1}{2}, \pi_F \times \theta_\Lambda)
+    =
+    L(\tfrac{1}{2}, \mathrm{BC}_{K/\mathbb{Q}} \pi_F \times \Lambda).
+  \end{equation*}
+  If we know lots of $L$-values (maybe all of them), can we compute the Fourier coefficients?
+
+  More generally, in any GGP setup, if we know all the $L$-values, what can we say about the coefficients, or whatever?
+\item\label{enumerate:cnej3mdce1} Given a paramodular newform of weight two with rational coefficients, can you construct the corresponding abelian surface?  \cite{MR3981316}
+\item\label{enumerate:cnej3mdbho} In the setting of question \eqref{enumerate:cnej3fqfnd}, when is the space of $K_H(p^n)$-fixed vectors one-dimensional?  Is there always an $H$ for which this happens?  Is there a commonality between such $H$?
+\item\label{enumerate:cnej3mc9yo} Let $\pi$ an irreducible admissible infinite-dimensional representation of $\GSp_{2 n}(\mathbb{Q}_p)$.  Set
+  \begin{equation*}
+    R(n) := \left\{
+      g \equiv \diag(1,\dotsc,1,a,\dotsc,a) \pmod{p^n} \text{ for some } a \in \mathbb{Z}_p^\times
+    \right\}.
+  \end{equation*}
+  Does $\pi$ always admit a nonzero vector invariant by $R(n)$?
+\item\label{enumerate:cnej3mc563} Coleman: if you have a CM modular form and you take the critical $p$-stabilization, then that lies in the image of the ??? operator.  The question is whether you can do this for a higher-rank group.  Can you find a $p$-adic differential operator and an endoscopic form such that all $p$-stabilizations with respect to the form lie in the image of the operator?
+
+  For example, are the special forms (Yoshida, Saito--Kurokawa) captured by some $p$-adic differential operators?  Generalization of Colmez exact sequence?
+\item\label{enumerate:cnej3mcyt4} Prove Beilinson's conjecture for Hecke characters of a quartic CM field.
+\item\label{enumerate:cnej3mrs9m} Let $f$ be a weight one cusp form.  Consider the trace-free adjoint representation.  The Harris--Venkatesh conjecture describes the Stark units mod $p$ for this adjoint representation.  Can one develop some sort of local-to-global principle by which, assuming the Harris--Venkatehs conjecture, one can describe Stark units in characteristic zero?
+
+  Are there specific examples where the Stark conjecture is not known?  Say in some exotic cases.
+\item\label{enumerate:cnej3m2v7l} Let $F$ be a Siegel cuspidal eigenform, say of full level and weight $k$.  How big are the Fourier coefficients of $F$?  Feel free to assume any standard conjecture, e.g., GRH and all expected period formulas.
+
+  Prove, under this assumption, that
+  \begin{equation*}
+    \left\lvert a(F, S) \right\rvert \ll_F \det(S)^{\frac{k}{2} - \frac{1}{2} - \delta}
+  \end{equation*}
+  for some $\delta > 0$.
+
+  Note that, under GRH, the case $\delta = 0$ has been addressed.
+\end{enumerate}
+
+\section{Tuesday afternoon organization session}
+
+\begin{enumerate}
+\item\label{enumerate:cnekjr1oym} Tighten connections between $L'(\pi_K \otimes \chi, \tfrac{1}{2} ) \neq 0$ and $L(\sigma_K \otimes \chi ', \tfrac{1}{2} ) \neq 0$.
+\item\label{enumerate:cnekjr1pna} Applications of results for horizontal variation of $\chi$ and $\chi '$.
+\item\label{enumerate:cnekjr1p68} Given $\varphi \in \pi $ for $\U(n, 1)$ (and maybe it corresponds to something holomorphic, so that what is happening at $\infty$ is fixed), find $\sigma$ and $\psi \in \sigma$ for $\U(n)$ such that the period does not vanish, i.e., $\int_{[\U(n)]} \varphi \psi \neq 0$, or maybe that the period is nonzero modulo $p$.
+\item\label{enumerate:cnekjr1qyd} Do everything for $L '(\pi \otimes \sigma, \tfrac{1}{2})$ and cycles (AGGP).
+\item[4.5]\label{enumerate:cnekjr1s9k} Find examples of \eqref{enumerate:cnekjr1p68} and analogue for cycles.
+\item\label{enumerate:cnekjr5mnb} Count the number of odd Dirichlet characters $\chi$ modulo $N$ such that $L(0, \chi )$ is a $p$-adic unit, with varying $N$.
+\item\label{enumerate:cnekjr47jp} Invariants in admissible representations under the action of certain open compact subgroups in $G(\mathbb{Z}_p)$.
+\item\label{enumerate:cnekjr46s8} $L(f \otimes \chi, \tfrac{1}{2} ) L(g \otimes \chi, \tfrac{1}{2} ) \neq 0$ for some quadratic $\chi$?
+\item\label{enumerate:cnekjr5udx} Beilinson's conjecture for the adjoint of a modular form $\ad^0(f) \otimes \chi$, or even a triple product $L$-function $f \otimes g \otimes h$, using the cohomology of $\GSp_4$.
+\item\label{enumerate:cnekjr9kus} Relation between Fourier coefficients of Siegel modular forms and $L$-values, assuming something like Bocherer's conjecture.
+\item\label{enumerate:cnekjr9lm8} For a definite quaternion algebra $B$ over $F$, and a quadratic subalgebra $K \hookrightarrow B$, try to show that
+  \begin{equation*}
+    \Pic(K) \rightarrow X_B \times X_B 
+  \end{equation*}
+  equidistributes as ``$K \rightarrow \infty$''.  (Theorem of Khayutin when $K = \mathbb{Q}$.  Can we generalize it to, say, real quadratic fields.)
+\end{enumerate}
+
+
+\section{Problem sessions}
+\textbf{Tuesday}.
+
+$L'(\pi \otimes \sigma, \tfrac{1}{2} )$
+
+Analytic.
+
+Given $\pi$ on $[G]$, can you find $\sigma$ on $[H]$ such that $L '(\mathrm{BC}(\pi)\times \mathrm{BC}(\sigma), \tfrac{1}{2} ) \neq 0$?
+
+(Given $\sigma$, can you find $\pi$?)
+
+There's a Jacquet--Rallis trace formula in this setting.
+
+Require that $\pi _\infty$ be cohomological.  Take $\sigma _\infty$ fixed.
+
+Let $K/\mathbb{Q}$ be quadratic.  Take
+\begin{equation*}
+G' := \GL_n(K) \times \GL_{n - 1}(K),
+\end{equation*}
+\begin{equation*}
+H_1 ' := \GL_{n - 1}(K),
+\end{equation*}
+\begin{equation*}
+H_2 ' := \GL_n(\mathbb{Q}) \times \GL_{n - 1}(\mathbb{Q}),
+\end{equation*}
+\begin{equation*}
+f \in C_c^\infty(G'(\mathbb{A})).
+\end{equation*}
+Then
+\begin{equation*}
+  \int \int K_f(h_1', h_2')
+  \lvert h_1' \rvert^s
+  \eta(h_2')
+  \, d h_1' \, d h_2'
+  =
+  \sum_{
+    \substack{
+      \pi \boxtimes \sigma  \\
+       \text{from unitary}
+    }
+  }
+  L(\pi \boxtimes \sigma, s)
+  \times (\dotsb).
+\end{equation*}
+Take $f = f_n \otimes f_{n - 1}$.
+
+Fix $\sigma_K \ni u$.  Let $x \in \GL_{n - 1}(K_{\mathbb{A}})$ and $y_1 \in \GL_{n - 1}(\mathbb{A}_{\mathbb{Q}})$ and $y_2 \in \GL_n(\mathbb{A}_{\mathbb{Q}})$.
+
+\begin{equation*}
+  \int
+  \int u(x) \overline{u(y_1)}
+  K_{f_n}(x, y_2)
+\end{equation*}
+
+
+\begin{equation*}
+\int \int u(x) K_{f_n}(x, y) \lvert x \rvert^s \, d x \, d y.
+\end{equation*}
+
+\begin{equation*}
+\left( \int_{[\GL_n]} K_f(x, y) \, d y \right) \lvert x \rvert^s \, d x.
+\end{equation*}
+The inner integral becomes
+\begin{equation*}
+K_{\tilde{f}}(\dotsb).
+\end{equation*}
+
+\begin{equation*}
+S_n = 
+\end{equation*}<++>
+
+
+\begin{equation*}
+I_n(f, s) := \int_{[H_1]} u(x) \lvert x \rvert^s K_{\tilde{f}}(x \cdot 1_n) \, d x.
+\end{equation*}
+\begin{question}
+  Does there exist $f \in C_c^\infty(G(\mathbb{A}_K))$ such that
+  \begin{equation*}
+    \frac{d}{d s}
+    I_n(f, s)|_{s=0} \neq 0.
+  \end{equation*}
+\end{question}
+Look at the geometric side:
+\begin{align*}
+  &\int_{[H_1']} u(x) \sum_{\gamma \in G_n(K)} \int f(x^{-1} \cdot \gamma y) \,d y
+  \\
+  &\quad
+    =
+    \sum_{G_{n - 1}(K) \backslash G_n(K) / G_n(\mathbb{Q})}
+    \int_{G_{n-1}(\mathbb{A}_K) \times G_n(\mathbb{A}_{\mathbb{Q}})} u(x) f(x^{-1} \gamma y) \, d x \, d y.
+\end{align*}
+
+If we take $K = \mathbb{Q} \times \mathbb{Q}$, then we're looking at
+\begin{equation*}
+\int_{[G_n]} \sum_\gamma f(x^{-1} \gamma y).
+\end{equation*}
+We have $x =(x_1, x_2)$.  We have $f = f_1 \otimes fl2$.  The above becomes
+\begin{equation*}
+\sum_{\gamma '} K_{f_1 \ast f_2}(x_1^{-1} \gamma ' x_2).
+\end{equation*}
+The question becomes whether
+\begin{equation*}
+0 \neq \int_{G_{n - 1}(\mathbb{A}_K)} u(x) K_{\tilde{f}}(x) \,d x.
+\end{equation*}
+Here $K_{\tilde{f}}$ is right-invariant under $G_n(\mathbb{A}_{\mathbb{Q}})$, left-invariant under $G_n(K)$.
+
+Let us now insert the Whittaker expansion of $u$.
+
+We have
+\begin{align*}
+  W(x) &= \sum_{\delta \in N_{n - 2}(K) \backslash G_{n - 2}(K)} W(\delta x) \\
+       &= \sum_{\delta \in N_{n - 1}(K) \backslash P_{n - 1}(K)} W(\delta x).
+\end{align*}
+Unfolding, and paying attention only to the trivial coset for $P_{n-1}(K) \backslash G_{n-1}(K)$, we arrive at
+\begin{equation*}
+  \int_{N_{n - 1}(K) \backslash G_{n - 1}(\mathbb{A}_K)}
+  W(x) K_{\tilde{f}}(x),
+\end{equation*}
+\begin{equation*}
+K_{\tilde{f}}(x) = \sum_{\gamma \in S_n(\mathbb{Q})} \tilde{f}(x^{-1} \cdot \gamma).
+\end{equation*}
+We arrive at
+\begin{equation*}
+  \sum_{\gamma \in N_{n - 1}(K) \backslash S_n(\mathbb{Q})}
+  \int_{G_{n - 1}(\mathbb{A}_K) / \mathrm{Stab}}
+  W(x) \tilde{f}(x^{-1} \cdot \gamma) \, d x.
+\end{equation*}
+
+Something like
+\begin{equation*}
+\int_{G_{n - 1}(\mathbb{A}_K) / N_{n - 1}(\mathbb{A}_{\mathbb{Q}})} W(x) \tilde{f}(x) \, d x.
+\end{equation*}
+This is something like $W(1)$.
+
+What is the moment we're considering?  We're looking at
+\begin{equation*}
+  \sum_{\pi } L(\pi \otimes \sigma, s)
+\end{equation*}
+where $\sigma$ is fixed on $G_{n-1}(K)$ and $\pi$ is varying over $G_n(\mathbb{Q})$-distinguished automorphic things on $G_n(K)$.
+
+So this would be like
+\begin{equation*}
+  \sum_{\pi \text{ on } G_n(\mathbb{Q})}
+  \lvert L(\pi \sigma, s ) \rvert^2.
+\end{equation*}
+
+
+AGGP conjecture.
+
+Let $K /\mathbb{Q}$ be imaginary quadratic.  Let $W \subseteq V$ with signatures $(1, n - 2)$ and $(1, n - 1)$.
+
+$\mathrm{Sh}(W) \hookrightarrow \mathrm{Sh}(V)$,
+\begin{equation*}
+  Z := \mathrm{Sh}(W) \hookrightarrow \mathrm{Sh}(W) \times \mathrm{Sh}(V) =: X.
+\end{equation*}
+Hecke translation
+\begin{equation*}
+\left\langle R(f) Z, Z \right\rangle_{\height} = \sum_{\pi, \sigma} L '(\tfrac{1}{2}, \pi_K \times \sigma_K ) \times (\text{local terms}).
+\end{equation*}
+
+\begin{equation*}
+\langle R(f) Z, Z \rangle_{\height} = \sum_p \left\langle R(f) Z , Z \right\rangle_p.
+\end{equation*}
+
+\begin{equation*}
+I(f) = \sum_{\gamma \in B(F)} I_\gamma(f),
+\end{equation*}
+where
+\begin{equation*}
+B = H_1 ' \backslash G ' / H_2 '.
+\end{equation*}
+
+\begin{equation*}
+K_{f, 1}(x, y) = \sum_{\gamma \in G_1 '(\mathbb{Q})} f(x^{-1} \gamma y),
+\end{equation*}
+\begin{equation*}
+I_1^T(f) := \int (K_{f, 1}(x, y) + \text{error term}) \eta(y) \, d y.
+\end{equation*}
+
+
+\textbf{Wednesday}.
+
+Let $K / \mathbb{Q}$ be a quadratic extension.  Set
+\begin{equation*}
+  G ' := \GL_{n, K} \times \GL_{n - 1, K}.
+\end{equation*}
+It contains the subgroups
+\begin{equation*}
+  H_1 ' := \GL_{n - 1, K}, \qquad H_2 ' := \GL_{n, \mathbb{Q}} \times \GL_{n - 1, \mathbb{Q}}.
+\end{equation*}
+Let
+\begin{equation*}
+  f \in C_c^\infty(G '(\mathbb{A})).
+\end{equation*}
+We consider the integral
+\begin{equation*}
+  I(f, s ) = \int_{[H_1 ' ] \times [H_2 ' ] } K_f(h_1, h_2 ) \lvert h_1  \rvert^s \eta(h_2 ) \, d h_1 \, d h_2.
+\end{equation*}
+It admits the geometric expansion
+\begin{equation*}
+  I(f, s) = \sum_{\gamma \in B(\mathbb{Q} )} I_\gamma(f , s).
+\end{equation*}
+Here $B$ is the GIT quotient
+\begin{equation*}
+  B := H_1 ' \backslash G ' / H_2 '.
+\end{equation*}
+It is an affine space of dimension $n$.
+
+At first we localize this: we only want one term here.
+
+For each $f$, there exists a modification $f'$ (obtained by modifying at some given place, e.g., an archimedean place)
+
+\begin{equation*}
+  f_1(g_f g _\infty) = f(g_f, g _\infty) u(g _\infty ), \quad u \in C^\infty(G '(\mathbb{R})).
+\end{equation*}
+
+We have the quotient map
+\begin{equation*}
+  q : G \rightarrow B.
+\end{equation*}
+The fiber $q^{-1}(1)$ contains many cosets, but there are only two \emph{regular} cosets in that fiber.  Call these $\reg^+$ and $\reg^-$.
+
+\begin{remark}
+  What happens in the split case, here?  We would then be looking at something like $\GL_{n-1} \backslash \GL_n$, right?
+\end{remark}
+
+
+Suppose that there exists $v$ such that
+\begin{equation*}
+  \supp(f_v) \subset \reg^+(\mathbb{Q}_v) \subset^o G '(\mathbb{Q}_v).
+\end{equation*}
+Then the integral
+\begin{equation*}
+  I_1^{\mathrm{Tate}}(f, s) = \int_{[H_1'] \times [H_2']}
+  K_{f,1}(h_1, h_2) \lvert h_1 \rvert^s \eta(h_2) \, d h_1 \, d h_2
+\end{equation*}
+converges absolutely when $\Re(s) < -1$ and admits a meromorphic continuation.  The value $0$ (after meromorphic continuation) is what we want:
+\begin{equation*}
+  I_1^{\mathrm{Tate}}(f, 0) = I_1(f, 0).
+\end{equation*}
+The Tate regularization gives the same result as the truncation procedure (as in the works of Zydor and Chaudouard et al.).
+
+If we assume a support condition instead with respect to $\reg^-(\mathbb{Q}_v)$, then the analogous integral converges absolutely for $\Re(s) > 1$ and again admits a meromorphic continuation, with similar conclusions.
+
+We have a factorization
+\begin{equation*}
+  I_1^{\mathrm{Tate}}(f, s) = \prod_v \int_{H_1(\mathbb{Q} ) \times H_2(\mathbb{Q})} f(h_{1, v}^{-1} \gamma_T h_{2, v}) \lvert h_{1, v} \rvert^s \eta(h_{2, v}) \, d h_{1, v} \, d h_{2, v}.
+\end{equation*}
+At almost every place $v$, the local integral evaluates to $\prod L_{v , j}(s, \chi_i)$.
+
+The upshot is that if we take the support of $f$ small enough at some place, then we only get one term in the whole expansion.
+
+\begin{remark}
+  Let $\pi$ be a representation of $\GL_n \times \GL_{n + 1}$.  Let $\varphi$ be a matrix coefficient of $\pi$, say
+  \begin{equation*}
+    \varphi(g) = \langle \pi(g) v, v' \rangle.
+  \end{equation*}
+  Assume for simplicity that $\pi$ is supercuspidal.  Then the relative character may be represented as the orbital integral attached to a matrix coefficient
+  \begin{equation*}
+    \theta_\pi^H(g) = c_\varphi \operatorname{Orb}(g, \varphi).
+  \end{equation*}
+  Here
+  \begin{equation*}
+    \operatorname{Orb}(g, \varphi) = \iint_{H(\mathbb{Q})^2} \varphi(h_1  g h_2) \, d h_1 \, d h_2.
+  \end{equation*}
+  This is proved in an appendix of Wei Zhang and Atsushi Ichino.
+\end{remark}
+
+\begin{equation*}
+  \prod_{k = 1 }^n L(
+  \eta^{-k},
+  - k s - k + 1
+  ).
+\end{equation*}
+
+\begin{example}
+  If $n = 1$, then we get
+  \begin{equation*}
+    L(\eta^{-1}, - s).
+  \end{equation*}
+\end{example}
+\begin{example}
+  If $n =2$, then we get
+  \begin{equation*}
+    L(\eta^{-1}, - s) L(\eta^{-2}, - 2 s -1).
+  \end{equation*}
+\end{example}
+\begin{example}
+  If $n=3$, then we get
+  \begin{equation*}
+    L(\eta^{-1}, - s) L(\eta^{-2}, - 2 s -1) L(\eta^{-2}, - 3 s - 2).
+  \end{equation*}
+\end{example}
+
+Liyang.
+
+Notation: $K/\mathbb{Q}$, $G = \GL_3$, $H = \GL_2$, $\sigma \in \mathcal{A}_0(H(\mathbb{A}_K))$, $\sigma \leftrightarrow \operatorname{BC}(\sigma_0)$.
+
+\textbf{Goal.}
+\begin{equation*}
+  \sum_{\pi \in \mathcal{A}_0(G(\mathbb{A}_K ))_N}
+  L(\tfrac{1}{2} + s, \pi \times \sigma)
+  \mathcal{P}_{\pi, \sigma }(f)
+  = \mathcal{M}(s) + \mathcal{E}(s).
+\end{equation*}
+$\frac{d}{d s}$.
+
+\begin{equation*}
+  \sum_{\pi = \operatorname{BC}(\pi ')}
+  L(\tfrac{1}{2}, \pi \times \sigma)
+  \mathcal{P}_{\pi, \sigma}(f) = \mathcal{M} '(0) + 0.
+\end{equation*}
+The main term should be essentially
+\begin{equation*}
+  \mathcal{M}(s) \, \dot{=} \, L(1 + s, \sigma, \mathrm{Asai})
+  + L(s, \sigma, \mathrm{Asai}).
+\end{equation*}
+Today we'll focus on the first term on the left hand side.
+
+$f = \otimes_v f_v$, where $f_v \in C_c^\infty(K_v \backslash G_v / K_v)$.
+
+For $v \mid N$, take $f_v = \frac{1}{\vol} \mathbf{1}_{K_v [N]}$.
+
+\textbf{Idea.}
+\begin{equation*}
+  \int_{[H]}
+  \int_{[G]}
+  K \left(
+    \begin{pmatrix}
+      x      &  \\
+             & 1 \\
+    \end{pmatrix}, y \right)
+  \phi(x) \, d y \,d x.
+\end{equation*}
+Here $[G] = \bar{G}(\mathbb{Q}) \backslash \bar{G}(\mathbb{A})$.
+
+The spectral side will be as above.
+
+The geometric side will be
+\begin{equation*}
+  \int_{[H]} \int_{[G]}
+  \sum_{\gamma \in G(K)} f \left(
+    \begin{pmatrix}
+      x^{-1}       &  \\
+                   & 1 \\
+    \end{pmatrix} \gamma y \right)
+  \phi(x) \, d y \,d x.
+\end{equation*}
+The orbital integral attached to $1$ evaluates to
+\begin{equation*}
+  \int_{H(\mathbb{Q}) \backslash H(\mathbb{A}_K)} \int_{\bar{G}(\mathbb{A})} f \left(
+    \begin{pmatrix}
+      x^{-1}       &  \\
+                   & 1 \\
+    \end{pmatrix}
+    y
+  \right)
+  \phi(x) \,d y \,d x.
+\end{equation*}
+Due to the support conditions on $f$, we can write
+\begin{equation*}
+  y \in
+  \begin{pmatrix}
+    x    &  \\
+         & 1 \\
+  \end{pmatrix} K.
+\end{equation*}
+We then see that the main term is essentially
+\begin{equation*}
+  \int_{H(\mathbb{Q}) \backslash H(\mathbb{A})} \phi(x) \,d x.
+\end{equation*}
+
+We consider the action
+\begin{equation*}
+  B(K) \backslash G(K) \circlearrowleft G(\mathbb{Q}).
+\end{equation*}
+This leads to
+\begin{align*}
+  G(K) &= B(K) G(\mathbb{Q}) \sqcup B(K)
+         \begin{pmatrix}
+    1    &  &  \\
+    \tau & 1 &  \\
+         &  & 1 \\
+  \end{pmatrix}
+         G(\mathbb{Q}) \\
+       &\quad \sqcup
+         B
+         \begin{pmatrix}
+           1           &  &  \\
+                       & 1 &  \\
+                       & \tau & 1 \\
+         \end{pmatrix}
+         G(\mathbb{Q})
+         \sqcup
+         B(K)
+         \begin{pmatrix}
+           1           &  &  \\
+                       & 1 &  \\
+           \tau &  & 1 \\
+         \end{pmatrix} G(\mathbb{Q}).
+\end{align*}
+This leads to
+\begin{equation*}
+  \int_{[H]} \int_{[G]_{\mathbb{Q}}}
+  K \left(
+    \begin{pmatrix}
+      x      &  \\
+             & 1 \\
+    \end{pmatrix}
+    , y\right) \phi(x) \lvert x \rvert^s \, d x \,d y.
+\end{equation*}
+One of the main sources of divergence comes from the degenerate parts of Eisenstein series.  So we need to kill that Eisenstein stuff.
+
+To do that, we consider the Fourier expansion.  Etc.  We get
+\begin{equation*}
+  \int_{[H]}
+  \int_{[G]_{\mathbb{Q}}}
+  \sum_{\alpha \in N_H(K) \backslash H(K) }
+  K \left(
+    u \alpha 
+    \begin{pmatrix}
+      x      &  \\
+             & 1 \\
+    \end{pmatrix}
+    , y\right)
+  \theta(u) \, d u
+  \, \phi(x) \lvert x \rvert^s \, d x \,d y.
+\end{equation*}
+The geometric side now becomes
+\begin{equation*}
+  \int_{[H]} \int_{[G]_{\mathbb{Q}}} \sum_\alpha
+  \int_{[N]}
+  \sum_\gamma f \left(
+    \begin{pmatrix}
+      x^{-1}      &  \\
+                  & 1 \\
+    \end{pmatrix} \alpha^{-1} u^{-1} \gamma y \right)
+  \theta(u) \phi(x) \lvert x \rvert^s \,d x \,d y \,d u.
+\end{equation*}
+This evaluates to
+\begin{equation*}
+  \int_{H(\mathbb{Q}) \backslash H(\mathbb{A}_K)}
+  \int_{[G]_{\mathbb{Q}}}
+  \int_{[N]}
+  \sum_\gamma
+  f \left(
+    \begin{pmatrix}
+      x^{-1}      &  \\
+                  & 1 \\
+    \end{pmatrix} \alpha^{-1} u^{-1} \gamma y \right)
+  \theta(u) \phi(x) \lvert x \rvert^s \,d x \,d y \,d u.
+\end{equation*}
+Now, use that
+\begin{equation*}
+  \begin{pmatrix}
+    1    & \ast & \ast \\
+             & 1 & \ast \\
+             &  & 1 \\
+  \end{pmatrix}
+  \cong
+  \begin{pmatrix}
+    1    & \ast &  \\
+         & 1 &  \\
+         &  & 1 \\
+  \end{pmatrix}
+  \begin{pmatrix}
+    1    &  & \ast \\
+         & 1 & \ast \\
+         &  & 1 \\
+  \end{pmatrix}.
+\end{equation*}
+This gives that the above is
+\begin{equation*}
+  \int_{N(\mathbb{A}_K) \backslash H(\mathbb{A}_K)}
+  \int_{[G]_{\mathbb{Q}}}
+  \int_{[N]}
+  \sum_\gamma
+  f \left(
+    \begin{pmatrix}
+      x^{-1}      &  \\
+                  & 1 \\
+    \end{pmatrix}
+    u^{-1} \gamma y\right)  
+  \theta(u) \,d u
+  \, W_\phi(x) \,d x \,d y.
+\end{equation*}
+Look at
+\begin{equation*}
+  L(1 + s, \sigma, \mathrm{Asai}).
+\end{equation*}
+Roughly,
+\begin{equation*}
+  L(s, \sigma, \mathrm{Asai}) = \prod \int_{N(\mathbb{Q}_p) \backslash H(\mathbb{Q}_p)} W(x) \Phi(x) \lvert x \rvert^s_p \,d x_p.
+\end{equation*}
+We have
+\begin{equation*}
+  \begin{pmatrix}
+    x^{-1}    &  \\
+              & 1 \\
+  \end{pmatrix}
+  \begin{pmatrix}
+    1    &  & \ast \\
+         & 1 & \ast \\
+         &  & 1 \\
+  \end{pmatrix}
+  \begin{pmatrix}
+    x    &  \\
+         & 1 \\
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    1    &  & \ast \\
+         & 1 & \ast \\
+         &  & 1 \\
+  \end{pmatrix}.
+\end{equation*}
+There's also a modular character.
+
+Get
+\begin{equation*}
+  \int_{N_p(\mathbb{A}_K)} f \left( u
+    \begin{pmatrix}
+      x^{-1}      &  \\
+                  & 1 \\
+    \end{pmatrix} \gamma y \right)
+  \theta(\eta x u) \,d u.  
+\end{equation*}
+
+\section{Wei Zhang}
+
+Cycles vs. $L$-values.
+
+Periods.
+
+$H \subseteq G$ reductive over $F$ global.  $\int_{[H]} \varphi(h) \, d h$, possibly with a weight factor.  $\varphi \in \pi$.  Automorphic representations, possibly tempered, of $G$.  Relate to $L(\pi, \tfrac{1}{2})$ times a product of local terms.  Example: $G = \U(n) \times \U(n-1)$ and $H = \U(n-1)$.
+
+Example: Waldspurger, $G = \GL_2$ or $B^\times $ and $H = \Res_{K / \mathbb{Q}}\mathbb{G}_m$.
+
+$G = \U(n) \times \U(n)$ and $H = \U(n)$.  $\pi_1 \boxtimes \pi_2$.
+
+Also, $\Res_{E / \mathbb{Q}} \U(n)$.
+
+Weil representation of $H =\U(n)$.  $\mu$ : Hecke character with $\mu |_{\mathbb{A}_{\mathbb{Q}}^\times } = \eta_{K/\mathbb{Q}}$.  (Fourier--Jacobi GGP.)
+
+\begin{equation*}
+\int_{[H]} \varphi_1(h) \varphi_2(h) \theta_\phi^\mu(h) \, d h.
+\end{equation*}
+related to
+\begin{equation*}
+L\left(\mathrm{BC}(\pi_1) \boxtimes \mathrm{BC}(\pi_2) \otimes \mu, \tfrac{1}{2}\right).
+\end{equation*}
+
+Friedberg--Jacquet.  $G = \U(2 n) \supseteq H = \U(n) \times \U(n)$.  $\pi$ gives rise to $L(\mathrm{BC}(\pi), \std, \tfrac{1}{2})$.
+
+We turn now to the arithmetic analogue of GGP.
+
+$\pi$ needs to satisfy the analogue of the ``weight two'' condition in the classical setting.  Responsible for cohomology of the Shimura variety.
+
+$G = \U(n - 1, 1) \times \U(n - 2, 1)$.
+
+$H = \U(n-2,1)$.
+
+$\mathrm{Sh}(H) \rightarrow \mathrm{Sh}(G)$.
+
+Dimensions over $\mathbb{C}$: $n - 2$ and $(n - 1) +(n - 2)$.
+
+dimensions over $\mathbb{Z}$: $n - 1$ and $2(n - 1)$.
+
+$\varphi : [G] \rightarrow \mathbb{C}$.
+
+\begin{example}
+  Gross--Zagier ($n = 2$).  Let $A$ be an elliptic curve over $\mathbb{Q}$.  Take
+  \begin{equation*}
+    \varphi : X_0(N) \rightarrow A.
+  \end{equation*}
+  Then we can make sense of
+  \begin{equation*}
+    \int_{\mathrm{Sh}(H)} \varphi \in A(K^{\mathrm{ab}}).
+  \end{equation*}
+  This means to take the pushforward of a divisor.
+
+  Neron--Tate height pairing on the rational points gives an analogue of the metric in the setting of automorphic forms, which allows us to form $\lvert \varphi \rvert^2$.
+  \begin{equation*}
+    \left\langle
+      \int_{\mathrm{Sh}(H)} \varphi,
+      \int_{\mathrm{Sh}(H)} \varphi
+    \right\rangle_{\mathrm{NT} \text{ height}} = L '(\pi_K, \tfrac{1}{2}).
+  \end{equation*}
+  For general $n$ and $\pi$,
+
+  we assume that there is some decomposition of the Chow group: $\operatorname{Ch}(\operatorname{Sh}(G)) = \oplus_\pi \operatorname{Ch}(\operatorname{Sh}(G))_\pi$.  Factors through cohomology.
+  
+  \begin{equation*}
+    \left\langle [\mathrm{Sh}_H]_\pi, [\mathrm{Sh}_H]_\pi \right\rangle
+    \leftrightarrow
+    L '(\pi, \tfrac{1}{2}).
+  \end{equation*}
+
+  We can also take $p$-adic heights.
+  \begin{equation*}
+    \mathrm{Ch}(\mathrm{Sh}_G) \rightarrow  H^1_f(K, H^\ast(\mathrm{Sh})(?))
+    = \bigoplus_\pi H_f^1(K, \rho_\pi) \boxtimes \pi_0^\vee.
+  \end{equation*}
+  Block--Kato Selmer maps(t) the $H^1_f$ factor.
+
+  \begin{theorem}
+    \begin{equation*}
+      \left\langle \int_{[\mathrm{Sh}(H)]} \varphi, \int_{[\mathrm{Sh}(H)]} \varphi \right\rangle_{\text{$p$-adic height}}
+      \approx L_p '(\pi , \tfrac{1}{2}).
+    \end{equation*}
+    The identity holds up to local factors.
+  \end{theorem}
+
+  By comparison, in the setting of automorphic forms, we would be have stuff like
+  \begin{equation*}
+    \iint_{[H]^2 } u(x) u(y) K_f(x,y) \, d x \, d y.
+  \end{equation*}
+
+  
+\end{example}
+
+Periods and cycles.
+k
+aRTF.  $f \in C_c^\infty(G(\mathbb{A}))$.  Can consider
+\begin{equation*}
+  \iint_{[H]^2 }
+  K_f(x, y) \, d x \, d y,
+\end{equation*}
+which admits expansions
+\begin{equation*}
+  \sum_{\varphi \in \mathcal{B}(\pi)} \int_{[H]} \overline{\varphi (h)} \int_{[H]} \pi(f) \varphi(h) \, d h
+  = \sum_{\gamma \in H \backslash G(\mathbb{Q}) / H(\mathbb{Q}) \operatorname{Orb}(\gamma f).}
+\end{equation*}
+
+For $f \in C_c^\infty(G(\mathbb{A}_f))$, look at
+
+\begin{equation*}
+  \sum_{v \nmid 0}^{\sharp} + \sum_v \sum_{\gamma \in G^{(v) }} \operatorname{Orb}(\gamma, f^{(v)})
+  \partial \operatorname{Orb}(\gamma \cdot f_v ) \log q_v.
+\end{equation*}
+
+Let's change the topic to \emph{vanishing}.  In the unitary GGP setting, does there exist an $L$-function with $\ord L(\pi, s) \geq 3$?  ($\eps(\pi) = - 1$, $L '(\pi, \tfrac{1}{2} ) = 0$, $\pi : \GL_2/_F$ totally real.
+
+Qiu:
+\begin{equation*}
+\ord L(\pi_1 \times \pi_2 \times \pi_3, \tfrac{1}{2}) \geq 3?
+\end{equation*}
+
+\section{Ashay Burungale}
+
+\subsection{Introduction}
+$\mathcal{M}_{/ \mathbb{Q}}$, $L(\mathcal{M}, s)$ critical at $s = 0$. $L^{(r)}(\mathcal{M}, 0)$: Block--Kato, Selmber group.
+
+\begin{question}
+  How often do we have
+  \begin{equation*}
+    L(\mathcal{M} \otimes \chi, 0) \neq 0
+  \end{equation*}
+  as $\chi$ varies?
+\end{question}
+\begin{enumerate}[(i)]
+\item The conductor of $\chi$ is a varying prime.
+\item The conductor of $\chi$ is a power of a fixed prime.
+\end{enumerate}
+
+Iwasawa theory.  Ferrero--Washington, Hida, Vatsal, Finis: mod $p$ non-vanishing.
+
+An ingredient in the proof of $\GL_2$ Iwasawa main conjecture, Skinner--Urban.
+
+Mod $p$ horizontal non-vanishing?
+
+\subsection{Dirichlet $L$-values}
+$\lambda$ Dirichlet character of conductor $N$.
+
+$\chi$: Dirichlet character of conductor $F$.
+
+$p \nmid 2 F N$ $L(0, \lambda \chi)$ $p$-integral.
+
+$v_p$: $p$-adic valuation.
+
+Set
+\begin{equation*}
+\mathfrak{X}_\lambda(F) := \left\{ \chi \in \widehat{(\mathbb{Z} / F)^\times } : v_p \left( L(\lambda \chi, 0) \right) = 0 \right\}.
+\end{equation*}
+In words, this is the set of characters for which the $p$-valuation of the value at $0$ of the Dirichlet $L$-function attached to $\lambda \chi$
+
+\begin{question}
+  How big is $\mathfrak{X}_\lambda(F) $ as a function of $F$?
+\end{question}
+
+Ferrero--Washington: $F_n = \ell^n$, $\# \mathfrak{X}_\lambda(F_n) \sim \varphi(\ell^n)$.
+
+As $F$ varies over primes, $\mathfrak{X}_\lambda(F) \asymp F$.
+
+\begin{theorem}[Sun--B]
+  Let $F$ be a prime, $p \nmid 2 \varphi(F) F N$.
+  \begin{enumerate}[(a)]
+  \item\label{enumerate:cnekzumaui} If $F > N$, then
+    \begin{equation*}
+      \# \mathfrak{X}_\lambda(F) \geq
+      \left\lfloor
+        \frac{2 [\mathbb{F}_p(\lambda, \zeta_F ) \cdot \mathbb{F}_p(\lambda) ]}{N}
+      \right\rfloor^{1/4}.
+    \end{equation*}
+  \item\label{enumerate:cnekzumb90} If $F > N$, then
+    \begin{equation*}
+      \# \mathfrak{X}_\lambda(F) \geq
+      \left\lfloor
+        \left( \frac{F}{9 N} \right)^{1/2}
+      \right\rfloor.
+    \end{equation*}
+  \end{enumerate}
+\end{theorem}
+
+\begin{remark}
+  Some examples where $\# \mathfrak{X}_\lambda(F) \sim F$.
+\end{remark}
+
+\textbf{Strategy.}
+
+\begin{equation*}
+  R_\lambda(r, F) = \sum_{
+    \substack{
+      \chi \in \widehat{(\mathbb{Z} / F)^\times }  \\
+      r \in(\mathbb{Z} / F)^\times, \\
+      c(\chi) \in \overline{\mathbb{Z} }_{(p)}
+    }
+  }
+  \chi(r) c(\chi ) L(\lambda \chi, 0).
+\end{equation*}
+
+\begin{fact}
+  If there exist $\underline{r} =(r_i )$ and $\underline{s} =(s_j )$ in $(\mathbb{Z} / F)^\times$ such that for some $Q$, we have that
+  \begin{equation*}
+    \det \left( R_\lambda(r_i s_j , F) _{ 1 \leq i, j \leq Q} \right) \not \equiv 0 \pod{p},
+  \end{equation*}
+  then $\# \mathfrak{X}_\lambda(F) \geq Q$.
+\end{fact}
+
+Algebraic approach.
+
+\begin{equation*}
+  \Phi_\lambda(T) =
+  \frac{\left(
+    \sum_{r = 1 }^{N - 1}
+  \lambda(r) T^r \right)}{1 - T^N},
+\end{equation*}
+\begin{equation*}
+R_\lambda(r, F) = - \varphi(F) \lambda(- 1) \Phi_\lambda(\zeta_F^r).
+\end{equation*}
+
+\textbf{Aim.}  To find $Q$, $\underline{r}$, $\underline{s}$ such that
+\begin{equation*}
+  \det \left( \Phi_\lambda(\zeta_F^{r_i s_j }) \right) \neq 0 \pod{p}.
+\end{equation*}
+Put
+\begin{equation*}
+  D_\lambda(\underline{r}, \underline{s}, T)
+  = \sum_{\sigma \in S_{\lvert Q \rvert}}
+  \sgn(\sigma) \prod \psi_\lambda(T^{r_1 s_{\sigma(1)}})
+  \prod \left( 1 - T^{N r_i s_j} \right).
+\end{equation*}
+We think of this as an element of $\mathbb{F}_p(\lambda) [T]$.
+
+Let $Q_\lambda(F, T)$ denote the irreducible polynomial of $\zeta_F$ over $\mathbb{F}_p(\lambda)$.
+
+Then it suffices to show that $D_\lambda(\underline{r}, \underline{s}, T) \not \equiv 0 \pod{Q_\lambda(F, T)}$.
+
+This is okay if $\deg D_\lambda < \deg Q_\lambda$.
+
+$\deg D_\lambda \leq N Q^4/2$.
+
+Homological approach.
+
+$R_\lambda(r, F) =(F - 1) \lambda(F) \tau(\lambda) \int_{r/F - i \infty}^{r/F + i \infty} \Phi_\lambda \left( e^{2 \pi i z} \right) \, d z$.
+
+$c(\chi) = \bar{\chi}(N)$.
+
+\begin{equation*}
+  I(\lambda, x) = \int_{x - i \infty}^{x + i \infty}
+  \Phi_\lambda(e^{2 \pi i z}) \, d z
+  \quad \text{ for } x \in \mathbb{R} - \frac{\mathbb{Z}}{N} \pmod{1}.
+\end{equation*}
+
+\textbf{Want.} $\underline{r}$, $\underline{s}$,
+\begin{equation*}
+\det I \left( \lambda, \frac{r_i s_j}{F} \right) \neq 0 \pod{p}.
+\end{equation*}
+
+$I(\lambda, x)$: $p$-integral.
+
+$I(\lambda, x) = I(\lambda, y)$ if $\frac{m - 1}{N} \leq x, y \leq \frac{m}{N}$.
+
+$I(\lambda, x) - I(\lambda, y) \neq 0$ if $\frac{m - 1}{N} \leq x < \frac{m}{N} < y \leq \frac{m + 1}{N}$.
+
+\textbf{Reduces to the following.}
+$N = 2$.  \textbf{Want}: $\underline{r}, \underline{s}, \underline{s'}$ such that
+\begin{enumerate}
+\item[$C_1$] $0 < \frac{r_j s_j(F) }{F} < \frac{1}{2} < \frac{r_i s_j '(F) }{F}$ for $1 \leq j \leq Q$.
+\item[$C_2$] $0 < \frac{r_j s_j(F) }{F}, \frac{r_i s_j '(F) }{F} < \frac{1}{2}$ for $1 \leq j < i < Q$.
+\end{enumerate}
+
+\begin{remark}
+  It seems from numerics that $Q \asymp F$, but we can only do $Q \asymp F^{1/2}$.
+\end{remark}
+
+\subsection{Rankin--Selberg $L$-values}
+Start with an elliptic curve $E_{/\mathbb{Q}}$.  Let $N_E$ denote the conductor.
+
+Let $K/\mathbb{Q}$ be an imaginary quadratic field with $(D_K, N_E) = 1$.
+
+Let $\chi \in \mathrm{Cl}_K$ denote an ideal class character.
+
+Consider the Rankin--Selberg convolution $L(E \times \chi, s)$, self-dual: $\eps(E_{/K}) = \pm 1$.
+
+The following question was raised in a paper of Michel--Venkatesh.
+\begin{question}
+  How often are these central $L$-values $L(E \times \chi, 1)$ nonvanishing, for $\chi \in \widehat{\mathrm{Cl}_K}$ as $K$ varies?
+\end{question}
+
+Michel--Venkatesh:
+\begin{equation*}
+  \# \left\{ \chi \in \widehat{\mathrm{Cl}_K}
+    :
+    L(E \times \chi, 1) \neq 0
+  \right\}
+  \gg D_K^\delta \quad \text{ for } 0 < \delta < \frac{1}{2700}.
+\end{equation*}
+
+\begin{question}
+  How about
+\begin{equation*}
+  \# \left\{ \chi \in \widehat{\mathrm{Cl}_K} : v_P \left( L^{\mathrm{alg}}(E \times \chi, 1) \right) = 0 \right\}?
+\end{equation*}
+\end{question}
+\begin{theorem}[Hida--Tian--B]
+  Suppose that $p \nmid 6 N_E \prod_{\ell \div N} c_{\ell}$ and $\overline{\rho_{E, p}}$ is absolutely irreducible.  Then
+  \begin{equation*}
+    \# \left\{ \chi \in \widehat{\mathrm{Cl}_K} : v_P \left( L^{\mathrm{alg}}(E \times \chi, 1) \right) \right\}
+    \gg \left( \log \lvert D_K \rvert \right)^{1 - \eps}
+  \end{equation*}
+  as $K$ varies with
+  \begin{itemize}
+  \item $p \nmid h_K$,
+  \item $\eps(E_{/K}) = +1$.
+  \end{itemize}
+\end{theorem}
+
+\begin{remark}
+  \begin{itemize}
+  \item Proven via $p$-indivisibility of a toric period.
+  \item Simultaneously prove result for Tate--Shafarevich groups.
+  \end{itemize}
+\end{remark}
+
+\textbf{Sketch.}  We have
+\begin{equation*}
+  L^{\mathrm{alg}}(E \times \chi, 1) = P_\chi(f)^2 c_\chi
+\end{equation*}
+for
+\begin{equation*}
+  P_\chi(f) = \int_{B^\times \backslash B^\times_{\mathbb{A}}} \chi(t) f(t) \, d t.
+\end{equation*}
+Let $B$ be a definite quaternion algebra, and $X_U$ the associated Shimura set.  Let $K \hookrightarrow B$.  Let $\varphi_U : \mathrm{Cl}_K \rightarrow X_U$.
+
+\textbf{Existence of one twist.}  We can arrange that $f \not \equiv 0 \pod{p}$.
+
+If $P_\chi(f) \equiv 0 \pod{p}$ for all $\chi \in \widehat{\mathrm{Cl}_K}$, then
+\begin{equation*}
+  f \equiv 0 \pod{p} \quad \text{on } \mathrm{Cl}_K.
+\end{equation*}
+
+\textbf{Equidistribution}. $\varphi_U(\mathrm{Cl}_K) \twoheadrightarrow X_U$ for $\operatorname{disc}(K) \gg 0$.
+
+It follows that
+\begin{equation*}
+  f \equiv 0 \pod{p}\quad \text{on } X_U.
+\end{equation*}
+
+$\varphi_U(H_K)$ for $H_K \leq \mathrm{Cl}_K$, $[\mathrm{Cl}_K : H_K] \leq D_K^{\delta '}$.
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
