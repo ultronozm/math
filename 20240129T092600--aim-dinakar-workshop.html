@@ -220,7 +220,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2024-02-01 11:54:12
+2024-02-01 12:07:10
       <a href="20240129T092600--aim-dinakar-workshop.tex" class="my-link">tex</a>
       <a href="20240129T092600--aim-dinakar-workshop.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20240129T092600--aim-dinakar-workshop.tex" class="my-link">history</a>
@@ -2233,6 +2233,42 @@ class="math inline">\(L(\tfrac{1}{2}, \pi_F \times \theta_\Lambda) \neq
 </div>
 <p>Our final application concerns upper bounds for Fourier
 coefficients.</p>
+<div id="conjecture:cnfg5ktz3k" class="conjecture">
+<p><strong>Conjecture 29</strong>. <em>One has <span
+class="math display">\[\left\lvert a(F, S) \right\rvert \leq C_F \lvert
+\mathop{\mathrm{disc}}S \rvert^{\frac{k}{2} - \frac{3}{4} +
+\varepsilon}.\]</span></em></p>
+</div>
+<p>The above conjecture is very deep. But given the above formula, we
+obtain readily:</p>
+<div id="theorem:cnfg5nd8f6" class="theorem">
+<p><strong>Theorem 30</strong>. <em>Under GRH, <span
+class="math display">\[\sum_{
+      \substack{
+        \mathop{\mathrm{disc}}(S) = d L^2 M^2
+        \\
+        c(S) = L        
+      }
+    }
+    \lvert a(F, S) \rvert^2
+    \ll_\varepsilon\left\langle F, F \right\rangle k^{1/2} \frac{(2 \pi
+)^{2 k }}{\Gamma(k)^2 }
+    \frac{\lvert d L^2 M^2 \rvert^{k - 1 +
+\varepsilon}}{L}.\]</span></em></p>
+</div>
+<div id="theorem:cnfg5nkh9a" class="theorem">
+<p><strong>Theorem 31</strong> (Jaasaari–Lester–S, 2022). <em>Under GRH,
+for <span class="math inline">\(S\)</span> fundamental, <span
+class="math display">\[\lvert a(F, S) \rvert \leq c_{F, \varepsilon}
+\frac{\lvert \mathop{\mathrm{disc}}(S) \rvert^{\frac{k}{2} -
+\frac{1}{2}}}{\log(\mathop{\mathrm{disc}})^{\frac{1}{8} -
+\varepsilon}}.\]</span></em></p>
+</div>
+<p>This pushes just over the <span
+class="math inline">\(k/2-1/2\)</span> boundary. It’s done by writing
+<span class="math inline">\(a(F,S)\)</span> in terms of square roots of
+<span class="math inline">\(L\)</span>-values, bounding by absolute
+values, and using Soundararajan’s method of moments.</p>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="list">
 <div id="ref-MR3981316" class="csl-entry" role="listitem">
