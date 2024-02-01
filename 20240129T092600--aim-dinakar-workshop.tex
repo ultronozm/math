@@ -31,7 +31,7 @@ Let $T \subset \GL_2 / \mathbb{Q}$ be a torus.  Then, either
 \item\label{enumerate:cnej2giqmn} $T$ is non-split over $\mathbb{Q}$, hence identifiable with $K^\times$ for an embedding of a quadratic extension $K /\mathbb{Q}$.
 \end{enumerate}
 
-In case \eqref{enumerate:cnej2gipk2}, let $\pi$ be a cuspidal automorphic representation of $\GL_2$, and let $\varphi \in \pi$.  Then
+In case~\eqref{enumerate:cnej2gipk2}, let $\pi$ be a cuspidal automorphic representation of $\GL_2$, and let $\varphi \in \pi$.  Then
 \begin{equation*}
   \int_{[T]} \varphi(t) \chi(t) \lvert t_1 / t_2 \rvert^s \, d^\times t
   \, \dot{=}\,
@@ -40,7 +40,7 @@ In case \eqref{enumerate:cnej2gipk2}, let $\pi$ be a cuspidal automorphic repres
 Classically, this looks like
 \begin{equation*}
   \int_0^\infty f(i y ) y^s \, \frac{d y}{y}
-  =(2 \pi )^{- s} \Gamma(s) L(f, s).
+  ={(2 \pi)}^{- s} \Gamma(s) L(f, s).
 \end{equation*}
 More generally, for a Dirichlet character $\chi$ modulo $M$,
 \begin{equation}\label{eq:cnej2gzxf2}
@@ -51,7 +51,7 @@ If $f$ is of weight $2$, then
 \begin{equation*}
   f(\tau) \, d \tau =: \omega_f 
 \end{equation*}
-is a differential on the modular curve $X := X_1(N)$.  We can think of the geodesics $[0,i \infty]$ and more generally $[ \tfrac{a}{M}, i \infty ]$ as defining elements of $H_1(X, \mathbb{Z})$ (``modular symbols'').  Indeed, they span this.  We can write the left hand side of \eqref{eq:cnej2gzxf2} in the form
+is a differential on the modular curve $X := X_1(N)$.  We can think of the geodesics $[0,i \infty]$ and more generally $[ \tfrac{a}{M}, i \infty ]$ as defining elements of $H_1(X, \mathbb{Z})$ (``modular symbols'').  Indeed, they span this.  We can write the left hand side of~\eqref{eq:cnej2gzxf2} in the form
 \begin{equation*}
   \left\langle \Sigma \left[ \frac{a}{M} \right]  \bar{\chi}(a), \omega_f \right\rangle.
 \end{equation*}
@@ -79,15 +79,15 @@ where $\chi(-1) = \pm 1$.  This gives nonvanishing of $L(f, \chi, 1)$ for many $
 
 \textbf{Rohrlich}.  Fix a prime $p$.  There exists a $\chi$ of conductor $p^t$, for some $t$, such that $L(f, \chi, 1) \neq 0$.
 
-For $p$ odd, we have $(\mathbb{Z} / p^t)^\times \cong (\mathbb{Z} / p)^\times \times \mathbb{Z} / p^{t - 1}$. and we can ask that the ``tame'' part of $\chi$ (i.e., the restriction to $(\mathbb{Z} / p)^\times$) be fixed and sitll get such a nonvanishing result.
+For $p$ odd, we have $(\mathbb{Z} / p^t)^\times \cong (\mathbb{Z} / p)^\times \times \mathbb{Z} / p^{t - 1}$.  We can ask that the ``tame'' part of $\chi$ (i.e., the restriction to ${(\mathbb{Z} / p)}^\times$) be fixed and sitll get such a nonvanishing result.
 
 Manin--Vishuk/Mazur--Swinnerton-Dyer/Mazur--Tate--Tefebbaum: uses modular symbols to construct $p$-adic $L$-functions:
 \begin{equation*}
-  L_p(f, \chi) =(\ast)_{\chi, f, p} \frac{L(f, \chi, 1)}{ \Omega_f^{\pm}}
+  L_p(f, \chi) ={(\ast)}_{\chi, f, p} \frac{L(f, \chi, 1)}{ \Omega_f^{\pm}}
 \end{equation*}
 where $\chi$ is of conductor $p^t$ and the factor $(\ast)$ is very explicit.  Writing
 \begin{equation*}
-  \varprojlim(\mathbb{Z} / p^t )^\times \cong(\mathbb{Z} / p )^\times \times \mathbb{Z}_p,
+  \varprojlim {(\mathbb{Z} / p^t)}^\times \cong {(\mathbb{Z} / p )}^\times \times \mathbb{Z}_p,
 \end{equation*}
 we have that $L_p(f, \chi )$, viewed through the $\chi$ argument as a function of the second factor $\mathbb{Z}_p$ in the above isomorphism, is analytic, hence is essentially a polynomial.  This allows us to get stronger nonvanishing results, e.g., concerning all but finitely many $\chi$.
 
@@ -106,7 +106,7 @@ There have been some efforts to generalize the theory of modular symbols, e.g., 
 Another way to get a handle on these sorts of results is through Rankin--Selberg integrals, e.g.,
 \begin{equation*}
   \frac{\left\langle f, E_{\chi, \psi },
-      E_{(\chi \psi)^{-1}, 1}\right\rangle}{\left\langle f, f \right\rangle}
+      E_{{(\chi \psi)}^{-1}, 1}\right\rangle}{\left\langle f, f \right\rangle}
   \, \dot{=} \,
   \frac{L(f, \chi, 1)
     L(f, \psi, 1)}{\Omega_f^+ \Omega_f^- }.
@@ -118,10 +118,10 @@ Let's turn now to direction~\eqref{enumerate:cnej2giqmn}, where we have $K^\time
   X
   :=
   B^\times \backslash 
-  (B \otimes \mathbb{A})^\times
+  {(B \otimes \mathbb{A})}^\times
   / \mathbb{R}_{> 0} K _\infty^0 U,
   \quad
-  U \leq(B \otimes \mathbb{A}_f)^\times.
+  U \leq {(B \otimes \mathbb{A}_f)}^\times.
 \end{equation*}
 There are two cases:
 \begin{enumerate}[(a)]
@@ -1339,6 +1339,139 @@ It follows that
 \end{equation*}
 
 $\varphi_U(H_K)$ for $H_K \leq \mathrm{Cl}_K$, $[\mathrm{Cl}_K : H_K] \leq D_K^{\delta '}$.
+
+\section{Andrei Jorza}
+Let's talk about vanishing of $L(\pi, \tfrac{1}{2})$ and $L(\pi \chi, \tfrac{1}{2})$.
+
+There is a dichotomy according as $C(\chi) = p^m$ (Iwasawa) or $C(\chi) = \ell$ (a prime tending off to $\infty$).
+
+Let $f$ be a modular form of weight two that is ordinary at $p$.  Let $\chi$ have conductor $p^m$.  Then
+\begin{equation*}
+  L_p(f, \chi) = \frac{L(f, \chi, 1)}{\Omega_f^{\pm}}
+  \times(\text{extra factors}).
+\end{equation*}
+If there exists $\chi$ such that $L_p(f, \chi) \neq 0$, then only finitely many $\chi$ can have $L(f, \chi, 1) = 0$.  This uses the fact that $L_p(f, \chi)$ is a power series on $\mathbb{Z}_p^\times$.
+
+The formula is that
+\begin{equation*}
+  L_p(f, \chi) = \mathrm{const} \times \int_{
+    \substack{
+      \mathrm{aut. cycle}  \\
+      \text{of level } n \geq C(\chi)
+    }
+  } \phi_\alpha \left(
+    \begin{pmatrix}
+      x p^n  & x \\
+      0 & 1 \\
+    \end{pmatrix} \right) \chi(x) \,d^\times x.
+\end{equation*}
+Here $\phi_\alpha \in \pi$, where $\alpha$ is an ordinary $U_p$-eigenvector.
+
+What kinds of objects are $p$-adic $L$-functions in general?  Sprawling conjectures of Coates, developed by Perrin--Riou.  $p$-adic $L$-functions are conjecturally attached to certain kinds of polarized Galois representations.  The fact that they are geometric is a consequence of the fact that they are attached to automorphic forms.  The polarization is a choice of one of the two $U_p$-eigenvalues in the previous setting.
+
+Let's turn to the automorphic language.  Let $\pi$ be a cuspidal representation of $\GL_n / \mathbb{Q}$.  Let $\lambda$ be an algebraic weight of $\pi$.  Typically, that amounts to the local representation $\pi_p$ being spherical (Coates) or $\pi_p^{\mathrm{Iw}} \neq 0$.  We'll restrict ourselves in this setting, although there are other examples (see Hida).
+
+In terms of local representation theory, the fact that you have vectors fixed by the Iwahori group says that $\pi_p$ is included in $\Ind_B^{\GL_n} \theta$ of an unramified character $\theta$.  A refinement of $\pi$ is a choice $\tilde{\pi}$ of $\theta$.
+
+Conjecturally, there should exist $\mathcal{L}_p(\tilde{\pi}) \in \operatorname{Dist}(\mathbb{Z}_p^\times, \mathbb{C}_p)$ such that if $\chi$ has conductor $p^n$ and $s \in \mathbb{Z}_p$, then
+\begin{equation*}
+  L_p(\tilde{\pi}, \chi, s) = \int_{\mathbb{Z}_p^\times}
+  \left\langle x \right\rangle^{s - 1} \chi(x) \, d \mathcal{L}_p(\tilde{\pi})
+\end{equation*}
+such that whenever $j$ is a Deligne critical integer, we have
+\begin{equation}\label{eq:cnfg47dn34}
+  L_p(\tilde{\pi}, \chi, j) = \frac{L(\pi \times \chi, j + \tfrac{1}{2})}{\mathrm{period}}
+  \times(\text{extra factors})_{\tilde{\pi}, \chi, j}.
+\end{equation}
+\begin{remark}
+  Need to control power of $p$-adic logarithm $\log_p$ in $L_p$.
+\end{remark}
+\begin{example}[Bella{\"i}che]
+  Let $f$ be a CM modular form of weight $k$.  Let $f_\alpha$ be a refinement in the image of Coleman's $\theta^{k - 1}$.  Then for any critical integer $j$, i.e., $1 \leq j \leq k - 1$, we have
+  \begin{equation*}
+    L_p(f_\alpha, \chi, j) = 0 \quad \text{ for all } \chi.
+  \end{equation*}
+  The reason this occurs is because $L_p$ is divisible by $\prod \log_p$.
+\end{example}
+For this reason, we should also impose the fact that
+\begin{equation*}
+  L_p = \O \left( \log_p^h \right)
+\end{equation*}
+for some $h$.  That is to say, we need some control over the growth.  If we can do that in this setup, with
+\begin{equation*}
+  h = \nu_p \left( U_p \text{-eigenvalue} \right),
+\end{equation*}
+Then \eqref{eq:cnfg47dn34}, for all $\chi$, uniquely determines $L_p$ as long as $h \leq \# (\text{critical integers})$ (e.g., $k - 1$ for $S_k$).
+
+In fact, don't need all $\chi$; suffices to know this for all sufficiently ramified $\chi$ (Nguyen).
+
+How have $L_p$'s been constructed?  At least three very broad ways:
+\begin{enumerate}
+\item By hand.
+\item Using Rankin--Selberg method.  (Chris has already discussed the idea behind this; you're integrating a product of two modular forms, maybe with an Eisenstein series, and the nonvanishing of a special value is necessary to deduce that the $p$-adic $L$-function you're constructing is not the zero function.)  You construct
+  \begin{equation*}
+    \mathcal{L}_p(\tilde{\pi}) = \text{constant term of an Eisenstein series}.
+  \end{equation*}
+  This is technical but very powerful.
+\item Geometric approach of Stevens.  This is what we'll discuss a bit more.
+\end{enumerate}
+
+Let $\pi$ be a cuspidal representation of $\GL_{2 n}/\mathbb{Q}$ with a Shalika model.  This is equivalent to saying that $\pi$ comes from $\GSp_{2 n + 1}$.
+
+$\mathcal{L}_p(\tilde{\pi})$ is constructed as follows:
+\begin{equation*}
+  K_{\tilde{\pi}} \in H_c^\ast(X_K, (\text{some locally analytic distributions})_\lambda).
+\end{equation*}
+Take
+\begin{equation*}
+  \mathcal{L}_p(\tilde{\pi}) = \text{image of }
+  \int_{\text{aut. cycle}} K \tilde{\pi} \in
+  \operatorname{Dist}(M_n(\mathbb{Z}_p) \rightarrow \operatorname{Dist}(\mathbb{Z}_p^\times)).
+\end{equation*}
+You can show that this is equal to $\O(\log_p^h)$, where $h = \nu_p(U_p\text{-eig})$.
+
+Haven't really specified what the level is.  As an amusing feature of this theory, let's note that if $\pi_p$ is parahoric, and
+\begin{equation*}
+  \pi_p^{
+    \begin{pmatrix}
+      \ast      & \ast \\
+      0 & \ast \\
+    \end{pmatrix} \pmod{p}}
+  \neq 0
+\end{equation*},
+then you can use parahoric or Iwahori.  The parahoric construction is great for checking \eqref{eq:cnfg47dn34} at all $\chi$.  The Iwahori is great for eigenvarieties.
+
+What about if $L_p(\tilde{\pi}, \chi, j) = 0$?  Then, either,
+\begin{enumerate}
+\item\label{enumerate:cnfg48f2wk} $L(\pi \times \chi, j + \tfrac{1}{2}) = 0$, or
+\item\label{enumerate:cnfg48f3ib} there is an accidental, relation $\alpha \hookrightarrow \chi$ (Mazur--Tate--Titelbaum: trivial on $\SO_n$)
+\item\label{enumerate:cnfg48f4du} $L_p(\tilde{\pi, \chi, s})= 0$.
+\end{enumerate}
+
+\eqref{enumerate:cnfg48f2wk} is on the analytyic side.
+
+\eqref{enumerate:cnfg48f3ib}: if extra factors vanish as in Mazur--Tate--Titelbaum, then seek a formula for
+\begin{equation*}
+  L_p '(\tilde{\pi}, \chi, j).
+\end{equation*}
+\begin{itemize}
+\item When $\tilde{\pi}$ is an ordinary refinement of weight two modular forms, Gr-St.
+\item For $E$ over a totally real feild, Mok '09 and Spier '14.
+\item For MF nearly cetnral, Benois.
+\item For HMF central value, BD-J '13-'22.
+\end{itemize}
+These are proven mostly via $p$-adic families.  Picture of $\lambda , \lambda ' \in \mathcal{W}$ and $\tilde{\pi}, \tilde{\pi}_{\lambda '}$ lying over them.  Whenever $h = \nu_p(\alpha) < \#(\text{critical integers})$, you can approach this.
+
+To show that this family is {\'e}tale over $W$ close to $\lambda$, you need that there exists $\chi, j$ such that $L_p(\tilde{\pi}, \chi, j) \neq 0$.
+
+\textbf{Problem.}  What if $L_p \equiv 0$?  Then we can't use this to produce a $p$-adic family.
+
+$\pi$ on $\GL_{2n}$ coming from $\Pi$ on $\GSpin(2 n + 1)$.  Expect $p$-adic families if $\tilde{\pi}$ comes from $\tilde{\Pi}$.  References: AG, DJR (ordinary), BDW (unramified), BDGJW (families unramified at $p$), DJ (Iwahori at $p$); BGW recently showed that the above expectation is correct.
+
+\section{Abhishek Saha}
+
+
+
 
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
