@@ -220,7 +220,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2024-01-31 17:18:53
+2024-02-01 10:45:21
       <a href="20240129T092600--aim-dinakar-workshop.tex" class="my-link">tex</a>
       <a href="20240129T092600--aim-dinakar-workshop.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20240129T092600--aim-dinakar-workshop.tex" class="my-link">history</a>
@@ -264,6 +264,9 @@ Burungale</a>
 id="toc-rankinselberg-l-values">Rankin–Selberg <span
 class="math inline">\(L\)</span>-values</a></li>
 </ul></li>
+<li><a href="#andrei-jorza" id="toc-andrei-jorza">Andrei Jorza</a></li>
+<li><a href="#abhishek-saha" id="toc-abhishek-saha">Abhishek
+Saha</a></li>
 </ul>
 </nav>
 <h1 id="chris-skinner">Chris Skinner</h1>
@@ -306,7 +309,7 @@ class="math inline">\(\mathbb{Q}\)</span>, hence identifiable with <span
 class="math inline">\(K^\times\)</span> for an embedding of a quadratic
 extension <span class="math inline">\(K /\mathbb{Q}\)</span>.</p></li>
 </ol>
-<p>In case <a href="#enumerate:cnej2gipk2" data-reference-type="eqref"
+<p>In case <a href="#enumerate:cnej2gipk2" data-reference-type="eqref"
 data-reference="enumerate:cnej2gipk2">\((i)\)</a>, let
 <span class="math inline">\(\pi\)</span> be a cuspidal automorphic
 representation of <span
@@ -318,7 +321,7 @@ class="math display">\[\int_{[T]} \varphi(t) \chi(t) \lvert t_1 / t_2
   L(\pi \otimes \chi, s + \tfrac{1}{2}).\]</span> Classically, this
 looks like <span class="math display">\[\int_0^\infty f(i y ) y^s \,
 \frac{d y}{y}
-  =(2 \pi )^{- s} \Gamma(s) L(f, s).\]</span> More generally, for a
+  ={(2 \pi)}^{- s} \Gamma(s) L(f, s).\]</span> More generally, for a
 Dirichlet character <span class="math inline">\(\chi\)</span> modulo
 <span class="math inline">\(M\)</span>, <span id="eq:cnej2gzxf2" class="math display">\[\label{eq:cnej2gzxf2}\tag{1}
   \sum_{a (M)} \bar{\chi}(a) \int_0^\infty f(i y + \tfrac{a}{M} ) y^s \,
@@ -333,7 +336,7 @@ class="math inline">\([0,i \infty]\)</span> and more generally <span
 class="math inline">\([ \tfrac{a}{M}, i \infty ]\)</span> as defining
 elements of <span class="math inline">\(H_1(X, \mathbb{Z})\)</span>
 (“modular symbols”). Indeed, they span this. We can write the left hand
-side of <a href="#eq:cnej2gzxf2" data-reference-type="eqref"
+side of <a href="#eq:cnej2gzxf2" data-reference-type="eqref"
 data-reference="eq:cnej2gzxf2">\((1)\)</a> in the form <span
 class="math display">\[\left\langle \Sigma \left[ \frac{a}{M}
 \right]  \bar{\chi}(a), \omega_f \right\rangle.\]</span> For a newform
@@ -363,21 +366,21 @@ class="math inline">\(t\)</span>, such that <span
 class="math inline">\(L(f, \chi, 1) \neq 0\)</span>.</p>
 <p>For <span class="math inline">\(p\)</span> odd, we have <span
 class="math inline">\((\mathbb{Z} / p^t)^\times \cong (\mathbb{Z} /
-p)^\times \times \mathbb{Z} / p^{t - 1}\)</span>. and we can ask that
-the “tame” part of <span class="math inline">\(\chi\)</span> (i.e., the
-restriction to <span class="math inline">\((\mathbb{Z} /
-p)^\times\)</span>) be fixed and sitll get such a nonvanishing
+p)^\times \times \mathbb{Z} / p^{t - 1}\)</span>. We can ask that the
+“tame” part of <span class="math inline">\(\chi\)</span> (i.e., the
+restriction to <span class="math inline">\({(\mathbb{Z} /
+p)}^\times\)</span>) be fixed and sitll get such a nonvanishing
 result.</p>
 <p>Manin–Vishuk/Mazur–Swinnerton-Dyer/Mazur–Tate–Tefebbaum: uses modular
 symbols to construct <span class="math inline">\(p\)</span>-adic <span
 class="math inline">\(L\)</span>-functions: <span
-class="math display">\[L_p(f, \chi) =(\ast)_{\chi, f, p} \frac{L(f,
+class="math display">\[L_p(f, \chi) ={(\ast)}_{\chi, f, p} \frac{L(f,
 \chi, 1)}{ \Omega_f^{\pm}}\]</span> where <span
 class="math inline">\(\chi\)</span> is of conductor <span
 class="math inline">\(p^t\)</span> and the factor <span
 class="math inline">\((\ast)\)</span> is very explicit. Writing <span
-class="math display">\[\varprojlim(\mathbb{Z} / p^t )^\times
-\cong(\mathbb{Z} / p )^\times \times \mathbb{Z}_p,\]</span> we have that
+class="math display">\[\varprojlim {(\mathbb{Z} / p^t)}^\times \cong
+{(\mathbb{Z} / p )}^\times \times \mathbb{Z}_p,\]</span> we have that
 <span class="math inline">\(L_p(f, \chi )\)</span>, viewed through the
 <span class="math inline">\(\chi\)</span> argument as a function of the
 second factor <span class="math inline">\(\mathbb{Z}_p\)</span> in the
@@ -407,7 +410,7 @@ class="math inline">\(\pi \otimes \sigma\)</span>
 <p>Another way to get a handle on these sorts of results is through
 Rankin–Selberg integrals, e.g., <span
 class="math display">\[\frac{\left\langle f, E_{\chi, \psi },
-      E_{(\chi \psi)^{-1}, 1}\right\rangle}{\left\langle f, f
+      E_{{(\chi \psi)}^{-1}, 1}\right\rangle}{\left\langle f, f
 \right\rangle}
   \, \dot{=} \,
   \frac{L(f, \chi, 1)
@@ -429,10 +432,10 @@ interesting arithmetic of itself. The geometry then involves an adelic
 quotient <span class="math display">\[X
   :=
   B^\times \backslash
-  (B \otimes \mathbb{A})^\times
+  {(B \otimes \mathbb{A})}^\times
   / \mathbb{R}_{&gt; 0} K _\infty^0 U,
   \quad
-  U \leq(B \otimes \mathbb{A}_f)^\times.\]</span> There are two
+  U \leq {(B \otimes \mathbb{A}_f)}^\times.\]</span> There are two
 cases:</p>
 <ol type="a">
 <li><p><span id="enumerate:cnej2l35vn"
@@ -1771,6 +1774,224 @@ X_U\)</span> for <span class="math inline">\(\operatorname{disc}(K) \gg
 class="math inline">\(H_K \leq \mathrm{Cl}_K\)</span>, <span
 class="math inline">\([\mathrm{Cl}_K : H_K] \leq D_K^{\delta
 &#39;}\)</span>.</p>
+<h1 id="andrei-jorza">Andrei Jorza</h1>
+<p>Let’s talk about vanishing of <span class="math inline">\(L(\pi,
+\tfrac{1}{2})\)</span> and <span class="math inline">\(L(\pi \chi,
+\tfrac{1}{2})\)</span>.</p>
+<p>There is a dichotomy according as <span class="math inline">\(C(\chi)
+= p^m\)</span> (Iwasawa) or <span class="math inline">\(C(\chi) =
+\ell\)</span> (a prime tending off to <span
+class="math inline">\(\infty\)</span>).</p>
+<p>Let <span class="math inline">\(f\)</span> be a modular form of
+weight two that is ordinary at <span class="math inline">\(p\)</span>.
+Let <span class="math inline">\(\chi\)</span> have conductor <span
+class="math inline">\(p^m\)</span>. Then <span
+class="math display">\[L_p(f, \chi) = \frac{L(f, \chi,
+1)}{\Omega_f^{\pm}}
+  \times(\text{extra factors}).\]</span> If there exists <span
+class="math inline">\(\chi\)</span> such that <span
+class="math inline">\(L_p(f, \chi) \neq 0\)</span>, then only finitely
+many <span class="math inline">\(\chi\)</span> can have <span
+class="math inline">\(L(f, \chi, 1) = 0\)</span>. This uses the fact
+that <span class="math inline">\(L_p(f, \chi)\)</span> is a power series
+on <span class="math inline">\(\mathbb{Z}_p^\times\)</span>.</p>
+<p>The formula is that <span class="math display">\[L_p(f, \chi) =
+\mathrm{const} \times \int_{
+    \substack{
+      \mathrm{aut. cycle}  \\
+      \text{of level } n \geq C(\chi)
+    }
+  } \phi_\alpha \left(
+    \begin{pmatrix}
+      x p^n  &amp; x \\
+      0 &amp; 1 \\
+    \end{pmatrix} \right) \chi(x) \,d^\times x.\]</span> Here <span
+class="math inline">\(\phi_\alpha \in \pi\)</span>, where <span
+class="math inline">\(\alpha\)</span> is an ordinary <span
+class="math inline">\(U_p\)</span>-eigenvector.</p>
+<p>What kinds of objects are <span class="math inline">\(p\)</span>-adic
+<span class="math inline">\(L\)</span>-functions in general? Sprawling
+conjectures of Coates, developed by Perrin–Riou. <span
+class="math inline">\(p\)</span>-adic <span
+class="math inline">\(L\)</span>-functions are conjecturally attached to
+certain kinds of polarized Galois representations. The fact that they
+are geometric is a consequence of the fact that they are attached to
+automorphic forms. The polarization is a choice of one of the two <span
+class="math inline">\(U_p\)</span>-eigenvalues in the previous
+setting.</p>
+<p>Let’s turn to the automorphic language. Let <span
+class="math inline">\(\pi\)</span> be a cuspidal representation of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n / \mathbb{Q}\)</span>. Let
+<span class="math inline">\(\lambda\)</span> be an algebraic weight of
+<span class="math inline">\(\pi\)</span>. Typically, that amounts to the
+local representation <span class="math inline">\(\pi_p\)</span> being
+spherical (Coates) or <span class="math inline">\(\pi_p^{\mathrm{Iw}}
+\neq 0\)</span>. We’ll restrict ourselves in this setting, although
+there are other examples (see Hida).</p>
+<p>In terms of local representation theory, the fact that you have
+vectors fixed by the Iwahori group says that <span
+class="math inline">\(\pi_p\)</span> is included in <span
+class="math inline">\({\mathop{\mathrm{Ind}}}_B^{{\mathop{\mathrm{GL}}}_n}
+\theta\)</span> of an unramified character <span
+class="math inline">\(\theta\)</span>. A refinement of <span
+class="math inline">\(\pi\)</span> is a choice <span
+class="math inline">\(\tilde{\pi}\)</span> of <span
+class="math inline">\(\theta\)</span>.</p>
+<p>Conjecturally, there should exist <span
+class="math inline">\(\mathcal{L}_p(\tilde{\pi}) \in
+\operatorname{Dist}(\mathbb{Z}_p^\times, \mathbb{C}_p)\)</span> such
+that if <span class="math inline">\(\chi\)</span> has conductor <span
+class="math inline">\(p^n\)</span> and <span class="math inline">\(s \in
+\mathbb{Z}_p\)</span>, then <span
+class="math display">\[L_p(\tilde{\pi}, \chi, s) =
+\int_{\mathbb{Z}_p^\times}
+  \left\langle x \right\rangle^{s - 1} \chi(x) \, d
+\mathcal{L}_p(\tilde{\pi})\]</span> such that whenever <span
+class="math inline">\(j\)</span> is a Deligne critical integer, we have
+<span id="eq:cnfg47dn34" class="math display">\[\label{eq:cnfg47dn34}\tag{3}
+  L_p(\tilde{\pi}, \chi, j) = \frac{L(\pi \times \chi, j +
+\tfrac{1}{2})}{\mathrm{period}}
+  \times(\text{extra factors})_{\tilde{\pi}, \chi, j}.\]</span></p>
+<div class="remark">
+<p><strong>Remark 21</strong>. Need to control power of <span
+class="math inline">\(p\)</span>-adic logarithm <span
+class="math inline">\(\log_p\)</span> in <span
+class="math inline">\(L_p\)</span>.</p>
+</div>
+<div class="example">
+<p><strong>Example 22</strong> (Bella<span>ï</span>che). Let <span
+class="math inline">\(f\)</span> be a CM modular form of weight <span
+class="math inline">\(k\)</span>. Let <span
+class="math inline">\(f_\alpha\)</span> be a refinement in the image of
+Coleman’s <span class="math inline">\(\theta^{k - 1}\)</span>. Then for
+any critical integer <span class="math inline">\(j\)</span>, i.e., <span
+class="math inline">\(1 \leq j \leq k - 1\)</span>, we have <span
+class="math display">\[L_p(f_\alpha, \chi, j) = 0 \quad \text{ for all }
+\chi.\]</span> The reason this occurs is because <span
+class="math inline">\(L_p\)</span> is divisible by <span
+class="math inline">\(\prod \log_p\)</span>.</p>
+</div>
+<p>For this reason, we should also impose the fact that <span
+class="math display">\[L_p = \operatorname{O}\left( \log_p^h
+\right)\]</span> for some <span class="math inline">\(h\)</span>. That
+is to say, we need some control over the growth. If we can do that in
+this setup, with <span class="math display">\[h = \nu_p \left( U_p
+\text{-eigenvalue} \right),\]</span> Then <a href="#eq:cnfg47dn34"
+data-reference-type="eqref"
+data-reference="eq:cnfg47dn34">\((3)\)</a>, for all <span
+class="math inline">\(\chi\)</span>, uniquely determines <span
+class="math inline">\(L_p\)</span> as long as <span
+class="math inline">\(h \leq \# (\text{critical integers})\)</span>
+(e.g., <span class="math inline">\(k - 1\)</span> for <span
+class="math inline">\(S_k\)</span>).</p>
+<p>In fact, don’t need all <span class="math inline">\(\chi\)</span>;
+suffices to know this for all sufficiently ramified <span
+class="math inline">\(\chi\)</span> (Nguyen).</p>
+<p>How have <span class="math inline">\(L_p\)</span>’s been constructed?
+At least three very broad ways:</p>
+<ol>
+<li><p>By hand.</p></li>
+<li><p>Using Rankin–Selberg method. (Chris has already discussed the
+idea behind this; you’re integrating a product of two modular forms,
+maybe with an Eisenstein series, and the nonvanishing of a special value
+is necessary to deduce that the <span
+class="math inline">\(p\)</span>-adic <span
+class="math inline">\(L\)</span>-function you’re constructing is not the
+zero function.) You construct <span
+class="math display">\[\mathcal{L}_p(\tilde{\pi}) = \text{constant term
+of an Eisenstein series}.\]</span> This is technical but very
+powerful.</p></li>
+<li><p>Geometric approach of Stevens. This is what we’ll discuss a bit
+more.</p></li>
+</ol>
+<p>Let <span class="math inline">\(\pi\)</span> be a cuspidal
+representation of <span class="math inline">\({\mathop{\mathrm{GL}}}_{2
+n}/\mathbb{Q}\)</span> with a Shalika model. This is equivalent to
+saying that <span class="math inline">\(\pi\)</span> comes from <span
+class="math inline">\({\mathop{\mathrm{GSp}}}_{2 n + 1}\)</span>.</p>
+<p><span class="math inline">\(\mathcal{L}_p(\tilde{\pi})\)</span> is
+constructed as follows: <span class="math display">\[K_{\tilde{\pi}} \in
+H_c^\ast(X_K, (\text{some locally analytic
+distributions})_\lambda).\]</span> Take <span
+class="math display">\[\mathcal{L}_p(\tilde{\pi}) = \text{image of }
+  \int_{\text{aut. cycle}} K \tilde{\pi} \in
+  \operatorname{Dist}(M_n(\mathbb{Z}_p) \rightarrow
+\operatorname{Dist}(\mathbb{Z}_p^\times)).\]</span> You can show that
+this is equal to <span
+class="math inline">\(\operatorname{O}(\log_p^h)\)</span>, where <span
+class="math inline">\(h = \nu_p(U_p\text{-eig})\)</span>.</p>
+<p>Haven’t really specified what the level is. As an amusing feature of
+this theory, let’s note that if <span
+class="math inline">\(\pi_p\)</span> is parahoric, and <span
+class="math display">\[\pi_p^{
+    \begin{pmatrix}
+      \ast      &amp; \ast \\
+      0 &amp; \ast \\
+    \end{pmatrix} \pmod{p}}
+  \neq 0\]</span>, then you can use parahoric or Iwahori. The parahoric
+construction is great for checking <a href="#eq:cnfg47dn34"
+data-reference-type="eqref"
+data-reference="eq:cnfg47dn34">\((3)\)</a> at all <span
+class="math inline">\(\chi\)</span>. The Iwahori is great for
+eigenvarieties.</p>
+<p>What about if <span class="math inline">\(L_p(\tilde{\pi}, \chi, j) =
+0\)</span>? Then, either,</p>
+<ol>
+<li><p><span id="enumerate:cnfg48f2wk"
+label="enumerate:cnfg48f2wk"></span> <span class="math inline">\(L(\pi
+\times \chi, j + \tfrac{1}{2}) = 0\)</span>, or</p></li>
+<li><p><span id="enumerate:cnfg48f3ib"
+label="enumerate:cnfg48f3ib"></span> there is an accidental, relation
+<span class="math inline">\(\alpha \hookrightarrow \chi\)</span>
+(Mazur–Tate–Titelbaum: trivial on <span
+class="math inline">\({\mathop{\mathrm{SO}}}_n\)</span>)</p></li>
+<li><p><span id="enumerate:cnfg48f4du"
+label="enumerate:cnfg48f4du"></span> <span
+class="math inline">\(L_p(\tilde{\pi, \chi, s})= 0\)</span>.</p></li>
+</ol>
+<p><a href="#enumerate:cnfg48f2wk" data-reference-type="eqref"
+data-reference="enumerate:cnfg48f2wk">\((1)\)</a> is on
+the analytyic side.</p>
+<p><a href="#enumerate:cnfg48f3ib" data-reference-type="eqref"
+data-reference="enumerate:cnfg48f3ib">\((2)\)</a>: if
+extra factors vanish as in Mazur–Tate–Titelbaum, then seek a formula for
+<span class="math display">\[L_p &#39;(\tilde{\pi}, \chi,
+j).\]</span></p>
+<ul>
+<li><p>When <span class="math inline">\(\tilde{\pi}\)</span> is an
+ordinary refinement of weight two modular forms, Gr-St.</p></li>
+<li><p>For <span class="math inline">\(E\)</span> over a totally real
+feild, Mok ’09 and Spier ’14.</p></li>
+<li><p>For MF nearly cetnral, Benois.</p></li>
+<li><p>For HMF central value, BD-J ’13-’22.</p></li>
+</ul>
+<p>These are proven mostly via <span
+class="math inline">\(p\)</span>-adic families. Picture of <span
+class="math inline">\(\lambda , \lambda &#39; \in \mathcal{W}\)</span>
+and <span class="math inline">\(\tilde{\pi}, \tilde{\pi}_{\lambda
+&#39;}\)</span> lying over them. Whenever <span class="math inline">\(h
+= \nu_p(\alpha) &lt; \#(\text{critical integers})\)</span>, you can
+approach this.</p>
+<p>To show that this family is <span>é</span>tale over <span
+class="math inline">\(W\)</span> close to <span
+class="math inline">\(\lambda\)</span>, you need that there exists <span
+class="math inline">\(\chi, j\)</span> such that <span
+class="math inline">\(L_p(\tilde{\pi}, \chi, j) \neq 0\)</span>.</p>
+<p><strong>Problem.</strong> What if <span class="math inline">\(L_p
+\equiv 0\)</span>? Then we can’t use this to produce a <span
+class="math inline">\(p\)</span>-adic family.</p>
+<p><span class="math inline">\(\pi\)</span> on <span
+class="math inline">\({\mathop{\mathrm{GL}}}_{2n}\)</span> coming from
+<span class="math inline">\(\Pi\)</span> on <span
+class="math inline">\(\mathop{\mathrm{GSpin}}(2 n + 1)\)</span>. Expect
+<span class="math inline">\(p\)</span>-adic families if <span
+class="math inline">\(\tilde{\pi}\)</span> comes from <span
+class="math inline">\(\tilde{\Pi}\)</span>. References: AG, DJR
+(ordinary), BDW (unramified), BDGJW (families unramified at <span
+class="math inline">\(p\)</span>), DJ (Iwahori at <span
+class="math inline">\(p\)</span>); BGW recently showed that the above
+expectation is correct.</p>
+<h1 class="unnumbered" id="abhishek-saha">Abhishek Saha</h1>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="list">
 <div id="ref-MR3981316" class="csl-entry" role="listitem">
