@@ -1986,5 +1986,115 @@ Let $\pi \ni \phi$ be on $\GL_2 / K$, and let $\omega \in K$.
   = c_\phi
   \frac{L^\ast(\tfrac{1}{2}, \pi, \sym^3)}{L^\ast(1, \pi, \sym^2)}.
 \end{equation*}
-Here $c_\phi \neq 0$.\bibliography{refs}{} \bibliographystyle{plain}
+Here $c_\phi \neq 0$.
+
+\section{Vatsal}\label{sec:cnfhl2dwm9}
+Let's talk about \emph{congruences between special values}.  The general setup is the following.  Suppose you have some modular form $f \in S_2(\Gamma_0(N), \mathbb{Z})$, with rational Fourier coefficients, corresponding to an elliptic curve.
+\begin{question}
+  Suppose you have a prime $p$ and a congruence $f \equiv g \pod{p}$, by which we mean that $a_{\ell}(f) \equiv a_{\ell}(g) \pmod{p}$ for all $(\ell, N p) = 1$.  Does this imply a congruence between the special values, namely
+  \begin{equation*}
+    \frac{L(f \otimes \chi, 1)}{ \Omega_f^{\pm} }
+    \equiv     \frac{L(g \otimes \chi, 1)}{ \Omega_g^{\pm} }?
+  \end{equation*}
+  Here $\Omega_f^{\pm} $ are the $\pm$ N{\'e}ron periods for the corresponding elliptic curve.
+\end{question}
+This is what you would hope is true.  You can sort of imagine what will happen in the general case.  If you have some modular form and some congrruence between the coefficients, does that translate into a congruence between the specail values?
+\begin{remark}
+  You have to think a little bit about, what does a congruence $f \equiv g$ mean?  And similarly, what does a congruence of $L$-values mean?  And why do we even believe that such a thing is true?  Why is the hope reasonable?
+\end{remark}
+That's the question.  It's not clear why this should be true on the face of it, because these periods are just defined up to some rational number, and you have to normalize them in some way, and do them both at once, for $f$ and for $g$.  You need to be able to compare them in some sensible way, and it's very far from obvious that you can actually pick some period in some kind of consistent way, other than in this case of an elliptic curve, where maybe you have some definition that gives an actual \emph{number} (defined up to $\pm 1$ via the N{\'e}ron lattice of the curve).
+
+\textbf{Motivation.}  Knowing that $f \equiv g \pod{p}$ means really that $E_f [p] \cong E_g [p]$ as Galois modules.  The reason is that this $a_{\ell}(f)$ and $a_{\ell}(g)$ are just traces of the Frobenius $\Frob_{\ell}$ at $\ell$ on $E [p]$.  So you can read off the congruence class of these numbers by looking at what Frobenius does on these things.  So the Galois representation is somehow the invariant.  The general notion of congruence, which is maybe the one that generalizes, is that Galois representations should be congruent.  Of course, these Galois representations are kind of complicated, and maybe it's not so clear what congruence means for Galois representations, but it's a little bit more concrete than looking at Fourier coefficients.  If you want to get really speculative, if you think about Langlands in characteristic $p$, there should be some Galois representation attached to some automorphic representation mod $p$, and these $f$ and $g$ should just be deformations of some fixed thing, which maybe has an $L$-function mod $p$.  So if you believe that Langlands works in characteristic $p$, you can think about all these things as being lifts from characteristic $p$, and they give the same thing in characteristic $p$, hence should be conjugate.
+
+This is the general setup.  It's not completely beyond the pale to imagine something like this, but can we actually prove anything?  The answer is ``only in very few cases''.  Moreover, there is no evident way to generalize this to anything else.
+\begin{enumerate}
+\item Classical modular forms (degree $2$ standard $L$-function ).
+\item $\sym^2$ of the above.
+\item Rankin--Selberg of two classical forms.
+\end{enumerate}
+The \emph{proof} in all cases uses the same method, basically.  (In particular, this seems not to be known for Hilbert modular forms, except perhaps in some special cases, e.g., quadratic.)
+
+To describe how this goes, we need a bit of setup.  Let's take $f \in S_{2 k}(\Gamma_1(N))$, again with rational Fourier coefficients (just to avoid having to keep track of which field we're working over).  Shimura defines periods $\Omega_f^{\pm}$ for $f$ with the property that
+\begin{equation*}
+  c(\chi, n) \frac{L(f \otimes \chi, n)}{\Omega_f^{\pm}} \in \bar{\mathbb{Q}}.
+\end{equation*}
+(One could really put $\mathbb{Q} [\chi]$ here, or $\mathbb{Q}^\times$.)
+
+
+To prove congruences, need to get this up to a $p$-adic unit or integer.
+\begin{equation*}
+  S_2(\Gamma_1(N), \mathbb{C}) \supseteq S_2(\Gamma_1(N), \mathbb{Z}).
+\end{equation*}
+Eichler--Shimura tells you that the left hand side is isomorphic to
+\begin{equation*}
+  H^1(X_1(N), \mathbb{R} )^+ \oplus H^1(X_1(N), \mathbb{R})^-.
+\end{equation*}
+This sum in turn contains
+\begin{equation*}
+  H^1(X_1(N), \mathbb{Z} )^+ \oplus H^1(X_1(N), \mathbb{Z})^-.
+\end{equation*}
+We have
+\begin{equation*}
+  \omega_f \in H^1(X_1(N), \mathbb{C})
+\end{equation*}
+defined by
+\begin{equation*}
+  \int_z^{\gamma z} f(z) \, d z.
+\end{equation*}
+You can split this thing up:
+\begin{equation*}
+  \omega_f = \omega_f^+ + \omega_f^-.
+\end{equation*}
+By scaling, we obtain periods $\Omega_f^{\pm} \in \mathbb{C}$ such that
+\begin{equation*}
+  \omega_f^{\pm} = \Omega_f^{\pm} \delta_f^{\pm}, \qquad \delta_f^{\pm} \in H^1(X, \mathbb{Z}).
+\end{equation*}
+The point now is that the periods of this thing are rational: $\delta_f^{\pm}$ gives a map
+\begin{equation*}
+  \delta_f^{\pm} : H_1(X_1(N), \mathbb{Z}) \rightarrow \mathbb{Z}.
+\end{equation*}
+That's just the duality map.  If you evaluate this on a modular symbol, you get the algebraic part of an $L$-value.
+
+It's not obvious from this definition that $\Omega_f^{\pm}$ is actually a N{\'e}ron period of an elliptic curve.  The answer is ``yes'', but far from obvious.  The desired statement is equivalent to $c = \pm 1$, where $c$ is obtained by writing
+\begin{equation*}
+  X_1(N) \xrightarrow{\pi} E, \qquad \pi^\ast \omega_E = c f.
+\end{equation*}
+
+In general, this is kind of an annoying problem.  There are many different ways to come up with this period, and proving that they're the same is really kind of a problem.
+
+It's not clear from this (and not, in fact, true) that the condition $f \equiv g \pod{p}$ in $S_2(\Gamma_1(N), \mathbb{Z})$ implies that $\delta_f^{\pm} \equiv \delta_g^{\pm}$ in this other lattice $H^1(X, \mathbb{Z})$.
+
+What one needs to make this work is an isomorphism of these lattices
+\begin{equation*}
+  S_2(\Gamma_1(N), \mathbb{Z}) \cong H^1(X_1(N), \mathbb{Z})^+
+\end{equation*}
+as Hecke modules.  If you have such a thing, then everything works fine -- we get the desired congruences.  This is not expected in general.  What's true is that this is true locally at certain maximal ideals.  ($\mathbb{T}_m$ needs to be Gorenstein.)  You can do this for the $\GL_2$ case provided that you're dealing with forms that give rise to Gorenstein maximal ideals.  There are conditions you can write down on the Galois representation that make $\mathbb{T}_m$ Gorenstein, but there are certainly examples where it is not.
+
+This gives congruences for the $\GL_2$ standard $L$-functions, provided that $\mathbb{T}_m$ is Gorenstein.  It's worth pointing out that this depends only upon the mod $p$ representation -- you need to put some conditions on what $E[p]$ looks like for this to work.  What's less obvious, perhaps, is that this also gives congruences for the symmetric square and Rankin--Selberg.  The point is that in both of those cases, the $L$-value of something like that at a critical value is the inner product (by something like Shimura)
+\begin{equation*}
+  L(\sym^2(f) \otimes \chi, n) = \left\langle f, \theta_\chi^n E_\chi^n  \right\rangle.
+\end{equation*}
+You can take the holomorphic projection of $\theta E$.  This gives something with algebraic coefficients that are in fact $p$-adically integral.  The question is then, what is the integral analogue of the Petersson inner product?  You need some algebraic and in fact, integral substitute for $\langle , \rangle$ to make this work.  In this setup here, we were using cohomological duality over $\mathbb{Z}$.  Here, the point is that if $\mathbb{T}_m$ is Gorenstein.  This means that
+\begin{equation*}
+  \mathbb{T}_m \cong \mathbb{T}_m^\ast = \Hom(\mathbb{T}_m, \mathbb{Z}_p),
+\end{equation*}
+so you get a pairing
+\begin{equation*}
+  \mathbb{T}_m \times \mathbb{T}_m \rightarrow \mathbb{Z}_p.
+\end{equation*}
+But $\mathbb{T}_m^\ast \cong S_2(\Gamma_1(N), \mathbb{Z}_p)$ (always -- this is just duality).  What you can do is transfer this to a pairing that looks like this:
+\begin{equation*}
+  S_2(\Gamma_1(N), \mathbb{Z}) \times S_2(\Gamma_1(N), \mathbb{Z}) \rightarrow \mathbb{Z}_p.
+\end{equation*}
+This is a perfect pairing that is $T$-equivariant.  If you have a form in the first factor and two congruent things in the second factor, then you're going to get a congruence, just because this is an integral pairing.  So the congruences follow for free, almost, once you have this thing set up.  So if $f \equiv g$, then $\frac{f - g}{p} \in S_2(\mathbb{Z}_p)$, so
+\begin{equation*}
+  (f, \cdot) -(g, \cdot)
+\end{equation*}
+has values in $p \mathbb{Z}_p$, so we're done.  This gives congruences or $\sym^2$ and Rankin-Selberg.  These congruences are obtained kind of formally, but at this point, the story seems to end.  Don't know how to do the $\mathbb{T}_m$ stuff in general.
+
+
+
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
