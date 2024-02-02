@@ -220,7 +220,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2024-02-01 12:07:10
+2024-02-01 17:01:32
       <a href="20240129T092600--aim-dinakar-workshop.tex" class="my-link">tex</a>
       <a href="20240129T092600--aim-dinakar-workshop.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20240129T092600--aim-dinakar-workshop.tex" class="my-link">history</a>
@@ -259,10 +259,9 @@ Burungale</a>
 <ul>
 <li><a href="#introduction" id="toc-introduction">Introduction</a></li>
 <li><a href="#dirichlet-l-values" id="toc-dirichlet-l-values">Dirichlet
-<span class="math inline">\(L\)</span>-values</a></li>
+L-values</a></li>
 <li><a href="#rankinselberg-l-values"
-id="toc-rankinselberg-l-values">Rankin–Selberg <span
-class="math inline">\(L\)</span>-values</a></li>
+id="toc-rankinselberg-l-values">Rankin–Selberg L-values</a></li>
 </ul></li>
 <li><a href="#andrei-jorza" id="toc-andrei-jorza">Andrei Jorza</a></li>
 <li><a href="#abhishek-saha" id="toc-abhishek-saha">Abhishek Saha</a>
@@ -1404,6 +1403,109 @@ class="math display">\[\begin{pmatrix}
                   &amp; 1 \\
     \end{pmatrix} \gamma y \right)
   \theta(\eta x u) \,d u.\]</span></p>
+<p><strong>Thursday.</strong> <strong>Wei.</strong></p>
+<p>Let <span class="math inline">\(u : [H] \rightarrow
+\mathbb{C}\)</span>, <span class="math inline">\(H \subset
+G\)</span>.</p>
+<p>Then <span class="math display">\[K_f(x, y) = \sum_{\gamma \in
+G(\mathbb{Q})} f(x^{-1} \gamma y), \quad f \in
+C_c^\infty(G(\mathbb{A})).\]</span></p>
+<p>We were looking at <span id="eq:cnfg56vjen" class="math display">\[\label{eq:cnfg56vjen}\tag{3}
+\iint_{[H]^2} u(x) u(y) K_f(x, y) \, d x \, d y.\]</span></p>
+<p>Now consider <span class="math display">\[H =
+{\mathop{\mathrm{GL}}}_2\]</span> and <span class="math display">\[u : X
+\rightarrow A\]</span> and <span class="math display">\[G =
+{\mathop{\mathrm{GL}}}_2 \times {\mathop{\mathrm{GL}}}_2,\]</span> with
+<span class="math inline">\(H\)</span> embedded diagonally, and <span
+class="math display">\[f \in \mathcal{H}_G =
+C_c^\infty(G(\mathbb{A}_f)).\]</span> Then we consider a diagram where
+<span class="math inline">\(T_f\)</span> has two maps to <span
+class="math inline">\(S_G = X \times X\)</span>.</p>
+<p>Then we consider the map <span class="math display">\[X
+\xrightarrow{(u, \iota)} A \times S_G = A \times X \times X.\]</span>
+Abbreviate <span class="math inline">\(\varphi :=(u, \iota)\)</span>.
+Then the intersection number <span id="eq:cnfg58ajpb" class="math display">\[\label{eq:cnfg58ajpb}\tag{4}
+\left\langle \varphi _\ast(X), T_f \ast \varphi _\ast(X)
+\right\rangle\]</span> is the analogue of <a href="#eq:cnfg56vjen"
+data-reference-type="eqref"
+data-reference="eq:cnfg56vjen">\((3)\)</a>. We can write this as
+a sum of orbital integrals after “averaging over <span
+class="math inline">\(\varphi\)</span>”: <span
+class="math display">\[\sum_v \sum_\gamma \operatorname{Orb}(\gamma,
+f^\vee) \mathrm{wt}_v(\gamma).\]</span> Question: can we do so without
+“averaging”?</p>
+<p>Possibly we can think of <a href="#eq:cnfg58ajpb"
+data-reference-type="eqref"
+data-reference="eq:cnfg58ajpb">\((4)\)</a> more symmetrically as
+the number we get from considering <span class="math display">\[X \times
+X \xrightarrow{(u,u,\iota,\iota)}
+  A \times A \times S_G \times S_G\]</span> by pushing forward and then
+pairing against the embedding of <span class="math inline">\(\Delta A
+\times T_f\)</span>.</p>
+<p><strong>Weixiao.</strong></p>
+<p>Issue. Suppose that <span class="math inline">\(I&#39;(f, s) \neq
+0\)</span>. We claim that we have <span class="math display">\[I_\pi
+&#39;(f, s) \neq 0\]</span> for some cuspidal <span
+class="math inline">\(\pi\)</span> with <span
+class="math inline">\(\varepsilon(\pi) = -1\)</span> (so that <span
+class="math inline">\(L(\tfrac{1}{2}, \pi) = 0\)</span>). We have <span
+class="math display">\[I_\pi &#39;(f, s) =
+  \left( L(\tfrac{1}{2} + s, \pi )
+  \times (\text{local factors}) \right)&#39;.\]</span> We have a
+comparison <span id="eq:cnfg6c4p6o" class="math display">\[\label{eq:cnfg6c4p6o}\tag{5}
+  I_\pi(f&#39;) = \sum_{V} \sum_{\sigma \in
+\mathcal{A}_{\mathop{\mathrm{cusp}}}(\mathop{\mathrm{U}}(V) \times
+\mathop{\mathrm{U}}(V \oplus E))}
+  J_\sigma(f),\]</span> where <span class="math inline">\(f &#39; =
+\otimes f_v &#39;\)</span> and <span class="math inline">\(f = \otimes
+f_v\)</span> correspond under smooth transfer: <span
+class="math display">\[\operatorname{Orb}(\gamma, f_v &#39;) =
+\operatorname{Orb}(\delta, f_v),\]</span> for regular semisimple <span
+class="math inline">\(\gamma \leftrightarrow \delta\)</span>.</p>
+<p>A function <span class="math inline">\(f_v&#39;\)</span> on the
+general linear side is transferred to two functions on the unitary side.
+We want <span class="math inline">\(f&#39;\)</span> to be of “pure
+type”, which means that each <span class="math inline">\(f_v
+&#39;\)</span> transfers to <span class="math inline">\(\{f_v,
+0\}\)</span>. If this happens, then in the sum over <span
+class="math inline">\(V\)</span> in <a href="#eq:cnfg6c4p6o"
+data-reference-type="eqref"
+data-reference="eq:cnfg6c4p6o">\((5)\)</a>, only one term
+contributes.</p>
+<p>We have <span class="math display">\[I_\pi(f&#39;) = J_\sigma(f),
+\quad \operatorname{BC}(\sigma) = \pi.\]</span> We have <span
+class="math display">\[I_\pi(f&#39;) \neq 0 \implies J_\sigma(f) \neq 0
+\implies \varepsilon(\pi) = -1,\]</span> where the last step follows by
+local GGP.</p>
+<div class="proposition">
+<p><strong>Proposition 9</strong> (Wei for <span class="math inline">\(n
+= 3\)</span>, Beuzart-Plessis). <em>(local) <span
+class="math inline">\(I_1^{\mathrm{Tate}}(f&#39;) = \varepsilon_1
+J_1(f_1) + \varepsilon_2 J_1(f_2)\)</span>, where <span
+class="math inline">\(J_1(f) = \int_{\mathop{\mathrm{U}}(n)} f(h) \, d
+h\)</span>.</em></p>
+</div>
+<p>Say we take <span class="math inline">\(f &#39; = \otimes f_v
+&#39;\)</span>. Choose <span class="math inline">\(v_0\)</span> inert,
+take <span class="math inline">\(f _{v_0}&#39;\)</span> with regular
+semisimple support, want to arrange that <span
+class="math inline">\(I_{\pi_{v_0 }}&#39;(f_{v_0 }&#39;, 0) = 0\)</span>
+for all <span class="math inline">\(\pi_{v_0}\)</span>. At <span
+class="math inline">\(v_1\)</span>, we take small support. Away from
+those places, maybe we do unramified (or maybe at another place, we do
+supercuspidal). Could arrange that <span class="math inline">\(I_{\pi_0
+}(f_{v_0 })\)</span> vanishes or not according as <span
+class="math inline">\(\varepsilon_{v_0}\)</span> is <span
+class="math inline">\(1\)</span> rather than <span
+class="math inline">\(-1\)</span>. Arrange that at <span
+class="math inline">\(v_2\)</span>, we take <span
+class="math inline">\(f_{v_2}\)</span> so that <span
+class="math inline">\(I_{\pi_{v_2 }}&#39;(f_{v_2}, 0) = 0\)</span>.</p>
+<p>Suppose that <span class="math inline">\(I_{\pi_{v_0}}(f_{v_0},
+s)\)</span> has a functional equation such that it is even provided that
+<span class="math inline">\(\varepsilon_{\pi_v} = +1\)</span> and odd if
+<span class="math inline">\(\varepsilon_{\pi_v}\)</span> is <span
+class="math inline">\(-1\)</span>.</p>
 <h1 id="wei-zhang">Wei Zhang</h1>
 <p>Cycles vs. <span class="math inline">\(L\)</span>-values.</p>
 <p>Periods.</p>
@@ -1462,7 +1564,7 @@ class="math inline">\(2(n - 1)\)</span>.</p>
 <p><span class="math inline">\(\varphi : [G] \rightarrow
 \mathbb{C}\)</span>.</p>
 <div id="theorem:cnfg5jyfj8" class="example">
-<p><strong>Example 10</strong>. <span id="example:cnfg5j3x18"
+<p><strong>Example 11</strong>. <span id="example:cnfg5j3x18"
 label="example:cnfg5j3x18"></span> Gross–Zagier (<span
 class="math inline">\(n = 2\)</span>). Let <span
 class="math inline">\(A\)</span> be an elliptic curve over <span
@@ -1496,7 +1598,7 @@ through cohomology.</p>
 Block–Kato Selmer maps(t) the <span class="math inline">\(H^1_f\)</span>
 factor.</p>
 <div id="theorem:cnfg5jyfj8" class="theorem">
-<p><strong>Theorem 9</strong>. <em><span
+<p><strong>Theorem 10</strong>. <em><span
 class="math display">\[\left\langle \int_{[\mathrm{Sh}(H)]} \varphi,
 \int_{[\mathrm{Sh}(H)]} \varphi \right\rangle_{\text{$p$-adic height}}
       \approx L_p &#39;(\pi , \tfrac{1}{2}).\]</span> The identity holds
@@ -1537,7 +1639,7 @@ class="math inline">\(s = 0\)</span>. <span
 class="math inline">\(L^{(r)}(\mathcal{M}, 0)\)</span>: Block–Kato,
 Selmber group.</p>
 <div id="question:cnfg5j4o4z" class="question">
-<p><strong>Question 11</strong>. How often do we have <span
+<p><strong>Question 12</strong>. How often do we have <span
 class="math display">\[L(\mathcal{M} \otimes \chi, 0) \neq 0\]</span> as
 <span class="math inline">\(\chi\)</span> varies?</p>
 </div>
@@ -1554,10 +1656,9 @@ class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span> Iwasawa main
 conjecture, Skinner–Urban.</p>
 <p>Mod <span class="math inline">\(p\)</span> horizontal
 non-vanishing?</p>
-<h2 id="dirichlet-l-values">Dirichlet <span
-class="math inline">\(L\)</span>-values</h2>
-<p><span class="math inline">\(\lambda\)</span> Dirichlet character of
-conductor <span class="math inline">\(N\)</span>.</p>
+<h2 id="dirichlet-l-values">Dirichlet L-values</h2>
+<p>Let <span class="math inline">\(\lambda\)</span>: Dirichlet character
+of conductor <span class="math inline">\(N\)</span>.</p>
 <p><span class="math inline">\(\chi\)</span>: Dirichlet character of
 conductor <span class="math inline">\(F\)</span>.</p>
 <p><span class="math inline">\(p \nmid 2 F N\)</span> <span
@@ -1574,7 +1675,7 @@ class="math inline">\(0\)</span> of the Dirichlet <span
 class="math inline">\(L\)</span>-function attached to <span
 class="math inline">\(\lambda \chi\)</span></p>
 <div id="question:cnfg5j4tbm" class="question">
-<p><strong>Question 12</strong>. How big is <span
+<p><strong>Question 13</strong>. How big is <span
 class="math inline">\(\mathfrak{X}_\lambda(F)\)</span> as a function of
 <span class="math inline">\(F\)</span>?</p>
 </div>
@@ -1584,7 +1685,7 @@ class="math inline">\(\mathfrak{X}_\lambda(F)\)</span> as a function of
 <p>As <span class="math inline">\(F\)</span> varies over primes, <span
 class="math inline">\(\mathfrak{X}_\lambda(F) \asymp F\)</span>.</p>
 <div id="enumerate:cnekzumb90" class="theorem">
-<p><strong>Theorem 13</strong> (Sun–B). <em><span
+<p><strong>Theorem 14</strong> (Sun–B). <em><span
 id="theorem:cnfg5jyjlh" label="theorem:cnfg5jyjlh"></span> Let <span
 class="math inline">\(F\)</span> be a prime, <span
 class="math inline">\(p \nmid 2 \varphi(F) F N\)</span>.</em></p>
@@ -1605,7 +1706,7 @@ class="math display">\[\# \mathfrak{X}_\lambda(F) \geq
 </ol>
 </div>
 <div id="remark:cnfg5j4wud" class="remark">
-<p><strong>Remark 14</strong>. Some examples where <span
+<p><strong>Remark 15</strong>. Some examples where <span
 class="math inline">\(\# \mathfrak{X}_\lambda(F) \sim F\)</span>.</p>
 </div>
 <p><strong>Strategy.</strong></p>
@@ -1618,7 +1719,7 @@ class="math inline">\(\# \mathfrak{X}_\lambda(F) \sim F\)</span>.</p>
   }
   \chi(r) c(\chi ) L(\lambda \chi, 0).\]</span></p>
 <div class="fact">
-<p><strong>Fact 15</strong>. <em>If there exist <span
+<p><strong>Fact 16</strong>. <em>If there exist <span
 class="math inline">\(\underline{r} =(r_i )\)</span> and <span
 class="math inline">\(\underline{s} =(s_j )\)</span> in <span
 class="math inline">\((\mathbb{Z} / F)^\times\)</span> such that for
@@ -1692,12 +1793,11 @@ class="math inline">\(1 \leq j \leq Q\)</span>.</p></li>
 class="math inline">\(1 \leq j &lt; i &lt; Q\)</span>.</p></li>
 </ol>
 <div id="remark:cnfg5j6hsm" class="remark">
-<p><strong>Remark 16</strong>. It seems from numerics that <span
+<p><strong>Remark 17</strong>. It seems from numerics that <span
 class="math inline">\(Q \asymp F\)</span>, but we can only do <span
 class="math inline">\(Q \asymp F^{1/2}\)</span>.</p>
 </div>
-<h2 id="rankinselberg-l-values">Rankin–Selberg <span
-class="math inline">\(L\)</span>-values</h2>
+<h2 id="rankinselberg-l-values">Rankin–Selberg L-values</h2>
 <p>Start with an elliptic curve <span
 class="math inline">\(E_{/\mathbb{Q}}\)</span>. Let <span
 class="math inline">\(N_E\)</span> denote the conductor.</p>
@@ -1711,7 +1811,7 @@ class="math inline">\(L(E \times \chi, s)\)</span>, self-dual: <span
 class="math inline">\(\varepsilon(E_{/K}) = \pm 1\)</span>.</p>
 <p>The following question was raised in a paper of Michel–Venkatesh.</p>
 <div id="question:cnfg5j6lyt" class="question">
-<p><strong>Question 17</strong>. How often are these central <span
+<p><strong>Question 18</strong>. How often are these central <span
 class="math inline">\(L\)</span>-values <span class="math inline">\(L(E
 \times \chi, 1)\)</span> nonvanishing, for <span
 class="math inline">\(\chi \in \widehat{\mathrm{Cl}_K}\)</span> as <span
@@ -1725,13 +1825,13 @@ class="math inline">\(K\)</span> varies?</p>
   \gg D_K^\delta \quad \text{ for } 0 &lt; \delta &lt;
 \frac{1}{2700}.\]</span></p>
 <div id="question:cnfg5j6qpg" class="question">
-<p><strong>Question 18</strong>. How about <span
+<p><strong>Question 19</strong>. How about <span
 class="math display">\[\# \left\{ \chi \in \widehat{\mathrm{Cl}_K} : v_P
 \left( L^{\mathrm{alg}}(E \times \chi, 1) \right) = 0
 \right\}?\]</span></p>
 </div>
 <div id="theorem:cnfg5jyk55" class="theorem">
-<p><strong>Theorem 19</strong> (Hida–Tian–B). <em>Suppose that <span
+<p><strong>Theorem 20</strong> (Hida–Tian–B). <em>Suppose that <span
 class="math inline">\(p \nmid 6 N_E \prod_{\ell \operatorname{div}N}
 c_{\ell}\)</span> and <span class="math inline">\(\overline{\rho_{E,
 p}}\)</span> is absolutely irreducible. Then <span
@@ -1747,7 +1847,7 @@ h_K\)</span>,</em></p></li>
 </ul>
 </div>
 <div id="remark:cnfg5j6ys8" class="remark">
-<p><strong>Remark 20</strong>. </p>
+<p><strong>Remark 21</strong>. </p>
 <ul>
 <li><p>Proven via <span class="math inline">\(p\)</span>-indivisibility
 of a toric period.</p></li>
@@ -1853,18 +1953,18 @@ class="math display">\[L_p(\tilde{\pi}, \chi, s) =
   \left\langle x \right\rangle^{s - 1} \chi(x) \, d
 \mathcal{L}_p(\tilde{\pi})\]</span> such that whenever <span
 class="math inline">\(j\)</span> is a Deligne critical integer, we have
-<span id="eq:cnfg47dn34" class="math display">\[\label{eq:cnfg47dn34}\tag{3}
+<span id="eq:cnfg47dn34" class="math display">\[\label{eq:cnfg47dn34}\tag{6}
   L_p(\tilde{\pi}, \chi, j) = \frac{L(\pi \times \chi, j +
 \tfrac{1}{2})}{\mathrm{period}}
   \times(\text{extra factors})_{\tilde{\pi}, \chi, j}.\]</span></p>
 <div id="remark:cnfg5j6990" class="remark">
-<p><strong>Remark 21</strong>. Need to control power of <span
+<p><strong>Remark 22</strong>. Need to control power of <span
 class="math inline">\(p\)</span>-adic logarithm <span
 class="math inline">\(\log_p\)</span> in <span
 class="math inline">\(L_p\)</span>.</p>
 </div>
 <div id="example:cnfg5j7bim" class="example">
-<p><strong>Example 22</strong> (Bella<span>ï</span>che). Let <span
+<p><strong>Example 23</strong> (Bella<span>ï</span>che). Let <span
 class="math inline">\(f\)</span> be a CM modular form of weight <span
 class="math inline">\(k\)</span>. Let <span
 class="math inline">\(f_\alpha\)</span> be a refinement in the image of
@@ -1883,7 +1983,7 @@ is to say, we need some control over the growth. If we can do that in
 this setup, with <span class="math display">\[h = \nu_p \left( U_p
 \text{-eigenvalue} \right),\]</span> Then <a href="#eq:cnfg47dn34"
 data-reference-type="eqref"
-data-reference="eq:cnfg47dn34">\((3)\)</a>, for all <span
+data-reference="eq:cnfg47dn34">\((6)\)</a>, for all <span
 class="math inline">\(\chi\)</span>, uniquely determines <span
 class="math inline">\(L_p\)</span> as long as <span
 class="math inline">\(h \leq \# (\text{critical integers})\)</span>
@@ -1938,7 +2038,7 @@ class="math display">\[\pi_p^{
   \neq 0\]</span>, then you can use parahoric or Iwahori. The parahoric
 construction is great for checking <a href="#eq:cnfg47dn34"
 data-reference-type="eqref"
-data-reference="eq:cnfg47dn34">\((3)\)</a> at all <span
+data-reference="eq:cnfg47dn34">\((6)\)</a> at all <span
 class="math inline">\(\chi\)</span>. The Iwahori is great for
 eigenvarieties.</p>
 <p>What about if <span class="math inline">\(L_p(\tilde{\pi}, \chi, j) =
@@ -2067,13 +2167,13 @@ discriminant <span class="math inline">\(D\)</span>.</p>
 S) \Lambda(S), \quad
   \Lambda \in \widehat{H_D}.\]</span></p>
 <div id="remark:cnfg5j8o2u" class="remark">
-<p><strong>Remark 23</strong>. <span class="math inline">\(D = d
+<p><strong>Remark 24</strong>. <span class="math inline">\(D = d
 M^2\)</span>, <span class="math inline">\(\Lambda \in
 \widehat{H_D}\)</span>, <span class="math inline">\(K =
 \mathbb{Q}(\sqrt{D})\)</span>.</p>
 </div>
 <div id="remark:cnfg5j8p19" class="remark">
-<p><strong>Remark 24</strong>. If <span class="math inline">\(F\)</span>
+<p><strong>Remark 25</strong>. If <span class="math inline">\(F\)</span>
 is a Saito–Kurokawa lift, then all <span class="math inline">\(a(F,
 S)\)</span> for <span class="math inline">\(S \in H_D\)</span> are
 equal.</p>
@@ -2131,7 +2231,7 @@ class="math inline">\(\Phi_F\)</span>.</p></li>
 \sum_{\Lambda \in \widehat{H_D }} \lvert B(\Phi_F, \Lambda )
 \rvert^2.\]</span></p>
 <div id="theorem:cnfg5jymlf" class="theorem">
-<p><strong>Theorem 25</strong> (Conjectured by Liu 2016, proved by
+<p><strong>Theorem 26</strong> (Conjectured by Liu 2016, proved by
 Furusawa–Morimoto 2022). <em>We have <span
 class="math display">\[\frac{\left\lvert B(\Phi_F, \Lambda )
 \right\rvert^2 }{ \left\langle F, F \right\rangle}
@@ -2191,7 +2291,7 @@ F\)</span> has algebraic integral Fourier coefficients. In particular,
 the sums <span class="math inline">\(\sum a(F, S) \Lambda(S)\)</span> as
 above are integral.</p>
 <div id="theorem:cnfg5jynuf" class="theorem">
-<p><strong>Theorem 26</strong>. <em>Let <span
+<p><strong>Theorem 27</strong>. <em>Let <span
 class="math inline">\(\pi\)</span> be a cuspidal representation of <span
 class="math inline">\({\mathop{\mathrm{PGSp}}}_4(\mathbb{A})\)</span>.
 Thus <span class="math inline">\(\pi_p\)</span> is unramified for all
@@ -2206,7 +2306,7 @@ the quantities <span class="math display">\[c_\pi \lvert d  \rvert^{k -
 integral.</em></p>
 </div>
 <div id="theorem:cnfg5kcowe" class="theorem">
-<p><strong>Theorem 27</strong> (Jaasaari–Lester–S). <em>Let <span
+<p><strong>Theorem 28</strong> (Jaasaari–Lester–S). <em>Let <span
 class="math inline">\(F \in S_k(\Gamma)\)</span>. Then for all large
 enough <span class="math inline">\(X\)</span>, there are at least <span
 class="math inline">\(X^{1 - \varepsilon}\)</span> fundamental
@@ -2220,7 +2320,7 @@ class="math inline">\(\mathop{\mathrm{disc}}(S) = d\)</span> such that
 \rvert}}}.\]</span></em></p>
 </div>
 <div id="corollary:cnfg5kcqax" class="corollary">
-<p><strong>Corollary 28</strong>. <em>For at least <span
+<p><strong>Corollary 29</strong>. <em>For at least <span
 class="math inline">\(X^{1 - \varepsilon}\)</span> fundamental
 discriminants <span class="math inline">\(d\)</span> as above, there
 exists some <span class="math inline">\(\Lambda \in
@@ -2234,7 +2334,7 @@ class="math inline">\(L(\tfrac{1}{2}, \pi_F \times \theta_\Lambda) \neq
 <p>Our final application concerns upper bounds for Fourier
 coefficients.</p>
 <div id="conjecture:cnfg5ktz3k" class="conjecture">
-<p><strong>Conjecture 29</strong>. <em>One has <span
+<p><strong>Conjecture 30</strong>. <em>One has <span
 class="math display">\[\left\lvert a(F, S) \right\rvert \leq C_F \lvert
 \mathop{\mathrm{disc}}S \rvert^{\frac{k}{2} - \frac{3}{4} +
 \varepsilon}.\]</span></em></p>
@@ -2242,7 +2342,7 @@ class="math display">\[\left\lvert a(F, S) \right\rvert \leq C_F \lvert
 <p>The above conjecture is very deep. But given the above formula, we
 obtain readily:</p>
 <div id="theorem:cnfg5nd8f6" class="theorem">
-<p><strong>Theorem 30</strong>. <em>Under GRH, <span
+<p><strong>Theorem 31</strong>. <em>Under GRH, <span
 class="math display">\[\sum_{
       \substack{
         \mathop{\mathrm{disc}}(S) = d L^2 M^2
@@ -2257,7 +2357,7 @@ class="math display">\[\sum_{
 \varepsilon}}{L}.\]</span></em></p>
 </div>
 <div id="theorem:cnfg5nkh9a" class="theorem">
-<p><strong>Theorem 31</strong> (Jaasaari–Lester–S, 2022). <em>Under GRH,
+<p><strong>Theorem 32</strong> (Jaasaari–Lester–S, 2022). <em>Under GRH,
 for <span class="math inline">\(S\)</span> fundamental, <span
 class="math display">\[\lvert a(F, S) \rvert \leq c_{F, \varepsilon}
 \frac{\lvert \mathop{\mathrm{disc}}(S) \rvert^{\frac{k}{2} -
