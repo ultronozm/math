@@ -4,11 +4,11 @@
 
 \begin{document}
 
-\maketitle
-
 \begin{abstract}
   Some notes from AIM workshop on arithmetic/geometric/analytic aspects of automorphic forms, held between 29 Jan and Feb 2 of 2024 (currently in progress).  These notes are incomplete and have not been proofread.  Any errors should be assumed to be due to the note-taker.  Also, I was jetlagged and may have nodded off here and there while taking notes; any incoherence might be due to that.
 \end{abstract}
+
+\maketitle
 
 \section{Chris Skinner}
 In this workshop, we have the various aspects of automorphic forms:
@@ -987,6 +987,113 @@ Get
   \theta(\eta x u) \,d u.  
 \end{equation*}
 
+
+
+\textbf{Thursday.}
+\textbf{Wei.}
+
+Let $u : [H] \rightarrow \mathbb{C}$, $H \subset G$.
+
+Then
+\begin{equation*}
+K_f(x, y) = \sum_{\gamma \in G(\mathbb{Q})} f(x^{-1} \gamma y), \quad f \in C_c^\infty(G(\mathbb{A})).
+\end{equation*}
+
+We were looking at
+\begin{equation}\label{eq:cnfg56vjen}
+\iint_{[H]^2} u(x) u(y) K_f(x, y) \, d x \, d y.
+\end{equation}
+
+Now consider
+\begin{equation*}
+H = \GL_2
+\end{equation*}
+and
+\begin{equation*}
+u : X \rightarrow A
+\end{equation*}
+and
+\begin{equation*}
+G = \GL_2 \times \GL_2,
+\end{equation*}
+with $H$ embedded diagonally, and
+\begin{equation*}
+f \in \mathcal{H}_G = C_c^\infty(G(\mathbb{A}_f)).
+\end{equation*}
+Then we consider a diagram where $T_f$ has two maps to $S_G = X \times X$.
+
+Then we consider the map
+\begin{equation*}
+X \xrightarrow{(u, \iota)} A \times S_G = A \times X \times X.
+\end{equation*}
+Abbreviate $\varphi :=(u, \iota)$.  Then the intersection number
+\begin{equation}\label{eq:cnfg58ajpb}
+\left\langle \varphi _\ast(X), T_f \ast \varphi _\ast(X) \right\rangle
+\end{equation}
+is the analogue of \eqref{eq:cnfg56vjen}.  We can write this as a sum of orbital integrals after ``averaging over $\varphi$'':
+\begin{equation*}
+\sum_v \sum_\gamma \operatorname{Orb}(\gamma, f^\vee) \mathrm{wt}_v(\gamma).
+\end{equation*}
+Question: can we do so without ``averaging''?
+
+Possibly we can think of \eqref{eq:cnfg58ajpb} more symmetrically as the number we get from considering
+\begin{equation*}
+  X \times X \xrightarrow{(u,u,\iota,\iota)}
+  A \times A \times S_G \times S_G
+\end{equation*}
+by pushing forward and then pairing against the embedding of $\Delta A \times T_f$.
+
+\textbf{Weixiao.}
+
+Issue.  Suppose that $I'(f, s) \neq 0$.  We claim that we have
+\begin{equation*}
+I_\pi '(f, s) \neq 0
+\end{equation*}
+for some cuspidal $\pi$ with $\eps(\pi) = -1$ (so that $L(\tfrac{1}{2}, \pi) = 0$).  We have
+\begin{equation*}
+  I_\pi '(f, s) =
+  \left( L(\tfrac{1}{2} + s, \pi )
+  \times (\text{local factors}) \right)'.
+\end{equation*}
+We have a comparison
+\begin{equation}\label{eq:cnfg6c4p6o}
+  I_\pi(f') = \sum_{V} \sum_{\sigma \in \mathcal{A}_{\cusp}(\U(V) \times \U(V \oplus E))}
+  J_\sigma(f),
+\end{equation}
+where $f ' = \otimes f_v '$ and $f = \otimes f_v$ correspond under smooth transfer:
+\begin{equation*}
+\operatorname{Orb}(\gamma, f_v ') = \operatorname{Orb}(\delta, f_v),
+\end{equation*}
+for regular semisimple $\gamma \leftrightarrow \delta$.
+
+A function $f_v'$ on the general linear side is transferred to two functions on the unitary side.  We want $f'$  to be of ``pure type'', which means that each $f_v '$ transfers to $\{f_v, 0\}$.  If this happens, then in the sum over $V$ in \eqref{eq:cnfg6c4p6o}, only one term contributes.
+
+We have
+\begin{equation*}
+I_\pi(f') = J_\sigma(f), \quad \operatorname{BC}(\sigma) = \pi.
+\end{equation*}
+We have
+\begin{equation*}
+I_\pi(f') \neq 0 \implies J_\sigma(f) \neq 0 \implies \eps(\pi) = -1,
+\end{equation*}
+where the last step follows by local GGP.
+
+\begin{proposition}[Wei for $n = 3$, Beuzart-Plessis]
+  (local) $I_1^{\mathrm{Tate}}(f') = \eps_1 J_1(f_1) + \eps_2 J_1(f_2)$, where $J_1(f) = \int_{\U(n)} f(h) \, d h$.
+\end{proposition}
+
+Say we take $f ' = \otimes f_v '$.  Choose $v_0$ inert, take $f _{v_0}'$ with regular semisimple support, want to arrange that $I_{\pi_{v_0 }}'(f_{v_0 }', 0) = 0$ for all $\pi_{v_0}$.  At $v_1$, we take small support.  Away from those places, maybe we do unramified (or maybe at another place, we do supercuspidal).  Could arrange that $I_{\pi_0 }(f_{v_0 })$ vanishes or not according as $\eps_{v_0}$ is $1$ rather than $-1$.  Arrange that at $v_2$, we take $f_{v_2}$ so that $I_{\pi_{v_2 }}'(f_{v_2}, 0) = 0$.
+
+Suppose that $I_{\pi_{v_0}}(f_{v_0}, s)$ has a functional equation such that it is even provided that $\eps_{\pi_v} = +1$ and odd if $\eps_{\pi_v}$ is $-1$.
+
+
+
+
+
+
+
+
+
 \section{Wei Zhang}
 
 Cycles vs. $L$-values.
@@ -1130,8 +1237,8 @@ An ingredient in the proof of $\GL_2$ Iwasawa main conjecture, Skinner--Urban.
 
 Mod $p$ horizontal non-vanishing?
 
-\subsection{Dirichlet $L$-values}
-$\lambda$ Dirichlet character of conductor $N$.
+\subsection{Dirichlet L-values}
+Let $\lambda$: Dirichlet character of conductor $N$.
 
 $\chi$: Dirichlet character of conductor $F$.
 
@@ -1265,7 +1372,7 @@ $N = 2$.  \textbf{Want}: $\underline{r}, \underline{s}, \underline{s'}$ such tha
   It seems from numerics that $Q \asymp F$, but we can only do $Q \asymp F^{1/2}$.
 \end{remark}
 
-\subsection{Rankin--Selberg $L$-values}
+\subsection{Rankin--Selberg L-values}
 Start with an elliptic curve $E_{/\mathbb{Q}}$.  Let $N_E$ denote the conductor.
 
 Let $K/\mathbb{Q}$ be an imaginary quadratic field with $(D_K, N_E) = 1$.
