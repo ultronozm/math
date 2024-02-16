@@ -190,7 +190,26 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -201,7 +220,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2023-09-21 17:57:38
+2024-02-16 16:28:08
       <a href="20230907T143521--complex-analysis-preliminaries.tex" class="my-link">tex</a>
       <a href="20230907T143521--complex-analysis-preliminaries.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20230907T143521--complex-analysis-preliminaries.tex" class="my-link">history</a>
@@ -468,6 +487,9 @@ majorize the integrand in absolute value. ◻</p>
 functions</h1>
 <p>The next lemma closely follows the presentation of Theorem 21 of <a
 href="these notes">https://terrytao.wordpress.com/2014/12/05/245a-supplement-2-a-little-bit-of-complex-and-fourier-analysis/</a>.</p>
+<p>TODO: maybe revise to follow the presentation of <a href="#ref-MR882550"
+class="citation" data-cites="MR882550">(Titchmarsh 1986, sec.
+3.9)</a></p>
 <div id="lemma:cj41z5hd4a" class="lemma">
 <p><strong>Lemma 15</strong>. Fix <span class="math inline">\(0 &lt; c_2
 &lt; c_1 &lt; 1\)</span>. Let <span class="math inline">\(f\)</span> be
@@ -618,6 +640,14 @@ obtain <span id="eq:cj41z3ecu9" class="math display">\[\label{eq:cj41z3ecu9}\tag
 href="#eq:cj41zzjhfa" data-reference-type="eqref"
 data-reference="eq:cj41zzjhfa">\((4)\)</a>. ◻</p>
 </span></div>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="list">
+<div id="ref-MR882550" class="csl-entry" role="listitem">
+Titchmarsh, E. C. 1986. <em>The Theory of the <span>R</span>iemann
+Zeta-Function</em>. Second. New York: The Clarendon Press Oxford
+University Press.
+</div>
+</div>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
   toggle.addEventListener("click", function(e) {
