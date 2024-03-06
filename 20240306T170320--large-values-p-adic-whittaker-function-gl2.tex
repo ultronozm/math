@@ -1,0 +1,355 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\title{Large values of Whittaker functions for $\GL_2$}
+
+\begin{document}
+
+
+\begin{abstract}
+  Note written around 2016 where, following Templier \cite{MR3272013} and Saha \cite{MR3544630}, we exhibit large values of $p$-adic Whittaker functions for principal series representations of $\GL_2$.
+\end{abstract}
+\maketitle
+\tableofcontents
+
+\section{General notation}
+\label{sec:org788739a}
+Let $k$ be a local field.  Fix a nontrivial additive character $\psi$ of $k$.  When $k$ is non-archimedean, we assume $\psi$ is unramified and adopt the accompanying notation $\mathfrak{o}, \mathfrak{p}, q$ for its maximal order, maximal ideal and residue field cardinality.  Let $\chi_1, \chi_2$ be unitary characters of $k^\times$ with analytic conductors $C_1 := C(\chi_1)$, $C_2 := C(\chi_2)$.  Set $G := \GL_2(k)$.  We use the notation
+\begin{equation*}
+  n(x) := 
+  \begin{pmatrix}
+    1 & x \\
+      & 1
+  \end{pmatrix}
+  ,
+  \quad
+  a(y) := 
+  \begin{pmatrix}
+    y &  \\
+      & 1
+  \end{pmatrix}
+  .
+\end{equation*}
+Let $\pi := \mathcal{I}(\chi_1, \chi_2)$ be the induced principal series representation of conductor $C := C_1 C_2$.
+
+We write the character group of $k^\times$ additively.  We write $\alpha$ for the character given by the normalized modulus $|.|$.  We denote by $\omega := \chi_1 + \chi_2$ the central character of $\pi$.  We realize $\pi$ in its induced model as a space of functions $f : G \rightarrow \mathbf{C}$ satisfying
+\begin{equation*}
+  f(n(x) a(y) z g) = y^{\alpha/2+\chi_1} z^{\omega} f(g).
+\end{equation*}
+Here $z \in k^\times$ identifies with an element of the center of $G$, and we use notation such as
+\begin{equation*}
+  y^{\alpha / 2 + \chi_1} := \lvert y \rvert^{1/2} \chi_1(y).
+\end{equation*}
+
+We denote in what follows by $\iota_k$ a constant such as $\zeta_k(1)$, $\zeta_k(2)$, or a product of (inverses of) similar quantities; we allow the precise value of $\iota_k$ to vary from one occurrence to another.
+
+\section{Whittaker functions in principal series representations}
+\label{sec:orgd52af82}
+\subsection{Schwartz space parametrization}
+\label{sec:orgd34bf57}
+For \(\Phi \in \mathcal{S}(k^2)\), define the element \(f_\Phi \in \pi\) by the formula
+\begin{equation*}
+  f_\Phi(g) := \int_{z \in k^\times} \Phi(e_2 z g) z^{-\omega} \det(z g)^{\alpha/2+\chi_1}.
+\end{equation*}
+Thus if
+\begin{equation*}
+  g =
+  \begin{pmatrix}
+    \ast & \ast \\
+    c & d
+  \end{pmatrix}
+  ,
+\end{equation*}
+then
+\begin{equation*}
+  f_\Phi(g) = \det(g)^{\alpha/2+\chi_1} \int_{z \in k^\times} \Phi(c z, d z) z^{\alpha+\chi_1-\chi_2}.
+\end{equation*}
+This association defines a surjective map \(\Phi \mapsto f_\Phi\) onto \(\pi\).
+
+\subsection{The Whittaker intertwiner}
+\label{sec:org908ce5e}
+Embed \(f \in \pi\) into its \(\psi\)-Whittaker model via the map \(f \mapsto W_f\), where
+\begin{equation*}
+  W_f(g) := \int_{u \in k} f(w n(u) g) \psi(-u).
+\end{equation*}
+For \(\Phi \in \mathcal{S}(k^2)\), set \(W_{\Phi} := W_{f_{\Phi}}\).  For $g = \left(
+  \begin{smallmatrix}
+    a&b\\
+    c&d
+  \end{smallmatrix}
+\right) \in G$, we compute that
+\begin{equation*}
+  W_\Phi(g) = \det(g)^{\alpha/2+\chi_1} \int_{z \in k^\times} \int _{u \in k} \Phi (z (a + c u), z (b + d u)) z^{\alpha+\chi_1-\chi_2} \psi(- u).
+\end{equation*}
+After the change of variables \(u \mapsto u/z\) followed by \(z \mapsto u z\), the above becomes
+\begin{equation}\label{whit-general}
+  W_\Phi(g)
+  =
+  \det(g)^{\alpha/2+\chi_1}
+  \int_{z \in k^\times, u \in k}
+  \Phi (u(a z + c), u(b z + d))
+  (u z)^{\chi_1-\chi_2}
+  \psi(- 1/z).
+\end{equation}
+
+\subsection{Specialization to diagonal matrices}
+\label{sec:orgc9a42d8}
+In the special case $g = a(y) := \left(
+  \begin{smallmatrix}
+    y&\\
+     &1
+  \end{smallmatrix}
+\right)$, the formula (\ref{whit-general}) specializes to
+\begin{align*}
+  W_\Phi(a(y))
+  &=
+    y^{\alpha/2+\chi_1}
+    \int_{z \in k^\times, u \in k}
+    \Phi(u y z, u) (u z)^{\chi_1 - \chi_2} \psi(-1 / z),
+\end{align*}
+which after the substitutions $u \mapsto u / y z$, $z = 1/ y t$ gives
+\begin{equation}\label{eq:whittaker-diag}
+  W_\Phi(a(y))
+  = y^{\alpha/2 + \chi_2}
+  \int_{u,t \in k}
+  \Phi(u, u t) u^{\chi_1 - \chi_2} \psi( - y t ).
+\end{equation}
+
+\subsection{Specialization to matrices in the open Bruhat cell}
+The most relevant group element is
+\begin{equation*}
+  g = a(y) w n(x)
+  =
+  \begin{pmatrix}
+    & -y \\
+    1 & x
+  \end{pmatrix}
+  ,
+\end{equation*}
+for which (\ref{whit-general}) gives
+\begin{equation*}
+  W_\Phi(a(y) w n(x))
+  =
+  y^{\alpha/2+\chi_1}
+  \int_{z \in k^\times}
+  \int _{u \in k}
+  \Phi (u, u(-y z + x))
+  (u z)^{\chi_1-\chi_2} \psi(- 1/z).
+\end{equation*} 
+We substitute $z \mapsto z/y$ to rewrite this as
+\begin{equation*}
+  W_\Phi(a(y) w n(x))
+  =
+  y^{\alpha/2+\chi_2}
+  \int_{z \in k^\times}
+  \int _{u \in k}
+  \Phi (u, u(x-z))
+  (u z)^{\chi_1-\chi_2} \psi(- y/z)
+\end{equation*}
+and then substitute $z = x - t$ to obtain
+\begin{equation*}
+  W_\Phi(a(y) w n(x))
+  =
+  y^{\alpha/2+\chi_2}
+  \int_{u,t \in k}
+  \Phi (u, u t)
+  u^{\chi_1-\chi_2}
+  (x-t)^{\chi_1-\chi_2 - \alpha }
+  \psi(-y (x-t)^{-1})
+\end{equation*}
+and finally $t \mapsto x t$ to conclude that
+\begin{equation}\label{whit-open}
+  W_\Phi(a(y) w n(x))
+  = y^{\alpha/2 + \chi_2}
+  \int_{u,t \in k}
+  \Phi(u, u t x) (u x)^{\chi_1 - \chi_2} ( 1 - t)^{\chi_1 -
+    \chi_2 - \alpha} 
+  \psi \left( \frac{-y /x}{1 - t} \right).
+\end{equation}
+
+
+\section{The normalized newvector in a principal series representation}
+\label{sec:org5339323}
+We suppose in this section that \(k\) is non-archimedean.
+
+\subsection{Choice of Schwartz function}
+\label{sec:orgbd005ab}
+Define $\Phi \in \mathcal{S}(k^2)$ by the formula
+\begin{equation*}
+  \Phi(c,d) :=
+  C_2^{1/2}
+  c^{-\chi_1} d^{\chi_2} 
+  \cdot
+  \begin{cases}
+    1_{C_2 |c| = 1}& C_1 > 1
+    \\
+    1_{C_2 |c| \leq 1} & C_1 = 1
+  \end{cases}
+  \cdot
+  \begin{cases}
+    1_{|d| = 1}& C_2 > 1
+    \\
+    1_{|d| \leq 1} & C_2 = 1.
+  \end{cases}
+\end{equation*}
+The restriction of $f_\Phi$ to $g = \left(
+  \begin{smallmatrix}
+    a&b\\
+    c&d
+  \end{smallmatrix}
+\right) \in K := \GL_2(\mathfrak{o})$ is
+\begin{equation*}
+  f_\Phi(g)
+  =
+  \det(g)^{\alpha/2+\chi_1}
+  \int_{z \in k^\times} \Phi(c z, d z) z^{\alpha + \chi_1 - \chi_2}.
+\end{equation*}
+This defines a newvector in $\pi$ with $L^2$-norm $\asymp 1$.  One can see this directly in the induced model (e.g., observe that it is supported on the same $B \times K_1(C)$-double coset modulo $\mathfrak{p}^{n_1 + n_2}$ as the one given in Schmidt's note \cite{Sch02}, or just verify directly that it satisfies the needed invariance properties and has norm $\asymp 1$).  We give another verification below.
+
+We henceforth assume for simplicity that $C_1, C_2$ are both strictly greater than $1$, so that we may simplify the above formula to
+\begin{equation*}
+  \Phi(c,d) =
+  C_2^{1/2}
+  c^{-\chi_1} d^{\chi_2} 
+  1_{C_2 |c| = 1}
+  1_{|d| = 1}.
+\end{equation*}
+Put another way, we have
+\begin{equation*}
+  \Phi(u, u t) u^{\chi_1 - \chi_2}
+  =
+  C_2^{1/2}
+  t^{\chi_2}
+  1_{C_2 |u| = 1}
+  1_{|t| = C_2}.
+\end{equation*}
+
+\subsection{Sanity check: the Whittaker function at diagonal matrices}
+\label{sec:org12b4732}
+The general formula (\ref{eq:whittaker-diag}) for the Schwartz function-parametrized Whittaker function at a diagonal element specialized to the choice of \(\Phi\) given above gives
+\begin{equation*}
+  W(a(y)) = C_2^{1/2} y^{\alpha/2+\chi_2} \int_{u,t \in k} t^{\chi_2} 1_{C_2 |u| = 1} 1_{|t| = C_2} \psi(-y t).
+\end{equation*}
+The integrand has support of volume \(\asymp 1\); the \(u\) integrand is constant, while the \(t\) integrand is a Gauss sum vanishing unless \(|y| = 1\), in which case it has magnitude \(\iota_k C_2^{-1/2}\).  The change of variables \(t \mapsto t/y\) and \(z := 1/t\) gives
+\begin{align*}
+  W(a(y))
+  &=
+    \iota_k
+    C_2^{1/2}
+    y^{\alpha/2}
+    \int_{z \in k^\times}
+    1_{C_2 |y z| = 1}
+    z^{-\chi_2} \psi(-1/z),
+\end{align*}
+which by the stated properties of Gauss sums implies that
+\begin{equation*}
+  W(a(y)) = \iota_{k} 1_{\mathfrak{o}^\times}(y),
+\end{equation*}
+as expected.
+
+\subsection{The Whittaker function at elements of the open Bruhat cell}
+\label{sec:org665ed72}
+As a variant of the formula for \(\Phi(u,u t)\) recorded above, we have
+\begin{equation*}
+  \Phi(u, u x t) (u x)^{\chi_1 - \chi_2} = C_2^{1/2} x^{\chi_1} t^{\chi_2} 1_{C_2 |u| = 1} 1_{|x t| = C_2}.
+\end{equation*}
+From the general formula for \(W(a(y) w n(x))\) recorded above in (\ref{whit-open}), it follows that
+\begin{equation*}
+  W(a(y) w n(x)) = C_2^{1/2} x^{\chi_1} y^{\alpha/2 + \chi_2} \int_{u,t \in k} t^{\chi_2} (1 - t)^{\chi_1 - \chi_2 - \alpha} 1_{C_2 |u| = 1} 1_{|x t| = C_2} \psi \left( \frac{-y/x}{1-t} \right).
+\end{equation*}
+The \$u\$-integral is constant with support of volume \(\iota_k C_2^{-1}\), while the support of the \(t\) integral has volume \(\iota_k C_2 / |x|\), so executing the \(u\) integral while renaming \(t \in k\) to \(z \in k^\times\) gives
+\begin{equation*}
+  W(a(y) w n(x)) = \iota_k \left( \frac{C_2 |y|}{|x|^2} \right)^{1/2} x^{\chi_1} y^{\chi_2} \int_{z \in k^\times} z^{\chi_2} 1_{|x z| = C_2} (1 - z)^{\chi_1 - \chi_2 - \alpha} \psi \left( \frac{-y/x}{1-z} \right)
+\end{equation*}
+Note that all calculations up until now basically work over an archimedean field, too; we just have to replace conditions like \(1_{|z| = 1}\) with a smooth cutoff.
+\subsection{Final formula for the magnitude}
+\label{sec:orgcd9e180}
+In particular, taking absolute values in the final formula from section \ref{sec:org665ed72} gives
+\begin{equation*}
+  W(a(y) w n(x)) \asymp \left( \frac{C_2 |y|}{|x|^2} \right)^{1/2} \int_{z \in k^\times} 1_{|z| = C_2/|x|} z^{\chi_2} (1 - z)^{\chi_1 - \chi_2 - \alpha} \psi\left(- \frac{y/x}{1-z} \right).
+\end{equation*}
+It will also be convenient (for later purposes unrelated to the lower bound) to record the result of the substitution \(z \mapsto z^{-1}\):
+\begin{equation*}
+  W(a(y) w n(x)) \asymp \left( \frac{|y|}{C_2} \right)^{1/2} \int_{z \in k^\times} 1_{|z| = |x|/C_2} z^{-\chi_1} (1 - z)^{\chi_1 - \chi_2 - \alpha} \psi\left(\frac{z y/x}{1-z} \right).
+\end{equation*}
+\section{The lower bound}
+\label{sec:org5058a58}
+\subsection{Assumptions}
+\label{sec:org638b8ee}
+We consider in this section characters whose conductors satisfy
+\begin{itemize}
+\item \(C_1 > C_2 > 1\),
+\item \(C_1\) is a square,
+\item \(C_2 < C_1^{1/2}\),
+\end{itemize}
+and \(x,y\) satisfying
+\begin{itemize}
+\item \(C_1 (C_2 / |x|)^2 \leq 1\),
+\item \(|y/x| (C_2/ |x|)^2 \leq 1\),
+\item \(C_2 < |x| < C_1\).
+\end{itemize}
+\subsection{The model case}
+\label{sec:orgfffc2ef}
+It is clear that \(x,y\) satisfying the above assumptions exist; for instance, it suffices to require that
+\begin{equation}\label{model-case}
+  \lvert x \rvert = C_2 C_1^{1/2},  \lvert y \rvert = C_2 C_1^{3/2}.
+\end{equation}
+
+\subsection{Calculation}
+\label{sec:orgf3b1c43}
+Under the above assmptions, for any $z \in k^\times$ with $|z| = C_2/|x|$ one has $|1 - z| = 1$ and
+\begin{equation*}
+  (1 - z)^{\chi_1 - \chi_2} = \psi(\xi z)
+\end{equation*}
+for some $\xi \in k$ satisfying
+\begin{equation*}
+  |\xi| = C(\chi_1 - \chi_2) = C_1.
+\end{equation*}
+Moveover, by a quadratic Taylor expansion $(1 - z)^{-1} = 1 + z + z^2 ( 1 - z)^{-1}$ (using our assumptions to kill off the contribution of the remainder),
+\begin{equation*}
+  \psi
+  \left(
+    - \frac{y/x}{1 - z}
+  \right)
+  =
+  \psi
+  (-y/x)
+  \psi(- y z / x)
+\end{equation*}
+and so by the first of the above formulas,
+\begin{equation*}
+  W(a(y) w n(x))
+  \asymp
+  \left( \frac{C_2 |y|}{|x|^2} \right)^{1/2}
+  \int_{z \in k^\times}
+  1_{|z| = C_2/|x|}
+  z^{\chi_2} \psi((\xi - y/x) z).
+\end{equation*}
+The inner integral is a Gauss sum of size
+\begin{equation*}
+  \int_{z \in k^\times}
+  1_{|z| = C_2/|x|}
+  z^{\chi_2} \psi((\xi - y/x) z)
+  \asymp
+  1_{|\xi - y/x| \cdot C_2/|x| = C_2}
+  C_2^{-1/2}
+  =
+  1_{|x \xi - y| = |x|^2} C_2^{-1/2}.
+\end{equation*}
+From our assumption $|\xi| = C_1 > |x|$ we see that $|x \xi - y| = |x|^2$ implies $|y| = C_1 |x|$ and thus
+\begin{equation*}
+  W(a(y) w n(x))
+  \asymp
+  \left( \frac{C_1}{|x|} \right)^{1/2}
+  1_{|x \xi - y| = |x|^2}.
+\end{equation*}
+Choosing $x,y$ as in the model case above which satisfy $|x \xi - y| = |x|^2$ (which is clearly possible), we obtain
+\begin{equation*}
+  W(a(y) w n(x))
+  \asymp
+  \left( \frac{C_1^{1/2}}{C_2} \right)^{1/2}.
+\end{equation*}
+
+When is this big?  Well, for instance, if $C_2 = 1$ and $C_1$ is large.  But note that if $C_1$ and $C_2$ are the same size (e.g., if the central character is trivial), then the above is actually small, so we don't get values that are obviously large.
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
