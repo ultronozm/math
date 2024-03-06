@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Large values of Whittaker functions for {\mathop{\mathrm{GL}}}_2</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+    <div class="my-links-container">
+2024-03-06 17:09:34
+      <a href="20240306T170320--large-values-p-adic-whittaker-function-gl2.tex" class="my-link">tex</a>
+      <a href="20240306T170320--large-values-p-adic-whittaker-function-gl2.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20240306T170320--large-values-p-adic-whittaker-function-gl2.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+<header id="title-block-header">
+<h1 class="title">Large values of Whittaker functions for <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span></h1>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>Note written around 2016 where, following Templier <a href="#ref-MR3272013"
+class="citation" data-cites="MR3272013">(Templier 2014)</a> and Saha
+<a href="#ref-MR3544630" class="citation" data-cites="MR3544630">(Saha 2016)</a>, we
+exhibit large values of <span class="math inline">\(p\)</span>-adic
+Whittaker functions for principal series representations of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span>.</p>
+</div>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#sec:org788739a" id="toc-sec:org788739a">General
+notation</a></li>
+<li><a href="#sec:orgd52af82" id="toc-sec:orgd52af82">Whittaker
+functions in principal series representations</a>
+<ul>
+<li><a href="#sec:orgd34bf57" id="toc-sec:orgd34bf57">Schwartz space
+parametrization</a></li>
+<li><a href="#sec:org908ce5e" id="toc-sec:org908ce5e">The Whittaker
+intertwiner</a></li>
+<li><a href="#sec:orgc9a42d8" id="toc-sec:orgc9a42d8">Specialization to
+diagonal matrices</a></li>
+<li><a href="#specialization-to-matrices-in-the-open-bruhat-cell"
+id="toc-specialization-to-matrices-in-the-open-bruhat-cell">Specialization
+to matrices in the open Bruhat cell</a></li>
+</ul></li>
+<li><a href="#sec:org5339323" id="toc-sec:org5339323">The normalized
+newvector in a principal series representation</a>
+<ul>
+<li><a href="#sec:orgbd005ab" id="toc-sec:orgbd005ab">Choice of Schwartz
+function</a></li>
+<li><a href="#sec:org12b4732" id="toc-sec:org12b4732">Sanity check: the
+Whittaker function at diagonal matrices</a></li>
+<li><a href="#sec:org665ed72" id="toc-sec:org665ed72">The Whittaker
+function at elements of the open Bruhat cell</a></li>
+<li><a href="#sec:orgcd9e180" id="toc-sec:orgcd9e180">Final formula for
+the magnitude</a></li>
+</ul></li>
+<li><a href="#sec:org5058a58" id="toc-sec:org5058a58">The lower
+bound</a>
+<ul>
+<li><a href="#sec:org638b8ee"
+id="toc-sec:org638b8ee">Assumptions</a></li>
+<li><a href="#sec:orgfffc2ef" id="toc-sec:orgfffc2ef">The model
+case</a></li>
+<li><a href="#sec:orgf3b1c43"
+id="toc-sec:orgf3b1c43">Calculation</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="sec:org788739a">§1. General notation</h1>
+<p>Let <span class="math inline">\(k\)</span> be a local field. Fix a
+nontrivial additive character <span class="math inline">\(\psi\)</span>
+of <span class="math inline">\(k\)</span>. When <span
+class="math inline">\(k\)</span> is non-archimedean, we assume <span
+class="math inline">\(\psi\)</span> is unramified and adopt the
+accompanying notation <span class="math inline">\(\mathfrak{o},
+\mathfrak{p}, q\)</span> for its maximal order, maximal ideal and
+residue field cardinality. Let <span class="math inline">\(\chi_1,
+\chi_2\)</span> be unitary characters of <span
+class="math inline">\(k^\times\)</span> with analytic conductors <span
+class="math inline">\(C_1 := C(\chi_1)\)</span>, <span
+class="math inline">\(C_2 := C(\chi_2)\)</span>. Set <span
+class="math inline">\(G := {\mathop{\mathrm{GL}}}_2(k)\)</span>. We use
+the notation <span class="math display">\[n(x) :=
+  \begin{pmatrix}
+    1 &amp; x \\
+      &amp; 1
+  \end{pmatrix}
+  ,
+  \quad
+  a(y) :=
+  \begin{pmatrix}
+    y &amp;  \\
+      &amp; 1
+  \end{pmatrix}
+  .\]</span> Let <span class="math inline">\(\pi := \mathcal{I}(\chi_1,
+\chi_2)\)</span> be the induced principal series representation of
+conductor <span class="math inline">\(C := C_1 C_2\)</span>.</p>
+<p>We write the character group of <span
+class="math inline">\(k^\times\)</span> additively. We write <span
+class="math inline">\(\alpha\)</span> for the character given by the
+normalized modulus <span class="math inline">\(|.|\)</span>. We denote
+by <span class="math inline">\(\omega := \chi_1 + \chi_2\)</span> the
+central character of <span class="math inline">\(\pi\)</span>. We
+realize <span class="math inline">\(\pi\)</span> in its induced model as
+a space of functions <span class="math inline">\(f : G \rightarrow
+\mathbf{C}\)</span> satisfying <span class="math display">\[f(n(x) a(y)
+z g) = y^{\alpha/2+\chi_1} z^{\omega} f(g).\]</span> Here <span
+class="math inline">\(z \in k^\times\)</span> identifies with an element
+of the center of <span class="math inline">\(G\)</span>, and we use
+notation such as <span class="math display">\[y^{\alpha / 2 + \chi_1} :=
+\lvert y \rvert^{1/2} \chi_1(y).\]</span></p>
+<p>We denote in what follows by <span
+class="math inline">\(\iota_k\)</span> a constant such as <span
+class="math inline">\(\zeta_k(1)\)</span>, <span
+class="math inline">\(\zeta_k(2)\)</span>, or a product of (inverses of)
+similar quantities; we allow the precise value of <span
+class="math inline">\(\iota_k\)</span> to vary from one occurrence to
+another.</p>
+<h1 id="sec:orgd52af82">§2. Whittaker functions in principal series
+representations</h1>
+<h2 id="sec:orgd34bf57">§2.1. Schwartz space parametrization</h2>
+<p>For <span class="math inline">\(\Phi \in \mathcal{S}(k^2)\)</span>,
+define the element <span class="math inline">\(f_\Phi \in \pi\)</span>
+by the formula <span class="math display">\[f_\Phi(g) := \int_{z \in
+k^\times} \Phi(e_2 z g) z^{-\omega} \det(z
+g)^{\alpha/2+\chi_1}.\]</span> Thus if <span class="math display">\[g =
+  \begin{pmatrix}
+    \ast &amp; \ast \\
+    c &amp; d
+  \end{pmatrix}
+  ,\]</span> then <span class="math display">\[f_\Phi(g) =
+\det(g)^{\alpha/2+\chi_1} \int_{z \in k^\times} \Phi(c z, d z)
+z^{\alpha+\chi_1-\chi_2}.\]</span> This association defines a surjective
+map <span class="math inline">\(\Phi \mapsto f_\Phi\)</span> onto <span
+class="math inline">\(\pi\)</span>.</p>
+<h2 id="sec:org908ce5e">§2.2. The Whittaker intertwiner</h2>
+<p>Embed <span class="math inline">\(f \in \pi\)</span> into its <span
+class="math inline">\(\psi\)</span>-Whittaker model via the map <span
+class="math inline">\(f \mapsto W_f\)</span>, where <span
+class="math display">\[W_f(g) := \int_{u \in k} f(w n(u) g)
+\psi(-u).\]</span> For <span class="math inline">\(\Phi \in
+\mathcal{S}(k^2)\)</span>, set <span class="math inline">\(W_{\Phi} :=
+W_{f_{\Phi}}\)</span>. For <span class="math inline">\(g = \left(
+  \begin{smallmatrix}
+    a&amp;b\\
+    c&amp;d
+  \end{smallmatrix}
+\right) \in G\)</span>, we compute that <span
+class="math display">\[W_\Phi(g) = \det(g)^{\alpha/2+\chi_1} \int_{z \in
+k^\times} \int _{u \in k} \Phi (z (a + c u), z (b + d u))
+z^{\alpha+\chi_1-\chi_2} \psi(- u).\]</span> After the change of
+variables <span class="math inline">\(u \mapsto u/z\)</span> followed by
+<span class="math inline">\(z \mapsto u z\)</span>, the above becomes
+<span id="whit-general" class="math display">\[\label{whit-general}\tag{1}
+  W_\Phi(g)
+  =
+  \det(g)^{\alpha/2+\chi_1}
+  \int_{z \in k^\times, u \in k}
+  \Phi (u(a z + c), u(b z + d))
+  (u z)^{\chi_1-\chi_2}
+  \psi(- 1/z).\]</span></p>
+<h2 id="sec:orgc9a42d8">§2.3. Specialization to diagonal matrices</h2>
+<p>In the special case <span class="math inline">\(g = a(y) := \left(
+  \begin{smallmatrix}
+    y&amp;\\
+     &amp;1
+  \end{smallmatrix}
+\right)\)</span>, the formula (<a href="#whit-general"
+data-reference-type="ref"
+data-reference="whit-general">1</a>) specializes to <span
+class="math display">\[\begin{align}
+  W_\Phi(a(y))
+  &amp;=
+    y^{\alpha/2+\chi_1}
+    \int_{z \in k^\times, u \in k}
+    \Phi(u y z, u) (u z)^{\chi_1 - \chi_2} \psi(-1 / z),
+\end{align}\]</span> which after the substitutions <span
+class="math inline">\(u \mapsto u / y z\)</span>, <span
+class="math inline">\(z = 1/ y t\)</span> gives <span id="eq:whittaker-diag" class="math display">\[\label{eq:whittaker-diag}\tag{2}
+  W_\Phi(a(y))
+  = y^{\alpha/2 + \chi_2}
+  \int_{u,t \in k}
+  \Phi(u, u t) u^{\chi_1 - \chi_2} \psi( - y t ).\]</span></p>
+<h2
+id="specialization-to-matrices-in-the-open-bruhat-cell">Specialization
+to matrices in the open Bruhat cell</h2>
+<p>The most relevant group element is <span class="math display">\[g =
+a(y) w n(x)
+  =
+  \begin{pmatrix}
+    &amp; -y \\
+    1 &amp; x
+  \end{pmatrix}
+  ,\]</span> for which (<a href="#whit-general"
+data-reference-type="ref"
+data-reference="whit-general">1</a>) gives <span
+class="math display">\[W_\Phi(a(y) w n(x))
+  =
+  y^{\alpha/2+\chi_1}
+  \int_{z \in k^\times}
+  \int _{u \in k}
+  \Phi (u, u(-y z + x))
+  (u z)^{\chi_1-\chi_2} \psi(- 1/z).\]</span> We substitute <span
+class="math inline">\(z \mapsto z/y\)</span> to rewrite this as <span
+class="math display">\[W_\Phi(a(y) w n(x))
+  =
+  y^{\alpha/2+\chi_2}
+  \int_{z \in k^\times}
+  \int _{u \in k}
+  \Phi (u, u(x-z))
+  (u z)^{\chi_1-\chi_2} \psi(- y/z)\]</span> and then substitute <span
+class="math inline">\(z = x - t\)</span> to obtain <span
+class="math display">\[W_\Phi(a(y) w n(x))
+  =
+  y^{\alpha/2+\chi_2}
+  \int_{u,t \in k}
+  \Phi (u, u t)
+  u^{\chi_1-\chi_2}
+  (x-t)^{\chi_1-\chi_2 - \alpha }
+  \psi(-y (x-t)^{-1})\]</span> and finally <span class="math inline">\(t
+\mapsto x t\)</span> to conclude that <span id="whit-open" class="math display">\[\label{whit-open}\tag{3}
+  W_\Phi(a(y) w n(x))
+  = y^{\alpha/2 + \chi_2}
+  \int_{u,t \in k}
+  \Phi(u, u t x) (u x)^{\chi_1 - \chi_2} ( 1 - t)^{\chi_1 -
+    \chi_2 - \alpha}
+  \psi \left( \frac{-y /x}{1 - t} \right).\]</span></p>
+<h1 id="sec:org5339323">§3. The normalized newvector in a principal series
+representation</h1>
+<p>We suppose in this section that <span
+class="math inline">\(k\)</span> is non-archimedean.</p>
+<h2 id="sec:orgbd005ab">§3.1. Choice of Schwartz function</h2>
+<p>Define <span class="math inline">\(\Phi \in \mathcal{S}(k^2)\)</span>
+by the formula <span class="math display">\[\Phi(c,d) :=
+  C_2^{1/2}
+  c^{-\chi_1} d^{\chi_2}
+  \cdot
+  \begin{cases}
+    1_{C_2 |c| = 1}&amp; C_1 &gt; 1
+    \\
+    1_{C_2 |c| \leq 1} &amp; C_1 = 1
+  \end{cases}
+  \cdot
+  \begin{cases}
+    1_{|d| = 1}&amp; C_2 &gt; 1
+    \\
+    1_{|d| \leq 1} &amp; C_2 = 1.
+  \end{cases}\]</span> The restriction of <span
+class="math inline">\(f_\Phi\)</span> to <span class="math inline">\(g =
+\left(
+  \begin{smallmatrix}
+    a&amp;b\\
+    c&amp;d
+  \end{smallmatrix}
+\right) \in K := {\mathop{\mathrm{GL}}}_2(\mathfrak{o})\)</span> is <span
+class="math display">\[f_\Phi(g)
+  =
+  \det(g)^{\alpha/2+\chi_1}
+  \int_{z \in k^\times} \Phi(c z, d z) z^{\alpha + \chi_1 -
+\chi_2}.\]</span> This defines a newvector in <span
+class="math inline">\(\pi\)</span> with <span
+class="math inline">\(L^2\)</span>-norm <span
+class="math inline">\(\asymp 1\)</span>. One can see this directly in
+the induced model (e.g., observe that it is supported on the same <span
+class="math inline">\(B \times K_1(C)\)</span>-double coset modulo <span
+class="math inline">\(\mathfrak{p}^{n_1 + n_2}\)</span> as the one given
+in Schmidt’s note <a href="#ref-Sch02" class="citation" data-cites="Sch02">(Schmidt
+2002)</a>, or just verify directly that it satisfies the needed
+invariance properties and has norm <span class="math inline">\(\asymp
+1\)</span>). We give another verification below.</p>
+<p>We henceforth assume for simplicity that <span
+class="math inline">\(C_1, C_2\)</span> are both strictly greater than
+<span class="math inline">\(1\)</span>, so that we may simplify the
+above formula to <span class="math display">\[\Phi(c,d) =
+  C_2^{1/2}
+  c^{-\chi_1} d^{\chi_2}
+  1_{C_2 |c| = 1}
+  1_{|d| = 1}.\]</span> Put another way, we have <span
+class="math display">\[\Phi(u, u t) u^{\chi_1 - \chi_2}
+  =
+  C_2^{1/2}
+  t^{\chi_2}
+  1_{C_2 |u| = 1}
+  1_{|t| = C_2}.\]</span></p>
+<h2 id="sec:org12b4732">§3.2. Sanity check: the Whittaker function at diagonal
+matrices</h2>
+<p>The general formula (<a href="#eq:whittaker-diag"
+data-reference-type="ref"
+data-reference="eq:whittaker-diag">2</a>) for the
+Schwartz function-parametrized Whittaker function at a diagonal element
+specialized to the choice of <span class="math inline">\(\Phi\)</span>
+given above gives <span class="math display">\[W(a(y)) = C_2^{1/2}
+y^{\alpha/2+\chi_2} \int_{u,t \in k} t^{\chi_2} 1_{C_2 |u| = 1} 1_{|t| =
+C_2} \psi(-y t).\]</span> The integrand has support of volume <span
+class="math inline">\(\asymp 1\)</span>; the <span
+class="math inline">\(u\)</span> integrand is constant, while the <span
+class="math inline">\(t\)</span> integrand is a Gauss sum vanishing
+unless <span class="math inline">\(|y| = 1\)</span>, in which case it
+has magnitude <span class="math inline">\(\iota_k C_2^{-1/2}\)</span>.
+The change of variables <span class="math inline">\(t \mapsto
+t/y\)</span> and <span class="math inline">\(z := 1/t\)</span> gives
+<span class="math display">\[\begin{align}
+  W(a(y))
+  &amp;=
+    \iota_k
+    C_2^{1/2}
+    y^{\alpha/2}
+    \int_{z \in k^\times}
+    1_{C_2 |y z| = 1}
+    z^{-\chi_2} \psi(-1/z),
+\end{align}\]</span> which by the stated properties of Gauss sums
+implies that <span class="math display">\[W(a(y)) = \iota_{k}
+1_{\mathfrak{o}^\times}(y),\]</span> as expected.</p>
+<h2 id="sec:org665ed72">§3.3. The Whittaker function at elements of the open
+Bruhat cell</h2>
+<p>As a variant of the formula for <span class="math inline">\(\Phi(u,u
+t)\)</span> recorded above, we have <span class="math display">\[\Phi(u,
+u x t) (u x)^{\chi_1 - \chi_2} = C_2^{1/2} x^{\chi_1} t^{\chi_2} 1_{C_2
+|u| = 1} 1_{|x t| = C_2}.\]</span> From the general formula for <span
+class="math inline">\(W(a(y) w n(x))\)</span> recorded above in (<a
+href="#whit-open" data-reference-type="ref"
+data-reference="whit-open">3</a>), it follows that <span
+class="math display">\[W(a(y) w n(x)) = C_2^{1/2} x^{\chi_1} y^{\alpha/2
++ \chi_2} \int_{u,t \in k} t^{\chi_2} (1 - t)^{\chi_1 - \chi_2 - \alpha}
+1_{C_2 |u| = 1} 1_{|x t| = C_2} \psi \left( \frac{-y/x}{1-t}
+\right).\]</span> The $u$-integral is constant with support of volume
+<span class="math inline">\(\iota_k C_2^{-1}\)</span>, while the support
+of the <span class="math inline">\(t\)</span> integral has volume <span
+class="math inline">\(\iota_k C_2 / |x|\)</span>, so executing the <span
+class="math inline">\(u\)</span> integral while renaming <span
+class="math inline">\(t \in k\)</span> to <span class="math inline">\(z
+\in k^\times\)</span> gives <span class="math display">\[W(a(y) w n(x))
+= \iota_k \left( \frac{C_2 |y|}{|x|^2} \right)^{1/2} x^{\chi_1}
+y^{\chi_2} \int_{z \in k^\times} z^{\chi_2} 1_{|x z| = C_2} (1 -
+z)^{\chi_1 - \chi_2 - \alpha} \psi \left( \frac{-y/x}{1-z}
+\right)\]</span> Note that all calculations up until now basically work
+over an archimedean field, too; we just have to replace conditions like
+<span class="math inline">\(1_{|z| = 1}\)</span> with a smooth
+cutoff.</p>
+<h2 id="sec:orgcd9e180">§3.4. Final formula for the magnitude</h2>
+<p>In particular, taking absolute values in the final formula from
+section <a href="#sec:org665ed72" data-reference-type="ref"
+data-reference="sec:org665ed72">3.3</a> gives <span
+class="math display">\[W(a(y) w n(x)) \asymp \left( \frac{C_2
+|y|}{|x|^2} \right)^{1/2} \int_{z \in k^\times} 1_{|z| = C_2/|x|}
+z^{\chi_2} (1 - z)^{\chi_1 - \chi_2 - \alpha} \psi\left(-
+\frac{y/x}{1-z} \right).\]</span> It will also be convenient (for later
+purposes unrelated to the lower bound) to record the result of the
+substitution <span class="math inline">\(z \mapsto z^{-1}\)</span>:
+<span class="math display">\[W(a(y) w n(x)) \asymp \left(
+\frac{|y|}{C_2} \right)^{1/2} \int_{z \in k^\times} 1_{|z| = |x|/C_2}
+z^{-\chi_1} (1 - z)^{\chi_1 - \chi_2 - \alpha} \psi\left(\frac{z
+y/x}{1-z} \right).\]</span></p>
+<h1 id="sec:org5058a58">§4. The lower bound</h1>
+<h2 id="sec:org638b8ee">§4.1. Assumptions</h2>
+<p>We consider in this section characters whose conductors satisfy</p>
+<ul>
+<li><p><span class="math inline">\(C_1 &gt; C_2 &gt;
+1\)</span>,</p></li>
+<li><p><span class="math inline">\(C_1\)</span> is a square,</p></li>
+<li><p><span class="math inline">\(C_2 &lt; C_1^{1/2}\)</span>,</p></li>
+</ul>
+<p>and <span class="math inline">\(x,y\)</span> satisfying</p>
+<ul>
+<li><p><span class="math inline">\(C_1 (C_2 / |x|)^2 \leq
+1\)</span>,</p></li>
+<li><p><span class="math inline">\(|y/x| (C_2/ |x|)^2 \leq
+1\)</span>,</p></li>
+<li><p><span class="math inline">\(C_2 &lt; |x| &lt;
+C_1\)</span>.</p></li>
+</ul>
+<h2 id="sec:orgfffc2ef">§4.2. The model case</h2>
+<p>It is clear that <span class="math inline">\(x,y\)</span> satisfying
+the above assumptions exist; for instance, it suffices to require that
+<span id="model-case" class="math display">\[\label{model-case}\tag{4}
+  \lvert x \rvert = C_2 C_1^{1/2},  \lvert y \rvert = C_2
+C_1^{3/2}.\]</span></p>
+<h2 id="sec:orgf3b1c43">§4.3. Calculation</h2>
+<p>Under the above assmptions, for any <span class="math inline">\(z \in
+k^\times\)</span> with <span class="math inline">\(|z| =
+C_2/|x|\)</span> one has <span class="math inline">\(|1 - z| =
+1\)</span> and <span class="math display">\[(1 - z)^{\chi_1 - \chi_2} =
+\psi(\xi z)\]</span> for some <span class="math inline">\(\xi \in
+k\)</span> satisfying <span class="math display">\[|\xi| = C(\chi_1 -
+\chi_2) = C_1.\]</span> Moveover, by a quadratic Taylor expansion <span
+class="math inline">\((1 - z)^{-1} = 1 + z + z^2 ( 1 - z)^{-1}\)</span>
+(using our assumptions to kill off the contribution of the remainder),
+<span class="math display">\[\psi
+  \left(
+    - \frac{y/x}{1 - z}
+  \right)
+  =
+  \psi
+  (-y/x)
+  \psi(- y z / x)\]</span> and so by the first of the above formulas,
+<span class="math display">\[W(a(y) w n(x))
+  \asymp
+  \left( \frac{C_2 |y|}{|x|^2} \right)^{1/2}
+  \int_{z \in k^\times}
+  1_{|z| = C_2/|x|}
+  z^{\chi_2} \psi((\xi - y/x) z).\]</span> The inner integral is a Gauss
+sum of size <span class="math display">\[\int_{z \in k^\times}
+  1_{|z| = C_2/|x|}
+  z^{\chi_2} \psi((\xi - y/x) z)
+  \asymp
+  1_{|\xi - y/x| \cdot C_2/|x| = C_2}
+  C_2^{-1/2}
+  =
+  1_{|x \xi - y| = |x|^2} C_2^{-1/2}.\]</span> From our assumption <span
+class="math inline">\(|\xi| = C_1 &gt; |x|\)</span> we see that <span
+class="math inline">\(|x \xi - y| = |x|^2\)</span> implies <span
+class="math inline">\(|y| = C_1 |x|\)</span> and thus <span
+class="math display">\[W(a(y) w n(x))
+  \asymp
+  \left( \frac{C_1}{|x|} \right)^{1/2}
+  1_{|x \xi - y| = |x|^2}.\]</span> Choosing <span
+class="math inline">\(x,y\)</span> as in the model case above which
+satisfy <span class="math inline">\(|x \xi - y| = |x|^2\)</span> (which
+is clearly possible), we obtain <span class="math display">\[W(a(y) w
+n(x))
+  \asymp
+  \left( \frac{C_1^{1/2}}{C_2} \right)^{1/2}.\]</span></p>
+<p>When is this big? Well, for instance, if <span
+class="math inline">\(C_2 = 1\)</span> and <span
+class="math inline">\(C_1\)</span> is large. But note that if <span
+class="math inline">\(C_1\)</span> and <span
+class="math inline">\(C_2\)</span> are the same size (e.g., if the
+central character is trivial), then the above is actually small, so we
+don’t get values that are obviously large.</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="list">
+<div id="ref-MR3544630" class="csl-entry" role="listitem">
+Saha, Abhishek. 2016. <span>“Large Values of Newforms on <span><span
+class="math inline">\({\rm GL}(2)\)</span></span> with Highly Ramified
+Central Character.”</span> <em>Int. Math. Res. Not. IMRN</em>, no. 13:
+4103–31. <a
+href="https://doi.org/10.1093/imrn/rnv259">https://doi.org/10.1093/imrn/rnv259</a>.
+</div>
+<div id="ref-Sch02" class="csl-entry" role="listitem">
+Schmidt, Ralf. 2002. <span>“Some Remarks on Local Newforms for
+<span><span class="math inline">\(\rm GL(2)\)</span></span>.”</span>
+<em>J. Ramanujan Math. Soc.</em> 17 (2): 115–47.
+</div>
+<div id="ref-MR3272013" class="csl-entry" role="listitem">
+Templier, Nicolas. 2014. <span>“Large Values of Modular Forms.”</span>
+<em>Camb. J. Math.</em> 2 (1): 91–116. <a
+href="https://doi.org/10.4310/CJM.2014.v2.n1.a3">https://doi.org/10.4310/CJM.2014.v2.n1.a3</a>.
+</div>
+</div>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
