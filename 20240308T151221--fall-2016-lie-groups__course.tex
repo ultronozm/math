@@ -1,5 +1,43 @@
 \documentclass[reqno]{amsart} \input{common.tex}
 
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{graphicx, amsmath, amssymb, amsfonts, amsthm, stmaryrd, tikz, amscd}
+\usepackage[all]{xy}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{array}
+\usepackage{tikz}
+\def\eps{\varepsilon}
+\usetikzlibrary{decorations.markings}
+
+\newcommand{\C}[1]{\mathbb{C}^{#1}}
+
+\newcommand{\dynkinradius}{.04cm}
+\newcommand{\dynkinstep}{.35cm}
+\newcommand{\dynkindot}[2]{\fill (\dynkinstep*#1,\dynkinstep*#2) circle (\dynkinradius);}
+\newcommand{\dynkinXsize}{1.5}
+\newcommand{\dynkincross}[2]{
+  \draw[thick] (#1*\dynkinstep-\dynkinXsize,#2*\dynkinstep-\dynkinXsize) -- (#1*\dynkinstep+\dynkinXsize,#2*\dynkinstep+\dynkinXsize);
+  \draw[thick] (#1*\dynkinstep-\dynkinXsize,#2*\dynkinstep+\dynkinXsize) -- (#1*\dynkinstep+\dynkinXsize,#2*\dynkinstep-\dynkinXsize);
+}
+\newcommand{\dynkinline}[4]{\draw[thin] (\dynkinstep*#1,\dynkinstep*#2) -- (\dynkinstep*#3,\dynkinstep*#4);}
+\newcommand{\dynkindots}[4]{\draw[dotted] (\dynkinstep*#1,\dynkinstep*#2) -- (\dynkinstep*#3,\dynkinstep*#4);}
+\newcommand{\dynkindoubleline}[4]{\draw[double,postaction={decorate}] (\dynkinstep*#1,\dynkinstep*#2) -- (\dynkinstep*#3,\dynkinstep*#4);}
+
+\newenvironment{dynkin}{\begin{tikzpicture}[decoration={markings,mark=at position 0.7 with {\arrow{>}}}]}
+  {\end{tikzpicture}}
+
 \title{Notes on Lie Groups}
 
 \begin{document}
@@ -12206,13 +12244,7 @@ To complete the proof of Theorem \ref{thm:classify-complex-simple-classical}, we
 
 \subsection{Dynkin diagrams of classical simple Lie algebras\label{sec:dynkin-diagrams-classical-examples}}
 \label{sec:orga54764a}
-\newcommand{\dynkinradius}{.04cm} \newcommand{\dynkinstep}{.35cm} \newcommand{\dynkindot}[2]{\fill (\dynkinstep*#1,\dynkinstep*#2) circle (\dynkinradius);} \newcommand{\dynkinXsize}{1.5} \newcommand{\dynkincross}[2]{ \draw[thick] (#1*\dynkinstep-\dynkinXsize,#2*\dynkinstep-\dynkinXsize) -- (#1*\dynkinstep+\dynkinXsize,#2*\dynkinstep+\dynkinXsize); \draw[thick] (#1*\dynkinstep-\dynkinXsize,#2*\dynkinstep+\dynkinXsize) -- (#1*\dynkinstep+\dynkinXsize,#2*\dynkinstep-\dynkinXsize); } \newcommand{\dynkinline}[4]{\draw[thin] (\dynkinstep*#1,\dynkinstep*#2) -- (\dynkinstep*#3,\dynkinstep*#4);} \newcommand{\dynkindots}[4]{\draw[dotted] (\dynkinstep*#1,\dynkinstep*#2) -- (\dynkinstep*#3,\dynkinstep*#4);} \newcommand{\dynkindoubleline}[4]{\draw[double,postaction={decorate}] (\dynkinstep*#1,\dynkinstep*#2) -- (\dynkinstep*#3,\dynkinstep*#4);}
-
-\newenvironment{dynkin}{
-\begin{tikzpicture}
-[decoration={markings,mark=at position 0.7 with {\arrow{>}}}]} {
-\end{tikzpicture}
-} As an exercise, reproduce the following in private.
+As an exercise, reproduce the following in private.
 
 $A_{n-1} : \SL_{n}(\mathbb{C}), \SU(n), \mathfrak{g} = \slLie_{n}(\mathbb{C}) = \{a \in M_n(\mathbb{C}): \trace(a) = 0\}$
 
