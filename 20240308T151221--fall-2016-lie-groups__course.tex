@@ -5332,9 +5332,9 @@ The proof requires a couple lemmas.
   the image under $T$ of the unit ball
   is contained in $S := \{\sum b_i e_i : |b_i|^2 \leq B_i\}$.
   Since
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \sum B_i =  \sum_{i,j} |A_{i j}|^2 < \infty,
-  \end{equation}
+  \end{equation*}
   the set $S$ is precompact, as required.
   (If $v^{(n)} = \sum b_i^{(n)} e_i$ is a sequence in $S$,
   then we may assume by a diagonlization argument
@@ -5593,7 +5593,7 @@ that $G$ is a compact group.
   Let $\ell_1 \otimes v_1 \in V_1^* \otimes V_1$
   and $\ell_2 \otimes v_2 \in V_2^* \otimes V_2$
   Then
-  \begin{equation}\label{eq:schur-orth-1-0}
+  \begin{equation}\label{eq:schur-orth-1-0b}
     \int_{g \in G} \ell_1(g v_1) \ell_2(g^{-1} v_2)
     =
     \begin{cases}
@@ -7756,7 +7756,6 @@ of the tangent vector $X_p$.''
 
 
 \begin{remark}
-  \label{rmk:}
   It can be instructive to check for some simple examples
   of linear Lie groups $G \leq \GL_n(\mathbf{k})$
   with Lie algebra $\mathfrak{g} \leq M_n(\mathbf{k})$
@@ -10911,7 +10910,6 @@ Then $\mathfrak{g} = \mathfrak{k} \oplus \mathfrak{p}$.  In words, $\mathfrak{k}
 (One of the homework problems involves applying this last corollary in the special case $i=0$ to relate the connected components of $G$ and $K$.)
 
 \begin{remark}
-  \label{rmk:}
   This corollary ``explains'' some of the ``coincidences'' such as
   \begin{equation*}
     \pi_1(\SL_2(\mathbb{R})) \cong \mathbb{Z} \cong \pi_1(\SO(2)),
@@ -13701,9 +13699,9 @@ where $R$ is a finite subset of $\mathfrak{h}_\mathbb{R}^* - \{0\}$.  In fact, t
  [H,X] = \alpha(H) X,
 \end{equation*}
 For $\lambda \in \mathfrak{h}_\mathbb{Z}^*$, let $e^\lambda \in \mathfrak{X}(T)$ be as in Definitnio \ref{defn:char-associated-to-functional}.  This applies in particular to $\alpha \in R \subseteq \mathfrak{h}_\mathbb{Z}^*$, and the above identity translates to: for $t \in T$ and $X \in \mathfrak{g}^\alpha$,
-\begin{equation}\label{eq:}
+\begin{equation*}
   \Ad(t) X = e^\alpha (t) X.
-\end{equation}
+\end{equation*}
 Note also that if $t = e(H)$ with $H \in \mathfrak{h}_\mathbb{R}$, then $e^\alpha (t) = e(\alpha(H))$, hence
 \begin{equation}\label{eq:how-ad-e-H-acts-on-X}
   \Ad(e(H)) X = e(\alpha(H)) X.
@@ -14089,7 +14087,7 @@ By the above discussion, $W_a$ acts on the hyperplanes $\{H : \alpha(H) = n\}$ a
 \label{sec:org25cd375}
 Let notation be as in previous sections: $K$ is a compact connected Lie group, $T$ is a maximal torus in $K$, plus all the other usual notation.
 
-Let $\mathfrak{k} := \Lie(K)$ and $\mathfrak{g} := \mathfrak{k}_\mathbb{C} := \mathfrak{k} \otimes _{\mathbb{R}} \mathbb{C}$, as usual.  Let $\theta : \mathfrak{g} \rightarrow \mathfrak{g}$ denote the involution given by complex conjugation on the second factor of $\mathfrak{k} \otimes_{\mathbb{R}} \mathbb{C}$, so that when we identify $\mathfrak{k}$ with a real Lie subalgebra of $\mathfrak{g}$, we have $\mathfrak{k} = \{X \in \mathfrak{g} : \theta(X) = X\}$.  (In typical examples such as $\mathfrak{k} = \u(n), \mathfrak{g} = \slLie_n(\mathbb{C})$, the operator $\theta$ is given by $X \mapsto -{}^t \overline{X}$.)  Then $\theta(H) = - H$ for all $H \in \mathfrak{h}_\mathbb{R} = i \mathfrak{t}$, $\mathfrak{t} := \Lie(T)$.
+Let $\mathfrak{k} := \Lie(K)$ and $\mathfrak{g} := \mathfrak{k}_\mathbb{C} := \mathfrak{k} \otimes _{\mathbb{R}} \mathbb{C}$, as usual.  Let $\theta : \mathfrak{g} \rightarrow \mathfrak{g}$ denote the involution given by complex conjugation on the second factor of $\mathfrak{k} \otimes_{\mathbb{R}} \mathbb{C}$, so that when we identify $\mathfrak{k}$ with a real Lie subalgebra of $\mathfrak{g}$, we have $\mathfrak{k} = \{X \in \mathfrak{g} : \theta(X) = X\}$.  (In typical examples such as $\mathfrak{k} = \mathfrak{u}(n), \mathfrak{g} = \slLie_n(\mathbb{C})$, the operator $\theta$ is given by $X \mapsto -{}^t \overline{X}$.)  Then $\theta(H) = - H$ for all $H \in \mathfrak{h}_\mathbb{R} = i \mathfrak{t}$, $\mathfrak{t} := \Lie(T)$.
 
 Let $\alpha$ belong to the set $R$ of roots for $T$.  Recall that $\mathfrak{g}$ contains the subalgebra $\mathfrak{s}_\alpha = \mathbb{C} H_\alpha \oplus \mathbb{C} X_\alpha \oplus \mathbb{C} Y_\alpha$, which is isomorphism in the evident way to $\slLie_2(\mathbb{C})$.  The subalgebra $\mathfrak{k}^{(\alpha)} := \{X \in \mathfrak{s}_\alpha : \theta(X) = X\}$ is a real Lie subalgebra of $\mathfrak{s}_\alpha$.  We can easily work out a basis for it.  Since $H_\alpha \in \mathfrak{h}_\mathbb{R}$, one has $\theta(H_\alpha) = - H_\alpha$.  One has $\theta (\mathfrak{g}^\alpha) \subseteq \mathfrak{g}^{-\alpha}$ and $\theta (\mathfrak{g}^{-\alpha}) \subseteq \mathfrak{g}^{\alpha}$, and $\theta^2 = 1$.  It follows that the trace of $\theta$ acting on $\mathfrak{s}_\alpha = 0$, so it has the same number of $+1$ and $-1$ eigenvalues, hence $\dim_{\mathbb{R}}(\mathfrak{k}^{(\alpha)}) = 3$.  If we let $x,y$ be any $\mathbb{R}$-basis of the $1$-dimensional $\mathbb{C}$-vector space $\mathfrak{g}^\alpha$, then it follows easily that $\{i H_\alpha, x + \theta(x), y + \theta(y)\}$ given an $\mathbb{R}$-basis of $\mathfrak{k}^{(\alpha)}$.  Using the existence of a positive-definite $K$-invariant inner product on $\mathfrak{k}$, we can show that $\mathfrak{k}^{(\alpha)} \cong \su(2)$.  (TODO: explain more.)  Since $\SU(2)$ is simply-connected, we get from this a morphism
 \begin{equation*}
