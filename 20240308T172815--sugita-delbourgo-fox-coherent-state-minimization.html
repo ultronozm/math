@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="ONPM, PN" />
+  <title>Some notes on coherent states</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+    <div class="my-links-container">
+2024-03-08 17:47:20
+      <a href="20240308T172815--sugita-delbourgo-fox-coherent-state-minimization.tex" class="my-link">tex</a>
+      <a href="20240308T172815--sugita-delbourgo-fox-coherent-state-minimization.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20240308T172815--sugita-delbourgo-fox-coherent-state-minimization.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+<header id="title-block-header">
+<h1 class="title">Some notes on coherent states</h1>
+<p class="author">ONPM, PN</p>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>We summarize a paper of Sugita (“Proof of the generalized Lieb-Wehrl
+conjecture for integer indices larger than one”) and Delbourgo–Fox
+(“Maximum weight vectors possess minimal uncertainty”).</p>
+</div>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#sec:cngub4lfbx" id="toc-sec:cngub4lfbx">The generalized
+Lieb-Wehrl conjecture for integer indices larger than one</a></li>
+<li><a href="#sec:cngsx6buyy" id="toc-sec:cngsx6buyy">Coherent states
+minimize uncertainty</a></li>
+<li><a href="#sec:cngub4lcsx" id="toc-sec:cngub4lcsx">Determining
+vectors by their matrix coefficients</a></li>
+</ul>
+</nav>
+<h1 id="sec:cngub4lfbx">§1. The generalized Lieb-Wehrl conjecture for
+integer indices larger than one</h1>
+<p>We summarize Sugita <a href="#ref-MR1946863" class="citation"
+data-cites="MR1946863">(Sugita 2002)</a>.</p>
+<p>Let <span class="math inline">\(G\)</span> be a compact connected Lie
+group. Let <span class="math inline">\(\pi\)</span> be an irreducible
+unitary (complex) representation of <span
+class="math inline">\(G\)</span>.</p>
+<div id="definition:cngsx0l9k6" class="definition">
+<p><strong>Definition 1</strong>. We say that a unit vector <span
+class="math inline">\(v \in \pi\)</span> is a <em>coherent state</em> if
+it is a highest weight vector with respect to some maximal torus and
+ordering.</p>
+</div>
+<p>For convenience, let us now fix a maximal torus and ordering, so that
+we may speak of the highest weight <span
+class="math inline">\(\lambda\)</span> of <span
+class="math inline">\(\pi\)</span> and the line of highest weight
+vectors. Coherent states are then the <span
+class="math inline">\(G\)</span>-translates of units vectors in that
+line.</p>
+<p>We equip <span class="math inline">\(G\)</span> with its probability
+Haar <span class="math inline">\(d g\)</span>.</p>
+<div id="theorem:cngsx0yg7y" class="theorem">
+<p><strong>Theorem 2</strong>. <em>Let <span class="math inline">\(q \in
+\mathbb{Z}_{\geq 2}\)</span>. For a unit vector <span
+class="math inline">\(v \in \pi\)</span>, set <span
+class="math display">\[I(v) :=
+    (\dim \pi)
+    \int_{G}
+    \left( \lvert \left\langle g v, v_\lambda \right\rangle \rvert^2
+\right)^q
+    \, d g.\]</span> (The normalizing factor is for later convenience.)
+Then <span class="math inline">\(I(v)\)</span> achieves its maximum
+precisely when <span class="math inline">\(v\)</span> is a coherent
+state.</em></p>
+</div>
+<div id="remark:cngsx0yf26" class="remark">
+<p><strong>Remark 3</strong>. Using the convexity of the <span
+class="math inline">\(q\)</span>th power function <span
+class="math inline">\(x \mapsto x^q\)</span>, one deduces an ostensibly
+more general result concerning higher rank tensors in place of <span
+class="math inline">\(v \otimes \overline{v}\)</span>.</p>
+</div>
+<p>We turn to the proof of Theorem <a href="#theorem:cngsx0yg7y"
+data-reference-type="ref" data-reference="theorem:cngsx0yg7y">2</a>.</p>
+<p>Let <span class="math inline">\(\Pi\)</span> be an irreducible
+unitary representation of <span class="math inline">\(G\)</span> with
+highest weight <span class="math inline">\(q \lambda\)</span>. Then
+<span class="math inline">\(\Pi\)</span> embeds as a subrepresentation
+of <span class="math inline">\(\pi^{\otimes q}\)</span>, with
+multiplicity one. We identify <span class="math inline">\(\Pi\)</span>
+with a subrepresentation of <span class="math inline">\(\pi^{\otimes
+q}\)</span>: <span class="math display">\[\pi^{\otimes q} \subseteq
+\Pi.\]</span> We denote by <span class="math display">\[P : \pi^{\otimes
+q} \rightarrow \Pi\]</span> the orthogonal projection.</p>
+<div class="lemma">
+<p><strong>Lemma 4</strong>. For each unit vector <span
+class="math inline">\(v \in \pi\)</span>, we have <span
+class="math display">\[I(v) = \frac{\dim \pi}{\dim \Pi}
+    \left\langle P v^{\otimes q}, v^{\otimes q}
+\right\rangle.\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Using the Schur orthogonality relations, we obtain
+the following integral formula for <span
+class="math inline">\(P\)</span>: <span class="math display">\[P =(\dim
+\Pi) \int_{G} g v_\lambda^{\otimes q}
+    \otimes \overline{g v_\lambda^{\otimes q}} \, d g.\]</span>
+Inserting this formula for <span class="math inline">\(P\)</span> into
+the right hand side of the required identity gives what we want. ◻</p>
+</span></div>
+<p>It follows that <span class="math inline">\(I(v)\)</span> is
+maximized precisely when <span class="math inline">\(v^{\otimes q} \in
+\Pi\)</span>. We will show that <span id="eq:cngsx4hl1k" class="math display">\[\label{eq:cngsx4hl1k}\tag{1}
+  v:\text{coherent} \iff v^{\otimes q} \in \Pi.\]</span> The forward
+implication follows from the fact that <span
+class="math inline">\(v^{\otimes q} \in \Pi\)</span>. It remains only to
+establish the converse.</p>
+<p>To that end, we introduce the Casimir operator <span
+class="math inline">\(\Omega\)</span> for <span
+class="math inline">\(G\)</span>, given by <span
+class="math inline">\(\sum_{x \in \mathcal{B}(\mathfrak{g})}
+x^2\)</span> for an orthonormal basis <span
+class="math inline">\(\mathcal{B}(\mathfrak{g})\)</span> of <span
+class="math inline">\(\mathfrak{g} := \mathop{\mathrm{Lie}}(G)\)</span>
+taken with respect to a <span class="math inline">\(G\)</span>-invariant
+inner product. This operator lies in the center of the universal
+enveloping algebra, hence acts on any given irreducible representation
+as multiplication by some scalar.</p>
+<div id="lemma:cngsx4g21h" class="lemma">
+<p><strong>Lemma 5</strong>. For unit vectors <span
+class="math inline">\(v \in \pi\)</span>, the inner product <span
+class="math display">\[\left\langle \Omega v^{\otimes q}, v^{\otimes q}
+\right\rangle\]</span> is maximized precisely when <span
+class="math inline">\(v\)</span> is coherent.</p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We first compute that <span id="eq:cngsx5j54m" class="math display">\[\label{eq:cngsx5j54m}\tag{2}
+    \left\langle \Omega v^{\otimes q}, v^{\otimes q} \right\rangle
+    =
+    q
+    \Omega_\pi + q(q - 1) E(v),\]</span> where <span
+class="math inline">\(\Omega_\pi\)</span> denotes the scalar by which
+<span class="math inline">\(\Omega\)</span> acts on <span
+class="math inline">\(\pi\)</span> and <span class="math display">\[E(v)
+:= \sum_{x \in \mathcal{B}(\mathfrak{g})}
+    \left\lvert \langle x v, v \rangle \right\rvert^2.\]</span> Consider
+for instance the case <span class="math inline">\(q = 2\)</span>. For
+<span class="math inline">\(x \in \mathfrak{g}\)</span>, we have <span
+class="math display">\[\begin{align}
+    x^2 v^{\otimes 2} &amp;= x \left( x v \otimes v +
+                        v \otimes x v \right) \\
+                      &amp;=
+                        x^2 v \otimes v + 2 x v \otimes x v + v \otimes
+x^2 v.
+  
+\end{align}\]</span> Summing over <span class="math inline">\(x \in
+\mathcal{B}(\mathfrak{g})\)</span> gives <span
+class="math display">\[\begin{align}
+    \Omega v^{\otimes 2} &amp;= \Omega v \otimes v + 2 \sum_{x \in
+\mathcal{B}(\mathfrak{g})} x v \otimes x v+ v \otimes \Omega v  \\
+                         &amp;= 2 \Omega_\pi v \otimes v + 2 \sum_{x \in
+\mathcal{B}(\mathfrak{g})} x v \otimes x v.
+  
+\end{align}\]</span> When <span class="math inline">\(q = 3\)</span>,
+we obtain instead <span class="math display">\[\Omega v^{\otimes 3} = 3
+\Omega_\pi v^{\otimes 3} + 2 \sum_{x \in \mathcal{B}} \left(
+      x v \otimes x v \otimes v
+      + x v \otimes v \otimes x v
+      + v \otimes x v \otimes x v
+    \right).\]</span> We get a similar expression in general, which,
+after pairing with <span class="math inline">\(v^{\otimes q}\)</span>,
+gives the claimed formula <a href="#eq:cngsx5j54m"
+data-reference-type="eqref"
+data-reference="eq:cngsx5j54m">\((2)\)</a>.</p>
+<p>We conclude via appeal to the following lemma. ◻</p>
+</span></div>
+<div id="lemma:cngsx4g4hz" class="lemma">
+<p><strong>Lemma 6</strong>. For unit vectors <span
+class="math inline">\(v\)</span>, the quantity <span
+class="math inline">\(E(v)\)</span> is maximized precisely when <span
+class="math inline">\(v\)</span> is coherent.</p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> See Section <a href="#sec:cngsx6buyy"
+data-reference-type="ref" data-reference="sec:cngsx6buyy">2</a>. ◻</p>
+</span></div>
+<p>We may now complete the proof of the backwards implication in <a
+href="#eq:cngsx4hl1k" data-reference-type="eqref"
+data-reference="eq:cngsx4hl1k">\((1)\)</a>, hence of Theorem <a
+href="#theorem:cngsx0yg7y" data-reference-type="ref"
+data-reference="theorem:cngsx0yg7y">2</a>. Suppose <span
+class="math inline">\(v^{\otimes q} \in \Pi\)</span>. Then, writing
+<span class="math inline">\(\Omega_\Pi\)</span> for the scalar by which
+<span class="math inline">\(\Omega\)</span> acts on the irreducible
+representation <span class="math inline">\(\Pi\)</span>, we have <span
+class="math inline">\(\Omega v^{\otimes q} = \Omega_\Pi v^{\otimes
+q}\)</span> and <span class="math inline">\(\Omega v_\lambda^{\otimes q}
+= \Omega_\Pi v_\lambda^{\otimes q}\)</span>, hence <span
+class="math display">\[\left\langle \Omega v^{\otimes q}, v^{\otimes q}
+\right\rangle
+  =
+  \left\langle \Omega v_\lambda^{\otimes q}, v_\lambda^{\otimes q}
+\right\rangle.\]</span> By two applications of Lemma <a
+href="#lemma:cngsx4g21h" data-reference-type="ref"
+data-reference="lemma:cngsx4g21h">5</a>, we deduce that <span
+class="math inline">\(v\)</span> is coherent, as required.</p>
+<h1 id="sec:cngsx6buyy">§2. Coherent states minimize uncertainty</h1>
+<p>We summarize Delbourgo–Fox <a href="#ref-MR0480888" class="citation"
+data-cites="MR0480888">(Delbourgo and Fox 1977)</a>, and in
+particular, prove Lemma <a href="#lemma:cngsx4g4hz"
+data-reference-type="ref" data-reference="lemma:cngsx4g4hz">6</a>.</p>
+<p>Let <span class="math inline">\(G\)</span> be a compact connected Lie
+group. Let <span class="math inline">\(\pi\)</span> be an irreducible
+unitary representation of <span class="math inline">\(G\)</span>. Equip
+the Lie algebra <span class="math inline">\(\mathfrak{g}\)</span> with a
+<span class="math inline">\(G\)</span>-invariant inner product, and let
+<span class="math inline">\(\mathcal{B}(\mathfrak{g})\)</span> be an
+orthonormal basis.</p>
+<div id="definition:cngsx6dtkh" class="definition">
+<p><strong>Definition 7</strong>. For each unit vector <span
+class="math inline">\(v \in \pi\)</span>, we define <span
+class="math display">\[\Delta(v) := \sum_{
+      x \in \mathcal{B}(\mathfrak{g})      
+    }
+    \lVert \bar{x} v \rVert^2\]</span> where <span
+class="math inline">\(\bar{x} := x - \langle x v, v
+\rangle\)</span>.</p>
+</div>
+<div id="theorem:cngsx6du1v" class="theorem">
+<p><strong>Theorem 8</strong>. <em>For unit vectors <span
+class="math inline">\(v\)</span>, the quantity <span
+class="math inline">\(\Delta(v)\)</span> is minimized precisely when
+<span class="math inline">\(v\)</span> is a coherent state.</em></p>
+</div>
+<p>That Theorem <a href="#theorem:cngsx6du1v" data-reference-type="ref"
+data-reference="theorem:cngsx6du1v">8</a> implies Lemma <a
+href="#lemma:cngsx4g4hz" data-reference-type="ref"
+data-reference="lemma:cngsx4g4hz">6</a> is immediate from the
+following:</p>
+<div id="lemma:cngsx6fp2j" class="lemma">
+<p><strong>Lemma 9</strong>. We have <span
+class="math inline">\(\Delta(v) = - \Omega_\pi - E(v)\)</span>, where
+<span class="math inline">\(\Omega_\pi\)</span> denotes the Casimir
+eigenvalue for <span class="math inline">\(\pi\)</span>.</p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We note that <span class="math inline">\(\bar{x} v =
+x v - \langle x v, v \rangle v\)</span>, thus <span
+class="math inline">\(\langle \bar{x} v, v \rangle = 0\)</span> and
+<span class="math display">\[\lVert \bar{x} v \rVert^2
+    =
+    \langle \bar{x} v, x v \rangle.\]</span> By expanding the definition
+of <span class="math inline">\(\bar{x}\)</span>, we obtain <span
+class="math display">\[\langle x v, x v \rangle
+    -
+    \langle x v, v \rangle \langle v, x v \rangle.\]</span> Using here
+that <span class="math inline">\(x\)</span> acts via a skew-symmetric
+operator, we see that the first term equals <span
+class="math inline">\(- \langle x^2 v, v \rangle\)</span>, while the
+second term may be abbreviated to <span class="math inline">\(\lvert
+\langle x v, v \rangle \rvert^2\)</span>. Summing over <span
+class="math inline">\(x\)</span> leads to the required identity. ◻</p>
+</span></div>
+<p>We turn to the proof of Theorem <a href="#theorem:cngsx6du1v"
+data-reference-type="ref" data-reference="theorem:cngsx6du1v">8</a>.</p>
+<div id="lemma:cngsx64916" class="lemma">
+<p><strong>Lemma 10</strong>. Let <span
+class="math inline">\(\pi\)</span> be a unitary representation of <span
+class="math inline">\(G\)</span>, let <span class="math inline">\(v \in
+\pi\)</span> be a unit vector, let <span class="math inline">\(x \in i
+\mathfrak{g}\)</span>. Then the minimum over all (real) scalars <span
+class="math inline">\(c\)</span> of the quantity <span
+class="math display">\[\lVert (x - c) v \rVert\]</span> is achieved by
+taking <span class="math inline">\(c = \langle x v, v
+\rangle\)</span>.</p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Since <span class="math inline">\(x\)</span> lies in
+<span class="math inline">\(\mathfrak{g}\)</span>, it acts via a
+self-adjoint operator, so we readily obtain <span id="eq:cngsx65skq" class="math display">\[\label{eq:cngsx65skq}\tag{3}
+    \lVert (x-c) v \rVert^2
+    = \langle x v, x v \rangle
+    - 2 c \langle x v, v \rangle
+    + c^2.\]</span> This is a quadratic polynomial whose minimum is
+attained at the critical point, which we solve for by taking a
+derivative. ◻</p>
+</span></div>
+<p>The definition of <span class="math inline">\(\Delta(v)\)</span> upon
+replacing <span class="math inline">\(\mathfrak{g}\)</span> with its
+imaginary multiple <span class="math inline">\(i \mathfrak{g}\)</span>.
+By Lemma <a href="#lemma:cngsx64916" data-reference-type="ref"
+data-reference="lemma:cngsx64916">10</a>, we see that the minimum of
+<span class="math inline">\(\Delta(v)\)</span> taken over unit vectors
+<span class="math inline">\(v\)</span> coincides with the minimum of
+<span id="eq:cngub21394" class="math display">\[\label{eq:cngub21394}\tag{4}
+  \sum_{x \in \mathcal{B}(i \mathfrak{g})}
+  \lVert (x - c_x) v \rVert^2\]</span> taken over unit vectors <span
+class="math inline">\(v\)</span> and tuples of scalars <span
+class="math inline">\(c_x\)</span>. Such a minimum exists by continuity
+and compactness. Let us consider one such minimum. The above expression
+expands, as in <a href="#eq:cngsx65skq" data-reference-type="eqref"
+data-reference="eq:cngsx65skq">\((3)\)</a>, to <span
+class="math display">\[- \Omega_\pi + \sum_x c_x^2 - 2 \sum_{x} c_x
+\langle x v, v \rangle.\]</span> With the notation <span
+class="math inline">\(y := \sum_x c_x x \in \mathfrak{g}\)</span>, the
+above may be written <span class="math display">\[- \Omega_\pi + \lVert
+y \rVert^2 - 2 \langle y v, v \rangle.\]</span></p>
+<p>We choose a maximal torus whose Lie algebra contains <span
+class="math inline">\(y\)</span>, and an ordering with respect to <span
+class="math inline">\(y\)</span> which is dominant. Our assumptions
+imply that <span class="math inline">\(\langle y v, v \rangle\)</span>
+cannot be made larger by changing <span
+class="math inline">\(v\)</span>, so <span
+class="math inline">\(v\)</span> must lie in the eigenspace for <span
+class="math inline">\(y\)</span> with largest eigenvalue. We claim that
+this eigenspace is one-dimensional. If the claim holds, then <span
+class="math inline">\(y\)</span> is a highest weight vector, so we are
+done. Assume the claim fails. Let us then modify <span
+class="math inline">\(v\)</span>, if necessary, so that it is a highest
+weight vector for the given torus and ordering; we may do so without
+changing <span class="math inline">\(\langle y v, v \rangle\)</span>,
+hence without changing our assumption that <span
+class="math inline">\(v\)</span> and <span
+class="math inline">\(c_x\)</span> realize the minimum. We see then that
+by modifying <span class="math inline">\(y\)</span> without changing
+<span class="math inline">\(\lVert y \rVert^2\)</span>, we may increase
+the size of <span class="math inline">\(\langle y v, v \rangle\)</span>,
+contradicting the supposed minimality. This completes the proof of
+Theorem <a href="#theorem:cngsx6du1v" data-reference-type="ref"
+data-reference="theorem:cngsx6du1v">8</a>.</p>
+<h1 id="sec:cngub4lcsx">§3. Determining vectors by their matrix
+coefficients</h1>
+<p>It follows from Lemma <a href="#lemma:cngsx64916"
+data-reference-type="ref" data-reference="lemma:cngsx64916">10</a> that
+for a given unit vector <span class="math inline">\(v\)</span>, the
+quantity <a href="#eq:cngub21394" data-reference-type="eqref"
+data-reference="eq:cngub21394">\((4)\)</a> is minimized by
+taking <span class="math inline">\(c_x = \langle x v, v
+\rangle\)</span>. We record here that <em>the latter quantities
+determine</em> <span class="math inline">\(v\)</span> <em>up to
+multiplication by a unit scalar</em>. Indeed, let <span
+class="math inline">\(G\)</span> be a compact connected Lie group, <span
+class="math inline">\(\pi\)</span> an irreducible representation, and
+<span class="math inline">\(u, v \in \pi\)</span> unit vectors with
+<span class="math inline">\(\langle x u, u \rangle = \langle x v, v
+\rangle\)</span> for all <span class="math inline">\(x \in
+\mathfrak{g}\)</span>. By expanding the exponential series, we see that
+<span class="math inline">\(\langle \exp(x) u, u \rangle = \langle
+\exp(x) v, v \rangle\)</span>, so that the <span
+class="math inline">\(\langle g u, u \rangle = \langle g v, v
+\rangle\)</span> holds near the identity on <span
+class="math inline">\(G\)</span>. Since matrix coefficients of
+finite-dimensional representations define analytic functions, we deduce
+the equality on all of <span class="math inline">\(G\)</span>. We
+conclude that <span class="math inline">\(u\)</span> and <span
+class="math inline">\(v\)</span> are proportional by appeal to the
+following:</p>
+<div id="proposition:cngub293qk" class="proposition">
+<p><strong>Proposition 11</strong>. <em>Let <span
+class="math inline">\(G\)</span> be a compact group, let <span
+class="math inline">\(\pi\)</span> be an irreducible representation, and
+let <span class="math inline">\(u\)</span> and <span
+class="math inline">\(v\)</span> be nonzero vectors in <span
+class="math inline">\(\pi\)</span> with the property that <span id="eq:cngub3eab0" class="math display">\[\label{eq:cngub3eab0}\tag{5}
+    \langle g u, u \rangle = \langle g v, v \rangle\]</span> for all
+<span class="math inline">\(g \in G\)</span>. Then <span
+class="math inline">\(u\)</span> and <span
+class="math inline">\(v\)</span> are proportional.</em></p>
+</div>
+<p>We record a proof after some lemmas.</p>
+<div id="lemma:cngubyxnij" class="lemma">
+<p><strong>Lemma 12</strong> (Schur’s lemma). Let <span
+class="math inline">\(\pi\)</span> be an irreducible representation of
+<span class="math inline">\(G\)</span>. Then <span
+class="math inline">\({\mathop{\mathrm{End}}}_G(\pi) =
+\mathbb{C}\)</span>, that is to say, any linear operator on <span
+class="math inline">\(\pi\)</span> that commutes with the action of
+<span class="math inline">\(G\)</span> is a scalar multiple of the
+identity.</p>
+</div>
+<div id="lemma:cngubytkmn" class="lemma">
+<p><strong>Lemma 13</strong>. Let <span
+class="math inline">\(\pi\)</span> and <span
+class="math inline">\(\sigma\)</span> be unitary representations of
+<span class="math inline">\(G\)</span>, with <span
+class="math inline">\(\pi\)</span> irreducible. Let <span
+class="math inline">\(u \in \pi\)</span> and <span
+class="math inline">\(v \in \sigma\)</span> be nonzero vectors such that
+<span class="math display">\[\langle g u, u \rangle = \langle g v, v
+\rangle.\]</span> Then there is a unique <span
+class="math inline">\(G\)</span>-equivariant map <span
+class="math inline">\(T : \pi \rightarrow \sigma\)</span> that sends
+<span class="math inline">\(u\)</span> to <span
+class="math inline">\(v\)</span>.</p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Any vector in <span
+class="math inline">\(\pi\)</span> may be written <span
+class="math inline">\(\sum_{g \in G} c_g g u\)</span> for some
+finitely-supported coefficients <span
+class="math inline">\(c_g\)</span>. We have no choice but to attempt to
+define <span class="math display">\[T \left( \sum_{g \in G} c_g g u
+\right) := \sum_{g \in G} c_g g v.\]</span> We need to check that this
+is well-defined. To see this, we use that the vanishing of the argument
+of <span class="math inline">\(T\)</span> may be detected via its inner
+product with itself, and then use that <span
+class="math inline">\(u\)</span> and <span
+class="math inline">\(v\)</span> have the same inner products to see
+that the right hand side must likewise vanish. ◻</p>
+</span></div>
+<div class="proof">
+<p><em>Proof of Proposition <a href="#proposition:cngub293qk"
+data-reference-type="ref"
+data-reference="proposition:cngub293qk">11</a>.</em> By Lemma <a
+href="#lemma:cngubytkmn" data-reference-type="ref"
+data-reference="lemma:cngubytkmn">13</a>, there is a unique <span
+class="math inline">\(T \in {\mathop{\mathrm{End}}}_G(\pi)\)</span> that
+maps <span class="math inline">\(u\)</span> to <span
+class="math inline">\(v\)</span>. By Schur’s lemma, <span
+class="math inline">\(T\)</span> is a multiple of the identity.
+[thinking-face] ◻</p>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="list">
+<div id="ref-MR0480888" class="csl-entry" role="listitem">
+Delbourgo, R., and J. R. Fox. 1977. <span>“Maximum Weight Vectors
+Possess Minimal Uncertainty.”</span> <em>J. Phys. A</em> 10 (12):
+233–35. <a
+href="https://doi.org/10.1088/0305-4470/10/12/004">https://doi.org/10.1088/0305-4470/10/12/004</a>.
+</div>
+<div id="ref-MR1946863" class="csl-entry" role="listitem">
+Sugita, Ayumu. 2002. <span>“Proof of the Generalized
+<span>L</span>ieb-<span>W</span>ehrl Conjecture for Integer Indices
+Larger Than One.”</span> <em>J. Phys. A</em> 35 (42): L621–26. <a
+href="https://doi.org/10.1088/0305-4470/35/42/105">https://doi.org/10.1088/0305-4470/35/42/105</a>.
+</div>
+</div>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
