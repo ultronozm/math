@@ -1,0 +1,256 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+
+\begin{document}
+
+\author{ONPM, PN}
+\title{Some notes on coherent states}
+
+
+\begin{abstract}
+  We summarize a paper of Sugita (``Proof of the generalized Lieb-Wehrl conjecture for integer indices larger than one'') and Delbourgo--Fox (``Maximum weight vectors possess minimal uncertainty'').
+\end{abstract}
+
+\maketitle
+
+\section{The generalized Lieb-Wehrl conjecture for integer indices larger than one}\label{sec:cngub4lfbx}
+We summarize Sugita \cite{MR1946863}.
+
+Let $G$ be a compact connected Lie group.  Let $\pi$ be an irreducible unitary (complex) representation of $G$.
+
+\begin{definition}\label{definition:cngsx0l9k6}
+  We say that a unit vector $v \in \pi$ is a \emph{coherent state} if it is a highest weight vector with respect to some maximal torus and ordering.
+\end{definition}
+
+For convenience, let us now fix a maximal torus and ordering, so that we may speak of the highest weight $\lambda$ of $\pi$ and the line of highest weight vectors.  Coherent states are then the $G$-translates of units vectors in that line.
+
+We equip $G$ with its probability Haar $d g$.
+
+\begin{theorem}\label{theorem:cngsx0yg7y}
+  Let $q \in \mathbb{Z}_{\geq 2}$.  For a unit vector $v \in \pi$, set
+  \begin{equation*}
+    I(v) :=
+    (\dim \pi)
+    \int_{G}
+    \left( \lvert \left\langle g v, v_\lambda \right\rangle \rvert^2 \right)^q
+    \, d g.
+  \end{equation*}
+  (The normalizing factor is for later convenience.)  Then $I(v)$ achieves its maximum precisely when $v$ is a coherent state.
+\end{theorem}
+\begin{remark}\label{remark:cngsx0yf26}
+  Using the convexity of the $q$th power function $x \mapsto x^q$, one deduces an ostensibly more general result concerning higher rank tensors in place of $v \otimes \overline{v}$.
+\end{remark}
+
+We turn to the proof of Theorem \ref{theorem:cngsx0yg7y}.
+
+Let $\Pi$ be an irreducible unitary representation of $G$ with highest weight $q \lambda$.  Then $\Pi$ embeds as a subrepresentation of $\pi^{\otimes q}$, with multiplicity one.  We identify $\Pi$ with a subrepresentation of $\pi^{\otimes q}$:
+\begin{equation*}
+  \pi^{\otimes q} \subseteq \Pi. 
+\end{equation*}
+We denote by
+\begin{equation*}
+  P : \pi^{\otimes q} \rightarrow \Pi
+\end{equation*}
+the orthogonal projection.
+\begin{lemma}
+  For each unit vector $v \in \pi$, we have
+  \begin{equation*}
+    I(v) = \frac{\dim \pi}{\dim \Pi}
+    \left\langle P v^{\otimes q}, v^{\otimes q} \right\rangle.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  Using the Schur orthogonality relations, we obtain the following integral formula for $P$:
+  \begin{equation*}
+    P =(\dim \Pi) \int_{G} g v_\lambda^{\otimes q}
+    \otimes \overline{g v_\lambda^{\otimes q}} \, d g. 
+  \end{equation*}
+  Inserting this formula for $P$ into the right hand side of the required identity gives what we want.
+\end{proof}
+
+It follows that $I(v)$ is maximized precisely when $v^{\otimes q} \in \Pi$.  We will show that
+\begin{equation}\label{eq:cngsx4hl1k}
+  v:\text{coherent} \iff v^{\otimes q} \in \Pi.
+\end{equation}
+The forward implication follows from the fact that $v^{\otimes q} \in \Pi$.  It remains only to establish the converse.
+
+To that end, we introduce the Casimir operator $\Omega$ for $G$, given by $\sum_{x \in \mathcal{B}(\mathfrak{g})} x^2$ for an orthonormal basis $\mathcal{B}(\mathfrak{g})$ of $\mathfrak{g} := \Lie(G)$ taken with respect to a $G$-invariant inner product.  This operator lies in the center of the universal enveloping algebra, hence acts on any given irreducible representation as multiplication by some scalar.
+
+\begin{lemma}\label{lemma:cngsx4g21h}
+  For unit vectors $v \in \pi$, the inner product
+  \begin{equation*}
+    \left\langle \Omega v^{\otimes q}, v^{\otimes q} \right\rangle
+  \end{equation*}
+  is maximized precisely when $v$ is coherent.
+\end{lemma}
+\begin{proof}
+  We first compute that
+  \begin{equation}\label{eq:cngsx5j54m}
+    \left\langle \Omega v^{\otimes q}, v^{\otimes q} \right\rangle
+    =
+    q
+    \Omega_\pi + q(q - 1) E(v),
+  \end{equation}
+  where $\Omega_\pi$ denotes the scalar by which $\Omega$ acts on $\pi$ and
+  \begin{equation*}
+    E(v) := \sum_{x \in \mathcal{B}(\mathfrak{g})}
+    \left\lvert \langle x v, v \rangle \right\rvert^2.
+  \end{equation*}
+  Consider for instance the case $q = 2$.  For $x \in \mathfrak{g}$, we have
+  \begin{align*}
+    x^2 v^{\otimes 2} &= x \left( x v \otimes v +
+                        v \otimes x v \right) \\
+                      &=
+                        x^2 v \otimes v + 2 x v \otimes x v + v \otimes x^2 v.
+  \end{align*}
+  Summing over $x \in \mathcal{B}(\mathfrak{g})$ gives
+  \begin{align*}
+    \Omega v^{\otimes 2} &= \Omega v \otimes v + 2 \sum_{x \in \mathcal{B}(\mathfrak{g})} x v \otimes x v+ v \otimes \Omega v  \\
+                         &= 2 \Omega_\pi v \otimes v + 2 \sum_{x \in \mathcal{B}(\mathfrak{g})} x v \otimes x v.
+  \end{align*}
+  When $q = 3$, we obtain instead
+  \begin{equation*}
+    \Omega v^{\otimes 3} = 3 \Omega_\pi v^{\otimes 3} + 2 \sum_{x \in \mathcal{B}} \left(
+      x v \otimes x v \otimes v
+      + x v \otimes v \otimes x v
+      + v \otimes x v \otimes x v
+    \right).
+  \end{equation*}
+  We get a similar expression in general, which, after pairing with $v^{\otimes q}$, gives the claimed formula \eqref{eq:cngsx5j54m}.
+
+  We conclude via appeal to the following lemma.
+\end{proof}
+
+\begin{lemma}\label{lemma:cngsx4g4hz}
+  For unit vectors $v$, the quantity $E(v)$ is maximized precisely when $v$ is coherent.
+\end{lemma}
+\begin{proof}
+  See Section \ref{sec:cngsx6buyy}.
+\end{proof}
+
+
+We may now complete the proof of the backwards implication in \eqref{eq:cngsx4hl1k}, hence of Theorem \ref{theorem:cngsx0yg7y}.  Suppose $v^{\otimes q} \in \Pi$.  Then, writing $\Omega_\Pi$ for the scalar by which $\Omega$ acts on the irreducible representation $\Pi$, we have $\Omega v^{\otimes q} = \Omega_\Pi v^{\otimes q}$ and $\Omega v_\lambda^{\otimes q} = \Omega_\Pi v_\lambda^{\otimes q}$, hence
+\begin{equation*}
+  \left\langle \Omega v^{\otimes q}, v^{\otimes q} \right\rangle
+  =
+  \left\langle \Omega v_\lambda^{\otimes q}, v_\lambda^{\otimes q} \right\rangle.
+\end{equation*}
+By two applications of Lemma \ref{lemma:cngsx4g21h}, we deduce that $v$ is coherent, as required.
+
+
+\section{Coherent states minimize uncertainty}\label{sec:cngsx6buyy}
+We summarize Delbourgo--Fox \cite{MR0480888}, and in particular, prove Lemma \ref{lemma:cngsx4g4hz}.
+
+Let $G$ be a compact connected Lie group.  Let $\pi$ be an irreducible unitary representation of $G$.  Equip the Lie algebra $\mathfrak{g}$ with a $G$-invariant inner product, and let $\mathcal{B}(\mathfrak{g})$ be an orthonormal basis.
+
+\begin{definition}\label{definition:cngsx6dtkh}
+  For each unit vector $v \in \pi$, we define
+  \begin{equation*}
+    \Delta(v) := \sum_{
+      x \in \mathcal{B}(\mathfrak{g})      
+    }
+    \lVert \bar{x} v \rVert^2
+  \end{equation*}
+  where $\bar{x} := x - \langle x v, v \rangle$.
+\end{definition}
+\begin{theorem}\label{theorem:cngsx6du1v}
+  For unit vectors $v$, the quantity $\Delta(v)$ is minimized precisely when $v$ is a coherent state.
+\end{theorem}
+
+That Theorem \ref{theorem:cngsx6du1v} implies Lemma \ref{lemma:cngsx4g4hz} is immediate from the following:
+\begin{lemma}\label{lemma:cngsx6fp2j}
+  We have $\Delta(v) = - \Omega_\pi - E(v)$, where $\Omega_\pi$ denotes the Casimir eigenvalue for $\pi$.
+\end{lemma}
+\begin{proof}
+  We note that $\bar{x} v = x v - \langle x v, v \rangle v$, thus $\langle \bar{x} v, v \rangle = 0$ and
+  \begin{equation*}
+    \lVert \bar{x} v \rVert^2
+    =
+    \langle \bar{x} v, x v \rangle.
+  \end{equation*}
+  By expanding the definition of $\bar{x}$, we obtain
+  \begin{equation*}
+    \langle x v, x v \rangle
+    -
+    \langle x v, v \rangle \langle v, x v \rangle.
+  \end{equation*}
+  Using here that $x$ acts via a skew-symmetric operator, we see that the first term equals $- \langle x^2 v, v \rangle$, while the second term  may be abbreviated to $\lvert \langle x v, v \rangle \rvert^2$.  Summing over $x$ leads to the required identity.
+\end{proof}
+
+We turn to the proof of Theorem \ref{theorem:cngsx6du1v}.
+
+\begin{lemma}\label{lemma:cngsx64916}
+  Let $\pi$ be a unitary representation of $G$, let $v \in \pi$ be a unit vector, let $x \in i \mathfrak{g}$.  Then the minimum over all (real) scalars $c$ of the quantity
+  \begin{equation*}
+    \lVert (x - c) v \rVert
+  \end{equation*}
+  is achieved by taking $c = \langle x v, v \rangle$.
+\end{lemma}
+\begin{proof}
+  Since $x$ lies in $\mathfrak{g}$, it acts via a self-adjoint operator, so we readily obtain
+  \begin{equation}\label{eq:cngsx65skq}
+    \lVert (x-c) v \rVert^2
+    = \langle x v, x v \rangle
+    - 2 c \langle x v, v \rangle
+    + c^2.
+  \end{equation}
+  This is a quadratic polynomial whose minimum is attained at the critical point, which we solve for by taking a derivative.
+\end{proof}
+
+The definition of $\Delta(v)$ upon replacing $\mathfrak{g}$ with its imaginary multiple $i \mathfrak{g}$.  By Lemma \ref{lemma:cngsx64916}, we see that the minimum of $\Delta(v)$ taken over unit vectors $v$ coincides with the minimum of
+\begin{equation}\label{eq:cngub21394}
+  \sum_{x \in \mathcal{B}(i \mathfrak{g})}
+  \lVert (x - c_x) v \rVert^2
+\end{equation}
+taken over unit vectors $v$ and tuples of scalars $c_x$.  Such a minimum exists by continuity and compactness.  Let us consider one such minimum.    The above expression expands, as in \eqref{eq:cngsx65skq}, to
+\begin{equation*}
+  - \Omega_\pi + \sum_x c_x^2 - 2 \sum_{x} c_x \langle x v, v \rangle.
+\end{equation*}
+With the notation $y := \sum_x c_x x \in \mathfrak{g}$, the above may be written
+\begin{equation*}
+  - \Omega_\pi + \lVert y \rVert^2 - 2 \langle y v, v \rangle.
+\end{equation*}
+
+We choose a maximal torus whose Lie algebra contains $y$, and an ordering with respect to $y$ which is dominant.  Our assumptions imply that $\langle y v, v \rangle$ cannot be made larger by changing $v$, so $v$ must lie in the eigenspace for $y$ with largest eigenvalue.  We claim that this eigenspace is one-dimensional.  If the claim holds, then $y$ is a highest weight vector, so we are done.  Assume the claim fails.  Let us then modify $v$, if necessary, so that it is a highest weight vector for the given torus and ordering; we may do so without changing $\langle y v, v \rangle$, hence without changing our assumption that $v$ and $c_x$ realize the minimum.  We see then that by modifying $y$ without changing $\lVert y \rVert^2$, we may increase the size of $\langle y v, v \rangle$, contradicting the supposed minimality.  This completes the proof of Theorem \ref{theorem:cngsx6du1v}.
+
+
+
+\section{Determining vectors by their matrix coefficients}\label{sec:cngub4lcsx}
+It follows from Lemma \ref{lemma:cngsx64916} that for a given unit vector $v$, the quantity \eqref{eq:cngub21394} is minimized by taking $c_x = \langle x v, v \rangle$.  We record here that \emph{the latter quantities determine} $v$ \emph{up to multiplication by a unit scalar}.  Indeed, let $G$ be a compact connected Lie group, $\pi$ an irreducible representation, and $u, v \in \pi$ unit vectors with $\langle x u, u \rangle = \langle x v, v \rangle$ for all $x \in \mathfrak{g}$.  By expanding the exponential series, we see that $\langle \exp(x) u, u \rangle = \langle \exp(x) v, v \rangle$, so that the
+$\langle g u, u \rangle = \langle g v, v \rangle$ holds near the identity on $G$.  Since matrix coefficients of finite-dimensional representations define analytic functions, we deduce the equality on all of $G$.  We conclude that $u$ and $v$ are proportional by appeal to the following:
+
+\begin{proposition}\label{proposition:cngub293qk}
+  Let $G$ be a compact group, let $\pi$ be an irreducible representation, and let $u$ and $v$ be nonzero vectors in $\pi$ with the property that
+  \begin{equation}\label{eq:cngub3eab0}
+    \langle g u, u \rangle = \langle g v, v \rangle
+  \end{equation}
+  for all $g \in G$.  Then $u$ and $v$ are proportional.
+\end{proposition}
+We record a proof after some lemmas.
+
+\begin{lemma}[Schur's lemma]\label{lemma:cngubyxnij}
+  Let $\pi$ be an irreducible representation of $G$.  Then $\End_G(\pi) = \mathbb{C}$, that is to say, any linear operator on $\pi$ that commutes with the action of $G$ is a scalar multiple of the identity.
+\end{lemma}
+
+\begin{lemma}\label{lemma:cngubytkmn}
+  Let $\pi$ and $\sigma$ be unitary representations of $G$, with $\pi$ irreducible.  Let $u \in \pi$ and $v \in \sigma$ be nonzero vectors such that
+  \begin{equation*}
+    \langle g u, u \rangle = \langle g v, v \rangle.
+  \end{equation*}
+  Then there is a unique $G$-equivariant map $T : \pi \rightarrow \sigma$ that sends $u$ to $v$.  
+\end{lemma}
+\begin{proof}
+  Any vector in $\pi$ may be written $\sum_{g \in G} c_g g u$ for some finitely-supported coefficients $c_g$.  We have no choice but to attempt to define
+  \begin{equation*}
+    T \left( \sum_{g \in G} c_g g u \right) := \sum_{g \in G} c_g g v.
+  \end{equation*}
+  We need to check that this is well-defined.  To see this, we use that the vanishing of the argument of $T$ may be detected via its inner product with itself, and then use that $u$ and $v$ have the same inner products to see that the right hand side must likewise vanish.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{proposition:cngub293qk}]
+  By Lemma \ref{lemma:cngubytkmn}, there is a unique $T \in \End_G(\pi)$ that maps $u$ to $v$.  By Schur's lemma, $T$ is a multiple of the identity.  [thinking-face]
+\end{proof}
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
