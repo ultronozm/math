@@ -22,7 +22,7 @@ Let $G$ be a compact connected Lie group.  Let $\pi$ be an irreducible unitary (
   We say that a unit vector $v \in \pi$ is a \emph{coherent state} if it is a highest weight vector with respect to some maximal torus and ordering.
 \end{definition}
 
-For convenience, let us now fix a maximal torus and ordering, so that we may speak of the highest weight $\lambda$ of $\pi$ and the line of highest weight vectors.  Coherent states are then the $G$-translates of units vectors in that line.
+For convenience, let us now fix a maximal torus and ordering, so that we may speak of the highest weight $\lambda$ of $\pi$ and the line of highest weight vectors.  Coherent states are then the $G$-translates of unit vectors in that line.
 
 We equip $G$ with its probability Haar $d g$.
 
@@ -187,7 +187,7 @@ We turn to the proof of Theorem \ref{theorem:cngsx6du1v}.
   is achieved by taking $c = \langle x v, v \rangle$.
 \end{lemma}
 \begin{proof}
-  Since $x$ lies in $\mathfrak{g}$, it acts via a self-adjoint operator, so we readily obtain
+  Since $x$ lies in $i \mathfrak{g}$, it acts via a self-adjoint operator, so we readily obtain
   \begin{equation}\label{eq:cngsx65skq}
     \lVert (x-c) v \rVert^2
     = \langle x v, x v \rangle
@@ -197,12 +197,12 @@ We turn to the proof of Theorem \ref{theorem:cngsx6du1v}.
   This is a quadratic polynomial whose minimum is attained at the critical point, which we solve for by taking a derivative.
 \end{proof}
 
-The definition of $\Delta(v)$ upon replacing $\mathfrak{g}$ with its imaginary multiple $i \mathfrak{g}$.  By Lemma \ref{lemma:cngsx64916}, we see that the minimum of $\Delta(v)$ taken over unit vectors $v$ coincides with the minimum of
+The definition of $\Delta(v)$ remains unchanged upon replacing $\mathfrak{g}$ with its imaginary multiple $i \mathfrak{g}$.  By Lemma~\ref{lemma:cngsx64916}, we see that the minimum of $\Delta(v)$ taken over unit vectors $v$ coincides with the minimum of
 \begin{equation}\label{eq:cngub21394}
   \sum_{x \in \mathcal{B}(i \mathfrak{g})}
   \lVert (x - c_x) v \rVert^2
 \end{equation}
-taken over unit vectors $v$ and tuples of scalars $c_x$.  Such a minimum exists by continuity and compactness.  Let us consider one such minimum.    The above expression expands, as in \eqref{eq:cngsx65skq}, to
+taken over unit vectors $v$ and tuples of scalars $c_x$.  Such a minimum exists by continuity and compactness.  Let us consider one such minimum.  The above expression expands, as in \eqref{eq:cngsx65skq}, to
 \begin{equation*}
   - \Omega_\pi + \sum_x c_x^2 - 2 \sum_{x} c_x \langle x v, v \rangle.
 \end{equation*}
@@ -210,7 +210,6 @@ With the notation $y := \sum_x c_x x \in \mathfrak{g}$, the above may be written
 \begin{equation*}
   - \Omega_\pi + \lVert y \rVert^2 - 2 \langle y v, v \rangle.
 \end{equation*}
-
 We choose a maximal torus whose Lie algebra contains $y$, and an ordering with respect to $y$ which is dominant.  Our assumptions imply that $\langle y v, v \rangle$ cannot be made larger by changing $v$, so $v$ must lie in the eigenspace for $y$ with largest eigenvalue.  We claim that this eigenspace is one-dimensional.  If the claim holds, then $y$ is a highest weight vector, so we are done.  Assume the claim fails.  Let us then modify $v$, if necessary, so that it is a highest weight vector for the given torus and ordering; we may do so without changing $\langle y v, v \rangle$, hence without changing our assumption that $v$ and $c_x$ realize the minimum.  We see then that by modifying $y$ without changing $\lVert y \rVert^2$, we may increase the size of $\langle y v, v \rangle$, contradicting the supposed minimality.  This completes the proof of Theorem \ref{theorem:cngsx6du1v}.
 
 
