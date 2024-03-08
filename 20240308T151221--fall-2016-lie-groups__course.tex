@@ -1,39 +1,11 @@
-% Created 2023-01-11 Wed 15:42 Intended LaTeX compiler: pdflatex
-\documentclass[10pt]{article} \usepackage[utf8]{inputenc} \usepackage[T1]{fontenc} \usepackage{graphicx} \usepackage{longtable} \usepackage{wrapfig} \usepackage{rotating} \usepackage[normalem]{ulem} \usepackage{amsmath} \usepackage{amssymb} \usepackage{capt-of} \usepackage{hyperref} \usepackage{graphicx, amsmath, amssymb, amsfonts, amsthm, stmaryrd, tikz, amscd} \usepackage[all]{xy} \usetikzlibrary{matrix,arrows,decorations.pathmorphing} \DeclareMathOperator{\sgn}{sgn} \DeclareMathOperator{\SL}{SL} \DeclareMathOperator{\Mp}{Mp} \DeclareMathOperator{\GL}{GL} \def\gl{\mathfrak{g}\mathfrak{l}} \DeclareMathOperator{\odd}{odd} \DeclareMathOperator{\even}{even} \DeclareMathOperator{\GO}{GO} \DeclareMathOperator{\PGO}{PGO} \DeclareMathOperator{\height}{height} \DeclareMathOperator{\htt}{ht} \DeclareMathOperator{\GSO}{GSO} \DeclareMathOperator{\SO}{SO} \DeclareMathOperator{\ad}{ad} \DeclareMathOperator{\Ad}{Ad} \DeclareMathOperator{\disc}{disc} \DeclareMathOperator{\inv}{inv} \DeclareMathOperator{\Pic}{Pic} \DeclareMathOperator{\Cl}{Cl} \DeclareMathOperator{\Hom}{Hom} \DeclareMathOperator{\Heis}{Heis} \def\sp{\mathfrak{s}\mathfrak{p}} \def\su{\mathfrak{s}\mathfrak{u}} \def\soLie{\mathfrak{s}\mathfrak{o}} \def\so{\mathfrak{s}\mathfrak{o}} \def\slLie{\mathfrak{s}\mathfrak{l}} \def\spLie{\mathfrak{s}\mathfrak{p}} \DeclareMathOperator{\heis}{\mathfrak{h}\mathfrak{e}\mathfrak{i}\mathfrak{s}} \DeclareMathOperator{\End}{End} \DeclareMathOperator{\JL}{JL} \DeclareMathOperator{\image}{image} \DeclareMathOperator{\red}{red} \def\div{\operatorname{div}} \def\eps{\varepsilon} \def\cHom{\mathcal{H}\operatorname{om}} \DeclareMathOperator{\PGL}{PGL} \DeclareMathOperator{\Rep}{Rep} \DeclareMathOperator{\ch}{ch} \DeclareMathOperator{\osc}{osc} \DeclareMathOperator{\Averages}{Averages} \DeclareMathOperator{\Cent}{Cent} \DeclareMathOperator{\Center}{Center} \DeclareMathOperator{\Aff}{Aff} \DeclareMathOperator{\Vect}{Vect} \DeclareMathOperator{\radius}{radius} \DeclareMathOperator{\coker}{coker} \DeclareMathOperator{\id}{id} \DeclareMathOperator{\dom}{dom} \DeclareMathOperator{\Perm}{Perm} \DeclareMathOperator{\Der}{Der} \DeclareMathOperator{\rad}{rad} \DeclareMathOperator{\U}{U} \DeclareMathOperator{\norm}{norm} \DeclareMathOperator{\trace}{trace} \DeclareMathOperator{\Equid}{Equid} \DeclareMathOperator{\Feas}{Feas} \DeclareMathOperator{\bulk}{bulk} \DeclareMathOperator{\tail}{tail} \DeclareMathOperator{\sys}{sys} \DeclareMathOperator{\atan}{atan} \DeclareMathOperator{\temp}{temp} \DeclareMathOperator{\Asai}{Asai} \DeclareMathOperator{\glob}{glob} \DeclareMathOperator{\Kuz}{Kuz} \DeclareMathOperator{\Irr}{Irr} \DeclareMathOperator{\GSp}{GSp} \DeclareMathOperator{\BC}{BC} \DeclareMathOperator{\Ann}{Ann} \DeclareMathOperator{\Gen}{Gen} \DeclareMathOperator{\SU}{SU} \DeclareMathOperator{\PGSU}{PGSU} \DeclareMathOperator{\gen}{gen} \DeclareMathOperator{\PMp}{PMp} \DeclareMathOperator{\PGMp}{PGMp} \DeclareMathOperator{\PB}{PB} \DeclareMathOperator{\ind}{ind} \DeclareMathOperator{\Jac}{Jac} \DeclareMathOperator{\im}{im} \DeclareMathOperator{\Aut}{Aut} \DeclareMathOperator{\Int}{Int} \DeclareMathOperator{\PSL}{PSL} \DeclareMathOperator{\co}{co} \DeclareMathOperator{\irr}{irr} \DeclareMathOperator{\prim}{prim} \DeclareMathOperator{\bal}{bal} \DeclareMathOperator{\baln}{bal} \DeclareMathOperator{\dist}{dist} \DeclareMathOperator{\RS}{RS} \DeclareMathOperator{\Sob}{Sob} \DeclareMathOperator{\mic}{mic} \DeclareMathOperator{\Gal}{Gal} \DeclareMathOperator{\st}{st} \DeclareMathOperator{\std}{std} \DeclareMathOperator{\diag}{diag} \DeclareMathOperator{\Sym}{Sym} \DeclareMathOperator{\gr}{gr} \DeclareMathOperator{\aff}{aff} \DeclareMathOperator{\Dil}{Dil} \DeclareMathOperator{\Lie}{Lie} \DeclareMathOperator{\Symp}{Symp} \DeclareMathOperator{\Stab}{Stab} \DeclareMathOperator{\stab}{stab} \DeclareMathOperator{\codim}{codim} \DeclareMathOperator{\linear}{linear} \DeclareMathOperator{\geom}{geom} \DeclareMathOperator{\spec}{spec} \def\O{\operatorname{O}} \DeclareMathOperator{\Au}{Aut} \DeclareMathOperator{\Fix}{Fix} \DeclareMathOperator{\Opp}{Op} \DeclareMathOperator{\opp}{op} \DeclareMathOperator{\Size}{Size} \DeclareMathOperator{\Save}{Save} \DeclareMathOperator{\sym}{sym} \DeclareMathOperator{\mean}{mean} \DeclareMathOperator{\elliptic}{ell} \DeclareMathOperator{\nilpotent}{nil} \DeclareMathOperator{\hyperbolic}{hyp} \DeclareMathOperator{\newvector}{new} \DeclareMathOperator{\new}{new} \DeclareMathOperator{\full}{full} \DeclareMathOperator{\unr}{u} \DeclareMathOperator{\ram}{ram} \DeclareMathOperator{\fin}{fin} \DeclareMathOperator{\cusp}{cusp} \DeclareMathOperator{\curv}{curv} \DeclareMathOperator{\rank}{rank} \DeclareMathOperator{\pr}{pr} \DeclareMathOperator{\Transform}{Transform} \DeclareMathOperator{\mult}{mult} \DeclareMathOperator{\Eis}{Eis} \DeclareMathOperator{\reg}{reg} \DeclareMathOperator{\sing}{sing} \DeclareMathOperator{\sreg}{sreg} \DeclareMathOperator{\Wd}{Wd} \DeclareMathOperator{\Th}{Th} \DeclareMathOperator{\Sp}{Sp} \DeclareMathOperator{\Ind}{Ind} \DeclareMathOperator{\Res}{Res} \DeclareMathOperator{\ini}{in} \DeclareMathOperator{\ord}{ord} \DeclareMathOperator{\ann}{ann} \DeclareMathOperator{\equ}{eq} \DeclareMathOperator{\res}{res} \DeclareMathOperator{\pt}{pt} \DeclareMathOperator{\src}{source} \DeclareMathOperator{\Zcl}{Zcl} \DeclareMathOperator{\Mat}{Mat} \DeclareMathOperator{\Func}{Func} \DeclareMathOperator{\Frac}{Frac} \DeclareMathOperator{\ev}{eval} \DeclareMathOperator{\eval}{eval} \DeclareMathOperator{\Spec}{Spec} \DeclareMathOperator{\Spin}{Spin} \DeclareMathOperator{\Specm}{Specm} \DeclareMathOperator{\Sphere}{Sphere} \DeclareMathOperator{\Ball}{Ball} \DeclareMathOperator{\Proj}{Proj} \DeclareMathOperator{\Projm}{Projm} \DeclareMathOperator{\Tr}{Tr} \DeclareMathOperator{\vol}{vol} \DeclareMathOperator{\nr}{nr} \DeclareMathOperator{\CM}{CM} \DeclareMathOperator{\tr}{tr} \DeclareMathOperator{\characteristic}{char} \DeclareMathOperator{\supp}{supp} \theoremstyle{plain} \newtheorem{theorem} {Theorem} \newtheorem{conjecture} {Conjecture} \newtheorem{corollary} [theorem] {Corollary} \newtheorem{lemma} [theorem] {Lemma} \newtheorem{proposition} [theorem] {Proposition} \theoremstyle{definition} \newtheorem{definition} [theorem] {Definition} \newtheorem{hypothesis} [theorem] {Hypothesis} \newtheorem{example} [theorem] {Example} \newtheorem{homework} {Homework} \newtheorem{exercise} {Exercise} \newtheorem{question} {Question} \newtheorem{remark} [theorem] {Remark} \makeatletter \newcommand*{\da@rightarrow}{\mathchar"0\hexnumber@\symAMSa 4B } \newcommand*{\da@leftarrow}{\mathchar"0\hexnumber@\symAMSa 4C } \newcommand*{\xdashrightarrow}[2][]{%
-  \mathrel{%
-    \mathpalette{\da@xarrow{#1}{#2}{}\da@rightarrow{\,}{}}{}%
-  }%
-} \newcommand{\xdashleftarrow}[2][]{%
-  \mathrel{%
-    \mathpalette{\da@xarrow{#1}{#2}\da@leftarrow{}{}{\,}}{}%
-  }%
-} \newcommand*{\da@xarrow}[7]{%
-  % #1: below #2: above #3: arrow left #4: arrow right #5: space left #6: space right #7: math style
-  \sbox0{$\ifx#7\scriptstyle\scriptscriptstyle\else\scriptstyle\fi#5#1#6\m@th$}%
-  \sbox2{$\ifx#7\scriptstyle\scriptscriptstyle\else\scriptstyle\fi#5#2#6\m@th$}%
-  \sbox4{$#7\dabar@\m@th$}%
-  \dimen@=\wd0 %
-  \ifdim\wd2 >\dimen@ \dimen@=\wd2 %
-  \fi \count@=2 %
-  \def\da@bars{\dabar@\dabar@}%
-  \@whiledim\count@\wd4<\dimen@\do{%
-    \advance\count@\@ne \expandafter\def\expandafter\da@bars\expandafter{%
-      \da@bars \dabar@ }%
-  }%
-  \mathrel{#3}%
-  \mathrel{%
-    \mathop{\da@bars}\limits \ifx\\#1\\%
-    \else _{\copy0}%
-    \fi \ifx\\#2\\%
-    \else ^{\copy2}%
-    \fi }%
-  \mathrel{#4}%
-} \makeatother \author{Paul D. Nelson} \title{Notes on Lie Groups}
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\title{Notes on Lie Groups}
 
 \begin{document}
 
 \begin{abstract}
-  Notes from a Lie groups course given at ETH Zurich, Fall 2016
+  Notes from a Lie groups course given at ETH Zurich, Fall 2016, unedited
 \end{abstract}
 
 \maketitle
@@ -226,7 +198,7 @@ It is very likely that the notes and exercises will contain some mistakes; any c
   \item \(\Lie(G)\) for \(G\) a Lie group
   \item \(\End(V)\) for \(V\) a vector space
   \item \(\Der(A)\) for \(A\) an algebra
-  \item \(\Vect(M) = \Der(C^\infty(M))\) for \(M\) a manifold
+  \item \(\operatorname{Vect}(M) = \Der(C^\infty(M))\) for \(M\) a manifold
   \end{enumerate}
 \item proof that morphisms of Lie groups induce morphisms of Lie algebras
 \item definition of a representation of a Lie group, matrix coefficients with respect to a basis; example involving trigonometric functions and their addition law
@@ -598,7 +570,7 @@ g_2 := \kappa(\theta_2)
     More generally, for which functions $\nu : \mathbb{Z} \rightarrow \mathbb{Z}_{\geq 0}$
     does there exist a finite-dimensional representation $V$ of $\SL_2(\mathbb{C})$
     with $\dim V[n] = \nu(n)$ for all $n$?
-    [Hint: write $V \cong \oplus W_m^{\oplus \mu(m)}$ and apply $D \cdot \ch(.)$ to both sides.]
+    [Hint: write $V \cong \oplus W_m^{\oplus \mu(m)}$ and apply $D \cdot \operatorname{ch}(.)$ to both sides.]
   \item
     (Optional)
     Given $k \in \mathbb{Z}_{\geq 0}$ and
@@ -621,12 +593,12 @@ g_2 := \kappa(\theta_2)
     given by the formula
     \begin{equation*}
       \sigma(V) := \sum_{k \in \mathbb{Z}_{\geq 0}}
-      \ch(\Sym^k V) T^k.
+      \operatorname{ch}(\Sym^k V) T^k.
     \end{equation*}
     Show that
     \begin{equation*}
       \sigma(V) = \exp \sum _{k \geq 1}
-      \frac{\Psi^k(\ch(V)) T^k}{k }
+      \frac{\Psi^k(\operatorname{ch}(V)) T^k}{k }
     \end{equation*}
     where $\Psi^k$
     is defined
@@ -647,9 +619,9 @@ g_2 := \kappa(\theta_2)
   \item 
     Deduce the recursion relation
     \begin{equation*}
-      n \ch(\Sym^k (V)) = \sum_{k = 1}^n
-      \Psi^k(\ch(V))
-      \ch(\Sym^{n-k}(V)).
+      n \operatorname{ch}(\Sym^k (V)) = \sum_{k = 1}^n
+      \Psi^k(\operatorname{ch}(V))
+      \operatorname{ch}(\Sym^{n-k}(V)).
     \end{equation*}
     Check that this is consistent
     with the isomorphisms
@@ -658,13 +630,13 @@ g_2 := \kappa(\theta_2)
     Specialize the above relation to the case $n = 2$
     to obtain
     \begin{equation*}
-      \ch(\Sym^2(V))
-      = \frac{\ch(V)^2 - \Psi^2(\ch(V))}{2}.
+      \operatorname{ch}(\Sym^2(V))
+      = \frac{\operatorname{ch}(V)^2 - \Psi^2(\operatorname{ch}(V))}{2}.
     \end{equation*}
     For each irreducible
     representation $W_m$ of $G$,
     compute
-    $\ch(\Sym^2(W_m))$
+    $\operatorname{ch}(\Sym^2(W_m))$
     by the above formula and use it to
     derive
     the decomposition
@@ -4738,20 +4710,20 @@ encountered in a basic course
 is the symmetric group $S(n)$.
 More generally,
 one considers for any set $X$
-the permutation group $\Perm(X)$,
+the permutation group $\operatorname{Perm}(X)$,
 defined to consist of bijections $\sigma : X \rightarrow X$
 and with the group law given by composition:
 $\sigma_1 \sigma_2 := \sigma_1 \circ \sigma_2$.
-For example, $S(n) = \Perm(\{1,\dotsc,n\})$.
+For example, $S(n) = \operatorname{Perm}(\{1,\dotsc,n\})$.
 
 A particularly concrete class of groups
-are the subgroups of the form $G \leq \Perm(X)$
+are the subgroups of the form $G \leq \operatorname{Perm}(X)$
 for some set $X$.
 Cayley's theorem
 asserts that \emph{every} group is isomorphic
 to one of this form:
 indeed, one can take $X = G$
-and define $G \hookrightarrow \Perm(G)$
+and define $G \hookrightarrow \operatorname{Perm}(G)$
 via $g \mapsto [x \mapsto g x]$.
 Moreover, if $G$ is finite, then one can take $X$ to be finite.
 
@@ -5919,9 +5891,9 @@ left Haar measure.
   Determine a left and right Haar measure
   on the Lie group
   \begin{equation*}
-  \Aff(\mathbb{R})
-  :=
-  \left\{ 
+    \operatorname{Aff}(\mathbb{R})
+    :=
+    \left\{ 
 \begin{pmatrix}
       \ast & \ast \\
        & 1
@@ -5961,7 +5933,7 @@ probability measure $\mu$ on $G$ via averaging.
 \begin{definition}
   Let $f : G \rightarrow \mathbb{C}$ be a continuous
   function on a compact group $G$.
-  Let $\Averages(f)$ denote the space
+  Let $\operatorname{Averages}(f)$ denote the space
   of functions $G \rightarrow \mathbb{C}$
   of the form
   \begin{equation*}
@@ -5978,7 +5950,7 @@ probability measure $\mu$ on $G$ via averaging.
 \begin{lemma}\label{lem:averages-give-unique-constant}
   There exists a unique constant function
   in the closure (with respect to the uniform
-  topology) of $\Averages(f)$.
+  topology) of $\operatorname{Averages}(f)$.
 \end{lemma}
 \begin{proof}
   One should be able to prove this
@@ -5994,41 +5966,41 @@ probability measure $\mu$ on $G$ via averaging.
       \osc(f) := \max_{g \in G} f(g) - \min_{g \in G} f(g).
     \end{equation*}
     Note that $f$ is constant if and only if $\osc(f) = 0$.
-    Note also that $\osc(f') \leq \osc(f)$ for all $f' \in \Averages(f)$.
+    Note also that $\osc(f') \leq \osc(f)$ for all $f' \in \operatorname{Averages}(f)$.
   \item
     Given a continuous real-valued function $f$ on $G$
     that is non-constant,
-    show that there exists $f' \in \Averages(f)$
+    show that there exists $f' \in \operatorname{Averages}(f)$
     so that $\osc(f') < \osc(f)$.
     (Use the compactness of $G$ and hence the uniform
     continuity of $f$.
     If $f$ is smaller than typical in some part of $G$,
     translate $f$ around a bit to dampen the contribution
     from parts of $G$ where $f$ is large.)
-  \item The family of functions $\Averages(f)$
+  \item The family of functions $\operatorname{Averages}(f)$
     is equicontinuous.
   \item The function
     $\osc : C(G) \rightarrow \mathbb{R}_{\geq 0}$ is continuous
     with respect to the uniform topology on the domain.
   \item To prove the existence part of the theorem,
-    we can take a sequence $f_i \in \Averages(f)$
+    we can take a sequence $f_i \in \operatorname{Averages}(f)$
     so that $\osc(f_i)$ tends to the infinum
-    of $\osc(h)$ over all $h \in \Averages(f)$.
+    of $\osc(h)$ over all $h \in \operatorname{Averages}(f)$.
     After passing
     to a subsequence and appealing to Arzela--Ascoli,
     we get a limit $h$ of the sequence $f_i$.
     If $h$ is non-constant, then we can find
-    $h' \in \Averages(h)$ for which $\osc(h') < \osc(h)$.
+    $h' \in \operatorname{Averages}(h)$ for which $\osc(h') < \osc(h)$.
     But one should then be able to check that $h'$
-    lies in the closure of $\Averages(f)$,
+    lies in the closure of $\operatorname{Averages}(f)$,
     giving the required contradiction.
   \item
     To get uniqueness,
     let $c_1,c_2$ be values taken by constant functions
-    in the closure of $\Averages(f)$.
+    in the closure of $\operatorname{Averages}(f)$.
     Let $c'$ be a value taken by some constant function
     in the closure of the set defined analogously
-    to $\Averages(f)$, but using right translations in place of
+    to $\operatorname{Averages}(f)$, but using right translations in place of
     left translations.
     Since left and right translations commute, it's not so hard
     to check that $c_i = c'$ for $i=1,2$,
@@ -6603,7 +6575,7 @@ the remaining cases were left as exercises.
   for which $\gamma(0) = 1$ is the identity.
 \end{itemize}
 
-\subsection{Connectedness of \(\SO(n)\)}
+\subsection{Connectedness of \texorpdfstring{$\SO(n)$}{SO(n)}}
 \label{sec:orga8ac11a}
 We verify by induction on $n$ that $\SO(n)$
 is connected.
@@ -7724,9 +7696,9 @@ In that case,
 it is known that
 \begin{equation*}
   \Der(C^\infty(M))
-  \cong \Vect(M)
+  \cong \operatorname{Vect}(M)
 \end{equation*}
-where $\Vect(M)$ denotes the space of vector fields
+where $\operatorname{Vect}(M)$ denotes the space of vector fields
 on $M$,
 i.e.,
 smooth assignments
@@ -7736,7 +7708,7 @@ smooth assignments
 satisfying $X_p := X(p) \in T_p M$ for all $p \in M$.
 Such a vector field induces a derivation
 by the rule: for $f \in C^\infty(M)$,
-the image $X f \in C^\infty(M)$ under $X \in \Vect(X)$
+the image $X f \in C^\infty(M)$ under $X \in \operatorname{Vect}(X)$
 is defined to be
 \begin{equation*}
   (X f)(p) := (T_p f)(X_p),
@@ -7875,7 +7847,7 @@ for instance, the products $X Y$ in the above expression
 are just the compositions taking place inside
 $\End(C^\infty(G))$.
 
-\section{Something about representations, mostly \(\SL_2\)}
+\section{Something about representations, mostly \texorpdfstring{$\SL_2$}{SL2}}
 \label{sec:orgf4f0402}
 \label{sec:reps-sl2}
 \subsection{Some preliminaries}
@@ -8186,7 +8158,7 @@ $,
   Etc.
 \end{proof}
 
-\subsection{Polynomial representations of \(\SL_2(\mathbb{C})\)}
+\subsection{Polynomial representations of \texorpdfstring{$\SL_2(\mathbb{C})$}{SL2(C)}}
 \label{sec:orgb2dd983}
 \label{sec:reps-sl2-C}
 Here we specialize Example
@@ -8398,7 +8370,7 @@ contains the components
 of each of its vectors wrt the standard basis,
 and one can then argue as above to get all the basis elements.
 
-\subsection{Classifying finite-dimensional irreducible representations of \(\SL_2(\mathbb{C})\)}
+\subsection{Classifying finite-dimensional irreducible representations of \texorpdfstring{$\SL_2(\mathbb{C})$}{SL2(C)}}
 \label{sec:orgbd19a70}
 One cares to do this because it shows up all over the place (in
 studying special functions, in classifying Lie groups and Lie
@@ -9423,11 +9395,11 @@ $\mathfrak{g} := \slLie_2(\mathbb{C})$,
 define the \emph{character} of $V$
 to be the Laurent polynomial
 \begin{equation*}
-  \ch(V) \in  A := \mathbb{Z}[z,z^{-1}]
+  \operatorname{ch}(V) \in  A := \mathbb{Z}[z,z^{-1}]
 \end{equation*}
 given by
 \begin{equation*}
-  \ch(V) :=
+  \operatorname{ch}(V) :=
   \sum_{m \in \mathbb{Z}}
   (\dim V[m]) z^m,
 \end{equation*}
@@ -9448,7 +9420,7 @@ For example,
 for the irreducible representations $W_m$ ($m \in \mathbb{Z}_{\geq 0}$)
 considered in lecture,
 we have
-$\ch(W_m) = \sum_{-m \leq j \leq m : j \equiv m(2)} z^m
+$\operatorname{ch}(W_m) = \sum_{-m \leq j \leq m : j \equiv m(2)} z^m
 = z^m + z^{m-2} + \dotsb + z^{-m}$.
 Such functions are \emph{symmetric}
 (i.e., invariant under $z \mapsto z^{-1}$.)
@@ -9461,21 +9433,21 @@ It is the simplest example of an \emph{anti-symmetric}
 element of $A$.
 One has
 \begin{equation*}
-  D \cdot \ch(W_m)
+  D \cdot \operatorname{ch}(W_m)
   = z^{m+1} - z^{-(m+1)}.
 \end{equation*}
 In other words,
 \emph{as $V$ traverses the set of isomorphism
   classes of irreducible
   representations,
-  $D \cdot \ch(V)$ traverses the ``obvious''
+  $D \cdot \operatorname{ch}(V)$ traverses the ``obvious''
   basis for the space of anti-symmetric elements of $A$}.
 
 For a finite-dimensional representation $R : G \rightarrow \GL(V)$ of $G :=
 \SL_2(\mathbb{C})$,
 one has
 \begin{equation*}
-  \ch(V)|_{z=e^{i \theta}}
+  \operatorname{ch}(V)|_{z=e^{i \theta}}
   =
   \trace (R(
 \begin{pmatrix}
@@ -9487,10 +9459,10 @@ one has
 
 The character satisfies
 \begin{equation*}
-  \ch(V_1 \oplus V_2) = \ch(V_1) + \ch(V_2),
+  \operatorname{ch}(V_1 \oplus V_2) = \operatorname{ch}(V_1) + \operatorname{ch}(V_2),
 \end{equation*}
 \begin{equation*}
-  \ch(V_1 \otimes V_2) = \ch(V_1) \ch(V_2).
+  \operatorname{ch}(V_1 \otimes V_2) = \operatorname{ch}(V_1) \operatorname{ch}(V_2).
 \end{equation*}
 This is easily seen by taking a basis
 $e_1,\dotsc,e_m$ of $H$-eigenvectors
@@ -9517,8 +9489,8 @@ and particularly easily if we multiply first by the Weyl
 denominator:
 we have
 \begin{equation*}
-  D \cdot \ch(V)
-  = \sum_{m \geq 0} \mu(m) D \cdot \ch(W_m)
+  D \cdot \operatorname{ch}(V)
+  = \sum_{m \geq 0} \mu(m) D \cdot \operatorname{ch}(W_m)
   = \sum_{m \geq 0}
   \mu(m)
   (z^{m+1} - z^{-m-1}),
@@ -9528,7 +9500,7 @@ of $W_m$
 inside $V$
 as the coefficient of $z^{m+1}$ in the anti-symmetric Laurent
 polynomial
-$D \cdot \ch(V)$.
+$D \cdot \operatorname{ch}(V)$.
 For example, in this way (or in others) we can easily
 derive the \emph{Clebsh--Gordon decomposition}
 \begin{equation*}
@@ -9643,17 +9615,17 @@ physics.
   Then the natural restriction map
   \begin{equation*}
     \left\{
-      \begin{split}
+      \begin{gathered}
         \text{morphisms of complex Lie algebras} \\
         \Phi : \mathfrak{g} \rightarrow L
-      \end{split}
+      \end{gathered}
     \right\}
     \rightarrow 
     \left\{
-      \begin{split}
+      \begin{gathered}
         \text{morphisms of real Lie algebras} \\
         \phi : \mathfrak{h} \rightarrow L
-      \end{split}
+      \end{gathered}
     \right\}
   \end{equation*}
   is a bijective.
@@ -10186,7 +10158,7 @@ the following action is better behaved than the adjoint action:
   two different interpretations of the Jacobi identity.
 \end{definition}
 
-\subsection{Relationship between \(\Ad\) and \(\ad\)}
+\subsection{Relationship between \texorpdfstring{$\Ad$}{Ad} and \texorpdfstring{$\ad$}{ad}}
 \label{sec:orgeaeefa5}
 The above definitions are related as follows:
 \begin{lemma}\label{lem:dAd-is-ad}
@@ -10249,7 +10221,7 @@ The above definitions are related as follows:
   (Exercise: check carefully that we haven't used circular reasoning here.)
 \end{remark}
 
-\subsection{\(\Ad, \ad\) are intertwined by the exponential map\label{sec:Ad-ad-intertwined-exp}}
+\subsection{\texorpdfstring{$\Ad, \ad$}{Ad, ad} are intertwined by the exponential map\label{sec:Ad-ad-intertwined-exp}}
 \label{sec:orgcb8cdaf}
 Let $G$ be a Lie group with Lie algebra $\mathfrak{g}$.
 One has maps
@@ -11479,7 +11451,7 @@ Assume henceforth that $V$ is \emph{finite-dimensional}.
   We induct on $n$.  For $n = 1$, everything is clear, so suppose $n \geq 2$.  Let $V = \oplus V^\lambda$ be the decomposition of $V$ into eigenspaces for $x_1$.  For $j \in \{2..n\}$, we claim that $x_j V^\lambda \subseteq V^\lambda$.  Indeed, for $v \in V^\lambda$, we have $x_1 x_j v = x_j x_1 v = x_j \lambda v = \lambda x_j v$, hence $x_j v \in V^\lambda$, as required.  By Exercise \ref{exercise:restriction-of-semisimple-is-semisimple}, the restrictions to $V^\lambda$ of the operators $x_2,\dotsc,x_n$ are semisimple (and commuting), hence by our inductive hypothesis may be simultaneously diagonalized; we now conclude by taking a union over $\lambda$ of bases of $V^\lambda$ with respect to which the $x_1,\dotsc,x_n$ are diagonalized.
 \end{proof}
 
-\subsection{Recap on \(\slLie_2(\mathbb{C})\)}
+\subsection{Recap on \texorpdfstring{$\slLie_2(\mathbb{C})$}{sl2C}}
 \label{sec:org77c4374}
 Recall that $\mathfrak{g} = \slLie_2(\mathbb{C})$ has the basis elements
 \begin{equation*}
@@ -14274,4 +14246,7 @@ Under the covering map $K/T \times T^{\reg} \rightarrow K^{\reg}$, the above pat
   \tilde{\gamma}(t) \mapsto (e T, H_0 + t Z).
 \end{equation*}
 The endpoint $\tilde{\gamma}(1) = t Z$ of this lifting is moreover invariant under base-and-end-point-preserving homotopies of $\gamma$.  So if $\gamma$ is nullhomotopic, then we must have $Z = 0$.  The proof is now complete.
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
