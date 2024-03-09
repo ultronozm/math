@@ -221,7 +221,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2024-03-09 11:16:36
+2024-03-09 11:19:12
       <a href="20240308T172815--sugita-delbourgo-fox-coherent-state-minimization.tex" class="my-link">tex</a>
       <a href="20240308T172815--sugita-delbourgo-fox-coherent-state-minimization.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20240308T172815--sugita-delbourgo-fox-coherent-state-minimization.tex" class="my-link">history</a>
@@ -310,26 +310,28 @@ class="math inline">\(v^{\otimes q} \in \Pi\)</span>.</p>
 </div>
 <div class="proof"><p>
 <a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
-<span class="proof-content"> We denote by <span class="math display">\[P :
-\pi^{\otimes q} \rightarrow \Pi\]</span> the orthogonal projection.
-Then, for each unit vector <span class="math inline">\(v \in
-\pi\)</span>, we have <span class="math display">\[I(v) = \frac{\dim
-\pi}{\dim \Pi}
-    \left\langle P v^{\otimes q}, v^{\otimes q} \right\rangle.\]</span>
-Indeed, using the Schur orthogonality relations, we obtain the following
-integral formula for <span class="math inline">\(P\)</span>: <span
-class="math display">\[P =(\dim \Pi) \int_{G} g v_\lambda^{\otimes q}
-    \otimes \overline{g v_\lambda^{\otimes q}} \, d g.\]</span>
-Inserting this formula for <span class="math inline">\(P\)</span> into
-the right hand side of the required identity gives the asserted formula.
-It follows that <span class="math inline">\(I(v)\)</span> is maximal
-when <span class="math inline">\(v^{\otimes q}\)</span> lies in the
-image <span class="math inline">\(\Pi\)</span> of <span
-class="math inline">\(P\)</span>, as required. ◻</p>
+<span class="proof-content"> It is enough to show that <span id="eq:cngurmvhig" class="math display">\[\label{eq:cngurmvhig}\tag{1}
+    I(v) = \frac{\dim \pi}{\dim \Pi}
+    \left\langle P v^{\otimes q}, v^{\otimes q} \right\rangle,\]</span>
+where <span class="math inline">\(P : \pi^{\otimes q} \rightarrow
+\Pi\)</span> denotes the orthogonal projection, because the right hand
+side of this formula is clearly maximal precisely when <span
+class="math inline">\(v^{\otimes q}\)</span> lies in the image <span
+class="math inline">\(\Pi\)</span> of <span
+class="math inline">\(P\)</span>. To establish <a href="#eq:cngurmvhig"
+data-reference-type="eqref"
+data-reference="eq:cngurmvhig">\((1)\)</a>, we first apply the
+Schur orthogonality relations to see that <span class="math display">\[P
+=(\dim \Pi) \int_{G} g v_\lambda^{\otimes q}
+    \otimes \overline{g v_\lambda^{\otimes q}} \, d g.\]</span> We
+conclude by inserting this formula for <span
+class="math inline">\(P\)</span> into the right hand side <a
+href="#eq:cngurmvhig" data-reference-type="eqref"
+data-reference="eq:cngurmvhig">\((1)\)</a>. ◻</p>
 </span></div>
 <p>To complete the proof of Theorem <a href="#theorem:cngsx0yg7y"
 data-reference-type="ref" data-reference="theorem:cngsx0yg7y">2</a>, we
-reduce to establishing the following equivalence: <span id="eq:cngsx4hl1k" class="math display">\[\label{eq:cngsx4hl1k}\tag{1}
+reduce to establishing the following equivalence: <span id="eq:cngsx4hl1k" class="math display">\[\label{eq:cngsx4hl1k}\tag{2}
   v:\text{coherent} \iff v^{\otimes q} \in \Pi.\]</span> The forward
 implication follows from the fact that <span
 class="math inline">\(v_{\lambda}^{\otimes q} \in \Pi\)</span>. It
@@ -354,7 +356,7 @@ class="math inline">\(v\)</span> is coherent.</p>
 </div>
 <div class="proof"><p>
 <a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
-<span class="proof-content"> We first compute that <span id="eq:cngsx5j54m" class="math display">\[\label{eq:cngsx5j54m}\tag{2}
+<span class="proof-content"> We first compute that <span id="eq:cngsx5j54m" class="math display">\[\label{eq:cngsx5j54m}\tag{3}
     \left\langle \Omega v^{\otimes q}, v^{\otimes q} \right\rangle
     =
     q
@@ -391,7 +393,7 @@ we obtain instead <span class="math display">\[\Omega v^{\otimes 3} = 3
 after pairing with <span class="math inline">\(v^{\otimes q}\)</span>,
 gives the claimed formula <a href="#eq:cngsx5j54m"
 data-reference-type="eqref"
-data-reference="eq:cngsx5j54m">\((2)\)</a>.</p>
+data-reference="eq:cngsx5j54m">\((3)\)</a>.</p>
 <p>We conclude via appeal to the following lemma. ◻</p>
 </span></div>
 <div id="lemma:cngsx4g4hz" class="lemma">
@@ -407,7 +409,7 @@ data-reference-type="ref" data-reference="sec:cngsx6buyy">2</a>. ◻</p>
 </span></div>
 <p>We may now complete the proof of the backwards implication in <a
 href="#eq:cngsx4hl1k" data-reference-type="eqref"
-data-reference="eq:cngsx4hl1k">\((1)\)</a>, hence of Theorem <a
+data-reference="eq:cngsx4hl1k">\((2)\)</a>, hence of Theorem <a
 href="#theorem:cngsx0yg7y" data-reference-type="ref"
 data-reference="theorem:cngsx0yg7y">2</a>. Suppose <span
 class="math inline">\(v^{\otimes q} \in \Pi\)</span>. Then, writing
@@ -500,7 +502,7 @@ taking <span class="math inline">\(c = \langle x v, v
 <a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
 <span class="proof-content"> Since <span class="math inline">\(x\)</span> lies in
 <span class="math inline">\(i \mathfrak{g}\)</span>, it acts via a
-self-adjoint operator, so we readily obtain <span id="eq:cngsx65skq" class="math display">\[\label{eq:cngsx65skq}\tag{3}
+self-adjoint operator, so we readily obtain <span id="eq:cngsx65skq" class="math display">\[\label{eq:cngsx65skq}\tag{4}
     \lVert (x-c) v \rVert^2
     = \langle x v, x v \rangle
     - 2 c \langle x v, v \rangle
@@ -516,14 +518,14 @@ href="#lemma:cngsx64916" data-reference-type="ref"
 data-reference="lemma:cngsx64916">10</a>, we see that the minimum of
 <span class="math inline">\(\Delta(v)\)</span> taken over unit vectors
 <span class="math inline">\(v\)</span> coincides with the minimum of
-<span id="eq:cngub21394" class="math display">\[\label{eq:cngub21394}\tag{4}
+<span id="eq:cngub21394" class="math display">\[\label{eq:cngub21394}\tag{5}
   \sum_{x \in \mathcal{B}(i \mathfrak{g})}
   \lVert (x - c_x) v \rVert^2\]</span> taken over unit vectors <span
 class="math inline">\(v\)</span> and tuples of scalars <span
 class="math inline">\(c_x\)</span>. Such a minimum exists by continuity
 and compactness. Let us consider one such minimum. The above expression
 expands, as in <a href="#eq:cngsx65skq" data-reference-type="eqref"
-data-reference="eq:cngsx65skq">\((3)\)</a>, to <span
+data-reference="eq:cngsx65skq">\((4)\)</a>, to <span
 class="math display">\[- \Omega_\pi + \sum_x c_x^2 - 2 \sum_{x} c_x
 \langle x v, v \rangle.\]</span> With the notation <span
 class="math inline">\(y := \sum_x c_x x \in \mathfrak{g}\)</span>, the
@@ -557,7 +559,7 @@ coefficients</h1>
 data-reference-type="ref" data-reference="lemma:cngsx64916">10</a> that
 for a given unit vector <span class="math inline">\(v\)</span>, the
 quantity <a href="#eq:cngub21394" data-reference-type="eqref"
-data-reference="eq:cngub21394">\((4)\)</a> is minimized by
+data-reference="eq:cngub21394">\((5)\)</a> is minimized by
 taking <span class="math inline">\(c_x = \langle x v, v
 \rangle\)</span>. We record here that <em>the latter quantities
 determine</em> <span class="math inline">\(v\)</span> <em>up to
@@ -584,7 +586,7 @@ class="math inline">\(G\)</span> be a compact group, let <span
 class="math inline">\(\pi\)</span> be an irreducible representation, and
 let <span class="math inline">\(u\)</span> and <span
 class="math inline">\(v\)</span> be nonzero vectors in <span
-class="math inline">\(\pi\)</span> with the property that <span id="eq:cngub3eab0" class="math display">\[\label{eq:cngub3eab0}\tag{5}
+class="math inline">\(\pi\)</span> with the property that <span id="eq:cngub3eab0" class="math display">\[\label{eq:cngub3eab0}\tag{6}
     \langle g u, u \rangle = \langle g v, v \rangle\]</span> for all
 <span class="math inline">\(g \in G\)</span>. Then <span
 class="math inline">\(u\)</span> and <span
