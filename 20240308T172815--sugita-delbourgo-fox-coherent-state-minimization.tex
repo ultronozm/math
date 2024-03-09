@@ -51,21 +51,17 @@ Let $\Pi$ be an irreducible unitary representation of $G$ with highest weight $q
   For unit vectors $v \in \pi$, the quantity $I(v)$ is maximized precisely when $v^{\otimes q} \in \Pi$.
 \end{lemma}
 \begin{proof}
-  We denote by
-  \begin{equation*}
-    P : \pi^{\otimes q} \rightarrow \Pi
-  \end{equation*}
-  the orthogonal projection.  Then, for each unit vector $v \in \pi$, we have
-  \begin{equation*}
+  It is enough to show that
+  \begin{equation}\label{eq:cngurmvhig}
     I(v) = \frac{\dim \pi}{\dim \Pi}
-    \left\langle P v^{\otimes q}, v^{\otimes q} \right\rangle.
-  \end{equation*}
-  Indeed, using the Schur orthogonality relations, we obtain the following integral formula for $P$:
+    \left\langle P v^{\otimes q}, v^{\otimes q} \right\rangle,
+  \end{equation}
+  where $P : \pi^{\otimes q} \rightarrow \Pi$ denotes the orthogonal projection, because the right hand side of this formula is clearly maximal precisely when $v^{\otimes q}$ lies in the image $\Pi$ of $P$.  To establish \eqref{eq:cngurmvhig}, we first apply the Schur orthogonality relations to see that
   \begin{equation*}
     P =(\dim \Pi) \int_{G} g v_\lambda^{\otimes q}
     \otimes \overline{g v_\lambda^{\otimes q}} \, d g. 
   \end{equation*}
-  Inserting this formula for $P$ into the right hand side of the required identity gives the asserted formula.  It follows that $I(v)$ is maximal when $v^{\otimes q}$ lies in the image $\Pi$ of $P$, as required.
+  We conclude by inserting this formula for $P$ into the right hand side \eqref{eq:cngurmvhig}.
 \end{proof}
 
 To complete the proof of Theorem \ref{theorem:cngsx0yg7y}, we reduce to establishing the following equivalence:
