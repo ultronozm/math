@@ -221,7 +221,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2024-03-08 22:27:34
+2024-03-09 10:03:22
       <a href="20240308T172815--sugita-delbourgo-fox-coherent-state-minimization.tex" class="my-link">tex</a>
       <a href="20240308T172815--sugita-delbourgo-fox-coherent-state-minimization.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20240308T172815--sugita-delbourgo-fox-coherent-state-minimization.tex" class="my-link">history</a>
@@ -301,32 +301,39 @@ of <span class="math inline">\(\pi^{\otimes q}\)</span>, with
 multiplicity one. We identify <span class="math inline">\(\Pi\)</span>
 with a subrepresentation of <span class="math inline">\(\pi^{\otimes
 q}\)</span>: <span class="math display">\[\pi^{\otimes q} \subseteq
-\Pi.\]</span> We denote by <span class="math display">\[P : \pi^{\otimes
-q} \rightarrow \Pi\]</span> the orthogonal projection.</p>
-<div class="lemma">
-<p><strong>Lemma 4</strong>. For each unit vector <span
-class="math inline">\(v \in \pi\)</span>, we have <span
-class="math display">\[I(v) = \frac{\dim \pi}{\dim \Pi}
-    \left\langle P v^{\otimes q}, v^{\otimes q}
-\right\rangle.\]</span></p>
+\Pi.\]</span></p>
+<div id="lemma:cngurf0apf" class="lemma">
+<p><strong>Lemma 4</strong>. For unit vectors <span
+class="math inline">\(v \in \pi\)</span>, the quantity <span
+class="math inline">\(I(v)\)</span> is maximized precisely when <span
+class="math inline">\(v^{\otimes q} \in \Pi\)</span>.</p>
 </div>
 <div class="proof"><p>
 <a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
-<span class="proof-content"> Using the Schur orthogonality relations, we obtain
-the following integral formula for <span
-class="math inline">\(P\)</span>: <span class="math display">\[P =(\dim
-\Pi) \int_{G} g v_\lambda^{\otimes q}
+<span class="proof-content"> We denote by <span class="math display">\[P :
+\pi^{\otimes q} \rightarrow \Pi\]</span> the orthogonal projection.
+Then, for each unit vector <span class="math inline">\(v \in
+\pi\)</span>, we have <span class="math display">\[I(v) = \frac{\dim
+\pi}{\dim \Pi}
+    \left\langle P v^{\otimes q}, v^{\otimes q} \right\rangle.\]</span>
+Indeed, using the Schur orthogonality relations, we obtain the following
+integral formula for <span class="math inline">\(P\)</span>: <span
+class="math display">\[P =(\dim \Pi) \int_{G} g v_\lambda^{\otimes q}
     \otimes \overline{g v_\lambda^{\otimes q}} \, d g.\]</span>
 Inserting this formula for <span class="math inline">\(P\)</span> into
-the right hand side of the required identity gives what we want. ◻</p>
+the right hand side of the required identity gives the asserted formula.
+It follows that <span class="math inline">\(I(v)\)</span> is maximal
+when <span class="math inline">\(v^{\otimes q}\)</span> lies in the
+image <span class="math inline">\(\Pi\)</span> of <span
+class="math inline">\(P\)</span>, as required. ◻</p>
 </span></div>
-<p>It follows that <span class="math inline">\(I(v)\)</span> is
-maximized precisely when <span class="math inline">\(v^{\otimes q} \in
-\Pi\)</span>. We will show that <span id="eq:cngsx4hl1k" class="math display">\[\label{eq:cngsx4hl1k}\tag{1}
+<p>To complete the proof of Theorem <a href="#theorem:cngsx0yg7y"
+data-reference-type="ref" data-reference="theorem:cngsx0yg7y">2</a>, we
+reduce to establishing the following equivalence: <span id="eq:cngsx4hl1k" class="math display">\[\label{eq:cngsx4hl1k}\tag{1}
   v:\text{coherent} \iff v^{\otimes q} \in \Pi.\]</span> The forward
 implication follows from the fact that <span
-class="math inline">\(v^{\otimes q} \in \Pi\)</span>. It remains only to
-establish the converse.</p>
+class="math inline">\(v_{\lambda}^{\otimes q} \in \Pi\)</span>. It
+remains only to establish the converse.</p>
 <p>To that end, we introduce the Casimir operator <span
 class="math inline">\(\Omega\)</span> for <span
 class="math inline">\(G\)</span>, given by <span
