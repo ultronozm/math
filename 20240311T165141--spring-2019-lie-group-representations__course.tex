@@ -6,29 +6,33 @@
 
 \begin{document}
 
+\begin{abstract}
+  Notes for a semester course on the representation theory of Lie groups, focusing on compact groups and complex reductive groups, taught at ETH Z\"{u}rich in Spring 2019.
+\end{abstract}
+
 % \setcounter{tocdepth}{1}
-\maketitle
-\tableofcontents
+  \maketitle
+  \tableofcontents
 
-In mathematics and related fields, one often encounters vector spaces $V$, such as
-\begin{itemize}
-\item the vector space $V = L^2(X,\mu)$ consisting of functions $f : X \rightarrow \mathbb{C}$ on some nice topological space $X$ that are square-integrable with respect to some measure $\mu$, or
-\item the space of solutions $\phi$ to some linear differential equation $D \phi = 0$,
-\end{itemize}
-and so on.  The inputs to the construction of $V$ are sometimes invariant by some symmetry group $G$.  In the first example, $G$ might have a measure-preserving action on $(X,\mu)$.  In the second, $G$ might commute with the operator $D$ (for instance, many of the basic equations of mathematical physics are invariant by something like the rotation group $\SO(3)$).  In either case we obtain a linear action of $G$ on $V$, i.e., a homomorphism $G \rightarrow \GL(V)$.  The case that $G$ is a Lie group is simultaneously one of the most interesting cases (because of the many examples) and accessible (because, e.g., connected Lie groups are in many respects simpler than finite groups, thanks to powerful tools from calculus and linear algebra).  In this course, we still develop the basic theory of such actions.  We emphasize the general theory of compact groups, their relation with complex reductive groups, the structure theory and representations of compact Lie groups, and conclude with a bit about representations of complex reductive groups.
+  In mathematics and related fields, one often encounters vector spaces $V$, such as
+  \begin{itemize}
+  \item the vector space $V = L^2(X,\mu)$ consisting of functions $f : X \rightarrow \mathbb{C}$ on some nice topological space $X$ that are square-integrable with respect to some measure $\mu$, or
+  \item the space of solutions $\phi$ to some linear differential equation $D \phi = 0$,
+  \end{itemize}
+  and so on.  The inputs to the construction of $V$ are sometimes invariant by some symmetry group $G$.  In the first example, $G$ might have a measure-preserving action on $(X,\mu)$.  In the second, $G$ might commute with the operator $D$ (for instance, many of the basic equations of mathematical physics are invariant by something like the rotation group $\SO(3)$).  In either case we obtain a linear action of $G$ on $V$, i.e., a homomorphism $G \rightarrow \GL(V)$.  The case that $G$ is a Lie group is simultaneously one of the most interesting cases (because of the many examples) and accessible (because, e.g., connected Lie groups are in many respects simpler than finite groups, thanks to powerful tools from calculus and linear algebra).  In this course, we still develop the basic theory of such actions.  We emphasize the general theory of compact groups, their relation with complex reductive groups, the structure theory and representations of compact Lie groups, and conclude with a bit about representations of complex reductive groups.
 
-\subsection*{Acknowledgments}
-We thank Subhajit Jana, Constantin Kogler, Kaj B{\"a}uerle and many other participants of the course for corrections and comments.
+  \subsection*{Acknowledgments}
+  We thank Subhajit Jana, Constantin Kogler, Kaj B{\"a}uerle and many other participants of the course for corrections and comments.
 
 
-\section{Prerequisites}
-We recall here some of the basics from linear algebra, topology, differential geometry, Lie theory, and functional analysis that will be used throughout the course.
+  \section{Prerequisites}
+  We recall here some of the basics from linear algebra, topology, differential geometry, Lie theory, and functional analysis that will be used throughout the course.
 
-We won't assume any prior knowledge of representation theory.
+  We won't assume any prior knowledge of representation theory.
 
-\subsection{Conventions}
-In this course,
-\begin{equation*}
+  \subsection{Conventions}
+  In this course,
+  \begin{equation*}
   \text{``topological space''} := \text{``separable Hausdorff topological space.''}
 \end{equation*}
 The examples we consider will moreover be locally compact, but we will mention this hypothesis explicitly when it is used.  Similarly
