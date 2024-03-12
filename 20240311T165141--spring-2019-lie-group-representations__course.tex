@@ -4,12 +4,14 @@
 
 \begin{document}
 
+
 \begin{abstract}
   Notes for a semester course on the representation theory of Lie groups, focusing on compact groups and complex reductive groups, taught at ETH Z\"{u}rich in Spring 2019.
 \end{abstract}
 
 \maketitle
 \tableofcontents
+
 
 In mathematics and related fields, one often encounters vector spaces $V$, such as
 \begin{itemize}
@@ -225,9 +227,9 @@ Rather than saying ``$(\pi,V)$ is a representation of $G$,'' we might simply say
     As an exercise, check in either case that $\pi(g_1) \pi(g_2) = \pi(g_1 g_2)$ for all $g_1, g_2 \in G$.
 
     Check for instance for $G = \mathbb{R}$ acting on $X = \mathbb{R}$ by translation, and with $\mu$ Lebesgue measure, that the action map
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       \mathbb{R} \times L^2(\mathbb{R}) \rightarrow L^2(\mathbb{R})
-    \end{equation}
+    \end{equation*}
     is continuous; on the other hand, for any nonzero $x \in \mathbb{R}$ there exists $f \in L^2(\mathbb{R})$ with $\|f\| = 1$ so that $\|\pi(x) f - f \| \geq 1$ (e.g., take for $f$ a bump function supported in $[-|x|/10, |x|/10]$), so that the map from $\mathbb{R}$ to the space $\GL(L^2(\mathbb{R}))$ equipped with the operator norm is not continuous.  These observations motivate the definition of ``representation'' given above.
     
     Suppose for instance that $G$ is a compact group, equipped with its probability Haar measure $d g$.  Then the action of $G$ on itself by right multiplication preserves $d g$.  The above discussion specialized to $(X,\mu) = (G, d g)$ gives a representation
@@ -394,13 +396,13 @@ We can already prove a basic theorem:
 \footnote{End of lecture \#1, Tuesday, 19 Feb 2019}
 
 We pause to introduce, for any representation $(\pi,V)$, the notation
-\begin{equation}\label{eq:}
+\begin{equation*}
   V^G :=  \{v \in V : \pi(g) v = v \text{ for all } g \in G\}
-\end{equation}
+\end{equation*}
 for the \emph{$G$-fixed subspace} of $V$.  Recall that we have defined for any representations $V_1, V_2$ a representation $\Hom(V_1,V_2)$; it thus makes sense to speak of the fixed subspace of the latter representation, and we verify readily from the definitions that
-\begin{equation}\label{eq:}
+\begin{equation*}
   \Hom(V_1,V_2)^G = \Hom_G(V_1, V_2).
-\end{equation}
+\end{equation*}
 
 We defined earlier the dual of any finite-dimensional representation.  More generally, for any representation for which the underlying vector space is given the structure of a Hilbert space, we define the dual representation using the \emph{continuous} dual, which is then itself a Hilbert space.
 \begin{lemma}\label{lem:unitary-implies-conjugate-self-dual}
@@ -470,13 +472,13 @@ The irreducible representations are a bit like the prime numbers, with closed in
 \begin{theorem}
 [Schur's lemma]
   Let $(\pi_1, V_1)$ and $(\pi_2, V_2)$ be irreducible finite-dimensional representations of some group $G$.  Then
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \dim \Hom_G (V_1, V_2) = 
-\begin{cases}
+    \begin{cases}
       1 & \text{ if } V_1 \cong V_2, \\
       0 & \text{ otherwise},
     \end{cases}
-  \end{equation}
+  \end{equation*}
   where ``$V_1 \cong V_2$'' means ``isomorphic as representations of $G$.''  If moreover $V = V_1 = V_2$, then $\End_G(V) := \Hom_G(V,V)$ is the space $\mathbb{C} \id$ of scalar multiples of the identity $\id : V \rightarrow V$.
 \end{theorem}
 \begin{proof}
@@ -512,9 +514,9 @@ As a matter of notation, we now define for a compact group $G$ the set
 
 \begin{theorem}\label{thm:complete-reducibility-compact-group}
   Let $G$ be compact and $(\pi,V)$ finite-dimensional.  Then there exists for each $\sigma = (\sigma,W_\sigma) \in \Irr(G)$ a nonnegative integer $n(\sigma)$ so that we have an isomorphism of representations
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     V \cong \oplus_{\sigma \in \Irr(G)} W_\sigma^{\oplus n(\sigma)}.
-  \end{equation}
+  \end{equation*}
   (Here $W^{\oplus n} := W \oplus \dotsb \oplus W$, with $n$ copies.)  The $n(\sigma)$ are determined uniquely by $V$.
 \end{theorem}
 \begin{proof}
@@ -523,9 +525,9 @@ As a matter of notation, we now define for a compact group $G$ the set
     \langle g v, u \rangle = \langle v, g^{-1} u \rangle = 0.
   \end{equation*}
   By choosing (if possible) another minimal nonzero invariant subspace $U_2 \leq U_1^\perp$ and inducting on dimension (note that $\dim(U_1^\perp) < \dim(V) < \infty$), we see that we may write $V$ as the (orthogonal) direct sum
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     V = U_1 \oplus U_2 \oplus \dotsb \oplus U_n,
-  \end{equation}
+  \end{equation*}
   where each $U_j$ is an irreducible invariant subspace.  We now group the $U_j$ according to their isomorphism class, giving a partition of $\{1, \dotsc, n\}$ by $\Irr(G)$; this gives the required decomposition.
 
   The uniqueness of the $n(\sigma)$ may be deduced as in the proof of the Jordan--H{\"o}lder theorem; we will give an alternative proof later.
@@ -577,10 +579,10 @@ The key to unlocking the power of characters in the case of compact groups is th
     v \mapsto \int_{g \in G} \pi(g) v \, d g.
   \end{equation*}
   (Here $d g$ denotes as usual the probability Haar, and we are integrating a function $g \mapsto \pi(g) v$ valued in the finite-dimensional vector space $V$; this can be defined by choosing a basis and integrating each coordinate, for instance.)  Then
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \dim(V^G) = \trace(p)
     = \int_{g \in G} \chi_\pi(g) \, d g.
-  \end{equation}
+  \end{equation*}
 \end{lemma}
 \begin{proof}
   We check readily that $p(V) \subseteq V^G$ and that $p$ restricts to the identity on $V^G$, so that $p$ is a projection onto $V^G$; its trace is thus the dimension of that subspace, giving the first identity.
@@ -609,11 +611,11 @@ L^2(G)^{\class} := \{\text{class functions in $L^2(G)$}\}.
 V = \oplus_{\sigma \in \Irr(G)} W_\sigma ^{\oplus n(\sigma)}
 \end{equation*}
  as before.  Then
-    \begin{equation}\label{eq:}
-      n(\sigma) = \langle \chi_\pi, \chi_\sigma  \rangle.
-    \end{equation}
-    In particular, $\chi_\pi$ determines $\pi$ up to isomorphism.
-  \end{enumerate}
+ \begin{equation*}
+   n(\sigma) = \langle \chi_\pi, \chi_\sigma  \rangle.
+ \end{equation*}
+ In particular, $\chi_\pi$ determines $\pi$ up to isomorphism.
+\end{enumerate}
 \end{theorem}
 \begin{proof}
   \begin{enumerate}
@@ -635,6 +637,7 @@ V = \oplus_{\sigma \in \Irr(G)} W_\sigma ^{\oplus n(\sigma)}
 \begin{proof}
   In that case $L^2(G)^{\class}$ has a basis given by the characteristic functions $1_C$ of each such $C$.
 \end{proof}
+
 
 \subsection{The connected compact abelian case}\label{sec:conn-comp-abel}
 Let's illustrate the content of Peter--Weyl by explicating it completely in the case of a connected compact abelian Lie group.  In such a group, conjugation is trivial, so ``class function'' just means ``function;'' also, we have seen that any irreducible finite-dimensional representation is one-dimensional, hence may be identified with a group homomorphism $\pi : G \rightarrow \GL_1(\mathbb{C}) = \mathbb{C}^\times$, which is thus the ``same'' as its character, i.e., $\pi(g)$ and $\chi_\pi(g)$ are the same complex scalar for all $g \in G$.  Recall that
@@ -686,23 +689,23 @@ v - p(v) - m e_1 \in [-1/2,1/2] e_1.
  We have $v \neq m e_1$, so $v - m e_1$, being a nonzero element of $\Lambda$, has norm bounded from below by $1$ (the minimal norm of any such element).  But elements of $[-1/2,1/2] e_1$ have norm at most $1/2$.  The triangle inequality thus forces $p(v)$ to have norm at least $1/2$.)
   \end{enumerate}
   Having proved that $G \cong \U(1)^n$, we turn to classifying its irreducible finite-dimensional representations $\pi$.  By Corollary \ref{cor:schur-ab}, any such $\pi$ is one-dimensional, and so may be regarded as a homomorphism
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \pi : G \rightarrow \GL_1(\mathbb{C}) = \mathbb{C}^\times.
-  \end{equation}
+  \end{equation*}
   Compose this with the isomorphism
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \mathbb{R}^n/\mathbb{Z}^n \ni \theta = (\theta_1,\dotsc,\theta_n) \mapsto
     e(\theta)  := (e(\theta_1),\dotsc,e(\theta_n)) \in G
-  \end{equation}
+  \end{equation*}
   to get a morphism of Lie groups
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \tau : \mathbb{R}^n/\mathbb{Z}^n
     \ni \theta \mapsto \pi(e(\theta)) \in \mathbb{C}^\times.
-  \end{equation}
+  \end{equation*}
   Differentiate this to obtain a morphism of Lie algebras
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \mathbb{R}^n \ni \theta \mapsto d \tau(\theta) \in \Lie(\mathbb{C}^\times) = \mathbb{C}.
-  \end{equation}
+  \end{equation*}
   Any such morphism is of the form
   \begin{equation*}
     d \tau(\theta) = \lambda_1 \theta_1 + \dotsb + \lambda_n \theta_n \text{ for some $\lambda = (\lambda_1,\dotsc,\lambda_n) \in \mathbb{C}^n$.}
@@ -712,13 +715,13 @@ v - p(v) - m e_1 \in [-1/2,1/2] e_1.
     \tau(\theta) = e(\lambda_1 \theta_1 + \dotsb + \lambda_n \theta_n).
   \end{equation*}
   Since $\tau(\mathbb{Z}^n) = \{1\}$, we have in particular
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     e(\lambda_1) = \dotsb = e(\lambda_n) = 1,
-  \end{equation}
+  \end{equation*}
   and so $\lambda_1,\dotsc,\lambda_n \in \mathbb{Z}$, as required.
   
   We note finally that all of the one-dimensional representations of $G = \U(1)^n$ that we have defined are inequivalent; for instance, we verify readily that they (and hence, what amounts to the same, their characters) are orthogonal to one another in $L^2(G)$, thanks to repeated application of the basic identity: for $\ell \in \mathbb{Z}$,
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \int_{\theta \in [0,1]}
     e(\ell \theta)
     \, d \theta
@@ -727,7 +730,7 @@ v - p(v) - m e_1 \in [-1/2,1/2] e_1.
       1 & \text{ if } \ell = 0, \\
       0 & \text{ otherwise.}
     \end{cases}
-  \end{equation}
+  \end{equation*}
 \end{proof}
 The content of Peter--Weyl in the setting of the compact connected abelian Lie groups $\U(1)^n$ is thus that, as $\lambda$ varies over $\mathbb{Z}^n$, the ``trigonometric polynomials'' $\U(1)^n \ni z \mapsto z^{\lambda}$ have dense span in $L^2(\U(1)^n)$.  This may be a familiar fact from abelian Fourier analysis.  It can be established using (e.g.) the Stone--Weierstrass theorem, or a bit of functional analysis.  The proof of the general case of the Peter--Weyl theorem, to be given a bit later, will involve similar arguments.\footnote{End of lecture \#2, Thursday, 21 Feb 2019}
 
@@ -806,12 +809,12 @@ Here in writing $w^{-1}(j)$ we regard $w$ as a permutation of $\{1,\dotsc,n\}$. 
 \subsection{Weight space decompositions
   of representations of \texorpdfstring{$\U(n)$}{U(n)}}\label{sec:weight-decmop-U-n}
 In particular, let $(\pi,V)$ be any finite-dimensional representation of $G$.  Then its character $\chi_\pi : G \rightarrow \mathbb{C}$ is a class function, hence determined by its restriction $\chi_\pi|_{T}$ to $T$, which is $W$-invariant.  The restriction $\chi_{\pi}|_{T}$ may be regarded as the character of the restriction $\pi|_T : T \rightarrow \GL(V)$ of the representation $\pi$.  By our general discussion of representations of tori (Lemma \ref{lem:reps-of-tori}) and of compact groups (Theorem \ref{thm:complete-reducibility-compact-group}), we may decompose $\pi|_T$ as a direct sum of irreducible representations $e^\lambda : t \mapsto t^\lambda$ of $T$, each occurring with some multiplicities $m_\pi(\lambda) \in \mathbb{Z}_{\geq 0}$ (denoted ``$n(\sigma)$'' in the cited theorem).  Of course $\dim(\pi) = \sum _{\lambda} m_\pi (\lambda)$, so only finitely many of the $m_\pi(\lambda)$ are nonzero.  Thus for $t \in T$,
-\begin{equation}\label{eq:}
+\begin{equation*}
   \chi_\pi(t)
   =
   \sum_{\lambda}
   m_\pi(\lambda) t^\lambda.
-\end{equation}
+\end{equation*}
 Setting
 \begin{equation*}
 V^{\lambda} := \{v \in V : \pi(t) v = t^\lambda v \text{ for all } t \in T\},
@@ -881,13 +884,13 @@ This should be thought of as a bit like the formula for integrating in polar coo
 
 \begin{proof}
   We first review some basics concerning integration on manifolds.  Let $M$ be a connected $N$-manifold, and let $\omega$ be a nowhere vanishing differential $N$-form on $M$.  Then $\omega$ defines an orientation and a volume measure $C_c(M) \ni f \mapsto \int_M f \, d \omega$: for any function $f$ supported in an oriented coordinate chart $(x_1,\dotsc,x_N)$, we set
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \int_M f \, d \omega :=
     \int_{x_1,\dotsc,x_N}
     f(x_1,\dotsc,x_N)
     \omega(x_1 \wedge \dotsb \wedge x_N)
     \, d x_1 \dotsb d x_N,
-  \end{equation}
+  \end{equation*}
   and then extend this definition to general $f$ via a suitable partition of unity.  If $(M,\omega)$ and $(M',\omega ')$ are two such pairs and $\phi : M \rightarrow M'$ is a differentiable map, that we may express the pullback $\phi^* \omega '$ as $\det(\phi) \omega$ for some function $\det(\phi) : M \rightarrow \mathbb{R}$ (the \emph{determinant} of $\phi$ with respect to $\omega$ and $\omega '$).  If $\phi$ is a diffeomorphism, then we have the change of variables formulas: for $f \in C_c(M')$,
   \begin{equation}\label{eq:change-of-vars}
     \int_{M'}
@@ -900,21 +903,21 @@ This should be thought of as a bit like the formula for integrating in polar coo
   We may similarly realize the probability Haar on $T$ as $f \mapsto \int_T f d \, \tilde{\alpha}$, where $\tilde{\alpha}$ corresponds to some nonzero element $\alpha \in \Lambda^n(\mathfrak{t})^*$.
 
   Equip $\mathfrak{g}$ with any $\Ad(T)$-invariant scalar product (e.g., by averaging), and let $\mathfrak{g}/\mathfrak{t}$ denote the orthogonal complement to $\mathfrak{t}$.  Then $\mathfrak{g} = \mathfrak{t} \oplus \mathfrak{g}/\mathfrak{t}$.  The complexification $(\mathfrak{g}/\mathfrak{t})_{\mathbb{C}}$ of $\mathfrak{g}/\mathfrak{t}$ is then an $\Ad(T)$-invariant complement to $\mathfrak{t}_{\mathbb{C}}$ in $\mathfrak{g}_{\mathbb{C}}$; by our discussion of the adjoint representation above, we see that
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     (\mathfrak{g}/\mathfrak{t})_{\mathbb{C}}
     = \oplus_{i \neq j} \mathbb{C} E_{i j},
-  \end{equation}
+  \end{equation*}
   i.e., it is the space of matrices whose diagonal entries vanish.
   
   There is a unique $\beta \in \Lambda^{N-n}(\mathfrak{g}/\mathfrak{t})^*$ so that $\omega = \alpha \wedge \beta$.  For $t \in T$, the operator $\Ad(t)^*$ sends $\beta$ to $\det(\Ad(t)|_{\mathfrak{g}/\mathfrak{t}}) \beta$, but (either by explicit calculation, or using the compactness of $T$) the determinant in question is trivial, so $\beta$ is $\Ad(T)^*$-invariant.  It thus corresponds to a $G$-invariant $(N-n)$-form $\tilde{\beta}$ on the $(N-n)$-dimensional manifold $G/T$, whose corresponding volume form is invariant under left translation by $G$.  Fubini's theorem applied in local coordinates implies that for any $f \in C_c(G)$,
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \int_G f \, d \tilde{\omega}
     =
     \int_{g \in G/T}
     (\int_{t \in T}
     f(g t) \, d \tilde{\alpha}(t))
     \, d \tilde{\beta}(g).
-  \end{equation}
+  \end{equation*}
   (Alternatively, note that the RHS defines a Haar probability measure on $G$, hence equals the LHS by uniqueness of Haar measures.)  Applying this relation with $f = 1$ gives in particular that $\int_{G/T} \, d \tilde{\beta} = 1$, hence that the integral of a function $G/T \rightarrow \mathbb{R}$ with respect to $d \tilde{\beta}$ is the same as the integral of its pullback to $G$ with respect to the probability Haar.  We can now restate the desired integral formula as
   \begin{equation}\label{eq:weyl-integral-via-diff-forms}
     \frac{1}{|W|}
@@ -959,9 +962,9 @@ This should be thought of as a bit like the formula for integrating in polar coo
   We observe next that the function $|\Delta|^2 : T \rightarrow \mathbb{R}_{>0}$ extends to a conjugacy-invariant function on $G$ sending $g \in G$ to the product of the squared magnitudes of the differences between its distinct eigenvalues, with $|\Delta|^2(g) = 0$ precisely when $g$ has a repeated eigenvalue.  Let $G_{\sing}$ denote the \emph{singular subset} consisting of $g \in G$ having a repeated eigenvalue; it is the zero locus of $|\Delta|^2$, hence a compact subset of $G$.  The function $|\Delta|^2$ is real-analytic (e.g., because it is a polynomial in the coefficients of the characteristic polynomial) and not identically zero on $G$, so its zero locus $G_{\sing}$ has measure zero; moreover, the volume of $\{g \in G : |\Delta|^2 < \eps \}$ tends to zero as $\eps \rightarrow 0$.  By an approximation argument, we can thus reduce to establishing \eqref{eq:weyl-integral-via-diff-forms} in the special case that $f$ is supported on $\{g \in G : |\Delta|^2 \geq \eps\}$ for some $\eps > 0$.  In particular, we may assume that $f$ is supported on a compact subset of the \emph{regular subset} $G_{\reg} := G - G_{\sing}$ consisting of $g \in G$ having distinct eigenvalues.
 
   Set $T_{\reg} := G_{\reg} \cap T$.  We observe that it consists of those $t \in T$ having trivial $W$-stabilizer.  (This turns out to be a special feature of $G = \U(n)$; what's essential is that the subset of $t \in T_{\reg}$ with trivial $W$-stabilizer has full measure.)  We observe that for $t \in T_{\reg}$, its $G$-centralizer is $T$ (indeed, any centralizing element must stabilize its eigenspaces, which are the one-dimensional spaces $\mathbb{C} e_j$).  From this and the fact (Lemma \ref{lem:describe-conjugacy-classes-Un}) that the conjugates of $x$ in $T$ lie in a single $W$-orbit, we deduce that $w \cdot (g T, t) := (g w^{-1} T, w t w^{-1})$ defines a simply-transitive action of $W$ on the fiber $\{(g T, t) : g t g^{-1} = x\}$ above $x \in G_{\reg}$.  In particular, the fibers all have cardinality $|W|$.  On the other hand, we see from \eqref{eq:compute-det-phi} that the induced map
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \phi : G/T \times T_{\reg} \rightarrow G_{\reg}
-  \end{equation}
+  \end{equation*}
   has everywhere nonvanishing differential.  By the inverse function theorem, it follows that $\phi$ defines $|W|$-fold covering map.  By a partition of unity, we may assume that $f$ is supported in a small connected neighborhood $U \subseteq G_{\reg}$ of some $x \in G_{\reg}$ over which $\phi^{-1}(U) \rightarrow U$ is the trivial $|W|$-fold cover.  We conclude by applying \eqref{eq:change-of-vars} and \eqref{eq:compute-det-phi} on each connected component of $\phi^{-1}(U)$.
 \end{proof}
 \footnote{End of lecture \#3, Tuesday, 26 Feb 2019}
@@ -1029,9 +1032,9 @@ The \emph{monomial alternating polynomials} are defined by
   A_{\lambda} := \sum_{w \in W} (-1)^w e^{w \cdot \lambda}.
 \end{equation*}
 They obviously define elements of $L^{\alt}$.  The discriminant $\Delta$ arises in this way.  Indeed, we may expand the determinental formula for $\Delta(t)$ noted earlier as $\sum_{w \in W} (-1)^w \prod_j t_{w(j)}^{n-j}$ or as $\sum_{w \in W} (-1)^w \prod_i t_{i}^{n-w(i)}$.  Introducing the notation
-\begin{equation}\label{eq:}
+\begin{equation*}
   \rho := (n-1,n-2,\dotsc,2,1,0) \in \mathbb{Z}^n,
-\end{equation}
+\end{equation*}
 so that $t^\rho = t_1^{n-1} t_2^{n-2} \dotsb t_{n-2}^2 t_{n-1}$, we obtain $\Delta(t) = \sum_{w \in W} (-1)^w t^{w \cdot \rho}$, that is to say,
 \begin{equation*}
   \Delta = A_{\rho}.
@@ -1040,19 +1043,19 @@ so that $t^\rho = t_1^{n-1} t_2^{n-2} \dotsb t_{n-2}^2 t_{n-1}$, we obtain $\Del
 As in the case of monomial symmetric polynomials, the $A_\lambda$ are alternating not just with respect to their argument but also their index: $A_{w \cdot \lambda} = (-1)^w A_\lambda$.  In particular, if $\lambda_i = \lambda_j$ for some $i \neq j$, then $A_{\lambda} = 0$.  For instance, if $n = 2$, then $M_{(7,6)}(t) = t_1^7 t_2^6 - t_1^6 t_2^7 = - M_{(6,7)}(t)$, while $M_{(7,7)}(t) = t_1^7 t_2^7 - t_1^7 t_2^7 = 0$.  (To established the required vanishing in general, take for $w$ the transposition swapping $i$ and $j$, so that $w \cdot \lambda = \lambda$; then $A_\lambda = (-1)^w A_{w \cdot \lambda} = - A_\lambda$, i.e., $2 A_\lambda = 0$, and so $A_\lambda = 0$.  Alternatively, consider cosets in $W$ of the two-element group generated by $w$, and note that the sum in the definition of $A_{\lambda}$ vanishes over each such coset.)  If $\lambda$ has distinct components, then $A_\lambda \neq 0$; indeed, its lexicographically highest term is $e^{\lambda}$.
 
 As $\lambda$ runs over the $W$-orbits of $\lambda \in \mathbb{Z}^n$ having distinct components, the $A_\lambda$ furnish a basis for $L^{\alt}$.  The strictly dominant $\lambda$ give a system of representatives for such orbits.  An equivalent system is given by the $\lambda + \rho$ for dominant $\lambda$, noting that the map $\lambda \mapsto \lambda + \rho$ induces a bijection between dominant and strictly dominant weights.  Thus
-\begin{equation}\label{eq:}
+\begin{equation*}
   L^{\alt}
   = \oplus_{\lambda:\text{strictly dominant}}
   \mathbb{Z} A_\lambda
   = \oplus_{\lambda:\text{dominant}}
   \mathbb{Z} A_{\lambda + \rho}.
-\end{equation}
+\end{equation*}
 
 \begin{lemma}
   Multiplication by $\Delta$ induces an isomorphism of $\mathbb{Z}$-modules
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     L^{\sym} \xrightarrow{f \mapsto \Delta f} L^{\alt}.
-  \end{equation}
+  \end{equation*}
 \end{lemma}
 \begin{proof}
   The indicated map is clearly defined (because $w \cdot (\Delta f) = (w \cdot \Delta) (w \cdot f) = (-1)^w \Delta f$) and injective, so the content here is that any alternating Laurent polynomial $h$ may be divided by $\Delta$ inside the ring of Laurent polynomials.  After clearing denominators by multiplying $h$ by a sufficiently large power of $t_1 \dotsb t_n$, it suffices to show that any alternating polynomial $h$ is divisible by $\Delta$ in the ring $\mathbb{Z}[t_1,\dotsc,t_n]$ of ordinary polynomials.  For this we induct on $n$.  The case $n \geq 1$ is tautological, because then $\Delta = 1$, so suppose $n \geq 2$.  We note (since $2$ is not a zerodivisor in $\mathbb{Z}$) that the alternating condition on $h$ implies that it vanishes under any substitution $t_i := t_j$ ($i \neq j$).  (Indeed, from some perspectives it would be better to take this property as the \emph{definition} of alternating.)  On the other hand, by division with remainder in the variable $t_n$, we may write $h = (t_n - t_1) q + r$ where $q \in \mathbb{Z}[t_1,\dotsc,t_n]$ and $r \in \mathbb{Z}[t_1,\dotsc,t_{n-1}]$, but then substituting $t_n := t_1$ shows that $r = 0$, and so $h = (t_n - t_1) q$.  Since $h$ vanishes under the substitution $t_n := t_2$ and our polynomial rings are integral domains, we see that $q$ vanishes under the substitution $t_n := t_2$.  We may thus iterate the above division with remainder argument to see that $h = (t_n - t_1) (t_n - t_2) \dotsb (t_n - t_{n-1}) q'$ for some $q' \in \mathbb{Z}[t_1,\dotsc,t_n]$.  We may expand $q '$ in powers of $t_n$ as $\sum a_j t_n^j$, with coefficients $a_j \in \mathbb{Z}[t_1,\dotsc,t_{n-1}]$.  We may likewise expand $h$ in powers of $t_n$; each coefficient in this expansion is then an alternating polynomial in the variables $t_1,\dotsc,t_{n-1}$, so the same holds for the $a_j$.  By our inductive hypothesis, $a_j$ is divisible by $\prod_{i < j \leq n-1} (t_i - t_j)$.  It follows as required that $f$ is divisible by $\Delta$.
@@ -1164,7 +1167,7 @@ We record some inner product formulas:
     \Delta \chi_\pi = m_\pi(\lambda) A_{\lambda + \rho} + \dotsb,
   \end{equation}
   where $\dotsb$ denotes a linear combination of $A_{\mu + \rho}$ taken over dominant $\mu$ lexicographically lower than $\lambda$.  We combine this expansion with the orthogonality relations for characters (Theorem \ref{thm:basic-orthogonality-characters}), the Weyl integral formula (Theorem \ref{thm:weyl-int}), and the inner product formulas for monomial alternating functions (Lemma \ref{lem:inner-products-symmetric-functions}) to see that
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     1
     = \langle \chi_\pi, \chi_\pi \rangle_G
     =
@@ -1177,19 +1180,20 @@ We record some inner product formulas:
     \langle     m_\pi(\lambda) A_{\lambda + \rho},     m_\pi(\lambda) A_{\lambda + \rho} \rangle_T
     =
     |m_\pi(\lambda)|^2.
-  \end{equation}
-  % \begin{equation}\label{eq:}
-  %   1
-  %   = \|\chi_\pi \|_G^2
-  %   =
-  %   \frac{1}{|W|}
-  %   \|\Delta \chi_\pi \|_T^2
-  %   \geq
-  %   \frac{1}{|W|}
-  %   \|m_\pi(\lambda) A_{\lambda + \rho}\|^2
-  %   \geq
-  %   |\mu_\pi(\lambda)|^2.
-  % \end{equation}
+  \end{equation*}
+  \begin{equation*}
+    % 1
+    % = \|\chi_\pi \|_G^2
+    % =
+    % \frac{1}{|W|}
+    % \|\Delta \chi_\pi \|_T^2
+    % \geq
+    % \frac{1}{|W|}
+    % \|m_\pi(\lambda) A_{\lambda + \rho}\|^2
+    % \geq
+    % |\mu_\pi(\lambda)|^2.
+    % 
+  \end{equation*}
   But since $m_\pi(\lambda)$ is a positive integer, it follows that $m_\pi(\lambda) = 1$ and also that equality holds in each step.  In particular, the remainder terms ``$\dotsb$'' in \eqref{eq:expand-delta-chi-pi} must vanish identically, i.e., $\Delta \chi_\pi = A_{\lambda+\rho}$, giving the required formula $\chi_\pi = s_\lambda$.  The uniqueness of $\lambda$ is clear from the orthogonality relations for the Schur polynomials.
 
   We give two proofs that every dominant weight $\lambda$ arises in this way:
@@ -1223,12 +1227,12 @@ This result gives a satisfying description of the character theory of $\U(n)$.  
 \begin{enumerate}
 \item A formula for the multiplicity in $m_{\pi_\lambda}(\mu)$ of the weight $\mu$ in the representation $\pi_\lambda$, as the coefficient of $e^\mu$ in $s_\lambda = A_{\lambda + \rho}/\Delta$.  One way to ``evaluate'' this further is to write $\Delta(t) = t^\rho \prod_{i < j} (1 - t_j/t_i)$ and expand $(1 - t_j/t_i)^{-1}$ as a geometric series (look up the \emph{Kostant partition formula}).
 \item A formula for the coefficients of the decomposition of a tensor product of irreducible representations of $\U(n)$: writing
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     V_{\lambda '}
     \otimes V_{\lambda '}
     \cong \oplus_{\lambda}
     n(\lambda) V_{\lambda},
-  \end{equation}
+  \end{equation*}
   we have $\chi_{\lambda '} \chi_{\lambda ''} = \sum_{\lambda} n(\lambda) \chi_\lambda$, hence
   \begin{equation*}
     \sum_{\lambda} n(\lambda) A_{\lambda+\rho} = \Delta \chi_{\lambda '} \chi_{\lambda ''} = \frac{A_{\lambda ' + \rho} A_{\lambda '' + \rho}}{\Delta }.
@@ -1243,9 +1247,9 @@ This result gives a satisfying description of the character theory of $\U(n)$.  
 
 \subsection{Some groups closely related to \texorpdfstring{$\U(n)$}{U(n)}}\label{sec:some-groups-closely}
 Set
-\begin{equation}\label{eq:}
+\begin{equation*}
   \SU(n) := \{g \in \U(n) : \det(g) = 1 \}.
-\end{equation}
+\end{equation*}
 Let
 \begin{equation}
   Z := \{
@@ -1257,9 +1261,9 @@ Let
  \in \U(n) : z \in \U(1)\} \cong \U(1)
 \end{equation}
 denote the center of $\U(n)$, and let
-\begin{equation}\label{eq:}
+\begin{equation*}
   \PU(n) := \U(n)/Z
-\end{equation}
+\end{equation*}
 denote the corresponding quotient.  Observe that
 \begin{itemize}
 \item given a representation of $\PU(n)$, we obtain a representation of $\U(n)$ by pullback, i.e., by composing with the projection $\U(n) \twoheadrightarrow \PU(n)$, and
@@ -1286,17 +1290,17 @@ denote the corresponding quotient.  Observe that
 \end{theorem}
 \begin{proof}
   We leave most of this to the homework; here we just record a few remarks that hopefully make the description of what happens under restriction to $\SU(n)$ seem plausible.  Observe that if $\lambda,\mu$ are dominant elements of $\mathbb{Z}^n$ differing by a multiple of $e_0$, say $\lambda = \mu + \ell e_0$, then the corresponding irreducible representations $\pi_\lambda, \pi_\mu$ of $\U(n)$ satisfy
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \pi_{\lambda} \cong \pi_{\mu} \otimes {\det}^{\ell}.
-  \end{equation}
+  \end{equation*}
   Indeed, we may check this by comparing the characters of these representations, and we have
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \chi_\lambda(t)
     = \frac{\det(t_i^{\lambda_j + n - j})}{\Delta(t)}
     =
     \underbrace{(t_1 \dotsb t_n)^{\ell}}_{\det(t)^{\ell}}
     \frac{\det(t_i^{\mu_j + n - j})}{\Delta(t)}.
-  \end{equation}
+  \end{equation*}
   It follows that $\pi_\lambda$ and $\pi_\mu$ have isomorphic restrictions to $\SU(n-1)$.
 \end{proof}
 
@@ -1304,7 +1308,7 @@ denote the corresponding quotient.  Observe that
 
 \begin{theorem}
   We have bijections
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \Irr(\SU(2))
     \leftrightarrow
     \mathbb{Z}_{\geq 0}
@@ -1312,7 +1316,7 @@ denote the corresponding quotient.  Observe that
     \{\text{dominant }
     \lambda = (\lambda_1,\lambda_2) \in
     \mathbb{Z}^2/\mathbb{Z}(1,1)\}
-  \end{equation}
+  \end{equation*}
   \begin{equation*}
     \pi_\lambda \leftrightarrow \lambda \leftrightarrow (\text{the class of }(\lambda,0))
   \end{equation*}
@@ -1357,7 +1361,7 @@ where $\mathbb{C}^2$ denotes as usual the standard representation of $\SU(2)$.  
   y^{\lambda},
 \end{equation}
 with corresopnding weights
-\begin{equation}\label{eq:}
+\begin{equation*}
   \begin{pmatrix}
     t &  \\
       & t^{-1}
@@ -1367,7 +1371,7 @@ with corresopnding weights
   t^{\lambda-4},
   \dotsc,
   t^{-\lambda}.
-\end{equation}
+\end{equation*}
 Finally, we have the Clebsch--Gordan rule: for $\lambda, \mu \in \mathbb{Z}_{\geq 0}$,
 \begin{equation}\label{eq:clebsch-gordan}
   \pi_{\lambda}
@@ -1391,11 +1395,11 @@ Finally, we have the Clebsch--Gordan rule: for $\lambda, \mu \in \mathbb{Z}_{\ge
 Given compact groups $H \leq G$ and a representation $(\pi,V)$ of $G$, we may form the restricted representation $\pi|_{H} : H \rightarrow \GL(V|_{H})$ of $H$; here $V|_{H}$ is just $V$, but regarded as a representation of $H$.  The branching problem is to describe this restriction in terms of $\pi$.
 
 We assume henceforth that $\pi$ is irreducible.  Its restriction is then ``typically'' not irreducible, but may in any event be decomposed as
-\begin{equation}\label{eq:}
+\begin{equation*}
   V|_{H}
   \cong \oplus_{\sigma \in \Irr(H)}
   W_\sigma ^{\oplus n_\pi(\sigma)}
-\end{equation}
+\end{equation*}
 for some nonnegative integers $n_\pi(\sigma)$, called ``branching coefficients.''  The problem is to describe these.
 
 We start with some examples that are either basic or have already been discussed implicitly.
@@ -1407,10 +1411,10 @@ We start with some examples that are either basic or have already been discussed
 \end{enumerate}
 
 The overall theme here is that the larger the subgroup $H$, the more likely the representations of $G$ are to have irreducible restriction to $H$, or at least to have ``mild'' branching coefficients.  This theme is supported further by the example
-\begin{equation}\label{eq:}
+\begin{equation*}
   H := \U(n-1)
   \hookrightarrow G := \U(n)
-\end{equation}
+\end{equation*}
 \begin{equation*}
   h \mapsto 
 \begin{pmatrix}
@@ -1420,10 +1424,10 @@ The overall theme here is that the larger the subgroup $H$, the more likely the 
 ,
 \end{equation*}
 which we now address.  As a matter of notation, for dominant elements $\lambda \in \mathbb{Z}^n$ and $\mu \in \mathbb{Z}^{n-1}$, let us write $\pi_\lambda \in \Irr(\U(n))$ and $\sigma_{\mu} \in \Irr(\U(n-1))$ for the corresponding irreducibles, and $n_\lambda(\mu) := n_{\pi_\lambda}(\sigma_\mu)$ for the branching coefficient.  We say that $\mu$ \emph{interlaces} $\lambda$, denoted $\mu \prec \lambda$, if
-\begin{equation}\label{eq:}
+\begin{equation*}
   \lambda_1 \geq \mu_1 \geq \lambda_2 \geq \mu_2
   \geq \dotsb \geq \mu_{n-1} \geq \lambda_n.
-\end{equation}
+\end{equation*}
 \begin{theorem}
   We have $n_\lambda(\mu) = 0$ unless $\mu \prec \lambda$, in which case $n_\lambda(\mu) = 1$.
 \end{theorem}
@@ -1436,10 +1440,10 @@ which we now address.  As a matter of notation, for dominant elements $\lambda \
     \sigma_{\mu}.
   \end{equation}
   It suffices to check that the representations of $\U(n-1)$ appearing on both sides have the same character.  It suffices to compare their characters on the representatives $t = \diag(t_1,\dotsc,t_{n-1},1)$ for the conjugacy classes in $\U(n-1) \leq \U(n)$.  We'll undertake this comparison in detail when $n = 3$; the general case is similar, but with many occurrences of $(\dotsb)$.  By the character formula, our task is to show that
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \frac{1}{(t_1 - t_2) (t_1 - 1) (t_2 - 1)}
     \det 
-\begin{pmatrix}
+    \begin{pmatrix}
       t_1^{\lambda_1 + 2} & t_1^{\lambda_2 + 1} &
                                                   t_1^{\lambda_3} \\
       t_2^{\lambda_1 + 2} & t_2^{\lambda_2 + 1} &
@@ -1454,13 +1458,13 @@ which we now address.  As a matter of notation, for dominant elements $\lambda \
       t_1^{\mu_1 + 1} & t_1^{\mu_2} \\
       t_2^{\mu_1 + 1} & t_2^{\mu_2}
     \end{pmatrix}
-.
-  \end{equation}
+    .
+  \end{equation*}
   We simplify the $3 \times 3$ determinant using elementary column operations, replacing its columns $a,b,c$ with $a-b, b-c, c$.  That determinant then simplifies to
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     % \det \begin{pmatrix} t_1^{\lambda_1 + 2} & t_1^{\lambda_2 + 1} &
-                                                                       %                                                                        t_1^{\lambda_3} \\
-    %   t_2^{\lambda_1 + 2} & t_2^{\lambda_2 + 1} &
+    %   t_1^{\lambda_3} \\
+  %   t_2^{\lambda_1 + 2} & t_2^{\lambda_2 + 1} &
     %   t_2^{\lambda_3} \\
     %   1 & 1 & 1
     % \end{pmatrix}
@@ -1486,17 +1490,17 @@ which we now address.  As a matter of notation, for dominant elements $\lambda \
         + 1} - t_2^{\lambda_3}      \\
     \end{pmatrix}
 .
-  \end{equation}
+\end{equation*}
   Using that the determinant is linear in the rows, and expanding out the definition of ``$\mu \prec \lambda$,'' our task reduces to checking that
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \det 
-\begin{pmatrix}
+    \begin{pmatrix}
       \frac{t_1^{\lambda_1 + 2} - t_1^{\lambda_2 + 1}}{t_1 - 1}
       & \frac{t_1^{\lambda_2 + 1} - t_1^{\lambda_3}}{t_1-1} \\
       \frac{t_2^{\lambda_1 + 2} -
-        t_2^{\lambda_2 + 1}}{t_2-1} &
-      \frac{t_2^{\lambda_2
-          + 1} - t_2^{\lambda_3}}{t_2-1}      \\
+      t_2^{\lambda_2 + 1}}{t_2-1} &
+                                    \frac{t_2^{\lambda_2
+                                    + 1} - t_2^{\lambda_3}}{t_2-1}      \\
     \end{pmatrix}
     =
     \sum_{\lambda_1 \geq \mu_1 \geq \lambda_2 \geq \mu_2 \geq \lambda_3}
@@ -1505,8 +1509,8 @@ which we now address.  As a matter of notation, for dominant elements $\lambda \
       t_1^{\mu_1 + 1} & t_1^{\mu_2} \\
       t_2^{\mu_1 + 1} & t_2^{\mu_2}
     \end{pmatrix}
-.
-  \end{equation}
+    .
+  \end{equation*}
   This identity follows from the linearity of the determinant with respect to columns and geometric series identities such as $\frac{t_1^{\lambda_1 + 2} - t_1^{\lambda_2 + 1}}{t_1 - 1} = \sum_{\lambda_1 \geq \mu_1 \geq \lambda_2} t^{\mu_1 + 1}$.
 \end{proof}
 
@@ -1528,49 +1532,49 @@ We now describe briefly how to deduce from the formulas for the branching coeffi
 }.
 \end{equation}
 The idea is now to iterate this decomposition using the chain of subgroups $\U(n-2), \U(n-3), \dotsc$, all the way down to $\U(1)$, whose irreducible representations are all one-dimensional.  In preparation for this iteration, we set $\lambda^{(n)} := \mu$ and denote by $\lambda^{(j)}$ a dominant element of $\mathbb{Z}^{j}$.  With this notation, \eqref{eq:first-dcemop} now reads
-\begin{equation}\label{eq:}
+\begin{equation*}
   V_\mu |_{\U(n-1)}
   =
   \oplus_{\lambda^{(n-1)} \prec \lambda^{(n)} = \mu }
   V _{
-\begin{pmatrix}
+    \begin{pmatrix}
       \lambda^{(n)}  \\
       \lambda^{(n-1)}
     \end{pmatrix}
   }.
-\end{equation}
+\end{equation*}
 We now apply the same reasoning to the restriction to $\U(n-2)$ of each representation $V _{
 \begin{pmatrix}
     \lambda^{(n)}  \\
     \lambda^{(n-1)}
   \end{pmatrix}
 }$ of $\U(n-1)$ arising above, giving
-\begin{equation}\label{eq:}
+\begin{equation*}
   V_\mu |_{\U(n-2)}
   =
   \oplus_{\lambda^{(n-2)} \prec \lambda^{(n-1)} \prec \lambda^{(n)} = \mu }
   V _{
-\begin{pmatrix}
+    \begin{pmatrix}
       \lambda^{(n)}  \\
       \lambda^{(n-1)} \\
       \lambda^{(n-2)}
     \end{pmatrix}
   }.
-\end{equation}
+\end{equation*}
 Proceeding, we eventually obtain a canonical decomposition of $V_\mu$ into one-dimensional subspaces:
-\begin{equation}\label{eq:}
+\begin{equation*}
   V_\mu
   =
   \oplus_{\lambda^{(1)} \prec
     \lambda^{(2)} \prec \dotsb \prec \lambda^{(n)} = \mu }
   V _{
-\begin{pmatrix}
+    \begin{pmatrix}
       \lambda^{(n)}  \\
       \dotsb \\
       \lambda^{(1)}
     \end{pmatrix}
   }.
-\end{equation}
+\end{equation*}
 Let's formalize things a bit:
 \begin{definition}
   A \emph{Gelfand--Tsetlin pattern of order $n \geq 1$} is a column vector $\lambda = 
@@ -1580,14 +1584,14 @@ Let's formalize things a bit:
     \lambda^{(1)}
   \end{pmatrix}
   $, with $\lambda^{(j)} \in \mathbb{Z}^j$, so that $\lambda^{(1)} \prec \dotsb \prec \lambda^{(n)}$.  For instance, if $n = 3$, then we can visualize $\mathrm{GT}(n)$ as the space of all triangular arrays
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \lambda =
     \begin{pmatrix}
       \lambda^{(3)}_1 &  & \lambda^{(3)}_2 & & \lambda^{(3)}_3 \\
-      & \lambda^{(2)}_1 &  & \lambda^{(2)}_2 &  \\
-      &  & \lambda^{(1)}_1 &  &  \\
+                      & \lambda^{(2)}_1 &  & \lambda^{(2)}_2 &  \\
+                      &  & \lambda^{(1)}_1 &  &  \\
     \end{pmatrix}
-  \end{equation}
+  \end{equation*}
   satisfying the interlacing conditions
   \begin{equation}
     \lambda^{(3)}_1 \leq \lambda^{(2)}_1 \leq \lambda^{(3)}_2
@@ -1599,10 +1603,10 @@ Let's formalize things a bit:
     \lambda^{(2)}_1 \leq \lambda^{(1)}_1 \leq \lambda^{(2)}_2.
   \end{equation}
   We denote by $\mathrm{GT}(n)$ the set of all Gelfand--Tsetlin patterns $\lambda$ of order $n$, and by
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \mathrm{GT}(n)_{\mu} := \{\lambda \in \mathrm{GT}(n) : \lambda^{(n)}
     = \mu \}
-  \end{equation}
+  \end{equation*}
   the subset of Gelfand--Tsetlin patterns having ``top row'' equal to $\mu$.
 \end{definition}
 
@@ -1630,21 +1634,21 @@ This decomposition can be refined further by choosing basis elements for the one
 
 \subsection{Spaces of matrix coefficients}
 Let $G$ be a compact group and $(\pi,V)$ a finite-dimensional representation.  So far, our main tool for saying anything interesting about $\pi$ has been via its character $\chi_\pi : G \rightarrow \mathbb{C}$, defined as the composition
-\begin{equation}\label{eq:}
+\begin{equation*}
   G \xrightarrow{\pi } \GL(V) \hookrightarrow \End(V)
   \xrightarrow{\trace} \mathbb{C}.
-\end{equation}
+\end{equation*}
 To say more, we replace the trace map by a general linear functional $\alpha \in \End(V)^*$.  We denote by $\pi_\alpha : G \rightarrow \mathbb{C}$ the resulting composition
-\begin{equation}\label{eq:}
+\begin{equation*}
   G \xrightarrow{\pi } \GL(V)
   \hookrightarrow \End(V)
   \xrightarrow{\alpha } \mathbb{C}.
-\end{equation}
+\end{equation*}
 \begin{definition}
   A \emph{matrix coefficient} of $\pi = (\pi,V)$ is a function $G \rightarrow \mathbb{C}$ of the form $\pi_\alpha$ for some $\alpha \in \End(V)$.  We denote by
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \mathcal{A}(\pi) := \{\pi_\alpha : \alpha \in \End(V)^*\}
-  \end{equation}
+  \end{equation*}
   the space of matrix coefficients of $\pi$.
 \end{definition}
 For example, if $\alpha$ is the trace map, then $\pi_\alpha = \chi_\pi$, so the character $\chi_\pi \in \mathcal{A}(\pi)$ is a matrix coefficient.\footnote{End of lecture \#5, Tuesday, 5 March}
@@ -1685,7 +1689,7 @@ We suppose henceforth that $\pi$ is unitary, and fix an orthonormal basis $\{e_i
 ,
 \end{equation*}
 whose matrix coefficients are thus the trigonometric functions.  Their addition law is obtained by writing the homomorphism property $\pi(\theta_1 + \theta_2) = \pi(\theta_1) \pi(\theta_2)$ as $\pi_{i j}(\theta_1 + \theta_2) = \sum_k \pi_{i k}(\theta_1) \pi_{k j}(\theta_2)$, i.e.,
-\begin{equation}\label{eq:}
+\begin{equation*}
   \begin{pmatrix}
     \cos (\theta_1 + \theta_2)  &  \sin (\theta_1 + \theta_2)  \\
     - \sin (\theta_1 + \theta_2) & \cos (\theta_1 + \theta_2)
@@ -1699,8 +1703,8 @@ whose matrix coefficients are thus the trigonometric functions.  Their addition 
     \cos \theta_2  &  \sin \theta_2  \\
     - \sin \theta_2 & \cos \theta_2
   \end{pmatrix}
-,
-\end{equation}
+  ,
+\end{equation*}
 giving a convenient way to remember the formulas $\cos (\theta_1 + \theta_2) = \cos(\theta_1) \cos(\theta_2) - \sin(\theta_1) \sin(\theta_2)$ and $\sin (\theta_1 + \theta_2) = \cos(\theta_1) \sin(\theta_2) + \sin(\theta_1) \cos(\theta_2)$.  See the book by Vilenkin for many more examples like this.
 
 \subsection{Some actions of \texorpdfstring{$G \times G$}{G x G}}
@@ -1758,13 +1762,13 @@ The spaces of matrix coefficients are particularly well-behaved in the case of a
 
 \begin{definition}
   The space $\End(V)^*$ comes with a natural $G \times G$-invariant inner product (``dual of the Hilbert--Schmidt inner product'') given explicitly in coordinates by requiring that the $\eps_{i j}$ be an orthonormal basis, i.e.,
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \langle
     \sum a_{i j} \eps_{i j},
     \sum b_{i j} \eps_{i j}
     \rangle
     = \sum a_{i j} \overline{b_{i j}}
-  \end{equation}
+  \end{equation*}
   and more invariantly as the composition
   \begin{equation}
     \End(V)^* \otimes \overline{\End(V)^*}
@@ -1779,17 +1783,17 @@ Another inner product on $\End(V)^*$ is obtained from that on $L^2(G)$ by taking
 \begin{theorem}
 [Schur orthogonality relations]
   Let $(\pi,V), (\pi ',V') \in \Irr(G)$, with $G$ compact as usual.  Then for $\alpha \in \End(V)^*$ and $\beta \in \End(V')^*$,
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \langle
     \pi_{\alpha}, \pi_{\beta }'
     \rangle
     = 
-\begin{cases}
+    \begin{cases}
       0 &  \text{ if } \pi \not\cong \pi ', \\
       \frac{1}{\dim(\pi)} \langle \alpha, \beta  \rangle
-      & \text{ if } (\pi,V) = (\pi ', V'),
+        & \text{ if } (\pi,V) = (\pi ', V'),
     \end{cases}
-  \end{equation}
+  \end{equation*}
   where the inner product on the left is in $L^2(G)$ with respect to the probability Haar, while $\langle \alpha, \beta \rangle$ denotes the dual Hilbert--Schmidt inner product defined above.  Explicitly,
   \begin{equation}
     \langle \pi_{i j}, \pi_{k \ell}' \rangle
@@ -1944,10 +1948,10 @@ From now on we take for $G$ a locally compact group and $(\pi,V)$ a \emph{Hilber
 
 \begin{lemma}
   For every compactly-supported signed Radon measure $\mu$ on $G$ there is a unique bounded linear operator $\pi(\mu) : V \rightarrow V$ such that
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \ell(\pi(\mu) v)
     = \int_{g \in G} \ell(\pi(g) v) \, d \mu(g)
-  \end{equation}
+  \end{equation*}
   for all $v \in V$ and $\ell \in V$.  We then use the notation $\pi(\mu) =: \int_{g \in G} \pi(g) \, d \mu(g)$.
 \end{lemma}
 \begin{proof}
@@ -2089,9 +2093,9 @@ Let $v' \in V'$ and $v'' \in V''$ denote the components of $v$, so that $v = v' 
   \leq \eps \|v\|.
 \end{equation}
 By \eqref{eq:T-v-approx-v} and \eqref{eq:estimate-T-v-double-prime}, we deduce that
-\begin{equation}\label{eq:}
+\begin{equation*}
   \|v - T v'\| \leq \eps (1 + \|v\|).
-\end{equation}
+\end{equation*}
 On the other hand, $T v' = \sum_{|\lambda| \geq \eps} \lambda v_\lambda \in V' \subseteq \mathcal{A}(G)$.  Thus $\mathcal{A}(G)$ is dense in $L^2(G)$.\footnote{End of lecture \#7, Tuesday, 12 March}
 
 \subsection{Proof of the uniform density
@@ -2185,11 +2189,11 @@ This is the dual of the inner product considered in \S\ref{sec:schur-orthogonali
   \begin{enumerate}
 [(i)]
   \item With respect to an orthonormal basis of $\pi$, we have
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       \pi(f)_{i j}
       = \int_{g \in G}
       f(g) \pi_{i j}(g) \, d g,
-    \end{equation}
+    \end{equation*}
     so $\langle \pi(f_1), \pi(f_2) \rangle = \langle f_1, \overline{\pi_{i j}} \rangle \langle \overline{\pi_{i j}}, f_2 \rangle$.  The conclusion follows from part (i) of the Peter--Weyl theorem, which we have seen implies that the function $\sqrt{\dim(\pi)} \pi_{i j}$ (and hence likewise the functions $\sqrt{\dim(\pi)} \overline{\pi_{i j}}$) form an orthonormal basis of $L^2(G)$.
   \item Suppose for instance that $f = f_1 \ast f_2$ with $f_1, f_2 \in L^2(G)$.  Then $f(1) = \int_{g \in G} f_1(g) f_2(g^{-1}) \, d g = \langle f_1, f_2^* \rangle$, while $\langle \pi(f_1), \pi(f_2^*) \rangle = \trace(\pi(f_1) \pi(f_2)) = \trace(\pi(f_1 \ast f_2)) = \chi_\pi(f)$; the required conclusion thus follows from part (i).
   \item Using the expansion $\chi_\sigma = \sum_{k } \sigma_{k k}$, we compute that
@@ -2523,27 +2527,27 @@ The following might be known from linear algebra:
 The following is part of the BCHD law, and describes the derivative of the exponential map on any Lie group.
 \begin{lemma}\label{lem:deriv-of-expo}
   Let $G$ be any Lie group, Fix $x \in \mathfrak{g}$.  Let $z \in \mathfrak{g}$ be small enough.  Let $y \in \mathfrak{g}$ be the small element for which
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \exp(x + z) = \exp(x) \exp(y).
-  \end{equation}
+  \end{equation*}
   Then
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     y = F(\ad_x) z + \O(|z|^2),
-  \end{equation}
+  \end{equation*}
   where
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     F(t) := \frac{1 - e^{-t }}{t}
     = 1 - \frac{t}{2!}
     + \frac{t^2}{3!} - \dotsb.
-  \end{equation}
+  \end{equation*}
   In particular, $\exp$ is a local diffeomorphism at $x$ iff $F(\ad_x)$ is invertible iff $\ad_x$ has no eigenvalues of the form $2 \pi i k$, with $0 \neq k \in \mathbb{Z}$.
 \end{lemma}
 \begin{proof}
   (Omitted from lecture.)  For $t \in [0,1]$, set $f(t) := \log (\exp(-t x) \exp(t (x+z)))$, so that $f(0) = 0$ and $f(1) = y$.  We compute that for small $\eps > 0$,
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     f(t + \eps)
     = \Ad_{-t x} (\eps z) + t z + \O(\eps |z|^2 + \eps^2),
-  \end{equation}
+  \end{equation*}
   where $\Ad_x := e^{\ad_x} = \Ad(e^x)$.  (To see this, first write $\exp(-(t + \eps) x) \exp((t+\eps)(x+z)) = \exp(-t x) \exp(-\eps x) \exp(\eps(x+z)) \exp(t(x+z))$, then approximate $\exp(-\eps x) \exp(\eps(x+z)) = \exp(\eps z + \O(\eps^2))$ and deduce that $f(t+\eps) = \log(\exp(\Ad_{-t x}(\eps z) + \O(\eps^2)) \exp(\O(z))) = \Ad_{-t x}(\eps z) + \O(\eps |z|^2 + \eps^2)$, as required.)  Thus
   \begin{equation*}
     f'(t) = \Ad_{-t x}(z) + \O(|z|^2)
@@ -2648,10 +2652,10 @@ We record a further variant of the above considerations.  We focus on an example
 \end{theorem}
 \begin{proof}
   We go from (1) to (2) using that polynomials are holomorphic.  We'll leave it as a homework problem to show that any holomorphic representation of a complex reductive group is automatically polynomial, giving the arrow from (2) to (1).  (2) and (3) are equivalent by Lie theory and the fact that $\SL_n(\mathbb{C})$ is connected and simply-connected.  (4) and (5) are likewise equivalent thanks to the analogous properties for $\SU(n)$.  (3), (5) and (7) are all equivalent thanks to the identities
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \su(n) \oplus i \su(n) = \slLie_n(\mathbb{C})
     = \slLie_n(\mathbb{R}) \oplus i \slLie_n(\mathbb{R})
-  \end{equation}
+  \end{equation*}
   and the fact that an $\mathbb{R}$-linear map $W \rightarrow U$ from a real vector space $W$ to a complex vector space $U$ extends uniquely to a $\mathbb{C}$-linear map $W_{\mathbb{C}} \rightarrow U$ from the complexification $W_{\mathbb{C}} = W \otimes_{\mathbb{R}} \mathbb{C} = W \oplus i W$.  We go from (2) to (6) by restricting and from (6) to (7) by differentiating.  That these bijections are compatible with irreducibility and decompositions is either clear or follows as in the proof of Theorem \ref{thm:reductive-groups}.  We've seen that complete reducibility holds for representations of $\SU(n)$, so the same follows for each of the other classes of representations.
 \end{proof}
 
@@ -3094,9 +3098,9 @@ We're now prepared to state the Weyl integral formula for $K$, together with som
 \begin{proof}
 [Proof of \ref{item:q-cover} and \ref{item:WIF-dif}]
   First, let $x \in T^{\reg}$.  Lemma \ref{lem:jacobian-computation-WIF-general} implies then that $\det(q) > 0$ on $q^{-1}(x)$.  Thus for each $y \in q^{-1}(x)$, the map $q$ is an orientation-preserving local diffeomorphism at $y$.  In particular, $q^{-1}(x)$ is a closed $0$-dimensional subset of the compact set $K/T \times T$, and so $q^{-1}(x)$ is finite.  We may thus find a small neighborhood $U$ of $x$ and, for each $y \in q^{-1}(x)$, a small neighborhood $U_y$ of $y$ so that $q$ induces diffeomorphisms $U_y \cong U$.  By shrinking $U$ and hence each $U_y$ if necessary, we may assume that the $U_y$ are all disjoint.  Using the compactness of the domain of $q$, we see that the image under $q$ of the complement of $\cup_z U_z$ is compact, hence closed, so by shrinking $U$ if necessary, we may assume that the image in question is disjoint from $U$.  Then
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     q^{-1}(U) = \sqcup_{y \in q^{-1}(x)} U_y,
-  \end{equation}
+  \end{equation*}
   with the map $q^{-1}(U) \rightarrow U$ a trivial cover.
 
   We've noted already that $W$ acts freely on every fiber of $q$.  We claim now moreover that $W$ acts \emph{transitively} on every fiber of $q$ in $U$, i.e., that $W$ permutes the ``pancakes'' $U_y$ lying above $U$.  It suffices to verify that $W$ acts transitively on the fibers above any individual element $t \in U$.  By Lemma \ref{lem:generators-exist}, we may take for $t$ a generator of $T$.  As a ``basepoint'' for $q^{-1}(t)$, we may take the pair $(e T,t)$, with $e \in G$ the identity element.  If $(g T,s)$ is any other element of $q^{-1}(t)$, then $g s g^{-1} = t$, and so $g^{-1} t g = s \in T$, which (by Lemma \ref{lem:generators-cent-norm}) forces $g$ to lie in $N(T)$, i.e., $w := g T$ to lie in $W$.  Thus $(g T, s) = w \cdot (e T, t)$, and so $W$ acts transitively on $q^{-1}(t)$, as required.  It follows in particular that $\# q^{-1} (x) =\# q^{-1}(t) = |W|$, so that for any $\nu \in \Omega_c^N(U)$,
@@ -3136,10 +3140,10 @@ We're now prepared to state the Weyl integral formula for $K$, together with som
     \int_{y=0}^1 f(y,x_2,\dotsc,x_n) \, d y = \sum_{j=2..n} \partial_{j} h_j(x_2,\dotsc,x_n).
   \end{equation*}
   Fixing $\chi \in C_c^\infty((0,1))$ with $\int \chi = 1$, the function
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     g_j(x_1,\dotsc,x_n) :=
     \chi(x_1) h_j(x_2,\dotsc,x_n)
-  \end{equation}
+  \end{equation*}
   is supported in $(0,1)^n$.  Set $f' := f - \sum_{j \geq 2} \partial_j g_j$.  Then
   \begin{equation*}
     \int_{y=0}^1 f'(y,x_2,\dotsc,x_n) \, d y = 0 \text{ for all } x_2,\dotsc,x_n,
@@ -3153,9 +3157,9 @@ We're now prepared to state the Weyl integral formula for $K$, together with som
 
 \begin{remark}
   I wanted to present the proof as elementarily as possible, but I would be remiss not to mention that what the above arguments ``really'' show is that for any connected $N$-manifold $M$, the compactly-supported top-degree de Rham cohomology group
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     H^N_c(M) := \Omega_c^N(M) / d \Omega_c^{N-1}(M),
-  \end{equation}
+  \end{equation*}
   with coefficients taken in either $k = \mathbb{R}$ or $\mathbb{C}$, is isomorphic to $k$, with the isomorphism
   \begin{equation}\label{eq:HNc-isom-k}
     H^N_c(M) \xrightarrow{\cong} k
@@ -3392,31 +3396,31 @@ We have
   \mathfrak{t}_{\mathbb{C}} = \mathbb{C} H, \quad \mathfrak{t}_{\mathbb{R}} = \mathbb{R} H, \quad \mathfrak{t}_{\mathbb{Z}} = \mathbb{Z} H.
 \end{equation*}
 (For the last of these, we note that every one-parameter subgroup $\U(1) \rightarrow T$ is given by $z \mapsto \diag(z^m, z^{-m})$ for some $m \in \mathbb{Z}$; we may rewrite this as $\exp(i \theta) \mapsto \exp(i m H)$, whence the claim.)  In view of \eqref{eq:relations-X-Y-H}, the root space decomposition of $\mathfrak{g}$ is given by
-\begin{equation}\label{eq:}
+\begin{equation*}
   \mathfrak{g} =
   \underbrace{\mathbb{C} H}_{\mathfrak{t}_{\mathbb{C}}}
   \oplus
   \underbrace{\mathbb{C} X}_{\mathfrak{g}^{\alpha}}
   \oplus
   \underbrace{\mathbb{C} Y}_{\mathfrak{g}^{-\alpha}},
-\end{equation}
+\end{equation*}
 where $\alpha \in \mathfrak{t} _{\mathbb{R} }^*$ is characterized by
-\begin{equation}\label{eq:}
+\begin{equation*}
   \alpha(H) = 2.
-\end{equation}
+\end{equation*}
 The set of roots is thus
-\begin{equation}\label{eq:}
+\begin{equation*}
   \Phi = \{\alpha, - \alpha\}.
-\end{equation}
+\end{equation*}
 We note that
-\begin{equation}\label{eq:}
+\begin{equation*}
   \mathfrak{t}_{\mathbb{C}}^* = \mathbb{C} \alpha,
   \quad
   \mathfrak{t}_{\mathbb{R}}^* = \mathbb{R} \alpha,
   \quad
   \mathfrak{t}_{\mathbb{Z}}^*
   =  \tfrac{1}{2}\mathbb{Z} \alpha.
-\end{equation}
+\end{equation*}
 (For the last of these, note that the characters of $T$ are given by $\diag(t,t^{-1}) \mapsto t^{l}$ for some $l \in \mathbb{Z}$, and that if we write $\diag(t,t^{-1}) = \exp(i \theta H)$, then $t^l = \exp(i \theta l) = \exp(i \theta l \alpha(H)/2) = \exp(i \theta H)^{l \alpha/2}$, whence the characters of $T$ are uniquely of the form $l \alpha/2$ with $l \in \mathbb{Z}$.)
 
 Recall (\S\ref{sec:case-su2} and earlier) that any finite-dimensional representation $\pi : \SU(2) \rightarrow \GL(V)$ decomposes as a sum
@@ -3436,16 +3440,16 @@ that is to say, the weight space decomposition of $(\pi,V)$ is simply its decomp
 For simplicity of notation we will often use abbreviations like $x v := d \pi(x) v$ for $x \in \mathfrak{g}$ and $v \in V$ when $\pi$ is clear from context.
 
 In view of the general identity ``$\mathfrak{g}^\alpha \cdot V^{\lambda} \subseteq V^{\lambda+\alpha}$'' (Lemma \ref{lem:root-spaces-permute-weight-spaces}) and the fact that $\alpha(H) = 2$, we see that $X$ and $Y$ act on the $H$-eigenspaces by ``raising and lowering operators,'' i.e.,
-\begin{equation}\label{eq:}
+\begin{equation*}
   d \pi(X) : V^k \rightarrow V^{k+2}, \quad d \pi(Y) : V^k
   \rightarrow V^{k-2}.
-\end{equation}
+\end{equation*}
 For instance, this follows in the case $(\pi,V) = (\Ad,\mathfrak{g})$ from the identities \eqref{eq:relations-X-Y-H}.
 
 We have also seen that the irreducible finite-dimensional representation of $\SU(2)$ are indexed by nonnegative integers $n$ and given explicitly by the $(n+1)$-dimensional space $V_n = \mathbb{C}[x,y]^{(n)}$ of homogeneous polynomials of degree $n$ in two variables, with $\SU(2)$ acting by right translation.  Moreover, any finite-dimensional representation $(\pi,V)$ of $\SU(2)$ decomposes uniquely as a finite direct sum $V = \oplus_{n \geq 0} V_n^{\oplus \mu(n)}$ for some multiplicities $\mu(n) \geq 0$,
 
 The weight spaces of the irreducible representations $(\pi_n,V_n)$ are all one-dimensional, and the weight space decompositions read
-\begin{align}\label{eq:}
+\begin{align*}
   V_n
   &=
     V_n^{n} \oplus V_n^{n-2} \oplus V_n^{n-2} \oplus \dotsb
@@ -3457,21 +3461,21 @@ The weight spaces of the irreducible representations $(\pi_n,V_n)$ are all one-d
     \oplus \mathbb{C} x^{n-2} y^2
     \oplus \dotsb \oplus
     \mathbb{C} y^n.
-\end{align}
+\end{align*}
 Using the definition \eqref{eq:defn-HXY}, we compute that the action of $\mathfrak{g}$ is given by
-\begin{equation}\label{eq:}
+\begin{equation*}
   d \pi_n(H) = x \partial_x - y \partial _y,
   \quad d \pi_n(X)
   = x \partial_y,
   \quad
   d \pi_n(Y) = y \partial_x.
-\end{equation}
+\end{equation*}
 It follows readily from this explicit description that the lowering maps
-\begin{equation}\label{eq:}
+\begin{equation*}
   V_n^n \xrightarrow{Y} V_n^{n-2}
   \xrightarrow{Y} V_n^{n-2} \xrightarrow{Y} \dotsb
   \xrightarrow{Y} V_n^{-n}
-\end{equation}
+\end{equation*}
 and the raising maps
 \begin{equation}\label{eq:X-raising-isoms}
   V_n^{-n} \xrightarrow{X} V_n^{-n+2}
@@ -3545,10 +3549,10 @@ Recall the notation \eqref{eq:defn-HXY} for the standard basis elements $H,X,Y$ 
       T_\alpha := \ker(\alpha)^0 = \{t \in T : t^\alpha = 1\}^0, \quad \mathfrak{t}_\alpha := \Lie(T_\alpha) = \{x \in \mathfrak{t} : \alpha(x) = 0\}.
     \end{equation*}
     Then the image of $F_\alpha$ is contained in the centralizer $Z_K(T_\alpha)$, and the composition
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       \SU(2) \xrightarrow{F_\alpha } Z_K(T_\alpha)
       \rightarrow Z_K(T_\alpha)/T_\alpha
-    \end{equation}
+    \end{equation*}
     is surjective, and induces an isomorphism $\su(2) \cong Z_{\mathfrak{k}}(\mathfrak{t}_\alpha) / \mathfrak{t}_\alpha$ of Lie algebras.
   \end{enumerate}
 \end{theorem}
@@ -3695,9 +3699,9 @@ Before turning to the proof of Theorem \ref{thm:from-roots-dist-su2}, we pause t
   \end{equation}
   for all $z \in \mathfrak{t}_{\mathbb{R}}$.  The same identity extends $\mathbb{C}$-linearly to all $z \in \mathfrak{t}_{\mathbb{C}}$.
 \item Using the above isomorphism, we may transport the given inner product on $\mathfrak{t}_{\mathbb{R}}$ to an inner product on $\mathfrak{t}_{\mathbb{R}}^*$ that we denote by $(,)$: for $\lambda_1, \lambda_2 \in \mathfrak{t}_{\mathbb{R}}^*$,
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     (\lambda_1, \lambda_2) := \trace(u_{\lambda_1} u_{\lambda_2}).
-  \end{equation}
+  \end{equation*}
   For example, if $K = \U(n)$, then under the identification $\mathfrak{t}_{\mathbb{R}}^* \cong \mathbb{R}^n$ as in \S\ref{sec:notat-relat-torus}, this inner product is the standard one.
 \end{itemize}
 We verify readily that the inner product that we defined on $\glLie_n(\mathbb{C})$ is $\Ad(\U(n))$-invariant, hence that on $\mathfrak{g}$ is $\Ad(K)$-invariant and that on $\mathfrak{t}_{\mathbb{R}}$ is $W$-invariant.
@@ -3748,17 +3752,17 @@ With these preliminaries out of the way, we're now prepared to give the:
     of elements of $\mathfrak{t}_{\mathbb{C}}$.
 
     Applying \eqref{eq:x-comm-y-vs-trace-vs-u-alpha} to $X_\alpha$ and $Y_\alpha$ gives
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       H_\alpha = [X_\alpha, Y_\alpha ]
       = \trace(X_\alpha Y_\alpha) u_\alpha
       = \|X_\alpha \|^2 u_\alpha
       = c u_\alpha.
-    \end{equation}
+    \end{equation*}
     using in the last two steps the definitions of $\|X_\alpha \|^2$ and of $Y_\alpha$.  On the other hand, the definition of $u_\alpha$ gives
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       \alpha(u_\alpha) = \trace(u_\alpha u_\alpha)
       = (\alpha,\alpha).
-    \end{equation}
+    \end{equation*}
     Combining the above two identites, we obtain $\alpha(H_\alpha) = c (\alpha,\alpha)$.  With the choice
     \begin{equation}\label{eq:definition-of-c-equals-2-over-alpha-alpha}
       c := \frac{2}{(\alpha,\alpha)},
@@ -3767,19 +3771,19 @@ With these preliminaries out of the way, we're now prepared to give the:
 
     This completes the proof that the linear map ``$d F_\alpha$'' defines a $\theta$-equivariant $\mathbb{C}$-linear Lie algebra morphism $\slLie_2(\mathbb{C}) \rightarrow \mathfrak{g}$.  By passage to $\theta$-fixed subspaces, we obtain a Lie algebra morphism $\su(2) \rightarrow \mathfrak{k}$.  Since $\SU(2)$ is simply-connected, this lifts to a Lie group morphism $F_\alpha : K \rightarrow \SU(2)$, whose differential $d F_\alpha$ is the map ``$d F_\alpha$'' that we constructed.
   \item The composition
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       \alpha^\vee : \U(1) \rightarrow \SU(2)
       \xrightarrow{F_\alpha } K
-    \end{equation}
+    \end{equation*}
     is given by
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       e^{i \theta}
       \mapsto
       \exp (i \theta d F_\alpha(H))
       =
       \exp(i \theta H_\alpha)
       \in T,
-    \end{equation}
+    \end{equation*}
     so the diagram \eqref{eq:F-alpha-alpha-vee-commute} is defined and commutes.  Finally, we see from \eqref{eq:x-comm-y-vs-trace-vs-u-alpha} that
     \begin{equation}\label{eq:commutators-land-in-C-H-alpha}
       [\mathfrak{g}^\alpha, \mathfrak{g}^{-\alpha}]
@@ -3800,26 +3804,26 @@ With these preliminaries out of the way, we're now prepared to give the:
     \item Similarly, $\ad_{Y_\alpha}(\mathfrak{g}^{n \alpha}) \subseteq \mathfrak{g}^{(n-1) \alpha}$ for all integers $n$, and $\ad_{Y_\alpha}(\mathfrak{g}^\alpha) \subseteq \mathbb{C} H_\alpha$.
     \end{itemize}
     Thus $V$ defines a finite-dimensional $\mathbb{C}$-linear representation of $\slLie_2(\mathbb{C})$, hence by Theorem \eqref{thm:unitary-trick} a finite-dimensional representation of $\SU(2)$.  This representation has the property that all weights (i.e., $H_\alpha$-eigenvalues) are even, the weight zero subspace $\mathbb{C} H_\alpha$ is one-dimensional, and the weight two subspace $\mathfrak{g}^{\alpha}$ contains the vector $X_\alpha$ for which $\ad_{X_\alpha} X_\alpha = 0$.  By Lemma \ref{lem:key-for-root-space-one-dimensional}, we deduce that $V$ is isomorphic to the irreducible three-dimensional representation $V_2$ of $\SU(2)$, whose weights are $\{0,2,-2\}$ each occurring with multiplicity one.  Thus
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       \dim \mathfrak{g}^{\alpha}
       =
       \dim \mathfrak{g}^{-\alpha}
       = 1
-    \end{equation}
+    \end{equation*}
     and
     \begin{equation}\label{eq:first-exclusion-dimensions-g-n-alpha}
       \dim \mathfrak{g}^{n \alpha} = 0 \text{ for } n \in \mathbb{Z} - \{0,1,-1\}.
     \end{equation}
   \item We now take instead
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       V = \mathbb{C} H_\alpha
       \oplus (\oplus_{0 \neq n \in \mathbb{C} \alpha }
       \mathfrak{g}^{n \alpha}).
-    \end{equation}
+    \end{equation*}
     (We might note in passing that, since the set $\Phi$ of roots is contained in the finite free $\mathbb{Z}$-module $\mathfrak{t}_{\mathbb{Z}}^*$, the sum over $n$ could be restricted from the start to $\mathbb{Q} \alpha$.)  We note as before that $\slLie_2(\mathbb{C})_\alpha$ acts on $V$ by the restriction of $\ad$.  Then $V$ defines a finite-dimensional representation of $\slLie_2(\mathbb{C})$, and so, as we have seen, all of the weights of $\ad_{H_\alpha}$ must be integers.  But the eigenvalue of $\ad_{H_\alpha}$ on $\mathfrak{g}^{n \alpha}$ is $n \alpha(H_\alpha) = 2 n$, which is an integer only if $n \in (1/2) \mathbb{Z}$.  We've seen already in \eqref{eq:first-exclusion-dimensions-g-n-alpha} that for $n \in \mathbb{Z}$, we have $n \alpha \notin \Phi$ unless $n = \pm 1$, so it remains only to consider the case that $n \alpha \in \Phi$ for some $n \in (1/2) \mathbb{Z} - \mathbb{Z}$.  But then $2 n$ is odd, so $\mathfrak{g}^{n \alpha}$ is a nonzero weight space for $V$ with odd weight, so by Lemma \ref{lem:key-for-rational-multiples-of-roots}, we see that the weight one subspace $V^1 = \mathfrak{g}^{\alpha/2}$ is nonzero, i.e., that $\alpha/2$ is a root.  But then $\alpha/2$ and $\alpha = 2 (\alpha/2)$ are both roots, which contradicts \eqref{eq:first-exclusion-dimensions-g-n-alpha} (applied to $\alpha/2$ in place of $\alpha$).  The proof that $\mathbb{C} \alpha \cap \Phi = \mathbb{Q} \alpha \cap \Phi = \{\alpha, -\alpha \}$ is now complete.\footnote{End of lecture \#14, Tuesday, 9 Apr}
     
   \item The uniqueness of $F_\alpha$ up to conjugation by $\alpha^\vee$ follows from the recently established one-dimensionality of $\mathfrak{g}^\alpha$ and the construction of $F_\alpha$.  Since we required $\|X_\alpha \|^2 = 2/(\alpha,\alpha)$ and the choices of $Y_\alpha$ and $H_\alpha$ were then forced by the requirement that $d F_\alpha$ be a $\theta$-equivariant Lie algebra morphism, any other map $F_\alpha '$ satisfying the same conditions as $F_\alpha$ is obtained by replacing $X_\alpha$ as in the construction of $F_\alpha$ with its multiple by some element $e^{i \theta} \in \U(1)$.  Since $[H_\alpha, X_\alpha] = 2 X_\alpha$, we have
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       \Ad(\alpha^\vee(e^{i \theta/2}))
       X_\alpha 
       =
@@ -3827,7 +3831,7 @@ With these preliminaries out of the way, we're now prepared to give the:
       X_\alpha
       =
       e^{i \theta} X_\alpha,
-    \end{equation}
+    \end{equation*}
     which implies that $F_\alpha '$ is the conjugate of $F_\alpha$ by $\alpha^\vee(e^{i \theta/2})$, as required.
   \item We have $\mathfrak{t}_{\alpha} = \{x \in \mathfrak{t} : \alpha(x) =0\}$ and and $\Lie(Z_K(T_\alpha)) = Z_{\mathfrak{k}}(\mathfrak{t}_\alpha)$ and $(Z_{\mathfrak{k}}(\mathfrak{t}_\alpha))_{\mathbb{C}} = Z_{\mathfrak{g}}(\mathfrak{t}_\alpha) = \{x \in \mathfrak{g} : [x,z] = 0 \text{ for all } z \in \mathfrak{t} \text{ with } \alpha(z) = 0\}$.  Since $[z,X_\alpha] = \alpha(z) X_\alpha$ and $[z,Y_\alpha] = -\alpha(z) Y_\alpha$ for all $z \in \mathfrak{t}$, and since $\mathfrak{t}_{\mathbb{C}}$ is commutative, we see that $X_\alpha, Y_\alpha, H_\alpha$ all belong to $Z_{\mathfrak{g}}(\mathfrak{t}_\alpha)$.  Since $\SU(2)$ is connected, it follows likewise that the image of $F_\alpha$ is contained in $Z_K(T_\alpha)$.  It remains only to check that the map
     \begin{equation*}
@@ -3840,12 +3844,12 @@ With these preliminaries out of the way, we're now prepared to give the:
       / (\mathfrak{t}_{\alpha})_{\mathbb{C}}
     \end{equation}
     is an isomorphism.  We note that $Z_{\mathfrak{g}}(\mathfrak{t}_\alpha)$ is a Lie subalgebra of $\mathfrak{g}$ that contains $\mathfrak{t}_{\mathbb{C}}$, hence admits a root space decomposition
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       Z_{\mathfrak{g}}(\mathfrak{t}_\alpha)
       = \mathfrak{t}_{\mathbb{C}}
       \oplus (\oplus_{\beta \in B}
       \mathfrak{g}^\beta),
-    \end{equation}
+    \end{equation*}
     where $B$ denotes the set of all roots $\beta \in \Phi$ for which $\mathfrak{g}^\beta \subseteq Z_{\mathfrak{g}}(\mathfrak{t}_\alpha)$, i.e., for which $\beta(z) = 0$ for all $z \in \mathfrak{t}$ with $\alpha(z) = 0$.  Since $\alpha$ and $\beta$ are both nonzero functionals, it follows that $\beta \in B$ iff $\beta \in \mathbb{C} \alpha$, which we've seen is equivalent to asking that $\beta = \pm \alpha$.  Since $\alpha(H_\alpha) \neq 0$, we have a decomposition
     \begin{equation}\label{eq:decompose-t-C-via-H-alpha}
       \mathfrak{t}_{\mathbb{C}} =
@@ -3853,23 +3857,23 @@ With these preliminaries out of the way, we're now prepared to give the:
       \oplus \mathbb{C} H_\alpha.
     \end{equation}
     Thus
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       Z_{\mathfrak{g}}(t_\alpha)
       = (\mathfrak{t}_\alpha)_{\mathbb{C}}
       \oplus \mathbb{C} H_\alpha
       \oplus \mathfrak{g}^{\alpha}
       \oplus \mathfrak{g}^{-\alpha}
-    \end{equation}
+    \end{equation*}
     and so
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       Z_{\mathfrak{g}}(\mathfrak{t}_\alpha)
       / (\mathfrak{t}_{\alpha})_{\mathbb{C}}
       \cong
       \mathbb{C} H_\alpha
       \oplus \mathfrak{g}^{\alpha} \oplus \mathfrak{g}^{-\alpha}.
-    \end{equation}
+    \end{equation*}
     The composition
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       \slLie_2(\mathbb{C}) \xrightarrow{d F_\alpha }
       Z_{\mathfrak{g}}(t_\alpha)
       \twoheadrightarrow Z_{\mathfrak{g}}(t_\alpha)/
@@ -3878,7 +3882,7 @@ With these preliminaries out of the way, we're now prepared to give the:
       \mathbb{C} H_\alpha
       \oplus \mathfrak{g}^{\alpha} \oplus \mathfrak{g}^{-\alpha}
       \cong \slLie_2(\mathbb{C})
-    \end{equation}
+    \end{equation*}
     is the identity, so we deduce as required that \eqref{eq:required-lie-alg-isom-involving-F-alpha} is an isomorphism.
   \end{enumerate}
 \end{proof}
@@ -3895,17 +3899,17 @@ We finally develop a way to produce nontrivial elements of the Weyl group.  Star
   & -1
 \end{pmatrix}
  \in \slLie_2(\mathbb{C})$,
-\begin{equation}\label{eq:}
-  w \cdot H = -H.
-\end{equation}
-More generally, $w$ acts on each of the spaces $\mathfrak{t}, \mathfrak{t}_{\mathbb{Z}}, \mathfrak{t}_{\mathbb{R}}, \mathfrak{t}_{\mathbb{C}}, \mathfrak{t}^*, \mathfrak{t}_{\mathbb{Z}}^*, \mathfrak{t}_{\mathbb{R}}^*, \mathfrak{t}_{\mathbb{C}}^*$ by negation.  Moreover, for any finite-dimensional representation $V$ of $\SU(2)$ with weight space decomposition $V = \oplus_{\lambda \in \mathbb{Z}} V^\lambda$ (here $V^\lambda = \{v \in V : H v = \lambda v \}$, as usual), the action of $w$ defines an isomorphism
-\begin{equation}\label{eq:}
-  w : V^{\lambda} \xrightarrow{\cong }V^{-\lambda},
-\end{equation}
-as follows from a routine computation as in the proof of Lemma \ref{sec:weyl-group-acts-on-roots}.
+ \begin{equation*}
+   w \cdot H = -H.
+ \end{equation*}
+ More generally, $w$ acts on each of the spaces $\mathfrak{t}, \mathfrak{t}_{\mathbb{Z}}, \mathfrak{t}_{\mathbb{R}}, \mathfrak{t}_{\mathbb{C}}, \mathfrak{t}^*, \mathfrak{t}_{\mathbb{Z}}^*, \mathfrak{t}_{\mathbb{R}}^*, \mathfrak{t}_{\mathbb{C}}^*$ by negation.  Moreover, for any finite-dimensional representation $V$ of $\SU(2)$ with weight space decomposition $V = \oplus_{\lambda \in \mathbb{Z}} V^\lambda$ (here $V^\lambda = \{v \in V : H v = \lambda v \}$, as usual), the action of $w$ defines an isomorphism
+ \begin{equation*}
+   w : V^{\lambda} \xrightarrow{\cong }V^{-\lambda},
+ \end{equation*}
+ as follows from a routine computation as in the proof of Lemma \ref{sec:weyl-group-acts-on-roots}.
 
-Returning now to the general setting:
-\begin{theorem}
+ Returning now to the general setting:
+ \begin{theorem}
   Let $K$ be a compact connected Lie group, with maximal torus $T$.  Let $\Phi = \Phi(K:T)$ denote the set of roots, and $W = N(T)/T$ the Weyl group.
   
   Let $\alpha \in \Phi$.  Let $F_\alpha : \SU(2) \rightarrow K$, as in Theorem \ref{thm:from-roots-dist-su2}, be such that $F_\alpha (
@@ -3914,61 +3918,61 @@ Returning now to the general setting:
     &
   \end{pmatrix}
 )$ is a nonzero element of $\mathfrak{g}^{\alpha}$.  Define
-  \begin{equation}\label{eq:}
-    w_\alpha := F_\alpha (
-\begin{pmatrix}
-      0 & 1 \\
-      -1 & 0
-    \end{pmatrix}
-).
-  \end{equation}
-  Then:
-  \begin{enumerate}
+\begin{equation*}
+  w_\alpha := F_\alpha (
+  \begin{pmatrix}
+    0 & 1 \\
+    -1 & 0
+  \end{pmatrix}
+  ).
+\end{equation*}
+Then:
+\begin{enumerate}
 [(i)]
   \item $w_\alpha$ belongs to the normalizer $N(T)$ of $T$, hence defines a Weyl group element that we denote by
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       s_\alpha := w_\alpha T \in W.
-    \end{equation}
+    \end{equation*}
     The element $s_\alpha$ is independent of the choice of $F_\alpha$.
   \item $s_\alpha^2 = 1$.
   \item For $x \in \mathfrak{t}_{\mathbb{C}}$,
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       s_\alpha \cdot x = x - \alpha(x) H_\alpha
-    \end{equation}
+    \end{equation*}
     and for $t \in T$,
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       s_\alpha \cdot t = t / \alpha^\vee(t^\alpha).
-    \end{equation}
+    \end{equation*}
   \item For $\lambda \in \mathfrak{t}_{\mathbb{C}}^*$,
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       s_\alpha \cdot \lambda  = \lambda  - \lambda(H_\alpha) \alpha.
-    \end{equation}
+    \end{equation*}
   \end{enumerate}
 \end{theorem}
 \begin{proof}
   We check readily that assertions (iii) and (iv) are equivalent, that either implies (ii), and that the claimed uniqueness of $s_\alpha$ follows from the established uniqueness of $F_\alpha$.  On the other hand, each of the assertions (i) and (iii) will follow if we can show that
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \Ad(w_\alpha) x = x - \alpha(x) H_\alpha 
-  \end{equation}
+  \end{equation*}
   for all $x \in \mathfrak{t}_{\mathbb{C}}$.  To that end, we apply the decomposition \eqref{eq:decompose-t-C-via-H-alpha} to write $x = y + z H_\alpha$, where $y \in \mathfrak{t}_{\mathbb{C}}$ with $\alpha(y) = 0$ and $z \in \mathbb{C}$, namely $z = (1/2) \alpha(x)$.  By part (vi) of Theorem \ref{thm:from-roots-dist-su2}, the image of $F_\alpha$ commutes with $y$, hence $\Ad(w_\alpha) y = y$.  Set $w := 
 \begin{pmatrix}
     & 1 \\
     -1 &
   \end{pmatrix}
  \in \SU(2)$.  Then
-  \begin{equation}\label{eq:}
-    \Ad(w_\alpha) H_\alpha
-    = \Ad(F_\alpha(w)) F_\alpha(H)
-    = F_\alpha(\Ad(w) H)
-    = F_\alpha(-H) = - H_\alpha,
-  \end{equation}
-  so
-  \begin{equation}\label{eq:}
-    \Ad(w_\alpha) x = y - z H_\alpha
-    = x - 2 z H_\alpha
-    = x - \alpha(x) H_\alpha,
-  \end{equation}
-  as required.
+ \begin{equation*}
+   \Ad(w_\alpha) H_\alpha
+   = \Ad(F_\alpha(w)) F_\alpha(H)
+   = F_\alpha(\Ad(w) H)
+   = F_\alpha(-H) = - H_\alpha,
+ \end{equation*}
+ so
+ \begin{equation*}
+   \Ad(w_\alpha) x = y - z H_\alpha
+   = x - 2 z H_\alpha
+   = x - \alpha(x) H_\alpha,
+ \end{equation*}
+ as required.
 \end{proof}
 \footnote{End of half-lecture \#15, Thursday, 11 Apr}
 
@@ -3987,19 +3991,19 @@ The theorem and its proof imply that the action of $s_\alpha$ on $\mathfrak{t}_{
 \end{proof}
 
 We've defined the regular subset $\mathfrak{t}_{\mathbb{R}}^{\reg}$ in $\mathfrak{t}_{\mathbb{R}}$ to be the complement of $\cup_{\alpha \in \Phi} \ker(\alpha)$, and we've defined a Weyl chamber $C$ in $\mathfrak{t}_{\mathbb{R}}$ to be a connected component of $\mathfrak{t}_{\mathbb{R}}^{\reg}$.  We may similarly define the regular subset $\mathfrak{t}_{\mathbb{R}}^{* \reg}$ in $\mathfrak{t}_{\mathbb{R}}^*$ to be the complement of $\cup_{\alpha \in \Phi} \ker(H_\alpha)$, where now $H_\alpha \in \mathfrak{t}_{\mathbb{R}}$ is viewed as an element of $(\mathfrak{t}_{\mathbb{R}}^*)^*$, and a Weyl chamber $C^\vee \subseteq \mathfrak{t}_{\mathbb{R}}^*$ to be a connected component of $\mathfrak{t}_{\mathbb{R}}^{*\reg}$.  Since the isometry $\mathfrak{t}_{\mathbb{R}} \cong \mathfrak{t}_{\mathbb{R}}^*$ defined above identifies $H_\alpha$ with a positive multiple of $\alpha$, we see that it identifies the kernel of $\alpha$ with the kernel of $H_\alpha$, and hence identifies each Weyl chamber $C$ of $\mathfrak{t}_{\mathbb{R}}$ with a corresponding Weyl chamber $C^\vee$ of $\mathfrak{t}_{\mathbb{R}}^*$.  This identification is independent of the embedding $K \hookrightarrow \U(n)$, since if $C$ is described as
-\begin{equation}\label{eqn:}
+\begin{equation*}
   C = \{t  \in \mathfrak{t}_{\mathbb{R}} : \eps_\alpha \alpha(t) > 0 \text{ for all } \alpha \in
   \Phi  \}
-\end{equation}
+\end{equation*}
 for some signs $\eps_\alpha \in \{\pm 1\}$ (see \S\ref{sec:basics-weyl-chambers}), then $C^\vee$ is described analogously as
-\begin{equation}\label{eqn:}
+\begin{equation*}
   C^\vee
   = \{\lambda
   \in \mathfrak{t}_{\mathbb{R}}^*
   : \eps_\alpha
   \lambda(H_\alpha) > 0 \text{ for all } \alpha \in
   \Phi  \}.
-\end{equation}
+\end{equation*}
 In this way all of the facts that we prove below involving the Weyl group action on $\mathfrak{t}_{\mathbb{R}}$ and Weyl chambers thereof have immediate counterparts for $\mathfrak{t}_{\mathbb{R}}^*$.
 
 \begin{example}
@@ -4023,10 +4027,10 @@ In this way all of the facts that we prove below involving the Weyl group action
   \item For $j=1..n$, we have $\alpha_j > 0$ on $C_0, \dotsc, C_{j-1}$ and $\alpha_j < 0$ on $C_j, \dotsc, C_{n}$.
   \item Each $\beta \in \Phi - \{\pm \alpha_1, \dotsc, \pm \alpha_n\}$ takes the same sign on $C_0,\dotsc,C_n$.
   \item For $j=1..n$, we have $s_{\alpha_j} C_{j-1} = C_j$.  In particular,
-    \begin{equation}\label{eqn:}
+    \begin{equation*}
       C'
       = s_{\alpha_n} \dotsb s_{\alpha_1} C.
-    \end{equation}
+    \end{equation*}
   \end{enumerate}
   Analogous conclusions hold for any pair of Weyl chambers in $\mathfrak{t}_{\mathbb{R}}^*$.
 \end{lemma}
@@ -4115,20 +4119,20 @@ For instance, take $K = \U(n)$, with $T$ as usual and coordinates as before.  We
   > \dotsb > x_n\}.
 \end{equation}
 Then
-\begin{equation}\label{eq:}
+\begin{equation*}
   C^\vee = \{\lambda \in \mathfrak{t}_{\mathbb{R}}^* \cong
   \mathbb{R}^n:
   \lambda_1 > \dotsb > \lambda_n\}
-\end{equation}
+\end{equation*}
 and
 \begin{equation}
   \Phi^+ = \{\eps_i - \eps_j : i < j\} = \{\eps_1 - \eps_2,
   \eps_1 - \eps_3, \dotsc\}
 \end{equation}
 and
-\begin{equation}\label{eq:}
+\begin{equation*}
   \Delta = \{\eps_1 - \eps_2, \eps_2 - \eps_3, \dotsc, \eps_{n-1} - \eps_n\}.
-\end{equation}
+\end{equation*}
 
 
 
@@ -4174,13 +4178,13 @@ Let $\alpha,\beta \in \Phi$ be roots.  Recall that, if we choose an embedding $K
   \alpha(H_\beta).
 \end{equation}
 In particular, the quantities
-\begin{equation}\label{eq:}
+\begin{equation*}
   (\alpha,\beta),
   \quad
   \alpha(H_\beta),
   \quad 
   \beta(H_\alpha)
-\end{equation}
+\end{equation*}
 all have the same sign.  We say that the roots $\alpha,\beta$
 \begin{itemize}
 \item are \emph{orthogonal} if these quantities are zero,
@@ -4389,72 +4393,72 @@ Fix $F_{\gamma_j} : \SU(2) \rightarrow K$ as in \S\ref{sec:from-roots-dist} and 
     \in \mathfrak{g}^{-\gamma_{i_1} - \dotsb - \gamma_{i_r}}.
   \end{equation}
   The action of the indicated generators for $\mathfrak{g}$ on the above decomposition is described as follows: For $H \in \mathfrak{t}_{\mathbb{C}}$, we have
-  \begin{equation}\label{eqn:}
+  \begin{equation*}
     \ad_{X_j}
     H = -\gamma_j(H) X_j,
-  \end{equation}
-  \begin{equation}\label{eqn:}
+  \end{equation*}
+  \begin{equation*}
     \ad_{Y_j}
     H = -\gamma_j(H) X_j,
-  \end{equation}
-  \begin{equation}\label{eqn:}
+  \end{equation*}
+  \begin{equation*}
     \ad_{X_j}
     e_i
     =
     [X_j, [X_{i_1},\dotsc,[X_{i_{r-1}}, X_{i_r}]\dotsb]]
-  \end{equation}
-  \begin{equation}\label{eqn:}
+  \end{equation*}
+  \begin{equation*}
     \ad_{H}
     e_i
     =
     \langle H, \gamma_{i_1} + \dotsb + \gamma_{i_r} \rangle
     e_i
-  \end{equation}
-  \begin{equation}\label{eqn:}
+  \end{equation*}
+  \begin{equation*}
     \ad_{Y_j}
     f_i
     =
     [Y_j, [Y_{i_1},\dotsc,[Y_{i_{r-1}}, Y_{i_r}]\dotsb]]
-  \end{equation}
-  \begin{equation}\label{eqn:}
+  \end{equation*}
+  \begin{equation*}
     \ad_{H}
     f_i
     =
     -\langle H, \gamma_{i_1} + \dotsb + \gamma_{i_r} \rangle
     f_i
-  \end{equation}
-  \begin{equation}\label{eqn:}
+  \end{equation*}
+  \begin{equation*}
     \ad_{Y_j} X_i
     =
     \begin{cases}
       - H_i & \text{ if }i = j \\
       0 & \text{ if } i \neq j,
     \end{cases}
-  \end{equation}
-  \begin{equation}\label{eqn:}
+  \end{equation*}
+  \begin{equation*}
     \ad_{Y_j} e_i
     =
     [\ad_{Y_j} X_{i_1},\dotsc,[X_{i_{r-1}}, X_{i_r}]\dotsb]
     + \dotsb
     +
     [ X_{i_1},\dotsc,[X_{i_{r-1}}, \ad_{Y_j} X_{i_r}]\dotsb],
-  \end{equation}
-  \begin{equation}\label{eqn:}
+  \end{equation*}
+  \begin{equation*}
     \ad_{X_j} Y_i
     =
     \begin{cases}
       H_i & \text{ if }i = j \\
       0 & \text{ if } i \neq j,
     \end{cases}
-  \end{equation}
-  \begin{equation}\label{eqn:}
+  \end{equation*}
+  \begin{equation*}
     \ad_{X_j} f_i
     =
     [\ad_{X_j} Y_{i_1},\dotsc,[Y_{i_{r-1}}, Y_{i_r}]\dotsb]
     + \dotsb
     +
     [ Y_{i_1},\dotsc,[Y_{i_{r-1}}, \ad_{X_j} Y_{i_r}]\dotsb].
-  \end{equation}
+  \end{equation*}
 \end{corollary}
 \begin{proof}
   Let $\mathfrak{h}$ denote the subalgebra of $\mathfrak{g}$ generated by the indicated set.  In particular, $\mathfrak{h}$ is a $\mathfrak{t}_{\mathbb{C}}$-module containing $\mathfrak{g}^{\pm \gamma_j}$ for $j=1..n$, so we may write
@@ -4501,10 +4505,10 @@ We claim that
   \mathfrak{t}_{\mathbb{C}}.
 \end{equation}
 Before proving the claim, we explain why it suffices.  Suppose for the sake of contradiction that $\ker(\pi '')$ is nonzero.  Then $\mathfrak{a} ' := \pi '(\ker(\pi ''))$ is a nonzero ideal of $\mathfrak{g}'$.  By Corollary \ref{cor:nonzero-ideals-detected-via-t}, we have $\mathfrak{a} ' \cap \mathfrak{t}_{\mathbb{C}}' \neq \{0\}$.  We may thus find $0 \neq x' \in \mathfrak{t}_{\mathbb{C} }'$ so that $(x', 0) \in \ker(\pi '')$.  Clearly
-\begin{equation}\label{eq:}
+\begin{equation*}
   (x',0) \in \mathfrak{g} \cap (\mathfrak{t}_{\mathbb{C}}' \oplus
   \mathfrak{t}_{\mathbb{C} }'').
-\end{equation}
+\end{equation*}
 From the claim \eqref{eq:key-claim-for-proof-of-that-Cartan-determines-K}, it follows that $(x', 0) \in \mathfrak{t}_{\mathbb{C}}$, whence that $0 = d \kappa(x')$.  Since $d \kappa$ is an isomorphism, this forces $x' = 0$, giving the required contradiction.
 
 We turn finally to the proof of the claim \eqref{eq:key-claim-for-proof-of-that-Cartan-determines-K}.  Let $\mathfrak{h} \subseteq \mathfrak{g} ' \oplus \mathfrak{g} ''$ denote the set defined as on the RHS of \eqref{eqn:decomposition-frak-g-via-simple-root-vecs}, with $e_i, f_i$ defined in terms of $X_i, Y_i \in \mathfrak{g}$ as in \eqref{eqn:defn-e-i}, \eqref{eqn:defn-f-i}.  Then $\mathfrak{t}_{\mathbb{C}} \subseteq \mathfrak{h}$; moreover, $\mathfrak{t}_{\mathbb{C}}$ is self-centralizing in $\mathfrak{h}$, since the $\mathfrak{t}_{\mathbb{C}}$-weights of $\oplus \mathbb{C} e_i$ (resp. of $\oplus \mathbb{C} f_i$) are positive (resp. negative).  In particular, $(\mathfrak{t}_{\mathbb{C}}' \oplus \mathfrak{t}_{\mathbb{C}} '') \cap \mathfrak{h} = \mathfrak{t}_{\mathbb{C}}$, so to establish \eqref{eq:key-claim-for-proof-of-that-Cartan-determines-K}, we reduce to showing that $\mathfrak{g} = \mathfrak{h}$.  To that end, observe first that $\mathfrak{h}$ is contained in $\mathfrak{g}$ and contains the generating set $S := \mathfrak{t}_{\mathbb{C}} \cup \{X_i\} \cup \{Y_i\}$ for $\mathfrak{g}$.  We thereby reduce to verifying that $\mathfrak{h}$ is a subalgebra.  Since $\mathfrak{h} \subseteq \mathfrak{g}$, we may reduce further to showing that $\mathfrak{h}$ is closed under $\ad_{Z}$ for each $Z \in S$.  For this we appeal to the relations noted in Corollary \ref{cor:g-gen-via-simple-stuff}, applied to each component $\mathfrak{g} ', \mathfrak{g} ''$ of $\mathfrak{g} ' \oplus \mathfrak{g} ''$, together with the assumed compatibility between $\gamma_i'$ and $\gamma_i''$.
@@ -4607,40 +4611,40 @@ Recall finally the Weyl integral formula (\S\ref{sec:weyl-integr-form-general})
   D(t) f (g t g^{-1}),
 \end{equation}
 where we integrate with respect to probability Haar measures and where the Jacobian factor $D$ is given explicitly by
-\begin{equation}\label{eqn:}
+\begin{equation*}
   D(t) = |\det( t - 1  |
   \mathfrak{g}/\mathfrak{t}_{\mathbb{C}})|
   =
   \prod_{\alpha \in   \Phi}
   |t^{\alpha}-1|.
-\end{equation}
+\end{equation*}
 
 Our first aim is to factor $D= \Delta \overline{\Delta } = |\Delta|^2$ as in the case $K = \U(n)$.  Such a factorization holds formally with
-\begin{equation}\label{eqn:}
+\begin{equation*}
   \Delta(t) :=
   \prod_{\alpha > 0}
   (t^{\alpha/2} - t^{-\alpha/2}).
-\end{equation}
+\end{equation*}
 Unfortunately, $\Delta$ is not in general well-defined as a function on $T$; the source of this issue is that the expressions $t^{\alpha/2}$ themselves are not well-defined, since it may happen that $\alpha \in \mathfrak{t}_{\mathbb{Z}}^*$ but $(1/2) \alpha \notin \mathfrak{t}_{\mathbb{Z}}^*$.  To circumvent this issue, we pass to a covering torus $\tilde{T}$ of $T$.  Recall that the normalized exponential map $e(x) := \exp(2 \pi i x)$ induces an isomorphism $e : \mathfrak{t}_{\mathbb{R}} / \mathfrak{t}_{\mathbb{Z}} \xrightarrow{\sim} T$.  We denote by $\tilde{T}$ the covering torus of $T$ corresponding to the sublattice $2 \mathfrak{t}_{\mathbb{Z}}$ of $\mathfrak{t}_{\mathbb{Z}}$; it comes with an isomorphism $e : \mathfrak{t}_{\mathbb{R}} / 2 \mathfrak{t}_{\mathbb{Z}} \xrightarrow{\sim} \tilde{T}$ and a canonical surjection $\tilde{T} \rightarrow T$.  In other words, choosing a basis for $\mathfrak{t}_{\mathbb{Z}}$, we may identify $T$ with $\mathbb{R}^n/\mathbb{Z}^n$ and $\tilde{T}$ with $\mathbb{R}^n/2 \mathbb{Z}^n$.  In any event, for $\lambda \in (1/2) \mathfrak{t}_{\mathbb{Z}}^*$, we have $\lambda(2 \mathfrak{t}_{\mathbb{Z}}) \subseteq \mathbb{Z}$, and so the character $e^{\lambda} : \tilde{T} \rightarrow \U(1)$ given by $\exp(x) \mapsto \exp(\lambda(x))$ is well-defined.  In particular, the above formula defines $\Delta : \tilde{T} \rightarrow \mathbb{C}$.  We identify $D : T \rightarrow \mathbb{C}$ with a function $D : \tilde{T} \rightarrow \mathbb{C}$ via pullback.  The identity $|\Delta|^2 = D$ then holds.  For a class function $f$ on $K$, the Weyl integral formula \eqref{eqn:WIF-recall-for-reps} implies that
-\begin{equation}\label{eqn:}
+\begin{equation*}
   \langle f, f \rangle_K
   =
   \frac{1}{W}
   \langle \Delta f, \Delta f \rangle_{\tilde{T}},
-\end{equation}
+\end{equation*}
 where we identify $f$ with a function on $\tilde{T}$ by restricting to $T$ and then pulling back to $\tilde{T}$, and where we integrate with respect to the probability Haar on $\tilde{T}$.
 
 Set
-\begin{equation}\label{eqn:}
+\begin{equation*}
   \rho := \frac{1}{2} \sum_{\alpha \in \Phi^+} \alpha.
-\end{equation}
+\end{equation*}
 It defines an element of $(1/2) \mathfrak{t}_{\mathbb{Z}}^*$, hence a character of $\tilde{T}$.  We may rewrite
-\begin{equation}\label{eqn:}
+\begin{equation*}
   \Delta(t) =
   t^{\rho}
   \prod_{\alpha > 0}
   (1 - t^{-\alpha})
-\end{equation}
+\end{equation*}
 We pause to record some basic properties of $\rho$.
 \begin{lemma}\label{lem:rho-basic-props}
   \begin{enumerate}
@@ -4713,13 +4717,13 @@ Since the (simple) root reflections generate $W$, we may also write
   L^{\alt} = \{f \in L : s_\alpha(f) = - f \text{ for all } \alpha \in \Delta\}.
 \end{equation*}
 For $\lambda \in (1/2) \mathfrak{t}_{\mathbb{Z}}^*$, define
-\begin{equation}\label{eq:}
+\begin{equation*}
   A(\lambda)
   :=
   \sum_{w \in W}
   (-1)^w
   e^{w(\lambda)}.
-\end{equation}
+\end{equation*}
 \begin{lemma}
   \begin{enumerate}
 [(i)]
@@ -4764,26 +4768,26 @@ Note that $f$ has (in general, many) maximal weights, and that $f$ has a highest
   \begin{enumerate}
 [(i)]
   \item It is enough to check for each simple root $\beta$ that
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       \Delta(s_\beta(t)) = - \Delta(t).
-    \end{equation}
+    \end{equation*}
     Using that $s_\beta^2 =1$, we compute that
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       \Delta(s_\beta(t))
       =
       \prod_{\alpha>0}
       (t^{s_\beta(\alpha)/2}
       - t^{-s_\beta(\alpha)/2}).
-    \end{equation}
+    \end{equation*}
     Since $s_\beta(\beta) = -\beta$, we have
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       (t^{s_\beta(\beta)/2}
       - t^{-s_\beta(\beta)/2})
       =
       -(t^{\beta/2} - t^{-\beta/2}).
-    \end{equation}
+    \end{equation*}
     Let $\alpha \in \Phi^+ - \{\beta\}$.  Then (see the homework for details concerning the following terminology and facts) the Weyl chambers $C$ and $s_\beta(C)$ are adjacent, separated by the wall $\beta^\perp$ and no other wall.  In particular, $\alpha$ takes the same sign on $C$ and $s_\beta(C)$, hence $\alpha$ is positive on $s_\beta(C)$; equivalently, $s_\beta(\alpha)$ is positive on $C$, i.e., $s_\beta(\alpha) > 0$.  Thus $s_\beta$ acts on $\Phi^+ - \{\beta\}$, and so
-    \begin{equation}\label{eq:}
+    \begin{equation*}
       \prod_{\alpha>0, \alpha \neq \beta }
       (t^{s_\beta(\alpha)/2}
       - t^{-s_\beta(\alpha)/2})
@@ -4791,7 +4795,7 @@ Note that $f$ has (in general, many) maximal weights, and that $f$ has a highest
       \prod_{\alpha>0, \alpha \neq \beta }
       (t^{\alpha/2}
       - t^{-\alpha/2}).
-    \end{equation}
+    \end{equation*}
     The required identity follows.
   \item It is enough to show that $f$ is divisible by $\Delta$ in $L$.  We record two proofs (the second of which was given in lecture, the first of which I find a bit more natural).  Both proofs use the fact that for distinct positive roots $\alpha$ and $\beta$,
     \begin{equation}\label{eq:C-alpha-not-C-beta}
@@ -4849,6 +4853,7 @@ Note that $f$ has (in general, many) maximal weights, and that $f$ has a highest
   \end{enumerate}
 \end{proof}
 
+
 \subsection{Classification of irreducibles}
 \begin{theorem}\label{thm:highest-weight-general-gp}
   Let $K$ be a compact connected Lie group with maximal torus $T$, hence root set $\Phi$ and Weyl group $W$.  Choose a Weyl chamber $C$, hence sets $\Phi^+$ and $\Delta$ of positive and simple roots, respectively, as well as a partial order $\geq$ on $\mathfrak{t}_{\mathbb{R}}^*$.
@@ -4862,13 +4867,13 @@ Note that $f$ has (in general, many) maximal weights, and that $f$ has a highest
     A_{\mu} := \sum_{w \in W} (-1)^w e^{w(\mu)} \in X(\tilde{T}) = \frac{1}{2} \mathfrak{t}_{\mathbb{Z}}^*, \quad \rho := \frac{1}{2} \sum_{\alpha > 0} \alpha.
   \end{equation*}
   The map $\pi \mapsto \lambda$ defines a bijection
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     \Irr(K)
     \leftrightarrow \{\text{dominant }
     \lambda \in X(T)\}
     \leftrightarrow
     X(T)/W.
-  \end{equation}
+  \end{equation*}
 \end{theorem}
 \begin{proof}
   Let $\pi \in \Irr(K)$.  Let $\lambda \in X(T)$ be any maximal weight of $\pi$.  Since $\chi_\pi$ is $W$-invariant, and since every element $\mu$ of $X(T)$ is $W$-conjugate to a unique dominant element which is then $\geq \mu$, we know that $\lambda$ is dominant.  Since $\Delta$ has highest weight $\rho$ with $\Delta = e^\rho + \dotsb$, we know that $\Delta \chi_\pi \in L^{\alt}$ has $\lambda + \rho$ as a maximal weight, with $\Delta \chi_\pi = m_\pi(\lambda) e^{\lambda+\rho} + \dotsb$.  Regrouping terms into monomial alternating functions gives
@@ -5087,11 +5092,11 @@ In particular, $B/N \cong A$.  We may and shall thus extend each homomorphism $\
   Existence: Let $\lambda \in X(T)$ be the highest weight of $\pi$ (via Theorem \ref{thm:highest-weight-general-gp}, and using Theorem \ref{thm:alg-rep} to regard $\pi$ as an irreducible representation of $K$), and $v \in \pi[\lambda]$ a highest weight vector.  We extend $\lambda$ to a holomorphic character $A \rightarrow \mathbb{C}^\times$.  The vector $v$ is an eigenvector of $T$ with eigenvalue $\lambda$, hence also of $A$ with eigenvalue $\lambda$.  A short calculation as in the proof of Lemma \ref{lem:root-spaces-permute-weight-spaces} shows that $d \pi(X_\alpha) : \pi[\lambda] \rightarrow \pi[\lambda+\alpha]$.  Since $\lambda$ is the highest weight of $\pi$, we have $\pi[\lambda+\alpha] = \{0\}$.  Thus $X_\alpha v = 0$.  Since $\alpha$ was arbitrary, $v$ is annihilated by $\mathfrak{n}$.  Since $N$ is connected (by construction), it follows that $v$ is fixed by $N$.  Thus $v$ is a $B$-eigenvector, as required.
 
   Uniqueness: Suppose given a pair $(v,\lambda)$ as in the conclusion of the theorem.  Our task is to show that $\lambda$ is in fact the highest weight $\pi$.  For each finite ordered tuple $(\alpha_1,\dotsc,\alpha_n)$ of positive roots, the vector
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     X_{-\alpha_1} \dotsb X_{-\alpha_n} v
     :=
     d \pi(X_{-\alpha_1}) \dotsb d \pi(X_{-\alpha_n}) v
-  \end{equation}
+  \end{equation*}
   is a $T$-eigenvector of weight $\lambda - \alpha_1 - \dotsb - \alpha_n$, which is strictly lower than $\lambda$ when $n \geq 1$.  Call the span of the indicated vectors $V$.  It suffices to show that $V = \pi$.  Since $v \in V$ and $\pi$ is irreducible, it suffices to show that $V$ is $K$-invariant.  Since $K$ is connected, it is enough to show that $V$ is $\mathfrak{g}$-invariant.  To that end, recall that $\mathfrak{g} = \mathfrak{t}_{\mathbb{C}} \oplus (\oplus_{\alpha >0} \mathbb{C} X_\alpha) \oplus (\oplus_{\alpha > 0} \mathbb{C} X_{-\alpha})$.  It's clear that $V$ is invariant by $\mathfrak{t}_{\mathbb{C}}$ and by $X_{-\alpha}$ for $\alpha > 0$, so it remains only to show for $\alpha > 0$ that $V$ is $X_{\alpha}$-invariant.  Differentiating the condition \eqref{eqn:v-is-a-B-eigenvector}, we see that $v$ is annihilated by $X_{\alpha}$.  It remains to check for $n \geq 1$ that $X_{\alpha} X_{-\alpha_1} \dotsb X_{-\alpha_n} v$ belongs to $V$.  Set $u := X_{-\alpha_2} \dotsb X_{-\alpha_n} v$.  Then $X_{\alpha} X_{-\alpha_1} u = X_{-\alpha_1} X_\alpha u + [X_{\alpha}, X_{-\alpha_1}] u$.  By induction on $n$, both $X_{-\alpha} u$ and $[X_{\alpha}, X_{-\alpha_1}] u$ belong to $V$.  Since $X_{-\alpha_1}$ stabilizes $V$, the required conclusion follows.
   
   % Let $X \in \mathfrak{t}_{\mathbb{C}} \cup \{X_\alpha : \alpha > 0\}$ and $\beta > 0$.  Then
@@ -5110,12 +5115,12 @@ In particular, $B/N \cong A$.  We may and shall thus extend each homomorphism $\
 \end{proof}
 
 Now let $\lambda \in X(T)$ be a dominant weight, and consider the vector space
-\begin{equation}\label{eq:}
+\begin{equation*}
   F_\lambda := \{f : G \rightarrow \mathbb{C} :
   \text{holomorphic},
   f(b g) = b^{-\lambda} f(g) \text{ for } b \in B, g \in G
   \}.
-\end{equation}
+\end{equation*}
 The group $G$ (and hence also its subgroup $K$) acts on $F_\lambda$ by right translation.  We will show the following:
 \begin{theorem}\label{thm:borel-weil-construction}
   Let $\pi_\lambda$ denote the irreducible representation of $K$ of highest weight $\lambda$.  Then $\pi_\lambda \cong F_\lambda^*$.  Here $F_\lambda^*$ denotes the dual representation of $F_\lambda$, regarded as a representation of $K$; alternatively, we may use Theorem \ref{thm:alg-rep} to extend $\pi_\lambda$ to an algebraic representation of $G$, and the isomorphism is then of algebraic representations of $G$.
@@ -5135,18 +5140,18 @@ $.
   It's clear that $\pi_\lambda^*$ is an irreducible, hence is isomorphic to $\pi_{\mu}$ for some dominant weight $\mu$.  We must verify that $\mu = - w_0 (\lambda)$, or equivalently, that $\lambda = - w_0(\mu)$.  We check first that $-\mu$ is the lowest weight of $\pi_\lambda$.  From this it follows that $- w_0 (\mu)$ is the highest weight of $\pi_\lambda$, and so $\lambda = - w_0(\mu)$, as required.
 \end{proof}
 Thus Theorem \ref{thm:borel-weil-construction} tells us that
-\begin{equation}\label{eq:}
+\begin{equation*}
   \pi_{\lambda}
   \cong F_{-w_0(\lambda)}.
-\end{equation}
+\end{equation*}
 
 \begin{proof}
 [Proof of Theorem \ref{thm:borel-weil-construction}]
   Let $F$ denote the space of all holomorphic functions $f : G \rightarrow \mathbb{C}$, and let $f \in F$.  Using the identity principle for holomorphic functions on $G \cong K \times \mathfrak{p}$, we may identify $f$ with its restriction to $K$, and then further with an element of the space $L^2(K)$, on which the group $K \times K$ acts by the regular representation $(k_1,k_2) \cdot f(x) = f(k_1^{-1} x k)$.  We accordingly have an $L^2(K)$-decomposition $f = \sum_{\mu} f_\mu$, where $\mu \in X(T)$ runs over the dominant weights and $f_\mu$ belongs to the space $\mathcal{A}(\pi_\mu)$ of matrix coefficients of the representation $\pi_\mu$.  Let $L$ and $R$ denote respectively the left and right regular representations of $K$ on $L^2(K)$.  Since $\mathcal{A}(\pi_\mu) \cong \pi_\mu^* \otimes \pi_\mu$ is the $\pi_\mu$-isotypic component (see \S\ref{sec:isotyp-decomp}) of $L^2(K)$ under $R$, we have $f_\mu = \dim(\pi_\mu) R(\overline{\chi_{\mu}}) f$.  Suppose now that $f \in F_\lambda$, i.e., that $L(b) f = b^{\lambda} f$ for all $b \in B$.  Since $R$ and $L$ commute, it follows that $L(b) f_\mu = b^{\lambda} f_\mu$, i.e., that $f_\mu$ belongs to $F_\lambda$.  If $f_\mu$ is nonzero, then we may find a nonzero vector $v \in \pi_\mu^*$ so that $b v = b^{\lambda} v$ for all $b \in B$.  Then Theorem \ref{thm:highest-weight-borel-weil} implies that $\pi_\mu^* \cong \pi_\lambda$ and that $v \in \pi_\lambda$ is a highest weight vector.  Thus
-  \begin{equation}\label{eq:}
+  \begin{equation*}
     f \in (\pi_\lambda \otimes \pi_\lambda^*) \cap F_\lambda
     = \mathbb{C} v \otimes \pi_\lambda^*.
-  \end{equation}
+  \end{equation*}
   Thus $F_\lambda = \mathbb{C} v \otimes \pi_\lambda^*$, hence $F_\lambda \cong \pi_\lambda^*$.
 \end{proof}
 
@@ -5154,13 +5159,13 @@ Thus Theorem \ref{thm:borel-weil-construction} tells us that
 With the remaining fewl ectures in the course, we aim to treat some of the simplest aspects of the representation theory of non-compact groups.  We focus on the case of complex reductive groups, which are simpler than real reductive groups for reasons to be explained later.
 
 Let $G$ be a unimodular group equipped with a Haar measure $d g$, and let $f : G \rightarrow \mathbb{C}$ be nice enough (e.g., smooth and compactly-supported in the case of a Lie group).  We've seen in \S\ref{sec:four-analys-comp} that for $G$ compact, one has the Fourier inversion formula
-\begin{equation}\label{eqn:}
+\begin{equation*}
   f(1)
   =
   \sum_{\pi \in \Irr(G)}
   \frac{\dim(\pi)}{\vol(G)}
   \trace(\pi(f)).
-\end{equation}
+\end{equation*}
 (We showed this when $\vol(G) = 1$, but the general case follows because $\pi(f)$ and $\vol(G)$ scale in the same way when one scales $d g$.)  In the non-compact case, one seeks a formula of the shape
 \begin{equation}\label{eqn:general-plancherel}
   f(1)
@@ -5169,7 +5174,7 @@ Let $G$ be a unimodular group equipped with a Haar measure $d g$, and let $f : G
   \, d \mu_P(\pi),
 \end{equation}
 where now $\hat{G}$ denotes the set of isomorphism classes of irreducible unitary representations of $G$ and $d \mu_P$ denotes a measure on $\hat{G}$, called \emph{Plancherel measure}, which scales inversely to $d g$.  For instance, the Fourier inversion formulas on the circle
-\begin{equation}\label{eqn:}
+\begin{equation*}
   f(0)
   = \sum_{n \in \mathbb{Z}}
   \hat{f}(n),
@@ -5178,9 +5183,9 @@ where now $\hat{G}$ denotes the set of isomorphism classes of irreducible unitar
   f(x) e^{2 \pi i n x} \, d x,
   \quad
   f \in C^\infty(\mathbb{R}/\mathbb{Z})
-\end{equation}
+\end{equation*}
 and on the real line
-\begin{equation}\label{eqn:}
+\begin{equation*}
   f(0)
   = \sum_{\xi \in \mathbb{R}}
   \hat{f}(\xi)
@@ -5190,7 +5195,7 @@ and on the real line
   f(x) e^{2 \pi i n x} \, d x,
   \quad
   f \in C_c^\infty(\mathbb{R})
-\end{equation}
+\end{equation*}
 may be interpreted in this way; for instance, in the second example, $\hat{f}(\xi)$ is the trace of $\pi_\xi(f)$, where $\pi_\xi$ denotes the one-dimensional representation of $\mathbb{R}$, spanned by the function $\mathbb{R} \ni x \mapsto e^{2 \pi i \xi x}$, and with $\mathbb{R}$ acting by right translation.
 
 In a course emphasizing the functional analytic aspects of representation theory one might study general conditions under which such formulas \eqref{eqn:general-plancherel} exist (e.g., look up the definition of a ``Type I'' group).  Here we will focus instead on the problem of determining $\mu_P$ explicitly for a more restricted class of groups, namely the connected complex reductive groups.
@@ -5206,13 +5211,13 @@ By the identity principle for holomorphic functions applied to $\det \circ \Ad :
 \subsection{Iwasawa decomposition}
 \label{sec:iwas-decomp}
 In its most basic form it asserts that
-\begin{equation}\label{eqn:}
+\begin{equation*}
   G = B  K.
-\end{equation}
+\end{equation*}
 Moreover,
-\begin{equation}\label{eqn:}
+\begin{equation*}
   B \cap K = T.
-\end{equation}
+\end{equation*}
 In the case $G = \GL_n(\mathbb{C})$, this amounts to the Gram--Schmidt procedure (explanation given in class).  We record the proof for general $G$.  We consider first the analogous Lie algebra question.  To start, we might write any element of $\mathfrak{g}$ as $x + y + z$ using the decomposition
 \begin{equation*}
   \mathfrak{g} = \mathfrak{t}_{\mathbb{C}} \oplus \mathfrak{n} \oplus \overline{\mathfrak{n}},
@@ -5227,9 +5232,9 @@ In particular,
   \mathfrak{b} + \mathfrak{k}.
 \end{equation}
 Using that $\mathfrak{k} = \{x \in \mathfrak{g} : \theta(x) = x\}$ and that $\theta$ swaps $\mathfrak{n}$ and $\overline{\mathfrak{n}}$ and acts on $\mathfrak{t}_{\mathbb{C}}$ with fixed subspace $I \mathfrak{t}_{\mathbb{R}}$, we see that
-\begin{equation}\label{eqn:}
+\begin{equation*}
   \mathfrak{b} \cap \mathfrak{k} = i \mathfrak{t}_{\mathbb{R}}.
-\end{equation}
+\end{equation*}
 
 We now turn to the groups.  We've seen that $B$ is a closed subgroup of $G$.  Since $K$ is compact, it follows that $B K$ is closed.  Using \eqref{eqn:Lie-alg-iwasawa} and computing the derivative of the map $B \times K \xrightarrow{(b,g) \mapsto b g } G$ as in the proof of the Weyl integral formula, we see moreover that $B K$ is open (see for instance Knapp, Lemma 5.11).  Since $G$ is connected, we conclude that $G = B K$.
 
@@ -5283,9 +5288,9 @@ We now turn to the groups.  We've seen that $B$ is a closed subgroup of $G$.  Si
 We fix a Haar measure $d g$ on $G$ and a left Haar measure $d b$ on $B$.  Using these choices we will define a notion of integration over $B \backslash G$.
 
 Let $\mathcal{F}$ denote the space of measurable functions $f : G \rightarrow \mathbb{C}$ such that
-\begin{equation}\label{eqn:}
+\begin{equation*}
   f(b g) = \delta(b) f(g)
-\end{equation}
+\end{equation*}
 for all $b \in B, g \in G$ and $\int_K |f| < \infty$, the latter integral taken with respect to any Haar measure on $K$.
 
 \begin{lemma}
@@ -5299,15 +5304,15 @@ for all $b \in B, g \in G$ and $\int_K |f| < \infty$, the latter integral taken 
 We denote by $A^\wedge$ the group of unitary characters of $A$, thus $A^\wedge$ consists of continuous homomorphisms $\chi : A \rightarrow \U(1)$.  We similarly define the group $\mathfrak{a}^\wedge$ of unitary characters of $A$.  Using the surjective quotient map $\mathfrak{a} \rightarrow A$ given by exponentiation, we may identify $A^\wedge$ with a subgroup of $\mathfrak{a}^\wedge$.  On the other hand, by differentiating at the origin, we may identify $\mathfrak{a}^\wedge$ with the $\mathbb{R}$-vector space consisting of linear functionals $\mathfrak{a} \rightarrow i\mathbb{R}$.  Concretely, suppose $A$ is the group of diagonal matrices in $\GL_n(\mathbb{C})$.  Write $a \in A$ in coordinates as $a = (a_1,\dotsc,a_n)$ with $a_j \in \mathbb{C}^\times$.  Then every $\chi \in A^\wedge$ is of the form $\chi(a) = \prod_j a_j^{s_j} (a_j/|a_j|)^{k_j}$ for some $s_j \in i \mathbb{R}$ and $k_j \in \mathbb{Z}$, and this defines an isomorphism $A^\wedge \cong (i \mathbb{R})^n \times \mathbb{Z}^n$.  Similarly, we may identify $\mathfrak{a}$ with the group $\mathbb{C}^n$ of diagonal matrices $x = (x_1,\dotsc,x_n)$ in $M_n(\mathbb{C})$ and $\mathfrak{a}^\wedge$ with the group $(i \mathbb{R})^n \times \mathbb{R}^n$.
 
 To each $\lambda \in \Hom(A,\mathbb{C}^\times)$ we attach a ``principal series representation'' $\pi_\lambda$, consisting of measurable functions $v : G \rightarrow \mathbb{C}$ satisfying
-\begin{equation}\label{eqn:}
+\begin{equation*}
   v(b x)
   =
   \delta^{1/2}(b) b^{\lambda} v(x)
-\end{equation}
+\end{equation*}
 for all $b \in B, x \in G$ and
-\begin{equation}\label{eqn:}
+\begin{equation*}
   \int_{K} |v|^2 < \infty.
-\end{equation}
+\end{equation*}
 Thanks to the Iwasawa decomposition, we may regard $\pi_{\lambda}$ as a closed subspace of the Hilbert space $L^2(K)$.  The group $G$ acts on $\pi_\lambda$ by right translation.  We note that if $f_1 \in \pi_{\lambda}$ and $f_2 \in \pi_{-\lambda}$, then $f_1 f_2$ belongs to the space $\mathcal{F}$ considered in \S\ref{sec:integr-b-backsl}, and so we obtain a $G$-invariant pairing
 \begin{equation*}
   \pi_{\lambda} \otimes \pi_{-\lambda} \rightarrow \mathbb{C}
@@ -5398,72 +5403,72 @@ has a fixed point (because if $B x = B x g$, then $g \in x^{-1} B x$).  One way 
 
 \subsection{A change of variables}
 The groups $N$ and $A$ are unimodular (indeed, their adjoint representations are unimodular, hence have trivial determinant).  We may thus equip them with Haar measures, compatibly with the chosen left Haar measure on $B$ in the sense that
-\begin{equation}\label{eqn:}
+\begin{equation*}
   \int_B h
   = \int_{n \in N, a \in A} h(a n)
   = \int_{n \in N, a \in A}
   h(n a) \delta^{-1}(a).
-\end{equation}
+\end{equation*}
 For instance, if $G = \SL_2(\mathbb{C})$, then a left Haar on $B$ is given by
-\begin{equation}\label{eqn:}
+\begin{equation*}
   \int_B h
   = \int_{x \in \mathbb{C}, y \in \mathbb{C}^\times}
   h (
   \begin{pmatrix}
     1 & x \\
-    & 1
+      & 1
   \end{pmatrix}
   \begin{pmatrix}
     y &  \\
-    & y^{-1}
+      & y^{-1}
   \end{pmatrix}
   )
   \, \frac{d x \, d ^\times y}{|y|_{\mathbb{C}}^2},
-\end{equation}
+\end{equation*}
 where $d x$ and $d^\times y$ denote Haar measures on $\mathbb{C}$ and $\mathbb{C}^\times$ respectively and where
-\begin{equation}\label{eqn:}
+\begin{equation*}
   |y|_{\mathbb{C}} := |y|^2
-\end{equation}
+\end{equation*}
 denotes the complex modulus, given by the square of the usual complex absolute value, so that $\int_{x \in \mathbb{C}} h(x) \, d x = |y|_{\mathbb{C}} \int_{x \in \mathbb{C}} h(y x) \, d x$ for any $h \in C_c(\mathbb{C})$, and so that $d^\times y = d y / |y|_{\mathbb{C}}$ defines a Haar measure on $\mathbb{C}^\times$ for each Haar measure $d y$ on $\mathbb{C}$.
 
 We want to rewrite this integral formula for $B$ so that it interacts better with conjugacy classes.  To start, note that
-\begin{equation}\label{eqn:}
+\begin{equation*}
   \begin{pmatrix}
     1 & x \\
-    & 1
+      & 1
   \end{pmatrix}
   \begin{pmatrix}
     y &  \\
-    & y^{-1}
+      & y^{-1}
   \end{pmatrix}
   = 
-\begin{pmatrix}
+  \begin{pmatrix}
     y & x y^{-1} \\
-    & y^{-1}
+      & y^{-1}
   \end{pmatrix}
   .
-\end{equation}
+\end{equation*}
 Now observe that ``generically'' (i.e., for $y \neq 1$), the above matrix has distinct eigenvalues, hence is conjugate to the diagonal matrix with the same entries.  More explicitly, we have
-\begin{equation}\label{eqn:}
+\begin{equation*}
   \begin{pmatrix}
     1 & z \\
-    & 1
+      & 1
   \end{pmatrix}
   \begin{pmatrix}
     y &  \\
-    & y^{-1}
+      & y^{-1}
   \end{pmatrix}
   \begin{pmatrix}
     1 & z \\
-    & 1
+      & 1
   \end{pmatrix}
   ^{-1} =
   \begin{pmatrix}
     y & (y^{-1} - y ) z \\
-    & y^{-1}
+      & y^{-1}
   \end{pmatrix}
   ,
-\end{equation}
+\end{equation*}
 which equals $
 \begin{pmatrix}
   y & x y^{-1} \\
@@ -5497,32 +5502,32 @@ $ when $z = x y^{-1} / (y^{-1} - y)$.  Thus
   ^{-1} )
 \end{equation}
 and so
-\begin{equation}\label{eqn:}
+\begin{equation*}
   \int_B h
   =
   \frac {|y^{-1} - y|_{\mathbb{C}}}{|y|_{\mathbb{C}}}
   \int_{x \in \mathbb{C}}
   h (
-\begin{pmatrix}
+  \begin{pmatrix}
     1 & x \\
-    & 1
+      & 1
   \end{pmatrix} 
-\begin{pmatrix}
+  \begin{pmatrix}
     y &  \\
-    & y^{-1}
+      & y^{-1}
   \end{pmatrix}
   \begin{pmatrix}
     1 & x \\
-    & 1
+      & 1
   \end{pmatrix}
   ^{-1} ) \, d x \, d^\times y.
-\end{equation}
+\end{equation*}
 Here it is understood that we integrate away from the measure zero set of $y$ for which $y^2 = 1$.
 
 A similar argument applied ``one root at a time'' gives the following more general identity:
 \begin{lemma}\label{lem:change-variables-N-A}
   With Haar measures on $B,N,A$ compatibly normalized as above, we have for $h \in C_c(B)$
-  \begin{equation}\label{eqn:}
+  \begin{equation*}
     \int_B
     h
     =
@@ -5534,12 +5539,12 @@ A similar argument applied ``one root at a time'' gives the following more gener
     }
     \int_{n \in N}
     h (n a n^{-1}),
-  \end{equation}
+  \end{equation*}
   with the integral taken over the full measure subset
-  \begin{equation}\label{eqn:}
+  \begin{equation*}
     A^{\reg}  := \{a \in A : a^\alpha \neq 1 \text{ for all }
     \alpha \in \Phi\}.
-  \end{equation}
+  \end{equation*}
 \end{lemma}
 \begin{proof}
   Compare with Knapp, Lemma 10.16.  The key point is to verify the following general form of \eqref{eqn:sl2-change-of-var}, valid for any $a \in A^{\reg}$:
@@ -5593,16 +5598,16 @@ for a suitable Haar measure on $K$, but this last expression defines for $a \in 
   F^\wedge(\lambda) := \int_{a \in A} a^{\lambda} F(a).
 \end{equation*}
 We then obtain
-\begin{equation}\label{eqn:}
+\begin{equation*}
   \chi_\lambda(f) = F^\wedge(\lambda).
-\end{equation}
+\end{equation*}
 We equip $A^\wedge$ with the Haar measure dual to that on $A$, so that the Fourier inversion formula $F(1) = \int_{\lambda \in A^\wedge} F^\wedge(\lambda)$ holds.
 
 \subsection{Passage to the Lie algebra}
 Suppose now that $f \in C_c^\infty(G)$ as above is supported in a ``small conjugation-invariant neighborhood'' $U$ of the identity element $1$ of the Lie group $G$.  For example, in the case $G = \GL_n(\mathbb{C})$, we might define $U$ to be the set of all $g \in G$ each of whose eigenvalues $c$ satisfies $|c - 1 | < \eps$ for some small $\eps > 0$; alternatively, we might ask that the subleading coefficients of the characteristic polynomial of $g$ be bounded by $\eps$.  We may then find a small $\Ad(G)$-invariant neighborhood $Y$ of the origin $0$ of the Lie algebra $\mathfrak{g}$ such that $\exp : Y \rightarrow U$ is a diffeomorphism onto its image.  We may define an element $f_0 \in C_c^\infty(Y)$ by requiring that $f_0(x) = f(\exp(x))$.  We define $F_0 \in C_c^\infty(\mathfrak{a})$ to vanish off elements $x \in \mathfrak{a} \cap Y$, for which we set $F_0(x) := F(\exp(x))$, with $F$ attached to $f$ as above.  We equip $\mathfrak{a}$ with the Haar measure matching up near the origin under the exponential map with the Haar measure on $A$ near the identity.  For $\lambda \in \mathfrak{a}^\wedge$ (hence, in particular, for $\lambda \in A^\wedge)$, we may define the Fourier transform $F_0^\wedge(\lambda)$; we have $F_0^\wedge(\lambda) = F^\wedge(\lambda)$ when $\lambda \in A^\wedge$.  (Recall from before that $\mathfrak{a}^\wedge \cong (\mathbb{R} \times \mathbb{R})^n$ while $A^\wedge \cong (\mathbb{R} \times \mathbb{Z})^n$.)  We equip $\mathfrak{a}^\wedge$ with the dual Haar measure, so that the Fourier inversion formula $F_0(0) = \int_{\lambda \in \mathfrak{a}^\wedge} F_0^\wedge(\lambda)$ holds.
 
 Recall that we've fixed a Haar measure $d g$ on $G$.  We equip $\mathfrak{g}$ with the Haar measure $d x$ so that for small $x \in \mathfrak{g}$, writing $g = \exp(x)$, we have $d g = j(x) \, d x$, with $j(0) = 1$.  Using Lemma \ref{lem:deriv-of-expo}, one may check then that the inverse square root of $j$ admits the following formula for small enough regular elements $x \in \mathfrak{a}$:
-\begin{equation}\label{eqn:}
+\begin{equation*}
   j^{-1/2}(x)
   = \prod_{\alpha > 0}
   \left\lvert
@@ -5616,23 +5621,23 @@ Recall that we've fixed a Haar measure $d g$ on $G$.  We equip $\mathfrak{g}$ wi
       \alpha(x)
     }
   \right\rvert.
-\end{equation}
+\end{equation*}
 
 \subsection{Main result}
 We define a polynomial function $P : \mathfrak{a}^\wedge \rightarrow \mathbb{R}$ by the formula $P(\lambda) := \prod_{\alpha > 0} | \lambda(H_\alpha)|_{\mathbb{C}}$.  We aim to show the following:
 \begin{theorem}
   For $f \in C_c^\infty(G)$, and with measures as normalized above,
-  \begin{equation}\label{eqn:}
+  \begin{equation*}
     f(1)
     = \int_{\lambda \in A^\wedge}
     \frac{P(\lambda)}{|W|}
     \chi_\lambda(f).
-  \end{equation}
+  \end{equation*}
 \end{theorem}
 This is a theorem of Gelfand--Naimark.  We'll loosely follow Harish-Chandra's proof technique, as exposed in the textbook of Varadarajan.  It is a fact that we will not have time to prove that the $\pi_\lambda$ are \emph{irreducible} unitary representations of $G$, so this theorem gives the desired Plancherel formula.
 
 Let's suppose first that $f$ is supported in a small conjugation-invariant neighborhood of $1$, in the sense described above, so that we may define $F, f_0, F_0$.  The formula \eqref{eqn:formula-for-F-on-regular-a} implies that for small regular $x \in \mathfrak{a}$, we have
-\begin{equation}\label{eqn:}
+\begin{equation*}
   F_0(x)
   =
   (
@@ -5643,9 +5648,9 @@ Let's suppose first that $f$ is supported in a small conjugation-invariant neigh
   \int_{g \in G/B}
   \int_{n \in N}
   f_0(\Ad(g n) x).
-\end{equation}
+\end{equation*}
 The exponential map restricts to a polynomial diffeomorphism $\exp : \mathfrak{n} \rightarrow N$ with polynomial inverse $\log : N \rightarrow \mathfrak{n}$.  We may normalize the Haar measure on $\mathfrak{n}$ to be compatible with $\exp$.  With the abbreivation $f_0^g(y) := f_0(\Ad(g) y)$, we then obtain
-\begin{equation}\label{eqn:}
+\begin{equation*}
   F_0(x)
   = 
   (
@@ -5656,7 +5661,7 @@ The exponential map restricts to a polynomial diffeomorphism $\exp : \mathfrak{n
   \int_{g \in G/B}
   \int_{y \in \mathfrak{n}}
   f_0^g(\Ad(e^y) x).
-\end{equation}
+\end{equation*}
 By the Lie algebra analogue of Lemma \ref{lem:change-variables-N-A}, we have
 \begin{equation}\label{eqn:lie-algebra-change-of-var}
   \int_{y \in \mathfrak{n}}
@@ -5669,57 +5674,57 @@ By the Lie algebra analogue of Lemma \ref{lem:change-variables-N-A}, we have
   f_0^g(y + x).
 \end{equation}
 Thus
-\begin{equation}\label{eqn:}
+\begin{equation*}
   F_0(x)
   = j^{-1/2}(x)
   \int_{g \in G/B, y \in \mathfrak{n}}
   f_0^g(x+y).
-\end{equation}
+\end{equation*}
 The function $j^{-1/2}$ extends to an $\Ad(G)$-invariant function on $\mathfrak{g}$.  Setting $\phi := j^{-1/2} f_0$, we may rewrite the above formula as
-\begin{equation}\label{eqn:}
+\begin{equation*}
   F_0(x)
   = \int_{g \in G/B, y \in \mathfrak{n}}
   \phi^g(x+y).
-\end{equation}
+\end{equation*}
 Recall the decomposition $\mathfrak{g} = \mathfrak{n} \oplus \mathfrak{a} \oplus \overline{\mathfrak{n} }$.  Fix $K \hookrightarrow \U(n)$ and hence $G \hookrightarrow \GL_n(\mathbb{C})$ as usual.  We then get a perfect $\Ad(G)$-equivariant pairing $\mathfrak{g} \otimes \mathfrak{g} \rightarrow \mathbb{C}$ given by $(x,y) \mapsto \trace(x y)$.  Using this we may identify $\mathfrak{g}^\wedge$ with $\mathfrak{g}$.  Under this identification, $\mathfrak{n}$ and $\overline{\mathfrak{n}}$ are dual to one another, while $\mathfrak{a}$ is dual to itself.  Integrating the above formula for $F_0$ over regular $x \in \mathfrak{a}$ thus gives for all $\lambda \in \mathfrak{a}^\wedge$ that
-\begin{equation}\label{eqn:}
+\begin{equation*}
   F_0^\wedge(\lambda)
   = \int_{g \in G/B}
   \int_{\eta \in \mathfrak{b}^\perp \subseteq
     \mathfrak{g}^\wedge}
   \hat{\phi}^g(\lambda+\eta).
-\end{equation}
+\end{equation*}
 Here $\hat{\phi}$ denotes the Fourier transform and $\mathfrak{b}^\perp$ the subspace of $\mathfrak{g}^\wedge$ that annihilates $\mathfrak{b}$; by the above discussion, it identifies with $\mathfrak{n}$.
 
 We say that $\lambda \in \mathfrak{a}^\wedge$ is \emph{regular} if $\lambda(H_\alpha) \neq 0$ for all roots $\alpha$.  By the analogue of \eqref{eqn:lie-algebra-change-of-var} for $\mathfrak{g}^\wedge$, we see that for regular $\lambda \in \mathfrak{a}^\wedge$,
-\begin{equation}\label{eqn:}
+\begin{equation*}
   F_0^\wedge(\lambda)
   = (\prod_{\alpha > 0}
   |\lambda(H_\alpha)|_{\mathbb{C}})
   \int_{g \in G/A}
   \hat{\phi}(\Ad(g) \lambda).
-\end{equation}
+\end{equation*}
 Let's denote the latter expression by $\int_{\mathcal{O}_\lambda} \hat{\phi}$; it's a normalized integral over the $G$-orbit $\mathcal{O}_\lambda$ of $\lambda$.  Then we have the following analogue of the Weyl integral formula for $h \in C_c(\mathfrak{g}^\wedge)$:
-\begin{equation}\label{eqn:}
+\begin{equation*}
   \int_{\mathfrak{g}^\wedge}
   h
   = \frac{1}{|W|}
   \int_{\lambda \in \mathfrak{a}^\wedge,\text{regular}}
   P(\lambda)
   \int_{\mathcal{O}_\lambda} h.
-\end{equation}
+\end{equation*}
 (The key point here is that the union of the orbits $\mathcal{O}_\lambda$ is open and dense in $G$; we may thus reduce to the usual Jacobian calculation.)
 
 We're now ready to prove the theorem.  We denote by $\partial_P$ the translation-invariant differential operator on $C_c^\infty(A)$ or on $C_c^\infty(\mathfrak{a})$ with symbol $P$, so that $(\partial_P h)^\wedge = P \cdot \hat{h}$.  Let $f \in C_c^\infty(G)$.  Define $F$ as above.  Then
-\begin{equation}\label{eqn:}
+\begin{equation*}
   \int_{\lambda \in \mathfrak{a}^\wedge}
   \frac{P(\lambda)}{|W|}
   \underbrace{\chi_\lambda(f)}_{=F^\wedge(\lambda)}
   =
   \frac{(\partial_P F)(1)}{|W|}.
-\end{equation}
+\end{equation*}
 We want to show that this last expression equals $f(1)$.  By smoothly and $\Ad(G)$-invariantly truncating, we may assume that $f$ is supported in a small conjugation-invariant neighborhood of the identity, so that we may define $f_0,F_0,\phi$ as above.  Then, combining everything we've shown thus far, we conclude that
-\begin{align}\label{eqn:}
+\begin{align*}
   \frac{(\partial_P F)(1)}{|W|}
   &=
     \frac{\partial_P F_0(0)}{|W|}
@@ -5739,7 +5744,7 @@ We want to show that this last expression equals $f(1)$.  By smoothly and $\Ad(G
   &= f_0(0)
   \\
   &= f(1),
-\end{align}
+\end{align*}
 as required.
 
 
