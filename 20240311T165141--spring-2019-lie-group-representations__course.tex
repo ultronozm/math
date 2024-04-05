@@ -24,7 +24,7 @@ and so on.  The inputs to the construction of $V$ are sometimes invariant by som
 We thank Subhajit Jana, Constantin Kogler, Kaj B{\"a}uerle and many other participants of the course for corrections and comments.
 
 
-\section{Prerequisites}
+\section{Prerequisites}\label{sec:cnh2vn8vvc}
 We recall here some of the basics from linear algebra, topology, differential geometry, Lie theory, and functional analysis that will be used throughout the course.
 
 We won't assume any prior knowledge of representation theory.
@@ -187,7 +187,7 @@ corresponds to the linear map
 \newpage
 
 
-\section{Introduction}
+\section{Introduction}\label{sec:cnh2vn8z8o}
 \subsection{Representations}
 \begin{definition}
   Let $G$ be a topological group and $V$ a topological vector space.  A \emph{representation} $\pi$ of $G$ on $V$ is a group homomorphism
@@ -329,7 +329,7 @@ $, and so on.  We can compose $\pi$ with the determinant map $\det : \GL_n(\math
   \end{enumerate}
 \end{example}
 
-\subsection{Unitarity}
+\subsection{Unitarity}\label{sec:cnh2vn9afh}
 
 \begin{definition}
   Let $\pi : G \rightarrow \GL(V)$ be a representation as above.  Suppose that $V$ is equipped with an inner product $\langle , \rangle$ (e.g., if $V$ is a Hilbert space).  We say then that $\pi$ is \emph{unitary} (with respect to $\langle , \rangle$) if
@@ -354,7 +354,7 @@ We can already prove a basic theorem:
   Thus the representation $V$ is unitary with respect to the inner product $\langle , \rangle$.
 \end{proof}
 
-\subsection{Morphisms, equivariant maps, intertwiners, isomorphisms, equivalences, and so on}
+\subsection{Morphisms, equivariant maps, intertwiners, isomorphisms, equivalences, and so on}\label{sec:cnh2vn9bow}
 
 \begin{definition}
   Let $(\pi_1, V_1)$ and $(\pi_2, V_2)$ be representations of $G$.  By a \emph{morphism} of representations $\phi : V_1 \rightarrow V_2$ we will mean a continuous linear map that is compatible with the given representations in the sense that $\pi_2(g) \phi(v_1) = \phi(\pi_1(g) v_1)$ for all $v_1 \in V_1$ and $g \in G$.  The following phrases will be used interchangeably with ``morphism'':
@@ -428,7 +428,7 @@ We defined earlier the dual of any finite-dimensional representation.  More gene
 \end{proof}
 
 
-\subsection{Reduction and decomposition}
+\subsection{Reduction and decomposition}\label{sec:cnh2vn9dp5}
 \begin{definition}
   Let $(\pi,V)$ be a representation of $G$.  A \emph{closed invariant subspace} $W \subseteq V$ is a closed subspace such that $\pi(g) W \subseteq W$ for all $g \in G$.  We note that:
   \begin{itemize}
@@ -539,7 +539,7 @@ This last result suggests two problems for a given $G$:
 \item Explicitly decompose ``interesting'' $V$ in the above sense.
 \end{itemize}
 
-\subsection{Characters}
+\subsection{Characters}\label{sec:cnh2vn9fzw}
 Throughout this section we take $G$ compact and $(\pi,V)$ finite-dimensional.
 \begin{definition}
   The \emph{character} of $\pi$ is the function
@@ -737,7 +737,8 @@ The content of Peter--Weyl in the setting of the compact connected abelian Lie g
 \newpage
 
 \section{Character theory of compact unitary groups}\label{sec:char-theory-comp}
-\subsection{Recap}
+
+\subsection{Recap}\label{sec:cnh2vn9jbo}
 Before beginning, let's pause to attach some vocabulary to results from last time.
 \begin{definition}
   A \emph{torus} $T$ is a compact connected abelian Lie group.
@@ -750,7 +751,7 @@ We saw last time that any $n$-dimensional torus $T$ is isomorphic to $\U(1)^n$, 
   t = (t_1,\dotsc,t_n) \mapsto t^\lambda := (t_1^{\lambda_1},\dotsc,t_n^{\lambda_n}).
 \end{equation*}
 
-\subsection{Conjugacy classes in \texorpdfstring{$\U(n)$}{U(n)}}
+\subsection{Conjugacy classes in \texorpdfstring{$\U(n)$}{U(n)}}\label{sec:cnh2voah2u}
 \begin{definition}
   The compact unitary group $\U(n)$ is defined by
   \begin{equation}
@@ -969,7 +970,7 @@ This should be thought of as a bit like the formula for integrating in polar coo
 \end{proof}
 \footnote{End of lecture \#3, Tuesday, 26 Feb 2019}
 
-\subsection{Primer on symmetric polynomials}
+\subsection{Primer on symmetric polynomials}\label{sec:cnh2voakqk}
 We have encountered already several elements of the ring of Laurent polynomials in the variable $t_1,\dotsc,t_n$.  For their further study, it will be convenient to denote that ring by some letter:
 \begin{equation*}
   L := \mathbb{Z}[t_1^{\pm 1},\dotsc,t_n^{\pm}]
@@ -1141,7 +1142,7 @@ We record some inner product formulas:
   Immediate.
 \end{proof}
 
-\subsection{Weyl character and dimension formulas for \texorpdfstring{$\U(n)$}{U(n)}}
+\subsection{Weyl character and dimension formulas for \texorpdfstring{$\U(n)$}{U(n)}}\label{sec:cnh2voj4lf}
 
 \begin{theorem}\label{thm:weyl-char-Un}
   Let $(\pi,V)$ belong to the set $\Irr(\U(n))$ of (isomorphism classes of) irreducible finite-dimensional representations of $\U(n)$.
@@ -1391,7 +1392,7 @@ Finally, we have the Clebsch--Gordan rule: for $\lambda, \mu \in \mathbb{Z}_{\ge
   Almost every assertion follows immediately from Theorem \ref{thm:SU-PU} and the description \eqref{eq:wts-sym-k} of the weights of symmetric powers of the standard representation, together with the analogous description of those of its dual.  To verify the existence of the isomorphism \eqref{eq:clebsch-gordan}, we just need to check that $\chi_\lambda \chi_\mu = \chi_{\lambda+\mu} + \dotsb + \chi_{|\lambda-\mu|}$, which is easy to derive from \eqref{eq:char-formula-SU2}.
 \end{proof}
 
-\subsection{Branching problems}
+\subsection{Branching problems}\label{sec:cnh2von9md}
 Given compact groups $H \leq G$ and a representation $(\pi,V)$ of $G$, we may form the restricted representation $\pi|_{H} : H \rightarrow \GL(V|_{H})$ of $H$; here $V|_{H}$ is just $V$, but regarded as a representation of $H$.  The branching problem is to describe this restriction in terms of $\pi$.
 
 We assume henceforth that $\pi$ is irreducible.  Its restriction is then ``typically'' not irreducible, but may in any event be decomposed as
@@ -1516,7 +1517,7 @@ which we now address.  As a matter of notation, for dominant elements $\lambda \
 
 Groups $(G,H)$ with the property that every branching coefficient $n_\pi(\sigma)$ belongs to $\{0,1\}$ are called \emph{strong Gelfand pairs}; we may discuss them in more detail later.
 
-\subsection{Gelfand--Tsetlin bases}
+\subsection{Gelfand--Tsetlin bases}\label{sec:cnh2vooaw4}
 We now describe briefly how to deduce from the formulas for the branching coefficients for $\U(n-1) \leq \U(n)$ a canonical decomposition of any irreducible representation of $\U(n)$.  Let $\mu \in \mathbb{Z}^n$ be dominant, and $(\pi_\mu,V_\mu) \in \Irr(\U(n))$ the corresponding representation.  The decomposition \eqref{eq:restrict-Un-Unmi1-reps} implies that for each dominant $\nu \in \mathbb{Z}^{n-1}$ that interlaces $\mu$, there is a unique $\U(n-1)$-subrepresentation $V _{
 \begin{pmatrix}
     \mu   \\
@@ -1630,9 +1631,9 @@ This decomposition can be refined further by choosing basis elements for the one
 \newpage
 
 
-\section{Matrix coefficients for compact groups and the Peter--Weyl theorem}
+\section{Matrix coefficients for compact groups and the Peter--Weyl theorem}\label{sec:cnh2voocm2}
 
-\subsection{Spaces of matrix coefficients}
+\subsection{Spaces of matrix coefficients}\label{sec:cnh2vooenj}
 Let $G$ be a compact group and $(\pi,V)$ a finite-dimensional representation.  So far, our main tool for saying anything interesting about $\pi$ has been via its character $\chi_\pi : G \rightarrow \mathbb{C}$, defined as the composition
 \begin{equation*}
   G \xrightarrow{\pi } \GL(V) \hookrightarrow \End(V)
@@ -1653,7 +1654,7 @@ To say more, we replace the trace map by a general linear functional $\alpha \in
 \end{definition}
 For example, if $\alpha$ is the trace map, then $\pi_\alpha = \chi_\pi$, so the character $\chi_\pi \in \mathcal{A}(\pi)$ is a matrix coefficient.\footnote{End of lecture \#5, Tuesday, 5 March}
 
-\subsection{Uniqueness of invariant inner products}
+\subsection{Uniqueness of invariant inner products}\label{sec:cnh2vooicg}
 It will be convenient in discussing matrix coefficients to suppose that our representations are unitary, so that we can work simply with orthonormal bases for a given representation rather than bases and dual bases for a representation and its dual.  In making this assumption it's convenient to know the following:
 \begin{lemma}
   For $(\pi,V) \in \Irr(G)$, any two invariant inner products $\langle , \rangle_1$ and $\langle , \rangle_2$ on $V$ differ by a positive scalar: there exists $C > 0$ so that $\langle u,v \rangle_1 = C \langle u,v \rangle_2$ for all $u,v \in \pi$.
@@ -1673,7 +1674,7 @@ It will be convenient in discussing matrix coefficients to suppose that our repr
   for the space of matrix coefficients}
 We suppose henceforth that $\pi$ is unitary, and fix an orthonormal basis $\{e_i\}_{i=1}^{\dim(\pi)}$ for $V$.  Each $T \in \End(V)$ then defines a matrix with entries $T_{i j} = \langle T e_j, e_i \rangle$.  Write $\eps_{i j} \in \End(V)^*$ for the map $\End(V) \rightarrow \mathbb{C}$ assigning to an operator $T$ the matrix entry $T_{i j}$.  Then the $\eps_{i j}$ give a basis for $\End(V)^*$, and so the functions $\pi_{i j} := \pi_{\eps_{i j}}$ span the space $\mathcal{A}(\pi)$ of matrix coefficients of $\pi$.  (They need not in general be linearly independent: consider for instance a direct sum of copies of the trivial representation, for which $\pi_{i i}(g) = 1$ for all $i$ and $g$.)  The numbers $\pi_{i j}(g)$ are the matrix entries of $\pi(g)$.  We may write the map $\trace : \End(V) \rightarrow \mathbb{C}$ as the sum of diagonal matrix entries $\sum_i \eps_{i i}$, so that $\chi_\pi = \sum_i \pi_{i i}$.
 
-\subsection{Special functions as matrix coefficients}
+\subsection{Special functions as matrix coefficients}\label{sec:cnh2voolgy}
 ``Most'' interesting special functions in mathematics and mathematical physics (Bessel, Whittaker, Legendre, Laguerre, $\dotsc$) arise as matrix coefficients of representations, and may be profitably studied from this perspective.  For instance, $G = \mathbb{R}/2 \pi \mathbb{Z}$ has a representation $\pi$ on $V = \mathbb{C}^2$ given by the rotations
 \begin{equation*}
   \pi(\theta) = 
@@ -1707,7 +1708,7 @@ whose matrix coefficients are thus the trigonometric functions.  Their addition 
 \end{equation*}
 giving a convenient way to remember the formulas $\cos (\theta_1 + \theta_2) = \cos(\theta_1) \cos(\theta_2) - \sin(\theta_1) \sin(\theta_2)$ and $\sin (\theta_1 + \theta_2) = \cos(\theta_1) \sin(\theta_2) + \sin(\theta_1) \cos(\theta_2)$.  See the book by Vilenkin for many more examples like this.
 
-\subsection{Some actions of \texorpdfstring{$G \times G$}{G x G}}
+\subsection{Some actions of \texorpdfstring{$G \times G$}{G x G}}\label{sec:cnh2vophjp}
 Anyway, the association $\alpha \mapsto \pi_\alpha$ defines a map
 \begin{equation}\label{eq:map-End-V-star-to-A-pi}
   \End(V)^* \rightarrow \mathcal{A}(\pi).
@@ -1738,7 +1739,7 @@ This definition applies to $f \in \mathcal{A}(\pi)$, and the space $\mathcal{A}(
 
 We denote by $\Delta G$ the diagonal subgroup $\{(g,g) : g \in G\}$ of $G \times G$.  Then the fixed subspace $L^2(G)^{\Delta G}$ is the space of class functions $L^2(G)^{\class}$.
 
-\subsection{Burnside's lemma}
+\subsection{Burnside's lemma}\label{sec:cnh2vopiul}
 The spaces of matrix coefficients are particularly well-behaved in the case of an irreducible representation:
 \begin{lemma}\label{lem:schur-for-inner-products}
   Let $(\pi,V) \in \Irr(G)$.  Then
@@ -1829,7 +1830,7 @@ Another inner product on $\End(V)^*$ is obtained from that on $L^2(G)$ by taking
   and recall that $\langle \chi_\pi, \chi_\pi \rangle = 1$.
 \end{proof}
 
-\subsection{The coefficient ring of a compact group}
+\subsection{The coefficient ring of a compact group}\label{sec:cnh2vopkyp}
 Having now studied in detail the matrix coefficients of irreducibles, we piece them together as follows.
 \begin{definition}
   Let $G$ be, as usual, a compact group.  The \emph{coefficient ring} of $G$ is defined to be the set
@@ -1928,7 +1929,7 @@ We'll give the proof of Peter--Weyl below after developing some preliminaries co
 \newpage
 \section{Integral operators}\label{sec:integral-operators}
 
-\subsection{Integrating functions taking values in Hilbert spaces}
+\subsection{Integrating functions taking values in Hilbert spaces}\label{sec:cnh2vor8cp}
 \begin{lemma}
   Let $(\Omega,\mu)$ be a locally compact space equipped with a Radon measure, let $V$ be a Hilbert space, and let $f$ be an element of the space $C_c(\Omega \rightarrow V)$ of compactly-supported continuous functions from $\Omega$ to $V$.  Then there is a unique element $v \in V$ so that for each element $\ell$ of the continuous dual $V^*$, we have
   \begin{equation}\label{eq:gelfand-pettis-condition}
@@ -1942,8 +1943,7 @@ We'll give the proof of Peter--Weyl below after developing some preliminaries co
 
 This lemma and hence our subsequent development can be generalized further (to Banach spaces, Frechet spaces, etc.), but the present generality should suffice for our aims.
 
-\subsection{Definition of integral operators
-attached to representations}
+\subsection{Definition of integral operators attached to representations}\label{sec:cnh2vosfin}
 From now on we take for $G$ a locally compact group and $(\pi,V)$ a \emph{Hilbert representation}; by this we mean that $V$ is a Hilbert space, without requiring that $\pi$ be unitary.
 
 \begin{lemma}
@@ -1978,7 +1978,7 @@ From now on we take for $G$ a locally compact group and $(\pi,V)$ a \emph{Hilber
   contrary to the assumed pointwise boundedness of the family $(T_\alpha)$.
 \end{proof}
 
-\subsection{Basic properties}
+\subsection{Basic properties}\label{sec:cnh2vosg76}
 From now on we assume moreover (mainly for convenience) that $G$ is \emph{unimodular}, so that we may fix a (left and right) Haar measure $d g$.  For $f \in C_c(G)$, the above discussion then applies to $\mu = f \, d g$, giving us operators on $V$ that we denote by $\pi(f) := \pi(f \, d g)$, thus $\pi(f) = \int_{g \in G} f(g) \pi(g) \, d g$.
 
 \begin{lemma}\label{lem:integral-ops-basic-properties}
@@ -2051,7 +2051,7 @@ We verify now that every element of $V$, say $v' = \rho(\phi) v$, is in fact con
 in the last step by Cauchy--Schwarz.  Since the left regular representation of $G$ on $L^2(G)$ is continuous, the required continuity of $v'$ follows.
 
 
-\subsection{Some functional-analytic considerations}
+\subsection{Some functional-analytic considerations}\label{sec:cnh2voskw3}
 
 Recall (from, e.g., \S\ref{sec:spectr-theory-comp}) the definition of a compact operator on a Hilbert space.
 
@@ -2077,7 +2077,7 @@ We recall a bit more functional analysis background.
 \end{proof}
 
 \subsection{Proof of the \texorpdfstring{$L^2$}{L2}-density
-  part of the Peter--Weyl theorem}
+  part of the Peter--Weyl theorem}\label{sec:cnh2vosmij}
 We now prove part (ii) of Theorem \ref{thm:P-W-general}.  Let $G$ be a compact group, $v \in L^2(G)$ and $\eps > 0$.  Let $\rho$ denote the right regular representation.  By lemma \ref{lem:approx-v-pi-f-v-2}, we may find $f \in C_c(G)^{\class}$ so that $f \geq 0, f(g^{-1}) = f(g)$ and
 \begin{equation}\label{eq:T-v-approx-v}
   \|\rho(f) v - v\| \leq \eps.
@@ -2098,8 +2098,7 @@ By \eqref{eq:T-v-approx-v} and \eqref{eq:estimate-T-v-double-prime}, we deduce t
 \end{equation*}
 On the other hand, $T v' = \sum_{|\lambda| \geq \eps} \lambda v_\lambda \in V' \subseteq \mathcal{A}(G)$.  Thus $\mathcal{A}(G)$ is dense in $L^2(G)$.\footnote{End of lecture \#7, Tuesday, 12 March}
 
-\subsection{Proof of the uniform density
-part of the Peter--Weyl theorem}
+\subsection{Proof of the uniform density part of the Peter--Weyl theorem}\label{sec:cnh2vot4d5}
 We now deduce part (i) of Theorem \ref{thm:P-W-general}.  We retain the above notation.  Let $v \in C(G)$ and $\eps > 0$.  Since $G$ is compact, $v$ is uniformly continuous; by an easy variant of Lemma \ref{lem:approx-v-pi-f-v}, we may thus find $f \in C(G)$ so that $\|\rho(f) v - v\|_{L^\infty} \leq \eps$.  By the $L^2$-density part of the Peter--Weyl theorem that we have already proved, we may find $f' \in \mathcal{A}(G)$ so that $\|f - f'\|_{L^2} \leq \eps$.  Since $(G, d g)$ is a probability space, it follows in particular that $\|f - f'\|_{L^1} \leq \eps$.  Since
 \begin{equation*}
   \rho(f) v - \rho(f') v = \int_{f \in G} (f - f')(g) \pi(g) v \, d g
@@ -2256,7 +2255,7 @@ The pointwise decomposition \eqref{eq:pointwise-fourier-expn} fails in general f
 
 \footnote{End of half-lecture \#8, Thursday, 14 March}
 
-\subsection{Decompositions of compact-type representations}
+\subsection{Decompositions of compact-type representations}\label{sec:cnh2vot8yp}
 The decompositions of representations of a compact group noted above (e.g., in theorems \ref{thm:complete-reducibility-compact-group}, \ref{thm:P-W-general} and \ref{thm:isotyp-decomp-1}) do not hold in general when $G$ is non-compact and $V$ is infinite-dimensional.  The main issue is that there may then exist nontrivial representations having no irreducible subrepresentations.  For instance, the (right) regular representation of $\mathbb{R}$ on $L^2(\mathbb{R})$ has the property.  A basic result of Gelfand--Graev--Piatetski-Shapiro shows that a sufficient condition on the representation for it to decompose as a sum of irreducibles is that it be unitary and of compact type (Definition \ref{defn:compact-type}).  This is very handy in applications involving non-compact groups.  Recall that ``subrepresentation'' means ``closed invariant subspace.''
 \begin{theorem}
   Let $G$ be locally compact and unimodular, and let $(\pi,V)$ be a unitary Hilbert representation of compact type.  Then $V$ decomposes as a Hilbert direct sum of irreducible subrepresentations $V_j$, each occurring with finite multiplicity (i.e., for each $j$, the number of $k$ with $V_j \cong V_k$ is finite).
@@ -2290,10 +2289,10 @@ The decompositions of representations of a compact group noted above (e.g., in t
 
 
 
-\section{Algebraicity of compact Lie groups}
+\section{Algebraicity of compact Lie groups}\label{sec:cnh2vouaco}
 Our goal is to explain the meaning and proof of the phrase ``every compact Lie group is algebraic.''  This serves both as an application of the theory developed so far and as a tool for further study also of non-compact groups.
 
-\subsection{Preliminaries on algebraic groups}
+\subsection{Preliminaries on algebraic groups}\label{sec:cnh2vouaz0}
 First, we need to ``review'' some basics on algebraic groups.
 \begin{definition}
   Let $k$ be an infinite field and $n \geq 0$.  For a collection $S \subseteq k[x_1,\dotsc,x_n]$ of polynomials, the \emph{vanishing locus} $V(S)$ is the set
@@ -2356,7 +2355,7 @@ Definition \ref{sec:alg-gp-ad-hoc} is a bit \emph{ad hoc}.  In much the same way
 \end{proof}
 
 
-\subsection{Complexification of a compact Lie group}
+\subsection{Complexification of a compact Lie group}\label{sec:cnh2voucm5}
 Now let $K$ be a compact subgroup of $\GL_n(\mathbb{C})$, hence a Lie subgroup.  Recall also, by Corollary \ref{sec:cor-peter-weyl-matrix}, that every compact Lie group is of this form.  Since the standard representation $K \hookrightarrow \GL_n(\mathbb{C})$ is unitarizable, we know that $K$ is conjugate to a subgroup of $\U(n)$.  Let's assume for convenience that in fact $K \leq \U(n)$.  Let $G$ denote the complex Zariski closure of $K$ in $\GL_n(\mathbb{C})$, thus
 \begin{equation*}
   G = \{g \in \GL_n(\mathbb{C}) : f(g) = 0 \text{ for all } f \in \mathbb{C}[\GL_n(\mathbb{C})] \text{ with } f|_K = 0 \},
@@ -2416,7 +2415,7 @@ its differential.  Observe that $\U(n) = \{ g \in \GL_n(\mathbb{C}) : \Theta(g) 
 \end{remark}
 
 
-\subsection{A glimpse of Tannakian duality}
+\subsection{A glimpse of Tannakian duality}\label{sec:cnh2voudxb}
 Here we address the question: how can we describe a compact Lie group $K$ in terms of its coefficient ring $\mathcal{A}(K)$?  We warm-up with some motivating analogues.
 \begin{itemize}
 \item For an algebraic set $X \subseteq k^n$ (over an infinite field $k$) with coordinate ring $k[X] = k[x_1,\dotsc,x_n]/I(X)$, we have a bijection
@@ -2583,7 +2582,7 @@ The following is part of the BCHD law, and describes the derivative of the expon
   for some finite subset $\Gamma$ of $\mathbb{R}$ and some nonzero complex coefficients $c_\gamma$.  Suppose for the sake of contradiction that $f(p^t)$ is nonzero.  Then $\Gamma$ is nonempty.  Let $\gamma \in \Gamma$ be the largest element.  Then $\lim_{t \rightarrow \infty} e^{- \gamma t} f(p^t) = c_\gamma \neq 0$.  But $f(p^t) = 0$ for all $t \in 2 \mathbb{Z}$, giving the required contradiction.
 \end{proof}
 
-\subsection{Algebraic representations}
+\subsection{Algebraic representations}\label{sec:cnh2vouhit}
 \begin{definition}
   A \emph{morphism} of algebraic groups is a group homomorphism that is also a morphism of the underlying algebraic sets, i.e., a map described in coordinates by polynomials.
   
@@ -2599,7 +2598,7 @@ The following is part of the BCHD law, and describes the derivative of the expon
 
 \footnote{End of lecture \#10, Tuesday, 26 March}
 
-\subsection{Reductive groups}
+\subsection{Reductive groups}\label{sec:cnh2vouirp}
 Which groups $G$ arise as in Theorem \ref{thm:complexification-compact-lie-basic-properties}, i.e., as the Zariski closure of a compact subgroup of $\GL_n(\mathbb{C})$?  Recall that an element $g \in \GL_n(\mathbb{C})$ is \emph{unipotent} if $(g - 1)^n = 0$.  We say that a subgroup of $\GL_n(\mathbb{C})$ is \emph{unipotent} if each of its elements is unipotent.
 
 \begin{definition}
@@ -2635,7 +2634,7 @@ $ is not reductive, because the whole group is unipotent.
 
 
 
-\subsection{Unitary trick}
+\subsection{Unitary trick}\label{sec:cnh2voujmc}
 We record a further variant of the above considerations.  We focus on an example; what's relevant here is that $\SL_n(\mathbb{C})$ and $\SU(n)$ are connected and simply-connected.  Note that by the Cartan decomposition (\S\ref{sec:cartan-decomposition}), knowing either of these properties for one of these groups implies the same property for the other group.
 \begin{theorem}\label{thm:unitary-trick}
   Let $V$ be a finite-dimensional complex vector space.  The following are all in natural bijection:
@@ -2691,7 +2690,7 @@ We've only scratched the tip of the iceberg here; for further reading I recommen
 \newpage
 
 
-\section{Structure of compact Lie groups}
+\section{Structure of compact Lie groups}\label{sec:cnh2vouko6}
 We aim next to show that any compact Lie group $K$ has structure similar to that observed in \S\ref{sec:char-theory-comp} for the unitary groups.  We'll use this to classify such $K$ together with their representations.
 
 \subsection{Notation related to a torus}\label{sec:notat-relat-torus}
@@ -2811,7 +2810,17 @@ Let $K$ be a compact Lie group.  By a \emph{torus} $T \leq K$ we mean a closed s
   \end{enumerate}
 \end{proof}
 
-\subsection{Roots and root space decomposition}
+\begin{equation*}
+  x + y +
+  \begin{pmatrix}
+    a    & b \\
+    c         & d \\
+  \end{pmatrix}.
+\end{equation*}
+
+
+
+\subsection{Roots and root space decomposition}\label{sec:cnh2voumpl}
 Let $K$ be a compact Lie group with maximal torus $T$.  Let $G$ denote the complexification of $K$, so that $\mathfrak{g}$ is the complexification of $\mathfrak{k}$.  We then have the (complexified) adjoint representation
 \begin{equation*}
   \Ad : K \rightarrow \GL(\mathfrak{g}),
@@ -2930,7 +2939,7 @@ For example, if $K = \U(n)$ and (with notation as before) $\alpha = \eps_i - \ep
   Since $t$ was arbitrary, we deduce as required that $\theta(x) \in \mathfrak{g}^{-\alpha}$.
 \end{proof}
 
-\subsection{Generators}
+\subsection{Generators}\label{sec:cnh2vounyo}
 Tori are topologically cyclic, and this fact is very useful.
 
 \begin{definition}
@@ -2958,7 +2967,7 @@ Generators are useful because they reduce properties involving an entire torus t
   We just note that the subsets $\{s \in T : g s g^{-1} = s\}$ and $\{s \in T : g s g^{-1} \in T\}$ are closed subgroups of $T$, hence they coincide with $T$ iff they contain the generator $t$.
 \end{proof}
 
-\subsection{Definition and finitude of the Weyl group of a maximal torus}
+\subsection{Definition and finitude of the Weyl group of a maximal torus}\label{sec:cnh2vouo3r}
 \begin{definition}
   Let $K$ be a compact Lie group, with maximal torus $T$.  The \emph{Weyl group} $W := W(K:T)$ is defined to be $N(T)/T$, where $N(T) := N_K(T)$ denotes the normalizer of the torus.
 \end{definition}
@@ -3181,7 +3190,7 @@ We're now prepared to state the Weyl integral formula for $K$, together with som
 \end{remark}
 \footnote{End of lecture \#12, Tuesday, 2 Apr}
 
-\subsection{Consequences of the conjugacy theorem}
+\subsection{Consequences of the conjugacy theorem}\label{sec:cnh2vouqln}
 Let $K$ be a compact connected Lie group.  We saw above that for any maximal torus $T$, we have $K = \cup_{g \in K} g T g^{-1}$.  We now explore some consequences of this fact.
 
 \begin{theorem}\label{thm:exp-onto}
@@ -3353,7 +3362,7 @@ The following result illustrates well the power of knowing that tori have connec
 
 We'll see later that the action of $W$ on the set of Weyl chambers is moreover \emph{transitive}; the above lemma will then tell us that it is simply-transitive, hence that the order $|W|$ of the Weyl group is equal to the number of Weyl chambers.  So far, we haven't given any way to \emph{produce} nontrivial elements of the Weyl group.  (For instance, why should $W$ be nontrivial when $K \neq T$?)  That's our next main objective.  The construction will involve the roots.  For each root $\alpha$ , we'll cook up a map $F_\alpha : \SU(2) \rightarrow K$.  We'll then use these maps to produce Weyl group elements, called \emph{root reflections}, which we'll eventually show generate the Weyl group.
 
-\subsection{Notation and preliminaries concerning \texorpdfstring{$\SU(2)$}{SU(2)}}
+\subsection{Notation and preliminaries concerning \texorpdfstring{$\SU(2)$}{SU(2)}}\label{sec:cnh2vouvuy}
 Take $K = \SU(2)$, so that $\mathfrak{k} = \suLie(2)$, $G = \SL_2(\mathbb{C})$, $\mathfrak{g} = \slLie_2(\mathbb{C})$.  Let $T \leq K$ denote the standard maximal torus $\{\diag(t,t^{-1}) : t \in \U(1)\}$, so that $\mathfrak{t} \leq \mathfrak{k}$ and $\mathfrak{t}_{\mathbb{C}} \leq \mathfrak{g}$ are the diagonal subalgebras.  The map $\theta : \mathfrak{g} \rightarrow \mathfrak{g}$ given as usual by $\theta(x) = - x^* = - \overline{x}^t$ has the property that $\mathfrak{k}$ is the $\theta$-fixed subspace of $\mathfrak{g}$.  Define $X,Y,H \in \mathfrak{g}$ by
 \begin{equation}\label{eq:defn-HXY}
   H := 
@@ -3638,7 +3647,7 @@ If we were instead given $\alpha = \eps_{1} - \eps_3$, then we'd take
 .
 \end{equation*}
 
-\subsection{Classification of rank one groups}
+\subsection{Classification of rank one groups}\label{sec:cnh2vouzjh}
 Before proving Theorem \ref{thm:from-roots-dist-su2}, let's illustrate its power with a typical application.
 \begin{definition}
   The \emph{rank} of a compact connected Lie group $K$ is defined to be the dimension of any maximal torus $T$ (which is well-defined by Theorem \ref{thm:conj-max-tori}, for instance):
@@ -3887,7 +3896,7 @@ With these preliminaries out of the way, we're now prepared to give the:
   \end{enumerate}
 \end{proof}
 
-\subsection{Construction of root reflections}
+\subsection{Construction of root reflections}\label{sec:cnh2vowrs5}
 We finally develop a way to produce nontrivial elements of the Weyl group.  Start with $K = \SU(2)$, with $T \cong \U(1)$ the standard diagonal maximal torus.  It follows from our earlier analysis of $\U(n)$ that the Weyl group $W$ of $T$ is isomorphic to $\mathbb{Z}/2$.  One can see this by noting that $T$ consists of those elements of $K$ that are diagonalized by the decomposition $\mathbb{C}^2 = \mathbb{C} e_1 \oplus \mathbb{C} e_2$ of the standard representation into the lines spanned by its standard basis elements.  Hence $N(T)$ acts faithfully on such lines, with $T$ acting trivially.  Thus $W$ embeds as a subgroup of the permutation group of $\{\mathbb{C} e_1, \mathbb{C} e_2\}$.  The element $w := 
 \begin{pmatrix}
   & 1 \\
@@ -4019,7 +4028,7 @@ In this way all of the facts that we prove below involving the Weyl group action
 \end{example}
 
 
-\subsection{Using root reflections to elucidate the Weyl group}
+\subsection{Using root reflections to elucidate the Weyl group}\label{sec:cnh2vowtwa}
 \begin{lemma}\label{lem:key-root-reflections}
   Let $C, C'$ be Weyl chambers in $\mathfrak{t}_{\mathbb{R}}$.  Then there exist Weyl chambers $C = C_0, C_1, C_2, \dotsc, C_{n-1}, C_n = C'$ and roots $ \alpha_1,\dotsc,\alpha_n \in \Phi$ with the following properties:
   \begin{enumerate}
@@ -4087,7 +4096,7 @@ The idea of the proof was illustrated in class on the picture of the Weyl chambe
   The final assertion follows from the argument just given; we note that it doesn't depend upon the choice of $C$.
 \end{proof}
 
-\subsection{Basics on dominance, positivity and simple roots}
+\subsection{Basics on dominance, positivity and simple roots}\label{sec:cnh2vowwm5}
 
 \begin{definition}
   Choose a Weyl chamber $C \subseteq \mathfrak{t}_{\mathbb{R}}^{\reg}$, hence a corresponding dual Weyl chamber $C^\vee \subseteq \mathfrak{t}_{\mathbb{R}}^{\reg}$.  We say that $x \in \mathfrak{t}_{\mathbb{R}}$ (resp. $\lambda \in \mathfrak{t}_{\mathbb{R}}^*$) is \emph{dominant} if $x \in \overline{C}$ (resp. if $\lambda \in \overline{C^\vee}$), and \emph{strictly dominant} if $x \in {C}$ (resp. if $\lambda \in {C^\vee}$).
@@ -4250,7 +4259,7 @@ These notions are evidently independent of the choice of embedding $K \hookright
 \end{proof}
 
 
-\subsection{Cartan matrices}
+\subsection{Cartan matrices}\label{sec:cnh2vowy35}
 Let $K$ be a compact connected Lie group, with maximal torus $T$, Weyl chamber $C$ and accompanying notation as above.
 
 \begin{definition}
@@ -4290,7 +4299,7 @@ This has the following consequence:
 
 \footnote{End of lecture \#17, Thursday, 18 Apr} The proof will be given in \S??? after some preliminaries.
 
-\subsection{Strings of roots}
+\subsection{Strings of roots}\label{sec:cnh2vo0ard}
 Let $K,T,\Phi$ be as usual: a compact connected Lie group, a maximal torus, and the set of roots.  Let $\alpha, \beta \in \Phi$.
 \begin{lemma}\label{lem:strings-roots}
   \begin{enumerate}
@@ -4477,8 +4486,7 @@ Fix $F_{\gamma_j} : \SU(2) \rightarrow K$ as in \S\ref{sec:from-roots-dist} and 
   The proof is similar to that of the previous corollary (and could even be deduced from its conclusion by considering orthogonal complements).  Since $\mathfrak{a}$ is in particular a $\mathfrak{t}_{\mathbb{C}}$-module, we may write $\mathfrak{a} = \mathfrak{b} \oplus (\oplus_{\alpha \in E} \mathfrak{g}^{\alpha})$ for some subspace $\mathfrak{b} \subseteq \mathfrak{t}_{\mathbb{C}}$ and some subset $E \subseteq \Phi$.  We want to show that $\mathfrak{b}$ is nonzero.  Suppose otherwise that $\mathfrak{b}$ is zero.  Then $E$ is nonempty.  Let $\beta \in E$.  Write $\beta = \alpha_1 + \dotsb + \alpha_r$ as in Lemma \ref{lem:roots-partial-sums}.  Set $Z := [Y_{\alpha_1}, \dotsb, [Y_{\alpha_{r-1}}, [Y_{\alpha_r}, X_{\beta}]] \dotsb ]$.  Then $Z \in \mathfrak{t}_{\mathbb{C}} \cap \mathfrak{b} = \mathfrak{b} = \{0\}$, but several applications of Lemma \ref{lem:strings-roots} (and \eqref{eq:commutators-land-in-C-H-alpha}) implies that $Z \neq 0$, giving the required contradiction.
 \end{proof}
 
-\subsection{Proof of Theorem
-  \ref{thm:cartan-matrix-determines-K}}
+\subsection{Proof of Theorem \ref{thm:cartan-matrix-determines-K}}\label{sec:cnh2vo0fl3}
 We need one final miscellaneous lemma:
 \begin{lemma}\label{lem:pi-1-T-onto-pi-1-K}
   Let $K$ be a compact connected Lie group with maximal torus $T$.  Then the map $\pi_1(T) \rightarrow \pi_1(K)$ induced by the inclusion $T \rightarrow K$ is surjective.
@@ -4515,7 +4523,7 @@ We turn finally to the proof of the claim \eqref{eq:key-claim-for-proof-of-that-
 
 This completes the proof.
 
-\subsection{Dynkin diagrams}
+\subsection{Dynkin diagrams}\label{sec:cnh2vo0pie}
 They provide a convenient pictorial representation of the Cartan matrix.  Here we just summarize what was discussed in class; look at Wikipedia or any of the course references for a detailed discussion.
 
 The vertices of the Dynkin diagram correspond to the simple roots.  For any pair $(\alpha,\beta)$ of \emph{distinct} simple roots, we have seen that there are at most seven possibilities for the pair $(N_{\alpha \beta}, N_{\beta \alpha})$ of integers appearing in the Cartan matrix:
@@ -4584,7 +4592,7 @@ is a root datum; here $\Phi^\vee(K:T) := \{\alpha^\vee : \alpha \in \Phi(K:T)\}$
 \section{Representations of compact Lie groups}\label{sec:repr-comp-lie}
 Let $K$ be a compact connected Lie group.  Our aim in this section is to generalize the results established in \S\ref{sec:char-theory-comp} when $K = \U(n)$.
 
-\subsection{Setup and preliminaries}
+\subsection{Setup and preliminaries}\label{sec:cnh2vo0riu}
 Choose a maximal torus $T$ and then a Weyl chamber $C \subseteq \mathfrak{t}_{\mathbb{R}}^{\reg}$.  These choices define a Weyl group $W$ and sets $\Phi \supseteq \Phi^+ \supseteq \Delta$ of roots, positive roots and simple roots, respectively.  Recall that $C$ defines a notion of $\lambda \in \mathfrak{t}_{\mathbb{R}}^*$ being \emph{dominant}, which means that it belongs to the closure $\overline{C^\vee } = \{\lambda : \lambda(H_\alpha) \geq 0 \text{ for all } \alpha \in \Phi^+\}$ of the Weyl chamber $C^\vee = \{\lambda : \lambda(H_\alpha) > 0 \text{ for all } \alpha \in \Phi^+\}$, and \emph{strictly dominant} if in fact $\lambda \in C^\vee$.  Recall that $C$ defines a partial on $\mathfrak{t}_{\mathbb{R}^*}$, where we say that $\lambda_1 \geq \lambda_2$ if $(\lambda_1 - \lambda_2)(C) \geq 0$, or equivalently, if $\lambda_1 - \lambda_2 \in \sum_{\alpha \in \Phi^+} \mathbb{R}_{\geq 0} \alpha$; we say also that $\lambda$ is \emph{positive} if $\lambda \geq 0$.
 
 We remark that one can characterize the subsets $\Phi^+ \subseteq \Phi$ arising in the above way as those for which
@@ -4854,7 +4862,7 @@ Note that $f$ has (in general, many) maximal weights, and that $f$ has a highest
 \end{proof}
 
 
-\subsection{Classification of irreducibles}
+\subsection{Classification of irreducibles}\label{sec:cnh2vo0s6i}
 \begin{theorem}\label{thm:highest-weight-general-gp}
   Let $K$ be a compact connected Lie group with maximal torus $T$, hence root set $\Phi$ and Weyl group $W$.  Choose a Weyl chamber $C$, hence sets $\Phi^+$ and $\Delta$ of positive and simple roots, respectively, as well as a partial order $\geq$ on $\mathfrak{t}_{\mathbb{R}}^*$.
 
@@ -4943,8 +4951,7 @@ Note that $f$ has (in general, many) maximal weights, and that $f$ has a highest
   where the equivalence relation $\sim$ in the last expression is given by conjugation.
 \end{remark}
 
-\subsection{Borel--Weil}
-\label{sec:borel-weil}
+\subsection{Borel--Weil} \label{sec:borel-weil}
 Recall the usual notation: $K$ is a compact connected Lie group with Lie algebra $\mathfrak{k}$, complexification $G$, and complexified Lie algebra $\mathfrak{g}$.  Recall that $\Irr(K)$ is in natural bijection with the set of isomorphism classes of holomorphic (equivalently, algebraic) finite-dimensional irreducible representation of $G$.  We fix a maximal torus $T \leq K$, with Lie algebra denoted $\mathfrak{t}$, and set $\mathfrak{t}_{\mathbb{R}} := i \mathfrak{t} \subseteq \mathfrak{t} _{\mathbb{C}}$, as usual.  We denote by $A \leq G$ the connected (complex) Lie subgroup with Lie algebra $\Lie(A) = \mathfrak{t}_{\mathbb{C}}$.  For example, if $K = \U(n)$, so that $G = \GL_n(\mathbb{C})$, then with the choice
 \begin{equation*}
   T = 
@@ -5155,7 +5162,7 @@ Thus Theorem \ref{thm:borel-weil-construction} tells us that
   Thus $F_\lambda = \mathbb{C} v \otimes \pi_\lambda^*$, hence $F_\lambda \cong \pi_\lambda^*$.
 \end{proof}
 
-\section{Plancherel formula for complex reductive groups}
+\section{Plancherel formula for complex reductive groups}\label{sec:cnh2vo5kuy}
 With the remaining fewl ectures in the course, we aim to treat some of the simplest aspects of the representation theory of non-compact groups.  We focus on the case of complex reductive groups, which are simpler than real reductive groups for reasons to be explained later.
 
 Let $G$ be a unimodular group equipped with a Haar measure $d g$, and let $f : G \rightarrow \mathbb{C}$ be nice enough (e.g., smooth and compactly-supported in the case of a Lie group).  We've seen in \S\ref{sec:four-analys-comp} that for $G$ compact, one has the Fourier inversion formula
@@ -5208,8 +5215,7 @@ We note that $G$ is unimodular.  To see this, we must show that $|\det(\Ad(g))| 
 \end{equation}
 By the identity principle for holomorphic functions applied to $\det \circ \Ad : G \rightarrow \mathbb{C}^\times$, we need only verify \eqref{eqn:det-circ-Ad-equals-1} holds for $g \in K$.  Since $\det \circ \Ad$ is a class function, we reduce further to verifying \eqref{eqn:det-circ-Ad-equals-1} when $g = t \in T$, and indeed, $\det(\Ad(t)) = \prod_{\alpha \in \Phi} t^\alpha = \prod_{\alpha > 0} t^{\alpha} t^{-\alpha} = 1$.
 
-\subsection{Iwasawa decomposition}
-\label{sec:iwas-decomp}
+\subsection{Iwasawa decomposition} \label{sec:iwas-decomp}
 In its most basic form it asserts that
 \begin{equation*}
   G = B  K.
@@ -5300,7 +5306,7 @@ for all $b \in B, g \in G$ and $\int_K |f| < \infty$, the latter integral taken 
   Left to the reader; this or some variant was treated in ``Lie groups I''.
 \end{proof}
 
-\subsection{Principal series representations}
+\subsection{Principal series representations}\label{sec:cnh2vrkcqy}
 We denote by $A^\wedge$ the group of unitary characters of $A$, thus $A^\wedge$ consists of continuous homomorphisms $\chi : A \rightarrow \U(1)$.  We similarly define the group $\mathfrak{a}^\wedge$ of unitary characters of $A$.  Using the surjective quotient map $\mathfrak{a} \rightarrow A$ given by exponentiation, we may identify $A^\wedge$ with a subgroup of $\mathfrak{a}^\wedge$.  On the other hand, by differentiating at the origin, we may identify $\mathfrak{a}^\wedge$ with the $\mathbb{R}$-vector space consisting of linear functionals $\mathfrak{a} \rightarrow i\mathbb{R}$.  Concretely, suppose $A$ is the group of diagonal matrices in $\GL_n(\mathbb{C})$.  Write $a \in A$ in coordinates as $a = (a_1,\dotsc,a_n)$ with $a_j \in \mathbb{C}^\times$.  Then every $\chi \in A^\wedge$ is of the form $\chi(a) = \prod_j a_j^{s_j} (a_j/|a_j|)^{k_j}$ for some $s_j \in i \mathbb{R}$ and $k_j \in \mathbb{Z}$, and this defines an isomorphism $A^\wedge \cong (i \mathbb{R})^n \times \mathbb{Z}^n$.  Similarly, we may identify $\mathfrak{a}$ with the group $\mathbb{C}^n$ of diagonal matrices $x = (x_1,\dotsc,x_n)$ in $M_n(\mathbb{C})$ and $\mathfrak{a}^\wedge$ with the group $(i \mathbb{R})^n \times \mathbb{R}^n$.
 
 To each $\lambda \in \Hom(A,\mathbb{C}^\times)$ we attach a ``principal series representation'' $\pi_\lambda$, consisting of measurable functions $v : G \rightarrow \mathbb{C}$ satisfying
@@ -5322,7 +5328,7 @@ Thanks to the Iwasawa decomposition, we may regard $\pi_{\lambda}$ as a closed s
 \end{equation*}
 Also, $\overline{\pi_{\lambda}} = \pi_{- \overline{\lambda }}$.  Thus if $\lambda$ belongs to $A^\wedge = \Hom(A,\U(1))$, so that $\lambda = - \overline{\lambda }$, then integration over $B \backslash G$ defines a $G$-invariant inner product on $\pi_{\lambda}$, hence $\pi_{\lambda}$ is a unitary representation of $G$.
 
-\subsection{Characters of principal series representations}
+\subsection{Characters of principal series representations}\label{sec:cnh2vrkdpa}
 Recall that we equip $G$ with a Haar measure $d g$ and $B$ with a left Haar measure $d b$; this normalizes an integral over $B \backslash G$ in the sense described above.  To each $f \in C_c(G)$ we attach an integral operator $\pi(f) \in \End(\pi)$, as in \S\ref{sec:integral-operators}, by the formula $\pi(f) := \int_{g \in G} f(g) \pi(g) \, d g$.
 \begin{theorem}
   For each $f \in C_c^\infty(G)$, the operator $\pi_\lambda(f)$ is trace class.
@@ -5390,7 +5396,7 @@ Recall that we equip $G$ with a Haar measure $d g$ and $B$ with a left Haar meas
   % \end{enumerate}
 \end{proof}
 
-\subsection{Some basics concerning conjugacy classes in \texorpdfstring{$G$}{G}}
+\subsection{Some basics concerning conjugacy classes in \texorpdfstring{$G$}{G}}\label{sec:cnh2vrkexc}
 Every such class intersects $B$, that is to say, $G = \cup_{x \in B \backslash G} x^{-1} B x$.  For instance, if $G = \GL_n(\mathbb{C})$, then this follows from the Jordan normal form.  To sketch a proof in general, it suffices to show for each $g \in G$ that the map
 \begin{equation*}
   g : B \backslash G \rightarrow B \backslash G
@@ -5401,7 +5407,7 @@ B x \mapsto B x g
 has a fixed point (because if $B x = B x g$, then $g \in x^{-1} B x$).  One way to see this is to use that $B \backslash G \cong T \backslash K$ (a consequence of the Iwasawa decomposition) and then to show as in one of the standard proofs of the conjugacy of maximal tori (not the one presented in this course) that any map $T \backslash K \rightarrow T \backslash K$ homotopic to the identity has a fixed point.  One can also argue algebraically using the Borel fixed point theorem.
 
 
-\subsection{A change of variables}
+\subsection{A change of variables}\label{sec:cnh2vrkh8s}
 The groups $N$ and $A$ are unimodular (indeed, their adjoint representations are unimodular, hence have trivial determinant).  We may thus equip them with Haar measures, compatibly with the chosen left Haar measure on $B$ in the sense that
 \begin{equation*}
   \int_B h
@@ -5603,7 +5609,7 @@ We then obtain
 \end{equation*}
 We equip $A^\wedge$ with the Haar measure dual to that on $A$, so that the Fourier inversion formula $F(1) = \int_{\lambda \in A^\wedge} F^\wedge(\lambda)$ holds.
 
-\subsection{Passage to the Lie algebra}
+\subsection{Passage to the Lie algebra}\label{sec:cnh2vrkjue}
 Suppose now that $f \in C_c^\infty(G)$ as above is supported in a ``small conjugation-invariant neighborhood'' $U$ of the identity element $1$ of the Lie group $G$.  For example, in the case $G = \GL_n(\mathbb{C})$, we might define $U$ to be the set of all $g \in G$ each of whose eigenvalues $c$ satisfies $|c - 1 | < \eps$ for some small $\eps > 0$; alternatively, we might ask that the subleading coefficients of the characteristic polynomial of $g$ be bounded by $\eps$.  We may then find a small $\Ad(G)$-invariant neighborhood $Y$ of the origin $0$ of the Lie algebra $\mathfrak{g}$ such that $\exp : Y \rightarrow U$ is a diffeomorphism onto its image.  We may define an element $f_0 \in C_c^\infty(Y)$ by requiring that $f_0(x) = f(\exp(x))$.  We define $F_0 \in C_c^\infty(\mathfrak{a})$ to vanish off elements $x \in \mathfrak{a} \cap Y$, for which we set $F_0(x) := F(\exp(x))$, with $F$ attached to $f$ as above.  We equip $\mathfrak{a}$ with the Haar measure matching up near the origin under the exponential map with the Haar measure on $A$ near the identity.  For $\lambda \in \mathfrak{a}^\wedge$ (hence, in particular, for $\lambda \in A^\wedge)$, we may define the Fourier transform $F_0^\wedge(\lambda)$; we have $F_0^\wedge(\lambda) = F^\wedge(\lambda)$ when $\lambda \in A^\wedge$.  (Recall from before that $\mathfrak{a}^\wedge \cong (\mathbb{R} \times \mathbb{R})^n$ while $A^\wedge \cong (\mathbb{R} \times \mathbb{Z})^n$.)  We equip $\mathfrak{a}^\wedge$ with the dual Haar measure, so that the Fourier inversion formula $F_0(0) = \int_{\lambda \in \mathfrak{a}^\wedge} F_0^\wedge(\lambda)$ holds.
 
 Recall that we've fixed a Haar measure $d g$ on $G$.  We equip $\mathfrak{g}$ with the Haar measure $d x$ so that for small $x \in \mathfrak{g}$, writing $g = \exp(x)$, we have $d g = j(x) \, d x$, with $j(0) = 1$.  Using Lemma \ref{lem:deriv-of-expo}, one may check then that the inverse square root of $j$ admits the following formula for small enough regular elements $x \in \mathfrak{a}$:
@@ -5623,7 +5629,7 @@ Recall that we've fixed a Haar measure $d g$ on $G$.  We equip $\mathfrak{g}$ wi
   \right\rvert.
 \end{equation*}
 
-\subsection{Main result}
+\subsection{Main result}\label{sec:cnh2vrkk3i}
 We define a polynomial function $P : \mathfrak{a}^\wedge \rightarrow \mathbb{R}$ by the formula $P(\lambda) := \prod_{\alpha > 0} | \lambda(H_\alpha)|_{\mathbb{C}}$.  We aim to show the following:
 \begin{theorem}
   For $f \in C_c^\infty(G)$, and with measures as normalized above,
