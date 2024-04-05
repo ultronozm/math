@@ -202,7 +202,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2024-03-12 19:15:14
+2024-04-05 14:00:24
       <a href="20240311T165141--spring-2019-lie-group-representations__course.tex" class="my-link">tex</a>
       <a href="20240311T165141--spring-2019-lie-group-representations__course.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20240311T165141--spring-2019-lie-group-representations__course.tex" class="my-link">history</a>
@@ -222,7 +222,7 @@ at ETH Zürich in Spring 2019.</p>
 <ul>
 <li><a href="#acknowledgments"
 id="toc-acknowledgments">Acknowledgments</a></li>
-<li><a href="#prerequisites" id="toc-prerequisites">Prerequisites</a>
+<li><a href="#sec:cnh2vn8vvc" id="toc-sec:cnh2vn8vvc">Prerequisites</a>
 <ul>
 <li><a href="#conventions" id="toc-conventions">Conventions</a></li>
 <li><a href="#topological-groups"
@@ -235,20 +235,18 @@ operators</a></li>
 <li><a href="#sec:linear-algebra" id="toc-sec:linear-algebra">Linear
 algebra</a></li>
 </ul></li>
-<li><a href="#introduction" id="toc-introduction">Introduction</a>
+<li><a href="#sec:cnh2vn8z8o" id="toc-sec:cnh2vn8z8o">Introduction</a>
 <ul>
 <li><a href="#representations"
 id="toc-representations">Representations</a></li>
-<li><a href="#unitarity" id="toc-unitarity">Unitarity</a></li>
-<li><a
-href="#morphisms-equivariant-maps-intertwiners-isomorphisms-equivalences-and-so-on"
-id="toc-morphisms-equivariant-maps-intertwiners-isomorphisms-equivalences-and-so-on">Morphisms,
+<li><a href="#sec:cnh2vn9afh" id="toc-sec:cnh2vn9afh">Unitarity</a></li>
+<li><a href="#sec:cnh2vn9bow" id="toc-sec:cnh2vn9bow">Morphisms,
 equivariant maps, intertwiners, isomorphisms, equivalences, and so
 on</a></li>
-<li><a href="#reduction-and-decomposition"
-id="toc-reduction-and-decomposition">Reduction and
+<li><a href="#sec:cnh2vn9dp5" id="toc-sec:cnh2vn9dp5">Reduction and
 decomposition</a></li>
-<li><a href="#characters" id="toc-characters">Characters</a></li>
+<li><a href="#sec:cnh2vn9fzw"
+id="toc-sec:cnh2vn9fzw">Characters</a></li>
 <li><a href="#sec:conn-comp-abel" id="toc-sec:conn-comp-abel">The
 connected compact abelian case</a></li>
 </ul></li>
@@ -256,10 +254,9 @@ connected compact abelian case</a></li>
 id="toc-sec:char-theory-comp">Character theory of compact unitary
 groups</a>
 <ul>
-<li><a href="#recap" id="toc-recap">Recap</a></li>
-<li><a href="#conjugacy-classes-in-mathopmathrmun"
-id="toc-conjugacy-classes-in-mathopmathrmun">Conjugacy classes in <span
-class="math inline">\(\mathop{\mathrm{U}}(n)\)</span></a></li>
+<li><a href="#sec:cnh2vn9jbo" id="toc-sec:cnh2vn9jbo">Recap</a></li>
+<li><a href="#sec:cnh2voah2u" id="toc-sec:cnh2voah2u">Conjugacy classes
+in <span class="math inline">\(\mathop{\mathrm{U}}(n)\)</span></a></li>
 <li><a href="#sec:weight-decmop-U-n"
 id="toc-sec:weight-decmop-U-n">Weight space decompositions of
 representations of <span
@@ -267,51 +264,42 @@ class="math inline">\(\mathop{\mathrm{U}}(n)\)</span></a></li>
 <li><a href="#sec:weyl-integr-form" id="toc-sec:weyl-integr-form">The
 Weyl integral formula for <span
 class="math inline">\(\mathop{\mathrm{U}}(n)\)</span></a></li>
-<li><a href="#primer-on-symmetric-polynomials"
-id="toc-primer-on-symmetric-polynomials">Primer on symmetric
-polynomials</a></li>
-<li><a href="#weyl-character-and-dimension-formulas-for-mathopmathrmun"
-id="toc-weyl-character-and-dimension-formulas-for-mathopmathrmun">Weyl
-character and dimension formulas for <span
+<li><a href="#sec:cnh2voakqk" id="toc-sec:cnh2voakqk">Primer on
+symmetric polynomials</a></li>
+<li><a href="#sec:cnh2voj4lf" id="toc-sec:cnh2voj4lf">Weyl character and
+dimension formulas for <span
 class="math inline">\(\mathop{\mathrm{U}}(n)\)</span></a></li>
 <li><a href="#sec:some-groups-closely"
 id="toc-sec:some-groups-closely">Some groups closely related to <span
 class="math inline">\(\mathop{\mathrm{U}}(n)\)</span></a></li>
 <li><a href="#sec:case-su2" id="toc-sec:case-su2">The case of <span
 class="math inline">\(\mathop{\mathrm{SU}}(2)\)</span></a></li>
-<li><a href="#branching-problems" id="toc-branching-problems">Branching
+<li><a href="#sec:cnh2von9md" id="toc-sec:cnh2von9md">Branching
 problems</a></li>
-<li><a href="#gelfandtsetlin-bases"
-id="toc-gelfandtsetlin-bases">Gelfand–Tsetlin bases</a></li>
+<li><a href="#sec:cnh2vooaw4" id="toc-sec:cnh2vooaw4">Gelfand–Tsetlin
+bases</a></li>
 </ul></li>
-<li><a
-href="#matrix-coefficients-for-compact-groups-and-the-peterweyl-theorem"
-id="toc-matrix-coefficients-for-compact-groups-and-the-peterweyl-theorem">Matrix
+<li><a href="#sec:cnh2voocm2" id="toc-sec:cnh2voocm2">Matrix
 coefficients for compact groups and the Peter–Weyl theorem</a>
 <ul>
-<li><a href="#spaces-of-matrix-coefficients"
-id="toc-spaces-of-matrix-coefficients">Spaces of matrix
+<li><a href="#sec:cnh2vooenj" id="toc-sec:cnh2vooenj">Spaces of matrix
 coefficients</a></li>
-<li><a href="#uniqueness-of-invariant-inner-products"
-id="toc-uniqueness-of-invariant-inner-products">Uniqueness of invariant
-inner products</a></li>
+<li><a href="#sec:cnh2vooicg" id="toc-sec:cnh2vooicg">Uniqueness of
+invariant inner products</a></li>
 <li><a
 href="#matrix-entries-as-a-basis-for-the-space-of-matrix-coefficients"
 id="toc-matrix-entries-as-a-basis-for-the-space-of-matrix-coefficients">Matrix
 entries as a basis for the space of matrix coefficients</a></li>
-<li><a href="#special-functions-as-matrix-coefficients"
-id="toc-special-functions-as-matrix-coefficients">Special functions as
-matrix coefficients</a></li>
-<li><a href="#some-actions-of-g-times-g"
-id="toc-some-actions-of-g-times-g">Some actions of <span
-class="math inline">\(G \times G\)</span></a></li>
-<li><a href="#burnsides-lemma" id="toc-burnsides-lemma">Burnside’s
+<li><a href="#sec:cnh2voolgy" id="toc-sec:cnh2voolgy">Special functions
+as matrix coefficients</a></li>
+<li><a href="#sec:cnh2vophjp" id="toc-sec:cnh2vophjp">Some actions of
+<span class="math inline">\(G \times G\)</span></a></li>
+<li><a href="#sec:cnh2vopiul" id="toc-sec:cnh2vopiul">Burnside’s
 lemma</a></li>
 <li><a href="#sec:schur-orthogonality"
 id="toc-sec:schur-orthogonality">Schur orthogonality</a></li>
-<li><a href="#the-coefficient-ring-of-a-compact-group"
-id="toc-the-coefficient-ring-of-a-compact-group">The coefficient ring of
-a compact group</a></li>
+<li><a href="#sec:cnh2vopkyp" id="toc-sec:cnh2vopkyp">The coefficient
+ring of a compact group</a></li>
 <li><a href="#sec:peter-weyl-theorem"
 id="toc-sec:peter-weyl-theorem">Peter–Weyl theorem: statement and proof
 sketch</a></li>
@@ -319,14 +307,11 @@ sketch</a></li>
 <li><a href="#sec:integral-operators"
 id="toc-sec:integral-operators">Integral operators</a>
 <ul>
-<li><a href="#integrating-functions-taking-values-in-hilbert-spaces"
-id="toc-integrating-functions-taking-values-in-hilbert-spaces">Integrating
+<li><a href="#sec:cnh2vor8cp" id="toc-sec:cnh2vor8cp">Integrating
 functions taking values in Hilbert spaces</a></li>
-<li><a
-href="#definition-of-integral-operators-attached-to-representations"
-id="toc-definition-of-integral-operators-attached-to-representations">Definition
-of integral operators attached to representations</a></li>
-<li><a href="#basic-properties" id="toc-basic-properties">Basic
+<li><a href="#sec:cnh2vosfin" id="toc-sec:cnh2vosfin">Definition of
+integral operators attached to representations</a></li>
+<li><a href="#sec:cnh2vosg76" id="toc-sec:cnh2vosg76">Basic
 properties</a></li>
 <li><a href="#sec:appr-vect-their"
 id="toc-sec:appr-vect-their">Approximating vectors by their images under
@@ -337,17 +322,13 @@ id="toc-sec:autom-cont-finite">Automatic continuity for
 finite-dimensional subrepresentations of <span
 class="math inline">\(L^2(G)\)</span></a></li>
 </ul></li>
-<li><a href="#some-functional-analytic-considerations"
-id="toc-some-functional-analytic-considerations">Some
+<li><a href="#sec:cnh2voskw3" id="toc-sec:cnh2voskw3">Some
 functional-analytic considerations</a></li>
-<li><a href="#proof-of-the-l2-density-part-of-the-peterweyl-theorem"
-id="toc-proof-of-the-l2-density-part-of-the-peterweyl-theorem">Proof of
-the <span class="math inline">\(L^2\)</span>-density part of the
-Peter–Weyl theorem</a></li>
-<li><a
-href="#proof-of-the-uniform-density-part-of-the-peterweyl-theorem"
-id="toc-proof-of-the-uniform-density-part-of-the-peterweyl-theorem">Proof
-of the uniform density part of the Peter–Weyl theorem</a></li>
+<li><a href="#sec:cnh2vosmij" id="toc-sec:cnh2vosmij">Proof of the <span
+class="math inline">\(L^2\)</span>-density part of the Peter–Weyl
+theorem</a></li>
+<li><a href="#sec:cnh2vot4d5" id="toc-sec:cnh2vot4d5">Proof of the
+uniform density part of the Peter–Weyl theorem</a></li>
 <li><a href="#sec:finite-dimens-irred"
 id="toc-sec:finite-dimens-irred">Finite-dimensionality of
 irreducibles</a></li>
@@ -356,129 +337,110 @@ id="toc-sec:four-analys-comp">Fourier analysis on a compact group <span
 class="math inline">\(G\)</span></a></li>
 <li><a href="#sec:isotyp-decomp" id="toc-sec:isotyp-decomp">Isotypic
 decomposition</a></li>
-<li><a href="#decompositions-of-compact-type-representations"
-id="toc-decompositions-of-compact-type-representations">Decompositions
-of compact-type representations</a></li>
+<li><a href="#sec:cnh2vot8yp" id="toc-sec:cnh2vot8yp">Decompositions of
+compact-type representations</a></li>
 </ul></li>
-<li><a href="#algebraicity-of-compact-lie-groups"
-id="toc-algebraicity-of-compact-lie-groups">Algebraicity of compact Lie
-groups</a>
+<li><a href="#sec:cnh2vouaco" id="toc-sec:cnh2vouaco">Algebraicity of
+compact Lie groups</a>
 <ul>
-<li><a href="#preliminaries-on-algebraic-groups"
-id="toc-preliminaries-on-algebraic-groups">Preliminaries on algebraic
-groups</a></li>
-<li><a href="#complexification-of-a-compact-lie-group"
-id="toc-complexification-of-a-compact-lie-group">Complexification of a
-compact Lie group</a></li>
-<li><a href="#a-glimpse-of-tannakian-duality"
-id="toc-a-glimpse-of-tannakian-duality">A glimpse of Tannakian
-duality</a></li>
+<li><a href="#sec:cnh2vouaz0" id="toc-sec:cnh2vouaz0">Preliminaries on
+algebraic groups</a></li>
+<li><a href="#sec:cnh2voucm5" id="toc-sec:cnh2voucm5">Complexification
+of a compact Lie group</a></li>
+<li><a href="#sec:cnh2voudxb" id="toc-sec:cnh2voudxb">A glimpse of
+Tannakian duality</a></li>
 <li><a href="#sec:cartan-decomposition"
 id="toc-sec:cartan-decomposition">Cartan decomposition</a></li>
-<li><a href="#algebraic-representations"
-id="toc-algebraic-representations">Algebraic representations</a></li>
-<li><a href="#reductive-groups" id="toc-reductive-groups">Reductive
+<li><a href="#sec:cnh2vouhit" id="toc-sec:cnh2vouhit">Algebraic
+representations</a></li>
+<li><a href="#sec:cnh2vouirp" id="toc-sec:cnh2vouirp">Reductive
 groups</a></li>
-<li><a href="#unitary-trick" id="toc-unitary-trick">Unitary
+<li><a href="#sec:cnh2voujmc" id="toc-sec:cnh2voujmc">Unitary
 trick</a></li>
 </ul></li>
-<li><a href="#structure-of-compact-lie-groups"
-id="toc-structure-of-compact-lie-groups">Structure of compact Lie
-groups</a>
+<li><a href="#sec:cnh2vouko6" id="toc-sec:cnh2vouko6">Structure of
+compact Lie groups</a>
 <ul>
 <li><a href="#sec:notat-relat-torus"
 id="toc-sec:notat-relat-torus">Notation related to a torus</a></li>
 <li><a href="#sec:maxim-tori:-defin"
 id="toc-sec:maxim-tori:-defin">Maximal tori: definition and
 existence</a></li>
-<li><a href="#roots-and-root-space-decomposition"
-id="toc-roots-and-root-space-decomposition">Roots and root space
-decomposition</a></li>
-<li><a href="#generators" id="toc-generators">Generators</a></li>
-<li><a
-href="#definition-and-finitude-of-the-weyl-group-of-a-maximal-torus"
-id="toc-definition-and-finitude-of-the-weyl-group-of-a-maximal-torus">Definition
-and finitude of the Weyl group of a maximal torus</a></li>
+<li><a href="#sec:cnh2voumpl" id="toc-sec:cnh2voumpl">Roots and root
+space decomposition</a></li>
+<li><a href="#sec:cnh2vounyo"
+id="toc-sec:cnh2vounyo">Generators</a></li>
+<li><a href="#sec:cnh2vouo3r" id="toc-sec:cnh2vouo3r">Definition and
+finitude of the Weyl group of a maximal torus</a></li>
 <li><a href="#sec:weyl-integr-form-general"
 id="toc-sec:weyl-integr-form-general">Weyl integral formula</a></li>
-<li><a href="#consequences-of-the-conjugacy-theorem"
-id="toc-consequences-of-the-conjugacy-theorem">Consequences of the
-conjugacy theorem</a></li>
+<li><a href="#sec:cnh2vouqln" id="toc-sec:cnh2vouqln">Consequences of
+the conjugacy theorem</a></li>
 <li><a href="#sec:basics-weyl-chambers"
 id="toc-sec:basics-weyl-chambers">Basics on Weyl chambers</a></li>
-<li><a href="#notation-and-preliminaries-concerning-mathopmathrmsu2"
-id="toc-notation-and-preliminaries-concerning-mathopmathrmsu2">Notation
-and preliminaries concerning <span
+<li><a href="#sec:cnh2vouvuy" id="toc-sec:cnh2vouvuy">Notation and
+preliminaries concerning <span
 class="math inline">\(\mathop{\mathrm{SU}}(2)\)</span></a></li>
 <li><a href="#sec:from-roots-dist" id="toc-sec:from-roots-dist">From
 roots to distinguished <span
 class="math inline">\(\mathop{\mathrm{SU}}(2)\)</span>’s</a></li>
-<li><a href="#classification-of-rank-one-groups"
-id="toc-classification-of-rank-one-groups">Classification of rank one
-groups</a></li>
+<li><a href="#sec:cnh2vouzjh" id="toc-sec:cnh2vouzjh">Classification of
+rank one groups</a></li>
 <li><a href="#sec:some-invariant-inner"
 id="toc-sec:some-invariant-inner">Some invariant inner products</a></li>
 <li><a href="#sec:proofs-conc-pass" id="toc-sec:proofs-conc-pass">Proofs
 concerning the passage from roots to <span
 class="math inline">\(\mathop{\mathrm{SU}}(2)\)</span>’s</a></li>
-<li><a href="#construction-of-root-reflections"
-id="toc-construction-of-root-reflections">Construction of root
-reflections</a></li>
-<li><a href="#using-root-reflections-to-elucidate-the-weyl-group"
-id="toc-using-root-reflections-to-elucidate-the-weyl-group">Using root
+<li><a href="#sec:cnh2vowrs5" id="toc-sec:cnh2vowrs5">Construction of
+root reflections</a></li>
+<li><a href="#sec:cnh2vowtwa" id="toc-sec:cnh2vowtwa">Using root
 reflections to elucidate the Weyl group</a></li>
-<li><a href="#basics-on-dominance-positivity-and-simple-roots"
-id="toc-basics-on-dominance-positivity-and-simple-roots">Basics on
+<li><a href="#sec:cnh2vowwm5" id="toc-sec:cnh2vowwm5">Basics on
 dominance, positivity and simple roots</a></li>
-<li><a href="#cartan-matrices" id="toc-cartan-matrices">Cartan
+<li><a href="#sec:cnh2vowy35" id="toc-sec:cnh2vowy35">Cartan
 matrices</a></li>
-<li><a href="#strings-of-roots" id="toc-strings-of-roots">Strings of
+<li><a href="#sec:cnh2vo0ard" id="toc-sec:cnh2vo0ard">Strings of
 roots</a></li>
 <li><a href="#sec:gener-lie-algebra"
 id="toc-sec:gener-lie-algebra">Generating the Lie algebra using simple
 root vectors</a></li>
-<li><a href="#proof-of-theorem-thmcartan-matrix-determines-k"
-id="toc-proof-of-theorem-thmcartan-matrix-determines-k">Proof of Theorem
+<li><a href="#sec:cnh2vo0fl3" id="toc-sec:cnh2vo0fl3">Proof of Theorem
 141</a></li>
-<li><a href="#dynkin-diagrams" id="toc-dynkin-diagrams">Dynkin
+<li><a href="#sec:cnh2vo0pie" id="toc-sec:cnh2vo0pie">Dynkin
 diagrams</a></li>
 <li><a href="#sec:root-data" id="toc-sec:root-data">Root data</a></li>
 </ul></li>
 <li><a href="#sec:repr-comp-lie"
 id="toc-sec:repr-comp-lie">Representations of compact Lie groups</a>
 <ul>
-<li><a href="#setup-and-preliminaries"
-id="toc-setup-and-preliminaries">Setup and preliminaries</a></li>
-<li><a href="#classification-of-irreducibles"
-id="toc-classification-of-irreducibles">Classification of
+<li><a href="#sec:cnh2vo0riu" id="toc-sec:cnh2vo0riu">Setup and
+preliminaries</a></li>
+<li><a href="#sec:cnh2vo0s6i" id="toc-sec:cnh2vo0s6i">Classification of
 irreducibles</a></li>
 <li><a href="#sec:borel-weil"
 id="toc-sec:borel-weil">Borel–Weil</a></li>
 </ul></li>
-<li><a href="#plancherel-formula-for-complex-reductive-groups"
-id="toc-plancherel-formula-for-complex-reductive-groups">Plancherel
-formula for complex reductive groups</a>
+<li><a href="#sec:cnh2vo5kuy" id="toc-sec:cnh2vo5kuy">Plancherel formula
+for complex reductive groups</a>
 <ul>
 <li><a href="#sec:iwas-decomp" id="toc-sec:iwas-decomp">Iwasawa
 decomposition</a></li>
 <li><a href="#sec:integr-b-backsl"
 id="toc-sec:integr-b-backsl">Integration on <span
 class="math inline">\(B \backslash G\)</span></a></li>
-<li><a href="#principal-series-representations"
-id="toc-principal-series-representations">Principal series
+<li><a href="#sec:cnh2vrkcqy" id="toc-sec:cnh2vrkcqy">Principal series
 representations</a></li>
-<li><a href="#characters-of-principal-series-representations"
-id="toc-characters-of-principal-series-representations">Characters of
+<li><a href="#sec:cnh2vrkdpa" id="toc-sec:cnh2vrkdpa">Characters of
 principal series representations</a></li>
-<li><a href="#some-basics-concerning-conjugacy-classes-in-g"
-id="toc-some-basics-concerning-conjugacy-classes-in-g">Some basics
+<li><a href="#sec:cnh2vrkexc" id="toc-sec:cnh2vrkexc">Some basics
 concerning conjugacy classes in <span
 class="math inline">\(G\)</span></a></li>
-<li><a href="#a-change-of-variables" id="toc-a-change-of-variables">A
-change of variables</a></li>
-<li><a href="#passage-to-the-lie-algebra"
-id="toc-passage-to-the-lie-algebra">Passage to the Lie algebra</a></li>
-<li><a href="#main-result" id="toc-main-result">Main result</a></li>
+<li><a href="#sec:cnh2vrkh8s" id="toc-sec:cnh2vrkh8s">A change of
+variables</a></li>
+<li><a href="#sec:cnh2vrkjue" id="toc-sec:cnh2vrkjue">Passage to the Lie
+algebra</a></li>
+<li><a href="#sec:cnh2vrkk3i" id="toc-sec:cnh2vrkk3i">Main
+result</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -522,7 +484,7 @@ bit about representations of complex reductive groups.</p>
 <p>We thank Subhajit Jana, Constantin Kogler, Kaj B<span>ä</span>uerle
 and many other participants of the course for corrections and
 comments.</p>
-<h1 id="prerequisites">Prerequisites</h1>
+<h1 id="sec:cnh2vn8vvc">§1. Prerequisites</h1>
 <p>We recall here some of the basics from linear algebra, topology,
 differential geometry, Lie theory, and functional analysis that will be
 used throughout the course.</p>
@@ -773,7 +735,7 @@ class="math display">\[\mathop{\mathrm{trace}}: \mathop{\mathrm{End}}(V)
 class="math display">\[V^* \otimes V \rightarrow \mathbb{C}\]</span>
 <span class="math display">\[\ell \otimes v \mapsto \langle \ell, v
 \rangle.\]</span></p>
-<h1 id="introduction">Introduction</h1>
+<h1 id="sec:cnh2vn8z8o">§2. Introduction</h1>
 <h2 id="representations">Representations</h2>
 <div class="definition">
 <p><strong>Definition 6</strong>. Let <span
@@ -1024,7 +986,7 @@ f(\pi_1(g)^{-1} v_1) \in V_2 ].\]</span></p></li>
 </ul></li>
 </ol>
 </div>
-<h2 id="unitarity">Unitarity</h2>
+<h2 id="sec:cnh2vn9afh">§2.2. Unitarity</h2>
 <div class="definition">
 <p><strong>Definition 9</strong>. Let <span class="math inline">\(\pi :
 G \rightarrow \mathop{\mathrm{GL}}(V)\)</span> be a representation as
@@ -1088,10 +1050,8 @@ the representation <span class="math inline">\(V\)</span> is unitary
 with respect to the inner product <span class="math inline">\(\langle ,
 \rangle\)</span>. ◻</p>
 </span></div>
-<h2
-id="morphisms-equivariant-maps-intertwiners-isomorphisms-equivalences-and-so-on">Morphisms,
-equivariant maps, intertwiners, isomorphisms, equivalences, and so
-on</h2>
+<h2 id="sec:cnh2vn9bow">§2.3. Morphisms, equivariant maps, intertwiners,
+isomorphisms, equivalences, and so on</h2>
 <div class="definition">
 <p><strong>Definition 11</strong>. Let <span
 class="math inline">\((\pi_1, V_1)\)</span> and <span
@@ -1200,7 +1160,7 @@ Since <span class="math inline">\(\pi\)</span> is unitary, this
 isomorphism is equivariant. This establishes the first isomorphism; the
 second is obtained similarly. ◻</p>
 </span></div>
-<h2 id="reduction-and-decomposition">Reduction and decomposition</h2>
+<h2 id="sec:cnh2vn9dp5">§2.4. Reduction and decomposition</h2>
 <div class="definition">
 <p><strong>Definition 14</strong>. Let <span
 class="math inline">\((\pi,V)\)</span> be a representation of <span
@@ -1452,7 +1412,7 @@ explicitly.</p></li>
 <li><p>Explicitly decompose “interesting” <span
 class="math inline">\(V\)</span> in the above sense.</p></li>
 </ul>
-<h2 id="characters">Characters</h2>
+<h2 id="sec:cnh2vn9fzw">§2.5. Characters</h2>
 <p>Throughout this section we take <span
 class="math inline">\(G\)</span> compact and <span
 class="math inline">\((\pi,V)\)</span> finite-dimensional.</p>
@@ -1817,7 +1777,7 @@ given a bit later, will involve similar arguments.<a href="#fn3"
 class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <h1 id="sec:char-theory-comp">§3. Character theory of compact unitary
 groups</h1>
-<h2 id="recap">Recap</h2>
+<h2 id="sec:cnh2vn9jbo">§3.1. Recap</h2>
 <p>Before beginning, let’s pause to attach some vocabulary to results
 from last time.</p>
 <div class="definition">
@@ -1835,7 +1795,7 @@ class="math inline">\(\lambda \in \mathbb{Z}^n\)</span> and given by
 \rightarrow \mathop{\mathrm{U}}(1)\]</span> <span
 class="math display">\[t = (t_1,\dotsc,t_n) \mapsto t^\lambda :=
 (t_1^{\lambda_1},\dotsc,t_n^{\lambda_n}).\]</span></p>
-<h2 id="conjugacy-classes-in-mathopmathrmun">Conjugacy classes in <span
+<h2 id="sec:cnh2voah2u">§3.2. Conjugacy classes in <span
 class="math inline">\(\mathop{\mathrm{U}}(n)\)</span></h2>
 <div class="definition">
 <p><strong>Definition 31</strong>. The compact unitary group <span
@@ -2404,8 +2364,7 @@ class="math inline">\(\phi^{-1}(U)\)</span>. ◻</p>
 </span></div>
 <p><a href="#fn4" class="footnote-ref" id="fnref4"
 role="doc-noteref"><sup>4</sup></a></p>
-<h2 id="primer-on-symmetric-polynomials">Primer on symmetric
-polynomials</h2>
+<h2 id="sec:cnh2voakqk">§3.5. Primer on symmetric polynomials</h2>
 <p>We have encountered already several elements of the ring of Laurent
 polynomials in the variable <span
 class="math inline">\(t_1,\dotsc,t_n\)</span>. For their further study,
@@ -2796,8 +2755,7 @@ class="math display">\[\langle \Delta s_\lambda, \Delta s_\mu \rangle =
 <a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
 <span class="proof-content"> Immediate. ◻</p>
 </span></div>
-<h2 id="weyl-character-and-dimension-formulas-for-mathopmathrmun">Weyl
-character and dimension formulas for <span
+<h2 id="sec:cnh2voj4lf">§3.6. Weyl character and dimension formulas for <span
 class="math inline">\(\mathop{\mathrm{U}}(n)\)</span></h2>
 <div id="thm:weyl-char-Un" class="theorem">
 <p><strong>Theorem 44</strong>. <em>Let <span
@@ -3239,7 +3197,7 @@ easy to derive from <a href="#eq:char-formula-SU2"
 data-reference-type="eqref"
 data-reference="eq:char-formula-SU2">\((16)\)</a>. ◻</p>
 </span></div>
-<h2 id="branching-problems">Branching problems</h2>
+<h2 id="sec:cnh2von9md">§3.9. Branching problems</h2>
 <p>Given compact groups <span class="math inline">\(H \leq G\)</span>
 and a representation <span class="math inline">\((\pi,V)\)</span> of
 <span class="math inline">\(G\)</span>, we may form the restricted
@@ -3428,7 +3386,7 @@ that every branching coefficient <span
 class="math inline">\(n_\pi(\sigma)\)</span> belongs to <span
 class="math inline">\(\{0,1\}\)</span> are called <em>strong Gelfand
 pairs</em>; we may discuss them in more detail later.</p>
-<h2 id="gelfandtsetlin-bases">Gelfand–Tsetlin bases</h2>
+<h2 id="sec:cnh2vooaw4">§3.10. Gelfand–Tsetlin bases</h2>
 <p>We now describe briefly how to deduce from the formulas for the
 branching coefficients for <span
 class="math inline">\(\mathop{\mathrm{U}}(n-1) \leq
@@ -3577,11 +3535,9 @@ for the one-dimensional spaces <span
 class="math inline">\(V_\lambda\)</span> and describing the
 representation explicitly in terms of that basis, but we will not pursue
 such refinements here.</p>
-<h1
-id="matrix-coefficients-for-compact-groups-and-the-peterweyl-theorem">Matrix
-coefficients for compact groups and the Peter–Weyl theorem</h1>
-<h2 id="spaces-of-matrix-coefficients">Spaces of matrix
-coefficients</h2>
+<h1 id="sec:cnh2voocm2">§4. Matrix coefficients for compact groups and the
+Peter–Weyl theorem</h1>
+<h2 id="sec:cnh2vooenj">§4.1. Spaces of matrix coefficients</h2>
 <p>Let <span class="math inline">\(G\)</span> be a compact group and
 <span class="math inline">\((\pi,V)\)</span> a finite-dimensional
 representation. So far, our main tool for saying anything interesting
@@ -3613,8 +3569,7 @@ trace map, then <span class="math inline">\(\pi_\alpha =
 \chi_\pi\)</span>, so the character <span class="math inline">\(\chi_\pi
 \in \mathcal{A}(\pi)\)</span> is a matrix coefficient.<a href="#fn6"
 class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
-<h2 id="uniqueness-of-invariant-inner-products">Uniqueness of invariant
-inner products</h2>
+<h2 id="sec:cnh2vooicg">§4.2. Uniqueness of invariant inner products</h2>
 <p>It will be convenient in discussing matrix coefficients to suppose
 that our representations are unitary, so that we can work simply with
 orthonormal bases for a given representation rather than bases and dual
@@ -3675,8 +3630,7 @@ class="math inline">\(\mathop{\mathrm{trace}}: \mathop{\mathrm{End}}(V)
 \rightarrow \mathbb{C}\)</span> as the sum of diagonal matrix entries
 <span class="math inline">\(\sum_i \varepsilon_{i i}\)</span>, so that
 <span class="math inline">\(\chi_\pi = \sum_i \pi_{i i}\)</span>.</p>
-<h2 id="special-functions-as-matrix-coefficients">Special functions as
-matrix coefficients</h2>
+<h2 id="sec:cnh2voolgy">§4.4. Special functions as matrix coefficients</h2>
 <p>“Most” interesting special functions in mathematics and mathematical
 physics (Bessel, Whittaker, Legendre, Laguerre, <span
 class="math inline">\(\dotsc\)</span>) arise as matrix coefficients of
@@ -3720,8 +3674,8 @@ class="math inline">\(\cos (\theta_1 + \theta_2) = \cos(\theta_1)
 class="math inline">\(\sin (\theta_1 + \theta_2) = \cos(\theta_1)
 \sin(\theta_2) + \sin(\theta_1) \cos(\theta_2)\)</span>. See the book by
 Vilenkin for many more examples like this.</p>
-<h2 id="some-actions-of-g-times-g">Some actions of <span
-class="math inline">\(G \times G\)</span></h2>
+<h2 id="sec:cnh2vophjp">§4.5. Some actions of <span class="math inline">\(G
+\times G\)</span></h2>
 <p>Anyway, the association <span class="math inline">\(\alpha \mapsto
 \pi_\alpha\)</span> defines a map <span id="eq:map-End-V-star-to-A-pi" class="math display">\[\label{eq:map-End-V-star-to-A-pi}\tag{24}
   \mathop{\mathrm{End}}(V)^* \rightarrow \mathcal{A}(\pi).\]</span> The
@@ -3765,7 +3719,7 @@ G\}\)</span> of <span class="math inline">\(G \times G\)</span>. Then
 the fixed subspace <span class="math inline">\(L^2(G)^{\Delta
 G}\)</span> is the space of class functions <span
 class="math inline">\(L^2(G)^{\mathop{\mathrm{class}}}\)</span>.</p>
-<h2 id="burnsides-lemma">Burnside’s lemma</h2>
+<h2 id="sec:cnh2vopiul">§4.6. Burnside’s lemma</h2>
 <p>The spaces of matrix coefficients are particularly well-behaved in
 the case of an irreducible representation:</p>
 <div id="lem:schur-for-inner-products" class="lemma">
@@ -3951,8 +3905,7 @@ note that <span class="math display">\[\langle \mathop{\mathrm{trace}},
 class="math inline">\(\langle \chi_\pi, \chi_\pi \rangle =
 1\)</span>. ◻</p>
 </span></div>
-<h2 id="the-coefficient-ring-of-a-compact-group">The coefficient ring of
-a compact group</h2>
+<h2 id="sec:cnh2vopkyp">§4.8. The coefficient ring of a compact group</h2>
 <p>Having now studied in detail the matrix coefficients of irreducibles,
 we piece them together as follows.</p>
 <div class="definition">
@@ -4346,9 +4299,8 @@ compact matrix Lie groups.</p>
 preliminaries concerning integral operators, which are of independent
 interest.</p>
 <h1 id="sec:integral-operators">§5. Integral operators</h1>
-<h2
-id="integrating-functions-taking-values-in-hilbert-spaces">Integrating
-functions taking values in Hilbert spaces</h2>
+<h2 id="sec:cnh2vor8cp">§5.1. Integrating functions taking values in Hilbert
+spaces</h2>
 <div class="lemma">
 <p><strong>Lemma 59</strong>. Let <span
 class="math inline">\((\Omega,\mu)\)</span> be a locally compact space
@@ -4387,9 +4339,8 @@ class="math inline">\(C_1 := \mu(\mathop{\mathrm{supp}}(f)) &lt;
 <p>This lemma and hence our subsequent development can be generalized
 further (to Banach spaces, Frechet spaces, etc.), but the present
 generality should suffice for our aims.</p>
-<h2
-id="definition-of-integral-operators-attached-to-representations">Definition
-of integral operators attached to representations</h2>
+<h2 id="sec:cnh2vosfin">§5.2. Definition of integral operators attached to
+representations</h2>
 <p>From now on we take for <span class="math inline">\(G\)</span> a
 locally compact group and <span class="math inline">\((\pi,V)\)</span> a
 <em>Hilbert representation</em>; by this we mean that <span
@@ -4482,7 +4433,7 @@ But <span class="math display">\[\|T_{n_k} x\| \geq \|T_{n_k} x_{n_k}\|
 boundedness of the family <span
 class="math inline">\((T_\alpha)\)</span>. ◻</p>
 </span></div>
-<h2 id="basic-properties">Basic properties</h2>
+<h2 id="sec:cnh2vosg76">§5.3. Basic properties</h2>
 <p>From now on we assume moreover (mainly for convenience) that <span
 class="math inline">\(G\)</span> is <em>unimodular</em>, so that we may
 fix a (left and right) Haar measure <span class="math inline">\(d
@@ -4634,8 +4585,7 @@ Cauchy–Schwarz. Since the left regular representation of <span
 class="math inline">\(G\)</span> on <span
 class="math inline">\(L^2(G)\)</span> is continuous, the required
 continuity of <span class="math inline">\(v&#39;\)</span> follows.</p>
-<h2 id="some-functional-analytic-considerations">Some
-functional-analytic considerations</h2>
+<h2 id="sec:cnh2voskw3">§5.5. Some functional-analytic considerations</h2>
 <p>Recall (from, e.g., §<a href="#sec:spectr-theory-comp"
 data-reference-type="ref"
 data-reference="sec:spectr-theory-comp">1.5</a>) the definition of a
@@ -4701,9 +4651,9 @@ approximated uniformly by step functions; thus <span
 class="math inline">\(\rho(f)\)</span> is approximated in norm by finite
 rank operators, hence is compact.) ◻</p>
 </span></div>
-<h2 id="proof-of-the-l2-density-part-of-the-peterweyl-theorem">Proof of
-the <span class="math inline">\(L^2\)</span>-density part of the
-Peter–Weyl theorem</h2>
+<h2 id="sec:cnh2vosmij">§5.6. Proof of the <span
+class="math inline">\(L^2\)</span>-density part of the Peter–Weyl
+theorem</h2>
 <p>We now prove part (ii) of Theorem <a href="#thm:P-W-general"
 data-reference-type="ref" data-reference="thm:P-W-general">57</a>. Let
 <span class="math inline">\(G\)</span> be a compact group, <span
@@ -4762,9 +4712,8 @@ class="math inline">\(T v&#39; = \sum_{|\lambda| \geq \varepsilon}
 <span class="math inline">\(\mathcal{A}(G)\)</span> is dense in <span
 class="math inline">\(L^2(G)\)</span>.<a href="#fn8"
 class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></p>
-<h2
-id="proof-of-the-uniform-density-part-of-the-peterweyl-theorem">Proof of
-the uniform density part of the Peter–Weyl theorem</h2>
+<h2 id="sec:cnh2vot4d5">§5.7. Proof of the uniform density part of the
+Peter–Weyl theorem</h2>
 <p>We now deduce part (i) of Theorem <a href="#thm:P-W-general"
 data-reference-type="ref" data-reference="thm:P-W-general">57</a>. We
 retain the above notation. Let <span class="math inline">\(v \in
@@ -5153,8 +5102,8 @@ data-reference="eqn:convolving-idemps">\((36)\)</a>.</p></li>
 </span></div>
 <p><a href="#fn9" class="footnote-ref" id="fnref9"
 role="doc-noteref"><sup>9</sup></a></p>
-<h2 id="decompositions-of-compact-type-representations">Decompositions
-of compact-type representations</h2>
+<h2 id="sec:cnh2vot8yp">§5.11. Decompositions of compact-type
+representations</h2>
 <p>The decompositions of representations of a compact group noted above
 (e.g., in theorems <a href="#thm:complete-reducibility-compact-group"
 data-reference-type="ref"
@@ -5300,14 +5249,12 @@ class="math inline">\(\pi(f)\)</span> is assumed compact, its
 eigenspaces are finite-dimensional, and so the number of such <span
 class="math inline">\(V_k\)</span> is finite. ◻</p>
 </span></div>
-<h1 id="algebraicity-of-compact-lie-groups">Algebraicity of compact Lie
-groups</h1>
+<h1 id="sec:cnh2vouaco">§6. Algebraicity of compact Lie groups</h1>
 <p>Our goal is to explain the meaning and proof of the phrase “every
 compact Lie group is algebraic.” This serves both as an application of
 the theory developed so far and as a tool for further study also of
 non-compact groups.</p>
-<h2 id="preliminaries-on-algebraic-groups">Preliminaries on algebraic
-groups</h2>
+<h2 id="sec:cnh2vouaz0">§6.1. Preliminaries on algebraic groups</h2>
 <p>First, we need to “review” some basics on algebraic groups.</p>
 <div class="definition">
 <p><strong>Definition 71</strong>. Let <span
@@ -5518,8 +5465,7 @@ class="math inline">\(H\)</span>. Since <span
 class="math inline">\(U\)</span> was arbitrary, we conclude that <span
 class="math inline">\(p q \in \mathop{\mathrm{Zcl}}(H)\)</span>. ◻</p>
 </span></div>
-<h2 id="complexification-of-a-compact-lie-group">Complexification of a
-compact Lie group</h2>
+<h2 id="sec:cnh2voucm5">§6.2. Complexification of a compact Lie group</h2>
 <p>Now let <span class="math inline">\(K\)</span> be a compact subgroup
 of <span
 class="math inline">\({\mathop{\mathrm{GL}}}_n(\mathbb{C})\)</span>, hence
@@ -5794,8 +5740,7 @@ class="math inline">\(\mathcal{A}(K)\)</span> given by <span
 class="math inline">\(\sigma(f)(k) = \overline{f(k)}\)</span> for all
 <span class="math inline">\(k \in K\)</span>.</p>
 </div>
-<h2 id="a-glimpse-of-tannakian-duality">A glimpse of Tannakian
-duality</h2>
+<h2 id="sec:cnh2voudxb">§6.3. A glimpse of Tannakian duality</h2>
 <p>Here we address the question: how can we describe a compact Lie group
 <span class="math inline">\(K\)</span> in terms of its coefficient ring
 <span class="math inline">\(\mathcal{A}(K)\)</span>? We warm-up with
@@ -6095,7 +6040,7 @@ class="math inline">\(f(p^t) = 0\)</span> for all <span
 class="math inline">\(t \in 2 \mathbb{Z}\)</span>, giving the required
 contradiction. ◻</p>
 </span></div>
-<h2 id="algebraic-representations">Algebraic representations</h2>
+<h2 id="sec:cnh2vouhit">§6.5. Algebraic representations</h2>
 <div class="definition">
 <p><strong>Definition 82</strong>. A <em>morphism</em> of algebraic
 groups is a group homomorphism that is also a morphism of the underlying
@@ -6148,7 +6093,7 @@ data-reference="thm:complexification-compact-lie-basic-properties">75</a>. ◻<
 </span></div>
 <p><a href="#fn11" class="footnote-ref" id="fnref11"
 role="doc-noteref"><sup>11</sup></a></p>
-<h2 id="reductive-groups">Reductive groups</h2>
+<h2 id="sec:cnh2vouirp">§6.6. Reductive groups</h2>
 <p>Which groups <span class="math inline">\(G\)</span> arise as in
 Theorem <a href="#thm:complexification-compact-lie-basic-properties"
 data-reference-type="ref"
@@ -6273,7 +6218,7 @@ class="math inline">\(V\)</span>, i.e., that <span
 class="math inline">\(n = 1\)</span>, i.e., that <span
 class="math inline">\(N = \{1\}\)</span>, as required. ◻</p>
 </span></div>
-<h2 id="unitary-trick">Unitary trick</h2>
+<h2 id="sec:cnh2voujmc">§6.7. Unitary trick</h2>
 <p>We record a further variant of the above considerations. We focus on
 an example; what’s relevant here is that <span
 class="math inline">\({\mathop{\mathrm{SL}}}_n(\mathbb{C})\)</span> and
@@ -6390,8 +6335,7 @@ class="math display">\[\begin{pmatrix}
   \in {\mathop{\mathrm{GL}}}_2(\mathbb{C}).\]</span></p>
 <p>We’ve only scratched the tip of the iceberg here; for further reading
 I recommend the book by Onishchik–Vinberg.</p>
-<h1 id="structure-of-compact-lie-groups">Structure of compact Lie
-groups</h1>
+<h1 id="sec:cnh2vouko6">§7. Structure of compact Lie groups</h1>
 <p>We aim next to show that any compact Lie group <span
 class="math inline">\(K\)</span> has structure similar to that observed
 in §<a href="#sec:char-theory-comp" data-reference-type="ref"
@@ -6635,8 +6579,12 @@ x)})^0\)</span> for any <span class="math inline">\(0 \neq x \in
 </ol>
 <p> ◻</p>
 </span></div>
-<h2 id="roots-and-root-space-decomposition">Roots and root space
-decomposition</h2>
+<p><span class="math display">\[x + y +
+  \begin{pmatrix}
+    a    &amp; b \\
+    c         &amp; d \\
+  \end{pmatrix}.\]</span></p>
+<h2 id="sec:cnh2voumpl">§7.3. Roots and root space decomposition</h2>
 <p>Let <span class="math inline">\(K\)</span> be a compact Lie group
 with maximal torus <span class="math inline">\(T\)</span>. Let <span
 class="math inline">\(G\)</span> denote the complexification of <span
@@ -6886,7 +6834,7 @@ arbitrary, we deduce as required that <span
 class="math inline">\(\theta(x) \in
 \mathfrak{g}^{-\alpha}\)</span>. ◻</p>
 </span></div>
-<h2 id="generators">Generators</h2>
+<h2 id="sec:cnh2vounyo">§7.4. Generators</h2>
 <p>Tori are topologically cyclic, and this fact is very useful.</p>
 <div class="definition">
 <p><strong>Definition 94</strong>. Let <span
@@ -7004,9 +6952,8 @@ subgroups of <span class="math inline">\(T\)</span>, hence they coincide
 with <span class="math inline">\(T\)</span> iff they contain the
 generator <span class="math inline">\(t\)</span>. ◻</p>
 </span></div>
-<h2
-id="definition-and-finitude-of-the-weyl-group-of-a-maximal-torus">Definition
-and finitude of the Weyl group of a maximal torus</h2>
+<h2 id="sec:cnh2vouo3r">§7.5. Definition and finitude of the Weyl group of a
+maximal torus</h2>
 <div class="definition">
 <p><strong>Definition 97</strong>. Let <span
 class="math inline">\(K\)</span> be a compact Lie group, with maximal
@@ -7633,8 +7580,7 @@ class="math inline">\(0\)</span>.</p>
 </div>
 <p><a href="#fn13" class="footnote-ref" id="fnref13"
 role="doc-noteref"><sup>13</sup></a></p>
-<h2 id="consequences-of-the-conjugacy-theorem">Consequences of the
-conjugacy theorem</h2>
+<h2 id="sec:cnh2vouqln">§7.7. Consequences of the conjugacy theorem</h2>
 <p>Let <span class="math inline">\(K\)</span> be a compact connected Lie
 group. We saw above that for any maximal torus <span
 class="math inline">\(T\)</span>, we have <span class="math inline">\(K
@@ -8152,8 +8098,7 @@ class="math inline">\(F_\alpha : \mathop{\mathrm{SU}}(2) \rightarrow
 K\)</span>. We’ll then use these maps to produce Weyl group elements,
 called <em>root reflections</em>, which we’ll eventually show generate
 the Weyl group.</p>
-<h2 id="notation-and-preliminaries-concerning-mathopmathrmsu2">Notation
-and preliminaries concerning <span
+<h2 id="sec:cnh2vouvuy">§7.9. Notation and preliminaries concerning <span
 class="math inline">\(\mathop{\mathrm{SU}}(2)\)</span></h2>
 <p>Take <span class="math inline">\(K =
 \mathop{\mathrm{SU}}(2)\)</span>, so that <span
@@ -8602,8 +8547,7 @@ class="math display">\[F_\alpha (
     c &amp; 0 &amp; d
   \end{pmatrix}
 .\]</span></p>
-<h2 id="classification-of-rank-one-groups">Classification of rank one
-groups</h2>
+<h2 id="sec:cnh2vouzjh">§7.11. Classification of rank one groups</h2>
 <p>Before proving Theorem <a href="#thm:from-roots-dist-su2"
 data-reference-type="ref"
 data-reference="thm:from-roots-dist-su2">119</a>,
@@ -9167,8 +9111,7 @@ is an isomorphism.</p></li>
 </ol>
 <p> ◻</p>
 </div>
-<h2 id="construction-of-root-reflections">Construction of root
-reflections</h2>
+<h2 id="sec:cnh2vowrs5">§7.14. Construction of root reflections</h2>
 <p>We finally develop a way to produce nontrivial elements of the Weyl
 group. Start with <span class="math inline">\(K =
 \mathop{\mathrm{SU}}(2)\)</span>, with <span class="math inline">\(T
@@ -9495,8 +9438,8 @@ the central ray of that Weyl chamber, <span
 class="math inline">\(30\)</span> degrees from each of its walls. (TODO:
 replace this text with a picture.)</p>
 </div>
-<h2 id="using-root-reflections-to-elucidate-the-weyl-group">Using root
-reflections to elucidate the Weyl group</h2>
+<h2 id="sec:cnh2vowtwa">§7.15. Using root reflections to elucidate the Weyl
+group</h2>
 <div id="lem:key-root-reflections" class="lemma">
 <p><strong>Lemma 126</strong>. Let <span class="math inline">\(C,
 C&#39;\)</span> be Weyl chambers in <span
@@ -9746,8 +9689,8 @@ x\)</span>.</p>
 that it doesn’t depend upon the choice of <span
 class="math inline">\(C\)</span>. ◻</p>
 </span></div>
-<h2 id="basics-on-dominance-positivity-and-simple-roots">Basics on
-dominance, positivity and simple roots</h2>
+<h2 id="sec:cnh2vowwm5">§7.16. Basics on dominance, positivity and simple
+roots</h2>
 <div class="definition">
 <p><strong>Definition 131</strong>. Choose a Weyl chamber <span
 class="math inline">\(C \subseteq
@@ -10088,7 +10031,7 @@ that <span class="math inline">\(\alpha_1 \in \Delta(C)\)</span> for any
 <span class="math inline">\(\alpha_1\)</span> in the conclusion of that
 lemma. ◻</p>
 </span></div>
-<h2 id="cartan-matrices">Cartan matrices</h2>
+<h2 id="sec:cnh2vowy35">§7.17. Cartan matrices</h2>
 <p>Let <span class="math inline">\(K\)</span> be a compact connected Lie
 group, with maximal torus <span class="math inline">\(T\)</span>, Weyl
 chamber <span class="math inline">\(C\)</span> and accompanying notation
@@ -10196,7 +10139,7 @@ data-reference="thm:cartan-matrix-determines-K">141</a>.</em></p>
 <p><a href="#fn18" class="footnote-ref" id="fnref18"
 role="doc-noteref"><sup>18</sup></a> The proof will be given in §???
 after some preliminaries.</p>
-<h2 id="strings-of-roots">Strings of roots</h2>
+<h2 id="sec:cnh2vo0ard">§7.18. Strings of roots</h2>
 <p>Let <span class="math inline">\(K,T,\Phi\)</span> be as usual: a
 compact connected Lie group, a maximal torus, and the set of roots. Let
 <span class="math inline">\(\alpha, \beta \in \Phi\)</span>.</p>
@@ -10527,8 +10470,8 @@ data-reference="eq:commutators-land-in-C-H-alpha">\((66)\)</a>)
 implies that <span class="math inline">\(Z \neq 0\)</span>, giving the
 required contradiction. ◻</p>
 </span></div>
-<h2 id="proof-of-theorem-thmcartan-matrix-determines-k">Proof of Theorem
-<a href="#thm:cartan-matrix-determines-K" data-reference-type="ref"
+<h2 id="sec:cnh2vo0fl3">§7.20. Proof of Theorem <a
+href="#thm:cartan-matrix-determines-K" data-reference-type="ref"
 data-reference="thm:cartan-matrix-determines-K">141</a></h2>
 <p>We need one final miscellaneous lemma:</p>
 <div id="lem:pi-1-T-onto-pi-1-K" class="lemma">
@@ -10753,7 +10696,7 @@ component <span class="math inline">\(\mathfrak{g} &#39;, \mathfrak{g}
 compatibility between <span class="math inline">\(\gamma_i&#39;\)</span>
 and <span class="math inline">\(\gamma_i&#39;&#39;\)</span>.</p>
 <p>This completes the proof.</p>
-<h2 id="dynkin-diagrams">Dynkin diagrams</h2>
+<h2 id="sec:cnh2vo0pie">§7.21. Dynkin diagrams</h2>
 <p>They provide a convenient pictorial representation of the Cartan
 matrix. Here we just summarize what was discussed in class; look at
 Wikipedia or any of the course references for a detailed discussion.</p>
@@ -10883,7 +10826,7 @@ group. Our aim in this section is to generalize the results established
 in §<a href="#sec:char-theory-comp" data-reference-type="ref"
 data-reference="sec:char-theory-comp">3</a> when <span
 class="math inline">\(K = \mathop{\mathrm{U}}(n)\)</span>.</p>
-<h2 id="setup-and-preliminaries">Setup and preliminaries</h2>
+<h2 id="sec:cnh2vo0riu">§8.1. Setup and preliminaries</h2>
 <p>Choose a maximal torus <span class="math inline">\(T\)</span> and
 then a Weyl chamber <span class="math inline">\(C \subseteq
 \mathfrak{t}_{\mathbb{R}}^{\mathop{\mathrm{reg}}}\)</span>. These
@@ -11516,8 +11459,7 @@ H_\alpha \rangle },\]</span> as required.</p></li>
 </ol>
 <p> ◻</p>
 </span></div>
-<h2 id="classification-of-irreducibles">Classification of
-irreducibles</h2>
+<h2 id="sec:cnh2vo0s6i">§8.2. Classification of irreducibles</h2>
 <div id="thm:highest-weight-general-gp" class="theorem">
 <p><strong>Theorem 153</strong>. <em>Let <span
 class="math inline">\(K\)</span> be a compact connected Lie group with
@@ -12166,8 +12108,8 @@ class="math inline">\(F_\lambda = \mathbb{C} v \otimes
 \pi_\lambda^*\)</span>, hence <span class="math inline">\(F_\lambda
 \cong \pi_\lambda^*\)</span>. ◻</p>
 </div>
-<h1 id="plancherel-formula-for-complex-reductive-groups">Plancherel
-formula for complex reductive groups</h1>
+<h1 id="sec:cnh2vo5kuy">§9. Plancherel formula for complex reductive
+groups</h1>
 <p>With the remaining fewl ectures in the course, we aim to treat some
 of the simplest aspects of the representation theory of non-compact
 groups. We focus on the case of complex reductive groups, which are
@@ -12355,8 +12297,7 @@ choices of Haar measure.</p>
 <span class="proof-content"> Left to the reader; this or some variant was treated
 in “Lie groups I”. ◻</p>
 </span></div>
-<h2 id="principal-series-representations">Principal series
-representations</h2>
+<h2 id="sec:cnh2vrkcqy">§9.3. Principal series representations</h2>
 <p>We denote by <span class="math inline">\(A^\wedge\)</span> the group
 of unitary characters of <span class="math inline">\(A\)</span>, thus
 <span class="math inline">\(A^\wedge\)</span> consists of continuous
@@ -12427,8 +12368,8 @@ defines a <span class="math inline">\(G\)</span>-invariant inner product
 on <span class="math inline">\(\pi_{\lambda}\)</span>, hence <span
 class="math inline">\(\pi_{\lambda}\)</span> is a unitary representation
 of <span class="math inline">\(G\)</span>.</p>
-<h2 id="characters-of-principal-series-representations">Characters of
-principal series representations</h2>
+<h2 id="sec:cnh2vrkdpa">§9.4. Characters of principal series
+representations</h2>
 <p>Recall that we equip <span class="math inline">\(G\)</span> with a
 Haar measure <span class="math inline">\(d g\)</span> and <span
 class="math inline">\(B\)</span> with a left Haar measure <span
@@ -12511,9 +12452,8 @@ trace class, with <span class="math inline">\(\mathop{\mathrm{trace}}(T)
 class="math inline">\(M\)</span> is a compact torus and then appealing
 to Fourier series. ◻</p>
 </span></div>
-<h2 id="some-basics-concerning-conjugacy-classes-in-g">Some basics
-concerning conjugacy classes in <span
-class="math inline">\(G\)</span></h2>
+<h2 id="sec:cnh2vrkexc">§9.5. Some basics concerning conjugacy classes in
+<span class="math inline">\(G\)</span></h2>
 <p>Every such class intersects <span class="math inline">\(B\)</span>,
 that is to say, <span class="math inline">\(G = \cup_{x \in B \backslash
 G} x^{-1} B x\)</span>. For instance, if <span class="math inline">\(G =
@@ -12531,7 +12471,7 @@ conjugacy of maximal tori (not the one presented in this course) that
 any map <span class="math inline">\(T \backslash K \rightarrow T
 \backslash K\)</span> homotopic to the identity has a fixed point. One
 can also argue algebraically using the Borel fixed point theorem.</p>
-<h2 id="a-change-of-variables">A change of variables</h2>
+<h2 id="sec:cnh2vrkh8s">§9.6. A change of variables</h2>
 <p>The groups <span class="math inline">\(N\)</span> and <span
 class="math inline">\(A\)</span> are unimodular (indeed, their adjoint
 representations are unimodular, hence have trivial determinant). We may
@@ -12749,7 +12689,7 @@ equip <span class="math inline">\(A^\wedge\)</span> with the Haar
 measure dual to that on <span class="math inline">\(A\)</span>, so that
 the Fourier inversion formula <span class="math inline">\(F(1) =
 \int_{\lambda \in A^\wedge} F^\wedge(\lambda)\)</span> holds.</p>
-<h2 id="passage-to-the-lie-algebra">Passage to the Lie algebra</h2>
+<h2 id="sec:cnh2vrkjue">§9.7. Passage to the Lie algebra</h2>
 <p>Suppose now that <span class="math inline">\(f \in
 C_c^\infty(G)\)</span> as above is supported in a “small
 conjugation-invariant neighborhood” <span
@@ -12821,7 +12761,7 @@ class="math display">\[j^{-1/2}(x)
       \alpha(x)
     }
   \right\rvert.\]</span></p>
-<h2 id="main-result">Main result</h2>
+<h2 id="sec:cnh2vrkk3i">§9.8. Main result</h2>
 <p>We define a polynomial function <span class="math inline">\(P :
 \mathfrak{a}^\wedge \rightarrow \mathbb{R}\)</span> by the formula <span
 class="math inline">\(P(\lambda) := \prod_{\alpha &gt; 0} |
