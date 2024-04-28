@@ -23,7 +23,8 @@
 % \WarningFilter{latex}{Label `tocindent1' multiply defined}
 % \WarningFilter{latex}{Label `tocindent2' multiply defined}
 % \WarningFilter{latex}{Label `tocindent3' multiply defined}
-\usepackage{hyperref}
+\usepackage{ifpdf}
+\ifpdf \RequirePackage[pdftex]{hyperref} \fi
 % \usepackage{navigator}
 
 
@@ -223,7 +224,7 @@
 \DeclareMathOperator{\Gen}{Gen}
 \DeclareMathOperator{\SU}{SU}
 \DeclareMathOperator{\PGSU}{PGSU}
-% \DeclareMathOperator{\gen}{gen}
+\DeclareMathOperator{\gen}{gen}
 \DeclareMathOperator{\PMp}{PMp}
 \DeclareMathOperator{\PGMp}{PGMp}
 \DeclareMathOperator{\PB}{PB}
