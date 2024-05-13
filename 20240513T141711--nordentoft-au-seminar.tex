@@ -1,0 +1,208 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\begin{document}
+
+\emph{Horizontal} $p$\emph{-adic} $L$\emph{-functions}, joint with Daniel Kriz.
+
+\section{Introduction}
+Let $E$ be an elliptic curve over $\mathbb{Q}$.  Let $L/K$ be a Galois extension of number fields.  Then there is the following concept, due to Mazur and Rubin.
+\begin{definition}
+  We say that $E$ is \emph{diophantine stable} (abbreviated $\mathrm{D S}$) relative to $L/K$ if
+  \begin{equation*}
+    \rank_{\mathbb{Z}} E(L) = \rank_{\mathbb{Z}} E(K).
+  \end{equation*}
+\end{definition}
+\begin{question}
+  How often is $E$ diophantine stable for $L/K$?
+\end{question}
+\begin{remark}
+  The notion of diophantine stability has applications to Hilbert's tenth problem.  This was part of the original motivation.  From our point of view, it's just a natural question.
+\end{remark}
+There is an analytic counterpart to this question.  Let $F /\mathbb{Q}$ be an abelian extension of $\mathbb{Q}$.  Assuming the BSD conjecture, the question of diophantine stability takes a different form:d
+\begin{align*}
+  \rank_{\mathbb{Z}} E(F)
+  &= \ord_{s = 1} L(E/F, s) \\
+  &=
+  \sum_{\chi \in \widehat{\Gal(F / \mathbb{Q})}}
+    \ord_{s = 1} L(E, \chi, s) \\
+  &=
+    \rank_{\mathbb{Z}} E(\mathbb{Q})
+    \sum_{1 \neq \chi \in \widehat{\Gal(F / \mathbb{Q})}}
+    \ord_{s = 1} L(E, \chi, s).
+\end{align*}
+where
+\begin{equation*}
+  L(E, \chi, s) = \sum_{n \geq 1} a_E(n) \chi(n) n^{- s}.
+\end{equation*}
+The upshot is that diophantine stability for $F/\mathbb{Q}$ is related, under BSD, to understanding when $L(E, \chi, 1) \neq 0$ for $\chi \in \widehat{\Gal(F / \mathbb{Q})}$ with $\chi \neq 1$.
+
+\begin{question}
+  How often is $L(E, \chi, 1) \neq 0$ for Dirichlet characters $\chi$?
+\end{question}
+\section{Vertical analysis}
+Let $F_n = \mathbb{Q}(\mu_p)$, $F _\infty = \cup_{n \geq 1} F_n$ ($p$th cyclotomic extension of $\mathbb{Q}$).
+\begin{theorem}[Mazur]
+  If $E$ is good at $p$, then $\rank_{\mathbb{Z}} E(F _\infty) < \infty$.
+\end{theorem}
+\begin{remark}
+  In our langauge of Diophantine stability, this means that if $n$ is sufficiently large, then $E$ is diophantine stable  for $F _\infty / F_n$.
+\end{remark}
+\begin{theorem}[Rohrlich]
+  We have $L(E, \chi, 1) \neq 0$ for all but finitely many $\chi$, a Dirichlet character of $p$-power conductor.  This is an exercise in class field theory.
+\end{theorem}
+\begin{remark}
+  The results of Mazur and Rohrlich should be equivalent under BSD, but the speaker doesn't know of a direct way to go between them.
+\end{remark}
+\section{Horizontal analysis}
+Fix $d \geq 2$.  Let $L / \mathbb{Q}$ be a cyclic extension, of order $d$.  (The corresponding Dirichlet characters $\chi$ then have order $d$.)
+
+\begin{conjecture}[Goldfeld]
+  Suppose $d = 2$, and let $\chi_D$ be a quadratic character of conductor $D$.  Then
+  \begin{equation*}
+    \ord_{s = 1} L(E, \chi_D, s) =
+    \begin{cases}
+      0      & \text{with probability } 50\%, \\
+      1      & \text{with probability } 50\%, \\
+      \geq 2      & \text{with probability } 0\%. \\
+    \end{cases}
+  \end{equation*}
+\end{conjecture}
+Previous work when $d = 2$:
+\begin{itemize}
+\item Friedberg--Hoffstein, 1990's
+\item Murty--Murty, Ono--Skinner ($\gg X / \log X$); 
+\item Smith--Kriz
+\end{itemize}
+How about when $d > 2$:
+\begin{conjecture}[David--Fearnley--Kisilenski]
+  % We have $L(E, \chi, 1) \neq 0$ for 100\% of all $\chi$ of order $d$.  (Now there is no forced vanishing like before.)  Not much is known.  Fearnley--Kisilevsky--Kawata  (restrictive-setting)
+
+\end{conjecture}
+
+\section{Results}
+We denote by $F_d(X)$ the set of relevant Dirichlet characters $\chi \pmod{D}$ with $D \leq X$ of order $\tau$.  There exists $c_d > 0$ such that
+\begin{equation*}
+  \# F_d(X) \sim c_d X(\log X)^{\sigma_0(d) - 2}.
+\end{equation*}
+Here $\sigma_0(d)$ denotes the number of divisors of $d$.
+\begin{theorem}
+  [Kriz--N 23]
+  Let $d \equiv 2\pod{4}$, $d > 2$.  Then there exists $\alpha = \alpha(E, d) > 0$ such that
+  \begin{equation*}
+    \# \left\{ x \in F_d(X) : L(E, \chi, 1) \neq 0 \right\} \gg \frac{X}{(\log X)^{- \alpha}}.
+  \end{equation*}
+\end{theorem}
+\begin{remark}
+  Not previously knwon in this setting for $n=6$.
+\end{remark}
+
+We can also study a more general case, by imposing further assumptions.
+\begin{theorem}
+  We get the same conclusions in the following cases:
+  \begin{enumerate}
+  \item $L(E, 1) \neq 0$ and there exists $p \mid d$ such that $\overline{\rho}_{E, p}$ is irreducible,
+  \item $2 \mid d$ and $\overline{\rho}_{E, 2}$ is irreducible.
+  \end{enumerate}  
+\end{theorem}
+
+
+\begin{remark}
+  $d = 2^m, \overline{\rho_{E, 2}}$. if and only if $E(\mathbb{Q})[2] = 0$ (satisfied for 100\%) and
+  \begin{equation*}
+      \alpha = \alpha(2^m, E)
+      =
+      \begin{cases}
+        m/3        & \im(\bar{\rho}_{E, 2}) \cong S_3, \\
+        2 m / 3                   &   \cong \mathbb{Z}/3.
+      \end{cases}
+    \end{equation*}
+\end{remark}
+
+
+For $d = 2$, this improves on Ono from 2000's.
+
+\begin{theorem}[Simultaneous nonvanishing]
+  For 100\% of tuples of elliptic curves $E_1, \dotsc, E_m$ such that $L(E_i, 1) \neq 0$, it holds that: for each $d$ and $\alpha > 0$, we have
+  \begin{equation*}
+    \# \left\{ \chi \in F_d(X) : L(E_i, \chi, 1) \neq 0 \,\forall i \right\} \gg \frac{X}{(\log X)^{1 - \alpha}}.
+  \end{equation*}
+\end{theorem}
+
+The proofs uses horizontal $p$-adic $L$-functions.
+
+\begin{definition}
+  Fix a prime $p$.  Let $E/\mathbb{Q}$ be an elliptic curve, of conductor $N$.  We say that $\ell$ is a \emph{Taylor--Wiles prime} for $(E, p)$ if the following three conditions are met:
+  \begin{enumerate}
+  \item\label{enumerate:cnjgh144b4} $(\ell, N) = 1$
+  \item\label{enumerate:cnjgh142qb} $\ell \equiv 1 \pod{p}$
+  \item\label{enumerate:cnjgh14zi3} $a_E(\ell) \not \equiv 2 \pod{p}$.
+  \end{enumerate}
+  We say that $p$ is $E$\emph{-good} if Taylor--Wiles primes have positive density.
+\end{definition}
+\begin{remark}
+  The last condition \eqref{enumerate:cnjgh14zi3} is really one concerning the mod $p$ Galois representation $\overline{\rho}_{E, p}$: if the latter is irreducible, then $p$ is $E$-good.
+\end{remark}
+\begin{remark}
+  If $E$ is non-CM and $p \geq 13$, then $p$ is $E$-good (Zywina).
+\end{remark}
+Thus, let $p$ be $E$-good.  We consider $\mathcal{L} =(\ell_n)_n$, where $\ell_n \equiv 1 \pod{p}$ and $\ell_n$ is a Taylor--Wiles prime for all sufficiently large $n$.  Set
+\begin{equation*}
+  m_n := v_p(\ell_n - 1) \geq 1.
+\end{equation*}
+Defint eh \emph{horizontal Iwasawa algebra}
+\begin{equation*}
+  \Lambda^{\mathrm{hor}}
+  :=
+  \mathbb{Z}_p
+  \left[ \left[ \prod_{ n \in \mathbb{N}} \mathbb{Z} / p^{m n} \right] \right]
+  :=
+  \varprojlim_{
+    \substack{
+      A \leq \mathbb{N}  \\
+      \text{finite}      
+    }
+  }
+  \cong \Hom_{\mathrm{cts}} \left( \mathcal{C}(\prod \mathbb{Z} / p^{m_n}, \mathbb{Z}_p), \mathbb{Z}_p \right).
+\end{equation*}
+Associated to the elliptic curve, we define (using modular symbols) a measure
+\begin{equation*}
+  \nu_E \in \Lambda^{\mathrm{}}
+\end{equation*}
+that interpolates the twistsby characters of $p$-power order, i.e.,
+\begin{equation*}
+  \chi : \prod_{n \in \mathbb{N}} \left( \mathbb{Z} / \ell_n \right)^\ast \rightarrow \bar{\mathbb{Q}} ^\times.
+\end{equation*}<++>
+
+Now if $\chi$ has $p$-power order, then it factors through some character
+\begin{equation*}
+  \tilde{\chi} : \prod_{n \in \mathbb{N} } \mathbb{Z} / p^{m_n} \rightarrow \bar{\mathbb{Q}}^\times.
+\end{equation*}
+The connection is that
+\begin{equation*}
+  \nu_E(\tilde{\chi}) = (\text{Euler factor}) \cdot  \frac{L(E, \chi, 1) \tau(\bar{\chi})}{\Omega_E}.
+\end{equation*}
+Pushing forward along
+\begin{equation*}
+  \prod \mathbb{Z} / p^{m_n} \twoheadrightarrow \prod \mathbb{Z} / p =(\mathbb{Z} / p)^\infty,
+\end{equation*}
+get
+\begin{equation*}
+  \overline{\nu_E} \in \mathbb{Z}_p[[(\mathbb{Z} / p)^\infty]]
+  = \Lambda^{\mathrm{diag}}.
+\end{equation*}
+
+
+\begin{theorem}[K--N]
+  Let $0 \neq\nu \in \Lambda^{\mathrm{diag}}$.  Then $\nu(x) \neq 0$ for a ``positive proportion'' of characters $\chi :(\mathbb{Z} / p)^\infty \rightarrow \bar{\mathbb{Q}}^\times$.  There exists $I \subseteq \mathbb{N}$, a finite set, such that for all $\chi :(\mathbb{Z} / p)^\infty \rightarrow \bar{\mathbb{Q}}^\times$, there exists $\chi_I : \prod_{n \in I} \mathbb{Z} / p \rightarrow \bar{\mathbb{Q}}^\times$ such that $\nu(\chi \chi_I) \neq 0.$
+\end{theorem}
+
+The \emph{upshot} is that it suffices to prove $\overline{\nu_E} \neq 0$.  This follows if we can show any of the following:
+\begin{equation*}
+  \begin{cases}
+    &   L(E, 1) = \bar{\nu }_E(1) \neq 0 \\
+    p = 2    & \text{Friedberg--Hoffstein}, \\
+    \text{general } p                                          & \text{use Kurihara's conjecture.}
+  \end{cases}
+\end{equation*}
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
