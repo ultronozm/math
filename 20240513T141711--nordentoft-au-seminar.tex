@@ -2,7 +2,13 @@
 
 \begin{document}
 
-\emph{Horizontal} $p$\emph{-adic} $L$\emph{-functions}, joint with Daniel Kriz.
+\title{Horizontal $p$-adic $L$-functions}
+
+\begin{abstract}
+  Talk by Asbj{\o}rn Nordentoft at the seminar at Aarhus on 13 May 2024.  Joint work with Daniel Kriz.
+\end{abstract}
+
+\maketitle
 
 \section{Introduction}
 Let $E$ be an elliptic curve over $\mathbb{Q}$.  Let $L/K$ be a Galois extension of number fields.  Then there is the following concept, due to Mazur and Rubin.
@@ -23,7 +29,7 @@ There is an analytic counterpart to this question.  Let $F /\mathbb{Q}$ be an ab
   \rank_{\mathbb{Z}} E(F)
   &= \ord_{s = 1} L(E/F, s) \\
   &=
-  \sum_{\chi \in \widehat{\Gal(F / \mathbb{Q})}}
+    \sum_{\chi \in \widehat{\Gal(F / \mathbb{Q})}}
     \ord_{s = 1} L(E, \chi, s) \\
   &=
     \rank_{\mathbb{Z}} E(\mathbb{Q})
@@ -45,7 +51,7 @@ Let $F_n = \mathbb{Q}(\mu_p)$, $F _\infty = \cup_{n \geq 1} F_n$ ($p$th cyclotom
   If $E$ is good at $p$, then $\rank_{\mathbb{Z}} E(F _\infty) < \infty$.
 \end{theorem}
 \begin{remark}
-  In our langauge of Diophantine stability, this means that if $n$ is sufficiently large, then $E$ is diophantine stable  for $F _\infty / F_n$.
+  In our langauge of Diophantine stability, this means that if $n$ is sufficiently large, then $E$ is diophantine stable for $F _\infty / F_n$.
 \end{remark}
 \begin{theorem}[Rohrlich]
   We have $L(E, \chi, 1) \neq 0$ for all but finitely many $\chi$, a Dirichlet character of $p$-power conductor.  This is an exercise in class field theory.
@@ -70,12 +76,12 @@ Fix $d \geq 2$.  Let $L / \mathbb{Q}$ be a cyclic extension, of order $d$.  (The
 Previous work when $d = 2$:
 \begin{itemize}
 \item Friedberg--Hoffstein, 1990's
-\item Murty--Murty, Ono--Skinner ($\gg X / \log X$); 
+\item Murty--Murty, Ono--Skinner ($\gg X / \log X$);
 \item Smith--Kriz
 \end{itemize}
 How about when $d > 2$:
 \begin{conjecture}[David--Fearnley--Kisilenski]
-  % We have $L(E, \chi, 1) \neq 0$ for 100\% of all $\chi$ of order $d$.  (Now there is no forced vanishing like before.)  Not much is known.  Fearnley--Kisilevsky--Kawata  (restrictive-setting)
+  % We have $L(E, \chi, 1) \neq 0$ for 100\% of all $\chi$ of order $d$.  (Now there is no forced vanishing like before.)  Not much is known.  Fearnley--Kisilevsky--Kawata (restrictive-setting)
 
 \end{conjecture}
 
@@ -85,8 +91,7 @@ We denote by $F_d(X)$ the set of relevant Dirichlet characters $\chi \pmod{D}$ w
   \# F_d(X) \sim c_d X(\log X)^{\sigma_0(d) - 2}.
 \end{equation*}
 Here $\sigma_0(d)$ denotes the number of divisors of $d$.
-\begin{theorem}
-  [Kriz--N 23]
+\begin{theorem} [Kriz--N 23]
   Let $d \equiv 2\pod{4}$, $d > 2$.  Then there exists $\alpha = \alpha(E, d) > 0$ such that
   \begin{equation*}
     \# \left\{ x \in F_d(X) : L(E, \chi, 1) \neq 0 \right\} \gg \frac{X}{(\log X)^{- \alpha}}.
@@ -102,20 +107,20 @@ We can also study a more general case, by imposing further assumptions.
   \begin{enumerate}
   \item $L(E, 1) \neq 0$ and there exists $p \mid d$ such that $\overline{\rho}_{E, p}$ is irreducible,
   \item $2 \mid d$ and $\overline{\rho}_{E, 2}$ is irreducible.
-  \end{enumerate}  
+  \end{enumerate}
 \end{theorem}
 
 
 \begin{remark}
   $d = 2^m, \overline{\rho_{E, 2}}$. if and only if $E(\mathbb{Q})[2] = 0$ (satisfied for 100\%) and
   \begin{equation*}
-      \alpha = \alpha(2^m, E)
-      =
-      \begin{cases}
-        m/3        & \im(\bar{\rho}_{E, 2}) \cong S_3, \\
-        2 m / 3                   &   \cong \mathbb{Z}/3.
-      \end{cases}
-    \end{equation*}
+    \alpha = \alpha(2^m, E)
+    =
+    \begin{cases}
+      m/3        & \im(\bar{\rho}_{E, 2}) \cong S_3, \\
+      2 m / 3                   &   \cong \mathbb{Z}/3.
+    \end{cases}
+  \end{equation*}
 \end{remark}
 
 
