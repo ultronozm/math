@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Horizontal p-adic L-functions</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+    <div class="my-links-container">
+2024-05-13 15:57:27
+      <a href="20240513T141711--nordentoft-au-seminar.tex" class="my-link">tex</a>
+      <a href="20240513T141711--nordentoft-au-seminar.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20240513T141711--nordentoft-au-seminar.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+<header id="title-block-header">
+<h1 class="title">Horizontal <span class="math inline">\(p\)</span>-adic
+<span class="math inline">\(L\)</span>-functions</h1>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>Talk by Asbj<span>ø</span>rn Nordentoft at the seminar at Aarhus on
+13 May 2024. Joint work with Daniel Kriz.</p>
+</div>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#introduction" id="toc-introduction">Introduction</a></li>
+<li><a href="#vertical-analysis" id="toc-vertical-analysis">Vertical
+analysis</a></li>
+<li><a href="#horizontal-analysis"
+id="toc-horizontal-analysis">Horizontal analysis</a></li>
+<li><a href="#results" id="toc-results">Results</a></li>
+</ul>
+</nav>
+<h1 id="introduction">Introduction</h1>
+<p>Let <span class="math inline">\(E\)</span> be an elliptic curve over
+<span class="math inline">\(\mathbb{Q}\)</span>. Let <span
+class="math inline">\(L/K\)</span> be a Galois extension of number
+fields. Then there is the following concept, due to Mazur and Rubin.</p>
+<div class="definition">
+<p><strong>Definition 1</strong>. We say that <span
+class="math inline">\(E\)</span> is <em>diophantine stable</em>
+(abbreviated <span class="math inline">\(\mathrm{D S}\)</span>) relative
+to <span class="math inline">\(L/K\)</span> if <span
+class="math display">\[{\mathop{\mathrm{rank}}}_{\mathbb{Z}} E(L) =
+{\mathop{\mathrm{rank}}}_{\mathbb{Z}} E(K).\]</span></p>
+</div>
+<div class="question">
+<p><strong>Question 2</strong>. How often is <span
+class="math inline">\(E\)</span> diophantine stable for <span
+class="math inline">\(L/K\)</span>?</p>
+</div>
+<div class="remark">
+<p><strong>Remark 3</strong>. The notion of diophantine stability has
+applications to Hilbert’s tenth problem. This was part of the original
+motivation. From our point of view, it’s just a natural question.</p>
+</div>
+<p>There is an analytic counterpart to this question. Let <span
+class="math inline">\(F /\mathbb{Q}\)</span> be an abelian extension of
+<span class="math inline">\(\mathbb{Q}\)</span>. Assuming the BSD
+conjecture, the question of diophantine stability takes a different
+form:d <span class="math display">\[\begin{align}
+  {\mathop{\mathrm{rank}}}_{\mathbb{Z}} E(F)
+  &amp;= {\mathop{\mathrm{ord}}}_{s = 1} L(E/F, s) \\
+  &amp;=
+    \sum_{\chi \in \widehat{\mathop{\mathrm{Gal}}(F / \mathbb{Q})}}
+    {\mathop{\mathrm{ord}}}_{s = 1} L(E, \chi, s) \\
+  &amp;=
+    {\mathop{\mathrm{rank}}}_{\mathbb{Z}} E(\mathbb{Q})
+    \sum_{1 \neq \chi \in \widehat{\mathop{\mathrm{Gal}}(F /
+\mathbb{Q})}}
+    {\mathop{\mathrm{ord}}}_{s = 1} L(E, \chi, s).
+\end{align}\]</span> where <span class="math display">\[L(E, \chi, s)
+= \sum_{n \geq 1} a_E(n) \chi(n) n^{- s}.\]</span> The upshot is that
+diophantine stability for <span
+class="math inline">\(F/\mathbb{Q}\)</span> is related, under BSD, to
+understanding when <span class="math inline">\(L(E, \chi, 1) \neq
+0\)</span> for <span class="math inline">\(\chi \in
+\widehat{\mathop{\mathrm{Gal}}(F / \mathbb{Q})}\)</span> with <span
+class="math inline">\(\chi \neq 1\)</span>.</p>
+<div class="question">
+<p><strong>Question 4</strong>. How often is <span
+class="math inline">\(L(E, \chi, 1) \neq 0\)</span> for Dirichlet
+characters <span class="math inline">\(\chi\)</span>?</p>
+</div>
+<h1 id="vertical-analysis">Vertical analysis</h1>
+<p>Let <span class="math inline">\(F_n = \mathbb{Q}(\mu_p)\)</span>,
+<span class="math inline">\(F _\infty = \cup_{n \geq 1} F_n\)</span>
+(<span class="math inline">\(p\)</span>th cyclotomic extension of <span
+class="math inline">\(\mathbb{Q}\)</span>).</p>
+<div class="theorem">
+<p><strong>Theorem 5</strong> (Mazur). <em>If <span
+class="math inline">\(E\)</span> is good at <span
+class="math inline">\(p\)</span>, then <span
+class="math inline">\({\mathop{\mathrm{rank}}}_{\mathbb{Z}} E(F _\infty)
+&lt; \infty\)</span>.</em></p>
+</div>
+<div class="remark">
+<p><strong>Remark 6</strong>. In our langauge of Diophantine stability,
+this means that if <span class="math inline">\(n\)</span> is
+sufficiently large, then <span class="math inline">\(E\)</span> is
+diophantine stable for <span class="math inline">\(F _\infty /
+F_n\)</span>.</p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 7</strong> (Rohrlich). <em>We have <span
+class="math inline">\(L(E, \chi, 1) \neq 0\)</span> for all but finitely
+many <span class="math inline">\(\chi\)</span>, a Dirichlet character of
+<span class="math inline">\(p\)</span>-power conductor. This is an
+exercise in class field theory.</em></p>
+</div>
+<div class="remark">
+<p><strong>Remark 8</strong>. The results of Mazur and Rohrlich should
+be equivalent under BSD, but the speaker doesn’t know of a direct way to
+go between them.</p>
+</div>
+<h1 id="horizontal-analysis">Horizontal analysis</h1>
+<p>Fix <span class="math inline">\(d \geq 2\)</span>. Let <span
+class="math inline">\(L / \mathbb{Q}\)</span> be a cyclic extension, of
+order <span class="math inline">\(d\)</span>. (The corresponding
+Dirichlet characters <span class="math inline">\(\chi\)</span> then have
+order <span class="math inline">\(d\)</span>.)</p>
+<div class="conjecture">
+<p><strong>Conjecture 9</strong> (Goldfeld). <em>Suppose <span
+class="math inline">\(d = 2\)</span>, and let <span
+class="math inline">\(\chi_D\)</span> be a quadratic character of
+conductor <span class="math inline">\(D\)</span>. Then <span
+class="math display">\[{\mathop{\mathrm{ord}}}_{s = 1} L(E, \chi_D, s) =
+    \begin{cases}
+      0      &amp; \text{with probability } 50\%, \\
+      1      &amp; \text{with probability } 50\%, \\
+      \geq 2      &amp; \text{with probability } 0\%. \\
+    \end{cases}\]</span></em></p>
+</div>
+<p>Previous work when <span class="math inline">\(d = 2\)</span>:</p>
+<ul>
+<li><p>Friedberg–Hoffstein, 1990’s</p></li>
+<li><p>Murty–Murty, Ono–Skinner (<span class="math inline">\(\gg X /
+\log X\)</span>);</p></li>
+<li><p>Smith–Kriz</p></li>
+</ul>
+<p>How about when <span class="math inline">\(d &gt; 2\)</span>:</p>
+<div class="conjecture">
+<p><strong>Conjecture 10</strong> (David–Fearnley–Kisilenski). </p>
+</div>
+<h1 id="results">Results</h1>
+<p>We denote by <span class="math inline">\(F_d(X)\)</span> the set of
+relevant Dirichlet characters <span class="math inline">\(\chi
+\pmod{D}\)</span> with <span class="math inline">\(D \leq X\)</span> of
+order <span class="math inline">\(\tau\)</span>. There exists <span
+class="math inline">\(c_d &gt; 0\)</span> such that <span
+class="math display">\[\# F_d(X) \sim c_d X(\log X)^{\sigma_0(d) -
+2}.\]</span> Here <span class="math inline">\(\sigma_0(d)\)</span>
+denotes the number of divisors of <span
+class="math inline">\(d\)</span>.</p>
+<div class="theorem">
+<p><strong>Theorem 11</strong> (Kriz–N 23). <em>Let <span
+class="math inline">\(d \equiv 2\pod{4}\)</span>, <span
+class="math inline">\(d &gt; 2\)</span>. Then there exists <span
+class="math inline">\(\alpha = \alpha(E, d) &gt; 0\)</span> such that
+<span class="math display">\[\# \left\{ x \in F_d(X) : L(E, \chi, 1)
+\neq 0 \right\} \gg \frac{X}{(\log X)^{- \alpha}}.\]</span></em></p>
+</div>
+<div class="remark">
+<p><strong>Remark 12</strong>. Not previously knwon in this setting for
+<span class="math inline">\(n=6\)</span>.</p>
+</div>
+<p>We can also study a more general case, by imposing further
+assumptions.</p>
+<div class="theorem">
+<p><strong>Theorem 13</strong>. <em>We get the same conclusions in the
+following cases:</em></p>
+<ol>
+<li><p><em><span class="math inline">\(L(E, 1) \neq 0\)</span> and there
+exists <span class="math inline">\(p \mid d\)</span> such that <span
+class="math inline">\(\overline{\rho}_{E, p}\)</span> is
+irreducible,</em></p></li>
+<li><p><em><span class="math inline">\(2 \mid d\)</span> and <span
+class="math inline">\(\overline{\rho}_{E, 2}\)</span> is
+irreducible.</em></p></li>
+</ol>
+</div>
+<div class="remark">
+<p><strong>Remark 14</strong>. <span class="math inline">\(d = 2^m,
+\overline{\rho_{E, 2}}\)</span>. if and only if <span
+class="math inline">\(E(\mathbb{Q})[2] = 0\)</span> (satisfied for 100%)
+and <span class="math display">\[\alpha = \alpha(2^m, E)
+    =
+    \begin{cases}
+      m/3        &amp; \mathop{\mathrm{im}}(\bar{\rho}_{E, 2}) \cong
+S_3, \\
+      2 m / 3                   &amp;   \cong \mathbb{Z}/3.
+    \end{cases}\]</span></p>
+</div>
+<p>For <span class="math inline">\(d = 2\)</span>, this improves on Ono
+from 2000’s.</p>
+<div class="theorem">
+<p><strong>Theorem 15</strong> (Simultaneous nonvanishing). <em>For 100%
+of tuples of elliptic curves <span class="math inline">\(E_1, \dotsc,
+E_m\)</span> such that <span class="math inline">\(L(E_i, 1) \neq
+0\)</span>, it holds that: for each <span
+class="math inline">\(d\)</span> and <span class="math inline">\(\alpha
+&gt; 0\)</span>, we have <span class="math display">\[\# \left\{ \chi
+\in F_d(X) : L(E_i, \chi, 1) \neq 0 \,\forall i \right\} \gg
+\frac{X}{(\log X)^{1 - \alpha}}.\]</span></em></p>
+</div>
+<p>The proofs uses horizontal <span
+class="math inline">\(p\)</span>-adic <span
+class="math inline">\(L\)</span>-functions.</p>
+<div class="definition">
+<p><strong>Definition 16</strong>. Fix a prime <span
+class="math inline">\(p\)</span>. Let <span
+class="math inline">\(E/\mathbb{Q}\)</span> be an elliptic curve, of
+conductor <span class="math inline">\(N\)</span>. We say that <span
+class="math inline">\(\ell\)</span> is a <em>Taylor–Wiles prime</em> for
+<span class="math inline">\((E, p)\)</span> if the following three
+conditions are met:</p>
+<ol>
+<li><p><span id="enumerate:cnjgh144b4"
+label="enumerate:cnjgh144b4"></span> <span class="math inline">\((\ell,
+N) = 1\)</span></p></li>
+<li><p><span id="enumerate:cnjgh142qb"
+label="enumerate:cnjgh142qb"></span> <span class="math inline">\(\ell
+\equiv 1 \pod{p}\)</span></p></li>
+<li><p><span id="enumerate:cnjgh14zi3"
+label="enumerate:cnjgh14zi3"></span> <span
+class="math inline">\(a_E(\ell) \not \equiv 2 \pod{p}\)</span>.</p></li>
+</ol>
+<p>We say that <span class="math inline">\(p\)</span> is <span
+class="math inline">\(E\)</span><em>-good</em> if Taylor–Wiles primes
+have positive density.</p>
+</div>
+<div class="remark">
+<p><strong>Remark 17</strong>. The last condition <a
+href="#enumerate:cnjgh14zi3" data-reference-type="eqref"
+data-reference="enumerate:cnjgh14zi3">\((3)\)</a> is
+really one concerning the mod <span class="math inline">\(p\)</span>
+Galois representation <span class="math inline">\(\overline{\rho}_{E,
+p}\)</span>: if the latter is irreducible, then <span
+class="math inline">\(p\)</span> is <span
+class="math inline">\(E\)</span>-good.</p>
+</div>
+<div class="remark">
+<p><strong>Remark 18</strong>. If <span class="math inline">\(E\)</span>
+is non-CM and <span class="math inline">\(p \geq 13\)</span>, then <span
+class="math inline">\(p\)</span> is <span
+class="math inline">\(E\)</span>-good (Zywina).</p>
+</div>
+<p>Thus, let <span class="math inline">\(p\)</span> be <span
+class="math inline">\(E\)</span>-good. We consider <span
+class="math inline">\(\mathcal{L} =(\ell_n)_n\)</span>, where <span
+class="math inline">\(\ell_n \equiv 1 \pod{p}\)</span> and <span
+class="math inline">\(\ell_n\)</span> is a Taylor–Wiles prime for all
+sufficiently large <span class="math inline">\(n\)</span>. Set <span
+class="math display">\[m_n := v_p(\ell_n - 1) \geq 1.\]</span> Defint eh
+<em>horizontal Iwasawa algebra</em> <span
+class="math display">\[\Lambda^{\mathrm{hor}}
+  :=
+  \mathbb{Z}_p
+  \left[ \left[ \prod_{ n \in \mathbb{N}} \mathbb{Z} / p^{m n} \right]
+\right]
+  :=
+  \varprojlim_{
+    \substack{
+      A \leq \mathbb{N}  \\
+      \text{finite}      
+    }
+  }
+  \cong {\mathop{\mathrm{Hom}}}_{\mathrm{cts}} \left( \mathcal{C}(\prod
+\mathbb{Z} / p^{m_n}, \mathbb{Z}_p), \mathbb{Z}_p \right).\]</span>
+Associated to the elliptic curve, we define (using modular symbols) a
+measure <span class="math display">\[\nu_E \in
+\Lambda^{\mathrm{}}\]</span> that interpolates the twistsby characters
+of <span class="math inline">\(p\)</span>-power order, i.e., <span
+class="math display">\[\chi : \prod_{n \in \mathbb{N}} \left( \mathbb{Z}
+/ \ell_n \right)^\ast \rightarrow \bar{\mathbb{Q}}
+^\times.\]</span>&lt;++&gt;</p>
+<p>Now if <span class="math inline">\(\chi\)</span> has <span
+class="math inline">\(p\)</span>-power order, then it factors through
+some character <span class="math display">\[\tilde{\chi} : \prod_{n \in
+\mathbb{N} } \mathbb{Z} / p^{m_n} \rightarrow
+\bar{\mathbb{Q}}^\times.\]</span> The connection is that <span
+class="math display">\[\nu_E(\tilde{\chi}) = (\text{Euler factor})
+\cdot  \frac{L(E, \chi, 1) \tau(\bar{\chi})}{\Omega_E}.\]</span> Pushing
+forward along <span class="math display">\[\prod \mathbb{Z} / p^{m_n}
+\twoheadrightarrow \prod \mathbb{Z} / p =(\mathbb{Z} /
+p)^\infty,\]</span> get <span class="math display">\[\overline{\nu_E}
+\in \mathbb{Z}_p[[(\mathbb{Z} / p)^\infty]]
+  = \Lambda^{\mathrm{diag}}.\]</span></p>
+<div class="theorem">
+<p><strong>Theorem 19</strong> (K–N). <em>Let <span
+class="math inline">\(0 \neq\nu \in \Lambda^{\mathrm{diag}}\)</span>.
+Then <span class="math inline">\(\nu(x) \neq 0\)</span> for a “positive
+proportion” of characters <span class="math inline">\(\chi :(\mathbb{Z}
+/ p)^\infty \rightarrow \bar{\mathbb{Q}}^\times\)</span>. There exists
+<span class="math inline">\(I \subseteq \mathbb{N}\)</span>, a finite
+set, such that for all <span class="math inline">\(\chi :(\mathbb{Z} /
+p)^\infty \rightarrow \bar{\mathbb{Q}}^\times\)</span>, there exists
+<span class="math inline">\(\chi_I : \prod_{n \in I} \mathbb{Z} / p
+\rightarrow \bar{\mathbb{Q}}^\times\)</span> such that <span
+class="math inline">\(\nu(\chi \chi_I) \neq 0.\)</span></em></p>
+</div>
+<p>The <em>upshot</em> is that it suffices to prove <span
+class="math inline">\(\overline{\nu_E} \neq 0\)</span>. This follows if
+we can show any of the following: <span
+class="math display">\[\begin{cases}
+    &amp;   L(E, 1) = \bar{\nu }_E(1) \neq 0 \\
+    p = 2    &amp; \text{Friedberg--Hoffstein}, \\
+    \text{general } p                                          &amp;
+\text{use Kurihara&#39;s conjecture.}
+  \end{cases}\]</span></p>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
