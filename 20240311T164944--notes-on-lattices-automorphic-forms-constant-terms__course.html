@@ -81,6 +81,10 @@
     img {
       max-width: 100%;
     }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
     h1, h2, h3, h4, h5, h6 {
       margin-top: 1.4em;
     }
@@ -184,8 +188,11 @@
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
     ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
       width: 0.8em;
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
@@ -194,6 +201,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -210,17 +218,14 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
   type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
     <div class="my-links-container">
-2024-03-11 18:04:42
+2024-05-13 15:57:27
       <a href="20240311T164944--notes-on-lattices-automorphic-forms-constant-terms__course.tex" class="my-link">tex</a>
       <a href="20240311T164944--notes-on-lattices-automorphic-forms-constant-terms__course.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20240311T164944--notes-on-lattices-automorphic-forms-constant-terms__course.tex" class="my-link">history</a>
@@ -247,7 +252,7 @@ lattices</a></li>
 <li><a href="#sec:org5af6785" id="toc-sec:org5af6785">Basics on the
 space of lattices</a>
 <ul>
-<li><a href="#sec:" id="toc-sec:">References</a></li>
+<li><a href="#references" id="toc-references">References</a></li>
 <li><a href="#sec:" id="toc-sec:">Module-theoretic
 preliminaries</a></li>
 <li><a href="#sec:org729f490" id="toc-sec:org729f490">The
@@ -465,7 +470,7 @@ that trilinear form.</p>
 <p>We continue to regard <span
 class="math inline">\(\mathbb{R}^n\)</span> as a space of row
 vectors.</p>
-<h2 class="unnumbered" id="sec:">References</h2>
+<h2 class="unnumbered" id="references">References</h2>
 <p>Some expositions are Borel <a href="#ref-MR3970984" class="citation"
 data-cites="MR3970984">(Borel 2019)</a>, Morris <a href="#ref-MR3307755"
 class="citation" data-cites="MR3307755">(Morris 2015)</a>, and
@@ -595,7 +600,7 @@ v_2\)</span>, as we would otherwise have <span
 class="math inline">\(v_2/N \in \mathcal{L}\)</span>, contrary to the
 minimality of the length of <span class="math inline">\(v_2\)</span>.
 Choose a vector <span class="math inline">\(v_1 \in \mathcal{L} -
-\mathbb{Z} v_1\)</span> of shortest length. Write <span
+\mathbb{Z} v_2\)</span> of shortest length. Write <span
 class="math inline">\(v_1 = (x,y)\)</span>. By replacing <span
 class="math inline">\(v_1\)</span> with its negative, we may assume that
 <span class="math inline">\(y &gt; 0\)</span>. Then <span
@@ -733,16 +738,17 @@ class="math inline">\(C\)</span> depends only upon <span
 class="math inline">\(n\)</span>, while <span class="math inline">\(A
 \asymp B\)</span> means that <span class="math inline">\(A \ll B \ll
 A\)</span>.</p>
-<div id="item:siegel-finitely-many-gamma" class="theorem">
-<p><strong>Theorem 9</strong>. <em><span
-id="thm:existence-reduced-basis"
-label="thm:existence-reduced-basis"></span> Let <span
-class="math inline">\(L \subseteq \mathbb{R}^n\)</span> be a
-lattice.</em></p>
+<div id="thm:existence-reduced-basis" class="theorem">
+<p><strong>Theorem 9</strong>. <em>Let <span class="math inline">\(L
+\subseteq \mathbb{R}^n\)</span> be a lattice.</em></p>
 <ol type="i">
-<li><p><em>There is at least one reduced basis.</em></p></li>
-<li><p><em>Let <span class="math inline">\(v_1,\dotsc,v_n\)</span> be
-any reduced basis, with accompanying notation as above. Let <span
+<li><p><em><span id="enumerate:cnjdp29fme"
+label="enumerate:cnjdp29fme"></span> There is at least one reduced
+basis.</em></p></li>
+<li><p><em><span id="enumerate:cnjdp29gt9"
+label="enumerate:cnjdp29gt9"></span> Let <span
+class="math inline">\(v_1,\dotsc,v_n\)</span> be any reduced basis, with
+accompanying notation as above. Let <span
 class="math inline">\(T\)</span> be the linear transformation sending
 <span class="math inline">\(v_i&#39;\)</span> to <span
 class="math inline">\(v_i\)</span>. Then <span
@@ -755,25 +761,30 @@ have <span id="eqn:reduced-basis-approx-orth" class="math display">\[\label{eqn:
       \asymp \max_{1 \leq i \leq n} a_i |c_i|.\]</span> In particular,
 <span class="math inline">\(|v_i| \asymp |v_i&#39;| =
 a_i\)</span>.</em></p></li>
-<li><p><em>If <span class="math inline">\(v_1,\dotsc,v_n\)</span> and
-<span class="math inline">\(w_1,\dotsc,w_n\)</span> are two reduced
-bases, then <span class="math inline">\(|v_i&#39;| \asymp
-|w_i&#39;|\)</span>. Thus the Iwasawa coordinates <span
-class="math inline">\(a_i\)</span> of a lattice are “well-defined up to
-constants depending only upon <span
+<li><p><em><span id="enumerate:cnjdp29o76"
+label="enumerate:cnjdp29o76"></span> If <span
+class="math inline">\(v_1,\dotsc,v_n\)</span> and <span
+class="math inline">\(w_1,\dotsc,w_n\)</span> are two reduced bases,
+then <span class="math inline">\(|v_i&#39;| \asymp |w_i&#39;|\)</span>.
+Thus the Iwasawa coordinates <span class="math inline">\(a_i\)</span> of
+a lattice are “well-defined up to constants depending only upon <span
 class="math inline">\(n\)</span>.”</em></p></li>
-<li><p><em>Let <span class="math inline">\(C \geq 1\)</span> be large
-enough in terms of <span class="math inline">\(n\)</span>. Suppose that
-<span class="math inline">\(v_1,\dotsc,v_n\)</span> is a reduced basis.
-Let <span class="math inline">\(i \in \{1, \dotsc, n-1\}\)</span>.
-Suppose that <span class="math display">\[a_i / a_{i+1} &gt; C.\]</span>
-Then the <span class="math inline">\(\mathbb{Z}\)</span>-module <span
+<li><p><em><span id="enumerate:cnjdp29qgg"
+label="enumerate:cnjdp29qgg"></span> Let <span class="math inline">\(C
+\geq 1\)</span> be large enough in terms of <span
+class="math inline">\(n\)</span>. Suppose that <span
+class="math inline">\(v_1,\dotsc,v_n\)</span> is a reduced basis. Let
+<span class="math inline">\(i \in \{1, \dotsc, n-1\}\)</span>. Suppose
+that <span class="math display">\[a_i / a_{i+1} &gt; C.\]</span> Then
+the <span class="math inline">\(\mathbb{Z}\)</span>-module <span
 class="math display">\[\langle v_{i+1},\dotsc,v_n \rangle\]</span>
 depends only upon <span class="math inline">\(L\)</span>, not upon the
 choice of reduced basis.</em></p></li>
-<li><p><em>Let <span class="math inline">\(v_1,\dotsc,v_n\)</span> and
-<span class="math inline">\(w_1,\dotsc,w_n\)</span> be reduced bases of
-the same lattice. Let <span class="math inline">\(\gamma \in
+<li><p><em><span id="item:siegel-finitely-many-gamma"
+label="item:siegel-finitely-many-gamma"></span> Let <span
+class="math inline">\(v_1,\dotsc,v_n\)</span> and <span
+class="math inline">\(w_1,\dotsc,w_n\)</span> be reduced bases of the
+same lattice. Let <span class="math inline">\(\gamma \in
 {\mathop{\mathrm{GL}}}_n(\mathbb{Z})\)</span> be the change of basis
 matrix relating the two bases, thus <span class="math display">\[w_i =
 \sum_{j} \gamma_{i j} v_j.\]</span> Then each entry <span
@@ -1189,12 +1200,11 @@ j\}\)</span>.</p>
 <div class="exercise">
 <p><strong>Exercise 2</strong>. Adapt the proof of Theorem <a
 href="#thm:existence-reduced-basis" data-reference-type="ref"
-data-reference="thm:existence-reduced-basis">9</a>
-to show that any discrete subgroup <span class="math inline">\(\Lambda
-\subseteq \mathbb{R}^n\)</span> is of the form <span
-class="math inline">\(\Lambda = \oplus_{i=1}^m \mathbb{Z} v_i\)</span>
-for some linearly independent subset <span
-class="math inline">\(\{v_1,\dotsc,v_m\} \subseteq
+data-reference="thm:existence-reduced-basis">9</a> to show that any
+discrete subgroup <span class="math inline">\(\Lambda \subseteq
+\mathbb{R}^n\)</span> is of the form <span class="math inline">\(\Lambda
+= \oplus_{i=1}^m \mathbb{Z} v_i\)</span> for some linearly independent
+subset <span class="math inline">\(\{v_1,\dotsc,v_m\} \subseteq
 \mathbb{R}^n\)</span>. Deduce that the following conditions on a
 subgroup <span class="math inline">\(\Lambda \subseteq
 \mathbb{R}^n\)</span> are equivalent.</p>
@@ -2233,10 +2243,10 @@ n-1\)</span>.</p>
 <ol type="i">
 <li><p>With notation as in Theorem <a
 href="#thm:existence-reduced-basis" data-reference-type="ref"
-data-reference="thm:existence-reduced-basis">9</a>,
-let <span class="math inline">\(v_n,\dotsc,v_1\)</span> be a reduced
-basis of <span class="math inline">\(L\)</span> (it will be convenient
-to reverse the usual numbering) and <span class="math inline">\(a_j :=
+data-reference="thm:existence-reduced-basis">9</a>, let <span
+class="math inline">\(v_n,\dotsc,v_1\)</span> be a reduced basis of
+<span class="math inline">\(L\)</span> (it will be convenient to reverse
+the usual numbering) and <span class="math inline">\(a_j :=
 |v_j&#39;|\)</span> the corresponding Iwasawa coordinates, so that <span
 class="math inline">\(a_1 \ll \dotsb \ll a_n\)</span>. Verify that <span
 class="math inline">\(a_1 \dotsb a_m\)</span> is the covolume of the
@@ -2376,10 +2386,10 @@ class="math inline">\(\{u \in N : |u_{i j}| \leq 1/2 \forall i &lt;
 j\}\)</span>, as one verifies readily either directly or by adopting the
 proof of Theorem <a href="#thm:existence-reduced-basis"
 data-reference-type="ref"
-data-reference="thm:existence-reduced-basis">9</a>.
-The group <span class="math inline">\(K\)</span> is compact. We thereby
-reduce to verifying the finiteness of <span class="math display">\[\int
-_{a \in {}^- A}
+data-reference="thm:existence-reduced-basis">9</a>. The group <span
+class="math inline">\(K\)</span> is compact. We thereby reduce to
+verifying the finiteness of <span class="math display">\[\int _{a \in
+{}^- A}
   a^{s - 2 \rho}
   \, d a\]</span> whenever <span class="math inline">\(s - 2
 \rho\)</span> is strictly dominant, where as usual <span
@@ -3265,9 +3275,8 @@ j\}.\]</span></p>
 the shape of Siegel domains (see handwritten notes from Lecture 2) and
 in our proof of Theorem <a href="#thm:existence-reduced-basis"
 data-reference-type="ref"
-data-reference="thm:existence-reduced-basis">9</a>,
-part <a href="#item:siegel-finitely-many-gamma"
-data-reference-type="eqref"
+data-reference="thm:existence-reduced-basis">9</a>, part <a
+href="#item:siegel-finitely-many-gamma" data-reference-type="eqref"
 data-reference="item:siegel-finitely-many-gamma">\((v)\)</a>.</p>
 <div class="exercise">
 <p><strong>Exercise 24</strong>. With notation as above, we have <span
@@ -3277,16 +3286,14 @@ class="math inline">\(M\)</span> and <span
 class="math inline">\(U\)</span>, with <span
 class="math inline">\(U\)</span> normal.</p>
 </div>
-<div id="itm:stoes2021:2" class="example">
-<p><strong>Example 66</strong>. <span id="example:stoes2021:take-g-="
-label="example:stoes2021:take-g-="></span> Take <span
-class="math inline">\(G = {\mathop{\mathrm{SL}}}_4\)</span>. Given a
-sequence <span class="math inline">\(x^{(\ell)}\)</span>, we get an
-equivalence relation <span class="math inline">\(\sim\)</span>
-(equivalently, a subset of <span
-class="math inline">\(\{0,1,2,3\}\)</span>, or a composition of <span
-class="math inline">\(4\)</span>), hence a standard parabolic subgroup
-<span class="math inline">\(P = M U\)</span>.</p>
+<div id="example:stoes2021:take-g-=" class="example">
+<p><strong>Example 66</strong>. Take <span class="math inline">\(G =
+{\mathop{\mathrm{SL}}}_4\)</span>. Given a sequence <span
+class="math inline">\(x^{(\ell)}\)</span>, we get an equivalence
+relation <span class="math inline">\(\sim\)</span> (equivalently, a
+subset of <span class="math inline">\(\{0,1,2,3\}\)</span>, or a
+composition of <span class="math inline">\(4\)</span>), hence a standard
+parabolic subgroup <span class="math inline">\(P = M U\)</span>.</p>
 <ol type="i">
 <li><p>If <span class="math inline">\(x^{(\ell)} =
 \mathop{\mathrm{diag}}(\ell^2, \ell, \ell^{-1}, \ell^{-2})\)</span>,
@@ -3370,9 +3377,9 @@ class="math display">\[P =
 class="math display">\[\{1,3\} \subseteq \{0,1,2,3\},
       \quad
       4 = 2 + 2.\]</span></p></li>
-<li><p>If <span class="math inline">\(x^{(\ell)} :=
-\mathop{\mathrm{diag}}(\ell, \ell, \ell, \ell^{-3})\)</span>, then <span
-class="math display">\[P =
+<li><p><span id="itm:stoes2021:2" label="itm:stoes2021:2"></span> If
+<span class="math inline">\(x^{(\ell)} := \mathop{\mathrm{diag}}(\ell,
+\ell, \ell, \ell^{-3})\)</span>, then <span class="math display">\[P =
       \begin{pmatrix}
         \ast &amp; \ast &amp; \ast &amp; \ast \\
         \ast &amp; \ast &amp; \ast &amp; \ast \\
@@ -3632,10 +3639,9 @@ data-reference="itm:stoes2021:1">\((iii)\)</a> and <a
 href="#itm:stoes2021:2" data-reference-type="eqref"
 data-reference="itm:stoes2021:2">\((iv)\)</a> of Example <a
 href="#example:stoes2021:take-g-=" data-reference-type="ref"
-data-reference="example:stoes2021:take-g-=">66</a>,
-but not the other cases). Then every <span
-class="math inline">\(\beta\)</span> as in Proposition <a
-href="#prop:let-varphi-be" data-reference-type="ref"
+data-reference="example:stoes2021:take-g-=">66</a>, but not the other
+cases). Then every <span class="math inline">\(\beta\)</span> as in
+Proposition <a href="#prop:let-varphi-be" data-reference-type="ref"
 data-reference="prop:let-varphi-be">72</a> is an integer multiple of the
 element <span class="math inline">\(\alpha\)</span> given by <span
 class="math inline">\(a^{\alpha} = a_{n_1} / a_{n_1+1}\)</span>, and so
@@ -4380,7 +4386,7 @@ subrepresentations. The result may be understood as an analogue for
 of the space of trigonometric polynomials inside <span
 class="math inline">\(L^2(\mathbb{R}/\mathbb{Z})\)</span>.</p>
 <div id="refs" class="references csl-bib-body hanging-indent"
-role="list">
+data-entry-spacing="0" role="list">
 <div id="ref-MR1482800" class="csl-entry" role="listitem">
 Borel, Armand. 1997. <em>Automorphic Forms on <span><span
 class="math inline">\({\rm SL}_2({\bf R})\)</span></span></em>. Vol.
