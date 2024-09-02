@@ -12,7 +12,7 @@
 # #+HTML_HEAD:    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/jszip-2.5.0/dt-1.10.18/af-2.3.2/b-1.5.2/b-html5-1.5.2/b-print-1.5.2/r-2.2.2/sl-1.2.6/datatables.min.js"></script>
 
 * CIRM School <2024-09-02 Mon>--<2024-09-03 Tue>
-- [[tex-html:20240902T121422--cirm-subconvexity.tex]]
+- [[tex-html:20240902T121422--cirm-subconvexity]]
 
 * Updates
 #+BEGIN_EXPORT html
