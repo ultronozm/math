@@ -1,0 +1,52 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\begin{document}
+
+\section{Some things to think about in the afternoons and beyond}
+
+\begin{enumerate}
+\item Understand the details of the consequences of subconvexity mentioned in lecture (reference: \cite[\S5]{MR2331346}):
+  \begin{itemize}
+  \item Subconvexity vs.\ geometry of numbers.
+    % For a fundamental discriminant $d < 0$, $K = \mathbb{Q}(\sqrt{d})$, $H < \mathrm{Cl}(K)$ of index $\lvert d \rvert^s$ with $s > 0$ small enough, we can find an ideal $\mathfrak{a}$ with $[\mathfrak{a}] \subseteq H$ such that $\mathrm{Nr}(\mathfrak{a}) \leq \lvert d \rvert^{1/2 - s '}$ for some fixed $s' > 0$.
+  \item Distinguishing modular forms.
+  \item Duke theorem.  Reduction of supersingular elliptic curves.
+  \item Quantum unique ergodicity.  One exercise here is to understand how this follows from subconvexity in the special case of Eisenstein series, as in \cite[\S2]{MR1361757}.
+  \end{itemize}
+
+\item Some ``classic'' papers (non-exhaustive):
+  \begin{itemize}
+  \item Bounds for Fourier coefficients of half-integral weight, applications to quadratic forms: \cite{MR870736}, \cite{MR931205}, \cite{MR1437494}
+  \item Subconvexity for $\GL_2$: \cite{DFI93} \cite{DFI94} \cite{DFI01}.
+  \item Moments and amplification via periods:  \cite{venkatesh-2005}, \cite{michel-2009}, \cite{iwan-sar}, \cite{MR780071}.
+  \item Shifted convolution sums:
+    \begin{itemize}
+    \item via $\delta$-symbol: \cite{DFI93}
+    \item via periods: \cite{Sar01}\cite{MR2437682}, \cite{2024arXiv2404.10692}.
+    \end{itemize}
+  \item Papers emphasizing variation of the test vector:   \cite{MR2373356, MR2726097, venkatesh-2005}.
+  \end{itemize}
+  One exercise is draw parallels, e.g., between
+  \begin{itemize}
+  \item \cite{michel-2009}[Thm 5.1] and \cite{DFI93},
+  \item \cite[\S4]{venkatesh-2005} and \cite{DFI94}, or
+  \item \cite{michel-2009}[Thm 5.2] and \cite{DFI01}.
+  \end{itemize}
+  Another is to reprove some results using different methods, e.g., by working out a ``classical'' proof in the style of \cite{DFI01} for subconvexity for Maass forms at special points, namely, for $L(1/2 + i t_f, f)$ with $f$ on $\SL_2(\mathbb{Z})$ of eigenvalue $1/4 + t_f^2$, by estimating an amplified fourth moment.
+  
+\item Some recent papers, concerning subconvexity or related problems, that haven't been fully explored (e.g., interpreted via integral representations):
+  \begin{itemize}
+  \item $\delta$-method papers such as \cite{MR4416133} and \cite{2022arXiv2206.06517}
+  \item Higher moments over very large families, as in \cite{MR4216694}, \cite{MR4067357}
+  \item Rankin--Selberg when the rank difference is larger than one, as in \cite{MR3996341}
+  \end{itemize}
+
+\item Higher rank subconvex bounds \cite{MR4203038, 2023arXiv2309.16667, 2020arXiv201202187N, 2021arXiv210915230N, 2023arXiv2309.06314}.  There are many ``exercises'' implicit in these papers; for instance, a half-dozen are suggested in \cite[Remark 1.4]{2020arXiv201202187N}.  Some other questions:
+  \begin{itemize}
+  \item These have all proceeded via arithmetic amplification.  Is it possible to succeed in some cases via ``family shortening'' (as in, e.g., \cite{Sar01})?  A natural case to try would be the $t$-aspect.  Some experiments with $\GL_2$ suggest this is difficult (see \url{https://ultronozm.github.io/math/20230522T174726__shrinking-archimedean-families-second-moment-gl2.html}).
+  \end{itemize} ``Purely horizontal'' aspects remain open, e.g., twists by Dirichlet characters of prime conductor on $\GL_4$.
+\end{enumerate}
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
