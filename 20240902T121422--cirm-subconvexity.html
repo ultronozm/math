@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>20240902T121422--cirm-subconvexity</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+    <div class="my-links-container">
+2024-09-02 12:19:31
+      <a href="20240902T121422--cirm-subconvexity.tex" class="my-link">tex</a>
+      <a href="20240902T121422--cirm-subconvexity.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20240902T121422--cirm-subconvexity.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#some-things-to-think-about-in-the-afternoons-and-beyond"
+id="toc-some-things-to-think-about-in-the-afternoons-and-beyond">Some
+things to think about in the afternoons and beyond</a></li>
+</ul>
+</nav>
+<h1 id="some-things-to-think-about-in-the-afternoons-and-beyond">Some
+things to think about in the afternoons and beyond</h1>
+<ol>
+<li><p>Understand the details of the consequences of subconvexity
+mentioned in lecture (reference: <a href="#ref-MR2331346" class="citation"
+data-cites="MR2331346">(Michel 2007, sec. 5)</a>):</p>
+<ul>
+<li><p>Subconvexity vs. geometry of numbers.</p></li>
+<li><p>Distinguishing modular forms.</p></li>
+<li><p>Duke theorem. Reduction of supersingular elliptic
+curves.</p></li>
+<li><p>Quantum unique ergodicity. One exercise here is to understand how
+this follows from subconvexity in the special case of Eisenstein series,
+as in <a href="#ref-MR1361757" class="citation" data-cites="MR1361757">(Luo and Sarnak
+1995, sec. 2)</a>.</p></li>
+</ul></li>
+<li><p>Some “classic” papers (non-exhaustive):</p>
+<ul>
+<li><p>Bounds for Fourier coefficients of half-integral weight,
+applications to quadratic forms: <a href="#ref-MR870736" class="citation"
+data-cites="MR870736">(Iwaniec 1987)</a>, <a href="#ref-MR931205" class="citation"
+data-cites="MR931205">(Duke 1988)</a>, <a href="#ref-MR1437494" class="citation"
+data-cites="MR1437494">(Duke, Friedlander, and Iwaniec
+1997)</a></p></li>
+<li><p>Subconvexity for <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span>: <a href="#ref-DFI93"
+class="citation" data-cites="DFI93">(Duke, Friedlander, and Iwaniec
+1993)</a> <a href="#ref-DFI94" class="citation" data-cites="DFI94">(Duke,
+Friedlander, and Iwaniec 1994)</a> <a href="#ref-DFI01" class="citation"
+data-cites="DFI01">(Duke, Friedlander, and Iwaniec
+2001)</a>.</p></li>
+<li><p>Moments and amplification via periods: <a href="#ref-venkatesh-2005" class="citation"
+data-cites="venkatesh-2005">(Venkatesh 2010)</a>, <a href="#ref-michel-2009"
+class="citation" data-cites="michel-2009">(Michel and Venkatesh
+2010)</a>, <a href="#ref-iwan-sar" class="citation" data-cites="iwan-sar">(Iwaniec and
+Sarnak 1995)</a>, <a href="#ref-MR780071" class="citation"
+data-cites="MR780071">(Sarnak 1985)</a>.</p></li>
+<li><p>Shifted convolution sums:</p>
+<ul>
+<li><p>via <span class="math inline">\(\delta\)</span>-symbol: <a href="#ref-DFI93"
+class="citation" data-cites="DFI93">(Duke, Friedlander, and Iwaniec
+1993)</a></p></li>
+<li><p>via periods: <a href="#ref-Sar01" class="citation" data-cites="Sar01">(Sarnak
+2001)</a><a href="#ref-MR2437682" class="citation" data-cites="MR2437682">(Blomer and
+Harcos 2008)</a>, <a href="#ref-2024arXiv2404.10692" class="citation"
+data-cites="2024arXiv2404.10692">(Blomer, Jana, and Nelson
+2024)</a>.</p></li>
+</ul></li>
+<li><p>Papers emphasizing variation of the test vector: <a href="#ref-MR2373356 MR2726097 venkatesh-2005"
+class="citation"
+data-cites="MR2373356 MR2726097 venkatesh-2005">(Reznikov 2008;
+Bernstein and Reznikov 2010; Venkatesh 2010)</a>.</p></li>
+</ul>
+<p>One exercise is draw parallels, e.g., between</p>
+<ul>
+<li><p><a href="#ref-michel-2009" class="citation" data-cites="michel-2009">(Michel and
+Venkatesh 2010)</a>[Thm 5.1] and <a href="#ref-DFI93" class="citation"
+data-cites="DFI93">(Duke, Friedlander, and Iwaniec
+1993)</a>,</p></li>
+<li><p><a href="#ref-venkatesh-2005" class="citation" data-cites="venkatesh-2005">(Venkatesh
+2010, sec. 4)</a> and <a href="#ref-DFI94" class="citation"
+data-cites="DFI94">(Duke, Friedlander, and Iwaniec 1994)</a>,
+or</p></li>
+<li><p><a href="#ref-michel-2009" class="citation" data-cites="michel-2009">(Michel and
+Venkatesh 2010)</a>[Thm 5.2] and <a href="#ref-DFI01" class="citation"
+data-cites="DFI01">(Duke, Friedlander, and Iwaniec
+2001)</a>.</p></li>
+</ul>
+<p>Another is to reprove some results using different methods, e.g., by
+working out a “classical” proof in the style of <a href="#ref-DFI01" class="citation"
+data-cites="DFI01">(Duke, Friedlander, and Iwaniec 2001)</a> for
+subconvexity for Maass forms at special points, namely, for <span
+class="math inline">\(L(1/2 + i t_f, f)\)</span> with <span
+class="math inline">\(f\)</span> on <span
+class="math inline">\({\mathop{\mathrm{SL}}}_2(\mathbb{Z})\)</span> of
+eigenvalue <span class="math inline">\(1/4 + t_f^2\)</span>, by
+estimating an amplified fourth moment.</p></li>
+<li><p>Some recent papers, concerning subconvexity or related problems,
+that haven’t been fully explored (e.g., interpreted via integral
+representations):</p>
+<ul>
+<li><p><span class="math inline">\(\delta\)</span>-method papers such as
+<a href="#ref-MR4416133" class="citation" data-cites="MR4416133">(Sharma 2022)</a> and
+<a href="#ref-2022arXiv2206.06517" class="citation" data-cites="2022arXiv2206.06517">(Aggarwal,
+Leung, and Munshi 2022)</a></p></li>
+<li><p>Higher moments over very large families, as in <a href="#ref-MR4216694"
+class="citation" data-cites="MR4216694">(Chandee and Li 2020a)</a>,
+<a href="#ref-MR4067357" class="citation" data-cites="MR4067357">(Chandee and Li
+2020b)</a></p></li>
+<li><p>Rankin–Selberg when the rank difference is larger than one, as in
+<a href="#ref-MR3996341" class="citation" data-cites="MR3996341">(Blomer, Li, and Miller
+2019)</a></p></li>
+</ul></li>
+<li><p>Higher rank subconvex bounds <a href="#ref-MR4203038 2023arXiv2309.16667 2020arXiv201202187N 2021arXiv210915230N 2023arXiv2309.06314" class="citation"
+data-cites="MR4203038 2023arXiv2309.16667 2020arXiv201202187N 2021arXiv210915230N 2023arXiv2309.06314">(Blomer
+and Buttcane 2020; Marshall 2023; Nelson 2023, 2021; Hu and Nelson
+2023)</a>. There are many “exercises” implicit in these papers; for
+instance, a half-dozen are suggested in <a href="#ref-2020arXiv201202187N" class="citation"
+data-cites="2020arXiv201202187N">(Nelson 2023, Remark 1.4)</a>. Some
+other questions:</p>
+<ul>
+<li><p>These have all proceeded via arithmetic amplification. Is it
+possible to succeed in some cases via “family shortening” (as in, e.g.,
+<a href="#ref-Sar01" class="citation" data-cites="Sar01">(Sarnak 2001)</a>)? A
+natural case to try would be the <span
+class="math inline">\(t\)</span>-aspect. Some experiments with <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span> suggest this is
+difficult (see <a
+href="https://ultronozm.github.io/math/20230522T174726__shrinking-archimedean-families-second-moment-gl2.html"
+class="uri">https://ultronozm.github.io/math/20230522T174726__shrinking-archimedean-families-second-moment-gl2.html</a>).</p></li>
+</ul>
+<p>“Purely horizontal” aspects remain open, e.g., twists by Dirichlet
+characters of prime conductor on <span
+class="math inline">\({\mathop{\mathrm{GL}}}_4\)</span>.</p></li>
+</ol>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-2022arXiv2206.06517" class="csl-entry" role="listitem">
+Aggarwal, Keshav, Wing Hong Leung, and Ritabrata Munshi. 2022.
+<span>“Short Second Moment Bound and Subconvexity for GL(3) <span
+class="math inline">\(L\)</span>-Functions,”</span> June. <a
+href="http://arxiv.org/abs/2206.06517v2">http://arxiv.org/abs/2206.06517v2</a>.
+</div>
+<div id="ref-MR2726097" class="csl-entry" role="listitem">
+Bernstein, Joseph, and Andre Reznikov. 2010. <span>“Subconvexity Bounds
+for Triple <span><span class="math inline">\(L\)</span></span>-Functions
+and Representation Theory.”</span> <em>Ann. Of Math. (2)</em> 172 (3):
+1679–1718. <a
+href="https://doi.org/10.4007/annals.2010.172.1679">https://doi.org/10.4007/annals.2010.172.1679</a>.
+</div>
+<div id="ref-MR4203038" class="csl-entry" role="listitem">
+Blomer, Valentin, and Jack Buttcane. 2020. <span>“On the Subconvexity
+Problem for <span><span
+class="math inline">\(L\)</span></span>-Functions on <span><span
+class="math inline">\(\rm
+              GL(3)\)</span></span>.”</span> <em>Ann. Sci. Éc. Norm.
+Supér. (4)</em> 53 (6): 1441–1500. <a
+href="https://doi.org/10.24033/asens.245">https://doi.org/10.24033/asens.245</a>.
+</div>
+<div id="ref-MR2437682" class="csl-entry" role="listitem">
+Blomer, Valentin, and Gergely Harcos. 2008. <span>“The Spectral
+Decomposition of Shifted Convolution Sums.”</span> <em>Duke Math.
+J.</em> 144 (2): 321–39. <a
+href="https://doi.org/10.1215/00127094-2008-038">https://doi.org/10.1215/00127094-2008-038</a>.
+</div>
+<div id="ref-2024arXiv2404.10692" class="csl-entry" role="listitem">
+Blomer, Valentin, Subhajit Jana, and Paul D. Nelson. 2024. <span>“Local
+Integral Transforms and Global Spectral Decomposition,”</span> April. <a
+href="http://arxiv.org/abs/2404.10692v1">http://arxiv.org/abs/2404.10692v1</a>.
+</div>
+<div id="ref-MR3996341" class="csl-entry" role="listitem">
+Blomer, Valentin, Xiaoqing Li, and Stephen D. Miller. 2019. <span>“A
+Spectral Reciprocity Formula and Non-Vanishing for <span><span
+class="math inline">\(L\)</span></span>-Functions on <span><span
+class="math inline">\({\rm GL}(4)\times {\rm
+GL}(2)\)</span></span>.”</span> <em>J. Number Theory</em> 205: 1–43. <a
+href="https://doi.org/10.1016/j.jnt.2019.05.011">https://doi.org/10.1016/j.jnt.2019.05.011</a>.
+</div>
+<div id="ref-MR4216694" class="csl-entry" role="listitem">
+Chandee, Vorrapan, and Xiannan Li. 2020a. <span>“The 8th Moment of the
+Family of <span><span
+class="math inline">\(\Gamma_1(q)\)</span></span>-Automorphic
+<span><span class="math inline">\(L\)</span></span>-Functions.”</span>
+<em>Int. Math. Res. Not. IMRN</em>, no. 22: 8443–85. <a
+href="https://doi.org/10.1093/imrn/rny228">https://doi.org/10.1093/imrn/rny228</a>.
+</div>
+<div id="ref-MR4067357" class="csl-entry" role="listitem">
+———. 2020b. <span>“The Second Moment of <span><span
+class="math inline">\(GL(4)\times GL(2)\)</span></span> <span><span
+class="math inline">\(L\)</span></span>-Functions at Special
+Points.”</span> <em>Adv. Math.</em> 365: 107060, 39. <a
+href="https://doi.org/10.1016/j.aim.2020.107060">https://doi.org/10.1016/j.aim.2020.107060</a>.
+</div>
+<div id="ref-MR931205" class="csl-entry" role="listitem">
+Duke, W. 1988. <span>“Hyperbolic Distribution Problems and Half-Integral
+Weight <span>M</span>aass Forms.”</span> <em>Invent. Math.</em> 92 (1):
+73–90. <a
+href="https://doi.org/10.1007/BF01393993">https://doi.org/10.1007/BF01393993</a>.
+</div>
+<div id="ref-DFI94" class="csl-entry" role="listitem">
+Duke, W., J. B. Friedlander, and H. Iwaniec. 1994. <span>“Bounds for
+Automorphic <span><span
+class="math inline">\(L\)</span></span>-Functions.
+<span>II</span>.”</span> <em>Invent. Math.</em> 115 (2): 219–39.
+</div>
+<div id="ref-DFI01" class="csl-entry" role="listitem">
+———. 2001. <span>“Bounds for Automorphic <span><span
+class="math inline">\(L\)</span></span>-Functions.
+<span>III</span>.”</span> <em>Invent. Math.</em> 143 (2): 221–48.
+</div>
+<div id="ref-DFI93" class="csl-entry" role="listitem">
+Duke, W., J. Friedlander, and H. Iwaniec. 1993. <span>“Bounds for
+Automorphic <span><span
+class="math inline">\(L\)</span></span>-Functions.”</span> <em>Invent.
+Math.</em> 112 (1): 1–8.
+</div>
+<div id="ref-MR1437494" class="csl-entry" role="listitem">
+———. 1997. <span>“Bilinear Forms with <span>K</span>loosterman
+Fractions.”</span> <em>Invent. Math.</em> 128 (1): 23–43. <a
+href="https://doi.org/10.1007/s002220050135">https://doi.org/10.1007/s002220050135</a>.
+</div>
+<div id="ref-2023arXiv2309.06314" class="csl-entry" role="listitem">
+Hu, Yueke, and Paul D Nelson. 2023. <span>“Subconvex Bounds for <span
+class="math inline">\(U_{n+1}\times U_n\)</span> in Horizontal
+Aspects,”</span> September. <a
+href="http://arxiv.org/abs/2309.06314v2">http://arxiv.org/abs/2309.06314v2</a>.
+</div>
+<div id="ref-MR870736" class="csl-entry" role="listitem">
+Iwaniec, Henryk. 1987. <span>“Fourier Coefficients of Modular Forms of
+Half-Integral Weight.”</span> <em>Invent. Math.</em> 87 (2): 385–401. <a
+href="https://doi.org/10.1007/BF01389423">https://doi.org/10.1007/BF01389423</a>.
+</div>
+<div id="ref-iwan-sar" class="csl-entry" role="listitem">
+Iwaniec, Henryk, and Peter Sarnak. 1995. <span>“<span><span
+class="math inline">\(L^\infty\)</span></span> Norms of Eigenfunctions
+of Arithmetic Surfaces.”</span> <em>Ann. Of Math. (2)</em> 141 (2):
+301–20. <a
+href="https://doi.org/10.2307/2118522">https://doi.org/10.2307/2118522</a>.
+</div>
+<div id="ref-MR1361757" class="csl-entry" role="listitem">
+Luo, Wenzhi, and Peter Sarnak. 1995. <span>“Quantum Ergodicity of
+Eigenfunctions on <span><span class="math inline">\({\rm PSL}_2(\bold
+              Z)\backslash \bold H^2\)</span></span>.”</span> <em>Inst.
+Hautes Études Sci. Publ. Math.</em>, no. 81: 207–37. <a
+href="http://www.numdam.org/item?id=PMIHES_1995__81__207_0">http://www.numdam.org/item?id=PMIHES_1995__81__207_0</a>.
+</div>
+<div id="ref-2023arXiv2309.16667" class="csl-entry" role="listitem">
+Marshall, Simon. 2023. <span>“Subconvexity for <span
+class="math inline">\(L\)</span>-Functions on <span
+class="math inline">\({\rm U}(n) \times {\rm U}(n+1)\)</span> in the
+Depth Aspect,”</span> September. <a
+href="http://arxiv.org/abs/2309.16667v1">http://arxiv.org/abs/2309.16667v1</a>.
+</div>
+<div id="ref-MR2331346" class="csl-entry" role="listitem">
+Michel, Philippe. 2007. <span>“Analytic Number Theory and Families of
+Automorphic <span><span
+class="math inline">\(L\)</span></span>-Functions.”</span> In
+<em>Automorphic Forms and Applications</em>, 12:181–295. IAS/Park City
+Math. Ser. Providence, RI: Amer. Math. Soc.
+</div>
+<div id="ref-michel-2009" class="csl-entry" role="listitem">
+Michel, Philippe, and Akshay Venkatesh. 2010. <span>“The Subconvexity
+Problem for <span><span class="math inline">\({\rm
+GL}_2\)</span></span>.”</span> <em>Publ. Math. Inst. Hautes Études
+Sci.</em>, no. 111: 171–271. <a
+href="https://doi.org/10.1007/s10240-010-0025-8">https://doi.org/10.1007/s10240-010-0025-8</a>.
+</div>
+<div id="ref-2021arXiv210915230N" class="csl-entry" role="listitem">
+Nelson, Paul D. 2021. <span>“<span class="nocase">Bounds for standard
+<span><span
+class="math inline">\(L\)</span></span>-functions</span>.”</span>
+<em>arXiv e-Prints</em>, September, arXiv:2109.15230. <a
+href="https://arxiv.org/abs/2109.15230">https://arxiv.org/abs/2109.15230</a>.
+</div>
+<div id="ref-2020arXiv201202187N" class="csl-entry" role="listitem">
+———. 2023. <span>“Spectral Aspect Subconvex Bounds for <span><span
+class="math inline">\(U_{n+1} \times U_n\)</span></span>.”</span>
+<em>Invent. Math.</em> 232 (3): 1273–1438. <a
+href="https://doi.org/10.1007/s00222-023-01180-x">https://doi.org/10.1007/s00222-023-01180-x</a>.
+</div>
+<div id="ref-MR2373356" class="csl-entry" role="listitem">
+Reznikov, Andre. 2008. <span>“Rankin-<span>S</span>elberg Without
+Unfolding and Bounds for Spherical <span>F</span>ourier Coefficients of
+<span>M</span>aass Forms.”</span> <em>J. Amer. Math. Soc.</em> 21 (2):
+439–77. <a
+href="https://doi.org/10.1090/S0894-0347-07-00581-4">https://doi.org/10.1090/S0894-0347-07-00581-4</a>.
+</div>
+<div id="ref-MR780071" class="csl-entry" role="listitem">
+Sarnak, Peter. 1985. <span>“Fourth Moments of
+<span>G</span>rössencharakteren Zeta Functions.”</span> <em>Comm. Pure
+Appl. Math.</em> 38 (2): 167–78. <a
+href="https://doi.org/10.1002/cpa.3160380204">https://doi.org/10.1002/cpa.3160380204</a>.
+</div>
+<div id="ref-Sar01" class="csl-entry" role="listitem">
+———. 2001. <span>“Estimates for <span>R</span>ankin-<span>S</span>elberg
+<span><span class="math inline">\(L\)</span></span>-Functions and
+Quantum Unique Ergodicity.”</span> <em>J. Funct. Anal.</em> 184 (2):
+419–53.
+</div>
+<div id="ref-MR4416133" class="csl-entry" role="listitem">
+Sharma, Prahlad. 2022. <span>“Subconvexity for <span><span
+class="math inline">\(GL(3)\times GL(2)\)</span></span> Twists.”</span>
+<em>Adv. Math.</em> 404: Paper No. 108420, 47. <a
+href="https://doi.org/10.1016/j.aim.2022.108420">https://doi.org/10.1016/j.aim.2022.108420</a>.
+</div>
+<div id="ref-venkatesh-2005" class="csl-entry" role="listitem">
+Venkatesh, Akshay. 2010. <span>“Sparse Equidistribution Problems, Period
+Bounds and Subconvexity.”</span> <em>Ann. Of Math. (2)</em> 172 (2):
+989–1094. <a
+href="https://doi.org/10.4007/annals.2010.172.989">https://doi.org/10.4007/annals.2010.172.989</a>.
+</div>
+</div>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
