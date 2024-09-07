@@ -1,0 +1,936 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\begin{document}
+
+\title{Basic Concepts in Automorphic Forms}
+
+\author{Lectures at CIRM by Abhishek Saha and Ralf Schmidt, notes taken by PN}
+
+\date{September 6--7, 2024}
+
+\maketitle
+
+Exercises linked at \url{https://sites.google.com/view/samuele-anni/home/research-school-building-bridges}.
+
+\section{Lecture 1, Schmidt}
+
+\subsection{Classical modular forms}
+
+Let's start with the definition of a classical modular form.  A \emph{modular form} is a function $f : \mathbb{H} \rightarrow \mathbb{C}$ that has certain properties:
+\begin{itemize}
+\item $f$ is holomorphic.
+\item For $
+  \begin{bmatrix}
+    a    & b \\
+    c & d \\
+  \end{bmatrix} \in \Gamma$, we have
+  \begin{equation}\label{eq:cnog0kttte}
+    f\left( \frac{a \tau + b}{c \tau + d}\right)
+    =(c \tau + d)^{- k}
+    f(\tau).    
+  \end{equation}
+\item $f$ is holomorphic at the cusps.  This condition is expressed in terms of Fourier expansions, and if you have more than one cusp, it's actually kind of complicated to write down -- you have to write down the Fourier expansion at each cusp, you have to write down the width of the cusp (which is a bit painful to do).
+\end{itemize}
+
+\subsection{Passage to the group setting}
+
+Does anyone here think this definition is natural?  It might not seem that way the first time you see it.  The domain $\mathbb{H}$ seems a bit arbitrary, there's a mysterious factor in \eqref{eq:cnog0kttte} involving a random number called the weight, and the ``holomorphy at cusps'' condition isn't even so simple to write down.  Unless you're motivated by why these functions should show up, this is a crazy definition.  We'll try to demystify it a bit.
+
+Let's start with the domain, $\mathbb{H}$, which is actually what you call a homogeneous space: there is a bijection
+\begin{equation*}
+  \SL(2,\mathbb{R}) / \SO(2) \xrightarrow{\cong} \mathbb{H},
+\end{equation*}
+where
+\begin{equation*}
+  \SO(2) = \left\{
+    {
+      r(\theta)
+    }
+    :=
+    \begin{bmatrix}
+      \cos \theta      &  \sin \theta \\
+      - \sin \theta                       & \cos \theta \\
+    \end{bmatrix} : \theta \in \mathbb{R} / 2 \pi \mathbb{Z} \right\}
+  \cong \mathbb{R} / 2 \pi \mathbb{Z} \cong S^1.
+\end{equation*}
+The map in question is given by
+\begin{equation*}
+  \begin{bmatrix}
+    a    & b \\
+    c & d \\
+  \end{bmatrix}
+  \mapsto \frac{a i + b}{c i + d}.  
+\end{equation*}
+This is the orbit map for the transitive action of $\SL(2,\mathbb{R})$ on $\mathbb{H}$, and it's a bijection because the stabilizer of $i$ is $\SO(2)$, by the orbit-stabilizer theorem.  This gives a clue: whenever you have a function on the upper half-plane, you can pull it back to make it a function on the group $\SL(2,\mathbb{R})$, and groups are nice.
+
+We're going to pull back $f$ not in the most obvious way, but as follows.  We're going to construct a new function
+\begin{equation*}
+  \phi : \SL(2,\mathbb{R}) \rightarrow \mathbb{C},
+\end{equation*}
+\begin{equation*}
+  \phi(g) :=  (f|_k g)(i),
+\end{equation*}
+where we recall that the weight $k$ slash operator is defined as in the modularity relation, by
+\begin{equation*}
+  (f |_k g)(\tau) =(c \tau + d)^{- k} f \left( \frac{a \tau + b}{c \tau + d} \right).
+\end{equation*}
+
+So we do this, and get some functions on the group.  Let's think about some properties of these functions.  First of all,
+\begin{equation}\label{eq:cnog0lc62w}
+  \phi(\gamma g) = \phi(g) \quad \text{ for all } \gamma \in \Gamma,
+\end{equation}
+because $f$ is modular.  Next,
+\begin{equation}\label{eq:cnog0lc8g8}
+  \phi(g r(\theta)) =((f | g) | r(\theta) )(i)
+  =
+  (-i \sin \theta + \cos \theta)^{- k}
+  (f|g)(i)
+  = e^{i k \theta} \phi(g).
+\end{equation}
+This defines a bijection between functions $f$ satisfying the modularity property \eqref{eq:cnog0kttte} and $\phi$ satisfying each of the above properties \eqref{eq:cnog0lc62w} and \eqref{eq:cnog0lc8g8}.
+
+The holomorphy property translates to
+\begin{equation}\label{eq:cnog0lm7d2}
+  L \phi = 0,
+\end{equation}
+where $L$ is the lowering operator in the complexified Lie algebra of $G$.
+
+Let's define the norm
+\begin{equation*}
+  \left\lVert
+    \begin{bmatrix}
+    a    & b \\
+    c & d \\
+    \end{bmatrix}
+  \right\rVert
+  = \sqrt{a^2 + b^2 + c^2 + d^2}.
+\end{equation*}
+``Holomorphic at the cusps'' translates into a growth condition that is much nicer to formulate:
+\begin{equation}\label{eq:cnog0lm9xy}
+  \lvert \phi(g) \rvert \leq c \lVert g \rVert^n.
+\end{equation}
+
+These conditions characterize the $\phi$ coming from $f$ as above.
+
+One could argue that the properties \eqref{eq:cnog0lc62w}, \eqref{eq:cnog0lc8g8}, \eqref{eq:cnog0lm7d2} and \eqref{eq:cnog0lm9xy} are simpler and more natural than the earlier functions given in terms of $f$.  Writing the definition down in this way also opens the way for generalizations, replacing $\SL(2,\mathbb{R})$ with other groups.
+
+\subsection{Passage to the adeles}
+
+We would also like to ``factorize'' modular forms over the primes, much like we factor integers as products of primes.  We would like to bring the number theory out more.  There's an ingenious gadget, called the \emph{adele ring} $\mathbb{A}$, that we'll define.  It will have the property that $\mathbb{Q}$ is a discrete subring of $\mathbb{A}$, analogous to $\mathbb{Z} \hookrightarrow \mathbb{R}$.  We also get a discrete subgroup
+\begin{equation*}
+  \GL(2,\mathbb{Q}) \subseteq \GL(2, \mathbb{A}),
+\end{equation*}
+like $\SL(2, \mathbb{Z})$ inside $\SL(2, \mathbb{R})$.
+
+We're going to use $f$ (or $\phi$) to define a function
+\begin{equation*}
+  \Phi : \GL(2,\mathbb{A}) \rightarrow \mathbb{C}.
+\end{equation*}
+This will satisfy $\Phi(\gamma g) = \Phi(g)$ for all $\gamma \in \GL(2, \mathbb{Q})$, together with some regularity conditions.  Hecke operators will become much more natural objects when described in terms of $\Phi$.
+
+Automorphic theory may be understood as Fourier analysis on group quotients like $\SL(2, \mathbb{Z}) \backslash \SL(2, \mathbb{R})$, generalizing Fourier theory on $\mathbb{Z} \backslash \mathbb{R}$.  We can more generally considering quotients $G(\mathbb{Q}) \backslash G(\mathbb{A})$, where Fourier theory now incorporates the number-theoretic.
+
+\begin{remark}
+  Dieudonne reportedly said that there were two main innovations in number theory: the invention of groups, and the invention of adeles.  These comments apply to the passage from $f$ to $\phi$ and then to $\Phi$.
+\end{remark}
+
+We need to discuss the $p$-adic numbers.  The $p$-adic norm is given by
+\begin{equation*}
+  \lvert \cdot \rvert_p : \mathbb{Q} \rightarrow \mathbb{R}_{\geq 0},
+\end{equation*}
+\begin{equation*}
+  \lvert 0 \rvert_p = 0, \qquad
+  \left| \frac{n}{m} p^\alpha \right| = p^{- \alpha}.
+\end{equation*}
+It is an \emph{absolute value} in the sense that it satisfies the properties
+\begin{itemize}
+\item $\lvert x \rvert_p \geq 0$, $\lvert x \rvert_p = 0 \iff x = 0$,
+\item $\lvert x y \rvert_p = \lvert x \rvert_p \cdot \lvert y \rvert_p$,
+\item the triangle inequality $\lvert x + y \rvert_p \leq \lvert x \rvert_p + \lvert y \rvert_p$, and in fact, the ultrametric inequality $\lvert x + y \rvert_p \leq \max \left( \lvert x \rvert_p, \lvert y \rvert_p \right)$.
+\end{itemize}
+
+\begin{theorem}[Ostrowski]
+  The equivalence classes of (nontrivial) absolute values on $\mathbb{Q}$ are represented by
+  \begin{itemize}
+  \item $\lvert \cdot \rvert_p$, $p$ prime, and
+  \item $\lvert \cdot \rvert_\infty$, the usual absolute value.
+  \end{itemize}
+\end{theorem}
+
+Whenever you have an absolute value, you can complete the field.  The field $\mathbb{Q}_p$ is defined to be the completion of $\mathbb{Q}$ with respect to $\lvert \cdot \rvert_p$.
+
+There's a distinguished subring
+\begin{equation*}
+  \mathbb{Z}_p = \left\{ x \in \mathbb{Q}_p : \lvert x \rvert_p \leq 1 \right\}.
+\end{equation*}
+It's both open and closed.  In particular, $\mathbb{Q}_p$ is locally compact, so we can integrate over it, together with its multiplicative group $\mathbb{Q}_p^\ast$, with respect to Haar measures:
+\begin{equation*}
+  \int_{\mathbb{Q}_p} f(x) \, d x,
+  \qquad
+  \int_{\mathbb{Q}_p^\ast} f(x)
+  \, \frac{d x}{\lvert x \rvert_p}.
+\end{equation*}
+
+The adele ring is defined to be the subring of the direct product $\mathbb{R} \times \mathbb{Q}_2 \times \mathbb{Q}_3 \times \mathbb{Q}_5 \times \dotsb$ given by
+\begin{equation*}
+  \mathbb{A} := \left\{(x_p)_{p \leq \infty} : x_p \in \mathbb{Z}_p  \text{ for almost all }
+    p \right\}
+  =
+  \prod_{p \leq \infty}'
+  (\mathbb{Q}_p : \mathbb{Z}_p).
+\end{equation*}
+The topology on $\mathbb{A}$ is generated by
+\begin{equation*}
+  \left( \prod_{p \in S} U_p \right)
+  \times \left( \prod_{p \notin S} \mathbb{Z}_p \right),
+\end{equation*}
+where $S$ is a finite set of places containing $\infty$ and each $U_p$ is open in $\mathbb{Q}_p$.  Then $\mathbb{A}$ turns out to be a locally compact topological ring, so we can define integrals such as
+\begin{equation*}
+  \int_{\mathbb{A}} f(x) \, d x.
+\end{equation*}
+We embed $\mathbb{Q} \hookrightarrow \mathbb{A}$ diagonally:
+\begin{equation*}
+  x \mapsto(x, x, \dotsc).
+\end{equation*}
+\begin{lemma}
+  A set of representatives for $\mathbb{Q} \backslash \mathbb{A}$ is
+  \begin{equation*}
+    [0,1) \times \prod_{p < \infty} \mathbb{Z}_p.
+  \end{equation*}
+\end{lemma}
+This is analogous to how, when you look at $\mathbb{Z} \backslash \mathbb{R}$, a set of representatives is $[0,1)$.
+
+We need a multiplicative version of this, called the group of \emph{ideles}
+\begin{equation*}
+  \mathbb{A}^\times = \prod_{p \leq \infty}'
+  \left( \mathbb{Q}_p^\times : \mathbb{Z}_p^\times \right).
+\end{equation*}
+(``Ideles'' were defined before adeles, by Chevallay.  The name was inspired by ``ideal elements''.  Then ``adeles'', coined by Weil, stands for ``additive ideles''.)
+
+Let $G$ be a reductive algebraic group over $\mathbb{Q}$, such as $\GL(n)$, $\SL(n)$, $\Sp(2 n)$, $\SO(n)$.  We can then form
+\begin{equation*}
+  G(\mathbb{A}) = \prod_{p \leq \infty} ' \left( G(\mathbb{Q}_p) : G(\mathbb{Z}_p) \right),
+\end{equation*}
+a locally compact topological group.  We often consider functions on $G(\mathbb{A})$ that factor as products of functions on $G(\mathbb{Q}_p)$.  The automorphic forms that we consider will not have this property, but the representation that they generate do.
+
+\subsection{The definition of automorphic forms}
+
+An \emph{automorphic form} on $G(\mathbb{A})$ is a continuous function $G(\mathbb{A}) \rightarrow \mathbb{C}$ with the following properties:
+\begin{enumerate}[(i)]
+\item\label{enumerate:cnog0r4l91} $\Phi(\gamma g) = \Phi(g)$, $\gamma \in G(\mathbb{Q})$,
+\item\label{enumerate:cnog0r4na8} there exists an open compact subgroup $K_{\fin}$ of $G(\mathbb{A}_{\fin})$ such that $\Phi(g \kappa) = \Phi(g)$, for all $\kappa \in K_{\fin}$, and
+\item\label{enumerate:cnog0r4okn} $\Phi$ is $K_\infty$-finite.
+\item\label{enumerate:cnog0r4t0r} The function $G(\mathbb{R}) \rightarrow \mathbb{C}$, $h \mapsto \Phi(h g)$ is smooth for any $g \in G(\mathbb{A})$.
+\item\label{enumerate:cnog0r4wjg} $\Phi$ is $Z(\mathfrak{g}_{\mathbb{C}})$-finite.
+\item\label{enumerate:cnog0r4zp0} The function $G(\mathbb{R}) \rightarrow \mathbb{C}$, $h \mapsto \Phi(h g)$ is slowly increasing for any $g \in G(\mathbb{A})$.
+\end{enumerate}
+This is the definition given in the paper by Borel and Jacquet, appearing in the famous Corvallis proceedings..
+
+Let's elaborate on some of the above.
+
+$K_\infty$ is some maximal compact subgroup of $G(\mathbb{R})$.  The $K_\infty$-finiteness condition says that
+\begin{equation*}
+  \dim \left\langle \Phi(\bullet g), \, g \in K_\infty \right\rangle < \infty.
+\end{equation*}
+By comparison, we had previously considered functions $\phi : \SL(2, \mathbb{R}) \rightarrow \mathbb{C}$ satisfying $\phi(g r(\theta)) = e^{i k \theta} \phi(g)$, for which this span is one-dimensional.
+
+$Z(\mathfrak{g}_{\mathbb{C}})$ is the center of the universal enveloping algebra $\mathcal{U}(\mathfrak{g}_{\mathbb{C}})$ of the complexified Lie algebra.  Each of these acts on the space of smooth functions on $G(\mathbb{R})$.  The claim is that when you act by the center, the space that you get is finite-dimensional.  The condition is similar to satisfying a differential equation, much like how holomorphic modular forms satisfy the Cauchy--Riemann equations.
+
+Let $G = \SL(2)$, $\mathfrak{g} = \Lie G(\mathbb{R})$, thus
+\begin{equation*}
+  \mathfrak{g} = \left\{
+    \begin{bmatrix}
+      a      & b \\
+      c & -a \\
+    \end{bmatrix} : a,b,c \in \mathbb{R} \right\}.
+\end{equation*}
+For $X \in \mathfrak{g}$ and $\phi : G(\mathbb{R}) \rightarrow \mathbb{C}$ smooth, we define
+\begin{equation*}
+  (X \phi)(g) := \frac{d}{d t} |_{t=0}
+  \phi(g \exp(t X)).
+\end{equation*}
+The complexified Lie algebra $\mathfrak{g}_{\mathbb{C}}$ acts by linearity.  The algebra $\mathcal{U}(\mathfrak{g}_{\mathbb{C}})$ acts by composition.   A basis for $\mathfrak{g}_{\mathbb{C}}$ is given by
+
+\begin{equation*}
+  H = - i
+  \begin{bmatrix}
+    0    & 1 \\
+    -1 & 0 \\
+  \end{bmatrix},
+\end{equation*}
+\begin{equation*}
+  R = \tfrac{1}{2}
+  \begin{bmatrix}
+    1    & i \\
+    i & -1 \\
+  \end{bmatrix},
+\end{equation*}
+\begin{equation*}
+  L = \tfrac{1}{2}
+  \begin{bmatrix}
+    1    & -i \\
+    -i & -1 \\
+  \end{bmatrix},
+\end{equation*}
+and we then have
+\begin{equation*}
+  \mathcal{U}(\mathfrak{g}_{\mathbb{C}})
+  = \oplus_{ j, k, \ell  \geq 0}
+  \mathbb{C}  H^i R^{\ell} L^k .
+\end{equation*}
+\begin{theorem}
+  We have
+  \begin{equation*}
+    Z(\mathfrak{g}_C) = \mathbb{C}[\Delta],
+  \end{equation*}
+  where
+  \begin{equation*}
+    \Delta = - \tfrac{1}{4} \left( H^2 + 2 R L + 2 L R \right).
+  \end{equation*}
+\end{theorem}
+Thus in this case, the $Z(\mathfrak{g}_{\mathbb{C}})$-finiteness condition says that when we act repeatedly by $\Delta$, we get a finite-dimensional space.  A typical example where this happens is when $\Delta \phi = \lambda \phi$ for some $\lambda \in \mathbb{C}$.  Then $(\Delta - \lambda) \phi = 0$, so the ideal $(\Delta - \lambda)$ annihilates $\phi$, hence
+\begin{equation*}
+  Z(\mathfrak{g}_{\mathbb{C}}) \phi \cong
+  \mathbb{C}[\Delta] /(\Delta - \lambda) \cong \mathbb{C},  
+\end{equation*}
+which is finite-dimensional.  More generally, condition \eqref{enumerate:cnog0r4wjg} means that $\phi$ is annihilated by $f(\Delta)$ for some  polynomial $0 \neq f \in \mathbb{C}[x]$.
+
+So, that was the official definition of automorphic forms.
+
+\section{Lecture 2, Saha}
+
+\subsection{Plan and recap}
+
+Our goal today is to carry on from what Ralf did, focusing on some basic cases of automorphic forms to explain a bit classically what they look like and how they fit with objects you're more familiar with.
+
+In the previous lecture, you've seen the definition of an automorphic form.  We worked mostly over $\mathbb{Q}$, but one can work more generally over any number field $F$, with any reductive group $G$ over $F$.  We write $\mathcal{A}_{G/F}$ for the space of such automorphic forms.  Today we'll mostly work with $F = \mathbb{Q}$ and write $\mathcal{A}_G := \mathcal{A}_{G/\mathbb{Q}}$.
+
+\subsection{Central character}
+
+These are finite under the adelic points $Z_G(\mathbb{A})$ of the center $Z_G$ of $G$.  We can break it up into spaces on which the center acts by a character.  By linearity, there is thus not much loss in generality in considering automorphic forms with a given central character.
+
+Given a character $\chi$ of $Z_G(\mathbb{Q}) \backslash Z_G(\mathbb{A})$, we define $\mathcal{A}_G(\chi)$ to be the space of all $f \in \mathcal{A}_G$ such that
+\begin{equation*}
+  f(g z) = \chi(z) f(g)
+\end{equation*}
+for all $z \in Z_G(\mathbb{A})$.
+
+\subsection{Automorphic representations of $\GL_1$}
+
+Today we discuss what happens if $G = \GL_1$ and $F = \mathbb{Q}$.
+
+Note that $\GL_1$ is abelian, thus automorphic forms on $\GL_1$ with central character are just characters of $\mathbb{Q}^\times \backslash \mathbb{A}^\times$, i.e., continuous homomorphisms to $\mathbb{C}^\times$.
+
+\begin{exercise}
+  Any character of $\mathbb{Q}^\times \backslash \mathbb{A}^\times$ is of the form
+  \begin{equation*}
+    \chi ' = \chi \cdot \lvert \cdot \rvert_{\mathbb{A}}^s
+  \end{equation*}
+  for some $s \in \mathbb{C}$, where $\chi$ is of finite order.
+\end{exercise}
+Here the adelic absolute value $\lvert \cdot \rvert_{\mathbb{A}}$ is obtained by multiplying the local absolute values $\lvert \cdot \rvert_{v}$ over the components of $\mathbb{A}^\times = \prod_v ' \mathbb{Q}_v^\times$.  Easy to see that this takes the value $1$ on elements of $\mathbb{Q}^\times$.
+
+Let's recall that a Dirichlet character modulo $N$ is a character of $(\mathbb{Z} / N \mathbb{Z})^\times$, which we often think of as an $N$-periodic function on $\mathbb{Z}$, vanishing on elements having a common factor with $N$.
+
+Suppose you have two integers $N_1, N$ such that $N_1 \mid N$.  Then there is a natural map
+\begin{equation*}
+  (\mathbb{Z} / N \mathbb{Z})^\times \rightarrow
+  (\mathbb{Z} / N_1 \mathbb{Z})^\times.
+\end{equation*}
+So Dirichlet characters modulo $N_1$ are also Dirichlet characters modulo $N$.
+
+The Dirichlet characters modulo $N$ that don't arise this way, for any $N_1$, are called \emph{primitive} (modulo $N$).
+
+\begin{remark}
+  The number of Dirichlet characters modulo $N$ is 
+  \begin{equation*}
+    \varphi(N) = N \prod_{p \mid N} \left( 1 - \frac{1}{p} \right),
+  \end{equation*}
+  the number of primitive Dirichlet characters is
+  \begin{equation*}
+    N \prod_{
+      \substack{
+        p \mid N  \\
+        p^2 \nmid N        
+      }
+    } \left( 1 - \frac{2}{p} \right)
+    \prod_{p^2 \mid N}
+    \left( 1 - \frac{1}{p} \right)^2.
+  \end{equation*}
+\end{remark}
+
+Goal: given a finite order character $\chi$ of $\mathbb{Q}^\times \backslash \mathbb{A}^\times$, construct primitive Dirichlet character $\tilde{\chi}$ modulo $C(\chi)$.
+
+\textbf{Step one: construction of} $\tilde{\chi}$\textbf{.}  Write $\chi = \prod_v \chi_v$, where $\chi_v : \mathbb{Q}_v^\times \rightarrow S^1$ is finite order.  This forces $\chi_\infty$ to be the sign character.  Also, by continuity, $\chi_p |_{\mathbb{Z}_p^\times} = 1$ for almost all $p$ (\emph{unramified} primes); the remaining finitely-many primes $p$ are called \emph{ramified}.
+
+\begin{claim}
+  Let $p$ be a ramified prime.  Then $\chi_p |_{1 + p^n \mathbb{Z}_p} = 1$ for all sufficiently large $n$.
+\end{claim}
+\begin{proof}
+  Let $U$ be a small open neighborhood of the identity element of $S^1$, small enough that it contains no nontrivial subgroup of $S^1$.  By continuity of $\chi_p$, we can find $n$ such that $\chi_p$ maps $1 + p^n \mathbb{Z}_p$ into $U$.  Since $\chi_p$ is a homomorphism, its image is a subgroup.  By what we noted before, any such subgroup is necessary trivial.
+\end{proof}
+
+So, for each ramified prime $p$, there is a smallest $n_p$ such that $\chi_p |_{1 + p^{n_p} \mathbb{Z}_p } = 1$.  We define
+\begin{equation*}
+  C(\chi) := \prod_{p \text{ ram}}
+  p^{n_p}.
+\end{equation*}
+Since $\chi$ factors through
+\begin{equation*}
+  \prod_{p \text{ ram}}
+  (1 + p^{n_p} \mathbb{Z}_p),  
+\end{equation*}
+we get a character $\tilde{\chi}$ on
+\begin{equation}\label{eq:cnog0y8bdf}
+  \prod_{p \text{ ram}}
+  \frac{\mathbb{Z}_p^\times}{(1 + p^n \mathbb{Z}_p)}
+  =
+  \prod \left( \frac{\mathbb{Z}}{ p^{n_p}} \right)^\times
+  =(\mathbb{Z} / N \mathbb{Z})^\times.  
+\end{equation}
+
+\begin{exercise}
+  $\tilde{\chi}$ is primitive modulo $C(\chi)$.
+\end{exercise}
+
+\begin{theorem}
+  The group of finite order characters of $\mathbb{Q}^\times \backslash \mathbb{A}^\times$ is isomorphic to the group of primitive Dirichlet characters.  This isomorphism preserves conductors.
+\end{theorem}
+\begin{proof}
+  The map $\chi \mapsto \tilde{\chi}$ is injective because
+  \begin{equation}\label{eq:cnog0y9m3s}
+    \mathbb{A}^\times = \mathbb{Q}^\times \mathbb{R}^+ \prod_{p  < \infty} \mathbb{Z}_p^\times.
+  \end{equation}
+  It is surjective because we can lift any $\tilde{\chi} :(\mathbb{Z} / N \mathbb{Z} )^\times \rightarrow S^1$ to $\prod \mathbb{Z}_p^\times$ using \eqref{eq:cnog0y8bdf}, then further to $\mathbb{Q}^\times \backslash \mathbb{A}^\times$ using \eqref{eq:cnog0y9m3s}.
+\end{proof}
+
+Things can be a bit more complicated over number fields: nontrivial class number, multiple infinite places, etc.  In that generality, the adelic language is perhaps more natural.
+
+We have noted already that $\GL_1$ is special in that it is abelian.  From this it follows that automorphic representations are one-dimensional, spanned by the associated characters, which also account for the automorphic forms.  For more general groups, it's often more natural to work with automorphic representations rather than automorphic forms.
+
+\subsection{Automorphic representations more generally}
+
+Let's now put up some notation.  For a general group $G$, the group $G(\mathbb{A})$ acts on $\mathcal{A}_G$, the space of automorphic forms on $G$, by right translation.  (Well, up to technicalities at the place $\infty$, where one should instead work with the Lie algebra.)  This action makes $\mathcal{A}_G$ a representation space for $G(\mathbb{A})$ (more-or-less).  An \emph{automorphic representation} is an irreducible subquotient under this action.
+
+Inside $\mathcal{A}_G$, we have the space of cusp forms $\mathcal{A}_G^0$, consisting of $f$ for which the integrals over adelic mod rational points of unipotent radicals of proper parabolics all vanishing.  The space $\mathcal{A}_G^0$ (for a given central character) decomposes as a direct sum of irreducible cuspidal automorphic representations, unlike what happens for $\mathcal{A}_G$.
+
+\subsection{Back to $\GL(2)$}
+
+Next, let's return to $\GL(2)$.  For $q \geq 1$, define
+\begin{equation*}
+  \Gamma_0(q) = \left\{
+    \begin{pmatrix}
+      a & b \\
+      c & d \\
+    \end{pmatrix} : q \mid c \right\}.
+\end{equation*}
+Let $\chi$ be a character of conductor dividing $q$.  We extend it to a character of $\Gamma_0(q)$ via
+\begin{equation*}
+  \chi
+  \begin{pmatrix}
+    a    & b \\
+    c & d \\
+  \end{pmatrix}
+  = \chi(d) = \chi^{-1}(a).
+\end{equation*}
+Define the space of modular forms
+\begin{equation*}
+  M_k(q, \chi) =
+  \left\{ f(\gamma z) =(c z + d)^k \chi(\gamma) f(z) \right\},
+\end{equation*}
+and the subspace $S_k(q, \chi)$ of cusp forms.
+
+\emph{Maass forms}  of weight $k \geq 0$ are functions on $\mathbb{H}$ satisfying
+\begin{equation*}
+  f(\gamma z) =  f(z) ,
+\end{equation*}
+\begin{equation*}
+  f(\gamma z) = \left( \frac{c z + d}{\lvert c z + d \rvert}^k \right)
+  = \chi(\gamma) f(z)
+\end{equation*}
+and for all $\gamma \in \Gamma_0(q)$,
+\begin{equation*}
+  \Delta_k f + \lambda_f f = 0,
+\end{equation*}
+where
+\begin{equation*}
+  \Delta_k = y^2 \left( \frac{\partial^2}{\partial^2 x^2} + \frac{\partial^2}{\partial^2 y^2} \right)
+  - i k y \frac{\partial}{ \partial x}.
+\end{equation*}
+These spaces are all finite-dimensional.  We refer to the corresponding spaces as
+\begin{equation*}
+  C_k(q, \chi) \subseteq N_k(q, \chi).
+\end{equation*}
+
+If $F \in S_k(q, \chi)$, then $F '(z) = y^{k/2} F(z)$ satisfies $F' \in C_k(q, \chi)$, with $\lambda_{F '} = - \tfrac{k}{2}(\tfrac{k}{2} - 1)$.
+
+For $f \in C_k(q, \chi)$, we have
+\begin{enumerate}
+\item $\lambda_f \in \mathbb{R}$,
+\item $\lambda_f \geq -
+  \tfrac{k}{2}(\tfrac{k}{2} - 1)$, and
+\item if $\lambda_f \neq - \tfrac{k}{2}(\tfrac{k}{2} - 1)$, then $\lambda_f \geq 0$.
+\end{enumerate}
+Next, set $T^+ := R \cup \left[ - \tfrac{i}{2}, \tfrac{i}{2}\right]$.  For $t \in T^+$, define $C_k(q, \chi, i t)$ to be the subspace of $C_k(q, \chi)$ such that $\lambda_f = (\tfrac{1}{2} + i t)(\tfrac{1}{2} - i t) = \tfrac{1}{4} + t^2$.
+
+We have the strong approximation formula
+\begin{equation}\label{eq:cnog03qd0j}
+  \GL_2(\mathbb{A}) = \GL_2(\mathbb{Q}) \GL_2(\mathbb{R})
+  \prod_{p < \infty} K_p ',
+\end{equation}
+where $K_p ' \subseteq \GL_2(\mathbb{Z}_p)$ satisfies $K_p ' = \GL_2(\mathbb{Z}_p)$ for almost all $p$ and for which $\det : K_p \rightarrow \mathbb{Z}_p^\times$ is surjective for all $p$.
+
+For example, one could take
+\begin{equation*}
+  K_p ' = \left\{
+    \begin{pmatrix}
+      a      & b \\
+      c & d \\
+    \end{pmatrix} \in \GL_2(\mathbb{Z}_p) : N \mid c \right\},
+\end{equation*}
+which is relevant for when $f$ lies in $S_k(N, \chi)$.  We can use \eqref{eq:cnog03qd0j} to define $\phi_f : \GL_2(\mathbb{A}) \rightarrow \mathbb{C}$ by requiring that for all
+\begin{equation*}
+  (\gamma, g_\infty, k_0) \in \GL_2(\mathbb{Q}) \times \GL_2(\mathbb{R}) \times \prod_{p < \infty} K_p ',
+\end{equation*}
+\begin{equation*}
+  \phi_f(\gamma g_\infty k_0) = f(g_\infty \cdot i) j(g_\infty, i)^{- k} \chi(k_0).
+\end{equation*}
+Check then that $\phi_f \in \mathcal{A}_{\GL_2 / \mathbb{Q}}^0(\chi)$.
+
+Next time we'll talk about how $\phi_f$ generates a cuspidal automorphic representation, and why all of the latter arise in this way (from holomorphic or Maass forms).
+
+\section{Lecture 3, Schmidt}
+
+\subsection{Recap}
+
+Let's recall from last time that $\Phi : G(\mathbb{A}) \rightarrow \mathbb{C}$ is an \emph{automorphic form} if it is
+\begin{itemize}
+\item left invariant under $G(\mathbb{Q})$, 
+\item right invariant under some open subgroup $K_{\fin}$ of $G(\mathbb{A}_{\fin})$,
+\item smooth as a function of $G(\mathbb{R})$,
+\item $K_\infty$-finite,
+\item $Z(\mathfrak{g}_{\mathbb{C}})$-finite, and
+\item slowly increasing.
+\end{itemize}
+
+\subsection{Cusp forms}
+
+We denote by $\mathcal{A}$ the space of automorphic forms.
+
+We denote by $\mathcal{A}^0$ the subspace of \emph{cusp forms}, which for $G = \GL_2$ must satisfy
+\begin{equation*}
+  \int_{\mathbb{Q} \backslash \mathbb{A}} \Phi \left(
+    \begin{bmatrix}
+      1      & x \\
+      0 & 1 \\
+    \end{bmatrix}
+    g
+  \right) \, d x = 0
+  \qquad \text{ for } g \in G(\mathbb{A})
+\end{equation*}
+and in general must have vanishing integral over the adelic mod rational points of the unipotent radical of any parabolic subgroup, e.g., for $\GL_n$, groups such as
+\begin{equation*}
+  \left(
+    \begin{array}{ccc|ccc|ccc}
+      1 & 0 & 0 & \ast & \ast & \ast & \ast & \ast & \ast \\
+      0 & \ddots & 0 & \ast & \ast & \ast & \ast & \ast & \ast \\
+      0 & 0 & 1 & \ast & \ast & \ast & \ast & \ast & \ast \\
+      \hline
+      0 & 0 & 0 & 1 & \ast & \ast & \ast & \ast & \ast \\
+      0 & 0 & 0 & 0 & \ddots & \ast & \ast & \ast & \ast \\
+      0 & 0 & 0 & 0 & 0 & 1 & \ast & \ast & \ast \\
+      \hline
+      0 & 0 & 0 & 0 & 0 & 0 & 1 & \ast & \ast \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & \ddots & \ast \\
+      0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+    \end{array}
+  \right).
+\end{equation*}
+
+\subsection{What do we mean by ``representation''?}
+
+A \emph{representation} of a group $G$ is a pair $(\pi, V)$, where $V$ is a vector space and $\pi : G \rightarrow \GL(V)$ is a homomorphism.  Depending upon the situation, one imposes continuity of the action map
+\begin{equation*}
+  G \times V \rightarrow V
+\end{equation*}
+\begin{equation*}
+  (g, v) \mapsto \pi(g) v.
+\end{equation*}
+A subspace $0 \subset W \subset V$ is \emph{invariant} if $\pi(g) w \in W$ for each $w \in W$; we call a representation \emph{irreducible} if it is nonzero and there are no nontrivial proper invariant subspaces.
+
+In some situations, we may decompose each representation $V$ as a direct sum of irreducible representations $V_i$:
+\begin{equation*}
+  V = \bigoplus V_i.
+\end{equation*}
+We say then that $V$ \emph{decomposes completely}.  But this need not be the case in general: one can find non-split short exact sequences of representations
+\begin{equation*}
+  0 \rightarrow W \rightarrow V \rightarrow V / W \rightarrow 0.
+\end{equation*}
+(We have an exercise on the exercise sheet, involving the Steinberg representation, that gives an example of such a situation.)
+
+Given a representation $V$ with subrepresentations $0 \subset U \subset W \subset V$, we say that $W / U$ is a \emph{subquotient} or \emph{constituent} of $V$.
+
+Given $g \in G(\mathbb{A})$ and $\Phi \in \mathcal{A}$, we define the right translate $(g \cdot \Phi)(h) = \Phi(h g)$.  Unfortunately, $\mathcal{A}$ is not stable under right translation, due to the $K_\infty$-finiteness condition.
+\begin{example}
+  For $\GL_2$, if $\Phi(g r(\theta)) = e^{i k \theta} \Phi(g)$, then $(h \Phi)(g r(\theta)) = \Phi(g r(\theta) h)$, and if, say, $h$ is a suitable diagonal element, then it's easy to see that the result is not $K_\infty$-finite.
+\end{example}
+
+Instead, $\mathcal{A}$ is preserved under right translation by
+\begin{itemize}
+\item $G(\mathbb{A}_{\fin})$
+\item $K_\infty$
+\item $\mathfrak{g}$, via $(X \cdot \Phi)(g) = \frac{d}{d t} |_{t=0} \Phi(g \exp(t X))$.
+\end{itemize}
+The last two actions are described by saying that $\mathcal{A}$ is a $(\mathfrak{g}, K_\infty)$\emph{-module}.
+
+So, when we say informally that ``$\mathcal{A}$ is a representation of $G(\mathbb{A})$'', what we really mean is that it admits a $G(\mathbb{A}_{\fin})$-action and is a $(\mathfrak{g}, K_\infty)$-module.
+
+\begin{definition}
+  An \emph{automorphic representation} is an irreducible subquotient of $\mathcal{A}$.
+\end{definition}
+
+\subsection{Decomposition into irreducibles}
+
+The space of automorphic forms does not decompose completely, but:
+
+\begin{theorem}
+  The space of cusp forms $\mathcal{A}^0_{\chi}$ with given central character $\chi$ decomposes completely:
+  \begin{equation*}
+    \mathcal{A}_{\chi}^0 = \bigoplus_i \pi_i,
+  \end{equation*}
+  where each $\pi_i$ is a cuspidal automorphic representation.
+\end{theorem}
+
+\subsection{Tensor product theorem}
+
+The \emph{tensor product theorem} (Dan Flath, Corvallis proceedings, 1979) states that if $\pi$ is an irreducible representation of $G(\mathbb{A})$, then it factors as a restricted tensor product
+\begin{equation*}
+  \pi \cong \bigotimes_{p \leq \infty}' \pi_p,
+\end{equation*}
+where each $(\pi_p, V_p)$ is an irreducible admissible representation of $G(\mathbb{Q}_p)$.
+
+For almost all $p$, the space $V_p$ contains a \emph{spherical vector} $w_p \neq 0$, i.e., $\pi_p(g) w_p = w_p$ for all $g \in K_p$ (special maximal compact subgroup of $G(\mathbb{Q}_p)$).
+
+\subsection{Strong multiplicity one}
+
+\begin{theorem}[Strong multiplicity one]
+  Let $\pi$ and $\pi '$ be cuspidal automorphic representations of $G(\mathbb{A})$.  Write $\pi \cong \bigotimes \pi_p$ and $\pi ' \cong \bigotimes \pi_p '$.  Assume that $\pi_p \cong \pi_p '$ for almost all $p$.  Then $\pi = \pi '$.
+\end{theorem}
+
+\subsection{Induced representations}\label{sec:cnohg6010e}
+
+\subsubsection{Definition}
+
+Let $\chi_1, \dotsc, \chi_n$ be characters of $\mathbb{Q}_p^\times$.  Consider the space $V$ consisting of all smooth functions $f : \GL(n, \mathbb{Q}_p) \rightarrow \mathbb{C}$ satisfying the transformation property
+\begin{equation*}
+  f \left(
+    \begin{bmatrix}
+      a_1      & \dotsb & \dotsb \\
+      0               & \ddots & \dotsb \\
+      0               & 0 & a_n \\
+    \end{bmatrix} g \right)
+  =
+  \left| \prod_{j = 1}^n a_j^{n - 2 j + 1} \right|^{1/2}
+  \chi_1(a_1) \dotsb \chi_n(a_n) f(g).
+\end{equation*}
+The action of $G(\mathbb{Q}_p)$ on $V$ is given by right translation.  Such representations are called \emph{parabolically induced}; the operation of constructing them is called \emph{parabolic induction}.  The notation for this representation is $\chi_1 \times \dotsb \times \chi_n$.
+
+Recall the Iwasawa decomposition:
+\begin{equation*}
+  \GL(n, \mathbb{Q}_p) = B(\mathbb{Q}_p) \cdot K_p.
+\end{equation*}
+Our functions transform on the left under the Borel subgroup $B(\mathbb{Q}_p)$ by a character, hence are completely determined by their restrictions to $K_p$.
+
+Let's now discuss \emph{spherical representations for} $\GL(n, \mathbb{Q}_p)$.  These are the ones that have a fixed vector under $\GL(n, \mathbb{Z}_p)$.  Here's how one can make such representations.
+
+\subsubsection{Spherical representations}
+
+Assume now that $\chi_1, \dotsc, \chi_n$ are \emph{unramified}, i.e., $\chi_i |_{\mathbb{Z}_p^\times} = 1$.  Define $f^0 \in V$ by, for $\kappa \in K_p$,
+\begin{equation*}
+  f^0 \left(
+    \begin{bmatrix}
+      a_1      & \dotsb  & \dotsb \\
+      0               & \ddots & \dotsb \\
+      0               & 0 &  a_n \\
+    \end{bmatrix} \kappa \right)
+  :=
+  \left| \prod \dotsb \right|^{1/2} \chi_1(a_1) \dotsb \chi_n(a_n).  
+\end{equation*}
+As an exercise, check that this is well-defined, using the unramifiedness assumption.
+
+It's clear then that $f^0$ is a spherical vector, meaning, if you right translate it by $K_p$, nothing changes.  That's clear by definition.
+
+You also see that the space of spherical vectors is one-dimensional and spanned by $f^0$, using again that every function is determined by its restriction to $K_p$.
+
+In summary, $V = \chi_1 \times \dotsb \times \chi_n$ is a spherical representation, and $\dim V^{K_p} = 1$.
+
+\subsubsection{Irreducibility}
+
+\begin{theorem}
+  $\chi_1 \times \dotsb \times \chi_n$ is reducible if and only if $\chi_i \chi_j^{-1} = \lvert \bullet \rvert^{\pm 1}$ for some $i, j$.
+\end{theorem}
+\begin{example}
+  The representation  $\lvert \cdot \rvert^{1/2} \times \lvert \cdot  \rvert^{-1/2}$ of $\GL(2,\mathbb{Q}_p)$ is reducible.
+\end{example}
+
+Irreducible or not, the representation $\chi_1 \times \dotsb \times \chi_n$, with $\chi_1, \dotsc, \chi_n$ unramified, always has a unique \emph{spherical} subquotient.  Let's denote that by $\sigma(\chi_1 \times \dotsb \times \chi_n)$.
+
+\subsubsection{Equivalences}
+
+\begin{theorem}
+  We have $\sigma(\chi_1, \dotsc, \chi_n) \cong \sigma(\chi_{\omega(1)}, \dotsc, \chi_{\omega(n)})$ for any $\omega \in S_n$.
+\end{theorem}
+
+\begin{remark}
+  The same is not true at the level of the induced representations $\chi_1 \times \dotsb \times \chi_n$ themselves -- their sets of irreducible subquotients will coincide as sets, but the representations we get by permuting the $\chi_i$'s will not be the same in general.
+\end{remark}
+
+\subsection{Classification of spherical representations}
+
+\begin{theorem}
+  Any irreducible spherical representation of $\GL(n, \mathbb{Q}_p)$ is of the form $\sigma(\chi_1, \dotsc, \chi_n)$ for appropriate $\chi_1, \dotsc, \chi_n$.
+\end{theorem}
+
+Thus, spherical representations are classified by unramified characters $\chi_1, \dotsc, \chi_n$ of $\mathbb{Q}_p^\times$, taken up to order.  We get bijections
+\begin{equation*}
+  \{\text{spherical representations}\}_{/\sim}
+  \longleftrightarrow
+  \{\sigma(\chi_1, \dotsc, \chi_n)\} _{/\sim}
+  \longleftrightarrow
+  (\mathbb{C}^\times)^n / S_n,
+\end{equation*}
+where the final map is induced by
+\begin{equation*}
+  (\chi_1, \dotsc, \chi_n)
+  \mapsto (\chi_1(p), \dotsc, \chi_n(p)).
+\end{equation*}
+If we compose with the map
+\begin{equation*}
+  (\alpha_1, \dotsc, \alpha_n)
+  \mapsto
+  A_\pi :=
+  \begin{bmatrix}
+    \alpha_1    & 0 & 0 \\
+    0 & \ddots & 0 \\
+    0 & 0 & \alpha_n \\
+  \end{bmatrix},
+\end{equation*}
+then we obtain a further bijection to the space
+\begin{equation*}
+  \{\text{semisimple conjugacy classes in } \GL(n, \mathbb{C})\}.
+\end{equation*}
+
+\subsection{$L$-factors and $L$-functions}
+
+Return to a cuspidal automorphic representation $\pi = \bigotimes' \pi_p$.  Let $S$ be a finite set of places, including $\infty$, such that $\pi_p$ is spherical for all $p \notin S$.  (Such a set exists in view of the definition of automorphic forms.)  For $p \notin S$, let $\alpha_{1, p}, \dotsc, \alpha_{n, p}$ be the Satake parameters of $\pi_p$.  We define a \emph{local} $L$\emph{-factor}
+\begin{equation*}
+  L(s, \pi_p)
+  = \frac{1}{(1 - \alpha_{1, p} p^{- s}) \dotsb (1 - \alpha_{n, p} p^{- s})}
+  =
+  \det \left( I_n - p^{- s} A_{\pi_p} \right)^{-1}.
+\end{equation*}
+
+\begin{remark}
+  Also observe that we're really talking about conjugacy classes, so it's not really a diagonal matrix, it's a diagonal matirx up to conjugation, but conjugation has no effect on characteristic polynomials, so you get the same answer.
+\end{remark}
+
+We then define the \emph{incomplete} $L$\emph{-function}
+\begin{equation*}
+  L^S(s, \pi) = \prod_{p \notin S} L(s, \pi_p).
+\end{equation*}
+This converges in some right half-plane, i.e., for $\Re(s)$ sufficiently large.
+
+\begin{remark}
+  By the theorems described today, the map sending $\pi$ to its incomplete $L$-function is injective.  That is to say, $L^S(s, \pi)$ determines $\pi$.
+\end{remark}
+
+\begin{example}
+  What happens on $\GL(1)$?  Say $\pi$ is the trivial representation of $\GL(1, \mathbb{A}) = \mathbb{A}^\times$.  Then $\pi = \otimes \pi_p$, where $\pi_p$ is the trivial representation of $\GL(1, \mathbb{Q}_p) = \mathbb{Q}_p^\times$.  The Satake parameters are all $1$, so the $L$-function, with $S = \{\infty\}$, is
+  \begin{equation*}
+    L^S(s, \pi) = \zeta(s).
+  \end{equation*}
+  The archimedean factor is
+  \begin{equation*}
+    L(s, \pi_\infty) = \pi^{- s/2} \Gamma(s / 2),
+  \end{equation*}
+  giving rise to the completed Riemann zeta function
+  \begin{equation*}
+    L(s, \pi) = \pi^{- s/2} \Gamma(s/2) \zeta(s) =: Z(s),
+  \end{equation*}
+  which satisfies the functional equation $Z(s) = Z(1 - s)$.
+\end{example}
+
+\begin{theorem}
+  There is at most one way to define $L(s, \pi_p)$ at the bad places $p \notin S$ (subject to some reasonable constraints) such that the complete $L$-function $L(s, \pi) = \prod_{p \leq \infty} L(s, \pi_p)$ has meromorphic continuation to all of $\mathbb{C}$ and satisfies a functional equation of the form
+  \begin{equation*}
+    L(s, \pi) =(\text{root number}) N^{-(s - 1/2)} L(1 - s, \pi^\vee).
+  \end{equation*}
+  Here the root number is a scalar of magnitude one, while $N$ is called the \emph{conductor}.
+\end{theorem}
+
+\begin{theorem}
+  This is possible to do (for $\GL(n)$).
+\end{theorem}
+
+More generally, say for $\pi$ on $\GL(n)$, we can define $L(s, \pi, \rho)$ for any analytic homomorphism $\GL(n, \mathbb{C}) \xrightarrow{\rho} \GL(m, \mathbb{C})$.  For example, for $\pi$ on $\GL(2)$,
+\begin{equation*}
+  L(s, \pi_p, \sym^2) = \frac{1}{(1 - \alpha^2 p^{- s})(1 - \alpha \beta p^{- s})(1 - \beta^2 p^{- s})}.
+\end{equation*}
+The big conjecture (Langlands) is that all $L$-functions (attached to automorphic representations on any group and representation $\rho$) satisfy an analytic continuation and functional equation.
+
+\section{Lecture 4, Saha}
+
+\subsection{Recap}
+
+Let's recall from last time that if you have
+\begin{itemize}
+\item a modular form $f \in S_k(q, \chi)$ (of weight $k$, level $q$ and character $\chi$), or
+\item a Maass form $f \in C_k(q, \chi, i t)$ (of weight $k$, level $q$, character $\chi$, spectral parameter $i t$),
+\end{itemize}
+then we can define an automorphic form $\varphi_f \in \mathcal{A}_\chi^0$ of central character $\chi$.  In Ralf's lecture, you have seen how automorphic forms on any group (with particular central character) give rise to automorphic representations (with that central character).  In particular, $\varphi_f$ will generate a representation of $\GL(2, \mathbb{A})$ by right translation.  This representation that you get doesn't necessarily have to be irreducible.  If $f$ is a Hecke eigenform (or indeed, a Hecke eigenform at almost all primes), then indeed, $\varphi_f$ generates an irreducible cuspidal automorphic representation, say $\pi_f$, of $\GL_2(\mathbb{A})$, whose central character is $\chi$.  Here we abused notation slightly by writing $\chi$ simultaneously for a Hecke character of $\mathbb{Q}^\times \backslash \mathbb{A}^\times$ and for a Dirichlet character, but we have already explained in our earlier lecture how these are equivalent.
+
+\subsection{Automorphic representations for $\GL_2$ in terms of classical objects}
+
+We have described above how you get cuspidal automorphic representations of $\GL_2(\mathbb{A})$.  One might ask whether these are all of them.  The answer is yes.  The same is not true at the level of automorphic forms -- in general, they need not have classical analogues.  It's instead a nice feature of automorphic representations.
+
+Let's also talk about the tensor product theorem.  We may write
+\begin{equation*}
+  \pi_f = \bigotimes_v' \pi_v.
+\end{equation*}
+What do these local components look like?
+
+For $v = \infty$, the local component $\pi_\infty$ is the holomorphic discrete series of weight $k$ if $f \in S_k(q, \chi)$, and is a principal series if $f \in C_k(q, \chi, i t)$.
+
+How about for $v = p$?  If $p \nmid N$, then $\pi_p$ is a spherical representation, as described in the previous lecture.  If $p \mid N$, then $\pi_p$ is a ramified representation, and the situation is more complicated.  
+
+\begin{fact}
+  Every (irreducible) cuspidal automorphic representation of $\GL_2(\mathbb{A})$ of central character $\chi$ is equal to $\pi_f$, where $f$ is one of the following:
+  \begin{itemize}
+  \item a newform in $S_k(q, \chi)$
+  \item a newform in $C_0(q, \chi, i t)$ or $C_1(q, \chi, i t)$.
+  \end{itemize}
+  This defines a bijection.
+\end{fact}
+
+\subsection{Automorphic $L$-functions}
+
+Let $k$ be a global field or local field, and let $G$ be a reductive algebraic group over $k$.
+
+Let $\mathcal{G}_k := \Gal(\bar{k}/k)$.
+
+Attached to $G$ is something called the dual group $G^\vee = {}^L G^0$ -- another reductive algebraic group -- obtained by ``reversing the root data''.  We motivate this definition by some examples:
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+    $G$ & $G^\vee$ \\
+    \hline
+    $\GL_n$ & $\GL_n(\mathbb{C})$ \\
+    $\SO_{2n+1}$ & $\Sp_{2n}(\mathbb{C})$ \\
+    $\Sp_{2n}$ & $\SO_{2n+1}(\mathbb{C})$ \\
+    $\SO_{2n}$ & $\SO_{2n}(\mathbb{C})$ \\
+    $\GSp_4$ & $\GSp_4(\mathbb{C})$ \\
+    \hline
+  \end{tabular}
+  \caption{Some groups and their dual groups}
+  \label{tab:groups_and_duals}
+\end{table}
+
+The $L$-group is defined by ${}^L G := G^\vee \rtimes \mathcal{G}_k$.
+
+Given any representation $r : {}^L G \rightarrow \GL_n(\mathbb{C})$ and a cuspidal representation $\pi$ of $G(\mathbb{A})$, we can define a Langlands $L$-function
+\begin{equation*}
+  L(s, \pi, r) = \prod_v L(s, \pi_v, r).
+\end{equation*}
+(The representation $r$ should be continuous, and its restriction to $G^\vee$ should be a morphism of complex Lie groups.)  We emphasize that $r$ is a necessary input to the definition of an $L$-function.
+
+Sometimes, there is a ``very natural'' choice of $r$, and one may omit this from the notation.  For instance, for $\GL_n$, the dual group is $\GL_n(\mathbb{C})$, and the natural representation is the identity or ``standard'' representation $\id : \GL_n(\mathbb{C}) \rightarrow \GL_n(\mathbb{C})$.  This gives rise to the \emph{standard} $L$\emph{-function} $L(s, \pi)$ for $\GL_n$.
+
+To define the local factors at all places required knowing the local Langlands correspondence (LLC), but we can define the local factor an unramified prime $v = p$ directly.  Thus, $\pi_p$ is a spherical representation, hence, by the Satake isomorphism, comes with a ``Satake parameter'' $A_{\pi_p} \in G^\vee$.  (This generalizes the discussion of Ralf's lecture concerning the case of $\GL_n$, where $A_{\pi_p}$ was a diagonal matrix.)  We then define
+\begin{equation*}
+  L(s, \pi_p, r) = \det \left( 1 - r(A_{\pi,p} ) p^{- s} \right)^{-1}.
+\end{equation*}
+
+As noted above, for the ramified primes, we need the LLC.  It's known for some groups, such as $\GL_n, \Sp_4, \GSp_4$, but not in general.  This says basically that for each irreducible admissible representation $\pi$ of $G(\mathbb{Q}_p)$, there exists an admissible homomorphism $\Phi : W_F' \rightarrow G^\vee$, where $W_F'$ denotes the Weil--Deligne group, with some key properties.  We know how to attach an $L$-function to each such $\Phi$ (or more precisely, to the composition $r \circ \Phi$).
+
+\subsection{Functoriality}
+Let $k$ be a global field, say a number field.  We can take $k = \mathbb{Q}$ for simplicity.
+
+Functoriality gives a way to transfer automorphic representations from one group to another.  Let $H$ and $G$ be two groups defined over $k$.  We assume that $G$ is quasi-split.  We then want an $L$-homomorphism $u$ from $H$ to $G$, which consists of a map
+\begin{equation*}
+ {}^L H^0 \rtimes \mathcal{G}_k = {}^L H
+ \xlongrightarrow{u} {}^L G = {}^L G^0 \rtimes \mathcal{G}_k
+\end{equation*}
+with certain properties.
+
+The principal of functoriality is the following: for every automorphic representation $\pi$ on $H$, there exists an automorphic representation $\pi '$ on $G$, called the \emph{transfer} or \emph{functorial lift} of $\pi$, with the property that we have equalities of $L$- and $\eps$-factors: for each $r : {}^L G \rightarrow \GL_n(\mathbb{C})$, we have
+\begin{equation*}
+  L(s, \pi , r \circ u)
+  =
+  L(s, \pi' , r),
+\end{equation*}
+and similarly for $\eps$-factors.
+
+\begin{example}
+  $G = \GL_n$, $r = \id$.  Then $L(s, \pi, u) = L(s, \pi ')$.
+\end{example}
+
+\begin{remark}
+  Easy to find the candidate $\pi '$, as long as you know local Langlands.  Not obvious that what you get is actually automorphic.
+\end{remark}
+
+Let's now discuss some examples.
+
+\begin{example}
+  $H = \GL_{n_1} \times \GL_{n_2}$.  We have the natural tensor product map
+  \begin{equation*}
+    \GL_{n_1}(\mathbb{C}) \times \GL_{n_2}(\mathbb{C}) \rightarrow \GL_{n_1 n_2}(\mathbb{C}).
+  \end{equation*}
+  If $n_1 = 1$, then this is what is called twisting.ne In general, such functorial conjectures are wide-open outside a few known cases:
+  \begin{itemize}
+  \item $\GL_2 \times \GL_2 \rightarrow \GL_4$ (Ramakrishnan, 2000)
+  \item $\GL_2 \times \GL_3 \rightarrow \GL_6$ (Kim--Shahidi, 2002)
+  \end{itemize}
+  Suppose $\pi_p$ has Satake parameters $\alpha_{p}^{(1)}, \dotsc, \alpha_{p}^{(n_1)}$ and $\sigma_p$ has Satake parameters $\beta_{p}^{(1)}, \dotsc, \beta_{p}^{(n_2)}$.  Then the Satake parameters for the lift of $\pi_p \otimes \sigma_p$ at the good places are given by
+  \begin{equation*}
+    \alpha_p^{(i)}
+    \beta_p^{(j)},
+  \end{equation*}
+  where $i$ and $j$ range over all possibilities.
+\end{example}
+
+\begin{example}
+  Let $K /F$ be a quadratic extension.  Let $H = \GL_n(K)$, viewed as an $F$-group, and $G = \GL_{2n}(F)$.  Consider the $L$-homomorphism
+  \begin{equation*}
+    u : {}^L H
+    =
+    \prod_{\mathcal{G}_K \backslash \mathcal{G}_F} \GL_n(\mathbb{C}) \rtimes \mathcal{G}_F
+    \longrightarrow {}^L G
+    = \GL_{2 n}(\mathbb{C}) \rtimes \mathcal{G}_F.    
+  \end{equation*}
+  The corresponding functorial transfer is called the \emph{automorphic induction} of $\pi$ from $H$ to $G$.  In this case, it was established by Arthur and Clozel.  We write $\pi ' = \mathrm{AI}(\pi)$ for the image of this transfer.
+
+  Let's give an explicit construction of this in a very special case.  Take $F = \mathbb{Q}$, $K = \mathbb{Q}(\sqrt{d})$ with $d < 0$, $n = 1$.  Let $\Lambda : K^\times \backslash \mathbb{A}_K^\times \rightarrow S^1$, unramified everywhere, $\Lambda_\infty = 1$, $\Lambda^2 \neq 1$.  Define
+  \begin{equation*}
+    \theta_\Lambda(z) = \sum_{\alpha} \Lambda(\alpha) e^{2 \pi i N(\alpha) z}
+    \in S_1(d, \chi_d).
+  \end{equation*}
+  Then
+  \begin{equation*}
+    \pi_{\theta_\Lambda} = \mathrm{AI}(\pi).
+  \end{equation*}
+  It may be instructive to describe the Satake parameters at an unramified prime.  Suppose $p \nmid 2 d$.  Then the Satake parameters are as follows:
+  \begin{itemize}
+  \item for $p$ split, $\{\Lambda(\varpi_{K, p}^{(1)}), \Lambda(\varpi_{K, p}^{(2)})\}$, and
+  \item for $p$ inert, by $\{1, -1\}$.
+  \end{itemize}
+  (The speaker says he just checked this quickly.)
+\end{example}
+
+\begin{example}[Symmetric powers]
+  $H = \GL_2$, $G = \GL_{n + 1}$, $u = \sym^n$.  The transfer is known for $n = 2, 3, 4$ (see \cite{MR533066}, \cite{MR1923967}, \cite{MR1937203}).  If $\pi$ has Satake parameters $\{\alpha, \beta\}$, then $\pi '$ has Satake parameters $\{\alpha^n, \alpha^{n - 1} \beta, \dotsc, \beta^n\}$.  These yield bounds towards the Ramanujan and Sato--Tate conjecture; knowing the transfer for all $n$ would yield the conjectures.
+\end{example}
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
