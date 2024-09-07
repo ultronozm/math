@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Lectures at CIRM by Abhishek Saha and Ralf Schmidt, notes taken by PN" />
+  <title>Basic Concepts in Automorphic Forms</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+    <div class="my-links-container">
+2024-09-07 14:40:50
+      <a href="20240906T090528--cirm-saha-schmidt.tex" class="my-link">tex</a>
+      <a href="20240906T090528--cirm-saha-schmidt.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20240906T090528--cirm-saha-schmidt.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+<header id="title-block-header">
+<h1 class="title">Basic Concepts in Automorphic Forms</h1>
+<p class="author">Lectures at CIRM by Abhishek Saha and Ralf Schmidt,
+notes taken by PN</p>
+<p class="date">September 6–7, 2024</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#lecture-1-schmidt" id="toc-lecture-1-schmidt">Lecture 1,
+Schmidt</a>
+<ul>
+<li><a href="#classical-modular-forms"
+id="toc-classical-modular-forms">Classical modular forms</a></li>
+<li><a href="#passage-to-the-group-setting"
+id="toc-passage-to-the-group-setting">Passage to the group
+setting</a></li>
+<li><a href="#passage-to-the-adeles"
+id="toc-passage-to-the-adeles">Passage to the adeles</a></li>
+<li><a href="#the-definition-of-automorphic-forms"
+id="toc-the-definition-of-automorphic-forms">The definition of
+automorphic forms</a></li>
+</ul></li>
+<li><a href="#lecture-2-saha" id="toc-lecture-2-saha">Lecture 2,
+Saha</a>
+<ul>
+<li><a href="#plan-and-recap" id="toc-plan-and-recap">Plan and
+recap</a></li>
+<li><a href="#central-character" id="toc-central-character">Central
+character</a></li>
+<li><a href="#automorphic-representations-of-mathopmathrmgl_1"
+id="toc-automorphic-representations-of-mathopmathrmgl_1">Automorphic
+representations of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_1\)</span></a></li>
+<li><a href="#automorphic-representations-more-generally"
+id="toc-automorphic-representations-more-generally">Automorphic
+representations more generally</a></li>
+<li><a href="#back-to-mathopmathrmgl2"
+id="toc-back-to-mathopmathrmgl2">Back to <span
+class="math inline">\(\mathop{\mathrm{GL}}(2)\)</span></a></li>
+</ul></li>
+<li><a href="#lecture-3-schmidt" id="toc-lecture-3-schmidt">Lecture 3,
+Schmidt</a>
+<ul>
+<li><a href="#recap" id="toc-recap">Recap</a></li>
+<li><a href="#cusp-forms" id="toc-cusp-forms">Cusp forms</a></li>
+<li><a href="#what-do-we-mean-by-representation"
+id="toc-what-do-we-mean-by-representation">What do we mean by
+“representation”?</a></li>
+<li><a href="#decomposition-into-irreducibles"
+id="toc-decomposition-into-irreducibles">Decomposition into
+irreducibles</a></li>
+<li><a href="#tensor-product-theorem"
+id="toc-tensor-product-theorem">Tensor product theorem</a></li>
+<li><a href="#strong-multiplicity-one"
+id="toc-strong-multiplicity-one">Strong multiplicity one</a></li>
+<li><a href="#sec:cnohg6010e" id="toc-sec:cnohg6010e">Induced
+representations</a>
+<ul>
+<li><a href="#definition" id="toc-definition">Definition</a></li>
+<li><a href="#spherical-representations"
+id="toc-spherical-representations">Spherical representations</a></li>
+<li><a href="#irreducibility"
+id="toc-irreducibility">Irreducibility</a></li>
+<li><a href="#equivalences" id="toc-equivalences">Equivalences</a></li>
+</ul></li>
+<li><a href="#classification-of-spherical-representations"
+id="toc-classification-of-spherical-representations">Classification of
+spherical representations</a></li>
+<li><a href="#l-factors-and-l-functions"
+id="toc-l-factors-and-l-functions"><span
+class="math inline">\(L\)</span>-factors and <span
+class="math inline">\(L\)</span>-functions</a></li>
+</ul></li>
+<li><a href="#lecture-4-saha" id="toc-lecture-4-saha">Lecture 4,
+Saha</a>
+<ul>
+<li><a href="#recap-1" id="toc-recap-1">Recap</a></li>
+<li><a
+href="#automorphic-representations-for-mathopmathrmgl_2-in-terms-of-classical-objects"
+id="toc-automorphic-representations-for-mathopmathrmgl_2-in-terms-of-classical-objects">Automorphic
+representations for <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span> in terms of
+classical objects</a></li>
+<li><a href="#automorphic-l-functions"
+id="toc-automorphic-l-functions">Automorphic <span
+class="math inline">\(L\)</span>-functions</a></li>
+<li><a href="#functoriality"
+id="toc-functoriality">Functoriality</a></li>
+</ul></li>
+</ul>
+</nav>
+<p>Exercises linked at <a
+href="https://sites.google.com/view/samuele-anni/home/research-school-building-bridges"
+class="uri">https://sites.google.com/view/samuele-anni/home/research-school-building-bridges</a>.</p>
+<h1 id="lecture-1-schmidt">Lecture 1, Schmidt</h1>
+<h2 id="classical-modular-forms">Classical modular forms</h2>
+<p>Let’s start with the definition of a classical modular form. A
+<em>modular form</em> is a function <span class="math inline">\(f :
+\mathbb{H} \rightarrow \mathbb{C}\)</span> that has certain
+properties:</p>
+<ul>
+<li><p><span class="math inline">\(f\)</span> is holomorphic.</p></li>
+<li><p>For <span class="math inline">\(\begin{bmatrix}
+    a    &amp; b \\
+    c &amp; d \\
+  \end{bmatrix} \in \Gamma\)</span>, we have <span id="eq:cnog0kttte" class="math display">\[\label{eq:cnog0kttte}\tag{1}
+    f\left( \frac{a \tau + b}{c \tau + d}\right)
+    =(c \tau + d)^{- k}
+    f(\tau).\]</span></p></li>
+<li><p><span class="math inline">\(f\)</span> is holomorphic at the
+cusps. This condition is expressed in terms of Fourier expansions, and
+if you have more than one cusp, it’s actually kind of complicated to
+write down – you have to write down the Fourier expansion at each cusp,
+you have to write down the width of the cusp (which is a bit painful to
+do).</p></li>
+</ul>
+<h2 id="passage-to-the-group-setting">Passage to the group setting</h2>
+<p>Does anyone here think this definition is natural? It might not seem
+that way the first time you see it. The domain <span
+class="math inline">\(\mathbb{H}\)</span> seems a bit arbitrary, there’s
+a mysterious factor in <a href="#eq:cnog0kttte"
+data-reference-type="eqref"
+data-reference="eq:cnog0kttte">\((1)\)</a> involving a random
+number called the weight, and the “holomorphy at cusps” condition isn’t
+even so simple to write down. Unless you’re motivated by why these
+functions should show up, this is a crazy definition. We’ll try to
+demystify it a bit.</p>
+<p>Let’s start with the domain, <span
+class="math inline">\(\mathbb{H}\)</span>, which is actually what you
+call a homogeneous space: there is a bijection <span
+class="math display">\[\mathop{\mathrm{SL}}(2,\mathbb{R}) /
+\mathop{\mathrm{SO}}(2) \xrightarrow{\cong} \mathbb{H},\]</span> where
+<span class="math display">\[\mathop{\mathrm{SO}}(2) = \left\{
+    {
+      r(\theta)
+    }
+    :=
+    \begin{bmatrix}
+      \cos \theta      &amp;  \sin \theta \\
+      - \sin \theta                       &amp; \cos \theta \\
+    \end{bmatrix} : \theta \in \mathbb{R} / 2 \pi \mathbb{Z} \right\}
+  \cong \mathbb{R} / 2 \pi \mathbb{Z} \cong S^1.\]</span> The map in
+question is given by <span class="math display">\[\begin{bmatrix}
+    a    &amp; b \\
+    c &amp; d \\
+  \end{bmatrix}
+  \mapsto \frac{a i + b}{c i + d}.\]</span> This is the orbit map for
+the transitive action of <span
+class="math inline">\(\mathop{\mathrm{SL}}(2,\mathbb{R})\)</span> on
+<span class="math inline">\(\mathbb{H}\)</span>, and it’s a bijection
+because the stabilizer of <span class="math inline">\(i\)</span> is
+<span class="math inline">\(\mathop{\mathrm{SO}}(2)\)</span>, by the
+orbit-stabilizer theorem. This gives a clue: whenever you have a
+function on the upper half-plane, you can pull it back to make it a
+function on the group <span
+class="math inline">\(\mathop{\mathrm{SL}}(2,\mathbb{R})\)</span>, and
+groups are nice.</p>
+<p>We’re going to pull back <span class="math inline">\(f\)</span> not
+in the most obvious way, but as follows. We’re going to construct a new
+function <span class="math display">\[\phi :
+\mathop{\mathrm{SL}}(2,\mathbb{R}) \rightarrow \mathbb{C},\]</span>
+<span class="math display">\[\phi(g) :=  (f|_k g)(i),\]</span> where we
+recall that the weight <span class="math inline">\(k\)</span> slash
+operator is defined as in the modularity relation, by <span
+class="math display">\[(f |_k g)(\tau) =(c \tau + d)^{- k} f \left(
+\frac{a \tau + b}{c \tau + d} \right).\]</span></p>
+<p>So we do this, and get some functions on the group. Let’s think about
+some properties of these functions. First of all, <span id="eq:cnog0lc62w" class="math display">\[\label{eq:cnog0lc62w}\tag{2}
+  \phi(\gamma g) = \phi(g) \quad \text{ for all } \gamma \in
+\Gamma,\]</span> because <span class="math inline">\(f\)</span> is
+modular. Next, <span id="eq:cnog0lc8g8" class="math display">\[\label{eq:cnog0lc8g8}\tag{3}
+  \phi(g r(\theta)) =((f | g) | r(\theta) )(i)
+  =
+  (-i \sin \theta + \cos \theta)^{- k}
+  (f|g)(i)
+  = e^{i k \theta} \phi(g).\]</span> This defines a bijection between
+functions <span class="math inline">\(f\)</span> satisfying the
+modularity property <a href="#eq:cnog0kttte" data-reference-type="eqref"
+data-reference="eq:cnog0kttte">\((1)\)</a> and <span
+class="math inline">\(\phi\)</span> satisfying each of the above
+properties <a href="#eq:cnog0lc62w" data-reference-type="eqref"
+data-reference="eq:cnog0lc62w">\((2)\)</a> and <a
+href="#eq:cnog0lc8g8" data-reference-type="eqref"
+data-reference="eq:cnog0lc8g8">\((3)\)</a>.</p>
+<p>The holomorphy property translates to <span id="eq:cnog0lm7d2" class="math display">\[\label{eq:cnog0lm7d2}\tag{4}
+  L \phi = 0,\]</span> where <span class="math inline">\(L\)</span> is
+the lowering operator in the complexified Lie algebra of <span
+class="math inline">\(G\)</span>.</p>
+<p>Let’s define the norm <span class="math display">\[\left\lVert
+    \begin{bmatrix}
+    a    &amp; b \\
+    c &amp; d \\
+    \end{bmatrix}
+  \right\rVert
+  = \sqrt{a^2 + b^2 + c^2 + d^2}.\]</span> “Holomorphic at the cusps”
+translates into a growth condition that is much nicer to formulate:
+<span id="eq:cnog0lm9xy" class="math display">\[\label{eq:cnog0lm9xy}\tag{5}
+  \lvert \phi(g) \rvert \leq c \lVert g \rVert^n.\]</span></p>
+<p>These conditions characterize the <span
+class="math inline">\(\phi\)</span> coming from <span
+class="math inline">\(f\)</span> as above.</p>
+<p>One could argue that the properties <a href="#eq:cnog0lc62w"
+data-reference-type="eqref"
+data-reference="eq:cnog0lc62w">\((2)\)</a>, <a
+href="#eq:cnog0lc8g8" data-reference-type="eqref"
+data-reference="eq:cnog0lc8g8">\((3)\)</a>, <a
+href="#eq:cnog0lm7d2" data-reference-type="eqref"
+data-reference="eq:cnog0lm7d2">\((4)\)</a> and <a
+href="#eq:cnog0lm9xy" data-reference-type="eqref"
+data-reference="eq:cnog0lm9xy">\((5)\)</a> are simpler and more
+natural than the earlier functions given in terms of <span
+class="math inline">\(f\)</span>. Writing the definition down in this
+way also opens the way for generalizations, replacing <span
+class="math inline">\(\mathop{\mathrm{SL}}(2,\mathbb{R})\)</span> with
+other groups.</p>
+<h2 id="passage-to-the-adeles">Passage to the adeles</h2>
+<p>We would also like to “factorize” modular forms over the primes, much
+like we factor integers as products of primes. We would like to bring
+the number theory out more. There’s an ingenious gadget, called the
+<em>adele ring</em> <span class="math inline">\(\mathbb{A}\)</span>,
+that we’ll define. It will have the property that <span
+class="math inline">\(\mathbb{Q}\)</span> is a discrete subring of <span
+class="math inline">\(\mathbb{A}\)</span>, analogous to <span
+class="math inline">\(\mathbb{Z} \hookrightarrow \mathbb{R}\)</span>. We
+also get a discrete subgroup <span
+class="math display">\[\mathop{\mathrm{GL}}(2,\mathbb{Q}) \subseteq
+\mathop{\mathrm{GL}}(2, \mathbb{A}),\]</span> like <span
+class="math inline">\(\mathop{\mathrm{SL}}(2, \mathbb{Z})\)</span>
+inside <span class="math inline">\(\mathop{\mathrm{SL}}(2,
+\mathbb{R})\)</span>.</p>
+<p>We’re going to use <span class="math inline">\(f\)</span> (or <span
+class="math inline">\(\phi\)</span>) to define a function <span
+class="math display">\[\Phi : \mathop{\mathrm{GL}}(2,\mathbb{A})
+\rightarrow \mathbb{C}.\]</span> This will satisfy <span
+class="math inline">\(\Phi(\gamma g) = \Phi(g)\)</span> for all <span
+class="math inline">\(\gamma \in \mathop{\mathrm{GL}}(2,
+\mathbb{Q})\)</span>, together with some regularity conditions. Hecke
+operators will become much more natural objects when described in terms
+of <span class="math inline">\(\Phi\)</span>.</p>
+<p>Automorphic theory may be understood as Fourier analysis on group
+quotients like <span class="math inline">\(\mathop{\mathrm{SL}}(2,
+\mathbb{Z}) \backslash \mathop{\mathrm{SL}}(2, \mathbb{R})\)</span>,
+generalizing Fourier theory on <span class="math inline">\(\mathbb{Z}
+\backslash \mathbb{R}\)</span>. We can more generally considering
+quotients <span class="math inline">\(G(\mathbb{Q}) \backslash
+G(\mathbb{A})\)</span>, where Fourier theory now incorporates the
+number-theoretic.</p>
+<div class="remark">
+<p><strong>Remark 1</strong>. Dieudonne reportedly said that there were
+two main innovations in number theory: the invention of groups, and the
+invention of adeles. These comments apply to the passage from <span
+class="math inline">\(f\)</span> to <span
+class="math inline">\(\phi\)</span> and then to <span
+class="math inline">\(\Phi\)</span>.</p>
+</div>
+<p>We need to discuss the <span class="math inline">\(p\)</span>-adic
+numbers. The <span class="math inline">\(p\)</span>-adic norm is given
+by <span class="math display">\[\lvert \cdot \rvert_p : \mathbb{Q}
+\rightarrow \mathbb{R}_{\geq 0},\]</span> <span
+class="math display">\[\lvert 0 \rvert_p = 0, \qquad
+  \left| \frac{n}{m} p^\alpha \right| = p^{- \alpha}.\]</span> It is an
+<em>absolute value</em> in the sense that it satisfies the
+properties</p>
+<ul>
+<li><p><span class="math inline">\(\lvert x \rvert_p \geq 0\)</span>,
+<span class="math inline">\(\lvert x \rvert_p = 0 \iff x =
+0\)</span>,</p></li>
+<li><p><span class="math inline">\(\lvert x y \rvert_p = \lvert x
+\rvert_p \cdot \lvert y \rvert_p\)</span>,</p></li>
+<li><p>the triangle inequality <span class="math inline">\(\lvert x + y
+\rvert_p \leq \lvert x \rvert_p + \lvert y \rvert_p\)</span>, and in
+fact, the ultrametric inequality <span class="math inline">\(\lvert x +
+y \rvert_p \leq \max \left( \lvert x \rvert_p, \lvert y \rvert_p
+\right)\)</span>.</p></li>
+</ul>
+<div class="theorem">
+<p><strong>Theorem 2</strong> (Ostrowski). <em>The equivalence classes
+of (nontrivial) absolute values on <span
+class="math inline">\(\mathbb{Q}\)</span> are represented by</em></p>
+<ul>
+<li><p><em><span class="math inline">\(\lvert \cdot \rvert_p\)</span>,
+<span class="math inline">\(p\)</span> prime, and</em></p></li>
+<li><p><em><span class="math inline">\(\lvert \cdot
+\rvert_\infty\)</span>, the usual absolute value.</em></p></li>
+</ul>
+</div>
+<p>Whenever you have an absolute value, you can complete the field. The
+field <span class="math inline">\(\mathbb{Q}_p\)</span> is defined to be
+the completion of <span class="math inline">\(\mathbb{Q}\)</span> with
+respect to <span class="math inline">\(\lvert \cdot
+\rvert_p\)</span>.</p>
+<p>There’s a distinguished subring <span
+class="math display">\[\mathbb{Z}_p = \left\{ x \in \mathbb{Q}_p :
+\lvert x \rvert_p \leq 1 \right\}.\]</span> It’s both open and closed.
+In particular, <span class="math inline">\(\mathbb{Q}_p\)</span> is
+locally compact, so we can integrate over it, together with its
+multiplicative group <span
+class="math inline">\(\mathbb{Q}_p^\ast\)</span>, with respect to Haar
+measures: <span class="math display">\[\int_{\mathbb{Q}_p} f(x) \, d x,
+  \qquad
+  \int_{\mathbb{Q}_p^\ast} f(x)
+  \, \frac{d x}{\lvert x \rvert_p}.\]</span></p>
+<p>The adele ring is defined to be the subring of the direct product
+<span class="math inline">\(\mathbb{R} \times \mathbb{Q}_2 \times
+\mathbb{Q}_3 \times \mathbb{Q}_5 \times \dotsb\)</span> given by <span
+class="math display">\[\mathbb{A} := \left\{(x_p)_{p \leq \infty} : x_p
+\in \mathbb{Z}_p  \text{ for almost all }
+    p \right\}
+  =
+  \prod_{p \leq \infty}&#39;
+  (\mathbb{Q}_p : \mathbb{Z}_p).\]</span> The topology on <span
+class="math inline">\(\mathbb{A}\)</span> is generated by <span
+class="math display">\[\left( \prod_{p \in S} U_p \right)
+  \times \left( \prod_{p \notin S} \mathbb{Z}_p \right),\]</span> where
+<span class="math inline">\(S\)</span> is a finite set of places
+containing <span class="math inline">\(\infty\)</span> and each <span
+class="math inline">\(U_p\)</span> is open in <span
+class="math inline">\(\mathbb{Q}_p\)</span>. Then <span
+class="math inline">\(\mathbb{A}\)</span> turns out to be a locally
+compact topological ring, so we can define integrals such as <span
+class="math display">\[\int_{\mathbb{A}} f(x) \, d x.\]</span> We embed
+<span class="math inline">\(\mathbb{Q} \hookrightarrow
+\mathbb{A}\)</span> diagonally: <span class="math display">\[x
+\mapsto(x, x, \dotsc).\]</span></p>
+<div class="lemma">
+<p><strong>Lemma 3</strong>. A set of representatives for <span
+class="math inline">\(\mathbb{Q} \backslash \mathbb{A}\)</span> is <span
+class="math display">\[\left[0,1\right) \times \prod_{p &lt; \infty}
+\mathbb{Z}_p.\]</span></p>
+</div>
+<p>This is analogous to how, when you look at <span
+class="math inline">\(\mathbb{Z} \backslash \mathbb{R}\)</span>, a set
+of representatives is <span class="math inline">\([0,1)\)</span>.</p>
+<p>We need a multiplicative version of this, called the group of
+<em>ideles</em> <span class="math display">\[\mathbb{A}^\times =
+\prod_{p \leq \infty}&#39;
+  \left( \mathbb{Q}_p^\times : \mathbb{Z}_p^\times \right).\]</span>
+(“Ideles” were defined before adeles, by Chevallay. The name was
+inspired by “ideal elements”. Then “adeles”, coined by Weil, stands for
+“additive ideles”.)</p>
+<p>Let <span class="math inline">\(G\)</span> be a reductive algebraic
+group over <span class="math inline">\(\mathbb{Q}\)</span>, such as
+<span class="math inline">\(\mathop{\mathrm{GL}}(n)\)</span>, <span
+class="math inline">\(\mathop{\mathrm{SL}}(n)\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Sp}}(2 n)\)</span>, <span
+class="math inline">\(\mathop{\mathrm{SO}}(n)\)</span>. We can then form
+<span class="math display">\[G(\mathbb{A}) = \prod_{p \leq \infty} &#39;
+\left( G(\mathbb{Q}_p) : G(\mathbb{Z}_p) \right),\]</span> a locally
+compact topological group. We often consider functions on <span
+class="math inline">\(G(\mathbb{A})\)</span> that factor as products of
+functions on <span class="math inline">\(G(\mathbb{Q}_p)\)</span>. The
+automorphic forms that we consider will not have this property, but the
+representation that they generate do.</p>
+<h2 id="the-definition-of-automorphic-forms">The definition of
+automorphic forms</h2>
+<p>An <em>automorphic form</em> on <span
+class="math inline">\(G(\mathbb{A})\)</span> is a continuous function
+<span class="math inline">\(G(\mathbb{A}) \rightarrow
+\mathbb{C}\)</span> with the following properties:</p>
+<ol type="i">
+<li><p><span id="enumerate:cnog0r4l91"
+label="enumerate:cnog0r4l91"></span> <span
+class="math inline">\(\Phi(\gamma g) = \Phi(g)\)</span>, <span
+class="math inline">\(\gamma \in G(\mathbb{Q})\)</span>,</p></li>
+<li><p><span id="enumerate:cnog0r4na8"
+label="enumerate:cnog0r4na8"></span> there exists an open compact
+subgroup <span class="math inline">\(K_{\mathop{\mathrm{fin}}}\)</span>
+of <span
+class="math inline">\(G(\mathbb{A}_{\mathop{\mathrm{fin}}})\)</span>
+such that <span class="math inline">\(\Phi(g \kappa) = \Phi(g)\)</span>,
+for all <span class="math inline">\(\kappa \in
+K_{\mathop{\mathrm{fin}}}\)</span>, and</p></li>
+<li><p><span id="enumerate:cnog0r4okn"
+label="enumerate:cnog0r4okn"></span> <span
+class="math inline">\(\Phi\)</span> is <span
+class="math inline">\(K_\infty\)</span>-finite.</p></li>
+<li><p><span id="enumerate:cnog0r4t0r"
+label="enumerate:cnog0r4t0r"></span> The function <span
+class="math inline">\(G(\mathbb{R}) \rightarrow \mathbb{C}\)</span>,
+<span class="math inline">\(h \mapsto \Phi(h g)\)</span> is smooth for
+any <span class="math inline">\(g \in G(\mathbb{A})\)</span>.</p></li>
+<li><p><span id="enumerate:cnog0r4wjg"
+label="enumerate:cnog0r4wjg"></span> <span
+class="math inline">\(\Phi\)</span> is <span
+class="math inline">\(Z(\mathfrak{g}_{\mathbb{C}})\)</span>-finite.</p></li>
+<li><p><span id="enumerate:cnog0r4zp0"
+label="enumerate:cnog0r4zp0"></span> The function <span
+class="math inline">\(G(\mathbb{R}) \rightarrow \mathbb{C}\)</span>,
+<span class="math inline">\(h \mapsto \Phi(h g)\)</span> is slowly
+increasing for any <span class="math inline">\(g \in
+G(\mathbb{A})\)</span>.</p></li>
+</ol>
+<p>This is the definition given in the paper by Borel and Jacquet,
+appearing in the famous Corvallis proceedings..</p>
+<p>Let’s elaborate on some of the above.</p>
+<p><span class="math inline">\(K_\infty\)</span> is some maximal compact
+subgroup of <span class="math inline">\(G(\mathbb{R})\)</span>. The
+<span class="math inline">\(K_\infty\)</span>-finiteness condition says
+that <span class="math display">\[\dim \left\langle \Phi(\bullet g), \,
+g \in K_\infty \right\rangle &lt; \infty.\]</span> By comparison, we had
+previously considered functions <span class="math inline">\(\phi :
+\mathop{\mathrm{SL}}(2, \mathbb{R}) \rightarrow \mathbb{C}\)</span>
+satisfying <span class="math inline">\(\phi(g r(\theta)) = e^{i k
+\theta} \phi(g)\)</span>, for which this span is one-dimensional.</p>
+<p><span class="math inline">\(Z(\mathfrak{g}_{\mathbb{C}})\)</span> is
+the center of the universal enveloping algebra <span
+class="math inline">\(\mathcal{U}(\mathfrak{g}_{\mathbb{C}})\)</span> of
+the complexified Lie algebra. Each of these acts on the space of smooth
+functions on <span class="math inline">\(G(\mathbb{R})\)</span>. The
+claim is that when you act by the center, the space that you get is
+finite-dimensional. The condition is similar to satisfying a
+differential equation, much like how holomorphic modular forms satisfy
+the Cauchy–Riemann equations.</p>
+<p>Let <span class="math inline">\(G = \mathop{\mathrm{SL}}(2)\)</span>,
+<span class="math inline">\(\mathfrak{g} =
+\mathop{\mathrm{Lie}}G(\mathbb{R})\)</span>, thus <span
+class="math display">\[\mathfrak{g} = \left\{
+    \begin{bmatrix}
+      a      &amp; b \\
+      c &amp; -a \\
+    \end{bmatrix} : a,b,c \in \mathbb{R} \right\}.\]</span> For <span
+class="math inline">\(X \in \mathfrak{g}\)</span> and <span
+class="math inline">\(\phi : G(\mathbb{R}) \rightarrow
+\mathbb{C}\)</span> smooth, we define <span class="math display">\[(X
+\phi)(g) := \frac{d}{d t} |_{t=0}
+  \phi(g \exp(t X)).\]</span> The complexified Lie algebra <span
+class="math inline">\(\mathfrak{g}_{\mathbb{C}}\)</span> acts by
+linearity. The algebra <span
+class="math inline">\(\mathcal{U}(\mathfrak{g}_{\mathbb{C}})\)</span>
+acts by composition. A basis for <span
+class="math inline">\(\mathfrak{g}_{\mathbb{C}}\)</span> is given by</p>
+<p><span class="math display">\[H = - i
+  \begin{bmatrix}
+    0    &amp; 1 \\
+    -1 &amp; 0 \\
+  \end{bmatrix},\]</span> <span class="math display">\[R = \tfrac{1}{2}
+  \begin{bmatrix}
+    1    &amp; i \\
+    i &amp; -1 \\
+  \end{bmatrix},\]</span> <span class="math display">\[L = \tfrac{1}{2}
+  \begin{bmatrix}
+    1    &amp; -i \\
+    -i &amp; -1 \\
+  \end{bmatrix},\]</span> and we then have <span
+class="math display">\[\mathcal{U}(\mathfrak{g}_{\mathbb{C}})
+  = \oplus_{ j, k, \ell  \geq 0}
+  \mathbb{C}  H^i R^{\ell} L^k .\]</span></p>
+<div class="theorem">
+<p><strong>Theorem 4</strong>. <em>We have <span
+class="math display">\[Z(\mathfrak{g}_C) = \mathbb{C}[\Delta],\]</span>
+where <span class="math display">\[\Delta = - \tfrac{1}{4} \left( H^2 +
+2 R L + 2 L R \right).\]</span></em></p>
+</div>
+<p>Thus in this case, the <span
+class="math inline">\(Z(\mathfrak{g}_{\mathbb{C}})\)</span>-finiteness
+condition says that when we act repeatedly by <span
+class="math inline">\(\Delta\)</span>, we get a finite-dimensional
+space. A typical example where this happens is when <span
+class="math inline">\(\Delta \phi = \lambda \phi\)</span> for some <span
+class="math inline">\(\lambda \in \mathbb{C}\)</span>. Then <span
+class="math inline">\((\Delta - \lambda) \phi = 0\)</span>, so the ideal
+<span class="math inline">\((\Delta - \lambda)\)</span> annihilates
+<span class="math inline">\(\phi\)</span>, hence <span
+class="math display">\[Z(\mathfrak{g}_{\mathbb{C}}) \phi \cong
+  \mathbb{C}[\Delta] /(\Delta - \lambda) \cong \mathbb{C},\]</span>
+which is finite-dimensional. More generally, condition <a
+href="#enumerate:cnog0r4wjg" data-reference-type="eqref"
+data-reference="enumerate:cnog0r4wjg">\((v)\)</a> means
+that <span class="math inline">\(\phi\)</span> is annihilated by <span
+class="math inline">\(f(\Delta)\)</span> for some polynomial <span
+class="math inline">\(0 \neq f \in \mathbb{C}[x]\)</span>.</p>
+<p>So, that was the official definition of automorphic forms.</p>
+<h1 id="lecture-2-saha">Lecture 2, Saha</h1>
+<h2 id="plan-and-recap">Plan and recap</h2>
+<p>Our goal today is to carry on from what Ralf did, focusing on some
+basic cases of automorphic forms to explain a bit classically what they
+look like and how they fit with objects you’re more familiar with.</p>
+<p>In the previous lecture, you’ve seen the definition of an automorphic
+form. We worked mostly over <span
+class="math inline">\(\mathbb{Q}\)</span>, but one can work more
+generally over any number field <span class="math inline">\(F\)</span>,
+with any reductive group <span class="math inline">\(G\)</span> over
+<span class="math inline">\(F\)</span>. We write <span
+class="math inline">\(\mathcal{A}_{G/F}\)</span> for the space of such
+automorphic forms. Today we’ll mostly work with <span
+class="math inline">\(F = \mathbb{Q}\)</span> and write <span
+class="math inline">\(\mathcal{A}_G :=
+\mathcal{A}_{G/\mathbb{Q}}\)</span>.</p>
+<h2 id="central-character">Central character</h2>
+<p>These are finite under the adelic points <span
+class="math inline">\(Z_G(\mathbb{A})\)</span> of the center <span
+class="math inline">\(Z_G\)</span> of <span
+class="math inline">\(G\)</span>. We can break it up into spaces on
+which the center acts by a character. By linearity, there is thus not
+much loss in generality in considering automorphic forms with a given
+central character.</p>
+<p>Given a character <span class="math inline">\(\chi\)</span> of <span
+class="math inline">\(Z_G(\mathbb{Q}) \backslash
+Z_G(\mathbb{A})\)</span>, we define <span
+class="math inline">\(\mathcal{A}_G(\chi)\)</span> to be the space of
+all <span class="math inline">\(f \in \mathcal{A}_G\)</span> such that
+<span class="math display">\[f(g z) = \chi(z) f(g)\]</span> for all
+<span class="math inline">\(z \in Z_G(\mathbb{A})\)</span>.</p>
+<h2 id="automorphic-representations-of-mathopmathrmgl_1">Automorphic
+representations of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_1\)</span></h2>
+<p>Today we discuss what happens if <span class="math inline">\(G =
+{\mathop{\mathrm{GL}}}_1\)</span> and <span class="math inline">\(F =
+\mathbb{Q}\)</span>.</p>
+<p>Note that <span class="math inline">\({\mathop{\mathrm{GL}}}_1\)</span>
+is abelian, thus automorphic forms on <span
+class="math inline">\({\mathop{\mathrm{GL}}}_1\)</span> with central
+character are just characters of <span
+class="math inline">\(\mathbb{Q}^\times \backslash
+\mathbb{A}^\times\)</span>, i.e., continuous homomorphisms to <span
+class="math inline">\(\mathbb{C}^\times\)</span>.</p>
+<div class="exercise">
+<p><strong>Exercise 1</strong>. Any character of <span
+class="math inline">\(\mathbb{Q}^\times \backslash
+\mathbb{A}^\times\)</span> is of the form <span
+class="math display">\[\chi &#39; = \chi \cdot \lvert \cdot
+\rvert_{\mathbb{A}}^s\]</span> for some <span class="math inline">\(s
+\in \mathbb{C}\)</span>, where <span class="math inline">\(\chi\)</span>
+is of finite order.</p>
+</div>
+<p>Here the adelic absolute value <span class="math inline">\(\lvert
+\cdot \rvert_{\mathbb{A}}\)</span> is obtained by multiplying the local
+absolute values <span class="math inline">\(\lvert \cdot
+\rvert_{v}\)</span> over the components of <span
+class="math inline">\(\mathbb{A}^\times = \prod_v &#39;
+\mathbb{Q}_v^\times\)</span>. Easy to see that this takes the value
+<span class="math inline">\(1\)</span> on elements of <span
+class="math inline">\(\mathbb{Q}^\times\)</span>.</p>
+<p>Let’s recall that a Dirichlet character modulo <span
+class="math inline">\(N\)</span> is a character of <span
+class="math inline">\((\mathbb{Z} / N \mathbb{Z})^\times\)</span>, which
+we often think of as an <span class="math inline">\(N\)</span>-periodic
+function on <span class="math inline">\(\mathbb{Z}\)</span>, vanishing
+on elements having a common factor with <span
+class="math inline">\(N\)</span>.</p>
+<p>Suppose you have two integers <span class="math inline">\(N_1,
+N\)</span> such that <span class="math inline">\(N_1 \mid N\)</span>.
+Then there is a natural map <span class="math display">\[(\mathbb{Z} / N
+\mathbb{Z})^\times \rightarrow
+  (\mathbb{Z} / N_1 \mathbb{Z})^\times.\]</span> So Dirichlet characters
+modulo <span class="math inline">\(N_1\)</span> are also Dirichlet
+characters modulo <span class="math inline">\(N\)</span>.</p>
+<p>The Dirichlet characters modulo <span
+class="math inline">\(N\)</span> that don’t arise this way, for any
+<span class="math inline">\(N_1\)</span>, are called <em>primitive</em>
+(modulo <span class="math inline">\(N\)</span>).</p>
+<div class="remark">
+<p><strong>Remark 5</strong>. The number of Dirichlet characters modulo
+<span class="math inline">\(N\)</span> is <span
+class="math display">\[\varphi(N) = N \prod_{p \mid N} \left( 1 -
+\frac{1}{p} \right),\]</span> the number of primitive Dirichlet
+characters is <span class="math display">\[N \prod_{
+      \substack{
+        p \mid N  \\
+        p^2 \nmid N        
+      }
+    } \left( 1 - \frac{2}{p} \right)
+    \prod_{p^2 \mid N}
+    \left( 1 - \frac{1}{p} \right)^2.\]</span></p>
+</div>
+<p>Goal: given a finite order character <span
+class="math inline">\(\chi\)</span> of <span
+class="math inline">\(\mathbb{Q}^\times \backslash
+\mathbb{A}^\times\)</span>, construct primitive Dirichlet character
+<span class="math inline">\(\tilde{\chi}\)</span> modulo <span
+class="math inline">\(C(\chi)\)</span>.</p>
+<p><strong>Step one: construction of</strong> <span
+class="math inline">\(\tilde{\chi}\)</span><strong>.</strong> Write
+<span class="math inline">\(\chi = \prod_v \chi_v\)</span>, where <span
+class="math inline">\(\chi_v : \mathbb{Q}_v^\times \rightarrow
+S^1\)</span> is finite order. This forces <span
+class="math inline">\(\chi_\infty\)</span> to be the sign character.
+Also, by continuity, <span class="math inline">\(\chi_p
+|_{\mathbb{Z}_p^\times} = 1\)</span> for almost all <span
+class="math inline">\(p\)</span> (<em>unramified</em> primes); the
+remaining finitely-many primes <span class="math inline">\(p\)</span>
+are called <em>ramified</em>.</p>
+<div class="claim">
+<p><strong>Claim 1</strong>. Let <span class="math inline">\(p\)</span>
+be a ramified prime. Then <span class="math inline">\(\chi_p |_{1 + p^n
+\mathbb{Z}_p} = 1\)</span> for all sufficiently large <span
+class="math inline">\(n\)</span>.</p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Let <span class="math inline">\(U\)</span> be a small
+open neighborhood of the identity element of <span
+class="math inline">\(S^1\)</span>, small enough that it contains no
+nontrivial subgroup of <span class="math inline">\(S^1\)</span>. By
+continuity of <span class="math inline">\(\chi_p\)</span>, we can find
+<span class="math inline">\(n\)</span> such that <span
+class="math inline">\(\chi_p\)</span> maps <span class="math inline">\(1
++ p^n \mathbb{Z}_p\)</span> into <span class="math inline">\(U\)</span>.
+Since <span class="math inline">\(\chi_p\)</span> is a homomorphism, its
+image is a subgroup. By what we noted before, any such subgroup is
+necessary trivial. ◻</p>
+</span></div>
+<p>So, for each ramified prime <span class="math inline">\(p\)</span>,
+there is a smallest <span class="math inline">\(n_p\)</span> such that
+<span class="math inline">\(\chi_p |_{1 + p^{n_p} \mathbb{Z}_p } =
+1\)</span>. We define <span class="math display">\[C(\chi) := \prod_{p
+\text{ ram}}
+  p^{n_p}.\]</span> Since <span class="math inline">\(\chi\)</span>
+factors through <span class="math display">\[\prod_{p \text{ ram}}
+  (1 + p^{n_p} \mathbb{Z}_p),\]</span> we get a character <span
+class="math inline">\(\tilde{\chi}\)</span> on <span id="eq:cnog0y8bdf" class="math display">\[\label{eq:cnog0y8bdf}\tag{6}
+  \prod_{p \text{ ram}}
+  \frac{\mathbb{Z}_p^\times}{(1 + p^n \mathbb{Z}_p)}
+  =
+  \prod \left( \frac{\mathbb{Z}}{ p^{n_p}} \right)^\times
+  =(\mathbb{Z} / N \mathbb{Z})^\times.\]</span></p>
+<div class="exercise">
+<p><strong>Exercise 2</strong>. <span
+class="math inline">\(\tilde{\chi}\)</span> is primitive modulo <span
+class="math inline">\(C(\chi)\)</span>.</p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 6</strong>. <em>The group of finite order characters
+of <span class="math inline">\(\mathbb{Q}^\times \backslash
+\mathbb{A}^\times\)</span> is isomorphic to the group of primitive
+Dirichlet characters. This isomorphism preserves conductors.</em></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> The map <span class="math inline">\(\chi \mapsto
+\tilde{\chi}\)</span> is injective because <span id="eq:cnog0y9m3s" class="math display">\[\label{eq:cnog0y9m3s}\tag{7}
+    \mathbb{A}^\times = \mathbb{Q}^\times \mathbb{R}^+ \prod_{p  &lt;
+\infty} \mathbb{Z}_p^\times.\]</span> It is surjective because we can
+lift any <span class="math inline">\(\tilde{\chi} :(\mathbb{Z} / N
+\mathbb{Z} )^\times \rightarrow S^1\)</span> to <span
+class="math inline">\(\prod \mathbb{Z}_p^\times\)</span> using <a
+href="#eq:cnog0y8bdf" data-reference-type="eqref"
+data-reference="eq:cnog0y8bdf">\((6)\)</a>, then further to
+<span class="math inline">\(\mathbb{Q}^\times \backslash
+\mathbb{A}^\times\)</span> using <a href="#eq:cnog0y9m3s"
+data-reference-type="eqref"
+data-reference="eq:cnog0y9m3s">\((7)\)</a>. ◻</p>
+</span></div>
+<p>Things can be a bit more complicated over number fields: nontrivial
+class number, multiple infinite places, etc. In that generality, the
+adelic language is perhaps more natural.</p>
+<p>We have noted already that <span
+class="math inline">\({\mathop{\mathrm{GL}}}_1\)</span> is special in that
+it is abelian. From this it follows that automorphic representations are
+one-dimensional, spanned by the associated characters, which also
+account for the automorphic forms. For more general groups, it’s often
+more natural to work with automorphic representations rather than
+automorphic forms.</p>
+<h2 id="automorphic-representations-more-generally">Automorphic
+representations more generally</h2>
+<p>Let’s now put up some notation. For a general group <span
+class="math inline">\(G\)</span>, the group <span
+class="math inline">\(G(\mathbb{A})\)</span> acts on <span
+class="math inline">\(\mathcal{A}_G\)</span>, the space of automorphic
+forms on <span class="math inline">\(G\)</span>, by right translation.
+(Well, up to technicalities at the place <span
+class="math inline">\(\infty\)</span>, where one should instead work
+with the Lie algebra.) This action makes <span
+class="math inline">\(\mathcal{A}_G\)</span> a representation space for
+<span class="math inline">\(G(\mathbb{A})\)</span> (more-or-less). An
+<em>automorphic representation</em> is an irreducible subquotient under
+this action.</p>
+<p>Inside <span class="math inline">\(\mathcal{A}_G\)</span>, we have
+the space of cusp forms <span
+class="math inline">\(\mathcal{A}_G^0\)</span>, consisting of <span
+class="math inline">\(f\)</span> for which the integrals over adelic mod
+rational points of unipotent radicals of proper parabolics all
+vanishing. The space <span
+class="math inline">\(\mathcal{A}_G^0\)</span> (for a given central
+character) decomposes as a direct sum of irreducible cuspidal
+automorphic representations, unlike what happens for <span
+class="math inline">\(\mathcal{A}_G\)</span>.</p>
+<h2 id="back-to-mathopmathrmgl2">Back to <span
+class="math inline">\(\mathop{\mathrm{GL}}(2)\)</span></h2>
+<p>Next, let’s return to <span
+class="math inline">\(\mathop{\mathrm{GL}}(2)\)</span>. For <span
+class="math inline">\(q \geq 1\)</span>, define <span
+class="math display">\[\Gamma_0(q) = \left\{
+    \begin{pmatrix}
+      a &amp; b \\
+      c &amp; d \\
+    \end{pmatrix} : q \mid c \right\}.\]</span> Let <span
+class="math inline">\(\chi\)</span> be a character of conductor dividing
+<span class="math inline">\(q\)</span>. We extend it to a character of
+<span class="math inline">\(\Gamma_0(q)\)</span> via <span
+class="math display">\[\chi
+  \begin{pmatrix}
+    a    &amp; b \\
+    c &amp; d \\
+  \end{pmatrix}
+  = \chi(d) = \chi^{-1}(a).\]</span> Define the space of modular forms
+<span class="math display">\[M_k(q, \chi) =
+  \left\{ f(\gamma z) =(c z + d)^k \chi(\gamma) f(z) \right\},\]</span>
+and the subspace <span class="math inline">\(S_k(q, \chi)\)</span> of
+cusp forms.</p>
+<p><em>Maass forms</em> of weight <span class="math inline">\(k \geq
+0\)</span> are functions on <span
+class="math inline">\(\mathbb{H}\)</span> satisfying <span
+class="math display">\[f(\gamma z) =  f(z) ,\]</span> <span
+class="math display">\[f(\gamma z) = \left( \frac{c z + d}{\lvert c z +
+d \rvert}^k \right)
+  = \chi(\gamma) f(z)\]</span> and for all <span
+class="math inline">\(\gamma \in \Gamma_0(q)\)</span>, <span
+class="math display">\[\Delta_k f + \lambda_f f = 0,\]</span> where
+<span class="math display">\[\Delta_k = y^2 \left(
+\frac{\partial^2}{\partial^2 x^2} + \frac{\partial^2}{\partial^2 y^2}
+\right)
+  - i k y \frac{\partial}{ \partial x}.\]</span> These spaces are all
+finite-dimensional. We refer to the corresponding spaces as <span
+class="math display">\[C_k(q, \chi) \subseteq N_k(q, \chi).\]</span></p>
+<p>If <span class="math inline">\(F \in S_k(q, \chi)\)</span>, then
+<span class="math inline">\(F &#39;(z) = y^{k/2} F(z)\)</span> satisfies
+<span class="math inline">\(F&#39; \in C_k(q, \chi)\)</span>, with <span
+class="math inline">\(\lambda_{F &#39;} = - \tfrac{k}{2}(\tfrac{k}{2} -
+1)\)</span>.</p>
+<p>For <span class="math inline">\(f \in C_k(q, \chi)\)</span>, we
+have</p>
+<ol>
+<li><p><span class="math inline">\(\lambda_f \in
+\mathbb{R}\)</span>,</p></li>
+<li><p><span class="math inline">\(\lambda_f \geq -
+  \tfrac{k}{2}(\tfrac{k}{2} - 1)\)</span>, and</p></li>
+<li><p>if <span class="math inline">\(\lambda_f \neq -
+\tfrac{k}{2}(\tfrac{k}{2} - 1)\)</span>, then <span
+class="math inline">\(\lambda_f \geq 0\)</span>.</p></li>
+</ol>
+<p>Next, set <span class="math inline">\(T^+ := R \cup \left[ -
+\tfrac{i}{2}, \tfrac{i}{2}\right]\)</span>. For <span
+class="math inline">\(t \in T^+\)</span>, define <span
+class="math inline">\(C_k(q, \chi, i t)\)</span> to be the subspace of
+<span class="math inline">\(C_k(q, \chi)\)</span> such that <span
+class="math inline">\(\lambda_f = (\tfrac{1}{2} + i t)(\tfrac{1}{2} - i
+t) = \tfrac{1}{4} + t^2\)</span>.</p>
+<p>We have the strong approximation formula <span id="eq:cnog03qd0j" class="math display">\[\label{eq:cnog03qd0j}\tag{8}
+  {\mathop{\mathrm{GL}}}_2(\mathbb{A}) =
+{\mathop{\mathrm{GL}}}_2(\mathbb{Q}) {\mathop{\mathrm{GL}}}_2(\mathbb{R})
+  \prod_{p &lt; \infty} K_p &#39;,\]</span> where <span
+class="math inline">\(K_p &#39; \subseteq
+{\mathop{\mathrm{GL}}}_2(\mathbb{Z}_p)\)</span> satisfies <span
+class="math inline">\(K_p &#39; =
+{\mathop{\mathrm{GL}}}_2(\mathbb{Z}_p)\)</span> for almost all <span
+class="math inline">\(p\)</span> and for which <span
+class="math inline">\(\det : K_p \rightarrow
+\mathbb{Z}_p^\times\)</span> is surjective for all <span
+class="math inline">\(p\)</span>.</p>
+<p>For example, one could take <span class="math display">\[K_p &#39; =
+\left\{
+    \begin{pmatrix}
+      a      &amp; b \\
+      c &amp; d \\
+    \end{pmatrix} \in {\mathop{\mathrm{GL}}}_2(\mathbb{Z}_p) : N \mid c
+\right\},\]</span> which is relevant for when <span
+class="math inline">\(f\)</span> lies in <span
+class="math inline">\(S_k(N, \chi)\)</span>. We can use <a
+href="#eq:cnog03qd0j" data-reference-type="eqref"
+data-reference="eq:cnog03qd0j">\((8)\)</a> to define <span
+class="math inline">\(\phi_f : {\mathop{\mathrm{GL}}}_2(\mathbb{A})
+\rightarrow \mathbb{C}\)</span> by requiring that for all <span
+class="math display">\[(\gamma, g_\infty, k_0) \in
+{\mathop{\mathrm{GL}}}_2(\mathbb{Q}) \times
+{\mathop{\mathrm{GL}}}_2(\mathbb{R}) \times \prod_{p &lt; \infty} K_p
+&#39;,\]</span> <span class="math display">\[\phi_f(\gamma g_\infty k_0)
+= f(g_\infty \cdot i) j(g_\infty, i)^{- k} \chi(k_0).\]</span> Check
+then that <span class="math inline">\(\phi_f \in
+\mathcal{A}_{{\mathop{\mathrm{GL}}}_2 / \mathbb{Q}}^0(\chi)\)</span>.</p>
+<p>Next time we’ll talk about how <span
+class="math inline">\(\phi_f\)</span> generates a cuspidal automorphic
+representation, and why all of the latter arise in this way (from
+holomorphic or Maass forms).</p>
+<h1 id="lecture-3-schmidt">Lecture 3, Schmidt</h1>
+<h2 id="recap">Recap</h2>
+<p>Let’s recall from last time that <span class="math inline">\(\Phi :
+G(\mathbb{A}) \rightarrow \mathbb{C}\)</span> is an <em>automorphic
+form</em> if it is</p>
+<ul>
+<li><p>left invariant under <span
+class="math inline">\(G(\mathbb{Q})\)</span>,</p></li>
+<li><p>right invariant under some open subgroup <span
+class="math inline">\(K_{\mathop{\mathrm{fin}}}\)</span> of <span
+class="math inline">\(G(\mathbb{A}_{\mathop{\mathrm{fin}}})\)</span>,</p></li>
+<li><p>smooth as a function of <span
+class="math inline">\(G(\mathbb{R})\)</span>,</p></li>
+<li><p><span class="math inline">\(K_\infty\)</span>-finite,</p></li>
+<li><p><span
+class="math inline">\(Z(\mathfrak{g}_{\mathbb{C}})\)</span>-finite,
+and</p></li>
+<li><p>slowly increasing.</p></li>
+</ul>
+<h2 id="cusp-forms">Cusp forms</h2>
+<p>We denote by <span class="math inline">\(\mathcal{A}\)</span> the
+space of automorphic forms.</p>
+<p>We denote by <span class="math inline">\(\mathcal{A}^0\)</span> the
+subspace of <em>cusp forms</em>, which for <span class="math inline">\(G
+= {\mathop{\mathrm{GL}}}_2\)</span> must satisfy <span
+class="math display">\[\int_{\mathbb{Q} \backslash \mathbb{A}} \Phi
+\left(
+    \begin{bmatrix}
+      1      &amp; x \\
+      0 &amp; 1 \\
+    \end{bmatrix}
+    g
+  \right) \, d x = 0
+  \qquad \text{ for } g \in G(\mathbb{A})\]</span> and in general must
+have vanishing integral over the adelic mod rational points of the
+unipotent radical of any parabolic subgroup, e.g., for <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n\)</span>, groups such as
+<span class="math display">\[\left(
+    \begin{array}{ccc|ccc|ccc}
+      1 &amp; 0 &amp; 0 &amp; \ast &amp; \ast &amp; \ast &amp; \ast
+&amp; \ast &amp; \ast \\
+      0 &amp; \ddots &amp; 0 &amp; \ast &amp; \ast &amp; \ast &amp; \ast
+&amp; \ast &amp; \ast \\
+      0 &amp; 0 &amp; 1 &amp; \ast &amp; \ast &amp; \ast &amp; \ast
+&amp; \ast &amp; \ast \\
+      \hline
+      0 &amp; 0 &amp; 0 &amp; 1 &amp; \ast &amp; \ast &amp; \ast &amp;
+\ast &amp; \ast \\
+      0 &amp; 0 &amp; 0 &amp; 0 &amp; \ddots &amp; \ast &amp; \ast &amp;
+\ast &amp; \ast \\
+      0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; \ast &amp; \ast
+&amp; \ast \\
+      \hline
+      0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; \ast &amp;
+\ast \\
+      0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \ddots
+&amp; \ast \\
+      0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1
+\\
+    \end{array}
+  \right).\]</span></p>
+<h2 id="what-do-we-mean-by-representation">What do we mean by
+“representation”?</h2>
+<p>A <em>representation</em> of a group <span
+class="math inline">\(G\)</span> is a pair <span
+class="math inline">\((\pi, V)\)</span>, where <span
+class="math inline">\(V\)</span> is a vector space and <span
+class="math inline">\(\pi : G \rightarrow
+\mathop{\mathrm{GL}}(V)\)</span> is a homomorphism. Depending upon the
+situation, one imposes continuity of the action map <span
+class="math display">\[G \times V \rightarrow V\]</span> <span
+class="math display">\[(g, v) \mapsto \pi(g) v.\]</span> A subspace
+<span class="math inline">\(0 \subset W \subset V\)</span> is
+<em>invariant</em> if <span class="math inline">\(\pi(g) w \in
+W\)</span> for each <span class="math inline">\(w \in W\)</span>; we
+call a representation <em>irreducible</em> if it is nonzero and there
+are no nontrivial proper invariant subspaces.</p>
+<p>In some situations, we may decompose each representation <span
+class="math inline">\(V\)</span> as a direct sum of irreducible
+representations <span class="math inline">\(V_i\)</span>: <span
+class="math display">\[V = \bigoplus V_i.\]</span> We say then that
+<span class="math inline">\(V\)</span> <em>decomposes completely</em>.
+But this need not be the case in general: one can find non-split short
+exact sequences of representations <span class="math display">\[0
+\rightarrow W \rightarrow V \rightarrow V / W \rightarrow 0.\]</span>
+(We have an exercise on the exercise sheet, involving the Steinberg
+representation, that gives an example of such a situation.)</p>
+<p>Given a representation <span class="math inline">\(V\)</span> with
+subrepresentations <span class="math inline">\(0 \subset U \subset W
+\subset V\)</span>, we say that <span class="math inline">\(W /
+U\)</span> is a <em>subquotient</em> or <em>constituent</em> of <span
+class="math inline">\(V\)</span>.</p>
+<p>Given <span class="math inline">\(g \in G(\mathbb{A})\)</span> and
+<span class="math inline">\(\Phi \in \mathcal{A}\)</span>, we define the
+right translate <span class="math inline">\((g \cdot \Phi)(h) = \Phi(h
+g)\)</span>. Unfortunately, <span
+class="math inline">\(\mathcal{A}\)</span> is not stable under right
+translation, due to the <span
+class="math inline">\(K_\infty\)</span>-finiteness condition.</p>
+<div class="example">
+<p><strong>Example 7</strong>. For <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span>, if <span
+class="math inline">\(\Phi(g r(\theta)) = e^{i k \theta}
+\Phi(g)\)</span>, then <span class="math inline">\((h \Phi)(g r(\theta))
+= \Phi(g r(\theta) h)\)</span>, and if, say, <span
+class="math inline">\(h\)</span> is a suitable diagonal element, then
+it’s easy to see that the result is not <span
+class="math inline">\(K_\infty\)</span>-finite.</p>
+</div>
+<p>Instead, <span class="math inline">\(\mathcal{A}\)</span> is
+preserved under right translation by</p>
+<ul>
+<li><p><span
+class="math inline">\(G(\mathbb{A}_{\mathop{\mathrm{fin}}})\)</span></p></li>
+<li><p><span class="math inline">\(K_\infty\)</span></p></li>
+<li><p><span class="math inline">\(\mathfrak{g}\)</span>, via <span
+class="math inline">\((X \cdot \Phi)(g) = \frac{d}{d t} |_{t=0} \Phi(g
+\exp(t X))\)</span>.</p></li>
+</ul>
+<p>The last two actions are described by saying that <span
+class="math inline">\(\mathcal{A}\)</span> is a <span
+class="math inline">\((\mathfrak{g},
+K_\infty)\)</span><em>-module</em>.</p>
+<p>So, when we say informally that “<span
+class="math inline">\(\mathcal{A}\)</span> is a representation of <span
+class="math inline">\(G(\mathbb{A})\)</span>”, what we really mean is
+that it admits a <span
+class="math inline">\(G(\mathbb{A}_{\mathop{\mathrm{fin}}})\)</span>-action
+and is a <span class="math inline">\((\mathfrak{g},
+K_\infty)\)</span>-module.</p>
+<div class="definition">
+<p><strong>Definition 8</strong>. An <em>automorphic representation</em>
+is an irreducible subquotient of <span
+class="math inline">\(\mathcal{A}\)</span>.</p>
+</div>
+<h2 id="decomposition-into-irreducibles">Decomposition into
+irreducibles</h2>
+<p>The space of automorphic forms does not decompose completely,
+but:</p>
+<div class="theorem">
+<p><strong>Theorem 9</strong>. <em>The space of cusp forms <span
+class="math inline">\(\mathcal{A}^0_{\chi}\)</span> with given central
+character <span class="math inline">\(\chi\)</span> decomposes
+completely: <span class="math display">\[\mathcal{A}_{\chi}^0 =
+\bigoplus_i \pi_i,\]</span> where each <span
+class="math inline">\(\pi_i\)</span> is a cuspidal automorphic
+representation.</em></p>
+</div>
+<h2 id="tensor-product-theorem">Tensor product theorem</h2>
+<p>The <em>tensor product theorem</em> (Dan Flath, Corvallis
+proceedings, 1979) states that if <span
+class="math inline">\(\pi\)</span> is an irreducible representation of
+<span class="math inline">\(G(\mathbb{A})\)</span>, then it factors as a
+restricted tensor product <span class="math display">\[\pi \cong
+\bigotimes_{p \leq \infty}&#39; \pi_p,\]</span> where each <span
+class="math inline">\((\pi_p, V_p)\)</span> is an irreducible admissible
+representation of <span
+class="math inline">\(G(\mathbb{Q}_p)\)</span>.</p>
+<p>For almost all <span class="math inline">\(p\)</span>, the space
+<span class="math inline">\(V_p\)</span> contains a <em>spherical
+vector</em> <span class="math inline">\(w_p \neq 0\)</span>, i.e., <span
+class="math inline">\(\pi_p(g) w_p = w_p\)</span> for all <span
+class="math inline">\(g \in K_p\)</span> (special maximal compact
+subgroup of <span class="math inline">\(G(\mathbb{Q}_p)\)</span>).</p>
+<h2 id="strong-multiplicity-one">Strong multiplicity one</h2>
+<div class="theorem">
+<p><strong>Theorem 10</strong> (Strong multiplicity one). <em>Let <span
+class="math inline">\(\pi\)</span> and <span class="math inline">\(\pi
+&#39;\)</span> be cuspidal automorphic representations of <span
+class="math inline">\(G(\mathbb{A})\)</span>. Write <span
+class="math inline">\(\pi \cong \bigotimes \pi_p\)</span> and <span
+class="math inline">\(\pi &#39; \cong \bigotimes \pi_p &#39;\)</span>.
+Assume that <span class="math inline">\(\pi_p \cong \pi_p &#39;\)</span>
+for almost all <span class="math inline">\(p\)</span>. Then <span
+class="math inline">\(\pi = \pi &#39;\)</span>.</em></p>
+</div>
+<h2 id="sec:cnohg6010e">§3.7. Induced representations</h2>
+<h3 id="definition">Definition</h3>
+<p>Let <span class="math inline">\(\chi_1, \dotsc, \chi_n\)</span> be
+characters of <span class="math inline">\(\mathbb{Q}_p^\times\)</span>.
+Consider the space <span class="math inline">\(V\)</span> consisting of
+all smooth functions <span class="math inline">\(f :
+\mathop{\mathrm{GL}}(n, \mathbb{Q}_p) \rightarrow \mathbb{C}\)</span>
+satisfying the transformation property <span class="math display">\[f
+\left(
+    \begin{bmatrix}
+      a_1      &amp; \dotsb &amp; \dotsb \\
+      0               &amp; \ddots &amp; \dotsb \\
+      0               &amp; 0 &amp; a_n \\
+    \end{bmatrix} g \right)
+  =
+  \left| \prod_{j = 1}^n a_j^{n - 2 j + 1} \right|^{1/2}
+  \chi_1(a_1) \dotsb \chi_n(a_n) f(g).\]</span> The action of <span
+class="math inline">\(G(\mathbb{Q}_p)\)</span> on <span
+class="math inline">\(V\)</span> is given by right translation. Such
+representations are called <em>parabolically induced</em>; the operation
+of constructing them is called <em>parabolic induction</em>. The
+notation for this representation is <span class="math inline">\(\chi_1
+\times \dotsb \times \chi_n\)</span>.</p>
+<p>Recall the Iwasawa decomposition: <span
+class="math display">\[\mathop{\mathrm{GL}}(n, \mathbb{Q}_p) =
+B(\mathbb{Q}_p) \cdot K_p.\]</span> Our functions transform on the left
+under the Borel subgroup <span
+class="math inline">\(B(\mathbb{Q}_p)\)</span> by a character, hence are
+completely determined by their restrictions to <span
+class="math inline">\(K_p\)</span>.</p>
+<p>Let’s now discuss <em>spherical representations for</em> <span
+class="math inline">\(\mathop{\mathrm{GL}}(n, \mathbb{Q}_p)\)</span>.
+These are the ones that have a fixed vector under <span
+class="math inline">\(\mathop{\mathrm{GL}}(n, \mathbb{Z}_p)\)</span>.
+Here’s how one can make such representations.</p>
+<h3 id="spherical-representations">Spherical representations</h3>
+<p>Assume now that <span class="math inline">\(\chi_1, \dotsc,
+\chi_n\)</span> are <em>unramified</em>, i.e., <span
+class="math inline">\(\chi_i |_{\mathbb{Z}_p^\times} = 1\)</span>.
+Define <span class="math inline">\(f^0 \in V\)</span> by, for <span
+class="math inline">\(\kappa \in K_p\)</span>, <span
+class="math display">\[f^0 \left(
+    \begin{bmatrix}
+      a_1      &amp; \dotsb  &amp; \dotsb \\
+      0               &amp; \ddots &amp; \dotsb \\
+      0               &amp; 0 &amp;  a_n \\
+    \end{bmatrix} \kappa \right)
+  :=
+  \left| \prod \dotsb \right|^{1/2} \chi_1(a_1) \dotsb
+\chi_n(a_n).\]</span> As an exercise, check that this is well-defined,
+using the unramifiedness assumption.</p>
+<p>It’s clear then that <span class="math inline">\(f^0\)</span> is a
+spherical vector, meaning, if you right translate it by <span
+class="math inline">\(K_p\)</span>, nothing changes. That’s clear by
+definition.</p>
+<p>You also see that the space of spherical vectors is one-dimensional
+and spanned by <span class="math inline">\(f^0\)</span>, using again
+that every function is determined by its restriction to <span
+class="math inline">\(K_p\)</span>.</p>
+<p>In summary, <span class="math inline">\(V = \chi_1 \times \dotsb
+\times \chi_n\)</span> is a spherical representation, and <span
+class="math inline">\(\dim V^{K_p} = 1\)</span>.</p>
+<h3 id="irreducibility">Irreducibility</h3>
+<div class="theorem">
+<p><strong>Theorem 11</strong>. <em><span class="math inline">\(\chi_1
+\times \dotsb \times \chi_n\)</span> is reducible if and only if <span
+class="math inline">\(\chi_i \chi_j^{-1} = \lvert \bullet \rvert^{\pm
+1}\)</span> for some <span class="math inline">\(i, j\)</span>.</em></p>
+</div>
+<div class="example">
+<p><strong>Example 12</strong>. The representation <span
+class="math inline">\(\lvert \cdot \rvert^{1/2} \times \lvert
+\cdot  \rvert^{-1/2}\)</span> of <span
+class="math inline">\(\mathop{\mathrm{GL}}(2,\mathbb{Q}_p)\)</span> is
+reducible.</p>
+</div>
+<p>Irreducible or not, the representation <span
+class="math inline">\(\chi_1 \times \dotsb \times \chi_n\)</span>, with
+<span class="math inline">\(\chi_1, \dotsc, \chi_n\)</span> unramified,
+always has a unique <em>spherical</em> subquotient. Let’s denote that by
+<span class="math inline">\(\sigma(\chi_1 \times \dotsb \times
+\chi_n)\)</span>.</p>
+<h3 id="equivalences">Equivalences</h3>
+<div class="theorem">
+<p><strong>Theorem 13</strong>. <em>We have <span
+class="math inline">\(\sigma(\chi_1, \dotsc, \chi_n) \cong
+\sigma(\chi_{\omega(1)}, \dotsc, \chi_{\omega(n)})\)</span> for any
+<span class="math inline">\(\omega \in S_n\)</span>.</em></p>
+</div>
+<div class="remark">
+<p><strong>Remark 14</strong>. The same is not true at the level of the
+induced representations <span class="math inline">\(\chi_1 \times \dotsb
+\times \chi_n\)</span> themselves – their sets of irreducible
+subquotients will coincide as sets, but the representations we get by
+permuting the <span class="math inline">\(\chi_i\)</span>’s will not be
+the same in general.</p>
+</div>
+<h2 id="classification-of-spherical-representations">Classification of
+spherical representations</h2>
+<div class="theorem">
+<p><strong>Theorem 15</strong>. <em>Any irreducible spherical
+representation of <span class="math inline">\(\mathop{\mathrm{GL}}(n,
+\mathbb{Q}_p)\)</span> is of the form <span
+class="math inline">\(\sigma(\chi_1, \dotsc, \chi_n)\)</span> for
+appropriate <span class="math inline">\(\chi_1, \dotsc,
+\chi_n\)</span>.</em></p>
+</div>
+<p>Thus, spherical representations are classified by unramified
+characters <span class="math inline">\(\chi_1, \dotsc, \chi_n\)</span>
+of <span class="math inline">\(\mathbb{Q}_p^\times\)</span>, taken up to
+order. We get bijections <span class="math display">\[\{\text{spherical
+representations}\}_{/\sim}
+  \longleftrightarrow
+  \{\sigma(\chi_1, \dotsc, \chi_n)\} _{/\sim}
+  \longleftrightarrow
+  (\mathbb{C}^\times)^n / S_n,\]</span> where the final map is induced
+by <span class="math display">\[(\chi_1, \dotsc, \chi_n)
+  \mapsto (\chi_1(p), \dotsc, \chi_n(p)).\]</span> If we compose with
+the map <span class="math display">\[(\alpha_1, \dotsc, \alpha_n)
+  \mapsto
+  A_\pi :=
+  \begin{bmatrix}
+    \alpha_1    &amp; 0 &amp; 0 \\
+    0 &amp; \ddots &amp; 0 \\
+    0 &amp; 0 &amp; \alpha_n \\
+  \end{bmatrix},\]</span> then we obtain a further bijection to the
+space <span class="math display">\[\{\text{semisimple conjugacy classes
+in } \mathop{\mathrm{GL}}(n, \mathbb{C})\}.\]</span></p>
+<h2 id="l-factors-and-l-functions"><span
+class="math inline">\(L\)</span>-factors and <span
+class="math inline">\(L\)</span>-functions</h2>
+<p>Return to a cuspidal automorphic representation <span
+class="math inline">\(\pi = \bigotimes&#39; \pi_p\)</span>. Let <span
+class="math inline">\(S\)</span> be a finite set of places, including
+<span class="math inline">\(\infty\)</span>, such that <span
+class="math inline">\(\pi_p\)</span> is spherical for all <span
+class="math inline">\(p \notin S\)</span>. (Such a set exists in view of
+the definition of automorphic forms.) For <span class="math inline">\(p
+\notin S\)</span>, let <span class="math inline">\(\alpha_{1, p},
+\dotsc, \alpha_{n, p}\)</span> be the Satake parameters of <span
+class="math inline">\(\pi_p\)</span>. We define a <em>local</em> <span
+class="math inline">\(L\)</span><em>-factor</em> <span
+class="math display">\[L(s, \pi_p)
+  = \frac{1}{(1 - \alpha_{1, p} p^{- s}) \dotsb (1 - \alpha_{n, p} p^{-
+s})}
+  =
+  \det \left( I_n - p^{- s} A_{\pi_p} \right)^{-1}.\]</span></p>
+<div class="remark">
+<p><strong>Remark 16</strong>. Also observe that we’re really talking
+about conjugacy classes, so it’s not really a diagonal matrix, it’s a
+diagonal matirx up to conjugation, but conjugation has no effect on
+characteristic polynomials, so you get the same answer.</p>
+</div>
+<p>We then define the <em>incomplete</em> <span
+class="math inline">\(L\)</span><em>-function</em> <span
+class="math display">\[L^S(s, \pi) = \prod_{p \notin S} L(s,
+\pi_p).\]</span> This converges in some right half-plane, i.e., for
+<span class="math inline">\(\Re(s)\)</span> sufficiently large.</p>
+<div class="remark">
+<p><strong>Remark 17</strong>. By the theorems described today, the map
+sending <span class="math inline">\(\pi\)</span> to its incomplete <span
+class="math inline">\(L\)</span>-function is injective. That is to say,
+<span class="math inline">\(L^S(s, \pi)\)</span> determines <span
+class="math inline">\(\pi\)</span>.</p>
+</div>
+<div class="example">
+<p><strong>Example 18</strong>. What happens on <span
+class="math inline">\(\mathop{\mathrm{GL}}(1)\)</span>? Say <span
+class="math inline">\(\pi\)</span> is the trivial representation of
+<span class="math inline">\(\mathop{\mathrm{GL}}(1, \mathbb{A}) =
+\mathbb{A}^\times\)</span>. Then <span class="math inline">\(\pi =
+\otimes \pi_p\)</span>, where <span class="math inline">\(\pi_p\)</span>
+is the trivial representation of <span
+class="math inline">\(\mathop{\mathrm{GL}}(1, \mathbb{Q}_p) =
+\mathbb{Q}_p^\times\)</span>. The Satake parameters are all <span
+class="math inline">\(1\)</span>, so the <span
+class="math inline">\(L\)</span>-function, with <span
+class="math inline">\(S = \{\infty\}\)</span>, is <span
+class="math display">\[L^S(s, \pi) = \zeta(s).\]</span> The archimedean
+factor is <span class="math display">\[L(s, \pi_\infty) = \pi^{- s/2}
+\Gamma(s / 2),\]</span> giving rise to the completed Riemann zeta
+function <span class="math display">\[L(s, \pi) = \pi^{- s/2}
+\Gamma(s/2) \zeta(s) =: Z(s),\]</span> which satisfies the functional
+equation <span class="math inline">\(Z(s) = Z(1 - s)\)</span>.</p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 19</strong>. <em>There is at most one way to define
+<span class="math inline">\(L(s, \pi_p)\)</span> at the bad places <span
+class="math inline">\(p \notin S\)</span> (subject to some reasonable
+constraints) such that the complete <span
+class="math inline">\(L\)</span>-function <span
+class="math inline">\(L(s, \pi) = \prod_{p \leq \infty} L(s,
+\pi_p)\)</span> has meromorphic continuation to all of <span
+class="math inline">\(\mathbb{C}\)</span> and satisfies a functional
+equation of the form <span class="math display">\[L(s, \pi) =(\text{root
+number}) N^{-(s - 1/2)} L(1 - s, \pi^\vee).\]</span> Here the root
+number is a scalar of magnitude one, while <span
+class="math inline">\(N\)</span> is called the
+<em>conductor</em>.</em></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 20</strong>. <em>This is possible to do (for <span
+class="math inline">\(\mathop{\mathrm{GL}}(n)\)</span>).</em></p>
+</div>
+<p>More generally, say for <span class="math inline">\(\pi\)</span> on
+<span class="math inline">\(\mathop{\mathrm{GL}}(n)\)</span>, we can
+define <span class="math inline">\(L(s, \pi, \rho)\)</span> for any
+analytic homomorphism <span
+class="math inline">\(\mathop{\mathrm{GL}}(n, \mathbb{C})
+\xrightarrow{\rho} \mathop{\mathrm{GL}}(m, \mathbb{C})\)</span>. For
+example, for <span class="math inline">\(\pi\)</span> on <span
+class="math inline">\(\mathop{\mathrm{GL}}(2)\)</span>, <span
+class="math display">\[L(s, \pi_p, {\mathop{\mathrm{sym}}}^2) =
+\frac{1}{(1 - \alpha^2 p^{- s})(1 - \alpha \beta p^{- s})(1 - \beta^2
+p^{- s})}.\]</span> The big conjecture (Langlands) is that all <span
+class="math inline">\(L\)</span>-functions (attached to automorphic
+representations on any group and representation <span
+class="math inline">\(\rho\)</span>) satisfy an analytic continuation
+and functional equation.</p>
+<h1 id="lecture-4-saha">Lecture 4, Saha</h1>
+<h2 id="recap-1">Recap</h2>
+<p>Let’s recall from last time that if you have</p>
+<ul>
+<li><p>a modular form <span class="math inline">\(f \in S_k(q,
+\chi)\)</span> (of weight <span class="math inline">\(k\)</span>, level
+<span class="math inline">\(q\)</span> and character <span
+class="math inline">\(\chi\)</span>), or</p></li>
+<li><p>a Maass form <span class="math inline">\(f \in C_k(q, \chi, i
+t)\)</span> (of weight <span class="math inline">\(k\)</span>, level
+<span class="math inline">\(q\)</span>, character <span
+class="math inline">\(\chi\)</span>, spectral parameter <span
+class="math inline">\(i t\)</span>),</p></li>
+</ul>
+<p>then we can define an automorphic form <span
+class="math inline">\(\varphi_f \in \mathcal{A}_\chi^0\)</span> of
+central character <span class="math inline">\(\chi\)</span>. In Ralf’s
+lecture, you have seen how automorphic forms on any group (with
+particular central character) give rise to automorphic representations
+(with that central character). In particular, <span
+class="math inline">\(\varphi_f\)</span> will generate a representation
+of <span class="math inline">\(\mathop{\mathrm{GL}}(2,
+\mathbb{A})\)</span> by right translation. This representation that you
+get doesn’t necessarily have to be irreducible. If <span
+class="math inline">\(f\)</span> is a Hecke eigenform (or indeed, a
+Hecke eigenform at almost all primes), then indeed, <span
+class="math inline">\(\varphi_f\)</span> generates an irreducible
+cuspidal automorphic representation, say <span
+class="math inline">\(\pi_f\)</span>, of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2(\mathbb{A})\)</span>, whose
+central character is <span class="math inline">\(\chi\)</span>. Here we
+abused notation slightly by writing <span
+class="math inline">\(\chi\)</span> simultaneously for a Hecke character
+of <span class="math inline">\(\mathbb{Q}^\times \backslash
+\mathbb{A}^\times\)</span> and for a Dirichlet character, but we have
+already explained in our earlier lecture how these are equivalent.</p>
+<h2
+id="automorphic-representations-for-mathopmathrmgl_2-in-terms-of-classical-objects">Automorphic
+representations for <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span> in terms of
+classical objects</h2>
+<p>We have described above how you get cuspidal automorphic
+representations of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2(\mathbb{A})\)</span>. One
+might ask whether these are all of them. The answer is yes. The same is
+not true at the level of automorphic forms – in general, they need not
+have classical analogues. It’s instead a nice feature of automorphic
+representations.</p>
+<p>Let’s also talk about the tensor product theorem. We may write <span
+class="math display">\[\pi_f = \bigotimes_v&#39; \pi_v.\]</span> What do
+these local components look like?</p>
+<p>For <span class="math inline">\(v = \infty\)</span>, the local
+component <span class="math inline">\(\pi_\infty\)</span> is the
+holomorphic discrete series of weight <span
+class="math inline">\(k\)</span> if <span class="math inline">\(f \in
+S_k(q, \chi)\)</span>, and is a principal series if <span
+class="math inline">\(f \in C_k(q, \chi, i t)\)</span>.</p>
+<p>How about for <span class="math inline">\(v = p\)</span>? If <span
+class="math inline">\(p \nmid N\)</span>, then <span
+class="math inline">\(\pi_p\)</span> is a spherical representation, as
+described in the previous lecture. If <span class="math inline">\(p \mid
+N\)</span>, then <span class="math inline">\(\pi_p\)</span> is a
+ramified representation, and the situation is more complicated.</p>
+<div class="fact">
+<p><strong>Fact 21</strong>. <em>Every (irreducible) cuspidal
+automorphic representation of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2(\mathbb{A})\)</span> of
+central character <span class="math inline">\(\chi\)</span> is equal to
+<span class="math inline">\(\pi_f\)</span>, where <span
+class="math inline">\(f\)</span> is one of the following:</em></p>
+<ul>
+<li><p><em>a newform in <span class="math inline">\(S_k(q,
+\chi)\)</span></em></p></li>
+<li><p><em>a newform in <span class="math inline">\(C_0(q, \chi, i
+t)\)</span> or <span class="math inline">\(C_1(q, \chi, i
+t)\)</span>.</em></p></li>
+</ul>
+<p><em>This defines a bijection.</em></p>
+</div>
+<h2 id="automorphic-l-functions">Automorphic <span
+class="math inline">\(L\)</span>-functions</h2>
+<p>Let <span class="math inline">\(k\)</span> be a global field or local
+field, and let <span class="math inline">\(G\)</span> be a reductive
+algebraic group over <span class="math inline">\(k\)</span>.</p>
+<p>Let <span class="math inline">\(\mathcal{G}_k :=
+\mathop{\mathrm{Gal}}(\bar{k}/k)\)</span>.</p>
+<p>Attached to <span class="math inline">\(G\)</span> is something
+called the dual group <span class="math inline">\(G^\vee = {}^L
+G^0\)</span> – another reductive algebraic group – obtained by
+“reversing the root data”. We motivate this definition by some
+examples:</p>
+<div id="tab:groups_and_duals">
+<table>
+<caption>Some groups and their dual groups</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+class="math inline">\(G\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(G^\vee\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\({\mathop{\mathrm{GL}}}_n\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\({\mathop{\mathrm{GL}}}_n(\mathbb{C})\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\({\mathop{\mathrm{SO}}}_{2n+1}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\({\mathop{\mathrm{Sp}}}_{2n}(\mathbb{C})\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\({\mathop{\mathrm{Sp}}}_{2n}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\({\mathop{\mathrm{SO}}}_{2n+1}(\mathbb{C})\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\({\mathop{\mathrm{SO}}}_{2n}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\({\mathop{\mathrm{SO}}}_{2n}(\mathbb{C})\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\({\mathop{\mathrm{GSp}}}_4\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\({\mathop{\mathrm{GSp}}}_4(\mathbb{C})\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The <span class="math inline">\(L\)</span>-group is defined by <span
+class="math inline">\({}^L G := G^\vee \rtimes
+\mathcal{G}_k\)</span>.</p>
+<p>Given any representation <span class="math inline">\(r : {}^L G
+\rightarrow {\mathop{\mathrm{GL}}}_n(\mathbb{C})\)</span> and a cuspidal
+representation <span class="math inline">\(\pi\)</span> of <span
+class="math inline">\(G(\mathbb{A})\)</span>, we can define a Langlands
+<span class="math inline">\(L\)</span>-function <span
+class="math display">\[L(s, \pi, r) = \prod_v L(s, \pi_v, r).\]</span>
+(The representation <span class="math inline">\(r\)</span> should be
+continuous, and its restriction to <span
+class="math inline">\(G^\vee\)</span> should be a morphism of complex
+Lie groups.) We emphasize that <span class="math inline">\(r\)</span> is
+a necessary input to the definition of an <span
+class="math inline">\(L\)</span>-function.</p>
+<p>Sometimes, there is a “very natural” choice of <span
+class="math inline">\(r\)</span>, and one may omit this from the
+notation. For instance, for <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n\)</span>, the dual group is
+<span class="math inline">\({\mathop{\mathrm{GL}}}_n(\mathbb{C})\)</span>,
+and the natural representation is the identity or “standard”
+representation <span class="math inline">\(\mathop{\mathrm{id}}:
+{\mathop{\mathrm{GL}}}_n(\mathbb{C}) \rightarrow
+{\mathop{\mathrm{GL}}}_n(\mathbb{C})\)</span>. This gives rise to the
+<em>standard</em> <span
+class="math inline">\(L\)</span><em>-function</em> <span
+class="math inline">\(L(s, \pi)\)</span> for <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n\)</span>.</p>
+<p>To define the local factors at all places required knowing the local
+Langlands correspondence (LLC), but we can define the local factor an
+unramified prime <span class="math inline">\(v = p\)</span> directly.
+Thus, <span class="math inline">\(\pi_p\)</span> is a spherical
+representation, hence, by the Satake isomorphism, comes with a “Satake
+parameter” <span class="math inline">\(A_{\pi_p} \in G^\vee\)</span>.
+(This generalizes the discussion of Ralf’s lecture concerning the case
+of <span class="math inline">\({\mathop{\mathrm{GL}}}_n\)</span>, where
+<span class="math inline">\(A_{\pi_p}\)</span> was a diagonal matrix.)
+We then define <span class="math display">\[L(s, \pi_p, r) = \det \left(
+1 - r(A_{\pi,p} ) p^{- s} \right)^{-1}.\]</span></p>
+<p>As noted above, for the ramified primes, we need the LLC. It’s known
+for some groups, such as <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n, {\mathop{\mathrm{Sp}}}_4,
+{\mathop{\mathrm{GSp}}}_4\)</span>, but not in general. This says
+basically that for each irreducible admissible representation <span
+class="math inline">\(\pi\)</span> of <span
+class="math inline">\(G(\mathbb{Q}_p)\)</span>, there exists an
+admissible homomorphism <span class="math inline">\(\Phi : W_F&#39;
+\rightarrow G^\vee\)</span>, where <span
+class="math inline">\(W_F&#39;\)</span> denotes the Weil–Deligne group,
+with some key properties. We know how to attach an <span
+class="math inline">\(L\)</span>-function to each such <span
+class="math inline">\(\Phi\)</span> (or more precisely, to the
+composition <span class="math inline">\(r \circ \Phi\)</span>).</p>
+<h2 id="functoriality">Functoriality</h2>
+<p>Let <span class="math inline">\(k\)</span> be a global field, say a
+number field. We can take <span class="math inline">\(k =
+\mathbb{Q}\)</span> for simplicity.</p>
+<p>Functoriality gives a way to transfer automorphic representations
+from one group to another. Let <span class="math inline">\(H\)</span>
+and <span class="math inline">\(G\)</span> be two groups defined over
+<span class="math inline">\(k\)</span>. We assume that <span
+class="math inline">\(G\)</span> is quasi-split. We then want an <span
+class="math inline">\(L\)</span>-homomorphism <span
+class="math inline">\(u\)</span> from <span
+class="math inline">\(H\)</span> to <span
+class="math inline">\(G\)</span>, which consists of a map <span
+class="math display">\[{}^L H^0 \rtimes \mathcal{G}_k = {}^L H
+\xlongrightarrow{u} {}^L G = {}^L G^0 \rtimes \mathcal{G}_k\]</span>
+with certain properties.</p>
+<p>The principal of functoriality is the following: for every
+automorphic representation <span class="math inline">\(\pi\)</span> on
+<span class="math inline">\(H\)</span>, there exists an automorphic
+representation <span class="math inline">\(\pi &#39;\)</span> on <span
+class="math inline">\(G\)</span>, called the <em>transfer</em> or
+<em>functorial lift</em> of <span class="math inline">\(\pi\)</span>,
+with the property that we have equalities of <span
+class="math inline">\(L\)</span>- and <span
+class="math inline">\(\varepsilon\)</span>-factors: for each <span
+class="math inline">\(r : {}^L G \rightarrow
+{\mathop{\mathrm{GL}}}_n(\mathbb{C})\)</span>, we have <span
+class="math display">\[L(s, \pi , r \circ u)
+  =
+  L(s, \pi&#39; , r),\]</span> and similarly for <span
+class="math inline">\(\varepsilon\)</span>-factors.</p>
+<div class="example">
+<p><strong>Example 22</strong>. <span class="math inline">\(G =
+{\mathop{\mathrm{GL}}}_n\)</span>, <span class="math inline">\(r =
+\mathop{\mathrm{id}}\)</span>. Then <span class="math inline">\(L(s,
+\pi, u) = L(s, \pi &#39;)\)</span>.</p>
+</div>
+<div class="remark">
+<p><strong>Remark 23</strong>. Easy to find the candidate <span
+class="math inline">\(\pi &#39;\)</span>, as long as you know local
+Langlands. Not obvious that what you get is actually automorphic.</p>
+</div>
+<p>Let’s now discuss some examples.</p>
+<div class="example">
+<p><strong>Example 24</strong>. <span class="math inline">\(H =
+{\mathop{\mathrm{GL}}}_{n_1} \times {\mathop{\mathrm{GL}}}_{n_2}\)</span>.
+We have the natural tensor product map <span
+class="math display">\[{\mathop{\mathrm{GL}}}_{n_1}(\mathbb{C}) \times
+{\mathop{\mathrm{GL}}}_{n_2}(\mathbb{C}) \rightarrow
+{\mathop{\mathrm{GL}}}_{n_1 n_2}(\mathbb{C}).\]</span> If <span
+class="math inline">\(n_1 = 1\)</span>, then this is what is called
+twisting.ne In general, such functorial conjectures are wide-open
+outside a few known cases:</p>
+<ul>
+<li><p><span class="math inline">\({\mathop{\mathrm{GL}}}_2 \times
+{\mathop{\mathrm{GL}}}_2 \rightarrow {\mathop{\mathrm{GL}}}_4\)</span>
+(Ramakrishnan, 2000)</p></li>
+<li><p><span class="math inline">\({\mathop{\mathrm{GL}}}_2 \times
+{\mathop{\mathrm{GL}}}_3 \rightarrow {\mathop{\mathrm{GL}}}_6\)</span>
+(Kim–Shahidi, 2002)</p></li>
+</ul>
+<p>Suppose <span class="math inline">\(\pi_p\)</span> has Satake
+parameters <span class="math inline">\(\alpha_{p}^{(1)}, \dotsc,
+\alpha_{p}^{(n_1)}\)</span> and <span
+class="math inline">\(\sigma_p\)</span> has Satake parameters <span
+class="math inline">\(\beta_{p}^{(1)}, \dotsc,
+\beta_{p}^{(n_2)}\)</span>. Then the Satake parameters for the lift of
+<span class="math inline">\(\pi_p \otimes \sigma_p\)</span> at the good
+places are given by <span class="math display">\[\alpha_p^{(i)}
+    \beta_p^{(j)},\]</span> where <span class="math inline">\(i\)</span>
+and <span class="math inline">\(j\)</span> range over all
+possibilities.</p>
+</div>
+<div class="example">
+<p><strong>Example 25</strong>. Let <span class="math inline">\(K
+/F\)</span> be a quadratic extension. Let <span class="math inline">\(H
+= {\mathop{\mathrm{GL}}}_n(K)\)</span>, viewed as an <span
+class="math inline">\(F\)</span>-group, and <span
+class="math inline">\(G = {\mathop{\mathrm{GL}}}_{2n}(F)\)</span>.
+Consider the <span class="math inline">\(L\)</span>-homomorphism <span
+class="math display">\[u : {}^L H
+    =
+    \prod_{\mathcal{G}_K \backslash \mathcal{G}_F}
+{\mathop{\mathrm{GL}}}_n(\mathbb{C}) \rtimes \mathcal{G}_F
+    \longrightarrow {}^L G
+    = {\mathop{\mathrm{GL}}}_{2 n}(\mathbb{C}) \rtimes
+\mathcal{G}_F.\]</span> The corresponding functorial transfer is called
+the <em>automorphic induction</em> of <span
+class="math inline">\(\pi\)</span> from <span
+class="math inline">\(H\)</span> to <span
+class="math inline">\(G\)</span>. In this case, it was established by
+Arthur and Clozel. We write <span class="math inline">\(\pi &#39; =
+\mathrm{AI}(\pi)\)</span> for the image of this transfer.</p>
+<p>Let’s give an explicit construction of this in a very special case.
+Take <span class="math inline">\(F = \mathbb{Q}\)</span>, <span
+class="math inline">\(K = \mathbb{Q}(\sqrt{d})\)</span> with <span
+class="math inline">\(d &lt; 0\)</span>, <span class="math inline">\(n =
+1\)</span>. Let <span class="math inline">\(\Lambda : K^\times
+\backslash \mathbb{A}_K^\times \rightarrow S^1\)</span>, unramified
+everywhere, <span class="math inline">\(\Lambda_\infty = 1\)</span>,
+<span class="math inline">\(\Lambda^2 \neq 1\)</span>. Define <span
+class="math display">\[\theta_\Lambda(z) = \sum_{\alpha} \Lambda(\alpha)
+e^{2 \pi i N(\alpha) z}
+    \in S_1(d, \chi_d).\]</span> Then <span
+class="math display">\[\pi_{\theta_\Lambda} = \mathrm{AI}(\pi).\]</span>
+It may be instructive to describe the Satake parameters at an unramified
+prime. Suppose <span class="math inline">\(p \nmid 2 d\)</span>. Then
+the Satake parameters are as follows:</p>
+<ul>
+<li><p>for <span class="math inline">\(p\)</span> split, <span
+class="math inline">\(\{\Lambda(\varpi_{K, p}^{(1)}), \Lambda(\varpi_{K,
+p}^{(2)})\}\)</span>, and</p></li>
+<li><p>for <span class="math inline">\(p\)</span> inert, by <span
+class="math inline">\(\{1, -1\}\)</span>.</p></li>
+</ul>
+<p>(The speaker says he just checked this quickly.)</p>
+</div>
+<div class="example">
+<p><strong>Example 26</strong> (Symmetric powers). <span
+class="math inline">\(H = {\mathop{\mathrm{GL}}}_2\)</span>, <span
+class="math inline">\(G = {\mathop{\mathrm{GL}}}_{n + 1}\)</span>, <span
+class="math inline">\(u = {\mathop{\mathrm{sym}}}^n\)</span>. The transfer
+is known for <span class="math inline">\(n = 2, 3, 4\)</span> (see <a href="#ref-MR533066"
+class="citation" data-cites="MR533066">(Gelbart and Jacquet
+1978)</a>, <a href="#ref-MR1923967" class="citation" data-cites="MR1923967">(Kim and
+Shahidi 2002)</a>, <a href="#ref-MR1937203" class="citation" data-cites="MR1937203">(Kim
+2003)</a>). If <span class="math inline">\(\pi\)</span> has Satake
+parameters <span class="math inline">\(\{\alpha, \beta\}\)</span>, then
+<span class="math inline">\(\pi &#39;\)</span> has Satake parameters
+<span class="math inline">\(\{\alpha^n, \alpha^{n - 1} \beta, \dotsc,
+\beta^n\}\)</span>. These yield bounds towards the Ramanujan and
+Sato–Tate conjecture; knowing the transfer for all <span
+class="math inline">\(n\)</span> would yield the conjectures.</p>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-MR533066" class="csl-entry" role="listitem">
+Gelbart, Stephen, and Hervé Jacquet. 1978. <span>“A Relation Between
+Automorphic Representations of <span><span class="math inline">\({\rm
+              GL}(2)\)</span></span> and <span><span
+class="math inline">\({\rm GL}(3)\)</span></span>.”</span> <em>Ann. Sci.
+École Norm. Sup. (4)</em> 11 (4): 471–542. <a
+href="http://www.numdam.org/item?id=ASENS_1978_4_11_4_471_0">http://www.numdam.org/item?id=ASENS_1978_4_11_4_471_0</a>.
+</div>
+<div id="ref-MR1937203" class="csl-entry" role="listitem">
+Kim, Henry H. 2003. <span>“Functoriality for the Exterior Square of
+<span><span class="math inline">\({\rm GL}_4\)</span></span> and the
+Symmetric Fourth of <span><span class="math inline">\({\rm
+GL}_2\)</span></span>.”</span> <em>J. Amer. Math. Soc.</em> 16 (1):
+139–183 (electronic). <a
+href="https://doi.org/10.1090/S0894-0347-02-00410-1">https://doi.org/10.1090/S0894-0347-02-00410-1</a>.
+</div>
+<div id="ref-MR1923967" class="csl-entry" role="listitem">
+Kim, Henry H., and Freydoon Shahidi. 2002. <span>“Functorial Products
+for <span><span class="math inline">\({\rm GL}_2\times{\rm
+GL}_3\)</span></span> and the Symmetric Cube for <span><span
+class="math inline">\({\rm GL}_2\)</span></span>.”</span> <em>Ann. Of
+Math. (2)</em> 155 (3): 837–93. <a
+href="https://doi.org/10.2307/3062134">https://doi.org/10.2307/3062134</a>.
+</div>
+</div>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
