@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Notes from CIRM conference BB6, Automorphic Forms and Related Topics</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+    <div class="my-links-container">
+2024-09-09 12:22:21
+      <a href="20240909T093140--cirm-conference.tex" class="my-link">tex</a>
+      <a href="20240909T093140--cirm-conference.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20240909T093140--cirm-conference.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+<header id="title-block-header">
+<h1 class="title">Notes from CIRM conference BB6, <em>Automorphic Forms
+and Related Topics</em></h1>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>Random notes from the CIRM conference, Building Bridges 6th, EU/US
+Workshop on Automorphic Forms and Related Topics (BB6), 9-13 September,
+2024. These notes are incomplete and have not been proofread. Any errors
+should be assumed to be due to the note-taker.</p>
+</div>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a
+href="#anne-maria-ernvall-hytönen-lattices-and-modular-forms-in-coset-coding"
+id="toc-anne-maria-ernvall-hytönen-lattices-and-modular-forms-in-coset-coding">Anne-Maria
+Ernvall-hytönen, <span class="nodecor"><em>Lattices and modular forms in
+coset coding</em></span></a></li>
+<li><a
+href="#jolanta-marzec-ballesteros-doubling-method-for-self-dual-linear-codes"
+id="toc-jolanta-marzec-ballesteros-doubling-method-for-self-dual-linear-codes">Jolanta
+Marzec-ballesteros, <span class="nodecor"><em>Doubling method for
+self-dual linear codes</em></span></a></li>
+<li><a
+href="#petru-constantinescu-non-vanishing-of-geodesic-periods-of-automorphic-forms"
+id="toc-petru-constantinescu-non-vanishing-of-geodesic-periods-of-automorphic-forms">Petru
+Constantinescu, <span class="nodecor"><em>Non-vanishing of geodesic
+periods of automorphic forms</em></span></a></li>
+<li><a href="#an-excised-orthogonal-model-for-families-of-cusp-forms"
+id="toc-an-excised-orthogonal-model-for-families-of-cusp-forms">An
+excised orthogonal model for families of cusp forms</a></li>
+<li><a
+href="#on-an-extension-of-the-rohrlich-jensen-formula-lejla-smajlović"
+id="toc-on-an-extension-of-the-rohrlich-jensen-formula-lejla-smajlović">On
+an extension of the Rohrlich-Jensen formula, <span
+class="nodecor"><em>Lejla Smajlović</em></span></a></li>
+</ul>
+</nav>
+<h1
+id="anne-maria-ernvall-hytönen-lattices-and-modular-forms-in-coset-coding">Anne-Maria
+Ernvall-hytönen, <span class="nodecor"><em>Lattices and modular forms in
+coset coding</em></span></h1>
+<p>Wyner (1975). Wiretap channel (Alice, Bob, Eve). Gaussian noise with
+variance <span class="math inline">\(\sigma^2\)</span> (between Alice
+and Bob) and <span class="math inline">\(\sigma_e^2\)</span> (for Eve).
+We assume <span class="math inline">\(\sigma_e &gt; \sigma\)</span>. We
+would like to do this whole scheme in such a way that we can use the
+noise so that Bob can still receive the image, but Eve cannot. We aim to
+do this with lattices <span class="math inline">\(\Lambda \geq
+\Lambda_e\)</span>, where each coset corresponds to a code-letter.</p>
+<p>Belfiore and Oggier (2010) (maybe <span class="citation"
+data-cites="MR4032962">(<strong>MR4032962?</strong>)</span>?): secrecy
+gain. Transmit codeword <span class="math inline">\(x \in
+\mathbb{R}^n\)</span>. <span
+class="math display">\[\frac{1}{(\sigma_\Lambda \sqrt{2 \pi})^n}
+  \int_{V_{\Lambda(x)}}
+  e^{- \lVert y - x \rVert^2 / 2 \sigma^2} \, d y.\]</span></p>
+<p><span class="math display">\[\frac{1}{(\sigma_\Lambda \sqrt{2
+\pi})^n}
+  \sum_{t \in \Lambda_e \cap R}
+  \int_{V_{\Lambda(x + t)}}
+  e^{- \lVert y - x \rVert^2 / 2 \sigma^2} \, d y.\]</span></p>
+<p>End up trying to minimize <span
+class="math display">\[\theta_{\Lambda_e} \left( - \frac{1}{2 \pi i
+\sigma_e^2} \right).\]</span> Secrecy function <span
+class="math display">\[\Xi(y) :=
+  \frac{\theta_{\lambda \mathbb{Z}^n}(y i)}{ \theta_\Lambda(y
+i)}.\]</span> Belfiore and Sole: For unimodular <span
+class="math inline">\(\Lambda\)</span>, maximum at <span
+class="math inline">\(y = 1\)</span>. Even unimodular: polynomials in
+<span class="math display">\[E_4 = \frac{1}{2} \left( \vartheta_2^8 +
+\vartheta_3^8 + \vartheta_4^8  \right),
+  \qquad
+  \Lambda = \frac{1}{256} \vartheta_2^8 \vartheta_3^8
+\vartheta_4^8.\]</span> Inverse of <span
+class="math inline">\(\Xi(y)\)</span> a polynomial in <span
+class="math inline">\(\frac{\vartheta_4^4
+\vartheta_2^4}{\vartheta_3^8}\)</span>.</p>
+<p>(Maybe <span class="citation"
+data-cites="MR2966067">(<strong>MR2966067?</strong>)</span> is a
+reference.)</p>
+<p><span class="math inline">\(\ell\)</span>-modular: <span
+class="math inline">\(1 / \sqrt{\ell}\)</span>, <span
+class="math inline">\(\mathbb{Z} \oplus \sqrt{2} \mathbb{Z} \oplus 2
+\mathbb{Z}\)</span>.</p>
+<p>The connection to deeper mathematics is, what kinds of
+representations as polynomials do you have for various theta
+functions?</p>
+<h1
+id="jolanta-marzec-ballesteros-doubling-method-for-self-dual-linear-codes">Jolanta
+Marzec-ballesteros, <span class="nodecor"><em>Doubling method for
+self-dual linear codes</em></span></h1>
+<p>Garrett, Piatetski-Shapiro–Rallis (1980’s). Integral of cusp form
+against restriction of Siegel-type Eisenstein series equals <span
+class="math inline">\(L\)</span>-function attached to cusp form times
+cusp form or Eisenstein series attached to cusp form: <span
+class="math display">\[\left\langle E \left(
+      \begin{pmatrix}
+        g &amp;  \\
+          &amp; g&#39; \\
+      \end{pmatrix}, s \right),
+    f(g)\right\rangle
+  = L(f, s) f(g &#39;).\]</span></p>
+<p>Done for <span class="math inline">\(G\)</span> symplectic,
+orthogonal, unitary over global field, also for congreunce
+subgroups.</p>
+<p>Let’s start with an overview. Let <span
+class="math inline">\(f\)</span> be a cusp form on <span
+class="math inline">\(G\)</span>, and <span
+class="math inline">\(H\)</span> a subgroup for which <span
+class="math inline">\(G \times G \hookrightarrow H\)</span>. Then form
+an Eisenstein series on <span class="math inline">\(H\)</span> <span
+class="math display">\[E(h, s) = \sum_{\gamma \in P \backslash H}
+\phi(\gamma h, s).\]</span> Restrict to <span class="math inline">\(h =
+\mathop{\mathrm{diag}}(g, g&#39;)\)</span> and take inner product with
+<span class="math inline">\(F(g)\)</span>. This leads to an unfolding
+involving a sum over <span class="math inline">\(\gamma \in P \backslash
+H /(G \times G)\)</span>. In favorable cases, only one representative
+<span class="math inline">\(\gamma_0\)</span> contributes, leaving us
+with <span class="math display">\[\begin{align}
+  &amp;\sum_{(k, k&#39;) \in G \times G}
+    \left\langle \phi \left( \gamma_0
+    \begin{pmatrix}
+      k g        &amp;  \\
+                 &amp; k &#39; g &#39; \\
+    \end{pmatrix}, s \right), f(g) \right\rangle
+  \\
+  &amp;=
+    \sum_{\beta \in \gamma_0(G \times 1)}
+    \psi(f) f |_\beta(g &#39;) \\
+  &amp;= L(f, s) f(g &#39;).
+\end{align}\]</span> We would like to do something similar, but now
+over finite fields.</p>
+<p>A <em>linear code of length</em> <span class="math inline">\(2
+n\)</span> over a finite field <span
+class="math inline">\(\mathbb{F}\)</span> is a linear subspace <span
+class="math inline">\(C \subseteq \mathbb{F}^{2 n}\)</span>. We denote
+by <span class="math inline">\(\langle , \rangle : C \times C
+\rightarrow \mathbb{F}\)</span> the Euclidean inner product. We say that
+<span class="math inline">\(C\)</span> is <em>self-dual</em> if <span
+class="math display">\[C = C^\perp := \left\{ v \in \mathbb{F}^{2 n} :
+\langle v, C \rangle = 0 \right\}.\]</span> Then (the length <span
+class="math inline">\(2 n\)</span> is even and) <span
+class="math inline">\(\dim C = n\)</span>.</p>
+<p>The <em>weight</em> of a codeword <span class="math inline">\(c
+=(c_1, \dotsc, c_{2 n}) \in C\)</span> is <span
+class="math display">\[\operatorname{wt}c = \# \left\{ i \in \{1,
+\dotsc, 2 n\} : c_i \neq 0 \right\}.\]</span></p>
+<p><em>Weight enumerators</em> are certain homogeneous polynomials of
+degree <span class="math inline">\(2 n\)</span> in variables from the
+set <span class="math inline">\(V = \left\{ x_\alpha : \alpha \in
+\mathbb{F}^g \right\}\)</span>, where <span class="math inline">\(g \in
+\mathbb{N}\)</span> is the genus.</p>
+<p>The <em>genus one weight enumerator</em> of a code <span
+class="math inline">\(C \subseteq \mathbb{F}_2^{2 n}\)</span> is a
+polynomial <span class="math display">\[W_1(C,(x_0, x_1))
+  = \sum_{c \in C} x_0^{2 n - \operatorname{wt} c}
+  x_1^{\operatorname{wt} c}.\]</span> The <em>genus</em> <span
+class="math inline">\(g\)</span> <em>weight enumerator</em> of a code
+<span class="math inline">\(C \subseteq \mathbb{F}^{2 n}\)</span> is a
+polynomial <span class="math display">\[W_g(C, x) = \sum_{(c^1, \dotsc,
+c^g) \in C^g }
+  \prod_{\alpha \in \mathbb{F}^g}
+  x_\alpha^{w_\alpha(c^1, \dotsc, c^g)}\]</span> of degree <span
+class="math inline">\(2 n\)</span>, where <span class="math inline">\(x
+=(x_\alpha)_{\alpha \in \mathbb{F}^g}\)</span> and <span
+class="math display">\[w_\alpha(c^1, \dotsc, c^g)
+  = \# \left\{ \text{rows $r$ in } (c_{i}^j)_{i = 1..2n}^{j = 1..g} : r
+= \alpha \right\}.\]</span></p>
+<p>As an example, we give a basis for a Hamming code <span
+class="math inline">\(H_8\)</span> 5nof weight <span
+class="math inline">\(8\)</span>, the span over <span
+class="math inline">\(\mathbb{F}_2\)</span> inside <span
+class="math inline">\(\mathbb{F}_2^8\)</span> of the vectors <span
+class="math display">\[\begin{pmatrix}
+    1 \\ 0 \\ 0 \\ 1 \\ 0 \\ 1 \\ 1 \\ 0
+  \end{pmatrix}
+  \quad
+  \begin{pmatrix}
+    0 \\ 1 \\ 0 \\ 1 \\ 0 \\ 1 \\ 0 \\ 1
+  \end{pmatrix}
+  \quad
+  \begin{pmatrix}
+    0 \\ 0 \\ 1 \\ 1 \\ 0 \\ 0 \\ 1 \\ 1
+  \end{pmatrix}
+  \quad
+  \begin{pmatrix}
+    0 \\ 0 \\ 0 \\ 0 \\ 1 \\ 1 \\ 1 \\ 1
+  \end{pmatrix}.\]</span> Then <span
+class="math display">\[\begin{align}
+  W_2(H_8,(x_{00}, x_{01}, x_{10}, x_{11}))
+  &amp;= \sum_{\alpha \in \mathbb{F}_2^2}
+  x_\alpha^8 + 14
+  \sum_{
+    \substack{
+      \alpha_1, \alpha_2 \in \mathbb{F}_2^2  \\
+      \alpha_1 &lt; \alpha_2      
+    }
+  }
+  x_{\alpha_1}^4 x_{\alpha_2}^4
+  + 168 x_{00}^2 x_{0 1}^2 x_{10}^2 x_{11}^2
+  \\
+  &amp;=(8) +
+    14(4, 4)
+    + 168(2, 2, 2, 2).
+\end{align}\]</span> In general, <span class="math display">\[W_g(C) =
+\sum_A b_A \cdot(A),\]</span> where <span class="math display">\[A \in
+\left\{(a_0, \dotsc, a_{2^g - 1}) : \text{admissible tuples},
+    \,
+    \sum_{i = 0}^{2^g - 1} a_i = 2 n\right\}.\]</span></p>
+<p>Some analogies with modular forms:</p>
+<ul>
+<li><p><span class="math inline">\(W_g(C)\)</span> is like a modular
+form <span class="math inline">\(f\)</span> of genus <span
+class="math inline">\(g\)</span>,</p></li>
+<li><p><span class="math inline">\(\sum_A b_A \cdot(A)\)</span> is like
+a Fourier expansion,</p></li>
+<li><p><span class="math inline">\((2 n)\)</span> is like a constant
+term <span class="math inline">\(a(0)\)</span>.</p></li>
+</ul>
+<p>EXamples of cusp forms:</p>
+<ul>
+<li><p><span class="math inline">\(W_1(G_{24}) - W_1(H_8 \times H_8
+\times H_8)
+  = - 42(20, 4) + 168(16, 8) - 252(12, 12)\)</span> is a cusp form of
+genus one.</p></li>
+<li><p><span class="math inline">\(W_3(E_{16}) - W_3(H_8 \times H_8) = -
+2688(9, 1, 1, 1, 1, 1, 1, 1) + \dotsb\)</span> is a cusp form of genus
+<span class="math inline">\(3\)</span>.</p></li>
+</ul>
+<div class="theorem">
+<p><strong>Theorem 1</strong> (Runge, 1996; Nebe, Rains, Sloane, 2006).
+<em>We have <span class="math display">\[\left\langle W_g(C) : \text{$C$
+self-dual, over $\mathbb{F}$} \right\rangle
+    =
+    \left( \mathbb{C}[x_\alpha : \alpha \in \mathbb{F}^g]
+\right)^{\mathcal{C}_g},\]</span> where <span
+class="math display">\[\mathcal{C}_g := \left\langle m_r, d_\phi,
+h_{\iota, u_{\iota}, v_{\iota}} : r \in
+{\mathop{\mathrm{GL}}}_g(\mathbb{F}), \phi, \iota \right\rangle\]</span>
+with <span class="math display">\[m_r : x_\alpha \mapsto x_{r
+\alpha},\]</span> <span class="math display">\[d_\phi : x_\alpha \mapsto
+e^{2 \pi i \phi(\alpha)} x_\alpha,\]</span> <span
+class="math display">\[h_{\iota, u_\iota, v_\iota}
+    : x_\alpha \mapsto \left( \# \iota \mathbb{F}^g \right)^{- 1/2}
+    \sum_{w \in \iota \mathbb{F}^g}
+    e^{\frac{2 \pi i}{p} \left\langle w, v_\iota \alpha \right\rangle}
+x_w + \dotsb.\]</span></em></p>
+</div>
+<p>Consider the mean polynomial (“Siegel-type Eisenstein series”) <span
+class="math display">\[\begin{align}
+  M_{2 g}((2 n)) &amp;= \sum_{\gamma \in P_{2 g} \backslash
+\mathcal{C}_{2 g}}
+  (2 n)^\gamma
+  \\
+  &amp;=
+  \sum_{\gamma \in P_{2 g} \backslash \mathcal{C}_{2 g}} \sum_{\alpha
+\in \mathbb{F}^{2 g}}
+  \left((x_\alpha)^\gamma \right)^{2 n}
+  = \mathrm{const} \sum_{
+    \substack{
+      C \subset \mathbb{F}^{2 n}  \\
+      \text{fixed type}      
+    }
+  }
+  W_{2 g}(C, x),
+\end{align}\]</span> and an inner product defined on monomials.</p>
+<p>What we prove with Bourganis in 2024 is the following:</p>
+<div class="theorem">
+<p><strong>Theorem 2</strong>. <em>Let <span
+class="math inline">\(\mathcal{T}\)</span> be a family of self-dual
+codes of length <span class="math inline">\(2 n\)</span> over a field
+<span class="math inline">\(\mathbb{F}\)</span>. Assume either that
+<span class="math inline">\(\mathbb{F}\)</span> has odd characteristic
+or is equal to <span class="math inline">\(\mathbb{F}_2\)</span>. Let
+<span class="math inline">\(C \in \mathcal{T}\)</span> be doubly-even,
+and fix <span class="math inline">\(g \in \mathbb{N}\)</span>. Then
+there exists an (explicit) constant <span
+class="math inline">\(C\)</span> such that for a cusp form <span
+class="math inline">\(f \in \mathcal{T}\)</span> of genus <span
+class="math inline">\(r\)</span>, with <span class="math inline">\(\deg
+f = 2 n\)</span>, we have <span class="math display">\[\left\langle M_{2
+g}((2 n))(x y), f(x) \right\rangle
+    =
+    \begin{cases}
+      0      &amp; \text{ if } r &lt; g, \\
+      C \cdot f(y)             &amp; \text{ if } r = g
+    \end{cases}.\]</span></em></p>
+</div>
+<h1
+id="petru-constantinescu-non-vanishing-of-geodesic-periods-of-automorphic-forms">Petru
+Constantinescu, <span class="nodecor"><em>Non-vanishing of geodesic
+periods of automorphic forms</em></span></h1>
+<p>Preprint: <span class="citation"
+data-cites="2024arXiv2404.12982">(<strong>2024arXiv2404.12982?</strong>)</span>,
+joint with Asbhj<span>ø</span>rn Nordentoft.</p>
+<p>Class groups:</p>
+<ul>
+<li><p><span class="math inline">\(\Gamma =
+{\mathop{\mathrm{PSL}}}_2(\mathbb{Z})\)</span>, <span
+class="math inline">\(K = \mathbb{Q}(\sqrt{D})\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathrm{Cl}_K\)</span> class group,
+<span class="math inline">\(h(D) = h_K = \lvert \mathrm{Cl}_K
+\rvert\)</span> class number,</p></li>
+<li><p><span class="math inline">\(\mathcal{Q}_D\)</span>: set of
+primitive integral binary quadratic forms of discriminant <span
+class="math inline">\(D\)</span>, <span
+class="math display">\[\mathcal{Q}_D = \left\{ Q(x, y)
+      = a x^2 + b x y + c y^2 :(a, b, c) = 1,
+      \,
+      b^2 - 4 a c = D\right\}.\]</span></p></li>
+<li><p>Gauss: <span class="math inline">\(\Gamma \circlearrowright
+\mathcal{Q}_D,\)</span> <span class="math display">\[(Q . \gamma)
+    \begin{pmatrix}
+      x      \\
+      y
+    \end{pmatrix}
+    = Q \left( \gamma
+      \begin{pmatrix}
+        x        \\
+        y  \\
+      \end{pmatrix} \right),\]</span></p></li>
+<li><p>isomorphism <span class="math display">\[\mathrm{Cl}_K
+\xrightarrow{\cong} \Gamma \backslash \mathcal{Q}_D\]</span> <span
+class="math display">\[A \mapsto[a, b, c].\]</span></p></li>
+</ul>
+<p>Heegner points and closed geodesics:</p>
+<ul>
+<li><p><span class="math inline">\(D &lt; 0\)</span>: <span
+class="math inline">\(A \in \mathrm{Cl_K} \rightsquigarrow\)</span>
+Heegner point <span class="math inline">\(z_A \in \Gamma \backslash
+\mathbb{H}\)</span>, <span class="math display">\[\rightsquigarrow
+\frac{- b - i \sqrt{\lvert D \rvert}}{2 a}.\]</span> <span
+class="math display">\[h(D) = \lvert \mathrm{Cl}_K \rvert = \lvert D
+\rvert^{1/2 + o(1)}.\]</span></p></li>
+<li><p><span class="math inline">\(D &gt; 0\)</span>: <span
+class="math inline">\(A \in \mathrm{Cl}_K^+ \rightsquigarrow\)</span>
+closed geodesic <span class="math inline">\(C_A \subset \Gamma
+\backslash \mathbb{H}\)</span>, <span class="math inline">\([a, b, c]
+\rightsquigarrow\)</span> semicircle with endpoints <span
+class="math inline">\(\frac{- b \pm \sqrt{D}}{2 a}\)</span>. <span
+class="math display">\[h(D) \log \varepsilon_D = D^{1/2 +
+o(1)},\]</span> <span class="math display">\[I(C_A) = 2 \log
+\varepsilon_D.\]</span></p></li>
+</ul>
+<div class="theorem">
+<p><strong>Theorem 3</strong> (Duke ’88). <em>Fix <span
+class="math inline">\(\Omega \subset {\mathop{\mathrm{PSL}}}_2(\mathbb{Z})
+\backslash \mathbb{H}\)</span>.</em></p>
+<ul>
+<li><p><em><span class="math inline">\(D &lt; 0\)</span>:
+equidistribution of <span class="math inline">\(z_A\)</span>, <span
+class="math inline">\(A \in
+{\mathop{\mathrm{Cl}}}_{\mathbb{Q}(\sqrt{D})}\)</span>.</em></p></li>
+<li><p><em><span class="math inline">\(D &gt; 0\)</span>: similar for
+closed geodesics.</em></p></li>
+</ul>
+</div>
+<p><strong>Waldspurger formulas</strong>. Let <span
+class="math inline">\(f\)</span> be a nonzero Maass form. Our goal is to
+study closed geodesic periods <span class="math inline">\(\int_{C_A}
+f(z) \, \frac{\lvert d z \rvert}{y}\)</span>.</p>
+<p><span class="math inline">\(\chi \in \widehat{{\mathop{\mathrm{Cl}}}_K}
+\rightsquigarrow\)</span> <span
+class="math inline">\(\theta_\chi\)</span>, the associated theta series
+(weight one on <span class="math inline">\(\Gamma_0(D)\)</span>,
+nebentypus <span class="math inline">\(\chi_D\)</span>).</p>
+<div class="theorem">
+<p><strong>Theorem 4</strong> (Waldspurger/Zhang/Popa). <em>Let <span
+class="math inline">\(D\)</span> be a fundamental discriminant. For
+<span class="math inline">\(D &lt; 0\)</span>, <span
+class="math display">\[L(f \times \theta_\chi, \tfrac{1}{2})
+    = \frac{C_f}{ D^{1/2}}
+    \left| \sum_{A \in {\mathop{\mathrm{Cl}}}_K} \chi(A) f(z_A)
+\right|^2.\]</span> For <span class="math inline">\(D &gt; 0\)</span>,
+<span class="math display">\[L(f \times \theta_\chi, \tfrac{1}{2}) =
+\frac{C_f}{ D^{1/2}}
+    \left| \sum_{A \in {\mathop{\mathrm{Cl}}}_K^+} \chi(A) \int_{C_A} f(z)
+      \, \frac{\lvert d z \rvert}{y}
+    \right|^2.\]</span></em></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 5</strong> (Michel–Venkatesh ’05). <em>Let <span
+class="math inline">\(\delta = 1/2700\)</span>. For <span
+class="math inline">\(D &lt; 0\)</span>: <span
+class="math display">\[\left| \left\{ \chi \in
+\widehat{{\mathop{\mathrm{Cl}}}_K} : L(f \times \theta_\chi, \tfrac{1}{2})
+\neq 0 \right\} \right|
+    \gg D^\delta.\]</span></em></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Sketch of proof." data-folded-text="Sketch of proof. (...)">Sketch of proof.</em></a>
+<span class="proof-content"> By orthogonality of characters, <span
+class="math display">\[\frac{1}{h(D)}
+    \sum_{\chi \in \widehat{{\mathop{\mathrm{Cl}}}_K}}
+    L(f \times \theta_\chi, \tfrac{1}{2})
+    = \frac{c_f}{ D^{1/2}}
+    \sum_{A \in {\mathop{\mathrm{Cl}}}_K} \left| \dotsb
+\right|^2.\]</span> This converges by Duke’s equidistribution theorem.
+The conclusion then follows from subconvexity for Rankin–Selberg <span
+class="math inline">\(L\)</span>-functions, due to Harcos–Michel. ◻</p>
+</span></div>
+<p>Same proof does not work for geodesics, cannot apply equidistribution
+and relate to subconvexity (square is outside integral).</p>
+<div class="question">
+<p><strong>Question 6</strong> (Michel, Oberwolfach 2020). Let <span
+class="math inline">\(K\)</span> be a real quadratic field of
+discriminant <span class="math inline">\(D &gt; 0\)</span>, and assume
+that <span class="math inline">\(h_K  \gg D^\delta\)</span>. Does there
+exist <span class="math inline">\(A \in
+{\mathop{\mathrm{Cl}}}_K^+\)</span> such that <span
+class="math display">\[\int_{C_A} f \, \frac{\lvert d z \rvert}{y} \neq
+0?\]</span> Equivalently, does there exist <span
+class="math inline">\(\chi \in
+\widehat{{\mathop{\mathrm{Cl}}}_K^+}\)</span> such that <span
+class="math inline">\(L(f \times \theta_\chi, \tfrac{1}{2}) \neq
+0\)</span>?</p>
+</div>
+<p><strong>The prime geodesic theorem</strong>. Let <span
+class="math inline">\(D &gt; 0, A \in {\mathop{\mathrm{Cl}}}_K^+\)</span>.
+This gives rise to a closed geodesic <span
+class="math inline">\(C_A\)</span>, with <span
+class="math inline">\(I(C_A) = 2 \log \varepsilon_D\)</span>.
+Sound–Young have the best estimate for their count.</p>
+<div class="theorem">
+<p><strong>Theorem 7</strong> (C–Nordentoft 2024). <em>Let <span
+class="math inline">\(f\)</span> be a nonzero Maass form for <span
+class="math inline">\({\mathop{\mathrm{SL}}}_2(\mathbb{Z})\)</span>. Then
+<span class="math display">\[\# \left\{ C \in \mathcal{C}(X) :
+      \int_{C}
+      f(z)
+      \, \frac{\lvert d z \rvert}{y} =  0\right\}
+    \ll
+    \frac{X}{(\log X)^{5/4}}.\]</span></em></p>
+</div>
+<div class="remark">
+<p><strong>Remark 8</strong>. We also obtain 100% non-vanishing for
+periods of weight <span class="math inline">\(k\)</span> holomorphic
+cusp forms, for any Fuchsian group <span
+class="math inline">\(\Gamma\)</span>.</p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 9</strong> (C–Nordentoft 2024). <em>For a positive
+proportion of positive discriminants <span class="math inline">\(D &gt;
+0\)</span> with <span class="math inline">\(\varepsilon_\Delta \leq
+X\)</span>, we get that there exists <span class="math inline">\(\chi
+\in \widehat{{\mathop{\mathrm{Cl}}}_{\mathbb{Q}(\sqrt{D})}}\)</span> with
+<span class="math inline">\(L(f \times \theta_\chi, \tfrac{1}{2} \neq
+0)\)</span>.</em></p>
+</div>
+<p>We construct a bipartite graph on <span
+class="math inline">\(X_N\)</span> (double cosets in <span
+class="math inline">\(\Gamma_\infty \backslash \Gamma /
+\Gamma_\infty\)</span> with <span class="math inline">\(c \leq
+N\)</span>) times <span class="math inline">\(Y_N\)</span> (conjugacy
+classes with trace bounded in magnitude by <span
+class="math inline">\(N\)</span>). This graph relates closed geodesic
+and vertical geodesics.</p>
+<h1 id="an-excised-orthogonal-model-for-families-of-cusp-forms">An
+excised orthogonal model for families of cusp forms</h1>
+<p>Talk by Zoe Batterman (Abstract), Akash Narayanan, Christopher Yao.
+Joint with Owen Barrett, Aditya Jambhale, and Kishan Sharma. Preprint:
+<span class="citation"
+data-cites="2024arXiv2407.14526">(<strong>2024arXiv2407.14526?</strong>)</span>.</p>
+<p>Conjecture (Montgomery–Dyson, 1970’s): zeros of of zeta vs. GUE.</p>
+<p>2005: S.J. Miller noticed a repulsion of the lowest-lying zeros near
+the central point of a family of even twists of a fixed elliptic curve
+<span class="math inline">\(L\)</span>-function with finite
+conductor.</p>
+<p>2011: Duenez, Huynh, Keating, Miller, Snaith: proposed an excised
+orthogonal model to capture the behavior of this repulsion.</p>
+<div class="question">
+<p><strong>Question 10</strong>. How accurately do egienvalues of random
+matrices from classical compact groups model the lowest-lying zeros of
+families of <span class="math inline">\(L\)</span>-functions associated
+to a cuspidal newform?</p>
+</div>
+<p>Let <span class="math display">\[S_k^{\mathop{\mathrm{new}}}(M,
+\chi_f) \ni f(z) = \sum_{n = 1}^\infty a_f(n) e^{2 \pi i n z},\]</span>
+<span class="math inline">\(\lambda_f(n) = a_f(n) / n^{(k -
+1)/2}\)</span>. <span class="math display">\[L(s, f) = \sum_{n \geq 1}
+\lambda_f(n) n^{- s},\]</span> Various specific families of twists <span
+class="math inline">\(L(f \otimes \psi_d, s)\)</span>, match with
+classical compact groups:</p>
+<ul>
+<li><p>principal character, even twists vs. <span
+class="math inline">\(\mathop{\mathrm{SO}}(\mathrm{even})\)</span></p></li>
+<li><p>principal character, odd twists vs. <span
+class="math inline">\(\mathop{\mathrm{SO}}(\mathrm{odd})\)</span></p></li>
+<li><p>non-principal character, self-dual vs. <span
+class="math inline">\(\mathop{\mathrm{Sp}}\)</span></p></li>
+<li><p>generic vs. <span
+class="math inline">\(\mathop{\mathrm{U}}\)</span></p></li>
+</ul>
+<p>Pictures.</p>
+<h1
+id="on-an-extension-of-the-rohrlich-jensen-formula-lejla-smajlović">On
+an extension of the Rohrlich-Jensen formula, <span
+class="nodecor"><em>Lejla Smajlović</em></span></h1>
+<p>Joint work with James Cogdell, Jay Jorgensen. Preprint: <span
+class="citation"
+data-cites="2021arXiv2101.09599">(<strong>2021arXiv2101.09599?</strong>)</span>.</p>
+<p>What is a Poisson–Jensen formula? We will view it as a way to
+characterize meromorphic functions in terms of their divisors. Some
+notation:</p>
+<ul>
+<li><p><span class="math inline">\(D_R = \left\{ z = x + i y \in
+\mathbb{C} : \lvert z \rvert &lt; R \right\}\)</span></p></li>
+<li><p><span class="math inline">\(F\)</span>: a non-constant
+meromorphic function on <span
+class="math inline">\(\overline{D_R}\)</span>, <span
+class="math display">\[F(z) = c_F z^m + \operatorname{O}(z^{m + 1}),
+\quad z \rightarrow 0.\]</span></p></li>
+</ul>
+<p>Then <span class="math display">\[\int_0^{2 \pi}
+  \log \lvert F(R e^{i \theta}) \rvert
+  \, \frac{d \theta}{2 \pi}
+  + \sum _{D_R} \dotsb = F(0).\]</span></p>
+<p>Rohrlich, 1980’s: a <em>modular</em> generalization, characterizing
+modular forms via divisors. Given <span
+class="math inline">\(f\)</span>, a meromorphic function on <span
+class="math inline">\(\mathbb{H}\)</span> that is invariant by <span
+class="math inline">\(\mathop{\mathrm{PSL}}(2,\mathbb{Z})\)</span>.
+Assume <span class="math inline">\(f\)</span> is holomorphic at the cusp
+and that the Fourier expansion of <span class="math inline">\(f\)</span>
+at <span class="math inline">\(\infty\)</span> has constant term equal
+to one. Then <span
+class="math display">\[\int_{\mathop{\mathrm{PSL}}(2,\mathbb{Z})
+\backslash \mathbb{H}}
+  \log \lvert f(z) \rvert
+  \, \frac{d \mu(z)}{2 \pi}
+  + \sum_{w \in \mathcal{F}}
+  \frac{{\mathop{\mathrm{ord}}}_w(f)}{ \mathop{\mathrm{ord}}(w)} P(w) =
+0.\]</span> Here</p>
+<ul>
+<li><p><span class="math inline">\({\mathop{\mathrm{ord}}}_w(f)\)</span>
+is the order of <span class="math inline">\(f\)</span> at <span
+class="math inline">\(w\)</span> as a meromorphic function,</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{ord}}(w)\)</span>
+denotes the order of the <em>point</em> <span
+class="math inline">\(w\)</span> with respect to the action of <span
+class="math inline">\(\mathop{\mathrm{PSL}}(2,\mathbb{Z})\)</span> on
+<span class="math inline">\(\mathbb{H}\)</span>, and</p></li>
+<li><p><span class="math inline">\(P(w) = \log \left( \lvert \eta(w)
+\rvert^4 \cdot \Im(w) \right)\)</span> is the Kronecker limit function
+associated to the parabolic Eisenstein series on <span
+class="math inline">\(\mathop{\mathrm{PSL}}(2,\mathbb{Z})\)</span>. This
+is the function appearing as the next-order term in the expansion of the
+Eisenstein series as <span class="math inline">\(s \rightarrow
+1\)</span>.</p></li>
+</ul>
+<p>Another way to interpret this formula is as follows. We have <span
+class="math display">\[\left\langle 1, \log \lvert f(z) \rvert
+\right\rangle
+  = \lim_{Y \rightarrow \infty} \int_{\mathcal{F}(Y)} 1 \cdot \log
+\lvert f(z) \rvert \, d \mu(z),\]</span> hence the formula reads <span
+class="math display">\[\left\langle 1, \log \lvert f(z) \rvert
+\right\rangle = - 2 \pi
+  \sum_{w \in \mathcal{F}} \frac{{\mathop{\mathrm{ord}}}_w(f)}{
+\mathop{\mathrm{ord}}(w)} P(w).\]</span> Here <span
+class="math inline">\(\log \lvert f(z) \rvert\)</span> can be replaced
+by <span class="math display">\[\log \lVert f(z) \rVert = \log \left(
+\Im z^k \lvert f(z) \rvert \right)\]</span> for weight <span
+class="math inline">\(2 k\)</span> meromorphic modular forms.
+Generalizations:</p>
+<ul>
+<li><p>to other Fuchsian groups of the first kind, by Rohrlich.</p></li>
+<li><p>to hyperbolic <span class="math inline">\(3\)</span>-space, by
+Herrero, Imamoglu, von Pippich, Toth.</p></li>
+</ul>
+<p>Further modular generalization by Bringman and Kane. Keep the modular
+group setting, but evaluate more general inner products.</p>
+<ul>
+<li><p><span class="math inline">\(j(z) = q^{-1} + 744 +
+\operatorname{O}(q)\)</span>: Hauptmodul</p></li>
+<li><p><span class="math inline">\(j_1(z) := j(z) -
+744\)</span></p></li>
+<li><p><span class="math inline">\(j_n(z) := j_1 | T_n(z)\)</span>, for
+<span class="math inline">\(n \geq 2\)</span></p></li>
+<li><p><span class="math inline">\(f\)</span>: weight <span
+class="math inline">\(2 k\)</span> meromorphic modular form with respect
+to <span class="math inline">\(\mathop{\mathrm{PSL}}(2,
+\mathbb{Z})\)</span>, normalized so that <span
+class="math inline">\(f(z) = 1 + \operatorname{O}(q)\)</span></p></li>
+</ul>
+<p>They evaluated the regularized scalar product in terms of the divisor
+of <span class="math inline">\(f\)</span>, proving that <span
+class="math display">\[\left\langle j_n(z),
+    \log \left((\Im(z))^k \lvert f(z) \rvert \right)\right\rangle
+  = - 2 \pi \sum_{w \in \mathcal{F}}
+  \frac{{\mathop{\mathrm{ord}}}_w(f)}{\mathop{\mathrm{ord}}(w)}
+  \mathbf{j}_n(w)
+  + \frac{k}{6} c_n,\]</span> where <span
+class="math inline">\(\mathbf{j}_n\)</span> is characterized in terms of
+differential operators by Bringman and Kane; application of our results
+yields a different expression for the same function, namely <span
+class="math display">\[\mathbf{j}_n(w) = 2 \pi \sqrt{n} \partial_s F_{-
+n}^{\mathop{\mathrm{PSL}}(2, \mathbb{Z})}(w, s) |_{s=1}
+  - 24 \sigma(n) P(w).\]</span></p>
+<p>What is our main goal?</p>
+<ul>
+<li><p>To extend the point of view that the Rohrlich–Jensen formula is
+the evaluation of a particular type of inner product.</p></li>
+<li><p>To prove the extension of this formula in the setting of an
+arbitrary, not necessarily arithmetic, Fuchsian group of the first kind
+with one cusp.</p></li>
+</ul>
+<p>We start with <span class="math inline">\(j_n(z) = j_1 |
+T_n(z)\)</span>, which is the unique (up to constants) holomorphic
+function that is <span
+class="math inline">\(\mathop{\mathrm{PSL}}(2,\mathbb{Z})\)</span>-invariant
+on <span class="math inline">\(\mathbb{H}\)</span> and whose expansion
+near <span class="math inline">\(\infty\)</span> is <span
+class="math inline">\(q^{- n} + o(q^{-1})\)</span>.</p>
+<p>These properties hold for the special value <span
+class="math inline">\(s = 1\)</span> of the Niebur–Poincar<span>é</span>
+series <span class="math inline">\(F_{- n}^{\Gamma}(z, s)\)</span>,
+defined for any Fuchsian group <span
+class="math inline">\(\Gamma\)</span> of the first kind with oen cusp by
+<span class="math display">\[F_m^\Gamma(z, s)
+  = \sum_{\gamma_\infty \backslash \Gamma}
+  e \left( m \Re(\gamma z) \right) \left( \Im(\gamma z) \right)^{1/2}
+I_{s - 1/2} \left( 2 \pi \lvert m \rvert \Im(\gamma z) \right),\]</span>
+for <span class="math inline">\(m \neq 0\)</span>.</p>
+<p>It is an eigenfucntion of the hyperbolic Laplacian, and may be
+expressed in terms of <span class="math inline">\(j_m\)</span>.</p>
+<p>The term <span class="math inline">\(\log \left( \lVert f(z) \rVert
+\right)\)</span> is a bit complicated, involving findings by Jorgensen,
+von Pippich and the speaker, plus some additional work done in our
+paper.</p>
+<div class="proposition">
+<p><strong>Proposition 11</strong>. <em>Let <span
+class="math inline">\(\Gamma\)</span> be a cofinite Fuchsian group with
+one cusp at <span class="math inline">\(\infty\)</span> with identity as
+its scaling matrix. Let <span class="math inline">\(2 k \geq 0\)</span>
+be an even integer, and let <span class="math inline">\(f\)</span> be aw
+eight <span class="math inline">\(2 k\)</span> meromorphic form which is
+<span class="math inline">\(\Gamma\)</span>-invariant and with <span
+class="math inline">\(q\)</span>-expansion at <span
+class="math inline">\(\infty\)</span> normalized so its constant term is
+equal to one. Then, we can express <span class="math inline">\(\log
+\left( \lVert f \rVert(z) \right)\)</span> in terms of parabolic
+Eisenstein series and Green’s functions, as <span
+class="math display">\[- 2 k + 2 \pi \sum_{w \in \mathcal{F}_\Gamma}
+    \frac{{\mathop{\mathrm{ord}}}_w(f)}{ \mathop{\mathrm{ord}}(w)} \lim_{s
+\rightarrow 1} \left( G_s^\Gamma(z, w) + \mathcal{E}_{\Gamma,
+\infty}^{\mathrm{par}(z, s)} \right)
+    + \dotsb.\]</span></em></p>
+</div>
+<p>Here <span
+class="math display">\[\mathcal{E}_\infty^{\mathrm{par}}(z, s) =
+\sum_{\Gamma_\infty \backslash \Gamma} \Im(\gamma z)^s.\]</span> The
+Kronecker limit formula says that <span
+class="math display">\[\mathcal{E}_\infty^{\mathrm{par}}(z, s) =
+\frac{1}{(s-1) \mathop{\mathrm{vol}}(\Gamma \backslash \mathbb{H})}
+  + \beta - \frac{1}{\mathop{\mathrm{vol}}(\Gamma \backslash
+\mathbb{H})}
+  \log \left( \lvert \eta_\infty^4(z) \rvert \Im(z) \right)
+  + \operatorname{O}(s - 1).\]</span> Then we need to define <span
+class="math inline">\(\beta\)</span>, and the Green’s function <span
+class="math inline">\(G_s(z, w)\)</span>, which is obtained by averaging
+the kernel <span class="math inline">\(k_s(z, w)\)</span>; both
+functions are eigenfunctions of the Laplacian with eigenvalue <span
+class="math inline">\(s(1 - s)\)</span>, and the Green’s function has a
+specified singularity on the diagonal. The Green’s function also has a
+Laurent series expansion as <span class="math inline">\(s \rightarrow
+1\)</span> that involves the parabolic Eisenstein series. In particular,
+<span class="math display">\[\lim_{s \rightarrow 1} \left( G_s^\Gamma(z,
+w) + \mathcal{E}_{\Gamma, \infty}^{\mathrm{par}}(z, w) \right)\]</span>
+exists, with a logarithmic singularity on the diagonal.</p>
+<p>The Rohrlich–Jensen formula can be understood through the study of
+the regularized inner product of this last limit with <span
+class="math inline">\(F_{- n}(\cdot, 1)\)</span>. Regularization is
+needed only in the cusp (because the logarithmic singularity is
+integrable). We can thus write <span
+class="math display">\[\begin{align}
+  &amp;\left\langle F_{- n}(\cdot, 1),
+    \overline{ \lim_{s \rightarrow 1} \left( G_s^\Gamma(z, w) +
+\mathcal{E}_{\Gamma, \infty}^{\mathrm{par}}(z, w) \right)}
+    \right\rangle \\
+  &amp;=
+    \lim_{Y \rightarrow \infty}
+    \int_{\mathcal{F}(Y)}
+    F_{- n}(z, 1) \lim_{s \rightarrow 1} \left( G_s(z, w) +
+\mathcal{E}_\infty^{\mathrm{par}}(z, s) \right)
+    \, d \mu(z).
+\end{align}\]</span> A key observation is that all terms are
+eigenfunctions of the Laplacian, hence one can seek to compute the inner
+product in a manner similar to that which yields the Maass–Selberg
+formula. The key identity is that <span
+class="math display">\[\begin{align}
+  &amp;\int_{\mathcal{F}(Y)}
+  F_{- n}(z, 1) \lim_{s \rightarrow 1} \left( G_s(z, w) +
+\mathcal{E}_\infty^{\mathrm{par}}(z, s) \right)
+    \, d \mu(z) \\
+  &amp;=
+    \partial_s \left( - s(1 - s) \int_{\mathcal{F}(Y)}
+    F_{- n}(z, 1) \left( G_s(z, w) + \mathcal{E}_\infty^{\mathrm{par}}(w
+, s) \, d \mu(z) \right)\right)|_{s=1}.
+\end{align}\]</span> We can now absorb <span class="math inline">\(-
+s(1 - s)\)</span> into the integrals after applying the hyperbolic
+Laplacian <span class="math inline">\(\Delta\)</span> to each of the two
+factors in the integrand.</p>
+<p>Main results:</p>
+<div class="theorem">
+<p><strong>Theorem 12</strong>. <em>For any positive integer <span
+class="math inline">\(n\)</span> and any point <span
+class="math inline">\(w \in \mathcal{F}\)</span>, we have <span
+class="math display">\[\left\langle F_{- n}(\cdot, 1), \overline{\lim_{s
+\rightarrow 1} \left( G_s(\cdot, w) +
+\mathcal{E}_\infty^{\mathrm{par}}(\cdot, s) \right)} \right\rangle
+    = - \partial_s F_{- n}(w, s) |_{s=1}.\]</span></em></p>
+</div>
+<p>Combined with the previous proposition (describing <span
+class="math inline">\(\log \lVert f(z) \rVert\)</span>), we get the
+Rohrlich–Jensen formula: <span class="math display">\[\left\langle F_{-
+n}(\cdot, 1), \log \lVert f \rVert \right\rangle
+  = - 2 \pi \sum_{w \in \mathcal{F}}
+  \frac{{\mathop{\mathrm{ord}}}_w(f)}{\mathop{\mathrm{ord}}(w)} \partial_s
+F_{- n}(w, s)|_{s=1}.\]</span></p>
+<p>We have further results. For instance, if <span
+class="math inline">\(g\)</span> is any <span
+class="math inline">\(\Gamma\)</span>-invariant analytic function with a
+pole at <span class="math inline">\(\infty\)</span>, then (Niebur) <span
+class="math display">\[g(z) = \sum_{n = 1}^K 2 \pi \sqrt{n} a_n F_{-
+n}(z, 1) + c(g)\]</span> for some constants <span
+class="math inline">\(K\)</span>, <span
+class="math inline">\(a_n\)</span>, and <span
+class="math inline">\(c(g)\)</span> depending only upon <span
+class="math inline">\(g\)</span>. Then, we have the identity <span
+class="math display">\[\left\langle g, \log \lvert f \rvert
+\right\rangle
+  = - 2 \pi \sum_{w \in \mathcal{F}}
+\frac{{\mathop{\mathrm{ord}}}_w(f)}{\mathop{\mathrm{ord}}(w)}
+  \left( 2 \pi \sum_{n = 1}^K \sqrt{n } a_n \partial_s F_{- n}(w, s)
+|_{s=1} - \dotsb \right).\]</span> Further found that the generating
+series for the Niebur Poincar<span>é</span> series at <span
+class="math inline">\(s = 1\)</span> is, in the <span
+class="math inline">\(z\)</span>-variable (where we sum over <span
+class="math inline">\(q_z\)</span>), the holomorphic part of the weight
+two biharmonic Maass form given by differentiating our linear
+combination of Eisenstein series and Green’s function with respect to
+<span class="math inline">\(z\)</span>.</p>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
