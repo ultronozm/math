@@ -405,7 +405,6 @@ Various specific families of twists $L(f \otimes \psi_d, s)$, match with classic
 
 Pictures.
 
-
 \section{On an extension of the Rohrlich-Jensen formula, \textnormal{\emph{Lejla Smajlović}}}
 Joint work with James Cogdell, Jay Jorgensen.  Preprint: \cite{2021arXiv2101.09599}.
 
@@ -578,16 +577,150 @@ for some constants $K$, $a_n$, and $c(g)$ depending only upon $g$.  Then, we hav
 Further found that the generating series for the Niebur Poincar{\'e} series at $s = 1$ is, in the $z$-variable (where we sum over $q_z$), the holomorphic part of the weight two biharmonic Maass form given by differentiating our linear combination of Eisenstein series and Green's function with respect to $z$.
 
 
+\section{Shenghao Hua, \textnormal{\emph{Joint Value Distribution of Hecke--Maass Forms}}}
+Preprint: \cite{2024arXiv2405.00996}
 
+Motivation: semiclassical limit of solutions to Schroedinger equation.  Berry's random wave conjecture.  QUE, $L^p$-norms.
 
+Joint Gaussian moments conjecture: statistical indepndence of values of large eigenfunctions (multiplied together and integrated against some test function).
 
+\begin{theorem}
+  Let $f$ and $g$ be normalized Hecke--MAass cusp forms.  Then if $2 t_f \leq t_g - t_g^\eps$, we have
+  \begin{equation*}
+    \int_{\Gamma \backslash \mathbb{H}}
+    \psi f^2 g \ll t_g^{- A},
+  \end{equation*}
+  while if $2 t_f > t_g - t_g^\eps$, then, assuming GLH, we have
+  \begin{equation*}
+    \int_{\Gamma \backslash \mathbb{H}} \psi f^2 g
+    = \int_{\Gamma \backslash \mathbb{H}} \psi g +
+    \O(t_f^{- 1/4 + \eps}(1 + \lvert 2 t_f - t_g \rvert^{- 1/4})).
+  \end{equation*}
+\end{theorem}
+Proof uses spectral expansion of $\psi$ into eigenfunctions $u$, then spectral expansion of $\int (u g)(f^2)$, reducing to the case $g=u$, then further spectral expansion of $\int(g^2)(f^2)$.
 
+\begin{theorem}
+  Assuming GRH and GRC, we have as $\max(t_f,t_g) \rightarrow \infty$
+  \begin{equation*}
+    \mathbb{E} f^2 g^2 = 1 + \O((\log(t_f + t_g))^{- 1/4 + \eps}).
+  \end{equation*}
+\end{theorem}
+Proof eventually applies ultimately Soundararajan's method of moments (which requires GRH).
 
+Work in progress: asymptotic formulas for certain averages of $L$-functions over toroidal families, going beyond \cite{2023arXiv2303.11664}.
 
+\section{Algebraic proof of modular form inequalities for optimal sphere packings, \textnormal{\emph{Seewoo Lee}}}
+Preprint: \cite{2024arXiv2406.14659}.
 
+Motivating question: finding densest sphere packings.
+\begin{itemize}
+\item $d = 1$
+\item $d = 2$: Thue 1910, $\Delta_2 = \frac{\pi}{2 \sqrt{3}}$
+\item $d =3$: Kepler conjecture 1611, Hales 2005, $\Delta_3 = \frac{\pi}{3 \sqrt{2}}$, formally verified 2014 in Isabelle/HOL
+\item (Korkine--Zolotareff, Blichfeldt, Cohn--Kumar): $D_4, D_5, D_6, E_7, E_8$ and Leech lattice
+\item Viazovska, 2016 $\pi$-day on arXiv: $E_8$ lattice packing optimal, with $\Delta_8 = \frac{\pi^4}{388}$
+\item Cohn--Kumar--Miller--Radchenko--Viazovska, March 21st 2016 on arXiv: $\Delta_{24} = \frac{\pi^{12}}{12!}$ Leech lattice (unique even unimodular with nonzero minimal length $2$)
+\end{itemize}
 
+Viazovska et al use:
+\begin{theorem}[Cohn--Elkies, 2013]
+  Let $r > 0$.  Assume there exists a nice function $f : \mathbb{R}^d \rightarrow \mathbb{R}$
+  satisfying
+  \begin{itemize}
+  \item $f(0) = \hat{f}(0) > 0$,
+  \item $f(x) \leq 0$ for all $\lVert x \rVert \geq r$,
+  \item $\hat{f}(y) \geq 0$ for all $y \in \mathbb{R}^d$,
+  \end{itemize}
+  then
+  \begin{equation*}
+    \Delta_d \leq \vol(B_{r/2}^d) = \left( \frac{r}{2} \right)^d \frac{\pi^{d/2}}{(d / 2)!}.
+  \end{equation*}
+\end{theorem}
+Proof is not hard (fits in one page).
 
+This leads to the hunt for a ``magic function'' $f$ satisfying the indicated conditions.  BAsed on their numerical experiments, Cohn--Elkies conjectured that the optimal sphere packing can be achieved by a magic function when $d=2,8,24$.  The magic function $f$ and its Fourier transform $\hat{f}$ should vanish at the lattice points.
 
+Viazovska et al constructed the magic functions for $d = 8,24$ using modular forms.  Decompose into Fourier eigenfunctions $f = f_+ + f_-$ (parity under Fourier transform).  Viazovska writes them as
+\begin{equation*}
+  f_{\pm}(x) = \sin^2 \left( \frac{\pi \lVert x \rVert^2}{2} \right)
+  \int_0^\infty \varphi_{\pm}(t) e^{- \lVert x \rVert^2 t} \, d t,
+\end{equation*}
+where the $\sin^2$ factor enforces desired roots.
+
+For $d = 8$, we have $\varphi_{\pm}(t) = t^2 \psi_{\pm}(i/t) $, where $\psi_{\pm}$ are defined in terms of standard modular forms.  We also need (for both $d = 8, 24$) a few non-obvious inequalities involving some of these modular forms.  One reason these inequalities are difficult is because they're inhomogeneous with respect to the weights of the forms involved.
+
+Original proofs use bounds of Fourier coefficients of the form
+\begin{equation*}
+  \lvert c(n) \rvert \leq C_1 e^{C_2 \pi \sqrt{n}},
+\end{equation*}
+following from the Hardy--Ramanujan formula, reducing the question to finite calculations and interval arithmetic.
+
+Ran Romik (2023) gave an alternative and much simpler proof for $d = 8$ that doe snot use any interval arithmetic, but still requires a ``calculator'' to check inequalities like
+\begin{equation*}
+  e^{3 \pi} \frac{9 \Gamma(1/4)^{16}}{8192 \pi^{12}} < 20480.
+\end{equation*}
+
+\begin{question}
+  Can we prove such inequalities \emph{algebraically}?
+\end{question}
+The answer is yes, as we now explain.  To that end, we'll develop a theory of \emph{(completely) positive quasimodular forms}.
+
+\begin{definition}
+  Let $\Gamma \subseteq \SL_2(\mathbb{Z})$.  We say that a quasimodular form $F$
+  is \emph{positive} if
+  \begin{equation*}
+    F(i t) \geq 0
+  \end{equation*}
+  for all $t > 0$.
+
+  We call it \emph{completely positive} if it has nonnegative $q$-coefficients at $\infty$.
+\end{definition}
+
+Note that ``completely positive'' implies ``positive'', but the inclusion is strict in general.  For instance, the discriminant form has a product formula that tells you that it is positive, but you can check that it's not completely positive.
+
+Easy facts:
+\begin{theorem}
+  \begin{itemize}
+  \item Anti-derivative preserves positivity.
+  \item Derivative preserves complete positivity.
+  \item Serre derivative preserves complete positivity.
+  \end{itemize}
+\end{theorem}
+
+``Nontrivial'' fact (that we won't use, and which also follows directly from Bernstein's theorem):
+\begin{theorem}
+  $F$ is completely positive if and only if all its derivatives are positive.
+\end{theorem}
+
+``Interesting'' fact that we will use:
+\begin{theorem}
+  Let $F = \sum_{n \geq n_0} a_n q^n$ with $a_{n _0 > 0}$.  If some Serre derivative of $F$ is positive, then so is $F$.
+\end{theorem}
+
+Examples?
+\begin{definition}[Kaneko--Koike]
+  For given weight $w$ and depth $s$, we can speak of \emph{extremal quasimodular forms of weight} $w$ \emph{and depth} $s$, which are those whose order of zeros at $\infty$ is as large as possible.
+\end{definition}
+It's been shown that these have almost all coefficients positive, and conjectured that they're all positive.
+
+\begin{theorem}
+  That conjecture is true for depth $1$ extremal forms.
+\end{theorem}
+
+We also have similar identities proving complete positively  of the depth $2$ extremal forms of weight $w \leq 14$, but not yet for general $w$.
+
+This reduces some of the inequalities in the arguments of Viazovska et al to checking some limiting properties of ratios of modular functions.  For monotonicity, we check that derivatives are positive,  and for this it suffices to check the same for Serre derivatives of derivatives.
+
+Possible future directions:
+\begin{itemize}
+\item Classify the completely positive forms?
+\item Possible applications in other LP problems?
+  \begin{itemize}
+  \item Dual LP, uncertainty principle
+  \item Any results that are ``uniform'' in dimensions
+  \end{itemize}
+\item Make a formalization of the proof (e.g., in Lean) easier?
+\end{itemize}
 
 
 
