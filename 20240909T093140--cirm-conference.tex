@@ -1,0 +1,595 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\begin{document}
+
+\title{Notes from CIRM conference BB6, \emph{Automorphic Forms and Related Topics}} 
+
+\begin{abstract}
+  Random notes from the CIRM conference, Building Bridges 6th, EU/US Workshop on Automorphic Forms and Related Topics (BB6),
+  9-13 September, 2024.  These notes are incomplete and have not been proofread.  Any errors should be assumed to be due to the note-taker.
+\end{abstract}
+
+
+\section{Anne-Maria Ernvall-hytönen, \textnormal{\emph{Lattices and modular forms in coset coding}}}
+
+Wyner (1975).  Wiretap channel (Alice, Bob, Eve).  Gaussian noise with variance $\sigma^2$ (between Alice and Bob) and $\sigma_e^2$ (for Eve).  We assume $\sigma_e > \sigma$.  We would like to do this whole scheme in such a way that we can use the noise so that Bob can still receive the image, but Eve cannot.  We aim to do this with lattices $\Lambda \geq \Lambda_e$, where each coset corresponds to a code-letter.
+
+Belfiore and Oggier (2010) (maybe \cite{MR4032962}?): secrecy gain.  Transmit codeword $x \in \mathbb{R}^n$.
+\begin{equation*}
+  \frac{1}{(\sigma_\Lambda \sqrt{2 \pi})^n}
+  \int_{V_{\Lambda(x)}}
+  e^{- \lVert y - x \rVert^2 / 2 \sigma^2} \, d y.
+\end{equation*}
+
+\begin{equation*}
+  \frac{1}{(\sigma_\Lambda \sqrt{2 \pi})^n}
+  \sum_{t \in \Lambda_e \cap R}
+  \int_{V_{\Lambda(x + t)}}
+  e^{- \lVert y - x \rVert^2 / 2 \sigma^2} \, d y.
+\end{equation*}
+
+End up trying to minimize
+\begin{equation*}
+  \theta_{\Lambda_e} \left( - \frac{1}{2 \pi i \sigma_e^2} \right).
+\end{equation*}
+Secrecy function
+\begin{equation*}
+  \Xi(y) :=
+  \frac{\theta_{\lambda \mathbb{Z}^n}(y i)}{ \theta_\Lambda(y i)}.
+\end{equation*}
+Belfiore and Sole: For unimodular $\Lambda$, maximum at $y = 1$.  Even unimodular: polynomials in
+\begin{equation*}
+  E_4 = \frac{1}{2} \left( \vartheta_2^8 + \vartheta_3^8 + \vartheta_4^8  \right),
+  \qquad
+  \Lambda = \frac{1}{256} \vartheta_2^8 \vartheta_3^8 \vartheta_4^8.
+\end{equation*}
+Inverse of $\Xi(y)$ a polynomial in $\frac{\vartheta_4^4 \vartheta_2^4}{\vartheta_3^8}$.
+
+(Maybe \cite{MR2966067} is a reference.)
+
+$\ell$-modular: $1 / \sqrt{\ell}$, $\mathbb{Z} \oplus \sqrt{2} \mathbb{Z} \oplus 2 \mathbb{Z}$.
+
+The connection to deeper mathematics is, what kinds of representations as polynomials do you have for various theta functions?
+
+\section{Jolanta Marzec-ballesteros, \textnormal{\emph{Doubling method for self-dual linear codes}}}
+
+Garrett, Piatetski-Shapiro--Rallis (1980's).  Integral of cusp form against restriction of Siegel-type Eisenstein series equals $L$-function attached to cusp form times cusp form or Eisenstein series attached to cusp form:
+\begin{equation*}
+  \left\langle E \left(
+      \begin{pmatrix}
+        g &  \\
+          & g' \\
+      \end{pmatrix}, s \right),
+    f(g)\right\rangle
+  = L(f, s) f(g ').
+\end{equation*}
+
+Done for $G$ symplectic, orthogonal, unitary over global field, also for congreunce subgroups.
+
+Let's start with an overview.  Let $f$ be a cusp form on $G$, and $H$ a subgroup for which $G \times G \hookrightarrow H$.  Then form an Eisenstein series on $H$
+\begin{equation*}
+  E(h, s) = \sum_{\gamma \in P \backslash H} \phi(\gamma h, s).
+\end{equation*}
+Restrict to $h = \diag(g, g')$ and take inner product with $F(g)$.  This leads to an unfolding involving a sum over $\gamma \in P \backslash H /(G \times G)$.  In favorable cases, only one representative $\gamma_0$ contributes, leaving us with
+\begin{align*}
+  &\sum_{(k, k') \in G \times G}
+    \left\langle \phi \left( \gamma_0
+    \begin{pmatrix}
+      k g        &  \\
+                 & k ' g ' \\
+    \end{pmatrix}, s \right), f(g) \right\rangle
+  \\
+  &=
+    \sum_{\beta \in \gamma_0(G \times 1)}
+    \psi(f) f |_\beta(g ') \\
+  &= L(f, s) f(g ').
+\end{align*}
+We would like to do something similar, but now over finite fields.
+
+A \emph{linear code of length} $2 n$ over a finite field $\mathbb{F}$ is a linear subspace $C \subseteq \mathbb{F}^{2 n}$.  We denote by $\langle , \rangle : C \times C \rightarrow \mathbb{F}$ the Euclidean inner product.  We say that $C$ is \emph{self-dual} if
+\begin{equation*}
+  C = C^\perp := \left\{ v \in \mathbb{F}^{2 n} : \langle v, C \rangle = 0 \right\}.
+\end{equation*}
+Then (the length $2 n$ is even and) $\dim C = n$.
+
+The \emph{weight} of a codeword $c =(c_1, \dotsc, c_{2 n}) \in C$ is
+\begin{equation*}
+  \operatorname{wt}c = \# \left\{ i \in \{1, \dotsc, 2 n\} : c_i \neq 0 \right\}.
+\end{equation*}
+
+\emph{Weight enumerators} are certain homogeneous polynomials of degree $2 n$ in variables from the set $V = \left\{ x_\alpha : \alpha \in \mathbb{F}^g \right\}$, where $g \in \mathbb{N}$ is the genus.
+
+The \emph{genus one weight enumerator} of a code $C \subseteq \mathbb{F}_2^{2 n}$ is a polynomial
+\begin{equation*}
+  W_1(C,(x_0, x_1))
+  = \sum_{c \in C} x_0^{2 n - \operatorname{wt} c}
+  x_1^{\operatorname{wt} c}.
+\end{equation*}
+The \emph{genus} $g$ \emph{weight enumerator} of a code $C \subseteq \mathbb{F}^{2 n}$ is a polynomial
+\begin{equation*}
+  W_g(C, x) = \sum_{(c^1, \dotsc, c^g) \in C^g }
+  \prod_{\alpha \in \mathbb{F}^g}
+  x_\alpha^{w_\alpha(c^1, \dotsc, c^g)}
+\end{equation*}
+of degree $2 n$, where $x =(x_\alpha)_{\alpha \in \mathbb{F}^g}$ and
+\begin{equation*}
+  w_\alpha(c^1, \dotsc, c^g)
+  = \# \left\{ \text{rows $r$ in } (c_{i}^j)_{i = 1..2n}^{j = 1..g} : r = \alpha \right\}.
+\end{equation*}
+
+As an example, we give a basis for a Hamming code $H_8$ 5nof weight $8$, the span over $\mathbb{F}_2$ inside $\mathbb{F}_2^8$ of the vectors
+\begin{equation*}
+  \begin{pmatrix}
+    1 \\ 0 \\ 0 \\ 1 \\ 0 \\ 1 \\ 1 \\ 0
+  \end{pmatrix}
+  \quad
+  \begin{pmatrix}
+    0 \\ 1 \\ 0 \\ 1 \\ 0 \\ 1 \\ 0 \\ 1
+  \end{pmatrix}
+  \quad
+  \begin{pmatrix}
+    0 \\ 0 \\ 1 \\ 1 \\ 0 \\ 0 \\ 1 \\ 1
+  \end{pmatrix}
+  \quad
+  \begin{pmatrix}
+    0 \\ 0 \\ 0 \\ 0 \\ 1 \\ 1 \\ 1 \\ 1
+  \end{pmatrix}.
+\end{equation*}
+Then
+\begin{align*}
+  W_2(H_8,(x_{00}, x_{01}, x_{10}, x_{11}))
+  &= \sum_{\alpha \in \mathbb{F}_2^2}
+  x_\alpha^8 + 14
+  \sum_{
+    \substack{
+      \alpha_1, \alpha_2 \in \mathbb{F}_2^2  \\
+      \alpha_1 < \alpha_2      
+    }
+  }
+  x_{\alpha_1}^4 x_{\alpha_2}^4
+  + 168 x_{00}^2 x_{0 1}^2 x_{10}^2 x_{11}^2
+  \\
+  &=(8) +
+    14(4, 4)
+    + 168(2, 2, 2, 2).
+\end{align*}
+In general,
+\begin{equation*}
+  W_g(C) = \sum_A b_A \cdot(A),
+\end{equation*}
+where
+\begin{equation*}
+  A \in \left\{(a_0, \dotsc, a_{2^g - 1}) : \text{admissible tuples},
+    \,
+    \sum_{i = 0}^{2^g - 1} a_i = 2 n\right\}.
+\end{equation*}
+
+Some analogies with modular forms:
+\begin{itemize}
+\item $W_g(C)$ is like a modular form $f$ of genus $g$,
+\item $\sum_A b_A \cdot(A)$ is like a Fourier expansion,
+\item $(2 n)$ is like a constant term $a(0)$.
+\end{itemize}
+EXamples of cusp forms:
+\begin{itemize}
+\item $W_1(G_{24}) - W_1(H_8 \times H_8 \times H_8)
+  = - 42(20, 4) + 168(16, 8) - 252(12, 12)$ is a cusp form of genus one.
+\item $W_3(E_{16}) - W_3(H_8 \times H_8) = - 2688(9, 1, 1, 1, 1, 1, 1, 1) + \dotsb$ is a cusp form of genus $3$.
+\end{itemize}
+
+\begin{theorem}[Runge, 1996; Nebe, Rains, Sloane, 2006]
+  We have
+  \begin{equation*}
+    \left\langle W_g(C) : \text{$C$ self-dual, over $\mathbb{F}$} \right\rangle
+    =
+    \left( \mathbb{C}[x_\alpha : \alpha \in \mathbb{F}^g] \right)^{\mathcal{C}_g},
+  \end{equation*}
+  where
+  \begin{equation*}
+    \mathcal{C}_g := \left\langle m_r, d_\phi, h_{\iota, u_{\iota}, v_{\iota}} : r \in \GL_g(\mathbb{F}), \phi, \iota \right\rangle
+  \end{equation*}
+  with
+  \begin{equation*}
+    m_r : x_\alpha \mapsto x_{r \alpha},
+  \end{equation*}
+  \begin{equation*}
+    d_\phi : x_\alpha \mapsto e^{2 \pi i \phi(\alpha)} x_\alpha,
+  \end{equation*}
+  \begin{equation*}
+    h_{\iota, u_\iota, v_\iota}
+    : x_\alpha \mapsto \left( \# \iota \mathbb{F}^g \right)^{- 1/2}
+    \sum_{w \in \iota \mathbb{F}^g}
+    e^{\frac{2 \pi i}{p} \left\langle w, v_\iota \alpha \right\rangle} x_w + \dotsb.
+  \end{equation*}
+\end{theorem}
+Consider the mean polynomial (``Siegel-type Eisenstein series'')
+\begin{align*}
+  M_{2 g}((2 n)) &= \sum_{\gamma \in P_{2 g} \backslash \mathcal{C}_{2 g}}
+  (2 n)^\gamma
+  \\
+  &=
+  \sum_{\gamma \in P_{2 g} \backslash \mathcal{C}_{2 g}} \sum_{\alpha \in \mathbb{F}^{2 g}}
+  \left((x_\alpha)^\gamma \right)^{2 n}
+  = \mathrm{const} \sum_{
+    \substack{
+      C \subset \mathbb{F}^{2 n}  \\
+      \text{fixed type}      
+    }
+  }
+  W_{2 g}(C, x),
+\end{align*}
+and an inner product defined on monomials.
+
+What we prove with Bourganis in 2024 is the following:
+\begin{theorem}
+  Let $\mathcal{T}$ be a family of self-dual codes of length $2 n$ over a field $\mathbb{F}$.  Assume either that $\mathbb{F}$ has odd characteristic or is equal to $\mathbb{F}_2$.  Let $C \in \mathcal{T}$ be doubly-even, and fix $g \in \mathbb{N}$.  Then there exists an (explicit) constant $C$ such that for a cusp form $f \in \mathcal{T}$ of genus $r$, with $\deg f = 2 n$, we have
+  \begin{equation*}
+    \left\langle M_{2 g}((2 n))(x y), f(x) \right\rangle
+    =
+    \begin{cases}
+      0      & \text{ if } r < g, \\
+      C \cdot f(y)             & \text{ if } r = g
+    \end{cases}.
+  \end{equation*}
+\end{theorem}
+
+\section{Petru Constantinescu, \textnormal{\emph{Non-vanishing of geodesic periods of automorphic forms}}}
+Preprint: \cite{2024arXiv2404.12982}, joint with Asbhj{\o}rn Nordentoft.
+
+Class groups:
+\begin{itemize}
+\item $\Gamma = \PSL_2(\mathbb{Z})$, $K = \mathbb{Q}(\sqrt{D})$,
+\item $\mathrm{Cl}_K$ class group, $h(D) = h_K = \lvert \mathrm{Cl}_K \rvert$ class number,
+\item $\mathcal{Q}_D$: set of primitive integral binary quadratic forms of discriminant $D$,
+  \begin{equation*}
+    \mathcal{Q}_D = \left\{ Q(x, y)
+      = a x^2 + b x y + c y^2 :(a, b, c) = 1,
+      \,
+      b^2 - 4 a c = D\right\}.
+  \end{equation*}
+\item Gauss: $\Gamma \circlearrowright \mathcal{Q}_D,$
+  \begin{equation*}
+    (Q . \gamma)
+    \begin{pmatrix}
+      x      \\
+      y
+    \end{pmatrix}
+    = Q \left( \gamma
+      \begin{pmatrix}
+        x        \\
+        y  \\
+      \end{pmatrix} \right),
+  \end{equation*}
+  
+\item isomorphism
+  \begin{equation*}
+    \mathrm{Cl}_K \xrightarrow{\cong} \Gamma \backslash \mathcal{Q}_D
+  \end{equation*}
+  \begin{equation*}
+    A \mapsto[a, b, c].
+  \end{equation*}
+\end{itemize}
+
+Heegner points and closed geodesics:
+\begin{itemize}
+\item $D < 0$: $A \in \mathrm{Cl_K} \rightsquigarrow$ Heegner point $z_A \in \Gamma \backslash \mathbb{H}$,
+  \begin{equation*}
+    [a, b, c] \rightsquigarrow \frac{- b - i \sqrt{\lvert D \rvert}}{2 a}.
+  \end{equation*}
+  \begin{equation*}
+    h(D) = \lvert \mathrm{Cl}_K \rvert = \lvert D \rvert^{1/2 + o(1)}.
+  \end{equation*}
+\item $D > 0$: $A \in \mathrm{Cl}_K^+ \rightsquigarrow $ closed geodesic $C_A \subset \Gamma \backslash \mathbb{H}$,
+  $[a, b, c] \rightsquigarrow$ semicircle with endpoints $\frac{- b \pm \sqrt{D}}{2 a}$.
+  \begin{equation*}
+    h(D) \log \eps_D = D^{1/2 + o(1)},
+  \end{equation*}
+  \begin{equation*}
+    I(C_A) = 2 \log \eps_D.
+  \end{equation*}
+\end{itemize}
+
+\begin{theorem}[Duke '88]
+  Fix $\Omega \subset \PSL_2(\mathbb{Z}) \backslash \mathbb{H}$.
+
+  \begin{itemize}
+  \item $D < 0$: equidistribution of $z_A$, $A \in \Cl_{\mathbb{Q}(\sqrt{D})}$.
+  \item $D > 0$: similar for closed geodesics.
+  \end{itemize}
+\end{theorem}
+
+
+\textbf{Waldspurger formulas}.  Let $f$ be a nonzero Maass form.  Our goal is to study closed geodesic periods $\int_{C_A} f(z) \, \frac{\lvert d z \rvert}{y}$.
+
+$\chi \in \widehat{\Cl_K} \rightsquigarrow $ $\theta_\chi$, the associated theta series (weight one on $\Gamma_0(D)$, nebentypus $\chi_D$).
+
+\begin{theorem}[Waldspurger/Zhang/Popa]
+  Let $D$ be a fundamental discriminant.  For $D < 0$,
+  \begin{equation*}
+    L(f \times \theta_\chi, \tfrac{1}{2})
+    = \frac{C_f}{ D^{1/2}}
+    \left| \sum_{A \in \Cl_K} \chi(A) f(z_A) \right|^2.
+  \end{equation*}
+  For $D > 0$,
+  \begin{equation*}
+    L(f \times \theta_\chi, \tfrac{1}{2}) = \frac{C_f}{ D^{1/2}}
+    \left| \sum_{A \in \Cl_K^+} \chi(A) \int_{C_A} f(z)
+      \, \frac{\lvert d z \rvert}{y}
+    \right|^2.
+  \end{equation*}
+\end{theorem}
+
+\begin{theorem}[Michel--Venkatesh '05]
+  Let $\delta = 1/2700$.  For $D < 0$:
+  \begin{equation*}
+    \left| \left\{ \chi \in \widehat{\Cl_K} : L(f \times \theta_\chi, \tfrac{1}{2}) \neq 0 \right\} \right|
+    \gg D^\delta.
+  \end{equation*}
+\end{theorem}
+\begin{proof}[Sketch of proof]
+  By orthogonality of characters,
+  \begin{equation*}
+    \frac{1}{h(D)}
+    \sum_{\chi \in \widehat{\Cl_K}}
+    L(f \times \theta_\chi, \tfrac{1}{2})
+    = \frac{c_f}{ D^{1/2}}
+    \sum_{A \in \Cl_K} \left| \dotsb \right|^2.
+  \end{equation*}
+  This converges by Duke's equidistribution theorem.  The conclusion then follows from subconvexity for Rankin--Selberg $L$-functions, due to Harcos--Michel.
+\end{proof}
+
+Same proof does not work for geodesics, cannot apply equidistribution and relate to subconvexity (square is outside integral).  
+
+\begin{question}[Michel, Oberwolfach 2020]
+  Let $K$ be a real quadratic field of discriminant $D > 0$, and assume that $h_K  \gg D^\delta$.  Does there exist $A \in \Cl_K^+$ such that
+  \begin{equation*}
+    \int_{C_A} f \, \frac{\lvert d z \rvert}{y} \neq 0?
+  \end{equation*}
+  Equivalently, does there exist $\chi \in \widehat{\Cl_K^+}$ such that $L(f \times \theta_\chi, \tfrac{1}{2}) \neq 0$?
+\end{question}
+
+\textbf{The prime geodesic theorem}.  Let $D > 0, A \in \Cl_K^+$.  This gives rise to a closed geodesic $C_A$, with $I(C_A) = 2 \log \eps_D$.  Sound--Young have the best estimate for their count.
+
+\begin{theorem}[C--Nordentoft 2024]
+  Let $f$ be a nonzero Maass form for $\SL_2(\mathbb{Z})$.  Then
+  \begin{equation*}
+    \# \left\{ C \in \mathcal{C}(X) :
+      \int_{C}
+      f(z)
+      \, \frac{\lvert d z \rvert}{y} =  0\right\}
+    \ll
+    \frac{X}{(\log X)^{5/4}}.
+  \end{equation*}
+\end{theorem}
+
+\begin{remark}
+  We also obtain 100\% non-vanishing for periods of weight $k$ holomorphic cusp forms, for any Fuchsian group $\Gamma$.
+\end{remark}
+
+\begin{theorem}[C--Nordentoft 2024]
+  For a positive proportion of positive discriminants $D > 0$ with $\eps_\Delta \leq X$, we get that there exists $\chi \in \widehat{\Cl_{\mathbb{Q}(\sqrt{D})}}$
+  with $L(f \times \theta_\chi, \tfrac{1}{2} \neq 0)$.
+\end{theorem}
+
+We construct a bipartite graph on $X_N$ (double cosets in $\Gamma_\infty \backslash \Gamma / \Gamma_\infty$ with $c \leq N$) times $Y_N$ (conjugacy classes with trace bounded in magnitude by $N$).  This graph relates closed geodesic and vertical geodesics.
+
+
+\section{An excised orthogonal model for families of cusp forms}
+Talk by Zoe Batterman (Abstract), Akash Narayanan, Christopher Yao.  Joint with Owen Barrett, Aditya Jambhale, and Kishan Sharma.  Preprint: \cite{2024arXiv2407.14526}.
+
+Conjecture (Montgomery--Dyson, 1970's): zeros of of zeta vs. GUE.
+
+2005: S.J.\ Miller noticed a repulsion of the lowest-lying zeros near the central point of a family of even twists of a fixed elliptic curve $L$-function with finite conductor.
+
+2011: Duenez, Huynh, Keating, Miller, Snaith: proposed an excised orthogonal model to capture the behavior of this repulsion.
+
+\begin{question}
+  How accurately do egienvalues of random matrices from classical compact groups model the lowest-lying zeros of families of $L$-functions associated to a cuspidal newform?
+\end{question}
+
+Let
+\begin{equation*}
+  S_k^{\new}(M, \chi_f) \ni f(z) = \sum_{n = 1}^\infty a_f(n) e^{2 \pi i n z},
+\end{equation*}
+$\lambda_f(n) = a_f(n) / n^{(k - 1)/2}$.
+\begin{equation*}
+  L(s, f) = \sum_{n \geq 1} \lambda_f(n) n^{- s},
+\end{equation*}
+Various specific families of twists $L(f \otimes \psi_d, s)$, match with classical compact groups:
+\begin{itemize}
+\item principal character, even twists vs.\ $\SO(\mathrm{even})$
+\item principal character, odd twists vs.\ $\SO(\mathrm{odd})$
+\item non-principal character, self-dual vs.\ $\Sp$
+\item generic vs.\ $\U$
+\end{itemize}
+
+Pictures.
+
+
+\section{On an extension of the Rohrlich-Jensen formula, \textnormal{\emph{Lejla Smajlović}}}
+Joint work with James Cogdell, Jay Jorgensen.  Preprint: \cite{2021arXiv2101.09599}.
+
+What is a Poisson--Jensen formula?  We will view it as a way to characterize meromorphic functions in terms of their divisors.  Some notation:
+\begin{itemize}
+\item $D_R = \left\{ z = x + i y \in \mathbb{C} : \lvert z \rvert < R \right\}$
+\item $F$: a non-constant meromorphic function on $\overline{D_R}$,
+  \begin{equation*}
+    F(z) = c_F z^m + \O(z^{m + 1}), \quad z \rightarrow 0.
+  \end{equation*}
+\end{itemize}
+Then
+\begin{equation*}
+  \int_0^{2 \pi}
+  \log \lvert F(R e^{i \theta}) \rvert
+  \, \frac{d \theta}{2 \pi}
+  + \sum _{D_R} \dotsb = F(0).
+\end{equation*}
+
+Rohrlich, 1980's: a \emph{modular} generalization, characterizing modular forms via divisors.  Given $f$, a meromorphic function on $\mathbb{H}$ that is invariant by $\PSL(2,\mathbb{Z})$.  Assume $f$ is holomorphic at the cusp and that the Fourier expansion of $f$ at $\infty$ has constant term equal to one.  Then
+\begin{equation*}
+  \int_{\PSL(2,\mathbb{Z}) \backslash \mathbb{H}}
+  \log \lvert f(z) \rvert
+  \, \frac{d \mu(z)}{2 \pi}
+  + \sum_{w \in \mathcal{F}}
+  \frac{\ord_w(f)}{ \ord(w)} P(w) = 0.
+\end{equation*}
+Here
+\begin{itemize}
+\item $\ord_w(f)$ is the order of $f$ at $w$ as a meromorphic function,
+\item $\ord(w)$ denotes the order of the \emph{point} $w$ with respect to the action of $\PSL(2,\mathbb{Z})$ on $\mathbb{H}$, and
+\item $P(w) = \log \left( \lvert \eta(w) \rvert^4 \cdot \Im(w) \right)$ is the Kronecker limit function associated to the parabolic Eisenstein series on $\PSL(2,\mathbb{Z})$.  This is the function appearing as the next-order term in the expansion of the Eisenstein series as $s \rightarrow 1$.
+\end{itemize}
+Another way to interpret this formula is as follows.  We have
+\begin{equation*}
+  \left\langle 1, \log \lvert f(z) \rvert \right\rangle
+  = \lim_{Y \rightarrow \infty} \int_{\mathcal{F}(Y)} 1 \cdot \log \lvert f(z) \rvert \, d \mu(z),
+\end{equation*}
+hence the formula reads
+\begin{equation*}
+  \left\langle 1, \log \lvert f(z) \rvert \right\rangle = - 2 \pi
+  \sum_{w \in \mathcal{F}} \frac{\ord_w(f)}{ \ord(w)} P(w).
+\end{equation*}
+Here $\log \lvert f(z) \rvert$ can be replaced by
+\begin{equation*}
+  \log \lVert f(z) \rVert = \log \left( \Im z^k \lvert f(z) \rvert \right)
+\end{equation*}
+for weight $2 k$ meromorphic modular forms.  Generalizations:
+\begin{itemize}
+\item to other Fuchsian groups of the first kind, by Rohrlich.
+\item to hyperbolic $3$-space, by Herrero, Imamoglu, von Pippich, Toth.
+\end{itemize}
+
+Further modular generalization by Bringman and Kane.  Keep the modular group setting, but evaluate more general inner products.
+\begin{itemize}
+\item $j(z) = q^{-1} + 744 + \O(q)$: Hauptmodul
+\item $j_1(z) := j(z) - 744$
+\item $j_n(z) := j_1 | T_n(z)$, for $n \geq 2$
+\item $f$: weight $2 k$ meromorphic modular form with respect to $\PSL(2, \mathbb{Z})$, normalized so that $f(z) = 1 + \O(q)$
+\end{itemize}
+They evaluated the regularized scalar product in terms of the divisor of $f$, proving that
+\begin{equation*}
+  \left\langle j_n(z),
+    \log \left((\Im(z))^k \lvert f(z) \rvert \right)\right\rangle
+  = - 2 \pi \sum_{w \in \mathcal{F}}
+  \frac{\ord_w(f)}{\ord(w)}
+  \mathbf{j}_n(w)
+  + \frac{k}{6} c_n,
+\end{equation*}
+where $\mathbf{j}_n$ is characterized in terms of differential operators by Bringman and Kane; application of our results yields a different expression for the same function, namely
+\begin{equation*}
+  \mathbf{j}_n(w) = 2 \pi \sqrt{n} \partial_s F_{- n}^{\PSL(2, \mathbb{Z})}(w, s) |_{s=1}
+  - 24 \sigma(n) P(w).
+\end{equation*}
+
+What is our main goal?
+\begin{itemize}
+\item To extend the point of view that the Rohrlich--Jensen formula is the evaluation of a particular type of inner product.
+\item To prove the extension of this formula in the setting of an arbitrary, not necessarily arithmetic, Fuchsian group of the first kind with one cusp.
+\end{itemize}
+
+We start with $j_n(z) = j_1 | T_n(z)$, which is the unique (up to constants) holomorphic function that is $\PSL(2,\mathbb{Z})$-invariant on $\mathbb{H}$ and whose expansion near $\infty$ is $q^{- n} + o(q^{-1})$.
+
+These properties hold for the special value $s = 1$ of the Niebur--Poincar{\'e} series $F_{- n}^{\Gamma}(z, s)$, defined for any Fuchsian group $\Gamma$ of the first kind with oen cusp by
+\begin{equation*}
+  F_m^\Gamma(z, s)
+  = \sum_{\gamma_\infty \backslash \Gamma}
+  e \left( m \Re(\gamma z) \right) \left( \Im(\gamma z) \right)^{1/2} I_{s - 1/2} \left( 2 \pi \lvert m \rvert \Im(\gamma z) \right),
+\end{equation*}
+for $m \neq 0$.
+
+It is an eigenfucntion of the hyperbolic Laplacian, and may be expressed in terms of $j_m$.
+
+The term $\log \left( \lVert f(z) \rVert \right)$ is a bit complicated, involving findings by Jorgensen, von Pippich and the speaker, plus some additional work done in our paper.
+
+\begin{proposition}
+  Let $\Gamma$ be a cofinite Fuchsian group with one cusp at $\infty$ with identity as its scaling matrix.  Let $2 k \geq 0$ be an even integer, and let $f$ be aw eight $2 k$ meromorphic form which is $\Gamma$-invariant and with $q$-expansion at $\infty$ normalized so its constant term is equal to one.  Then, we can express $\log \left( \lVert f \rVert(z) \right)$ in terms of parabolic Eisenstein series and Green's functions, as
+  \begin{equation*}
+    - 2 k + 2 \pi \sum_{w \in \mathcal{F}_\Gamma}
+    \frac{\ord_w(f)}{ \ord(w)} \lim_{s \rightarrow 1} \left( G_s^\Gamma(z, w) + \mathcal{E}_{\Gamma, \infty}^{\mathrm{par}(z, s)} \right)
+    + \dotsb.
+  \end{equation*}
+\end{proposition}
+
+Here
+\begin{equation*}
+  \mathcal{E}_\infty^{\mathrm{par}}(z, s) = \sum_{\Gamma_\infty \backslash \Gamma} \Im(\gamma z)^s.
+\end{equation*}
+The Kronecker limit formula says that
+\begin{equation*}
+  \mathcal{E}_\infty^{\mathrm{par}}(z, s) = \frac{1}{(s-1) \vol(\Gamma \backslash \mathbb{H})}
+  + \beta - \frac{1}{\vol(\Gamma \backslash \mathbb{H})}
+  \log \left( \lvert \eta_\infty^4(z) \rvert \Im(z) \right)
+  + \O(s - 1).
+\end{equation*}
+Then we need to define $\beta$, and the Green's function $G_s(z, w)$, which is obtained by averaging the kernel $k_s(z, w)$; both functions are eigenfunctions of the Laplacian with eigenvalue $s(1 - s)$, and the Green's function has a specified singularity on the diagonal.  The Green's function also has a Laurent series expansion as $s \rightarrow 1$ that involves the parabolic Eisenstein series.  In particular,
+\begin{equation*}
+  \lim_{s \rightarrow 1} \left( G_s^\Gamma(z, w) + \mathcal{E}_{\Gamma, \infty}^{\mathrm{par}}(z, w) \right)
+\end{equation*}
+exists, with a logarithmic singularity on the diagonal.
+
+The Rohrlich--Jensen formula can be understood through the study of the regularized inner product of this last limit with $F_{- n}(\cdot, 1)$.  Regularization is needed only in the cusp (because the logarithmic singularity is integrable).  We can thus write
+\begin{align*}
+  &\left\langle F_{- n}(\cdot, 1),
+    \overline{ \lim_{s \rightarrow 1} \left( G_s^\Gamma(z, w) + \mathcal{E}_{\Gamma, \infty}^{\mathrm{par}}(z, w) \right)}
+    \right\rangle \\
+  &=
+    \lim_{Y \rightarrow \infty}
+    \int_{\mathcal{F}(Y)}
+    F_{- n}(z, 1) \lim_{s \rightarrow 1} \left( G_s(z, w) + \mathcal{E}_\infty^{\mathrm{par}}(z, s) \right)
+    \, d \mu(z).
+\end{align*}
+A key observation is that all terms are eigenfunctions of the Laplacian, hence one can seek to compute the inner product in a manner similar to that which yields the Maass--Selberg formula.  The key identity is that
+\begin{align*}
+  &\int_{\mathcal{F}(Y)}
+  F_{- n}(z, 1) \lim_{s \rightarrow 1} \left( G_s(z, w) + \mathcal{E}_\infty^{\mathrm{par}}(z, s) \right)
+    \, d \mu(z) \\
+  &=
+    \partial_s \left( - s(1 - s) \int_{\mathcal{F}(Y)}
+    F_{- n}(z, 1) \left( G_s(z, w) + \mathcal{E}_\infty^{\mathrm{par}}(w , s) \, d \mu(z) \right)\right)|_{s=1}.
+\end{align*}
+We can now absorb $- s(1 - s)$ into the integrals after applying the hyperbolic Laplacian $\Delta$ to each of the two factors in the integrand.
+
+Main results:
+
+\begin{theorem}
+  For any positive integer $n$ and any point $w \in \mathcal{F}$, we have
+  \begin{equation*}
+    \left\langle F_{- n}(\cdot, 1), \overline{\lim_{s \rightarrow 1} \left( G_s(\cdot, w) + \mathcal{E}_\infty^{\mathrm{par}}(\cdot, s) \right)} \right\rangle
+    = - \partial_s F_{- n}(w, s) |_{s=1}.
+  \end{equation*}
+\end{theorem}
+Combined with the previous proposition (describing $\log \lVert f(z) \rVert$), we get the Rohrlich--Jensen formula:
+\begin{equation*}
+  \left\langle F_{- n}(\cdot, 1), \log \lVert f \rVert \right\rangle
+  = - 2 \pi \sum_{w \in \mathcal{F}}
+  \frac{\ord_w(f)}{\ord(w)} \partial_s F_{- n}(w, s)|_{s=1}.
+\end{equation*}
+
+We have further results.  For instance, if $g$ is any $\Gamma$-invariant analytic function with a pole at $\infty$, then (Niebur)
+\begin{equation*}
+  g(z) = \sum_{n = 1}^K 2 \pi \sqrt{n} a_n F_{- n}(z, 1) + c(g)
+\end{equation*}
+for some constants $K$, $a_n$, and $c(g)$ depending only upon $g$.  Then, we have the identity
+\begin{equation*}
+  \left\langle g, \log \lvert f \rvert \right\rangle
+  = - 2 \pi \sum_{w \in \mathcal{F}} \frac{\ord_w(f)}{\ord(w)}
+  \left( 2 \pi \sum_{n = 1}^K \sqrt{n } a_n \partial_s F_{- n}(w, s) |_{s=1} - \dotsb \right).
+\end{equation*}
+Further found that the generating series for the Niebur Poincar{\'e} series at $s = 1$ is, in the $z$-variable (where we sum over $q_z$), the holomorphic part of the weight two biharmonic Maass form given by differentiating our linear combination of Eisenstein series and Green's function with respect to $z$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
