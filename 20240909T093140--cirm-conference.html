@@ -205,7 +205,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2024-09-09 12:22:21
+2024-09-09 16:30:20
       <a href="20240909T093140--cirm-conference.tex" class="my-link">tex</a>
       <a href="20240909T093140--cirm-conference.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20240909T093140--cirm-conference.tex" class="my-link">history</a>
@@ -247,6 +247,15 @@ href="#on-an-extension-of-the-rohrlich-jensen-formula-lejla-smajlović"
 id="toc-on-an-extension-of-the-rohrlich-jensen-formula-lejla-smajlović">On
 an extension of the Rohrlich-Jensen formula, <span
 class="nodecor"><em>Lejla Smajlović</em></span></a></li>
+<li><a href="#shenghao-hua-joint-value-distribution-of-heckemaass-forms"
+id="toc-shenghao-hua-joint-value-distribution-of-heckemaass-forms">Shenghao
+Hua, <span class="nodecor"><em>Joint Value Distribution of Hecke–Maass
+Forms</em></span></a></li>
+<li><a
+href="#algebraic-proof-of-modular-form-inequalities-for-optimal-sphere-packings-seewoo-lee"
+id="toc-algebraic-proof-of-modular-form-inequalities-for-optimal-sphere-packings-seewoo-lee">Algebraic
+proof of modular form inequalities for optimal sphere packings, <span
+class="nodecor"><em>Seewoo Lee</em></span></a></li>
 </ul>
 </nav>
 <h1
@@ -954,6 +963,215 @@ class="math inline">\(q_z\)</span>), the holomorphic part of the weight
 two biharmonic Maass form given by differentiating our linear
 combination of Eisenstein series and Green’s function with respect to
 <span class="math inline">\(z\)</span>.</p>
+<h1
+id="shenghao-hua-joint-value-distribution-of-heckemaass-forms">Shenghao
+Hua, <span class="nodecor"><em>Joint Value Distribution of Hecke–Maass
+Forms</em></span></h1>
+<p>Preprint: <span class="citation"
+data-cites="2024arXiv2405.00996">(<strong>2024arXiv2405.00996?</strong>)</span></p>
+<p>Motivation: semiclassical limit of solutions to Schroedinger
+equation. Berry’s random wave conjecture. QUE, <span
+class="math inline">\(L^p\)</span>-norms.</p>
+<p>Joint Gaussian moments conjecture: statistical indepndence of values
+of large eigenfunctions (multiplied together and integrated against some
+test function).</p>
+<div class="theorem">
+<p><strong>Theorem 13</strong>. <em>Let <span
+class="math inline">\(f\)</span> and <span
+class="math inline">\(g\)</span> be normalized Hecke–MAass cusp forms.
+Then if <span class="math inline">\(2 t_f \leq t_g -
+t_g^\varepsilon\)</span>, we have <span
+class="math display">\[\int_{\Gamma \backslash \mathbb{H}}
+    \psi f^2 g \ll t_g^{- A},\]</span> while if <span
+class="math inline">\(2 t_f &gt; t_g - t_g^\varepsilon\)</span>, then,
+assuming GLH, we have <span class="math display">\[\int_{\Gamma
+\backslash \mathbb{H}} \psi f^2 g
+    = \int_{\Gamma \backslash \mathbb{H}} \psi g +
+    \operatorname{O}(t_f^{- 1/4 + \varepsilon}(1 + \lvert 2 t_f - t_g
+\rvert^{- 1/4})).\]</span></em></p>
+</div>
+<p>Proof uses spectral expansion of <span
+class="math inline">\(\psi\)</span> into eigenfunctions <span
+class="math inline">\(u\)</span>, then spectral expansion of <span
+class="math inline">\(\int (u g)(f^2)\)</span>, reducing to the case
+<span class="math inline">\(g=u\)</span>, then further spectral
+expansion of <span class="math inline">\(\int(g^2)(f^2)\)</span>.</p>
+<div class="theorem">
+<p><strong>Theorem 14</strong>. <em>Assuming GRH and GRC, we have as
+<span class="math inline">\(\max(t_f,t_g) \rightarrow \infty\)</span>
+<span class="math display">\[\mathbb{E} f^2 g^2 = 1 +
+\operatorname{O}((\log(t_f + t_g))^{- 1/4 +
+\varepsilon}).\]</span></em></p>
+</div>
+<p>Proof eventually applies ultimately Soundararajan’s method of moments
+(which requires GRH).</p>
+<p>Work in progress: asymptotic formulas for certain averages of <span
+class="math inline">\(L\)</span>-functions over toroidal families, going
+beyond <span class="citation"
+data-cites="2023arXiv2303.11664">(<strong>2023arXiv2303.11664?</strong>)</span>.</p>
+<h1
+id="algebraic-proof-of-modular-form-inequalities-for-optimal-sphere-packings-seewoo-lee">Algebraic
+proof of modular form inequalities for optimal sphere packings, <span
+class="nodecor"><em>Seewoo Lee</em></span></h1>
+<p>Preprint: <span class="citation"
+data-cites="2024arXiv2406.14659">(<strong>2024arXiv2406.14659?</strong>)</span>.</p>
+<p>Motivating question: finding densest sphere packings.</p>
+<ul>
+<li><p><span class="math inline">\(d = 1\)</span></p></li>
+<li><p><span class="math inline">\(d = 2\)</span>: Thue 1910, <span
+class="math inline">\(\Delta_2 = \frac{\pi}{2
+\sqrt{3}}\)</span></p></li>
+<li><p><span class="math inline">\(d =3\)</span>: Kepler conjecture
+1611, Hales 2005, <span class="math inline">\(\Delta_3 = \frac{\pi}{3
+\sqrt{2}}\)</span>, formally verified 2014 in Isabelle/HOL</p></li>
+<li><p>(Korkine–Zolotareff, Blichfeldt, Cohn–Kumar): <span
+class="math inline">\(D_4, D_5, D_6, E_7, E_8\)</span> and Leech
+lattice</p></li>
+<li><p>Viazovska, 2016 <span class="math inline">\(\pi\)</span>-day on
+arXiv: <span class="math inline">\(E_8\)</span> lattice packing optimal,
+with <span class="math inline">\(\Delta_8 =
+\frac{\pi^4}{388}\)</span></p></li>
+<li><p>Cohn–Kumar–Miller–Radchenko–Viazovska, March 21st 2016 on arXiv:
+<span class="math inline">\(\Delta_{24} = \frac{\pi^{12}}{12!}\)</span>
+Leech lattice (unique even unimodular with nonzero minimal length <span
+class="math inline">\(2\)</span>)</p></li>
+</ul>
+<p>Viazovska et al use:</p>
+<div class="theorem">
+<p><strong>Theorem 15</strong> (Cohn–Elkies, 2013). <em>Let <span
+class="math inline">\(r &gt; 0\)</span>. Assume there exists a nice
+function <span class="math inline">\(f : \mathbb{R}^d \rightarrow
+\mathbb{R}\)</span> satisfying</em></p>
+<ul>
+<li><p><em><span class="math inline">\(f(0) = \hat{f}(0) &gt;
+0\)</span>,</em></p></li>
+<li><p><em><span class="math inline">\(f(x) \leq 0\)</span> for all
+<span class="math inline">\(\lVert x \rVert \geq
+r\)</span>,</em></p></li>
+<li><p><em><span class="math inline">\(\hat{f}(y) \geq 0\)</span> for
+all <span class="math inline">\(y \in
+\mathbb{R}^d\)</span>,</em></p></li>
+</ul>
+<p><em>then <span class="math display">\[\Delta_d \leq
+\mathop{\mathrm{vol}}(B_{r/2}^d) = \left( \frac{r}{2} \right)^d
+\frac{\pi^{d/2}}{(d / 2)!}.\]</span></em></p>
+</div>
+<p>Proof is not hard (fits in one page).</p>
+<p>This leads to the hunt for a “magic function” <span
+class="math inline">\(f\)</span> satisfying the indicated conditions.
+BAsed on their numerical experiments, Cohn–Elkies conjectured that the
+optimal sphere packing can be achieved by a magic function when <span
+class="math inline">\(d=2,8,24\)</span>. The magic function <span
+class="math inline">\(f\)</span> and its Fourier transform <span
+class="math inline">\(\hat{f}\)</span> should vanish at the lattice
+points.</p>
+<p>Viazovska et al constructed the magic functions for <span
+class="math inline">\(d = 8,24\)</span> using modular forms. Decompose
+into Fourier eigenfunctions <span class="math inline">\(f = f_+ +
+f_-\)</span> (parity under Fourier transform). Viazovska writes them as
+<span class="math display">\[f_{\pm}(x) = \sin^2 \left( \frac{\pi \lVert
+x \rVert^2}{2} \right)
+  \int_0^\infty \varphi_{\pm}(t) e^{- \lVert x \rVert^2 t} \, d
+t,\]</span> where the <span class="math inline">\(\sin^2\)</span> factor
+enforces desired roots.</p>
+<p>For <span class="math inline">\(d = 8\)</span>, we have <span
+class="math inline">\(\varphi_{\pm}(t) = t^2 \psi_{\pm}(i/t)\)</span>,
+where <span class="math inline">\(\psi_{\pm}\)</span> are defined in
+terms of standard modular forms. We also need (for both <span
+class="math inline">\(d = 8, 24\)</span>) a few non-obvious inequalities
+involving some of these modular forms. One reason these inequalities are
+difficult is because they’re inhomogeneous with respect to the weights
+of the forms involved.</p>
+<p>Original proofs use bounds of Fourier coefficients of the form <span
+class="math display">\[\lvert c(n) \rvert \leq C_1 e^{C_2 \pi
+\sqrt{n}},\]</span> following from the Hardy–Ramanujan formula, reducing
+the question to finite calculations and interval arithmetic.</p>
+<p>Ran Romik (2023) gave an alternative and much simpler proof for <span
+class="math inline">\(d = 8\)</span> that doe snot use any interval
+arithmetic, but still requires a “calculator” to check inequalities like
+<span class="math display">\[e^{3 \pi} \frac{9 \Gamma(1/4)^{16}}{8192
+\pi^{12}} &lt; 20480.\]</span></p>
+<div class="question">
+<p><strong>Question 16</strong>. Can we prove such inequalities
+<em>algebraically</em>?</p>
+</div>
+<p>The answer is yes, as we now explain. To that end, we’ll develop a
+theory of <em>(completely) positive quasimodular forms</em>.</p>
+<div class="definition">
+<p><strong>Definition 17</strong>. Let <span
+class="math inline">\(\Gamma \subseteq
+{\mathop{\mathrm{SL}}}_2(\mathbb{Z})\)</span>. We say that a quasimodular
+form <span class="math inline">\(F\)</span> is <em>positive</em> if
+<span class="math display">\[F(i t) \geq 0\]</span> for all <span
+class="math inline">\(t &gt; 0\)</span>.</p>
+<p>We call it <em>completely positive</em> if it has nonnegative <span
+class="math inline">\(q\)</span>-coefficients at <span
+class="math inline">\(\infty\)</span>.</p>
+</div>
+<p>Note that “completely positive” implies “positive”, but the inclusion
+is strict in general. For instance, the discriminant form has a product
+formula that tells you that it is positive, but you can check that it’s
+not completely positive.</p>
+<p>Easy facts:</p>
+<div class="theorem">
+<p><strong>Theorem 18</strong>. </p>
+<ul>
+<li><p><em>Anti-derivative preserves positivity.</em></p></li>
+<li><p><em>Derivative preserves complete positivity.</em></p></li>
+<li><p><em>Serre derivative preserves complete positivity.</em></p></li>
+</ul>
+</div>
+<p>“Nontrivial” fact (that we won’t use, and which also follows directly
+from Bernstein’s theorem):</p>
+<div class="theorem">
+<p><strong>Theorem 19</strong>. <em><span
+class="math inline">\(F\)</span> is completely positive if and only if
+all its derivatives are positive.</em></p>
+</div>
+<p>“Interesting” fact that we will use:</p>
+<div class="theorem">
+<p><strong>Theorem 20</strong>. <em>Let <span class="math inline">\(F =
+\sum_{n \geq n_0} a_n q^n\)</span> with <span class="math inline">\(a_{n
+_0 &gt; 0}\)</span>. If some Serre derivative of <span
+class="math inline">\(F\)</span> is positive, then so is <span
+class="math inline">\(F\)</span>.</em></p>
+</div>
+<p>Examples?</p>
+<div class="definition">
+<p><strong>Definition 21</strong> (Kaneko–Koike). For given weight <span
+class="math inline">\(w\)</span> and depth <span
+class="math inline">\(s\)</span>, we can speak of <em>extremal
+quasimodular forms of weight</em> <span class="math inline">\(w\)</span>
+<em>and depth</em> <span class="math inline">\(s\)</span>, which are
+those whose order of zeros at <span
+class="math inline">\(\infty\)</span> is as large as possible.</p>
+</div>
+<p>It’s been shown that these have almost all coefficients positive, and
+conjectured that they’re all positive.</p>
+<div class="theorem">
+<p><strong>Theorem 22</strong>. <em>That conjecture is true for depth
+<span class="math inline">\(1\)</span> extremal forms.</em></p>
+</div>
+<p>We also have similar identities proving complete positively of the
+depth <span class="math inline">\(2\)</span> extremal forms of weight
+<span class="math inline">\(w \leq 14\)</span>, but not yet for general
+<span class="math inline">\(w\)</span>.</p>
+<p>This reduces some of the inequalities in the arguments of Viazovska
+et al to checking some limiting properties of ratios of modular
+functions. For monotonicity, we check that derivatives are positive, and
+for this it suffices to check the same for Serre derivatives of
+derivatives.</p>
+<p>Possible future directions:</p>
+<ul>
+<li><p>Classify the completely positive forms?</p></li>
+<li><p>Possible applications in other LP problems?</p>
+<ul>
+<li><p>Dual LP, uncertainty principle</p></li>
+<li><p>Any results that are “uniform” in dimensions</p></li>
+</ul></li>
+<li><p>Make a formalization of the proof (e.g., in Lean)
+easier?</p></li>
+</ul>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
   toggle.addEventListener("click", function(e) {
