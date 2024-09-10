@@ -225,7 +225,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2024-09-09 17:55:04
+2024-09-10 09:25:58
       <a href="20240909T093140--cirm-conference.tex" class="my-link">tex</a>
       <a href="20240909T093140--cirm-conference.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20240909T093140--cirm-conference.tex" class="my-link">history</a>
@@ -287,6 +287,11 @@ id="toc-counting-modular-forms-mod-p-satisfying-constraints-at-p-samuele-anni">C
 modular forms mod <span class="math inline">\(p\)</span> satisfying
 constraints at <span class="math inline">\(p\)</span>, <span
 class="nodecor"><em>Samuele Anni</em></span></a></li>
+<li><a
+href="#integer-partitions-detect-the-primes-jan-willem-van-ittersum"
+id="toc-integer-partitions-detect-the-primes-jan-willem-van-ittersum">Integer
+partitions detect the primes, <span class="nodecor"><em>Jan-Willem Van
+Ittersum</em></span></a></li>
 </ul>
 </nav>
 <h1
@@ -1706,6 +1711,197 @@ involving traces.</em></p>
 </div>
 <p>Now work with the trace formula. We can deduce statements about
 dimensions.</p>
+<h1
+id="integer-partitions-detect-the-primes-jan-willem-van-ittersum">Integer
+partitions detect the primes, <span class="nodecor"><em>Jan-Willem Van
+Ittersum</em></span></h1>
+<p>Preprint: <span class="citation"
+data-cites="2024arXiv2405.06451">(<strong>2024arXiv2405.06451?</strong>)</span>.</p>
+<p>We write <span class="math inline">\(s_i\)</span> for the sizes of
+the parts, and <span class="math inline">\(m_i\)</span> for the
+multiplicities of the part, with <span class="math inline">\(s_1 &gt;
+s_2 &gt; \dotsb\)</span>.</p>
+<div class="definition">
+<p><strong>Definition 35</strong> (MacMahon 1920). <span
+class="math display">\[M_a(n) := \sum_{
+      \substack{
+        n = m_1 s_1 + \dotsb + m_a s_a  \\
+        0 &lt; s_1 &lt; \dotsb &lt; s_a        
+      }
+    } m_1 \dotsb m_a.\]</span></p>
+</div>
+<div class="remark">
+<p><strong>Remark 36</strong>. This is the sum of multiplicity products
+of partitions of <span class="math inline">\(n\)</span> with <span
+class="math inline">\(a\)</span> part sizes.</p>
+</div>
+<p>Consider <span class="math display">\[\psi(n) :=(n^2 - 3 n + 2)
+M_1(n) - 8 M_2(n).\]</span></p>
+<div class="example">
+<p><strong>Example 37</strong>. <span class="math inline">\(n = 3, a =
+1\)</span>, in which case <span class="math inline">\(\lambda
+=(3)\)</span> or <span class="math inline">\(\lambda =(1^3)\)</span>, in
+which case <span class="math inline">\(M_1(3) = 1 + 3 = 4\)</span>, or
+<span class="math inline">\(a = 2\)</span>, in which case <span
+class="math inline">\(\lambda =(2, 1)\)</span>, so <span
+class="math inline">\(M_2(3) = 1 \cdot 1 = 1\)</span>, and we compute
+that <span class="math inline">\(\psi(3) = 2 M_1(3) - 8 M_2(3) =
+0\)</span>.</p>
+<p>Continuing, take <span class="math inline">\(n = 4, a = 1\)</span>,
+in which case <span class="math inline">\(\lambda = (4)\)</span>, <span
+class="math inline">\(\lambda = (2^2)\)</span> <span
+class="math inline">\(\lambda =(1^4)\)</span>, so <span
+class="math inline">\(M_1(4) = 1 + 2 + 4 = 7\)</span>, or <span
+class="math inline">\(a = 2\)</span>, in which case <span
+class="math inline">\(\lambda =(3, 1)\)</span> or <span
+class="math inline">\(\lambda =(2, 1^2)\)</span>, so <span
+class="math inline">\(M_2(4) = 1 \cdot 1 + 1 \cdot 2 = 3\)</span>, and
+so <span class="math inline">\(\psi(4) = 6 M_1(4) - 8 M_2(4) =
+18\)</span>.</p>
+<p>Continuing, one gets the table, for <span class="math inline">\(n =
+2..11\)</span>, of <span class="math inline">\(\psi(n) = 0, 0, 18, 0,
+120, 0, 270, 192, 504, 0\)</span>.</p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 38</strong> (Craig–vI–Ono). <em>For positive integers
+<span class="math inline">\(n\)</span>, we have</em></p>
+<ol>
+<li><p><em><span class="math inline">\((n^2 - 3 n + 2) M_1(n) - 8 M_2(n)
+\geq 0\)</span>,</em></p></li>
+<li><p><em><span class="math inline">\((3 n^3 - 13 n^2 + 18 n - 8)
+M_1(n) +(12 n^2 - 120 n + 212) M_2(n) - 960 M_3(n) \geq
+0\)</span></em></p></li>
+</ol>
+<p><em>and for <span class="math inline">\(n \geq 2\)</span> these
+expressions vanish if and only if <span class="math inline">\(n\)</span>
+is prime.</em></p>
+</div>
+<div class="remark">
+<p><strong>Remark 39</strong>. We call such an expression
+<em>prime-detecting</em>. The sum of two such expressions is likewise
+prime-detecting, and multiplying <span
+class="math inline">\(f(n)\)</span> for a polynomial <span
+class="math inline">\(f\)</span> yields a prime-detecting expression if
+<span class="math inline">\(f(n) &gt; 0\)</span> for all <span
+class="math inline">\(n\)</span>.</p>
+</div>
+<p>We can get a table of prime-detecting expressions: the first two that
+appear above, then two more, <span class="math inline">\((126 n^5 -
+\dotsb) M_1(n) + \dotsb\)</span> and <span class="math inline">\((300
+n^8 - \dotsb) M_1(n) + \dotsb\)</span>.</p>
+<div class="conjecture">
+<p><strong>Conjecture 40</strong>. <em>These are all such expressions
+(up to addition and multiplication as before).</em></p>
+</div>
+<p>We then checked whether we could get more results of a similar shape,
+by considering a generalization of the MacMahon function:</p>
+<div class="definition">
+<p><strong>Definition 41</strong>. For <span class="math inline">\(\ell
+\in \mathbb{Z}_{\geq 0}^a\)</span>, we define the <em>generalized
+MacMahon partition function</em> <span
+class="math display">\[M_{\underline{\ell}}(n) := \sum_{
+      \substack{
+        n = m_1 s_1 + \dotsb + m_a s_a  \\
+        0 &lt; s_1 &lt; \dotsb &lt; s_a        
+      }
+    }
+    m_1^{\ell_1} \dotsb m_a^{\ell_a}.\]</span></p>
+</div>
+<p>You can think of this as a generalization of the divisor function,
+but for partitions. For this new generalized partition function, much
+more is possible:</p>
+<div class="theorem">
+<p><strong>Theorem 42</strong> (Craig–vI–Ono). <em>Let <span
+class="math inline">\(d \geq 4\)</span>.</em></p>
+<ol>
+<li><p><em>There exist <span class="math inline">\(clu \underline{\ell}
+\in \mathbb{Z}\)</span> such that <span
+class="math inline">\(\sum_{\lvert \ell \rvert &lt; d}
+c_{\underline{\ell}} M_{\underline{\ell}}(n) \geq 0\)</span>, where
+<span class="math inline">\(\lvert \underline{\ell} \rvert = \ell_1 +
+\dotsb + \ell_a\)</span>.</em></p></li>
+<li><p><em>There are <span class="math inline">\(\gg d^2\)</span>
+linearly independent such expressions.</em></p></li>
+</ol>
+</div>
+<div class="example">
+<p><strong>Example 43</strong>. <span class="math inline">\(63 M_{(2,
+2)}(n) - 12 M_{(3,0)}(n) - \dotsb + 12 M_{(3,0,0)}(n) = \frac{11}{3}
+\psi(n)\)</span>.</p>
+</div>
+<p>&lt;++&gt;</p>
+<p>Goal of the talk now is to explain some of the ideas behind these
+results, which have a lot to do with modular forms.</p>
+<p><strong>Prime-detecting quasimodular forms</strong>. Let <span
+class="math display">\[\mathcal{G}_k := - \frac{B_k}{2 k} + \sum_{n
+\geq  1} \sigma_{k - 1}(n) q^n,
+  \qquad
+  D := q \frac{\partial}{\partial q},
+  \qquad q = e^{2 \pi i \tau}.\]</span> Consider <span
+class="math display">\[\begin{align}
+  f_{k, \ell} &amp;:=(D^{\ell} + 1) \mathcal{G}_{k + 1} -(D^k + 1)
+\mathcal{G}_{\ell + 1} \\
+              &amp;= \ast + \sum_{n \geq 1} \sum_{d \mid n}
+\left((n^{\ell} + 1) d^k -(n^k + 1) d^{\ell} \right) q^n.
+\end{align}\]</span> Note that for <span class="math inline">\(d =
+1\)</span> one gets <span class="math inline">\(n^{\ell} + 1 - n^k - 1 =
+n^{\ell} - n^k\)</span>. Calculating similarly with <span
+class="math inline">\(d = n\)</span>, we see that <span
+class="math inline">\(f_{k, \ell}\)</span> vanishes at prime
+coefficients. It’s also easy to see that its coefficients are positive.
+But note that <span class="math inline">\(f_{k, \ell}\)</span> is not
+modular, and not of homogeneous weight. Key features here are
+quasimodularity and mixed weight.</p>
+<div class="theorem">
+<p><strong>Theorem 44</strong> (Craig–vI–Ono). <em>All prime-detecting
+forms in <span class="math inline">\(\oplus_{k: \text{even}} \oplus_{n
+\geq 0} D^n \mathcal{G}_k\)</span> are linear combinations of <span
+class="math inline">\(D^n H_{k}\)</span>, where <span
+class="math display">\[H_k =
+    \begin{cases}
+      \frac{1}{6}(D^2 - D + 1) \mathcal{G}_2 -
+\mathcal{G}_4      &amp;  \text{ if } k = 6, \\
+      \frac{1}{24} \left( - D^2 \mathcal{G}_{k - 6} +(D^2 + 1)
+\mathcal{G}_{k - 4} - \mathcal{G}_{k - 2}
+\right)                                                                  &amp;
+\text{ if } k = 8.
+    \end{cases}\]</span></em></p>
+</div>
+<p>That’s the first ingredient, but still need to say something about
+modularity of MacMahon functions. Let <span
+class="math display">\[\mathcal{G}(\underline{\ell}) = \sum_{n \geq 0}
+M_{\underline{\ell}}(n) q^n \xrightarrow{q \rightarrow 1}
+  \frac{(1 - q)^{\lvert \underline{\ell}  \rvert + a}}{\prod_i \ell_i !}
+  \sum_{s_1 &lt; \dotsb &lt; s_a}
+  \frac{1}{ s_1^{\ell_1 + 1} \dotsb s_a^{\ell_a + 1}}
+  \quad
+  (\ell_a \geq 1, \, \ell_i \geq 0).\]</span> The algebra <span
+class="math inline">\(\mathcal{Z}_q := \left\langle
+\mathcal{G}(\underline{\ell}) \right\rangle_{\mathbb{Q}}\)</span> was
+introduced by Bachmann–K<span>ü</span>hn. Facts:</p>
+<ul>
+<li><p><span class="math inline">\(\mathcal{Z}_q\)</span> is a
+differential algebra (closed under differentiation and
+multiplication)</p></li>
+<li><p><span class="math inline">\(\tilde{M} := \mathbb{Q}[\mathcal{G}_2
+, \mathcal{G}_4, \mathcal{G}_6] \subseteq \mathcal{Z}_q\)</span> (i.e.,
+it contains the space of quasimodular forms).</p></li>
+<li><p>(Hoffman–Ihara) We have <span class="math display">\[\sum_{j \geq
+0} \mathcal{G}(\underbrace{1, 1, \dotsc, 1}_{j}) x^j = \exp
+    \left(
+      \sum_{n \geq1}
+      \frac{(- 1)^{n + 1}}{ n}
+      x^n \underbrace
+      {
+        \sum_m \frac{q^m}{(1 - q^m)^{2n}}
+      }_{
+        \sum_{m, s \geq 1} \binom{s + n - 1}{ s - n} q^{m s} \in
+\tilde{M}
+      }
+    \right),\]</span> which is a linear combination of quasimodular
+Eisenstein series, hence <span class="math inline">\(M_a(n)\)</span> are
+coefficients of a quasimodular form.</p></li>
+</ul>
 <div id="refs" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" role="list">
 <div id="ref-2022arXiv2207.07108" class="csl-entry" role="listitem">
