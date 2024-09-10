@@ -225,7 +225,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2024-09-10 09:25:58
+2024-09-10 09:54:48
       <a href="20240909T093140--cirm-conference.tex" class="my-link">tex</a>
       <a href="20240909T093140--cirm-conference.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20240909T093140--cirm-conference.tex" class="my-link">history</a>
@@ -292,6 +292,11 @@ href="#integer-partitions-detect-the-primes-jan-willem-van-ittersum"
 id="toc-integer-partitions-detect-the-primes-jan-willem-van-ittersum">Integer
 partitions detect the primes, <span class="nodecor"><em>Jan-Willem Van
 Ittersum</em></span></a></li>
+<li><a
+href="#supersingular-abelian-surfaces-and-where-to-find-them-gabriele-bogo"
+id="toc-supersingular-abelian-surfaces-and-where-to-find-them-gabriele-bogo">Supersingular
+abelian surfaces and where to find them, <span
+class="nodecor"><em>Gabriele Bogo</em></span></a></li>
 </ul>
 </nav>
 <h1
@@ -1715,8 +1720,9 @@ dimensions.</p>
 id="integer-partitions-detect-the-primes-jan-willem-van-ittersum">Integer
 partitions detect the primes, <span class="nodecor"><em>Jan-Willem Van
 Ittersum</em></span></h1>
-<p>Preprint: <span class="citation"
-data-cites="2024arXiv2405.06451">(<strong>2024arXiv2405.06451?</strong>)</span>.</p>
+<p>Preprint: <a href="#ref-2024arXiv2405.06451" class="citation"
+data-cites="2024arXiv2405.06451">(Craig, Ittersum, and Ono
+2024)</a>.</p>
 <p>We write <span class="math inline">\(s_i\)</span> for the sizes of
 the parts, and <span class="math inline">\(m_i\)</span> for the
 multiplicities of the part, with <span class="math inline">\(s_1 &gt;
@@ -1902,6 +1908,189 @@ it contains the space of quasimodular forms).</p></li>
 Eisenstein series, hence <span class="math inline">\(M_a(n)\)</span> are
 coefficients of a quasimodular form.</p></li>
 </ul>
+<h1
+id="supersingular-abelian-surfaces-and-where-to-find-them-gabriele-bogo">Supersingular
+abelian surfaces and where to find them, <span
+class="nodecor"><em>Gabriele Bogo</em></span></h1>
+<p>Characteristic zero: <span
+class="math inline">\(\mathop{\mathrm{End}}(E) \cong \mathbb{Z}\)</span>
+or <span class="math inline">\(\mathcal{O}_D\)</span>, order in an
+imaginary quadratic field.</p>
+<p>Characteristic <span class="math inline">\(p &gt; 0\)</span> (Hasse,
+1936), can also be <span class="math inline">\(\mathcal{O}_{\infty,
+p}\)</span>, order in a quaternion algebra over <span
+class="math inline">\(\mathbb{Q}\)</span>. In that case, we call it
+<em>supersingular</em>.</p>
+<p>Deuring 1941: for <span class="math inline">\(p \geq 5\)</span>, the
+number of supersingular elliptic curves over <span
+class="math inline">\(\mathbb{F}_{p^2}\)</span> is <span
+class="math display">\[\lfloor \frac{p - 1}{12} \rfloor + \delta +
+\varepsilon.\]</span> Another interpretation: writing <span
+class="math inline">\(\mathcal{M}_{1, 1} \cong \mathbb{H} /
+{\mathop{\mathrm{SL}}}_2(\mathbb{Z})\)</span> for the moduli space of
+elliptic curves over <span class="math inline">\(\mathbb{C}\)</span>,
+there are three special points <span class="math inline">\(\infty, i =
+\sqrt{- 1}, \rho =(- 1 + \sqrt{- 3}) / 2\)</span>, and we can think of
+Deuring’s result as <span class="math display">\[\#(\mathrm{ss}_p)
+  = \lfloor \frac{p - 1}{12} \rfloor + \delta + \varepsilon
+  \leq
+  \lfloor
+  \frac{- \chi(\mathbb{H} / {\mathop{\mathrm{SL}}}_2(\mathbb{Z})) \cdot(p
+- 1)}{2}\rfloor + 2.\]</span></p>
+<p>Let’s generalize to higher-dimensional varieties. Let <span
+class="math inline">\(\mathbb{Q}(\sqrt{D})\)</span> be a real quadratic
+field, with ring of integers <span
+class="math inline">\(\mathcal{O}_D\)</span>. We consider a family <span
+class="math inline">\(\mathcal{X} \rightarrow \mathcal{C}\)</span> of
+(p.p.) abelian surfaces, over a curve <span
+class="math inline">\(\mathcal{C}\)</span>, such that:</p>
+<ul>
+<li><p>the fibers <span class="math inline">\(X_c\)</span> are defined
+over a number field <span class="math inline">\(k\)</span>, and</p></li>
+<li><p>there exists an inclusion of rings <span
+class="math inline">\(\mathcal{O}_D \hookrightarrow
+{\mathop{\mathrm{End}}}_k(X_c)\)</span>.</p></li>
+</ul>
+<p>An abelian surface over a field of characteristic <span
+class="math inline">\(p\)</span> is <em>supersingular</em>
+(resp. <em>superspecial</em>) if it is isogenous (resp. isomorphic) to
+the product of two supersingular elliptic curves.</p>
+<p>There are embeddings <span class="math display">\[\mathbb{H} / \Gamma
+= \mathcal{C} \hookrightarrow X_D(\mathbb{C}) = \mathbb{H}^2 /
+{\mathop{\mathrm{SL}}}_2(\mathcal{O}_D).\]</span> For example, if <span
+class="math inline">\(\Gamma =
+{\mathop{\mathrm{SL}}}_2(\mathbb{Z})\)</span>, this is the inclusion of
+elliptic curves into the space of abelian surfaces with multiplication.
+There are also modular curves <span
+class="math inline">\(\Gamma_0(N)\)</span>. But one can have more
+interesting examples, related to non-arithmetic curves. To give an
+explicit example, consider the triangle group <span
+class="math inline">\(\Gamma = \Delta(2, 5, \infty) \hookrightarrow
+X_5\)</span>, with explicit equation <span class="math display">\[y^2 =
+  \begin{cases}
+    x^5 - 5 x^3 + 5 x    
+    - 2 t
+    &amp; \text{ if } t \neq \infty, \\
+    x^5 - 1    &amp; \text{ if } t = \infty.
+  \end{cases}\]</span> We now take the reductions of the above inclusion
+modulo <span class="math inline">\(p\)</span>, to a map <span
+class="math display">\[\overline{\mathcal{C}} \rightarrow
+X_D(\mathbb{F}).\]</span> We want to study the fibers of this family
+that, after reduction modulo <span class="math inline">\(p\)</span>, are
+supersingular.</p>
+<p>To that end, consider a smooth algebraic curve in a Hilbert modular
+surface <span class="math display">\[\mathcal{C} \hookrightarrow
+X_D\]</span> with second Lyapunov exponent <span
+class="math inline">\(\lambda_2 \in \mathbb{Q} \cap
+\left(0,1\right]\)</span>. For example, for <span
+class="math inline">\({\mathop{\mathrm{SL}}}_2(\mathbb{Z})\)</span>, we
+have <span class="math inline">\(\lambda_2 = 1\)</span>, and for modular
+curves, <span class="math inline">\(\lambda_2 = 1\)</span>, while for
+<span class="math inline">\(\Delta(2, 5, \infty)\)</span> we have <span
+class="math inline">\(\lambda_2 = 1/3\)</span>, but for Teichmuller
+curves, you can have <span class="math inline">\(1/3, 1/5,
+1/7\)</span>.</p>
+<div class="theorem">
+<p><strong>Theorem 45</strong> (B–Li, 2024). <em>The supersingular locus
+of <span class="math inline">\(\mathcal{C}\)</span> modulo <span
+class="math inline">\(p\)</span> has cardinality described by <span
+class="math display">\[\begin{align}
+    \lfloor \frac{- \chi(\mathcal{C})(p - \lambda_2)}{2} \rfloor \leq
+    \#\mathrm{ss}_p^{\mathcal{C}}
+    \leq \lfloor
+    \frac{- \chi(\mathcal{C})(p - 1)(\lambda_2 + 1)}{2}\rfloor + r,
+\quad \text{ if } \left( \frac{D}{p} \right) = -1,
+  
+\end{align}\]</span> while <span class="math display">\[\#
+\mathrm{ss}_p^{\mathcal{C}}
+    \leq \lfloor \frac{- \chi(\mathcal{C})(p - 1) \lambda_2}{2} \rfloor
++ r,
+    \quad \text{ if } \left( \frac{D}{p} \right) = 1.\]</span></em></p>
+</div>
+<p>How to find supersingular abelian surfaces? If <span
+class="math inline">\(\mathcal{C} = \mathbb{H} / \Gamma\)</span> is of
+genus zero with Hauptmodul <span class="math inline">\(j\)</span>, then
+the supersingular locus can be described by a polynomial in <span
+class="math inline">\(j\)</span>: <span
+class="math display">\[\mathrm{ss}_p^{\mathcal{C}}(j) :=
+  \prod_{
+    \substack{
+      c \in \mathcal{C}  \\
+      \overline{X_c} \text{ supersingular}      
+    }
+  }
+  \left( j - j(c) \right).\]</span></p>
+<div class="theorem">
+<p><strong>Theorem 46</strong> (B.–Li, 2024). <em>There are two families
+<span class="math inline">\(\{A_{0, n}(j)\}_n\)</span> and <span
+class="math inline">\(\{A_{1, n}(j)\}_n\)</span> of orthogonal
+polynomials (Atkin’s polynomials) such that for every <span
+class="math inline">\(p\)</span> of good reduction, <span
+class="math display">\[\mathrm{ss}_p^{\mathcal{C}}(j) \equiv
+    \begin{cases}
+      \mathop{\mathrm{lcm}}(A_{0, n_p}, A_{1, \tilde{n}_p})      &amp;
+\text{ if } \left( \frac{D}{p} \right) = -1, \\
+      \gcd(A_{0, n_p}, A_{1,
+\tilde{n}_p})                                                &amp;
+\text{ if } \left( \frac{D}{p} \right) = 1
+    \end{cases}\]</span> for explicit indices <span
+class="math inline">\(n_p\)</span> and <span
+class="math inline">\(\tilde{n}_p\)</span>.</em></p>
+</div>
+<p>For example, consider <span class="math inline">\(\Delta(2, 5,
+\infty)\)</span>. Let <span class="math inline">\(j\)</span> be a
+Hauptmodul, with pole at <span class="math inline">\(\infty\)</span>.
+The scalar products are defined on <span
+class="math inline">\(\mathbb{R}[j]\)</span> by <span
+class="math display">\[\langle f, g \rangle_0 :=
+  \int_{\pi / 5}^{\pi / 2}
+  f(e^{i \theta})
+  g(e^{i \theta}) \, d th,\]</span> <span class="math display">\[\langle
+f, g \rangle_1 := \int_{2 \pi / 5}^{\pi / 2}
+  f(e^{i \theta}) g(e^{i \theta}) \, d \theta.\]</span> The first
+polynomials <span class="math inline">\(A_{0, n}(j)\)</span> are: <span
+class="math inline">\(A_{0, 0}(j) = 1\)</span>, <span
+class="math inline">\(A_{0, 1}(j) = j - 9/20\)</span>, etc. Taking <span
+class="math inline">\(p = 13\)</span>, one finds that <span
+class="math display">\[\mathrm{ss}_{13}(j) \equiv A_{0, 3}(j) \equiv j(j
++ 4)(j - 1) \pmod{13}.\]</span></p>
+<p>Next, real multiplication splits <span
+class="math inline">\(H_{\mathrm{d R}}^{1}(X_c)\)</span> into two
+eigenspaces. The eigendifferentials induce two second order differnetial
+equations, called Picard–Fuchs differential equations. TRuncation of the
+holomorphic solutions can be related to the supersingular locus of <span
+class="math inline">\(\mathcal{C}\)</span>.</p>
+<div class="example">
+<p><strong>Example 47</strong>. For <span
+class="math inline">\(\mathcal{C} = \mathbb{H} / \Delta(2, 5,
+\infty)\)</span>, <span class="math display">\[j^n \cdot {}_2 F_1 \left(
+\frac{7}{20}, \frac{3}{20}; 1 ; \frac{1}{j} \right)
+    = U_{0, n}(j) + \operatorname{O}(j^{-1}),\]</span> etc. Leads to a
+formula for <span
+class="math inline">\(\mathrm{ss}_p^{\mathcal{C}}(j)\)</span>.</p>
+</div>
+<p>The partial Hasse invariants <span class="math inline">\(h_1\)</span>
+and <span class="math inline">\(h_2\)</span> are characteristic <span
+class="math inline">\(p\)</span> Hilbert modular forms of non-parallel
+weight. They have the following properties:</p>
+<ul>
+<li><p>The divisor of <span class="math inline">\(h_i\)</span> is the
+component <span class="math inline">\(D_i\)</span> of the non-ordinary
+locus of <span class="math inline">\(X_D(\mathbb{F})\)</span>.</p></li>
+<li><p>Their <span class="math inline">\(q\)</span>-expansion is
+constant, equal to <span class="math inline">\(1\)</span>, at every
+cusp.</p></li>
+</ul>
+<p>In particular, they do not lift to Hilbert modular forms in
+characteristic zeor.</p>
+<div class="theorem">
+<p><strong>Theorem 48</strong> (B–Li, 2024). <em>Let <span
+class="math inline">\(\mathcal{C} \cong \mathbb{H} / \Gamma
+\hookrightarrow X_D\)</span> be a smooth algebraic curve with good
+reduction at <span class="math inline">\(p\)</span>. Then the partial
+Hasse invariants lift to (twisted) modular forms on <span
+class="math inline">\(\Gamma\)</span> in characteristic zero.</em></p>
+</div>
 <div id="refs" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" role="list">
 <div id="ref-2022arXiv2207.07108" class="csl-entry" role="listitem">
@@ -1926,6 +2115,11 @@ Constantinescu, Petru, and Asbjørn Christian Nordentoft. 2024.
 <span>“Non-Vanishing of Geodesic Periods of Automorphic Forms,”</span>
 April. <a
 href="http://arxiv.org/abs/2404.12982v1">http://arxiv.org/abs/2404.12982v1</a>.
+</div>
+<div id="ref-2024arXiv2405.06451" class="csl-entry" role="listitem">
+Craig, William, Jan-Willem van Ittersum, and Ken Ono. 2024.
+<span>“Integer Partitions Detect the Primes,”</span> May. <a
+href="http://arxiv.org/abs/2405.06451v2">http://arxiv.org/abs/2405.06451v2</a>.
 </div>
 <div id="ref-MR2966067" class="csl-entry" role="listitem">
 Ernvall-Hytönen, Anne-Maria. 2012. <span>“On a Conjecture by
