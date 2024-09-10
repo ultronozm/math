@@ -1235,5 +1235,460 @@ In particular, they do not lift to Hilbert modular forms in characteristic zeor.
 \begin{theorem} [B--Li, 2024]
   Let $\mathcal{C} \cong \mathbb{H} / \Gamma \hookrightarrow X_D$ be a smooth algebraic curve with good reduction at $p$.  Then the partial Hasse invariants lift to (twisted) modular forms on $\Gamma$ in characteristic zero.
 \end{theorem}
+
+\section{Congruences for the number of 3- and 6-regular partitions and quadratic forms, \textnormal{\emph{Cristina Ballantine}}}
+
+\begin{definition}
+  A \emph{partition} of a positive number $n$ is a non-increasings equence of positive integers, named \emph{parts}, that add up to $n$.
+\end{definition}
+We denote by $p(n)$ the number of partitions of $n$.
+
+\begin{example}
+  $p(4) = 5$.
+\end{example}
+
+Ramanujan congruences:
+\begin{equation*}
+  p(5 n + 4) \equiv 0 \pmod{5},
+\end{equation*}
+\begin{equation*}
+  p(7 n + 5) \equiv 0 \pmod{7},
+\end{equation*}
+\begin{equation*}
+  p(11 n + 6) \equiv 0 \pmod{11}.
+\end{equation*}
+Ramanujan: it appears there are no equally simple properties for any moduli involving primes other than these.
+
+Ahlgren and Ono (2001): there are such Ramanujan congruences modulo every prime $\ell \geq 5$ (actually mod $\ell^m$).
+
+How about $\ell = 2, 3$?  Radu (2012, formerly Subbarao Conjecture): for $\ell \in \{2, 3\}$, there is no arithmetic progression $A n + B$ such that
+$p(A n + B) \equiv 0 \pmod{\ell}$ for all $n$.
+
+Conjecture (Parkin and Shank): approximately half the values of $p(n)$ are even.
+
+Bellaiche and Nicolas 2016: the number of $n \leq x$ with $p(n)$ even is at least
+\begin{equation*}
+  0.069 \sqrt{x} \log \log x,
+\end{equation*}
+while the number that are odd is at least a constant multiple of $\sqrt{x}/ \log x$.
+
+The reason we can do this using modular forms is that
+\begin{equation*}
+  \sum_{n = 0}^{\infty} p(n) q^n = \prod_{i = 1}^\infty \frac{1}{1 - q^i} = \frac{q^{1/24}}{\eta(q)}.
+\end{equation*}
+
+Let's write $Q(n)$ for the number of partitions with distinct parts.  Then
+\begin{equation*}
+  \sum_{n = 0} Q(n) q^n = \prod_{i = 1}^\infty(1 + q^i) \equiv \prod_{i = 1}^\infty(1 - q^i) \pmod{2}
+  =
+  \sum_{j \in \mathbb{Z}}(- 1)^j q^{j(3j - 1)/2},
+\end{equation*}
+so $Q(n)$ is even asymptotically 100\% of the time.
+
+\begin{definition}
+  An $r$\emph{-regular partition} is a partition in which no parts are divisible by $r$.
+\end{definition}
+\begin{notation}
+  $b_r(n) := $ the number of $r$-regular partitions of $n$.
+\end{notation}
+$b_2(n)$ is even asymptotically 100\% of the time.
+
+\begin{theorem}[Keith--Zanello 2022]
+  If $p \equiv 13, 17,. 19, 23 \pmod{24}$ is prime, then
+  \begin{equation*}
+    b_3 \left( 2(p^2 n +  pk - 24^{-1}) \right) \equiv 0 \pmod{2}
+  \end{equation*}
+  for $1 \leq k \leq p - 1$, where the inverse is taken modulo $p$.
+\end{theorem}
+\begin{theorem}[Yao 2022]
+  Let $p \geq 5$ for a prime.  Then we can construct more arithmetic progressions where this happens, different from the above.
+  \begin{enumerate}
+  \item If $b_3 \left( \frac{p^2 - 1}{12} \right) \equiv 1 \pmod{2}$, then we get a whole arithmetic progression.
+  \item (...)
+  \end{enumerate}
+\end{theorem}
+
+Experimentally, we found a bunch of arithmetic progressions on which $b_3$ was even.  For instance, for $\alpha \in \{1, 51, 76, 101\}$,
+\begin{equation*}
+  b_3 \left( 2(5^3 n + \alpha) \right) \equiv 0 \pmod{2}.
+\end{equation*}
+Conjectured that one can do this for every prime $p \geq 5$.
+
+The bad news is that the congruences we found for $p = 5,7,11$ are special cases of Yao's theorem.  My coauthor did more experience and found other primes $p \in \{29, 59, \dotsc, 683\}$ where we have
+\begin{equation*}
+  b_3 \left( 2(p^2 n + p \alpha - 24^{-1}) \right) \equiv 0 \pmod{2},
+\end{equation*}
+where $0 \leq \alpha < p$, $\alpha \neq \lfloor p/24 \rfloor$, and $24^{-1}$ taken modulo $p$, that do not fit into Yao's theorem.
+
+We proved the congruences algorithmically, using a result of Radu involving modular forms and Sturm's bound.
+
+Can we describe these primes?  What is the general theorem?
+
+Let $\mathcal{P}$ be the set of primes $p$ such that for some $j \in \{1, 4, 8\}$, the equation $x^2 + 24 \cdot 9 y^2 = j p$ has primitive solutions.
+
+
+\section{Exact formulae for ranks of partitions, \textnormal{\emph{Qihang Sun}}}
+Preprint: \cite{2024arXiv2406.06294}.
+
+$p(n)$: partition function.  Ramanujan's congruence mod $5$ and $7$.
+
+Dyson's rank: for each partition $\Lambda = \{\Lambda_1 \geq \Lambda_2 \geq \dotsb \geq \Lambda_k\}$, define $\rank(\Lambda) := \Lambda_1 - \kappa$ to be the largest part minus the number of parts.  Rank generating function $N(a, b, n)$.  Explains Ramanujan congruences, e.g.,
+\begin{equation*}
+  N(a, 5, 5 n + 4) = \frac{1}{5} p(5 n + 4),
+\end{equation*}
+\begin{equation*}
+  N(a, 7, 7 n + 5) = \frac{1}{7} p(7 n + 5).
+\end{equation*}
+These conjectures were all proved by Swinnerton-Dyer in 1954.
+
+We'll focus on the analytic side of those rank functions.  For $q = e^{2 \pi i z}$ and $w = \zeta_b^a$,
+\begin{equation*}
+  \mathcal{R}(w, q) = 1 + \sum_{n = 1}^\infty \sum_{m \in \mathbb{Z}} N(m, n)
+  w^m q^n
+  =
+  1 + \sum_{n = 1}^\infty \frac{q^{n^2}}{(w q, q)_n(w^{-1} q, q)_n}
+  =: 1 + \sum_{n = 1}^\infty A \left( \frac{a}{b}, n \right) q^n.
+\end{equation*}
+
+Examples:
+\begin{itemize}
+\item $R(1, q) = 1 + \sum p(n) q^n = q^{1/24} / \eta(z)$
+\item $R(- 1, q) = f(q)$ (Ramanujan's $3$rd other mock theta function)
+\item $R(\zeta_3, q) = R(\zeta_3^2, q) = \gamma(q)$ (another mock theta function)
+\end{itemize}
+
+Hardy--Ramanujan (1918):
+\begin{equation*}
+  p(n) \sim \frac{1}{4 n \sqrt{3}}
+  \exp \left( \pi \sqrt{\frac{2 n}{3}} \right),
+\end{equation*}
+together with more precise result.  Rademacher (1937): exact formula.
+
+$A(\tfrac{1}{2} , n) = N(0, 2, n) - N(1, 2, n)$.  Ramanujan claimed, Dragonette (1952) proved:
+\begin{equation*}
+  A(\tfrac{1}{2} , n) = \frac{(- 1)^{n - 1} e^{\pi \sqrt{\tilde{n}/6}}}{2 \sqrt{\tilde{n}}} + \dotsb.
+\end{equation*}
+Andrews (1966).
+
+Conjectures by Andrews and Lewis, proved by Bringmann (2009).
+\begin{equation*}
+  A(\tfrac{1}{3} , n) = \frac{4 \sqrt{3}i}{(24 n - 1)^{1/2}}
+  \sum_{3 \mid k}^{\lfloor \sqrt{n} \rfloor}
+  \dotsb.
+\end{equation*}
+Should be an exact formula.
+
+More generally, Bringmann gave asymptotics for $A(\tfrac{\ell}{u}, n)$.
+
+Proofs use Maass Poincar{\'e} series.
+
+\section{The rational torsion subgroups of the Drinfeld modular Jacobians for prime-power levels, \textnormal{\emph{Sheng-Yang Kevin Ho}}}
+Preprint: \cite{2024arXiv2404.00738}.
+
+
+$X_0(N)$: modular curve,
+\begin{equation*}
+  J_0(N)(\mathbb{Q}) \cong \mathbb{Z}^r \oplus \mathcal{T}(N).
+\end{equation*}
+Can we compute the rational torsion subgroup?
+
+Let $\mathcal{C}(N)$ denote the rational cuspidal divisor class group for $X_0(N)$.  By a theorem of Manin and Drinfeld, we have
+\begin{equation*}
+  \mathcal{C}(N) \subseteq \mathcal{T}(N).
+\end{equation*}
+
+Conjecture (generalized Ogg's conjecture): for any positive integer $N$, we have $\mathcal{C}(N) = \mathcal{T}(N)$.
+
+Strategy:
+\begin{enumerate}
+\item Compute $\mathcal{C}(N)$ explicitly to give a lower bound for $\mathcal{T}(N)$.
+\item Study the Eisenstein ideal of the Hecke algebra of level $N$ to give an upper bound for $\mathcal{T}(N)$.
+\end{enumerate}
+
+Pass to the function field setting.
+
+\section{A variation of a theme after Dirichlet, \textnormal{\emph{Chung Hang Kwan}}}
+
+\begin{equation*}
+  \int_0^1 \int_0^\infty \Phi \left[
+    \begin{pmatrix}
+      y_0      &  &  \\
+               & y_0 &  \\
+               &  & 1 \\
+    \end{pmatrix}
+    \begin{pmatrix}
+      1      & u & 0 \\
+      0 & 1 & 0 \\
+      0 & 0 & 1 \\
+    \end{pmatrix}\right]
+  \,d^\times y_0
+  e(- u) \, d u,
+\end{equation*}
+\begin{equation*}
+  \int_0^\infty \int_0^1 \Phi \left[
+    \begin{pmatrix}
+      1      & u & \ast \\
+      0             & 1 & \ast \\
+      0             & 0 & 1 \\
+    \end{pmatrix}
+    \begin{pmatrix}
+      y_0      & 0 & 0 \\
+      0 & y_0 & 0 \\
+      0 & 0 & 1 \\
+    \end{pmatrix}\right]
+  e(- u)
+  \, d u
+  \,d^\times y_0.
+\end{equation*}
+
+
+\section{On Hecke eigenvalues of Ikeda lifts, \textnormal{\emph{Nagarjuna Chary Addanki}}}
+
+Preprint: \cite{2024arXiv2401.08855}.
+
+$S_k(\Gamma_2)$ decomposes into a Maass space and its complement.  The Maass space is generated by Saito--Kurokawa lifts.  These lifts are characterized by the signs of their eigenvalues: $F$ is a Saito--Kurokawa lift if and only if all the eigenvalues are positive.  The question is whether there is a similar space in higher dimensions.  Ikeda lifts are generalizations of these Saito--Kurokawa lifts, so we can: are the eigenvalues of such lifts positive?
+
+We're going to talk about Siegel modular forms, which are defined on the Siegel upper half-space
+\begin{equation*}
+  \mathbb{H}_n := \left\{ Z \in M_n(\mathbb{C}), \, {}^t Z = Z, \, \Im(Z) > 0  \right\}.
+\end{equation*}
+The symplectic group $\GSp_{2 n}(R) \leq \GL_{2 n}(R)$ is given by the condition ${}^t g J g = \mu(g) J$, where
+\begin{equation*}
+  J =
+  \begin{pmatrix}
+    0  & 1 \\
+    -1 & 0 \\
+  \end{pmatrix}.
+\end{equation*}
+We set $\Gamma_n := \Sp_{2n}(\mathbb{Z})$.  A Siegel modular form $F$ of weight $k$ over $\Gamma_n$ is defined in the usual way.  The space of such forms, $M_k(\Gamma_n)$, is finite-dimensional.  Elements $F$ admit a Fourier expansion
+\begin{equation*}
+  F(Z) = \sum_{
+    \substack{
+      T = T^t,  \\
+      T \geq 0, \\
+      \text{half-integral}
+    }
+  }
+  A(T) e^{2 \pi i \trace(T Z)}.
+\end{equation*}
+We can define a notion of cusp form ($A(T) = 0$ unless $T >0$) and Petersson inner product.
+
+For each $g \in G(\mathbb{Q})^+ \cap M_{2 n}(\mathbb{Z})$, there is an associated Hecke operator $T(g)$ on $M_k(\Gamma_n)$.  The Hecke algebra, $\mathcal{H}_n$ is generated by $T(g)$.
+\begin{itemize}
+\item $\mathcal{H}_n$ is commutative.
+\item To each $m \in \mathbb{N}$ we may associate $T(m) \in \mathcal{H}_n$ such that $T(m n) = T(m) T(n)$ when $(m, n) = 1$.
+\item Each $T(g)$ is self-adjoint with respect to the Petersson inner product.
+\end{itemize}
+Andrianov 1973: basis of simultaneous eigenfunctions.
+
+Eigenvalues may be given in terms of the Satake parameters.  Let $F$ be a Hecke eigenform and $\lambda_F(g)$ the eigenvalue corresponding to the operator $T(g)$.  For any $g$ with $\mu(g) = p^r$, depending on $F$, there are $n + 1$ complex numbers
+\begin{equation*}
+  \left( a_{0, p}^{(F)}, a_{1, p}^{(F)}, \dotsc, a_{n, p}^{(F)} \right)
+\end{equation*}
+satisfying, with
+\begin{equation*}
+  \Gamma_n g \Gamma_n = \sqcup_i \Gamma_n g_i ,
+  \quad
+  g_i =
+  \begin{pmatrix}
+    A_i    &  B_i \\
+    0           & D_i \\
+  \end{pmatrix},
+  \quad
+  D_i =
+  \begin{pmatrix}
+    p^{d_{i 1}}    & \dotsb & \ast \\
+    0                   & \dotsb & \ast \\
+    0                   & \dotsb & p^{d_{i n}} \\
+  \end{pmatrix},
+\end{equation*}
+we can explicitly describe the Hecke eigenvalue by
+\begin{equation*}
+  \lambda(g) = a_{0, p}^r \sum_i \prod_{j = 1}^n
+  (a_{j, p}^{- j})^{d_{i j}}.
+\end{equation*}.
+
+Andrianov, 1974: if $F \in S_k(\Gamma_n)$ is a Hecke eigenform, then
+\begin{equation*}
+  \sum_{r = 0}^\infty \lambda_F(p^r) p^{- r s}
+  = \frac{P_{F, p}(p^{- s})}{Q_{F, p}(p^{- s})},
+\end{equation*}
+
+\begin{equation*}
+  Q_{F, p}(p^{- s}) = \dotsb.
+\end{equation*}
+
+Let $f \in S_k(\Gamma_1)$ be a Hecke eigenform.
+\begin{theorem}[Ikeda, 2001]
+  Assume that $n \equiv k \pmod{2}$.  Then
+  \begin{equation*}
+    F_f(Z) = \sum_{B \in \mathcal{S}_{2 n}(\mathbb{Z})^+}
+    A(B) e^{2 \pi i \trace(B Z)},
+    \quad
+    Z \in \mathbb{H}_{2 n}
+  \end{equation*}
+  is a Hecke eigenform in $S_{k + n}(\Gamma_{2 n})$ and the standard $L$-function of $F$ is equal to
+  \begin{equation*}
+    \zeta(s) \prod_{i = 1}^{2 n}
+    L(s + k + n - i, f, \mathrm{spin}).
+  \end{equation*}
+  Here $S_{2 n}(\mathbb{Z})^+$ is the set of all positive definite half-integral matrices of size $2 n$.
+\end{theorem}
+
+To compute the spin $L$-function of the Ikeda lift, move to the language of automorphic representations.  Let $F_f \in S_{k + n}(\Gamma_{2 n})$ be the Ikeda lift of $f \in S_{2 k}(\Gamma_1)$.  Let $\Pi$ and $\pi$ be the associated automorphic representations.
+\begin{theorem}[Schmidt, 2003]
+  We have
+  \begin{equation*}
+    L_p(s, \Pi, \mathrm{spin})
+    = \prod_{j = 0}^n
+    \prod_{
+      \substack{
+        r = j(j - 2 n)  \\
+        \text{Step }2
+      }
+    }^{j(2n - j)}
+    L_p(s + \tfrac{r}{2}, \pi, \Sym^{n - j})^{\beta(r, j, n)}.
+  \end{equation*}
+  Here $\beta(r, j, n)$ is given explicitly.
+\end{theorem}
+
+\begin{theorem}[A, 2024]
+  For $n \equiv k \pmod{2}$, let $F_f \in S_{k + n}(\Gamma_{2 n})$ be the Ikeda lift of $f \in S_{2 k}(\Gamma_1)$.  For all large enough primes $p$, we have $\lambda_{F_f}(p) \geq 0$.
+\end{theorem}
+
+\begin{lemma}
+  If $F_f \in S_{k + 2}(\Gamma_4)$ is the Ikeda lift of $f \in S_{2 k}(\Gamma_1)$, then $\lambda_{F_f}(p)$ is positive for all primes $p$.
+\end{lemma}
+
+For $\lambda_F(p^r)$ with $r > 1$, we use
+\begin{equation*}
+  \sum_{r = 0}^\infty \lambda_F(p^r) p^{- r s}
+  = \frac{P_{F, p}(p^{- s})}{Q_{F, p}(p^{- s})},
+\end{equation*}
+and we need knowledge of both numerator and denominator.  The denominator can be computed using Schmidt's formluaf or the $L$-function, but the numerator is known only for genus at most $4$.
+
+Let $T(p^4)$ be Hecke operators in $\mathcal{H}_4$.  Vankov (2011) found polynomials $P_p$ and $Q_p$ over the Hecke algebra such that
+\begin{equation*}
+  \sum_{r \geq 0} T(p^r) x^r = \frac{P_p(x)}{ Q_p(x)}.
+\end{equation*}
+
+$P_{p, F}(x)$ can be retrieved from $P_p(x)$.
+
+$\lambda_F(p^r)$ for genus $4$ Ikeda lifts?  We do the following.
+\begin{itemize}
+\item Express $\frac{1}{Q_{p, F}(p^{- s})}$ as partial fractions.
+\item Write each partial fraction as a power series in $p^{- s}$.
+\item Multiply by $P_{p, F}(p^{- s})$.
+\item Compare the coefficients of $p^{- r s}$ on both sides.
+\end{itemize}
+This yields a formula for $\lambda_{F_f}(p^r)$ in terms of some $c_i \in \mathbb{Z}[a, a^{-1}]$ that are bounded, uniformly in $r$.  This lead sto:
+\begin{theorem}[A, 2024]
+  Let $F_f$ be a Hecke eigenform in $S_{k + 2}(\Gamma_4)$, the Ikeda lift of $f \in S_{2 k}(\Gamma_1)$.  FOr a fixed $r$, the number $\lambda_{F_f}(p^r)$ is positive for all large enough primes $p$.
+\end{theorem}
+
+
+\section{Abelian covers of P1 of p-ordinary Ekedahl--Oort type, \textnormal{\emph{Deepesh Singhal }}}
+
+Preprint: \cite{2023arXiv2303.13350}.
+
+Fix a prime $p$.  Let $A$ be a $g$-dimensional principally polarized abelian variety defined over $\bar{\mathbb{F}}_p$.  There are three invariants attached to $A$:
+\begin{itemize}
+\item $p$-rank: $f(A) = \dim_{\bar{\mathbb{F}}_p}(\mu_p, A)$.  Note that
+  \begin{itemize}
+  \item $\# A[p](\bar{\mathbb{F}}_p) = p^f$, 
+  \item $0 \leq f \leq g$.
+  \end{itemize}
+\item Newton polygon: the isogeny class of the $p$-divisible group $A[p^\infty]$, which can be presented as a sequence of $2 g$ rational numbers $N P(A) :=(\nu_1, \dotsc, \nu_{2 g})$.
+\item Ekedahl--Oort type: the isomorphism class of the $p$-kernel $A[p]$, which can be presented as an element $w(A) \in \mathfrak{S}_{2 g}$.
+\end{itemize}
+
+When $g =1$, $A$ is an elliptic curve:
+\begin{itemize}
+\item $f(A) = 0$ iff $N P(A) =(\tfrac{1}{2}, \tfrac{1}{2})$ iff $w(A) = \id$ iff $A$ is supersingular.
+\item $f(A) = 1$ iff $N P(A) =(0, 1)$ iff $w(A) =(21)$ iff $A$ is ordinary.
+\end{itemize}
+
+When $g \geq 2$, these are distinct invariants with some relation among each other:
+\begin{itemize}
+\item $p$-rank can be computed from either the Newton polygon or the $\mathrm{EO}$-type.
+\item $f(A) = \# \{i : v_i = 0\}$.
+\end{itemize}
+
+One has the \emph{Torelli morphism}  from the moduli of curves to the moduli of abelian varieties:
+\begin{equation*}
+  \text{Hurwitz space} \xrightarrow{T} \text{Shimura variety}
+\end{equation*}
+\begin{equation*}
+  C \xrightarrow{T} J(C).
+\end{equation*}
+\begin{itemize}
+\item Fact: $\dim(\im(T)) < \dim(\text{ambient Shimura variety})$.
+\item For $S = \mathcal{A}_{g, 1}$, it is known which $p$-rank, Newton polygons and $\mathrm{EO}$-types give \emph{nonempty} stratum.
+\end{itemize}
+\begin{question}
+  Which stratum in $\mathcal{S}$ has nonempty intersection with the Torelli locus?
+\end{question}
+
+We turn to the Hurwitz space of cyclic covers of $\mathbb{P}^1$.  Fix $m$ such that $p \nmid m$.  $\mathcal{M}_{\mu_m}$ is the moduli space of $\mu_m$ covers of $\mathbb{P}^1$.
+\begin{itemize}
+\item $\mathcal{M}_{\mu_m} = \cup \mathcal{M}(m, r, \underline{a})$ is the decomposition of irreducible components.
+\item $r$ is the number of branching points.
+\item $\underline{a} =(a(1), a(2), \dotsc, a(r))$ is the monodromy data of each branching point.
+\item Looking at one of the irreducible components, we have have the restricted Torelli morphism
+  \begin{equation*}
+    \mathcal{M}(m, r, \underline{a}) \xrightarrow{T} \operatorname{Sh}(H, \mu).
+  \end{equation*}
+\end{itemize}
+Here
+\begin{itemize}
+\item $\operatorname{Sh}(H, \mu)$ is the smallest PEL type Shimura variety containing the image of $T$, with $\mu$ determined by the data $\underline{a}$.
+\item The set of the Newton polygons occurring is known and denoted by $B(H_{\mathbb{Q}_p}, \mu)$.  However, very little is known about which of these Newton polygons have a stratum that intersects the Torelli locus.
+\item The set $B(H_{\mathbb{Q}_p}, \mu)$ has a partial ordering, and $\nu(H, \mu)$ is the unique maximal element in this set.  It is called the $\mu$\emph{-ordinary} Newton polygon.
+\end{itemize}
+
+\begin{example}
+  Consider the moduli space of $\mu_7$-covers of $\mathbb{P}^1$, with $r =4$ branching points, and monodromy datum $(3, 2, 1, 1)$.  If $p \equiv 6 \pmod{7}$, then there are three Newton polygons:
+  \begin{itemize}
+  \item the $\mu$-ordinary $\mu =(0,1)^4 \oplus(\tfrac{1}{2}, \tfrac{1}{2})^2$, with $p$-rank $4$.
+  \item $\nu =(0, 1)^2 \oplus(\tfrac{1}{2}, \tfrac{1}{2} )^4$, with $p$-rank $2$.
+  \item the basic $\beta =(\tfrac{1}{2}, \tfrac{1}{2} )^6$, with $p$-rank $0$.
+  \end{itemize}
+\end{example}
+
+We refine Bouw's result and show the sharpness of the upper bound on Newton polygon given by $B(\mathbb{H}_{\mathbb{Q}_p}, \mu)$:
+\begin{theorem}[Y.\ Lin, E.\ Mantovan, S.,\ 2023]
+  Fix a prime $p$ and let $m \in \mathbb{N}$ such that $p \nmid m$ and $p > m(r - 2)$.  Then for any $\mathcal{M}(m, r, \underline{a})$ such that $r \leq 5$, we have
+  \begin{equation*}
+    T(\mathcal{M}(G, r, \underline{a}))[\nu(H, \mu)] \neq \emptyset.
+  \end{equation*}
+  In addition, we also show (...).
+\end{theorem}
+
+Comments:
+\begin{itemize}
+\item Same conclusion holds for abelian covers.
+\item The statement of the theorem likely remains true without the assumptions that $p > m(r - 2)$ and $r \leq 5$.  However, these conditions are needed for our technique to work.
+\item (...)
+\end{itemize}
+
+Proof strategy:
+\begin{theorem}[Moonen, 2004]
+  For a PEL-type Shimura variety $\operatorname{Sh}(H, \mu)$, we have
+  \begin{equation*}
+    \nu(H, \mu) \text{ stratum }
+    =
+    \text{ maximal EO stratum }
+    \subseteq \text{ maximal $p$-rank stratum.}
+  \end{equation*}
+\end{theorem}
+To prove the non-emptiness of the intersection with maximal EO stratum, we use the equivalence of categories between
+\begin{itemize}
+\item $p$-kernel of polarized abelian variety,
+\item polarized mod $p$ Dieudonn{\'e} module, 
+\item Hasse--Witt triples.
+\end{itemize}
+We translate the condition of having maximal EO type to linear algebra conditions on the Hasse--Witt triple.  By explicitly computing them, we are able to verify the rank conditions.
+
+
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
