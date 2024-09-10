@@ -1107,5 +1107,133 @@ The algebra $\mathcal{Z}_q := \left\langle \mathcal{G}(\underline{\ell}) \right\
   which is a linear combination of quasimodular Eisenstein series, hence $M_a(n)$ are coefficients of a quasimodular form.
 \end{itemize}
 
+\section{Supersingular abelian surfaces and where to find them, \textnormal{\emph{Gabriele Bogo}}}
+Characteristic zero: $\End(E) \cong \mathbb{Z}$ or $\mathcal{O}_D$, order in an imaginary quadratic field.
+
+Characteristic $p > 0$ (Hasse, 1936), can also be $\mathcal{O}_{\infty, p}$, order in a quaternion algebra over $\mathbb{Q}$.  In that case, we call it \emph{supersingular}.
+
+Deuring 1941: for $p \geq 5$, the number of supersingular elliptic curves over $\mathbb{F}_{p^2}$ is
+\begin{equation*}
+  \lfloor \frac{p - 1}{12} \rfloor + \delta + \eps.
+\end{equation*}
+Another interpretation: writing $\mathcal{M}_{1, 1} \cong \mathbb{H} / \SL_2(\mathbb{Z})$ for the moduli space of elliptic curves over $\mathbb{C}$, there are three special points $\infty, i = \sqrt{- 1}, \rho =(- 1 + \sqrt{- 3}) / 2$, and we can think of Deuring's result as
+\begin{equation*}
+  \#(\mathrm{ss}_p)
+  = \lfloor \frac{p - 1}{12} \rfloor + \delta + \eps
+  \leq
+  \lfloor
+  \frac{- \chi(\mathbb{H} / \SL_2(\mathbb{Z})) \cdot(p - 1)}{2}\rfloor + 2.
+\end{equation*}
+
+Let's generalize to higher-dimensional varieties.  Let $\mathbb{Q}(\sqrt{D})$ be a real quadratic field, with ring of integers $\mathcal{O}_D$.  We consider a family $\mathcal{X} \rightarrow \mathcal{C}$ of (p.p.) abelian surfaces, over a curve $\mathcal{C}$, such that:
+\begin{itemize}
+\item the fibers $X_c$ are defined over a number field $k$, and
+\item there exists an inclusion of rings $\mathcal{O}_D \hookrightarrow \End_k(X_c)$.
+\end{itemize}
+An abelian surface over a field of characteristic $p$ is \emph{supersingular} (resp.\ \emph{superspecial}) if it is isogenous (resp.\ isomorphic) to the product of two supersingular elliptic curves.
+
+There are embeddings
+\begin{equation*}
+  \mathbb{H} / \Gamma = \mathcal{C} \hookrightarrow X_D(\mathbb{C}) = \mathbb{H}^2 / \SL_2(\mathcal{O}_D).
+\end{equation*}
+For example, if $\Gamma = \SL_2(\mathbb{Z})$, this is the inclusion of elliptic curves into the space of abelian surfaces with multiplication.  There are also modular curves $\Gamma_0(N)$.  But one can have more interesting examples, related to non-arithmetic curves.  To give an explicit example, consider the triangle group $\Gamma = \Delta(2, 5, \infty) \hookrightarrow X_5$, with explicit equation
+\begin{equation*}
+  y^2 =
+  \begin{cases}
+    x^5 - 5 x^3 + 5 x    
+    - 2 t
+    & \text{ if } t \neq \infty, \\
+    x^5 - 1    & \text{ if } t = \infty.
+  \end{cases}
+\end{equation*}
+We now take the reductions of the above inclusion modulo $p$, to a map
+\begin{equation*}
+  \overline{\mathcal{C}} \rightarrow X_D(\mathbb{F}). 
+\end{equation*}
+We want to study the fibers of this family that, after reduction modulo $p$, are supersingular.
+
+To that end, consider a smooth algebraic curve in a Hilbert modular surface
+\begin{equation*}
+  \mathcal{C} \hookrightarrow X_D
+\end{equation*}
+with second Lyapunov exponent $\lambda_2 \in \mathbb{Q} \cap \left(0,1\right]$.  For example, for $\SL_2(\mathbb{Z})$, we have $\lambda_2 = 1$, and for modular curves, $\lambda_2 = 1$, while for
+$\Delta(2, 5, \infty)$ we have $\lambda_2 = 1/3$, but for Teichmuller curves, you can have $1/3, 1/5, 1/7$.
+
+\begin{theorem}[B--Li, 2024]
+  The supersingular locus of $\mathcal{C}$ modulo $p$ has cardinality described by
+  \begin{align*}
+    \lfloor \frac{- \chi(\mathcal{C})(p - \lambda_2)}{2} \rfloor \leq
+    \#\mathrm{ss}_p^{\mathcal{C}}
+    \leq \lfloor
+    \frac{- \chi(\mathcal{C})(p - 1)(\lambda_2 + 1)}{2}\rfloor + r, \quad \text{ if } \qr{D}{p} = -1,
+  \end{align*}
+  while
+  \begin{equation*}
+    \# \mathrm{ss}_p^{\mathcal{C}}
+    \leq \lfloor \frac{- \chi(\mathcal{C})(p - 1) \lambda_2}{2} \rfloor + r,
+    \quad \text{ if } \qr{D}{p} = 1.
+  \end{equation*}
+\end{theorem}
+
+How to find supersingular abelian surfaces?  If $\mathcal{C} = \mathbb{H} / \Gamma$  is of genus zero with Hauptmodul $j$, then the supersingular locus can be described by a polynomial in $j$:
+\begin{equation*}
+  \mathrm{ss}_p^{\mathcal{C}}(j) :=
+  \prod_{
+    \substack{
+      c \in \mathcal{C}  \\
+      \overline{X_c} \text{ supersingular}      
+    }
+  }
+  \left( j - j(c) \right).
+\end{equation*}
+
+\begin{theorem}[B.--Li, 2024]
+  There are two families $\{A_{0, n}(j)\}_n$ and $\{A_{1, n}(j)\}_n$ of orthogonal polynomials (Atkin's polynomials) such that for every $p$ of good reduction,
+  \begin{equation*}
+    \mathrm{ss}_p^{\mathcal{C}}(j) \equiv
+    \begin{cases}
+      \lcm(A_{0, n_p}, A_{1, \tilde{n}_p})      & \text{ if } \qr{D}{p} = -1, \\
+      \gcd(A_{0, n_p}, A_{1, \tilde{n}_p})                                                & \text{ if } \qr{D}{p} = 1
+    \end{cases}
+  \end{equation*}
+  for explicit indices $n_p$ and $\tilde{n}_p$.
+\end{theorem}
+
+For example, consider $\Delta(2, 5, \infty)$.  Let $j$ be a Hauptmodul, with pole at $\infty$.  The scalar products are defined on $\mathbb{R}[j]$ by
+\begin{equation*}
+  \langle f, g \rangle_0 :=
+  \int_{\pi / 5}^{\pi / 2}
+  f(e^{i \theta})
+  g(e^{i \theta}) \, d th,
+\end{equation*}
+\begin{equation*}
+  \langle f, g \rangle_1 := \int_{2 \pi / 5}^{\pi / 2}
+  f(e^{i \theta}) g(e^{i \theta}) \, d \theta.
+\end{equation*}
+The first polynomials $A_{0, n}(j)$ are: $A_{0, 0}(j) = 1$, $A_{0, 1}(j) = j - 9/20$, etc.  Taking $p = 13$, one finds that
+\begin{equation*}
+  \mathrm{ss}_{13}(j) \equiv A_{0, 3}(j) \equiv j(j + 4)(j - 1) \pmod{13}.
+\end{equation*}
+
+Next, real multiplication splits $H_{\mathrm{d R}}^{1}(X_c)$ into two eigenspaces.  The eigendifferentials induce two second order differnetial equations, called Picard--Fuchs differential equations.  TRuncation of the holomorphic solutions can be related to the supersingular locus of $\mathcal{C}$.
+\begin{example}
+  For $\mathcal{C} = \mathbb{H} / \Delta(2, 5, \infty)$,
+  \begin{equation*}
+    j^n \cdot {}_2 F_1 \left( \frac{7}{20}, \frac{3}{20}; 1 ; \frac{1}{j} \right)
+    = U_{0, n}(j) + \O(j^{-1}),
+  \end{equation*}
+  etc.  Leads to a formula for $\mathrm{ss}_p^{\mathcal{C}}(j)$.
+\end{example}
+
+The partial Hasse invariants $h_1$ and $h_2$ are characteristic $p$ Hilbert modular forms of non-parallel weight.  They have the following properties:
+\begin{itemize}
+\item The divisor of $h_i$ is the component $D_i$ of the non-ordinary locus of $X_D(\mathbb{F})$.
+\item Their $q$-expansion is constant, equal to $1$, at every cusp.
+\end{itemize}
+In particular, they do not lift to Hilbert modular forms in characteristic zeor.
+
+\begin{theorem} [B--Li, 2024]
+  Let $\mathcal{C} \cong \mathbb{H} / \Gamma \hookrightarrow X_D$ be a smooth algebraic curve with good reduction at $p$.  Then the partial Hasse invariants lift to (twisted) modular forms on $\Gamma$ in characteristic zero.
+\end{theorem}
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
