@@ -225,7 +225,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2024-09-10 09:54:48
+2024-09-10 16:38:18
       <a href="20240909T093140--cirm-conference.tex" class="my-link">tex</a>
       <a href="20240909T093140--cirm-conference.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20240909T093140--cirm-conference.tex" class="my-link">history</a>
@@ -297,6 +297,35 @@ href="#supersingular-abelian-surfaces-and-where-to-find-them-gabriele-bogo"
 id="toc-supersingular-abelian-surfaces-and-where-to-find-them-gabriele-bogo">Supersingular
 abelian surfaces and where to find them, <span
 class="nodecor"><em>Gabriele Bogo</em></span></a></li>
+<li><a
+href="#congruences-for-the-number-of-3--and-6-regular-partitions-and-quadratic-forms-cristina-ballantine"
+id="toc-congruences-for-the-number-of-3--and-6-regular-partitions-and-quadratic-forms-cristina-ballantine">Congruences
+for the number of 3- and 6-regular partitions and quadratic forms, <span
+class="nodecor"><em>Cristina Ballantine</em></span></a></li>
+<li><a href="#exact-formulae-for-ranks-of-partitions-qihang-sun"
+id="toc-exact-formulae-for-ranks-of-partitions-qihang-sun">Exact
+formulae for ranks of partitions, <span class="nodecor"><em>Qihang
+Sun</em></span></a></li>
+<li><a
+href="#the-rational-torsion-subgroups-of-the-drinfeld-modular-jacobians-for-prime-power-levels-sheng-yang-kevin-ho"
+id="toc-the-rational-torsion-subgroups-of-the-drinfeld-modular-jacobians-for-prime-power-levels-sheng-yang-kevin-ho">The
+rational torsion subgroups of the Drinfeld modular Jacobians for
+prime-power levels, <span class="nodecor"><em>Sheng-Yang Kevin
+Ho</em></span></a></li>
+<li><a href="#a-variation-of-a-theme-after-dirichlet-chung-hang-kwan"
+id="toc-a-variation-of-a-theme-after-dirichlet-chung-hang-kwan">A
+variation of a theme after Dirichlet, <span class="nodecor"><em>Chung
+Hang Kwan</em></span></a></li>
+<li><a
+href="#on-hecke-eigenvalues-of-ikeda-lifts-nagarjuna-chary-addanki"
+id="toc-on-hecke-eigenvalues-of-ikeda-lifts-nagarjuna-chary-addanki">On
+Hecke eigenvalues of Ikeda lifts, <span class="nodecor"><em>Nagarjuna
+Chary Addanki</em></span></a></li>
+<li><a
+href="#abelian-covers-of-p1-of-p-ordinary-ekedahloort-type-deepesh-singhal"
+id="toc-abelian-covers-of-p1-of-p-ordinary-ekedahloort-type-deepesh-singhal">Abelian
+covers of P1 of p-ordinary Ekedahl–Oort type, <span
+class="nodecor"><em>Deepesh Singhal</em> </span></a></li>
 </ul>
 </nav>
 <h1
@@ -2091,8 +2120,603 @@ reduction at <span class="math inline">\(p\)</span>. Then the partial
 Hasse invariants lift to (twisted) modular forms on <span
 class="math inline">\(\Gamma\)</span> in characteristic zero.</em></p>
 </div>
+<h1
+id="congruences-for-the-number-of-3--and-6-regular-partitions-and-quadratic-forms-cristina-ballantine">Congruences
+for the number of 3- and 6-regular partitions and quadratic forms, <span
+class="nodecor"><em>Cristina Ballantine</em></span></h1>
+<div class="definition">
+<p><strong>Definition 49</strong>. A <em>partition</em> of a positive
+number <span class="math inline">\(n\)</span> is a non-increasings
+equence of positive integers, named <em>parts</em>, that add up to <span
+class="math inline">\(n\)</span>.</p>
+</div>
+<p>We denote by <span class="math inline">\(p(n)\)</span> the number of
+partitions of <span class="math inline">\(n\)</span>.</p>
+<div class="example">
+<p><strong>Example 50</strong>. <span class="math inline">\(p(4) =
+5\)</span>.</p>
+</div>
+<p>Ramanujan congruences: <span class="math display">\[p(5 n + 4) \equiv
+0 \pmod{5},\]</span> <span class="math display">\[p(7 n + 5) \equiv 0
+\pmod{7},\]</span> <span class="math display">\[p(11 n + 6) \equiv 0
+\pmod{11}.\]</span> Ramanujan: it appears there are no equally simple
+properties for any moduli involving primes other than these.</p>
+<p>Ahlgren and Ono (2001): there are such Ramanujan congruences modulo
+every prime <span class="math inline">\(\ell \geq 5\)</span> (actually
+mod <span class="math inline">\(\ell^m\)</span>).</p>
+<p>How about <span class="math inline">\(\ell = 2, 3\)</span>? Radu
+(2012, formerly Subbarao Conjecture): for <span
+class="math inline">\(\ell \in \{2, 3\}\)</span>, there is no arithmetic
+progression <span class="math inline">\(A n + B\)</span> such that <span
+class="math inline">\(p(A n + B) \equiv 0 \pmod{\ell}\)</span> for all
+<span class="math inline">\(n\)</span>.</p>
+<p>Conjecture (Parkin and Shank): approximately half the values of <span
+class="math inline">\(p(n)\)</span> are even.</p>
+<p>Bellaiche and Nicolas 2016: the number of <span
+class="math inline">\(n \leq x\)</span> with <span
+class="math inline">\(p(n)\)</span> even is at least <span
+class="math display">\[0.069 \sqrt{x} \log \log x,\]</span> while the
+number that are odd is at least a constant multiple of <span
+class="math inline">\(\sqrt{x}/ \log x\)</span>.</p>
+<p>The reason we can do this using modular forms is that <span
+class="math display">\[\sum_{n = 0}^{\infty} p(n) q^n = \prod_{i =
+1}^\infty \frac{1}{1 - q^i} = \frac{q^{1/24}}{\eta(q)}.\]</span></p>
+<p>Let’s write <span class="math inline">\(Q(n)\)</span> for the number
+of partitions with distinct parts. Then <span
+class="math display">\[\sum_{n = 0} Q(n) q^n = \prod_{i = 1}^\infty(1 +
+q^i) \equiv \prod_{i = 1}^\infty(1 - q^i) \pmod{2}
+  =
+  \sum_{j \in \mathbb{Z}}(- 1)^j q^{j(3j - 1)/2},\]</span> so <span
+class="math inline">\(Q(n)\)</span> is even asymptotically 100% of the
+time.</p>
+<div class="definition">
+<p><strong>Definition 51</strong>. An <span
+class="math inline">\(r\)</span><em>-regular partition</em> is a
+partition in which no parts are divisible by <span
+class="math inline">\(r\)</span>.</p>
+</div>
+<div class="notation">
+<p><strong>Notation 52</strong>. <span class="math inline">\(b_r(n)
+:=\)</span> the number of <span class="math inline">\(r\)</span>-regular
+partitions of <span class="math inline">\(n\)</span>.</p>
+</div>
+<p><span class="math inline">\(b_2(n)\)</span> is even asymptotically
+100% of the time.</p>
+<div class="theorem">
+<p><strong>Theorem 53</strong> (Keith–Zanello 2022). <em>If <span
+class="math inline">\(p \equiv 13, 17,. 19, 23 \pmod{24}\)</span> is
+prime, then <span class="math display">\[b_3 \left( 2(p^2 n +  pk -
+24^{-1}) \right) \equiv 0 \pmod{2}\]</span> for <span
+class="math inline">\(1 \leq k \leq p - 1\)</span>, where the inverse is
+taken modulo <span class="math inline">\(p\)</span>.</em></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 54</strong> (Yao 2022). <em>Let <span
+class="math inline">\(p \geq 5\)</span> for a prime. Then we can
+construct more arithmetic progressions where this happens, different
+from the above.</em></p>
+<ol>
+<li><p><em>If <span class="math inline">\(b_3 \left( \frac{p^2 - 1}{12}
+\right) \equiv 1 \pmod{2}\)</span>, then we get a whole arithmetic
+progression.</em></p></li>
+<li><p><em>(...)</em></p></li>
+</ol>
+</div>
+<p>Experimentally, we found a bunch of arithmetic progressions on which
+<span class="math inline">\(b_3\)</span> was even. For instance, for
+<span class="math inline">\(\alpha \in \{1, 51, 76, 101\}\)</span>,
+<span class="math display">\[b_3 \left( 2(5^3 n + \alpha) \right) \equiv
+0 \pmod{2}.\]</span> Conjectured that one can do this for every prime
+<span class="math inline">\(p \geq 5\)</span>.</p>
+<p>The bad news is that the congruences we found for <span
+class="math inline">\(p = 5,7,11\)</span> are special cases of Yao’s
+theorem. My coauthor did more experience and found other primes <span
+class="math inline">\(p \in \{29, 59, \dotsc, 683\}\)</span> where we
+have <span class="math display">\[b_3 \left( 2(p^2 n + p \alpha -
+24^{-1}) \right) \equiv 0 \pmod{2},\]</span> where <span
+class="math inline">\(0 \leq \alpha &lt; p\)</span>, <span
+class="math inline">\(\alpha \neq \lfloor p/24 \rfloor\)</span>, and
+<span class="math inline">\(24^{-1}\)</span> taken modulo <span
+class="math inline">\(p\)</span>, that do not fit into Yao’s
+theorem.</p>
+<p>We proved the congruences algorithmically, using a result of Radu
+involving modular forms and Sturm’s bound.</p>
+<p>Can we describe these primes? What is the general theorem?</p>
+<p>Let <span class="math inline">\(\mathcal{P}\)</span> be the set of
+primes <span class="math inline">\(p\)</span> such that for some <span
+class="math inline">\(j \in \{1, 4, 8\}\)</span>, the equation <span
+class="math inline">\(x^2 + 24 \cdot 9 y^2 = j p\)</span> has primitive
+solutions.</p>
+<h1 id="exact-formulae-for-ranks-of-partitions-qihang-sun">Exact
+formulae for ranks of partitions, <span class="nodecor"><em>Qihang
+Sun</em></span></h1>
+<p>Preprint: <a href="#ref-2024arXiv2406.06294" class="citation"
+data-cites="2024arXiv2406.06294">(Sun 2024)</a>.</p>
+<p><span class="math inline">\(p(n)\)</span>: partition function.
+Ramanujan’s congruence mod <span class="math inline">\(5\)</span> and
+<span class="math inline">\(7\)</span>.</p>
+<p>Dyson’s rank: for each partition <span class="math inline">\(\Lambda
+= \{\Lambda_1 \geq \Lambda_2 \geq \dotsb \geq \Lambda_k\}\)</span>,
+define <span class="math inline">\(\mathop{\mathrm{rank}}(\Lambda) :=
+\Lambda_1 - \kappa\)</span> to be the largest part minus the number of
+parts. Rank generating function <span class="math inline">\(N(a, b,
+n)\)</span>. Explains Ramanujan congruences, e.g., <span
+class="math display">\[N(a, 5, 5 n + 4) = \frac{1}{5} p(5 n +
+4),\]</span> <span class="math display">\[N(a, 7, 7 n + 5) = \frac{1}{7}
+p(7 n + 5).\]</span> These conjectures were all proved by
+Swinnerton-Dyer in 1954.</p>
+<p>We’ll focus on the analytic side of those rank functions. For <span
+class="math inline">\(q = e^{2 \pi i z}\)</span> and <span
+class="math inline">\(w = \zeta_b^a\)</span>, <span
+class="math display">\[\mathcal{R}(w, q) = 1 + \sum_{n = 1}^\infty
+\sum_{m \in \mathbb{Z}} N(m, n)
+  w^m q^n
+  =
+  1 + \sum_{n = 1}^\infty \frac{q^{n^2}}{(w q, q)_n(w^{-1} q, q)_n}
+  =: 1 + \sum_{n = 1}^\infty A \left( \frac{a}{b}, n \right)
+q^n.\]</span></p>
+<p>Examples:</p>
+<ul>
+<li><p><span class="math inline">\(R(1, q) = 1 + \sum p(n) q^n =
+q^{1/24} / \eta(z)\)</span></p></li>
+<li><p><span class="math inline">\(R(- 1, q) = f(q)\)</span>
+(Ramanujan’s <span class="math inline">\(3\)</span>rd other mock theta
+function)</p></li>
+<li><p><span class="math inline">\(R(\zeta_3, q) = R(\zeta_3^2, q) =
+\gamma(q)\)</span> (another mock theta function)</p></li>
+</ul>
+<p>Hardy–Ramanujan (1918): <span class="math display">\[p(n) \sim
+\frac{1}{4 n \sqrt{3}}
+  \exp \left( \pi \sqrt{\frac{2 n}{3}} \right),\]</span> together with
+more precise result. Rademacher (1937): exact formula.</p>
+<p><span class="math inline">\(A(\tfrac{1}{2} , n) = N(0, 2, n) - N(1,
+2, n)\)</span>. Ramanujan claimed, Dragonette (1952) proved: <span
+class="math display">\[A(\tfrac{1}{2} , n) = \frac{(- 1)^{n - 1} e^{\pi
+\sqrt{\tilde{n}/6}}}{2 \sqrt{\tilde{n}}} + \dotsb.\]</span> Andrews
+(1966).</p>
+<p>Conjectures by Andrews and Lewis, proved by Bringmann (2009). <span
+class="math display">\[A(\tfrac{1}{3} , n) = \frac{4 \sqrt{3}i}{(24 n -
+1)^{1/2}}
+  \sum_{3 \mid k}^{\lfloor \sqrt{n} \rfloor}
+  \dotsb.\]</span> Should be an exact formula.</p>
+<p>More generally, Bringmann gave asymptotics for <span
+class="math inline">\(A(\tfrac{\ell}{u}, n)\)</span>.</p>
+<p>Proofs use Maass Poincar<span>é</span> series.</p>
+<h1
+id="the-rational-torsion-subgroups-of-the-drinfeld-modular-jacobians-for-prime-power-levels-sheng-yang-kevin-ho">The
+rational torsion subgroups of the Drinfeld modular Jacobians for
+prime-power levels, <span class="nodecor"><em>Sheng-Yang Kevin
+Ho</em></span></h1>
+<p>Preprint: <a href="#ref-2024arXiv2404.00738" class="citation" data-cites="2024arXiv2404.00738">(Ho
+2024)</a>.</p>
+<p><span class="math inline">\(X_0(N)\)</span>: modular curve, <span
+class="math display">\[J_0(N)(\mathbb{Q}) \cong \mathbb{Z}^r \oplus
+\mathcal{T}(N).\]</span> Can we compute the rational torsion
+subgroup?</p>
+<p>Let <span class="math inline">\(\mathcal{C}(N)\)</span> denote the
+rational cuspidal divisor class group for <span
+class="math inline">\(X_0(N)\)</span>. By a theorem of Manin and
+Drinfeld, we have <span class="math display">\[\mathcal{C}(N) \subseteq
+\mathcal{T}(N).\]</span></p>
+<p>Conjecture (generalized Ogg’s conjecture): for any positive integer
+<span class="math inline">\(N\)</span>, we have <span
+class="math inline">\(\mathcal{C}(N) = \mathcal{T}(N)\)</span>.</p>
+<p>Strategy:</p>
+<ol>
+<li><p>Compute <span class="math inline">\(\mathcal{C}(N)\)</span>
+explicitly to give a lower bound for <span
+class="math inline">\(\mathcal{T}(N)\)</span>.</p></li>
+<li><p>Study the Eisenstein ideal of the Hecke algebra of level <span
+class="math inline">\(N\)</span> to give an upper bound for <span
+class="math inline">\(\mathcal{T}(N)\)</span>.</p></li>
+</ol>
+<p>Pass to the function field setting.</p>
+<h1 id="a-variation-of-a-theme-after-dirichlet-chung-hang-kwan">A
+variation of a theme after Dirichlet, <span class="nodecor"><em>Chung
+Hang Kwan</em></span></h1>
+<p><span class="math display">\[\int_0^1 \int_0^\infty \Phi \left[
+    \begin{pmatrix}
+      y_0      &amp;  &amp;  \\
+               &amp; y_0 &amp;  \\
+               &amp;  &amp; 1 \\
+    \end{pmatrix}
+    \begin{pmatrix}
+      1      &amp; u &amp; 0 \\
+      0 &amp; 1 &amp; 0 \\
+      0 &amp; 0 &amp; 1 \\
+    \end{pmatrix}\right]
+  \,d^\times y_0
+  e(- u) \, d u,\]</span> <span class="math display">\[\int_0^\infty
+\int_0^1 \Phi \left[
+    \begin{pmatrix}
+      1      &amp; u &amp; \ast \\
+      0             &amp; 1 &amp; \ast \\
+      0             &amp; 0 &amp; 1 \\
+    \end{pmatrix}
+    \begin{pmatrix}
+      y_0      &amp; 0 &amp; 0 \\
+      0 &amp; y_0 &amp; 0 \\
+      0 &amp; 0 &amp; 1 \\
+    \end{pmatrix}\right]
+  e(- u)
+  \, d u
+  \,d^\times y_0.\]</span></p>
+<h1 id="on-hecke-eigenvalues-of-ikeda-lifts-nagarjuna-chary-addanki">On
+Hecke eigenvalues of Ikeda lifts, <span class="nodecor"><em>Nagarjuna
+Chary Addanki</em></span></h1>
+<p>Preprint: <a href="#ref-2024arXiv2401.08855" class="citation"
+data-cites="2024arXiv2401.08855">(Addanki 2024)</a>.</p>
+<p><span class="math inline">\(S_k(\Gamma_2)\)</span> decomposes into a
+Maass space and its complement. The Maass space is generated by
+Saito–Kurokawa lifts. These lifts are characterized by the signs of
+their eigenvalues: <span class="math inline">\(F\)</span> is a
+Saito–Kurokawa lift if and only if all the eigenvalues are positive. The
+question is whether there is a similar space in higher dimensions. Ikeda
+lifts are generalizations of these Saito–Kurokawa lifts, so we can: are
+the eigenvalues of such lifts positive?</p>
+<p>We’re going to talk about Siegel modular forms, which are defined on
+the Siegel upper half-space <span class="math display">\[\mathbb{H}_n :=
+\left\{ Z \in M_n(\mathbb{C}), \, {}^t Z = Z, \, \Im(Z) &gt;
+0  \right\}.\]</span> The symplectic group <span
+class="math inline">\({\mathop{\mathrm{GSp}}}_{2 n}(R) \leq
+{\mathop{\mathrm{GL}}}_{2 n}(R)\)</span> is given by the condition <span
+class="math inline">\({}^t g J g = \mu(g) J\)</span>, where <span
+class="math display">\[J =
+  \begin{pmatrix}
+    0  &amp; 1 \\
+    -1 &amp; 0 \\
+  \end{pmatrix}.\]</span> We set <span class="math inline">\(\Gamma_n :=
+{\mathop{\mathrm{Sp}}}_{2n}(\mathbb{Z})\)</span>. A Siegel modular form
+<span class="math inline">\(F\)</span> of weight <span
+class="math inline">\(k\)</span> over <span
+class="math inline">\(\Gamma_n\)</span> is defined in the usual way. The
+space of such forms, <span class="math inline">\(M_k(\Gamma_n)\)</span>,
+is finite-dimensional. Elements <span class="math inline">\(F\)</span>
+admit a Fourier expansion <span class="math display">\[F(Z) = \sum_{
+    \substack{
+      T = T^t,  \\
+      T \geq 0, \\
+      \text{half-integral}
+    }
+  }
+  A(T) e^{2 \pi i \mathop{\mathrm{trace}}(T Z)}.\]</span> We can define
+a notion of cusp form (<span class="math inline">\(A(T) = 0\)</span>
+unless <span class="math inline">\(T &gt;0\)</span>) and Petersson inner
+product.</p>
+<p>For each <span class="math inline">\(g \in G(\mathbb{Q})^+ \cap M_{2
+n}(\mathbb{Z})\)</span>, there is an associated Hecke operator <span
+class="math inline">\(T(g)\)</span> on <span
+class="math inline">\(M_k(\Gamma_n)\)</span>. The Hecke algebra, <span
+class="math inline">\(\mathcal{H}_n\)</span> is generated by <span
+class="math inline">\(T(g)\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(\mathcal{H}_n\)</span> is
+commutative.</p></li>
+<li><p>To each <span class="math inline">\(m \in \mathbb{N}\)</span> we
+may associate <span class="math inline">\(T(m) \in
+\mathcal{H}_n\)</span> such that <span class="math inline">\(T(m n) =
+T(m) T(n)\)</span> when <span class="math inline">\((m, n) =
+1\)</span>.</p></li>
+<li><p>Each <span class="math inline">\(T(g)\)</span> is self-adjoint
+with respect to the Petersson inner product.</p></li>
+</ul>
+<p>Andrianov 1973: basis of simultaneous eigenfunctions.</p>
+<p>Eigenvalues may be given in terms of the Satake parameters. Let <span
+class="math inline">\(F\)</span> be a Hecke eigenform and <span
+class="math inline">\(\lambda_F(g)\)</span> the eigenvalue corresponding
+to the operator <span class="math inline">\(T(g)\)</span>. For any <span
+class="math inline">\(g\)</span> with <span class="math inline">\(\mu(g)
+= p^r\)</span>, depending on <span class="math inline">\(F\)</span>,
+there are <span class="math inline">\(n + 1\)</span> complex numbers
+<span class="math display">\[\left( a_{0, p}^{(F)}, a_{1, p}^{(F)},
+\dotsc, a_{n, p}^{(F)} \right)\]</span> satisfying, with <span
+class="math display">\[\Gamma_n g \Gamma_n = \sqcup_i \Gamma_n g_i ,
+  \quad
+  g_i =
+  \begin{pmatrix}
+    A_i    &amp;  B_i \\
+    0           &amp; D_i \\
+  \end{pmatrix},
+  \quad
+  D_i =
+  \begin{pmatrix}
+    p^{d_{i 1}}    &amp; \dotsb &amp; \ast \\
+    0                   &amp; \dotsb &amp; \ast \\
+    0                   &amp; \dotsb &amp; p^{d_{i n}} \\
+  \end{pmatrix},\]</span> we can explicitly describe the Hecke
+eigenvalue by <span class="math display">\[\lambda(g) = a_{0, p}^r
+\sum_i \prod_{j = 1}^n
+  (a_{j, p}^{- j})^{d_{i j}}.\]</span>.</p>
+<p>Andrianov, 1974: if <span class="math inline">\(F \in
+S_k(\Gamma_n)\)</span> is a Hecke eigenform, then <span
+class="math display">\[\sum_{r = 0}^\infty \lambda_F(p^r) p^{- r s}
+  = \frac{P_{F, p}(p^{- s})}{Q_{F, p}(p^{- s})},\]</span></p>
+<p><span class="math display">\[Q_{F, p}(p^{- s}) = \dotsb.\]</span></p>
+<p>Let <span class="math inline">\(f \in S_k(\Gamma_1)\)</span> be a
+Hecke eigenform.</p>
+<div class="theorem">
+<p><strong>Theorem 55</strong> (Ikeda, 2001). <em>Assume that <span
+class="math inline">\(n \equiv k \pmod{2}\)</span>. Then <span
+class="math display">\[F_f(Z) = \sum_{B \in \mathcal{S}_{2
+n}(\mathbb{Z})^+}
+    A(B) e^{2 \pi i \mathop{\mathrm{trace}}(B Z)},
+    \quad
+    Z \in \mathbb{H}_{2 n}\]</span> is a Hecke eigenform in <span
+class="math inline">\(S_{k + n}(\Gamma_{2 n})\)</span> and the standard
+<span class="math inline">\(L\)</span>-function of <span
+class="math inline">\(F\)</span> is equal to <span
+class="math display">\[\zeta(s) \prod_{i = 1}^{2 n}
+    L(s + k + n - i, f, \mathrm{spin}).\]</span> Here <span
+class="math inline">\(S_{2 n}(\mathbb{Z})^+\)</span> is the set of all
+positive definite half-integral matrices of size <span
+class="math inline">\(2 n\)</span>.</em></p>
+</div>
+<p>To compute the spin <span class="math inline">\(L\)</span>-function
+of the Ikeda lift, move to the language of automorphic representations.
+Let <span class="math inline">\(F_f \in S_{k + n}(\Gamma_{2 n})\)</span>
+be the Ikeda lift of <span class="math inline">\(f \in S_{2
+k}(\Gamma_1)\)</span>. Let <span class="math inline">\(\Pi\)</span> and
+<span class="math inline">\(\pi\)</span> be the associated automorphic
+representations.</p>
+<div class="theorem">
+<p><strong>Theorem 56</strong> (Schmidt, 2003). <em>We have <span
+class="math display">\[L_p(s, \Pi, \mathrm{spin})
+    = \prod_{j = 0}^n
+    \prod_{
+      \substack{
+        r = j(j - 2 n)  \\
+        \text{Step }2
+      }
+    }^{j(2n - j)}
+    L_p(s + \tfrac{r}{2}, \pi, {\mathop{\mathrm{Sym}}}^{n - j})^{\beta(r,
+j, n)}.\]</span> Here <span class="math inline">\(\beta(r, j,
+n)\)</span> is given explicitly.</em></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 57</strong> (A, 2024). <em>For <span
+class="math inline">\(n \equiv k \pmod{2}\)</span>, let <span
+class="math inline">\(F_f \in S_{k + n}(\Gamma_{2 n})\)</span> be the
+Ikeda lift of <span class="math inline">\(f \in S_{2
+k}(\Gamma_1)\)</span>. For all large enough primes <span
+class="math inline">\(p\)</span>, we have <span
+class="math inline">\(\lambda_{F_f}(p) \geq 0\)</span>.</em></p>
+</div>
+<div class="lemma">
+<p><strong>Lemma 58</strong>. If <span class="math inline">\(F_f \in
+S_{k + 2}(\Gamma_4)\)</span> is the Ikeda lift of <span
+class="math inline">\(f \in S_{2 k}(\Gamma_1)\)</span>, then <span
+class="math inline">\(\lambda_{F_f}(p)\)</span> is positive for all
+primes <span class="math inline">\(p\)</span>.</p>
+</div>
+<p>For <span class="math inline">\(\lambda_F(p^r)\)</span> with <span
+class="math inline">\(r &gt; 1\)</span>, we use <span
+class="math display">\[\sum_{r = 0}^\infty \lambda_F(p^r) p^{- r s}
+  = \frac{P_{F, p}(p^{- s})}{Q_{F, p}(p^{- s})},\]</span> and we need
+knowledge of both numerator and denominator. The denominator can be
+computed using Schmidt’s formluaf or the <span
+class="math inline">\(L\)</span>-function, but the numerator is known
+only for genus at most <span class="math inline">\(4\)</span>.</p>
+<p>Let <span class="math inline">\(T(p^4)\)</span> be Hecke operators in
+<span class="math inline">\(\mathcal{H}_4\)</span>. Vankov (2011) found
+polynomials <span class="math inline">\(P_p\)</span> and <span
+class="math inline">\(Q_p\)</span> over the Hecke algebra such that
+<span class="math display">\[\sum_{r \geq 0} T(p^r) x^r = \frac{P_p(x)}{
+Q_p(x)}.\]</span></p>
+<p><span class="math inline">\(P_{p, F}(x)\)</span> can be retrieved
+from <span class="math inline">\(P_p(x)\)</span>.</p>
+<p><span class="math inline">\(\lambda_F(p^r)\)</span> for genus <span
+class="math inline">\(4\)</span> Ikeda lifts? We do the following.</p>
+<ul>
+<li><p>Express <span class="math inline">\(\frac{1}{Q_{p, F}(p^{-
+s})}\)</span> as partial fractions.</p></li>
+<li><p>Write each partial fraction as a power series in <span
+class="math inline">\(p^{- s}\)</span>.</p></li>
+<li><p>Multiply by <span class="math inline">\(P_{p, F}(p^{-
+s})\)</span>.</p></li>
+<li><p>Compare the coefficients of <span class="math inline">\(p^{- r
+s}\)</span> on both sides.</p></li>
+</ul>
+<p>This yields a formula for <span
+class="math inline">\(\lambda_{F_f}(p^r)\)</span> in terms of some <span
+class="math inline">\(c_i \in \mathbb{Z}[a, a^{-1}]\)</span> that are
+bounded, uniformly in <span class="math inline">\(r\)</span>. This lead
+sto:</p>
+<div class="theorem">
+<p><strong>Theorem 59</strong> (A, 2024). <em>Let <span
+class="math inline">\(F_f\)</span> be a Hecke eigenform in <span
+class="math inline">\(S_{k + 2}(\Gamma_4)\)</span>, the Ikeda lift of
+<span class="math inline">\(f \in S_{2 k}(\Gamma_1)\)</span>. FOr a
+fixed <span class="math inline">\(r\)</span>, the number <span
+class="math inline">\(\lambda_{F_f}(p^r)\)</span> is positive for all
+large enough primes <span class="math inline">\(p\)</span>.</em></p>
+</div>
+<h1
+id="abelian-covers-of-p1-of-p-ordinary-ekedahloort-type-deepesh-singhal">Abelian
+covers of P1 of p-ordinary Ekedahl–Oort type, <span
+class="nodecor"><em>Deepesh Singhal</em> </span></h1>
+<p>Preprint: <a href="#ref-2023arXiv2303.13350" class="citation"
+data-cites="2023arXiv2303.13350">(Lin, Mantovan, and Singhal
+2023)</a>.</p>
+<p>Fix a prime <span class="math inline">\(p\)</span>. Let <span
+class="math inline">\(A\)</span> be a <span
+class="math inline">\(g\)</span>-dimensional principally polarized
+abelian variety defined over <span
+class="math inline">\(\bar{\mathbb{F}}_p\)</span>. There are three
+invariants attached to <span class="math inline">\(A\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(p\)</span>-rank: <span
+class="math inline">\(f(A) = \dim_{\bar{\mathbb{F}}_p}(\mu_p,
+A)\)</span>. Note that</p>
+<ul>
+<li><p><span class="math inline">\(\# A[p](\bar{\mathbb{F}}_p) =
+p^f\)</span>,</p></li>
+<li><p><span class="math inline">\(0 \leq f \leq g\)</span>.</p></li>
+</ul></li>
+<li><p>Newton polygon: the isogeny class of the <span
+class="math inline">\(p\)</span>-divisible group <span
+class="math inline">\(A[p^\infty]\)</span>, which can be presented as a
+sequence of <span class="math inline">\(2 g\)</span> rational numbers
+<span class="math inline">\(N P(A) :=(\nu_1, \dotsc, \nu_{2
+g})\)</span>.</p></li>
+<li><p>Ekedahl–Oort type: the isomorphism class of the <span
+class="math inline">\(p\)</span>-kernel <span
+class="math inline">\(A[p]\)</span>, which can be presented as an
+element <span class="math inline">\(w(A) \in \mathfrak{S}_{2
+g}\)</span>.</p></li>
+</ul>
+<p>When <span class="math inline">\(g =1\)</span>, <span
+class="math inline">\(A\)</span> is an elliptic curve:</p>
+<ul>
+<li><p><span class="math inline">\(f(A) = 0\)</span> iff <span
+class="math inline">\(N P(A) =(\tfrac{1}{2}, \tfrac{1}{2})\)</span> iff
+<span class="math inline">\(w(A) = \mathop{\mathrm{id}}\)</span> iff
+<span class="math inline">\(A\)</span> is supersingular.</p></li>
+<li><p><span class="math inline">\(f(A) = 1\)</span> iff <span
+class="math inline">\(N P(A) =(0, 1)\)</span> iff <span
+class="math inline">\(w(A) =(21)\)</span> iff <span
+class="math inline">\(A\)</span> is ordinary.</p></li>
+</ul>
+<p>When <span class="math inline">\(g \geq 2\)</span>, these are
+distinct invariants with some relation among each other:</p>
+<ul>
+<li><p><span class="math inline">\(p\)</span>-rank can be computed from
+either the Newton polygon or the <span
+class="math inline">\(\mathrm{EO}\)</span>-type.</p></li>
+<li><p><span class="math inline">\(f(A) = \# \{i : v_i =
+0\}\)</span>.</p></li>
+</ul>
+<p>One has the <em>Torelli morphism</em> from the moduli of curves to
+the moduli of abelian varieties: <span
+class="math display">\[\text{Hurwitz space} \xrightarrow{T}
+\text{Shimura variety}\]</span> <span class="math display">\[C
+\xrightarrow{T} J(C).\]</span></p>
+<ul>
+<li><p>Fact: <span class="math inline">\(\dim(\mathop{\mathrm{im}}(T))
+&lt; \dim(\text{ambient Shimura variety})\)</span>.</p></li>
+<li><p>For <span class="math inline">\(S = \mathcal{A}_{g, 1}\)</span>,
+it is known which <span class="math inline">\(p\)</span>-rank, Newton
+polygons and <span class="math inline">\(\mathrm{EO}\)</span>-types give
+<em>nonempty</em> stratum.</p></li>
+</ul>
+<div class="question">
+<p><strong>Question 60</strong>. Which stratum in <span
+class="math inline">\(\mathcal{S}\)</span> has nonempty intersection
+with the Torelli locus?</p>
+</div>
+<p>We turn to the Hurwitz space of cyclic covers of <span
+class="math inline">\(\mathbb{P}^1\)</span>. Fix <span
+class="math inline">\(m\)</span> such that <span class="math inline">\(p
+\nmid m\)</span>. <span
+class="math inline">\(\mathcal{M}_{\mu_m}\)</span> is the moduli space
+of <span class="math inline">\(\mu_m\)</span> covers of <span
+class="math inline">\(\mathbb{P}^1\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(\mathcal{M}_{\mu_m} = \cup
+\mathcal{M}(m, r, \underline{a})\)</span> is the decomposition of
+irreducible components.</p></li>
+<li><p><span class="math inline">\(r\)</span> is the number of branching
+points.</p></li>
+<li><p><span class="math inline">\(\underline{a} =(a(1), a(2), \dotsc,
+a(r))\)</span> is the monodromy data of each branching point.</p></li>
+<li><p>Looking at one of the irreducible components, we have have the
+restricted Torelli morphism <span class="math display">\[\mathcal{M}(m,
+r, \underline{a}) \xrightarrow{T} \operatorname{Sh}(H,
+\mu).\]</span></p></li>
+</ul>
+<p>Here</p>
+<ul>
+<li><p><span class="math inline">\(\operatorname{Sh}(H, \mu)\)</span> is
+the smallest PEL type Shimura variety containing the image of <span
+class="math inline">\(T\)</span>, with <span
+class="math inline">\(\mu\)</span> determined by the data <span
+class="math inline">\(\underline{a}\)</span>.</p></li>
+<li><p>The set of the Newton polygons occurring is known and denoted by
+<span class="math inline">\(B(H_{\mathbb{Q}_p}, \mu)\)</span>. However,
+very little is known about which of these Newton polygons have a stratum
+that intersects the Torelli locus.</p></li>
+<li><p>The set <span class="math inline">\(B(H_{\mathbb{Q}_p},
+\mu)\)</span> has a partial ordering, and <span
+class="math inline">\(\nu(H, \mu)\)</span> is the unique maximal element
+in this set. It is called the <span
+class="math inline">\(\mu\)</span><em>-ordinary</em> Newton
+polygon.</p></li>
+</ul>
+<div class="example">
+<p><strong>Example 61</strong>. Consider the moduli space of <span
+class="math inline">\(\mu_7\)</span>-covers of <span
+class="math inline">\(\mathbb{P}^1\)</span>, with <span
+class="math inline">\(r =4\)</span> branching points, and monodromy
+datum <span class="math inline">\((3, 2, 1, 1)\)</span>. If <span
+class="math inline">\(p \equiv 6 \pmod{7}\)</span>, then there are three
+Newton polygons:</p>
+<ul>
+<li><p>the <span class="math inline">\(\mu\)</span>-ordinary <span
+class="math inline">\(\mu =(0,1)^4 \oplus(\tfrac{1}{2},
+\tfrac{1}{2})^2\)</span>, with <span
+class="math inline">\(p\)</span>-rank <span
+class="math inline">\(4\)</span>.</p></li>
+<li><p><span class="math inline">\(\nu =(0, 1)^2 \oplus(\tfrac{1}{2},
+\tfrac{1}{2} )^4\)</span>, with <span
+class="math inline">\(p\)</span>-rank <span
+class="math inline">\(2\)</span>.</p></li>
+<li><p>the basic <span class="math inline">\(\beta =(\tfrac{1}{2},
+\tfrac{1}{2} )^6\)</span>, with <span
+class="math inline">\(p\)</span>-rank <span
+class="math inline">\(0\)</span>.</p></li>
+</ul>
+</div>
+<p>We refine Bouw’s result and show the sharpness of the upper bound on
+Newton polygon given by <span
+class="math inline">\(B(\mathbb{H}_{\mathbb{Q}_p}, \mu)\)</span>:</p>
+<div class="theorem">
+<p><strong>Theorem 62</strong> (Y. Lin, E. Mantovan, S., 2023). <em>Fix
+a prime <span class="math inline">\(p\)</span> and let <span
+class="math inline">\(m \in \mathbb{N}\)</span> such that <span
+class="math inline">\(p \nmid m\)</span> and <span
+class="math inline">\(p &gt; m(r - 2)\)</span>. Then for any <span
+class="math inline">\(\mathcal{M}(m, r, \underline{a})\)</span> such
+that <span class="math inline">\(r \leq 5\)</span>, we have <span
+class="math display">\[T(\mathcal{M}(G, r, \underline{a}))[\nu(H, \mu)]
+\neq \emptyset.\]</span> In addition, we also show (...).</em></p>
+</div>
+<p>Comments:</p>
+<ul>
+<li><p>Same conclusion holds for abelian covers.</p></li>
+<li><p>The statement of the theorem likely remains true without the
+assumptions that <span class="math inline">\(p &gt; m(r - 2)\)</span>
+and <span class="math inline">\(r \leq 5\)</span>. However, these
+conditions are needed for our technique to work.</p></li>
+<li><p>(...)</p></li>
+</ul>
+<p>Proof strategy:</p>
+<div class="theorem">
+<p><strong>Theorem 63</strong> (Moonen, 2004). <em>For a PEL-type
+Shimura variety <span class="math inline">\(\operatorname{Sh}(H,
+\mu)\)</span>, we have <span class="math display">\[\nu(H, \mu) \text{
+stratum }
+    =
+    \text{ maximal EO stratum }
+    \subseteq \text{ maximal $p$-rank stratum.}\]</span></em></p>
+</div>
+<p>To prove the non-emptiness of the intersection with maximal EO
+stratum, we use the equivalence of categories between</p>
+<ul>
+<li><p><span class="math inline">\(p\)</span>-kernel of polarized
+abelian variety,</p></li>
+<li><p>polarized mod <span class="math inline">\(p\)</span>
+Dieudonn<span>é</span> module,</p></li>
+<li><p>Hasse–Witt triples.</p></li>
+</ul>
+<p>We translate the condition of having maximal EO type to linear
+algebra conditions on the Hasse–Witt triple. By explicitly computing
+them, we are able to verify the rank conditions.</p>
 <div id="refs" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" role="list">
+<div id="ref-2024arXiv2401.08855" class="csl-entry" role="listitem">
+Addanki, Nagarjuna Chary. 2024. <span>“On Signs of Hecke Eigenvalues of
+Ikeda Lifts,”</span> January. <a
+href="http://arxiv.org/abs/2401.08855v1">http://arxiv.org/abs/2401.08855v1</a>.
+</div>
 <div id="ref-2022arXiv2207.07108" class="csl-entry" role="listitem">
 Anni, Samuele, Alexandru Ghitza, and Anna Medvedovsky. 2022. <span>“Deep
 Congruences + the Brauer-Nesbitt Theorem,”</span> July. <a
@@ -2133,6 +2757,12 @@ Fouvry, Étienne, Emmanuel Kowalski, and Philippe Michel. 2023.
 <a
 href="http://arxiv.org/abs/2303.11664v3">http://arxiv.org/abs/2303.11664v3</a>.
 </div>
+<div id="ref-2024arXiv2404.00738" class="csl-entry" role="listitem">
+Ho, Sheng-Yang Kevin. 2024. <span>“The Rational Torsion Subgroup of
+<span class="math inline">\(J_0(\mathfrak{p}^r)\)</span>,”</span> March.
+<a
+href="http://arxiv.org/abs/2404.00738v2">http://arxiv.org/abs/2404.00738v2</a>.
+</div>
 <div id="ref-2024arXiv2405.00996" class="csl-entry" role="listitem">
 Hua, Shenghao, Bingrong Huang, and Liangxun Li. 2024. <span>“Joint Value
 Distribution of Hecke–Maass Forms,”</span> May. <a
@@ -2143,12 +2773,24 @@ Lee, Seewoo. 2024. <span>“Algebraic Proof of Modular Form Inequalities
 for Optimal Sphere Packings,”</span> June. <a
 href="http://arxiv.org/abs/2406.14659v2">http://arxiv.org/abs/2406.14659v2</a>.
 </div>
+<div id="ref-2023arXiv2303.13350" class="csl-entry" role="listitem">
+Lin, Yuxin, Elena Mantovan, and Deepesh Singhal. 2023. <span>“Abelian
+Covers of <span class="math inline">\(\mathbb{P}^1\)</span> of <span
+class="math inline">\(p\)</span>-Ordinary Ekedahl-Oort Type,”</span>
+March. <a
+href="http://arxiv.org/abs/2303.13350v3">http://arxiv.org/abs/2303.13350v3</a>.
+</div>
 <div id="ref-MR4032962" class="csl-entry" role="listitem">
 Oggier, Frédérique, and Jean-Claude Belfiore. 2019. <span>“On the
 Secrecy Gain of Extremal Even <span><span
 class="math inline">\(l\)</span></span>-Modular Lattices.”</span>
 <em>Exp. Math.</em> 28 (4): 492–508. <a
 href="https://doi.org/10.1080/10586458.2017.1423249">https://doi.org/10.1080/10586458.2017.1423249</a>.
+</div>
+<div id="ref-2024arXiv2406.06294" class="csl-entry" role="listitem">
+Sun, Qihang. 2024. <span>“Exact Formulae for Ranks of
+Partitions,”</span> June. <a
+href="http://arxiv.org/abs/2406.06294v1">http://arxiv.org/abs/2406.06294v1</a>.
 </div>
 </div>
 <script>
