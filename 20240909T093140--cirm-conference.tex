@@ -978,5 +978,134 @@ What is this explicit Brauer--Nesbitt?  See \cite{2022arXiv2207.07108}.
 \end{corollary}
 
 Now work with the trace formula.  We can deduce statements about dimensions.
+
+\section{Integer partitions detect the primes, \textnormal{\emph{Jan-Willem Van Ittersum}}}
+Preprint: \cite{2024arXiv2405.06451}.
+
+We write $s_i$ for the sizes of the parts, and $m_i$ for the multiplicities of the part, with $s_1 > s_2 > \dotsb$.
+\begin{definition}[MacMahon 1920]
+  \begin{equation*}
+    M_a(n) := \sum_{
+      \substack{
+        n = m_1 s_1 + \dotsb + m_a s_a  \\
+        0 < s_1 < \dotsb < s_a        
+      }
+    } m_1 \dotsb m_a.
+  \end{equation*}
+\end{definition}
+\begin{remark}
+  This is the sum of multiplicity products of partitions of $n$ with $a$ part sizes.
+\end{remark}
+Consider
+\begin{equation*}
+  \psi(n) :=(n^2 - 3 n + 2) M_1(n) - 8 M_2(n).
+\end{equation*}
+\begin{example}
+  $n = 3, a = 1$, in which case $\lambda =(3)$ or $\lambda =(1^3)$, in which case $M_1(3) = 1 + 3 = 4$,
+  or $a = 2$, in which case $\lambda =(2, 1)$, so $M_2(3) = 1 \cdot 1 = 1$, and we compute that $\psi(3) = 2 M_1(3) - 8 M_2(3) = 0$.
+
+  Continuing, take $n = 4, a = 1$, in which case $\lambda = (4)$, $\lambda = (2^2)$ $\lambda =(1^4)$, so $M_1(4) = 1 + 2 + 4 = 7$,
+  or $a = 2$, in which case $\lambda =(3, 1)$ or $\lambda =(2, 1^2)$, so $M_2(4) = 1 \cdot 1 + 1 \cdot 2 = 3$, and so $\psi(4) = 6 M_1(4) - 8 M_2(4) = 18$.
+
+  Continuing, one gets the table, for $n = 2..11$, of $\psi(n) = 0, 0, 18, 0, 120, 0, 270, 192, 504, 0$.
+\end{example}
+
+\begin{theorem}[Craig--vI--Ono] For positive integers $n$, we have
+  \begin{enumerate}
+  \item $(n^2 - 3 n + 2) M_1(n) - 8 M_2(n) \geq 0$,
+  \item $(3 n^3 - 13 n^2 + 18 n - 8) M_1(n) +(12 n^2 - 120 n + 212) M_2(n) - 960 M_3(n) \geq 0$
+  \end{enumerate}
+  and for $n \geq 2$ these expressions vanish if and only if $n$ is prime.
+\end{theorem}
+\begin{remark}
+  We call such an expression \emph{prime-detecting}.  The sum of two such expressions is likewise prime-detecting, and multiplying $f(n)$ for a polynomial $f$ yields a prime-detecting expression if $f(n) > 0$ for all $n$.
+\end{remark}
+
+We can get a table of prime-detecting expressions: the first two that appear above, then two more, $(126 n^5 - \dotsb) M_1(n) + \dotsb$ and $(300 n^8 - \dotsb) M_1(n) + \dotsb$.
+
+\begin{conjecture}
+  These are all such expressions (up to addition and multiplication as before).
+\end{conjecture}
+
+We then checked whether we could get more results of a similar shape, by considering a generalization of the MacMahon function:
+\begin{definition}
+  For $\ell \in \mathbb{Z}_{\geq 0}^a$, we define the \emph{generalized MacMahon partition function}
+  \begin{equation*}
+    M_{\underline{\ell}}(n) := \sum_{
+      \substack{
+        n = m_1 s_1 + \dotsb + m_a s_a  \\
+        0 < s_1 < \dotsb < s_a        
+      }
+    }
+    m_1^{\ell_1} \dotsb m_a^{\ell_a}.
+  \end{equation*}
+\end{definition}
+You can think of this as a generalization of the divisor function, but for partitions.  For this new generalized partition function, much more is possible:
+\begin{theorem}[Craig--vI--Ono] Let $d \geq 4$.
+  \begin{enumerate}
+  \item There exist $clu \underline{\ell} \in \mathbb{Z}$ such that $\sum_{\lvert \ell \rvert < d} c_{\underline{\ell}} M_{\underline{\ell}}(n) \geq 0$, where $\lvert \underline{\ell} \rvert = \ell_1 + \dotsb + \ell_a$.
+  \item There are $\gg d^2$ linearly independent such expressions.
+  \end{enumerate}
+\end{theorem}
+\begin{example}
+  $63 M_{(2, 2)}(n) - 12 M_{(3,0)}(n) - \dotsb + 12 M_{(3,0,0)}(n) = \frac{11}{3} \psi(n)$.
+\end{example}<++>
+
+Goal of the talk now is to explain some of the ideas behind these results, which have a lot to do with modular forms.
+
+\textbf{Prime-detecting quasimodular forms}.  Let
+\begin{equation*}
+  \mathcal{G}_k := - \frac{B_k}{2 k} + \sum_{n \geq  1} \sigma_{k - 1}(n) q^n,
+  \qquad
+  D := q \frac{\partial}{\partial q},
+  \qquad q = e^{2 \pi i \tau}.  
+\end{equation*}
+Consider
+\begin{align*}
+  f_{k, \ell} &:=(D^{\ell} + 1) \mathcal{G}_{k + 1} -(D^k + 1) \mathcal{G}_{\ell + 1} \\
+              &= \ast + \sum_{n \geq 1} \sum_{d \mid n} \left((n^{\ell} + 1) d^k -(n^k + 1) d^{\ell} \right) q^n.
+\end{align*}
+Note that for $d = 1$ one gets $n^{\ell} + 1 - n^k - 1 = n^{\ell} - n^k$.  Calculating similarly with $d = n$, we see that $f_{k, \ell}$ vanishes at prime coefficients.  It's also easy to see that its coefficients are positive.  But note that $f_{k, \ell}$ is not modular, and not of homogeneous weight.  Key features here are quasimodularity and mixed weight.
+
+\begin{theorem}[Craig--vI--Ono] All prime-detecting forms in $\oplus_{k: \text{even}} \oplus_{n \geq 0} D^n \mathcal{G}_k$ are linear combinations of $D^n H_{k}$, where
+  \begin{equation*}
+    H_k =
+    \begin{cases}
+      \frac{1}{6}(D^2 - D + 1) \mathcal{G}_2 - \mathcal{G}_4      &  \text{ if } k = 6, \\
+      \frac{1}{24} \left( - D^2 \mathcal{G}_{k - 6} +(D^2 + 1) \mathcal{G}_{k - 4} - \mathcal{G}_{k - 2} \right)                                                                  & \text{ if } k = 8.
+    \end{cases}
+  \end{equation*}
+\end{theorem}
+
+That's the first ingredient, but still need to say something about modularity of MacMahon functions.  Let
+\begin{equation*}
+  \mathcal{G}(\underline{\ell}) = \sum_{n \geq 0} M_{\underline{\ell}}(n) q^n \xrightarrow{q \rightarrow 1}
+  \frac{(1 - q)^{\lvert \underline{\ell}  \rvert + a}}{\prod_i \ell_i !}
+  \sum_{s_1 < \dotsb < s_a}
+  \frac{1}{ s_1^{\ell_1 + 1} \dotsb s_a^{\ell_a + 1}}
+  \quad
+  (\ell_a \geq 1, \, \ell_i \geq 0).
+\end{equation*}
+The algebra $\mathcal{Z}_q := \left\langle \mathcal{G}(\underline{\ell}) \right\rangle_{\mathbb{Q}}$ was introduced by Bachmann--K{\"u}hn.  Facts:
+\begin{itemize}
+\item $\mathcal{Z}_q$ is a differential algebra (closed under differentiation and multiplication)
+\item $\tilde{M} := \mathbb{Q}[\mathcal{G}_2 , \mathcal{G}_4, \mathcal{G}_6] \subseteq \mathcal{Z}_q$ (i.e., it contains the space of quasimodular forms).
+\item (Hoffman--Ihara) We have
+  \begin{equation*}
+    \sum_{j \geq 0} \mathcal{G}(\underbrace{1, 1, \dotsc, 1}_{j}) x^j = \exp
+    \left(
+      \sum_{n \geq1}
+      \frac{(- 1)^{n + 1}}{ n}
+      x^n \underbrace
+      {
+        \sum_m \frac{q^m}{(1 - q^m)^{2n}}
+      }_{
+        \sum_{m, s \geq 1} \binom{s + n - 1}{ s - n} q^{m s} \in \tilde{M}
+      }
+    \right),
+  \end{equation*}
+  which is a linear combination of quasimodular Eisenstein series, hence $M_a(n)$ are coefficients of a quasimodular form.
+\end{itemize}
+
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
