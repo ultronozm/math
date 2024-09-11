@@ -1720,7 +1720,7 @@ Using this spectral expansion, Selberg in the 70's proved an asymptotic formula 
   We have
   \begin{equation*}
     N(z, w, \log X)
-    = \frac{2 \pi}{\area(\mathbb{H} / \Gamma)}
+    = \frac{2 \pi}{\operatorname{area}(\mathbb{H} / \Gamma)}
     X + \sum_{s_j}
     c_j(z, w) X^{s_j} + \O(X^{2/3}),
   \end{equation*}
@@ -1745,7 +1745,7 @@ This leads to an asymptotic formula:
   We have
   \begin{equation*}
     N(\ell, \log X)
-    = \frac{2(\len \ell)^2}{\pi \area(\mathbb{H} / \Gamma)} X
+    = \frac{2(\operatorname{len} \ell)^2}{\pi \operatorname{area}(\mathbb{H} / \Gamma)} X
     + \sum_{s_j}(\ell) X^{s_j} + E(X),
   \end{equation*}
   where $E(X) = \O(X^{2/3})$.
@@ -1807,5 +1807,121 @@ Let's finish with a nice arithmetic application.  Fix a prime $p$.  For $\Gamma$
 \end{theorem}
 
 That's all.
+
+\section{False indefinite theta functions and partitions separated by parity, \textnormal{\emph{Kathrin Bringmann}}}
+
+Today we'll first say a bit about modular forms and partitions, but we'll probably skip most of that, since we've already seen it.  In particular, we need the Dedekind eta function $\eta(q) = q^{1/24} \prod(1 - q^n)$ and the theta function $\Theta(q) = \sum q^{n^2}$, together with the partition generating function $P(q) = \sum p(n) q^n$.  By work of Hardy and Ramanujan who developed the circle method, we have asymptotics for $p(n)$, which Rademacher improved to an exact formula: letting
+\begin{equation*}
+  A_k(n) := \sum_{h(k)^\ast} \omega_{h, k} e^{- \frac{2 \pi i n h}{k}},
+\end{equation*}
+and the Bessel function $I_\alpha$, Rademacher obtained
+\begin{equation*}
+  p(n) = \frac{2 \pi}{(24 n - 1)^{3/4}}
+  \sum_{k \geq 1} \frac{A_k(n)}{n}
+  I_{3/2} \left( \frac{4 \pi \sqrt{n}}{k} \right).
+\end{equation*}
+
+\textbf{Goal}: determine asymptotic behavior of $a(n)$ as $n \rightarrow \infty$.
+
+Let $A(q) := \sum_{n \geq 0} a(n) q^n$ denote the generating function.  Then we can recover $a(n)$ via Cauchy.  The Hardy--Ramanujan asymptotics are obtained using
+\begin{equation*}
+  I_\kappa(x) \sim \frac{e^x}{ \sqrt{2 \pi x}}.
+\end{equation*}
+Rademacher--Zuckerman obtained exact formulas for Fourier coefficients of modular forms of negative weights, and Bringmann--Ono addressed the case of weight zero.
+
+Ramanujan's lost notebook introduced the $q$-hypergeometric series $\sigma(q)$, with coefficients $S(n)$.
+\begin{theorem}[Andrews--Dyson--Hickerson]
+  We have $S(n) = T(24 n + 1)$, where $T(m)$ is the number of solutions to a certain Pell's equation.
+\end{theorem}
+\begin{definition}
+  We say that a $q$-series is \emph{lacunary} if its coefficients are almost always zero.
+\end{definition}
+\begin{corollary}
+  $\sigma(q)$ is lacunary.  $S(n)$ obtains every integer infinitely often.
+\end{corollary}
+Key identity: an expression for $\sigma(q)$ as a false indefinite theta function (not quite a modular form).
+
+Now, what are the partition statistics that we're interested in?  We're interested in partitions separated by parity: even parts larger than odd parts (or reversed).  You can also require that parts be or not be distinct,.  In particular, we'r einterested in $p_{o d}^{e u}(n)$, the number of partitions with odd parts smaller than even parts and odd parts distinct.  For instance, for $n = 5$, we get $5$, $4 + 1$, $2 + 2 + 1$, so $p_{o d}^{e u}(5) = 3$.
+
+The associated generating function $F_{o d}^{e u}(q)$ is related to $\sigma$ via
+\begin{equation*}
+  \frac{1}{(q^2, q^2)_\infty} \left( 1 - \dotsb \right),
+\end{equation*}
+where $\sigma$ is a simple expression involving $\sigma$.
+
+\begin{theorem}[B--Craig--Nazaroglu]
+  As $n \rightarrow \infty$, we have
+  \begin{equation*}
+    \sim \frac{e^{\pi \sqrt{n/3}}}{2 \sqrt{3} n}.
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  Use that coefficients are monotonic, Tauberian theorem, Euler--Maclaurin.
+\end{proof}
+
+Let's now tweak the combinatorics a little bit: take $p_{e u}^{o u}(n)$ denote the number of partitions with even parts smaller than odd parts, then the corresponding generating function is
+\begin{equation*}
+  F_{e u}^{o u}(q) =   \frac{1}{(1 - q)(q^2 ; q^2)_\infty}.
+\end{equation*}
+
+We can also define $p_{e u}^{o d}$, whose generating function is
+\begin{equation*}
+  \frac{1}{(q^2 ; q^2)_\infty} \sum_{n \geq 0} q^{n^2}.
+\end{equation*}
+
+Next, we look at $p_{e d}^{o u}$ (even parts smaller than odd parts, parts distinct), where the generating function is
+\begin{equation*}
+  \frac{1}{2(q; q^2)_\infty}
+  \left((q; - q)_\infty + 1 - \sum_{n \geq 0}(1 -(- 1)^n q^n )(- 1)^{\dotsb} q^{\dotsb} \right).
+\end{equation*}
+This isn't modular, but you can improve it to obtain some sort of modular by introducing, for $z \in \mathbb{C}$ and $\tau \in \mathbb{H}$,
+\begin{equation*}
+  \psi(z, \tau) := i \sum_{n \in \mathbb{Z}} \sgn \left( n + \tfrac{1}{2} \right)(- 1)^n
+  \zeta^{n + 1/2} q^{\tfrac{1}{2}(n + \tfrac{1}{2})^2}.  
+\end{equation*}
+We can recover this as the limit as $t \rightarrow \infty$ of a $\hat{\psi}(z; \tau, \tau + i t)$, where:
+\begin{theorem}[B.--Nazaroglu]
+  $\hat{\psi}$ has modular transformation properties.
+\end{theorem}
+
+Next, we want to look at $p_{e d}^{o d}$: partitions where even parts are smaller than odd parts, odd parts distinct.  The generating function is
+\begin{equation*}
+  \frac{(- q; q^2)_\infty}{ 1 - q}
+  - \frac{q(- q^2 ; q^2)_\infty}{1 - q},
+\end{equation*}
+which is just some modular object, so you can use the circle method.
+
+Similarly for a related case.
+
+Next, let's look at $p_{o u}^{e d}$: odd parts smaller than even parts.  The generating function involves Ramanujan's mock theta function $f(q)$, which Zwegers showed how to understand (by completing by adding a second piece, given by an integral of a theta function of weight $3 /2$).
+
+Harmonic Maass forms are $\hat{f}$ that transform like a modular form of weight $1/2$, annihilated by hyperbolic Laplacian of weight $1/2$.  B.--Mahlburg developed a theory of coefficients of mock modular forms multiplied by a modular form.  B.--Craig--Nazaroglu obtained leading asymptotics for all coefficients; can one obtain refinements for all of them?
+
+$\sigma$ is not enough; one needs also its companion
+\begin{equation*}
+  \sigma^\ast(q) = \sum_{n \geq 1}
+  \frac{(- 1)^n q^{n^2}}{(q; q^2)_n}.  
+\end{equation*}
+Let $a(n)$ its coefficients.
+\begin{theorem}[Cohen]
+  These are the coefficients of a Maass form.
+\end{theorem}
+
+\begin{definition}[Zagier]
+  $f : \mathbb{Q} \rightarrow \mathbb{C}$ is a quantum modular form if $h_\gamma(x) := f(x) - f|_k \gamma(x)$ is nice on some nice subsets of $\mathbb{R}$.
+\end{definition}
+
+For $q$ a root of unity, we have $\sigma(q) = - \sigma^\ast(q^{-1})$.  We define $f$ in terms of $\sigma$ and $\sigma^\ast$, and also a function $R_\tau(z)$, and a measure defined by a bracket.  Then we can concisely express the transformation law of $f$ in terms of these definitions.  In particular, we deduce that $f$ is a quantum modular form.  This leads to improved asymptotics for the coefficients.  First, we split off components that we understand.  Let $r_o(n)$ denote the number of partitions of $n$ into distinct odd parts.  Its generating function is $\prod_{n \geq 0}(1 + q^{2 n + 1})$.  We can decompose into even and odd parts.
+
+Our main theorem:
+\begin{theorem}[B.--Craig--Nazaroglu]
+  Very good asymptotics for $\alpha_j(n)$.
+\end{theorem}
+
+Work in progress: recover determine asymptotic expansion.
+
+Idea of proof: use Maass forms.  Build a vector-valued form out of $\sigma$.  Circle method.
+
+
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
