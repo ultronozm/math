@@ -225,7 +225,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2024-09-10 16:38:18
+2024-09-11 09:51:03
       <a href="20240909T093140--cirm-conference.tex" class="my-link">tex</a>
       <a href="20240909T093140--cirm-conference.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20240909T093140--cirm-conference.tex" class="my-link">history</a>
@@ -326,6 +326,14 @@ href="#abelian-covers-of-p1-of-p-ordinary-ekedahloort-type-deepesh-singhal"
 id="toc-abelian-covers-of-p1-of-p-ordinary-ekedahloort-type-deepesh-singhal">Abelian
 covers of P1 of p-ordinary Ekedahl–Oort type, <span
 class="nodecor"><em>Deepesh Singhal</em> </span></a></li>
+<li><a href="#hyperbolic-counting-problems-marius-voskou"
+id="toc-hyperbolic-counting-problems-marius-voskou">Hyperbolic Counting
+Problems, <span class="nodecor"><em>Marius Voskou</em></span></a></li>
+<li><a
+href="#false-indefinite-theta-functions-and-partitions-separated-by-parity-kathrin-bringmann"
+id="toc-false-indefinite-theta-functions-and-partitions-separated-by-parity-kathrin-bringmann">False
+indefinite theta functions and partitions separated by parity, <span
+class="nodecor"><em>Kathrin Bringmann</em></span></a></li>
 </ul>
 </nav>
 <h1
@@ -2710,6 +2718,338 @@ Dieudonn<span>é</span> module,</p></li>
 <p>We translate the condition of having maximal EO type to linear
 algebra conditions on the Hasse–Witt triple. By explicitly computing
 them, we are able to verify the rank conditions.</p>
+<h1 id="hyperbolic-counting-problems-marius-voskou">Hyperbolic Counting
+Problems, <span class="nodecor"><em>Marius Voskou</em></span></h1>
+<p>Preprint: <a href="#ref-2024arXiv2407.03134" class="citation"
+data-cites="2024arXiv2407.03134">(Voskou 2024)</a>.</p>
+<p>We start with an interlude on hyperbolic geometry. Work with <span
+class="math inline">\({\mathop{\mathrm{PSL}}}_2(\mathbb{R})\)</span>
+(orientation-preserving isometries), lattice points <span
+class="math inline">\(\gamma \cdot z\)</span>, where <span
+class="math inline">\(\gamma \in \Gamma\)</span>, a discrete cofinite
+subgroup of <span
+class="math inline">\({\mathop{\mathrm{PSL}}}_2(\mathbb{R})\)</span>, and
+<span class="math inline">\(z \in \mathbb{H}\)</span>.</p>
+<p>Consider a hyperbolic circle of center <span
+class="math inline">\(w\)</span>, radius <span
+class="math inline">\(R\)</span>.</p>
+<p>This looks like a Euclidean circle; the only difference is that the
+center is slightly lower than what you’d expect, which has to do with
+the fact that distances blow up as you get closer to the <span
+class="math inline">\(x\)</span>-axis.</p>
+<p>We’re now ready to formulate our first hyperbolic counting problem:
+take <span class="math display">\[N(z, w, R) := \# \left\{ \gamma z :
+\gamma \in \Gamma, \mathop{\mathrm{dist}}(w, \gamma z) \leq R
+\right\}.\]</span></p>
+<p>The same method as in the Euclidean counting problem does, in
+principle work. We get a main term comparable to the area, an error term
+comparable to the circumference. The problem is that in hyperbolic
+geometry, these are comparable – both are comparable to <span
+class="math inline">\(e^R\)</span> – so the error term is not smaller
+than the main term. Instead, we use the spectral theory of automorphic
+forms.</p>
+<p>To that end, the first step is to write our count in terms of the
+automorphic kernel: <span class="math display">\[N(z, w, R) = K(z, w)
+  = \sum_{\gamma} \mathbf{1}(\mathop{\mathrm{dist}}(w, \gamma z) &lt;
+R).\]</span> We know that automorphic kernels have nice spectral
+expansions in terms of eigenfunctions of the hyperbolic Laplacian. Since
+it’s a 20 minute talk, we’ll just take spectral theory as a black box
+and not say much about it. The thing we want to note is that the
+hyperbolic Laplacian has two kinds of eigenvalues:</p>
+<ul>
+<li><p>large eigenvalues: <span class="math inline">\(\lambda \geq
+1/4\)</span>, <span class="math inline">\(\lambda = s(1 - s), s = 1/2 +
+i t\)</span>.</p></li>
+<li><p>small eigenvalues: <span class="math inline">\(\lambda &lt; 1/4,
+\lambda = s(1 - s), s \in \left(1/2,1\right]\)</span>, of which there
+are finitely many.</p></li>
+</ul>
+<p>Using this spectral expansion, Selberg in the 70’s proved an
+asymptotic formula for <span class="math inline">\(N(z, w,
+R)\)</span>:</p>
+<div class="theorem">
+<p><strong>Theorem 64</strong> (Selberg 1970, Gunther 1980, Good 1983).
+<em>We have <span class="math display">\[N(z, w, \log X)
+    = \frac{2 \pi}{\operatorname{area}(\mathbb{H} / \Gamma)}
+    X + \sum_{s_j}
+    c_j(z, w) X^{s_j} + \operatorname{O}(X^{2/3}),\]</span> where the
+sum is over finitely many real numbers <span class="math inline">\(s_j
+\in(1/2, 1)\)</span>, corresponding to the small eigenvalues.</em></p>
+</div>
+<p>Now, let’s move to a slightly more complicated problem: let’s ask
+what happens if instead of points, we have geodesics. For fixed (closed)
+geodesics <span class="math inline">\(\ell_1, \ell_2\)</span>, how many
+geodesics <span class="math inline">\(\gamma \cdot \ell_1\)</span> have
+distance <span class="math inline">\(\leq R\)</span> from <span
+class="math inline">\(\ell_2\)</span>? For simplicity, take <span
+class="math inline">\(\ell_1 = \ell_2 = \ell\)</span>.</p>
+<p>[Picture of a pair of closed geodeics intersecting.]</p>
+<p>The distance between closed geodesics is the length of the common
+perpendicular. We want to count how many closed geodesics are at given
+distance from one closed geodesic.</p>
+<p>Our strategy is again to use the spectral theory of automorphic
+forms. We can write the count as the integral of an automorphic kernel:
+<span class="math display">\[N(\ell_1, \ell_2, R) = \int_{\ell_1}
+\int_{\ell_2}
+  K(z, w)
+  \, d s(z)
+  \, d s(w).\]</span> This leads to an asymptotic formula:</p>
+<div class="theorem">
+<p><strong>Theorem 65</strong> (Good 1983, Lekkas–Petridis 2024). <em>We
+have <span class="math display">\[N(\ell, \log X)
+    = \frac{2(\operatorname{len} \ell)^2}{\pi
+\operatorname{area}(\mathbb{H} / \Gamma)} X
+    + \sum_{s_j}(\ell) X^{s_j} + E(X),\]</span> where <span
+class="math inline">\(E(X) =
+\operatorname{O}(X^{2/3})\)</span>.</em></p>
+</div>
+<p>Let’s say a few words about why it’s necessary to have a second proof
+of this. The first proof by Good was hard to read, and some people still
+question whether it was valid. In particular, if you want to do
+refinements of this or apply his methods to obtain related results, it’s
+difficult. Petridis–Lekkas found simpler methods that also apply to
+other problems.</p>
+<div class="conjecture">
+<p><strong>Conjecture 66</strong>. <em>We have <span
+class="math inline">\(E(X) = \operatorname{O}(X^{1/2 +
+\varepsilon})\)</span>. (And similarly for the previous problem, and
+many similar problems.)</em></p>
+</div>
+<p>This has been around for many decades, and we have zero improvements
+on <span class="math inline">\(X^{2/3}\)</span>.</p>
+<p>What we’re going to try to do now is to motivate this conjecture. To
+that end, we’ll start by saying why we can’t do any better:</p>
+<div class="theorem">
+<p><strong>Theorem 67</strong> (V. 2024). <em>We have <span
+class="math display">\[E(X) = \Omega \left( X^{1/2}(\log \log X)^{1/4 -
+\delta} \right).\]</span></em></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 68</strong> (Lekkas–Petridis 2024). <em>We have <span
+class="math display">\[\left( \frac{1}{X} \int_X^{2 X} \lvert E(u)
+\rvert^2 \, d u \right)^{1/2} \ll X^{1/2} \log X.\]</span></em></p>
+</div>
+<p>Now, let’s restrict to the case of a primitive hyperbolic element
+<span class="math display">\[h =
+  \begin{pmatrix}
+    m    &amp; 0 \\
+    0 &amp; m^{-1} \\
+  \end{pmatrix}.\]</span> For <span class="math inline">\(\ell =
+\mathcal{I} / \langle h \rangle\)</span>, we have <span
+class="math display">\[\cosh \mathop{\mathrm{dist}}(\ell, \gamma \ell) =
+\max \left( \lvert a d + b c \rvert, 1 \right),\]</span> so our counting
+problem can be rephrased as follows: how many double cosets <span
+class="math inline">\(\gamma \in \langle h \rangle \backslash \Gamma /
+\langle h \rangle\)</span> with <span class="math inline">\(\lvert a d +
+b c \rvert &lt; X\)</span>? We can also ask, are there more <span
+class="math inline">\(\gamma\)</span> with <span class="math inline">\(a
+d + b c &gt; 0\)</span> than <span class="math inline">\(a d + b c &lt;
+0\)</span>, or less? Equivalently, are there more <span
+class="math inline">\(a, d\)</span> having the same sign than different,
+or less? Geometric interpretation: the sign corresponds to the direction
+of the image <span class="math inline">\(\gamma \cdot \ell\)</span>, and
+whether it lies on the left or the right of <span
+class="math inline">\(\ell\)</span>. This behaves differently as we
+tilde <span class="math inline">\(\ell\)</span> to some <span
+class="math inline">\(\ell_\theta\)</span>. Idea: consider <span
+class="math display">\[\frac{\partial^2}{\partial \theta \partial \phi}
+  N(\ell_\theta, \ell_\phi, R).\]</span></p>
+<p>Let’s finish with a nice arithmetic application. Fix a prime <span
+class="math inline">\(p\)</span>. For <span
+class="math inline">\(\Gamma\)</span> an appropriate quaternion order,
+and <span class="math inline">\(m = \left( 1 + \sqrt{2}
+\right)^2\)</span>:</p>
+<div class="theorem">
+<p><strong>Theorem 69</strong> (V. 2023, <span
+class="math inline">\(p=5\)</span>; Hejhal 1982). <em>We have <span
+class="math display">\[\sum_{n \leq X} \mathcal{N}(n) \mathcal{N}(p n
+\pm 1)
+    =
+    \frac{p}{p + \left( \frac{2}{p} \right)}
+    \cdot \left( \frac{\log m}{ \pi} \right)^2 X +
+    \sum_{1/2 &lt; s_j &lt; 1}
+    a_j^{\pm} X^{s_j} + \operatorname{O}(X^{2/3}),\]</span> where <span
+class="math inline">\(a_j^{\pm}\)</span> is real and <span
+class="math inline">\(\mathcal{N}(n)\)</span> is the number of <span
+class="math inline">\(\mathfrak{a} \leq \mathbb{Z}[\sqrt{2}]\)</span>
+with <span class="math inline">\(\norm(\mathfrak{a}) =
+n\)</span>.</em></p>
+</div>
+<p>That’s all.</p>
+<h1
+id="false-indefinite-theta-functions-and-partitions-separated-by-parity-kathrin-bringmann">False
+indefinite theta functions and partitions separated by parity, <span
+class="nodecor"><em>Kathrin Bringmann</em></span></h1>
+<p>Today we’ll first say a bit about modular forms and partitions, but
+we’ll probably skip most of that, since we’ve already seen it. In
+particular, we need the Dedekind eta function <span
+class="math inline">\(\eta(q) = q^{1/24} \prod(1 - q^n)\)</span> and the
+theta function <span class="math inline">\(\Theta(q) = \sum
+q^{n^2}\)</span>, together with the partition generating function <span
+class="math inline">\(P(q) = \sum p(n) q^n\)</span>. By work of Hardy
+and Ramanujan who developed the circle method, we have asymptotics for
+<span class="math inline">\(p(n)\)</span>, which Rademacher improved to
+an exact formula: letting <span class="math display">\[A_k(n) :=
+\sum_{h(k)^\ast} \omega_{h, k} e^{- \frac{2 \pi i n h}{k}},\]</span> and
+the Bessel function <span class="math inline">\(I_\alpha\)</span>,
+Rademacher obtained <span class="math display">\[p(n) = \frac{2 \pi}{(24
+n - 1)^{3/4}}
+  \sum_{k \geq 1} \frac{A_k(n)}{n}
+  I_{3/2} \left( \frac{4 \pi \sqrt{n}}{k} \right).\]</span></p>
+<p><strong>Goal</strong>: determine asymptotic behavior of <span
+class="math inline">\(a(n)\)</span> as <span class="math inline">\(n
+\rightarrow \infty\)</span>.</p>
+<p>Let <span class="math inline">\(A(q) := \sum_{n \geq 0} a(n)
+q^n\)</span> denote the generating function. Then we can recover <span
+class="math inline">\(a(n)\)</span> via Cauchy. The Hardy–Ramanujan
+asymptotics are obtained using <span class="math display">\[I_\kappa(x)
+\sim \frac{e^x}{ \sqrt{2 \pi x}}.\]</span> Rademacher–Zuckerman obtained
+exact formulas for Fourier coefficients of modular forms of negative
+weights, and Bringmann–Ono addressed the case of weight zero.</p>
+<p>Ramanujan’s lost notebook introduced the <span
+class="math inline">\(q\)</span>-hypergeometric series <span
+class="math inline">\(\sigma(q)\)</span>, with coefficients <span
+class="math inline">\(S(n)\)</span>.</p>
+<div class="theorem">
+<p><strong>Theorem 70</strong> (Andrews–Dyson–Hickerson). <em>We have
+<span class="math inline">\(S(n) = T(24 n + 1)\)</span>, where <span
+class="math inline">\(T(m)\)</span> is the number of solutions to a
+certain Pell’s equation.</em></p>
+</div>
+<div class="definition">
+<p><strong>Definition 71</strong>. We say that a <span
+class="math inline">\(q\)</span>-series is <em>lacunary</em> if its
+coefficients are almost always zero.</p>
+</div>
+<div class="corollary">
+<p><strong>Corollary 72</strong>. <em><span
+class="math inline">\(\sigma(q)\)</span> is lacunary. <span
+class="math inline">\(S(n)\)</span> obtains every integer infinitely
+often.</em></p>
+</div>
+<p>Key identity: an expression for <span
+class="math inline">\(\sigma(q)\)</span> as a false indefinite theta
+function (not quite a modular form).</p>
+<p>Now, what are the partition statistics that we’re interested in?
+We’re interested in partitions separated by parity: even parts larger
+than odd parts (or reversed). You can also require that parts be or not
+be distinct,. In particular, we’r einterested in <span
+class="math inline">\(p_{o d}^{e u}(n)\)</span>, the number of
+partitions with odd parts smaller than even parts and odd parts
+distinct. For instance, for <span class="math inline">\(n = 5\)</span>,
+we get <span class="math inline">\(5\)</span>, <span
+class="math inline">\(4 + 1\)</span>, <span class="math inline">\(2 + 2
++ 1\)</span>, so <span class="math inline">\(p_{o d}^{e u}(5) =
+3\)</span>.</p>
+<p>The associated generating function <span class="math inline">\(F_{o
+d}^{e u}(q)\)</span> is related to <span
+class="math inline">\(\sigma\)</span> via <span
+class="math display">\[\frac{1}{(q^2, q^2)_\infty} \left( 1 - \dotsb
+\right),\]</span> where <span class="math inline">\(\sigma\)</span> is a
+simple expression involving <span
+class="math inline">\(\sigma\)</span>.</p>
+<div class="theorem">
+<p><strong>Theorem 73</strong> (B–Craig–Nazaroglu). <em>As <span
+class="math inline">\(n \rightarrow \infty\)</span>, we have <span
+class="math display">\[\sim \frac{e^{\pi \sqrt{n/3}}}{2 \sqrt{3}
+n}.\]</span></em></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Use that coefficients are monotonic, Tauberian
+theorem, Euler–Maclaurin. ◻</p>
+</span></div>
+<p>Let’s now tweak the combinatorics a little bit: take <span
+class="math inline">\(p_{e u}^{o u}(n)\)</span> denote the number of
+partitions with even parts smaller than odd parts, then the
+corresponding generating function is <span class="math display">\[F_{e
+u}^{o u}(q) =   \frac{1}{(1 - q)(q^2 ; q^2)_\infty}.\]</span></p>
+<p>We can also define <span class="math inline">\(p_{e u}^{o
+d}\)</span>, whose generating function is <span
+class="math display">\[\frac{1}{(q^2 ; q^2)_\infty} \sum_{n \geq 0}
+q^{n^2}.\]</span></p>
+<p>Next, we look at <span class="math inline">\(p_{e d}^{o u}\)</span>
+(even parts smaller than odd parts, parts distinct), where the
+generating function is <span class="math display">\[\frac{1}{2(q;
+q^2)_\infty}
+  \left((q; - q)_\infty + 1 - \sum_{n \geq 0}(1 -(- 1)^n q^n )(-
+1)^{\dotsb} q^{\dotsb} \right).\]</span> This isn’t modular, but you can
+improve it to obtain some sort of modular by introducing, for <span
+class="math inline">\(z \in \mathbb{C}\)</span> and <span
+class="math inline">\(\tau \in \mathbb{H}\)</span>, <span
+class="math display">\[\psi(z, \tau) := i \sum_{n \in \mathbb{Z}}
+\mathop{\mathrm{sgn}}\left( n + \tfrac{1}{2} \right)(- 1)^n
+  \zeta^{n + 1/2} q^{\tfrac{1}{2}(n + \tfrac{1}{2})^2}.\]</span> We can
+recover this as the limit as <span class="math inline">\(t \rightarrow
+\infty\)</span> of a <span class="math inline">\(\hat{\psi}(z; \tau,
+\tau + i t)\)</span>, where:</p>
+<div class="theorem">
+<p><strong>Theorem 74</strong> (B.–Nazaroglu). <em><span
+class="math inline">\(\hat{\psi}\)</span> has modular transformation
+properties.</em></p>
+</div>
+<p>Next, we want to look at <span class="math inline">\(p_{e d}^{o
+d}\)</span>: partitions where even parts are smaller than odd parts, odd
+parts distinct. The generating function is <span
+class="math display">\[\frac{(- q; q^2)_\infty}{ 1 - q}
+  - \frac{q(- q^2 ; q^2)_\infty}{1 - q},\]</span> which is just some
+modular object, so you can use the circle method.</p>
+<p>Similarly for a related case.</p>
+<p>Next, let’s look at <span class="math inline">\(p_{o u}^{e
+d}\)</span>: odd parts smaller than even parts. The generating function
+involves Ramanujan’s mock theta function <span
+class="math inline">\(f(q)\)</span>, which Zwegers showed how to
+understand (by completing by adding a second piece, given by an integral
+of a theta function of weight <span class="math inline">\(3
+/2\)</span>).</p>
+<p>Harmonic Maass forms are <span class="math inline">\(\hat{f}\)</span>
+that transform like a modular form of weight <span
+class="math inline">\(1/2\)</span>, annihilated by hyperbolic Laplacian
+of weight <span class="math inline">\(1/2\)</span>. B.–Mahlburg
+developed a theory of coefficients of mock modular forms multiplied by a
+modular form. B.–Craig–Nazaroglu obtained leading asymptotics for all
+coefficients; can one obtain refinements for all of them?</p>
+<p><span class="math inline">\(\sigma\)</span> is not enough; one needs
+also its companion <span class="math display">\[\sigma^\ast(q) = \sum_{n
+\geq 1}
+  \frac{(- 1)^n q^{n^2}}{(q; q^2)_n}.\]</span> Let <span
+class="math inline">\(a(n)\)</span> its coefficients.</p>
+<div class="theorem">
+<p><strong>Theorem 75</strong> (Cohen). <em>These are the coefficients
+of a Maass form.</em></p>
+</div>
+<div class="definition">
+<p><strong>Definition 76</strong> (Zagier). <span
+class="math inline">\(f : \mathbb{Q} \rightarrow \mathbb{C}\)</span> is
+a quantum modular form if <span class="math inline">\(h_\gamma(x) :=
+f(x) - f|_k \gamma(x)\)</span> is nice on some nice subsets of <span
+class="math inline">\(\mathbb{R}\)</span>.</p>
+</div>
+<p>For <span class="math inline">\(q\)</span> a root of unity, we have
+<span class="math inline">\(\sigma(q) = - \sigma^\ast(q^{-1})\)</span>.
+We define <span class="math inline">\(f\)</span> in terms of <span
+class="math inline">\(\sigma\)</span> and <span
+class="math inline">\(\sigma^\ast\)</span>, and also a function <span
+class="math inline">\(R_\tau(z)\)</span>, and a measure defined by a
+bracket. Then we can concisely express the transformation law of <span
+class="math inline">\(f\)</span> in terms of these definitions. In
+particular, we deduce that <span class="math inline">\(f\)</span> is a
+quantum modular form. This leads to improved asymptotics for the
+coefficients. First, we split off components that we understand. Let
+<span class="math inline">\(r_o(n)\)</span> denote the number of
+partitions of <span class="math inline">\(n\)</span> into distinct odd
+parts. Its generating function is <span class="math inline">\(\prod_{n
+\geq 0}(1 + q^{2 n + 1})\)</span>. We can decompose into even and odd
+parts.</p>
+<p>Our main theorem:</p>
+<div class="theorem">
+<p><strong>Theorem 77</strong> (B.–Craig–Nazaroglu). <em>Very good
+asymptotics for <span
+class="math inline">\(\alpha_j(n)\)</span>.</em></p>
+</div>
+<p>Work in progress: recover determine asymptotic expansion.</p>
+<p>Idea of proof: use Maass forms. Build a vector-valued form out of
+<span class="math inline">\(\sigma\)</span>. Circle method.</p>
 <div id="refs" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" role="list">
 <div id="ref-2024arXiv2401.08855" class="csl-entry" role="listitem">
@@ -2791,6 +3131,11 @@ href="https://doi.org/10.1080/10586458.2017.1423249">https://doi.org/10.1080/105
 Sun, Qihang. 2024. <span>“Exact Formulae for Ranks of
 Partitions,”</span> June. <a
 href="http://arxiv.org/abs/2406.06294v1">http://arxiv.org/abs/2406.06294v1</a>.
+</div>
+<div id="ref-2024arXiv2407.03134" class="csl-entry" role="listitem">
+Voskou, Marios. 2024. <span>“Refined Counting of Geodesic Segments in
+the Hyperbolic Plane,”</span> July. <a
+href="http://arxiv.org/abs/2407.03134v1">http://arxiv.org/abs/2407.03134v1</a>.
 </div>
 </div>
 <script>
