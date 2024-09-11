@@ -225,7 +225,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2024-09-11 10:33:48
+2024-09-11 12:24:57
       <a href="20240909T093140--cirm-conference.tex" class="my-link">tex</a>
       <a href="20240909T093140--cirm-conference.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20240909T093140--cirm-conference.tex" class="my-link">history</a>
@@ -340,6 +340,23 @@ id="toc-on-the-local-functional-equation-for-archimedean-exterior-square-l-funct
 the local functional equation for archimedean exterior square L-function
 of <span class="math inline">\(\mathrm{GL}_n\)</span>, <span
 class="nodecor"><em>Ravi Raghunathan</em></span></a></li>
+<li><a
+href="#traces-of-poincare-series-at-square-discriminants-and-fourier-coefficients-of-mock-modular-forms-vaibhav-kalia"
+id="toc-traces-of-poincare-series-at-square-discriminants-and-fourier-coefficients-of-mock-modular-forms-vaibhav-kalia">Traces
+of Poincare series at square discriminants and Fourier coefficients of
+mock modular forms, <span class="nodecor"><em>Vaibhav
+Kalia</em></span></a></li>
+<li><a
+href="#limiting-behaviour-and-modular-completions-of-macmahon-like-q-series-badri-vishal-pandey"
+id="toc-limiting-behaviour-and-modular-completions-of-macmahon-like-q-series-badri-vishal-pandey">Limiting
+behaviour and modular completions of MacMahon-like q-series, <span
+class="nodecor"><em>Badri Vishal Pandey</em></span></a></li>
+<li><a
+href="#explicit-lower-bounds-on-the-conductor-of-abelian-varieties-with-specified-bad-reduction-pierre-tchamitchian"
+id="toc-explicit-lower-bounds-on-the-conductor-of-abelian-varieties-with-specified-bad-reduction-pierre-tchamitchian">Explicit
+lower bounds on the conductor of abelian varieties with specified bad
+reduction, <span class="nodecor"><em>Pierre
+Tchamitchian</em></span></a></li>
 </ul>
 </nav>
 <h1
@@ -3316,6 +3333,650 @@ class="math inline">\(L\)</span>-factor.</p></li>
 data-cites="2021arXiv2112.06860">(Humphries and Jo 2021)</a> prove
 the second assertion up to a polynomial factor, using a single test
 vector.</p>
+<h1
+id="traces-of-poincare-series-at-square-discriminants-and-fourier-coefficients-of-mock-modular-forms-vaibhav-kalia">Traces
+of Poincare series at square discriminants and Fourier coefficients of
+mock modular forms, <span class="nodecor"><em>Vaibhav
+Kalia</em></span></h1>
+<p>(Joint work with PhD supervisor Balesh Kumar.)</p>
+<p>[Oops, started late]</p>
+<p><span class="math inline">\(\varepsilon_\delta = 1\)</span> if <span
+class="math inline">\(\delta \equiv 1(4)\)</span>, and <span
+class="math inline">\(\varepsilon_d = i\)</span> otherwise.</p>
+<p>Fix <span class="math inline">\(d, D \equiv 0, 1 (4)\)</span>; call
+them <em>discriminants</em> if they are nonzero.</p>
+<p>Fix <span class="math inline">\(\tau \in \mathbb{H}\)</span>.</p>
+<p>Let <span class="math inline">\(k \in \tfrac{1}{2}
+\mathbb{Z}\)</span>. Assume <span class="math inline">\(\Gamma =
+{\mathop{\mathrm{SL}}}_2(\mathbb{Z})\)</span> if <span
+class="math inline">\(k \in \mathbb{Z}\)</span>, else <span
+class="math inline">\(\Gamma = \Gamma_0(4)\)</span>.</p>
+<p>We define the slash operator and Kohnen’s space <span
+class="math inline">\(M_k^{!, +}\)</span>.</p>
+<p>Let <span class="math inline">\(j\)</span> be Klein’s <span
+class="math inline">\(j\)</span>-function with <span
+class="math inline">\(q\)</span>-expansion <span
+class="math display">\[j(\tau) = q^{-1} + 744 + 196884q +
+\dotsb.\]</span> Zagier 2002: we can give a basis for <span
+class="math inline">\(M_{3/2}^{!, +}\)</span> as <span
+class="math inline">\(\mathcal{G}_d\)</span>, indexed by <span
+class="math inline">\(0 &lt; d \equiv 0, 1(4)\)</span>, where <span
+class="math display">\[\mathcal{G}_d(\tau) = q^{- d} + \sum_{0 &gt; D
+\equiv 0, 1 (4)} a(d, D) q^{- D},\]</span> where <span
+class="math display">\[a(d, D) = \operatorname{Tr}_{D, d}(j - 744)
+  := \frac{1}{\sqrt{d}}
+  \sum_{Q \in {\mathop{\mathrm{PSL}}}_2(\mathbb{Z}) \backslash
+\mathcal{Q}_{d D}}
+  \frac{\chi_d(Q)}{ \lvert \Gamma_Q \rvert}(j - 744)(\tau_Q).\]</span>
+Further, if for <span class="math inline">\(0 &gt; d \equiv 0,
+1(4)\)</span> we define <span class="math display">\[\mathcal{F}_d(\tau)
+:= q^d + \sum_{0 &lt; D \equiv 0 , 1(4)} a(D, d) q^D,\]</span> then
+Borcherds (1995) basis for <span class="math inline">\(M_{1/2}^{!,
++}\)</span> is given by <span
+class="math inline">\(\mathcal{F}_d\)</span> for <span
+class="math inline">\(0 &gt; d \equiv 0,1(4)\)</span>.</p>
+<div class="question">
+<p><strong>Question 84</strong>. Are there analogues of the functions
+<span class="math inline">\(\operatorname{Tr}_{D, d}(\bullet)\)</span>
+when <span class="math inline">\(d D &gt; 0\)</span> for weight zero
+functions? Are they related to any famiy of modular forms?</p>
+</div>
+<div class="answer">
+<p><strong>Answer 1</strong>. Yes: harmonic weak Maass forms and mock
+modular forms.</p>
+</div>
+<p>We recall the definition of a weight <span
+class="math inline">\(k\)</span> harmonic weak Maass form on <span
+class="math inline">\(\Gamma\)</span>. It’s any smooth function <span
+class="math inline">\(f : \mathbb{H} \rightarrow \mathbb{C}\)</span>
+that satisfies <span class="math inline">\(f |_k A(\tau) =
+f(\tau)\)</span>, annihilated by <span
+class="math inline">\(\Delta_k\)</span> (hyperbolic Laplacian), and has
+an exponential growth condition at all cusps. We denote by <span
+class="math inline">\(\mathcal{H}_k ^!\)</span> the space of such weight
+<span class="math inline">\(k\)</span> harmonic Maass forms on <span
+class="math inline">\(\Gamma\)</span>.</p>
+<p>By a <em>sesqui</em> harmonic Maasss form of weight <span
+class="math inline">\(k\)</span>, we mean the same thing, but without
+the second condition concerning <span
+class="math inline">\(\Delta_k\)</span>, and instead <span
+class="math inline">\(\xi_k \circ \Delta_k(f) = 0\)</span>, where <span
+class="math inline">\(\xi_k\)</span> is as in the definition of the
+shadow.</p>
+<p>The Fourier expansion of <span class="math inline">\(f \in
+\mathcal{H}_k ^!\)</span> at <span class="math inline">\(\infty\)</span>
+with <span class="math inline">\(k \neq 1\)</span> is given by <span
+class="math display">\[f(\tau) = \sum_{
+    \substack{
+      n \in \mathbb{Z}  \\
+      n \gg - \infty      
+    }
+  } c_f^+(n) q^n + c_f^-(0) y^{1 - k}
+  + \sum_{
+    \substack{
+      n \in \mathbb{Z} - \{0\}  \\
+      n \ll \infty      
+    }
+  } c_f^-(n)
+  W_k(2 \pi n y) q^n.\]</span></p>
+<p>Following Zagier (2007), a <em>mock modular form</em> of weight <span
+class="math inline">\(k\)</span> for <span
+class="math inline">\(\Gamma\)</span> is the holomorphic part <span
+class="math inline">\(f^+\)</span> of <span class="math inline">\(f \in
+\mathcal{H}_k ^!\)</span>. It turns out that <span
+class="math inline">\(\xi_k(f)\)</span> is a weakly holmorphic of weight
+<span class="math inline">\(2-k\)</span>, called the <em>shadow</em> of
+<span class="math inline">\(f\)</span>.</p>
+<p>Duke–Imamoglu–Toth (2011) constructed a basis <span
+class="math inline">\(\mathcal{F}_d\)</span>, indexed by <span
+class="math inline">\(d &lt; 0\)</span>, for mock modular forms, where
+<span class="math display">\[\mathcal{F}_d = \sum_{D &gt; 0} a(D, d)
+q^D\]</span> with <span class="math inline">\(a(d, D)\)</span> defined
+in terms of the cycle integrals <span class="math display">\[(2
+\pi)^{-1} \sum_{Q \in \Gamma \backslash \mathcal{Q}_{d D}}
+  \chi_d(Q) \int_{C_Q}(j - 744)(\tau)
+  \, \frac{d \tau}{ Q(\tau, 1)}\]</span> for <span
+class="math inline">\(d , d &gt; 0\)</span> with <span
+class="math inline">\(d D \neq \square\)</span>.</p>
+<p>To interpret <span class="math inline">\(a(D, d)\)</span> when <span
+class="math inline">\(d D = \square\)</span>, appeal to BFI2015 and
+Andersen2015.</p>
+<p>JKK2013–2014: basis <span
+class="math inline">\(\mathcal{G}_d\)</span>, indexed by <span
+class="math inline">\(d &gt; 0\)</span>, with coefficients <span
+class="math inline">\(b(d, D)\)</span> given in terms of twisted traces
+of cycle integrals of <span
+class="math inline">\(\hat{\mathbb{J}}_1(\tau)\)</span>, where <span
+class="math inline">\(\Delta_0(\hat{\mathbb{J}}_1) = - j + 720\)</span>
+(done in the case where <span class="math inline">\(d, D &lt; 0\)</span>
+and <span class="math inline">\(d D \neq \square\)</span>).</p>
+<p>What should <span class="math inline">\(b(d, D)\)</span> be when
+<span class="math inline">\(d, D &lt; 0\)</span> and <span
+class="math inline">\(d D = \square\)</span>? We’ll see in a moment.</p>
+<p>We’ll need the notion of Niebur Poincar<span>é</span> series (1973),
+which we’ve already seen, defined for <span class="math inline">\(\Re(s)
+&gt; 1\)</span> by <span class="math display">\[G_{- 1}(\tau, s) =
+\sum_{A \in \Gamma_\infty \backslash \Gamma}
+  e \left( - \Re(A \tau) \right)
+  \phi_{- 1, s} \left( \Im(A \tau) \right).\]</span> Here <span
+class="math display">\[\phi_{- 1, s}(y) := 2 \pi y^{1/2} I_{s - 1/2}(2
+\pi y).\]</span> It defines a smooth weight zero function for <span
+class="math inline">\(\Gamma\)</span>.</p>
+<p>The traces of cycle integrals of these Niebur Poincar<span>é</span>
+series we’ll discuss now.</p>
+<ul>
+<li><p>If <span class="math inline">\(0 &lt; d, D\)</span> with <span
+class="math inline">\(D\)</span> fundamental and <span
+class="math inline">\(d D \neq \square\)</span>, we have (DIT 2011)
+<span class="math display">\[\operatorname{Tr}_{d, D}(G_{- 1}(\tau, s))
+:= \frac{1}{2 \pi}
+    \sum_{Q \in \Gamma \backslash \mathcal{Q}_{d D}}
+    \chi_D(Q) \int_{C_Q} G_{- 1}(\tau, s)
+    \, \frac{d \tau}{ Q(\tau, 1)}.\]</span></p></li>
+<li><p>With <span class="math inline">\(d, D &lt; 0\)</span> and <span
+class="math inline">\(D\)</span> fundamental and <span
+class="math inline">\(d D \neq \square\)</span>, due to <span
+class="math inline">\(\chi_D(- Q) = \mathop{\mathrm{sgn}}(D)
+\chi_D(Q)\)</span>, we can define <span
+class="math display">\[\operatorname{Tr}_{d, D}(G_{- 1}(\tau, s)) =
+    \frac{1}{ \pi}
+    \sum_{Q \in \Gamma_\infty \backslash \mathcal{Q}_{d D}^+}
+    \chi_D(Q) \int_{S_Q} e(- \Re(\tau))
+    \phi_{- 1, s}(\Im (\tau))
+    \, \frac{d \tau}{ Q(\tau, 1)}.\]</span></p></li>
+<li><p>Superscripted <span class="math inline">\(+\)</span> means <span
+class="math inline">\(a &gt; 0\)</span>.</p></li>
+</ul>
+<p>If <span class="math inline">\(0 &lt; d\)</span>, <span
+class="math inline">\(D  = \square\)</span> and <span
+class="math inline">\(D\)</span> fundamental, then the above trace is
+not defined. Andersen 2015: <span
+class="math display">\[\operatorname{Tr}_{d, D}(G_{- 1}(\tau, s))
+  :=
+  \frac{1}{2 \pi}
+  \sum_{Q \in \Gamma \backslash \mathcal{Q}_{d D}}
+  \chi_D(Q) \int_{C_Q} G_{- 1, Q}(\dotsb).\]</span> ETC.</p>
+<p>Modified traces: <span class="math display">\[\operatorname{Tr}_{d,
+D}(G_{- 1}(\tau, s)) = \dotsb,\]</span> <span
+class="math display">\[\tilde{\operatorname{Tr}}_{d, D}(G_{- 1}(\tau,
+s)) := \frac{1}{ \pi}
+  \sum_{Q \in \Gamma_\infty \backslash \mathcal{Q}_{d D}^+}
+  \chi_D(Q) \int_{C_Q} e(- \Re(\tau))
+  \phi_{- 1, s} (\Im \tau)
+  \, \frac{d \tau}{ Q(\tau, 1)}.\]</span></p>
+<p>JKK2014: <span class="math inline">\(\hat{\mathbb{J}}_1(\tau, s) :=
+\partial_s G_{- 1}(\tau, s)\)</span> and proved that <span
+class="math inline">\(\hat{\mathbb{J}}_1(\tau) :=
+\hat{\mathbb{J}}_1(\tau, 1)\)</span> is a sesqui-harmonic Maass form of
+weight zero for <span class="math inline">\(\Gamma\)</span>. We define
+<span class="math display">\[\tilde{\operatorname{Tr}}_{d,
+D}(\hat{\mathbb{J}}_1(\tau)) :=
+  \partial \P \tilde{\operatorname{Tr}}_{d, D}(G_{- 1}(\tau,
+s))|_{s=1}\]</span> when <span class="math inline">\(d , D &lt;
+0\)</span> with <span class="math inline">\(d D = \square\)</span>.</p>
+<div class="theorem">
+<p><strong>Theorem 85</strong> (-, Kumar 2024). <em>For <span
+class="math inline">\(d, D\)</span> negative with <span
+class="math inline">\(D\)</span> fundamental and <span
+class="math inline">\(d D = \square\)</span>, we have <span
+class="math display">\[b(d, D) = - 8 \sqrt{d D}
+\tilde{\operatorname{Tr}}_{d,D}(\dotsb),\]</span> and also ETC.</em></p>
+</div>
+<p>Idea of the proof:</p>
+<ul>
+<li><p><span class="math inline">\(\tilde{\operatorname{Tr}}_{d, D}(G_{-
+1}(\tau, s)) = \alpha(s, d D) \sum_{c = 1}^\infty \frac{S(d, D, 4
+c)}{c^{1/2}}J_{s - 1/2} \left( \frac{\pi \sqrt{d D}}{c}
+\right)\)</span>, where <span class="math display">\[S(d, D, 4 a)
+    := \sum_{
+      \substack{
+        b (4 a)  \\
+        (b^2 - d D) / 4 a \in \mathbb{Z}        
+      }
+    }
+    \chi_D \left( \left[ a, b, \frac{b^2 - d D}{4 a} \right] \right)
+    e \left( \frac{b}{2 a} \right).\]</span></p></li>
+<li><p><span class="math inline">\(\tilde{\operatorname{Tr}}_{d,
+D}(\hat{\mathbb{J}}_1 \dotsb)\)</span>, etc.</p></li>
+</ul>
+<p>We can further relate these traces to the regularized inner product.
+Let <span class="math inline">\(f, g \in M_{1/2}^{!, +}\)</span>
+(resp. <span class="math inline">\(M_0 ^!\)</span>). There exists <span
+class="math inline">\(G \in \mathcal{H}_{3/2}^{!, +}\)</span>
+(resp. <span class="math inline">\(\mathcal{H}_2^!\)</span>) such that
+<span class="math inline">\(\xi_-(G) = g\)</span> (BDS2017). Then <span
+class="math display">\[\langle f, g \rangle = \rho_k \sum_{n \in
+\mathbb{Z}} c_f(n) \dotsb.\]</span> ETC. Relate to Borcherds.</p>
+<p>Idea of the proof:</p>
+<ul>
+<li><p>Since mock modular forms <span
+class="math inline">\(\mathcal{G}_d\)</span> with shadow <span
+class="math inline">\(\mathcal{F}_d\)</span> has <span
+class="math display">\[b(d, D) = 4 \sqrt{d D} c_{\lvert d \rvert}(\lvert
+D \rvert) + 192 \pi H(\lvert d \rvert)
+    H(\lvert D \rvert),\]</span> we get by a computation <span
+class="math display">\[\langle \mathcal{F}_d, \mathcal{F}_D \rangle = 2
+\sqrt{\lvert D d \rvert}
+    c_{\lvert d \rvert}(\lvert D \rvert) + 96 \pi H(\dotsb),\]</span> we
+get ETC.</p></li>
+</ul>
+<p>Next:</p>
+<div class="corollary">
+<p><strong>Corollary 86</strong>. <em>Let <span
+class="math inline">\(D\)</span> be a negative fundamental discriminant.
+Then we have <span class="math display">\[\tilde{\operatorname{Tr}}_{D,
+D}(\hat{\mathbb{J}}_1(\tau))
+    =
+    - \frac{1}{4 \pi \sqrt{\lvert D \rvert}}
+    \sum_{n &gt; 0}
+    \left( \frac{D}{n} \right)
+    \frac{\langle j_n + 24 \sigma(n), j_1 + 24 \rangle}{n}
+    e^{- 2 \pi n / \lvert D \rvert}
+    - \dotsb.\]</span></em></p>
+</div>
+<p>Idea of the proof: ANS2021 computed inner products of <span
+class="math inline">\(\mathcal{F}_D\)</span> in terms of exponential
+integrals, and then explicitly computed <span
+class="math inline">\(\tilde{J}\)</span>, defined such that <span
+class="math inline">\(\xi_2(\tilde{J}) = j_1 = j - 744\)</span>, to be
+given by <span class="math inline">\(4 \pi h_1 - 8 \pi
+E_2^\ast\)</span>, where <span class="math inline">\(h_1 \in H_2
+^!\)</span> (DIT2016) satisfies <span class="math inline">\(\xi_2(4 \pi
+h_1) = j_1 + 24\)</span>, and <span
+class="math display">\[E_2^\ast(\tau) := 1 - 24 \sum_{n \geq 1}
+\sigma(n) q^n.\]</span> We can thus write this inner product in terms of
+the Fourier coefficients of the harmonic Maass forms <span
+class="math inline">\(h_1\)</span>. We then just need to use that <span
+class="math inline">\(\xi_2(4 \pi h_1) = j_1 + 24\)</span> to write
+<span class="math inline">\(c_{4 \pi h_1}^-(n) = 4 \pi n c_{j_1 + 24}(-
+n)\)</span>, then similarly for <span
+class="math inline">\(+\)</span>.</p>
+<p>As final remarks:</p>
+<ul>
+<li><p>For <span class="math inline">\(n  &lt; 0\)</span>, the Fourier
+coefficients <span class="math inline">\(c_{j_1 + 24}(- n)\)</span> of
+<span class="math inline">\(j_1 + 24\)</span> is the
+Rademacher–Petersson formula <span class="math display">\[\frac{2 \pi}{
+\sqrt{- n}}
+    \sum_{c&gt; 0}
+    \frac{K(- 1, - n, c)}{c}
+    I_1 \left( \frac{4 \pi \sqrt{- n}}{c} \right).\]</span></p></li>
+<li><p>The regularized inner product <span class="math inline">\(\langle
+j_n + 24 \sigma(n), j_1 + 24 \rangle\)</span> can also be interpreted in
+terms of the Rademacher–ETC.</p></li>
+</ul>
+<h1
+id="limiting-behaviour-and-modular-completions-of-macmahon-like-q-series-badri-vishal-pandey">Limiting
+behaviour and modular completions of MacMahon-like q-series, <span
+class="nodecor"><em>Badri Vishal Pandey</em></span></h1>
+<p>Preprint: <a href="#ref-2024arXiv2402.08340" class="citation"
+data-cites="2024arXiv2402.08340">(Bringmann et al. 2024)</a>.</p>
+<div class="definition">
+<p><strong>Definition 87</strong> (MacMahon’s <span
+class="math inline">\(q\)</span>-series). <span
+class="math display">\[\mathcal{A}_a(q) := \sum_{1 \leq n_1 &lt; \dotsb
+&lt; n_a}
+    \frac{q^{n_1 + \dotsb + n_a}}{(1 - q^{n_1})^{a_1}
+\dotsb}.\]</span></p>
+</div>
+<div class="example">
+<p><strong>Example 88</strong>. <span
+class="math display">\[\mathcal{A}_1(q) = \sum_{n \geq 1} \frac{q^n}{(1
+- q^n)^{2}}
+    = \frac{1}{24}
+    - \frac{1}{24} E_2(\tau).\]</span> This is a quasimodular form.</p>
+</div>
+<p>Motivation of our work is the following theorem:</p>
+<div class="theorem">
+<p><strong>Theorem 89</strong> (Amdeberhan–Ono–Singh). <em>Let <span
+class="math inline">\(a \in \mathbb{N}\)</span>. We have <span
+class="math display">\[q^{- \frac{a(a + 1)}{2}} \mathcal{A}_a(q) =
+\prod_{n \geq 1} \frac{1}{(1 - q^n)^3} +
+\operatorname{O}(\dotsb).\]</span></em></p>
+</div>
+<div class="example">
+<p><strong>Example 90</strong>. We have <span
+class="math display">\[\prod_{n \geq 1} \frac{1}{(1 - q^n)^3}
+    = 1 + 3 q + 9 q^2 + 22 q^4 + \dotsb,\]</span> and these agree to
+increasing order with <span class="math inline">\(q^{-1}
+\mathcal{A}_1\)</span>, <span class="math inline">\(q^{- 3}
+\mathcal{A}_2\)</span>, <span class="math inline">\(q^{- 6}
+\mathcal{A}_3\)</span>, <span class="math inline">\(q^{-10}
+\mathcal{A}_4\)</span>, <span class="math inline">\(q^{-15}
+\mathcal{A}_5\)</span>, <span class="math inline">\(q^{- 21}
+\mathcal{A}_6\)</span>, etc.</p>
+</div>
+<p>Let <span class="math inline">\(p_k(n)\)</span> count the partitions
+of <span class="math inline">\(n\)</span> with parts having <span
+class="math inline">\(k\)</span>-colors. Its generating function is
+<span class="math display">\[\sum_{n \geq 0} p_k(n) q^n = \prod_{n \geq
+1}
+  \frac{1}{(1 - q^n)^k}.\]</span></p>
+<div class="question">
+<p><strong>Question 91</strong> (Ono). Find a family of functions that
+approximate <span class="math inline">\(k\)</span>-colored
+partitions.</p>
+</div>
+<div class="definition">
+<p><strong>Definition 92</strong>. For <span class="math inline">\(a, r,
+s \in \mathbb{N}\)</span> and <span class="math inline">\(k \in
+\mathbb{Z}\)</span>, define the <span
+class="math inline">\(q\)</span>-series <span
+class="math display">\[\mathcal{A}_{a, k, r}(q) := \sum_{1 \leq n_1 &lt;
+\dotsb &lt; n_a}
+    \frac{q^{r(n_1 + \dotsb + n_a)}}{(1 - q^{n_1})^k \dotsb} =: \sum_{n
+\geq 0} c_{a, k, r}(n) q^n,\]</span> <span
+class="math display">\[\mathcal{B}_{a, k, r, s}(q) = \sum_{\dotsb}
+    \frac{q^{r(n_1^2 + \dotsb + n_a^2) + s(n_1 + \dotsb + n_a)}}{\dotsb}
+    =: \sum_{n \geq 0} d_{a,k,r,s}(n) q^n.\]</span></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 93</strong> (Bringmann, Craig, van-Ittersum, P.).
+<em>Let <span class="math inline">\(a, r, s \in \mathbb{N}\)</span> and
+<span class="math inline">\(k \in \mathbb{Z}\)</span>. We have <span
+class="math display">\[q^{- \frac{r a(a + 1)}{2}} \mathcal{A}_{a, k,
+r}(q) = \prod_{n \geq 1}
+    \frac{1}{(1 - q^{r n})(1 - q^n)^k}
+    + \operatorname{O}(q^{a + 1}),\]</span> and similarly for <span
+class="math inline">\(\mathcal{B}\)</span>.</em></p>
+</div>
+<div class="example">
+<p><strong>Example 94</strong>. We have <span
+class="math display">\[\frac{1}{(1 - q^n)^4} = 1 + 4 q + 14 q^2 + 40 q^3
++ \dotsb,\]</span> approximately to increasing accuracy by <span
+class="math inline">\(q^{-1} \mathcal{A}_{1, 3, 1}\)</span>, <span
+class="math inline">\(q^{- 3} \mathcal{A}_{2, 3, 1}\)</span>, <span
+class="math inline">\(q^{- 6} \mathcal{A}_{3, 3, 1}\)</span>, and so
+on.</p>
+</div>
+<p>We want to study these functions <span
+class="math inline">\(\mathcal{A}\)</span> and <span
+class="math inline">\(\mathcal{B}\)</span>.</p>
+<div class="theorem">
+<p><strong>Theorem 95</strong> (Bringmann, Craig, van-Ittersum, P.).
+<em>If <span class="math inline">\(a, r \in \mathbb{N}\)</span>, then
+<span class="math inline">\(\mathcal{A}_{a, 2 r, r}\)</span> is a
+quasimodular form of (mixed) weight <span class="math inline">\(2 a
+r\)</span>.</em></p>
+</div>
+<div class="example">
+<p><strong>Example 96</strong>. Formulas for <span
+class="math inline">\(\mathcal{A}_{2, 4, 2}\)</span> and <span
+class="math inline">\(\mathcal{A}_{2, 4, 3}\)</span> in terms of <span
+class="math inline">\(G_4, G_6, G_2, G_3, G_7, G_5\)</span>.</p>
+</div>
+<div class="remark">
+<p><strong>Remark 97</strong>. The proof uses the quasi-shuffle
+algebra.</p>
+</div>
+<div class="remark">
+<p><strong>Remark 98</strong>. If <span class="math inline">\(k \neq 2
+r\)</span>, then odd Eisenstein series are involved.</p>
+</div>
+<div class="corollary">
+<p><strong>Corollary 99</strong> (Bringmann, Craig, van-Ittersum, P.).
+<em>Let <span class="math inline">\(a, r, m \in \mathbb{N}\)</span>.
+There are infinitely many non-nested AP <span class="math inline">\(A n
++ B\)</span> with <span class="math display">\[c_{a, 2 r, r}(A n + B)
+\equiv 0 \pmod{m}.\]</span></em></p>
+</div>
+<div class="conjecture">
+<p><strong>Conjecture 100</strong> (Bringmann, Craig, van-Ittersum, P.).
+<em>Let <span class="math inline">\(a,k,r,s \in \mathbb{N}\)</span>. For
+any prime <span class="math inline">\(p\)</span>, we have <span
+class="math display">\[c_{a, k , r}(p^{\alpha + 1} n + p^\alpha \beta)
+\equiv 0 \pmod{p^{\nu_p(k) - \alpha}}.\]</span> ETC.</em></p>
+</div>
+<p>We move now to results on <span
+class="math inline">\(\mathcal{B}\)</span>, which turns out to have
+modular properties.</p>
+<div class="definition">
+<p><strong>Definition 101</strong>. We call a function <span
+class="math inline">\(\hat{f}(\tau, \bar{\tau})\)</span> a
+<em>completion</em> of <span class="math inline">\(f(\tau)\)</span> if
+<span class="math display">\[\lim_{\bar{\tau} \rightarrow - i \infty}
+    \hat{f}(\tau, \bar{\tau})
+    = f(\tau).\]</span></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 102</strong>. <em>Let <span class="math inline">\(k,
+r, s \in \mathbb{N}\)</span>.</em></p>
+<ol>
+<li><p><em>The function <span class="math inline">\(\mathcal{B}_{a, k,
+r, s}\)</span> is a polynomial in <span
+class="math inline">\(\mathcal{B}_{k, r, s} := \mathcal{B}_{1, k, r,
+s}\)</span> of degree <span
+class="math inline">\(a\)</span>.</em></p></li>
+<li><p><em><span class="math inline">\(\mathcal{B}_{k, r, s} +
+\mathcal{B}_{k, r, k - s}\)</span> are a mixed weight linear combination
+of:</em></p>
+<ol type="a">
+<li><p><em>functions admitting a modular completion</em></p></li>
+<li><p><em><span id="enumerate:cnojbnhici"
+label="enumerate:cnojbnhici"></span> powers of <span
+class="math inline">\(q\)</span> times theta functions</em></p></li>
+</ol></li>
+<li><p><em>If <span class="math inline">\(k = s + 1\)</span>, then <a
+href="#enumerate:cnojbnhici" data-reference-type="eqref"
+data-reference="enumerate:cnojbnhici">\((2b)\)</a> in the
+above linear combination vanishes.</em></p></li>
+</ol>
+</div>
+<p>Define Zwegers’ multivariable Appell function for <span
+class="math inline">\(\ell \in \mathbb{N}\)</span> by <span
+class="math display">\[A_{\ell}(z_1, z_2 \tau)
+  = \zeta_1^{\ell / 2}
+  \sum_{n \in \mathbb{Z}}
+  \frac{(- 1)^{\ell n} q^{\frac{\ell n(n + 1)2}{}}
+\dotsb}{\dotsb}.\]</span></p>
+<p>Define some <span class="math inline">\(R\)</span>. Then <span
+class="math inline">\(\hat{A}_{\ell}\)</span> is given in terms of <span
+class="math inline">\(A_{\ell}\)</span> and <span
+class="math inline">\(\vartheta\)</span> and <span
+class="math inline">\(R\)</span>.</p>
+<p>Theorem of Zwegers describes transformation of <span
+class="math inline">\(\hat{A}_{\ell}\)</span>.</p>
+<p>Now we briefly describe the idea of the proof of our result. Taylor
+expansion where Taylor coefficients turn out to be similar functions:
+<span class="math display">\[\exp \left( \sum_{n \geq 1}
+    \frac{(- 1)^{n + 1}}{ n}
+    \mathcal{B}_{n k, n r, n s}(q) X^n\right)
+  = \sum_{j \geq 0}
+  \mathcal{B}_{j, k, r, s}(q) X^j.\]</span> From this we get that the
+coefficients on the right hand side are indeed polynomials in terms of
+the coefficients on the left hand side. This gives the first part. To
+get the other parts, we use that <span
+class="math display">\[\begin{align}
+  \mathcal{B}_{j, r, s - k + j}(q) + \mathcal{B}_{j, r, k - s}(q)
+  &amp;= \sum_{n \in \mathbb{Z} - \{0\}}
+    \frac{q^{r n^2 +(s - k + j) n}}{(1 - q^n)^j}
+  \\
+  &amp;= - \frac{1}{j !}
+    \left[ \frac{\partial^i}{\partial \zeta^j}(1 - \zeta) \sum_{n \in
+\mathbb{Z}}
+    \frac{q^{r n^2 +(s + 1 - k) n}}{1 - \zeta q^n}\right]|_{z=0}
+  \\
+  &amp;=
+    - \frac{1}{j!}
+    \left[ \frac{\partial^j}{\partial \zeta^j}(1 - \zeta) \zeta^{- r}
+    A_{2 r}(z,(- k - r + s + 1) \tau  \tau)\right]|_{z=0}.
+\end{align}\]</span> We get <span
+class="math display">\[\mathcal{B}_{k, r, k - 1}(q) + \mathcal{B}_{k, r,
+1}(q)
+  = - \frac{1}{k!}
+  \sum_{\ell = 0}^k
+  \frac{\alpha_{1/2}(k, \ell)}{(2 \pi i)^{\ell}}
+  f_{r, \ell }(\tau),\]</span> where <span class="math display">\[f_{r,
+\ell}(\tau) :=
+  \left[ \frac{\partial^{\ell}}{ \partial z^{\ell}}
+    \left( \left( \zeta^{-1/2} - \zeta^{1/2} \right) \zeta^{- r} A_{2
+r}(z, - r \tau, \tau) \right)\right]_{z = 0}\]</span> and <span
+class="math inline">\(\alpha_{1/2}(k, \ell)\)</span> is a generalized
+Stirling number defined by a recurrence. Enough to show that <span
+class="math inline">\(f_{r, \ell}(\tau)\)</span> can be completed.</p>
+<p>Fact: Taylor coefficients of a Jacobi form are quasi-modular.</p>
+<div class="example">
+<p><strong>Example 103</strong> (<span class="math inline">\(k=2=s+1,
+r=1\)</span>). </p>
+<ol>
+<li><p>We write <span class="math inline">\(\mathcal{B}_{2, 2, 1,
+1}(q)\)</span> as the coefficient of <span
+class="math inline">\(X^2\)</span> in <span class="math display">\[\exp
+\left( \mathcal{B}_{2, 1, 1}(q) X - \tfrac{1}{2} \mathcal{B}_{4, 2,
+2}(q) X^2 + \operatorname{O}(X^3) \right),\]</span> which we compute to
+be <span class="math inline">\(\tfrac{1}{2} \mathcal{B}_{2, 1, 1}^2(q) -
+\tfrac{1}{2} \mathcal{B}_{4, 2, 2}(q)\)</span>.</p></li>
+<li><p>ETC.</p></li>
+</ol>
+</div>
+<h1
+id="explicit-lower-bounds-on-the-conductor-of-abelian-varieties-with-specified-bad-reduction-pierre-tchamitchian">Explicit
+lower bounds on the conductor of abelian varieties with specified bad
+reduction, <span class="nodecor"><em>Pierre
+Tchamitchian</em></span></h1>
+<p>The first part is about <span
+class="math inline">\(L\)</span>-functions. Consider a “good” <span
+class="math inline">\(L\)</span>-function: there exists</p>
+<ul>
+<li><p><span class="math inline">\(N &gt; 0\)</span>, the
+conductor,</p></li>
+<li><p><span class="math inline">\((d_1, d_2)\)</span> with <span
+class="math inline">\(d = d_1 + 2 d_2\)</span>, the signature,</p></li>
+<li><p><span class="math inline">\(\mu_j\)</span> and <span
+class="math inline">\(\nu_k\)</span>, the spectral parameters (<span
+class="math inline">\(j \leq d_1, k \leq d_2\)</span>)</p></li>
+</ul>
+<p>such that the completed <span
+class="math inline">\(L\)</span>-function <span
+class="math display">\[\Lambda(s) = N^{s/2}
+  \prod_{j \leq d_1}
+  \Gamma_{\mathbb{R}}(s + \mu_j) \prod_{k \leq d_2}
+\Gamma_{\mathbb{C}}(s + \nu_k) L(s)\]</span> satisfies <span
+class="math display">\[\Lambda(s) = \varepsilon\tilde{\Lambda}(1 -
+s)\]</span> for some <span class="math inline">\(\varepsilon\)</span>,
+and <span class="math inline">\(L(s)\)</span> admits an Euler product
+<span class="math display">\[L(s) = \prod_p F_p(p^{- s})^{-1}
+  = \prod_p
+  \left( 1 - \alpha_{1, p} p^{- s} \right)^{-1}
+  \dotsb
+  \left( 1 - \alpha_{d_p, p} p^{- s} \right)^{-1},\]</span> absolutely
+convergent for <span class="math inline">\(\sigma &gt; 1\)</span>.</p>
+<div class="definition">
+<p><strong>Definition 104</strong>. We say that <span
+class="math inline">\(F : \mathbb{R} \rightarrow \mathbb{R}\)</span> is
+a <em>Mestre test function</em> if there exists <span
+class="math inline">\(\varepsilon&gt; 0\)</span> such that</p>
+<ol type="i">
+<li><p><span class="math inline">\(F(x) \exp \left((\tfrac{1}{2} +
+\varepsilon) \lvert x \rvert \right)\)</span> is integrable</p></li>
+<li><p><span class="math inline">\(F(x) \exp \left((\tfrac{1}{2} +
+\varepsilon) x \right)\)</span> has bounded variation, is integrable,
+and the value at each point is the average of its right and left
+limits</p></li>
+<li><p><span class="math inline">\((F(x) - F(0)) / x\)</span> has
+bounded variation.</p></li>
+</ol>
+</div>
+<p>Then we get the Weil–Mestre explicit formula: for <span
+class="math inline">\(A = \pi^{- d/2} 2^{- d_2} N^{1/2}\)</span> and
+<span class="math inline">\(\Phi(s) = \int F(x) e^{(s - 1/2)x}\, d
+x\)</span>, we have <span class="math display">\[\sum_\rho \Phi(\rho) -
+\sum_\mu \Phi(\mu) + \sum_{j \leq d_1}
+  I(\tfrac{1}{2}, \mu_j /2) + I(1/2, \overline{\mu_j}/ 2)
+  + \sum_{k \leq d_2} J(1, \nu_k) + J(1, \overline{\nu_k})\]</span>
+<span class="math display">\[= 2 F(0) \log(A) - \sum_{p, i, m \geq 1}
+  \left( \alpha_{i, p}^m F(m \log p)
+    + \overline{\alpha_{i, p}}
+    ^m F(- m \log p)
+  \right)
+  \frac{\log p}{ p^{m/2}}.\]</span> Morally, the proof is a Fourier
+transform, as in the prime number theorem. You integrate the function
+<span class="math inline">\(\Phi(s) \Lambda &#39;(s) /
+\Lambda(s)\)</span> along the rectangular contour with real parts <span
+class="math inline">\(- \varepsilon\)</span> and <span
+class="math inline">\(1 + \varepsilon\)</span>. Relate left and right
+hadn sides using functional equation. Compute explicitly the right hand
+side using the Euler product, and use a Fourier transform. Because of
+this, we use GRH.</p>
+<p>Trick: choose <span class="math inline">\(F(x)\)</span> such that
+<span class="math inline">\(\Re(\Phi(s)) &gt; 0\)</span> for <span
+class="math inline">\(s\)</span> on the critical line. Equivalently,
+choose <span class="math inline">\(F(x)\)</span> with a positive Fourier
+transform. Then we have the <em>Weil–Mestre explicit inequality</em>
+<span class="math display">\[\begin{gathered}
+  2 F(0) \log(A) \geq \sum_{j \leq d_1}
+  I(\tfrac{1}{2}, \mu_j /2)
+  + I(\tfrac{1}{2}, \overline{\mu_j}/2)
+  + \sum_{k \leq d_2} J(1, \nu_k) + J(1, \overline{\nu_k}) \\
+  + \sum_{p, i, m \geq 1} \left( \alpha_{i, p}^m F(m \log p) +
+    \overline{\alpha_{i, p}}^m F(- m \log p)\right)
+  \frac{\log p}{p^{m/2}}.
+\end{gathered}\]</span></p>
+<div class="theorem">
+<p><strong>Theorem 105</strong> (Poitou, Odlyzko, 1976). <em>Let <span
+class="math inline">\(K\)</span> be a numebr field of degree <span
+class="math inline">\(n\)</span> and discriminant <span
+class="math inline">\(d_K\)</span>, with <span
+class="math inline">\(r_1\)</span> real embeddings and <span
+class="math inline">\(r_2\)</span> complex embeddings. Then, for <span
+class="math inline">\(n\)</span> big enough, <span
+class="math display">\[\lvert d_K \rvert^{1/n} &gt;(215.3)^{r_1 /
+n}(44.7)^{r_2 /n}.\]</span></em></p>
+</div>
+<p>Let’s talk about bad reduction of elliptic curves. Take <span
+class="math inline">\(E\)</span> over <span
+class="math inline">\(\mathbb{Q}\)</span>, say <span
+class="math display">\[y^2 = x^3 + a x + b\]</span> with <span
+class="math inline">\(4 a^3 + 27 b^2 \neq 0\)</span>. By reducing the
+coefficients (of a minimal model at <span
+class="math inline">\(p\)</span>) modulo <span
+class="math inline">\(p\)</span>, one gets a curve <span
+class="math inline">\(E_p\)</span> over <span
+class="math inline">\(\mathbb{F}_p\)</span>. Then we end up in one of
+the following cases:</p>
+<ul>
+<li><p><span class="math inline">\(E_p\)</span> is an elliptic curve
+over <span class="math inline">\(\mathbb{F}_p\)</span></p></li>
+<li><p><span class="math inline">\(E_p\)</span> is a singular curve,
+with <span class="math inline">\(E_{p, n s} \cong
+\mathbb{G}_m\)</span></p></li>
+<li><p><span class="math inline">\(E_p\)</span> is a singular curve, and
+<span class="math inline">\(E_{p, ns} \cong
+\mathbb{G}_a\)</span></p></li>
+</ul>
+<p>Set respectively <span class="math inline">\(n_p = 0, 1, 2\)</span>
+depending upon the reduction (unless <span class="math inline">\(p \in
+\{2,3\}\)</span>).</p>
+<p>The <em>conductor</em> of <span class="math inline">\(E\)</span> of
+the elliptic curve is defined by <span class="math inline">\(N_E :=
+\prod p^{n_p}\)</span>.</p>
+<p>We define the <span class="math inline">\(L\)</span>-series in terms
+of the <span class="math inline">\(a_p := p + 1 - \#
+E_p(\mathbb{F}_p)\)</span>, by <span class="math inline">\(L_p(s) = 1 -
+a_p p^{- s} + p^{1 - 2 s}\)</span> if <span
+class="math inline">\(E\)</span> has good redcution, omitting the final
+term if bad reduction. We multiply these together to get <span
+class="math inline">\(L_E(s)\)</span>. Then we have the modularity
+theorem, saying that these admit an analytic continuation. We also have
+the Mordell–Weil theorem and BSD conjecture.</p>
+<p>If <span class="math inline">\(F\)</span> is even, has positive
+Fourier transform, and support in <span class="math inline">\([-1,
+1]\)</span>, and write <span class="math inline">\(F_\lambda(x) = F(x /
+\lambda)\)</span> for <span class="math inline">\(\lambda &gt;
+0\)</span>, then we have the Mestre inequality. It involves <span
+class="math display">\[M_{\lambda, F} = 2 \log(2 \pi) + 2 I_{F_\lambda,
+2} = 2 \left( \dotsb \right).\]</span></p>
+<p>Instead of looking at all elliptic curves, we can only look at the
+ones with some prescribed reduction.</p>
+<p>We can now do the same things for abelian varieties. Looking at the
+bad reduction, there’s a smooth part, torus part and unipotent part. We
+associate <span class="math inline">\(L\)</span>-functions and Satake
+parameters. We have a Mestre inequality (1986): the conductor satisfies
+<span class="math inline">\(N_A \geq 10.323^g\)</span>.</p>
+<p>LMFDB.</p>
+<p>Everything that we described here over <span
+class="math inline">\(\mathbb{Q}\)</span> also works over number
+fields.</p>
 <div id="refs" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" role="list">
 <div id="ref-2024arXiv2401.08855" class="csl-entry" role="listitem">
@@ -3333,6 +3994,12 @@ Barrett, Owen, Zoë X. Batterman, Aditya Jambhale, Steven J. Miller,
 Akash L. Narayanan, Kishan Sharma, and Chris Yao. 2024. <span>“A Random
 Matrix Model for a Family of Cusp Forms,”</span> July. <a
 href="http://arxiv.org/abs/2407.14526v1">http://arxiv.org/abs/2407.14526v1</a>.
+</div>
+<div id="ref-2024arXiv2402.08340" class="csl-entry" role="listitem">
+Bringmann, Kathrin, William Craig, Jan-Willem van Ittersum, and Badri
+Vishal Pandey. 2024. <span>“Limiting Behaviour and Modular Completions
+of MacMahon-Like q-Series,”</span> February. <a
+href="http://arxiv.org/abs/2402.08340v2">http://arxiv.org/abs/2402.08340v2</a>.
 </div>
 <div id="ref-2021arXiv2101.09599" class="csl-entry" role="listitem">
 Cogdell, James, Jay Jorgenson, and Lejla Smajlovic. 2021.
