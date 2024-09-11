@@ -225,7 +225,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2024-09-11 09:51:03
+2024-09-11 10:33:48
       <a href="20240909T093140--cirm-conference.tex" class="my-link">tex</a>
       <a href="20240909T093140--cirm-conference.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20240909T093140--cirm-conference.tex" class="my-link">history</a>
@@ -334,6 +334,12 @@ href="#false-indefinite-theta-functions-and-partitions-separated-by-parity-kathr
 id="toc-false-indefinite-theta-functions-and-partitions-separated-by-parity-kathrin-bringmann">False
 indefinite theta functions and partitions separated by parity, <span
 class="nodecor"><em>Kathrin Bringmann</em></span></a></li>
+<li><a
+href="#on-the-local-functional-equation-for-archimedean-exterior-square-l-function-of-mathrmgl_n-ravi-raghunathan"
+id="toc-on-the-local-functional-equation-for-archimedean-exterior-square-l-function-of-mathrmgl_n-ravi-raghunathan">On
+the local functional equation for archimedean exterior square L-function
+of <span class="math inline">\(\mathrm{GL}_n\)</span>, <span
+class="nodecor"><em>Ravi Raghunathan</em></span></a></li>
 </ul>
 </nav>
 <h1
@@ -3050,6 +3056,266 @@ class="math inline">\(\alpha_j(n)\)</span>.</em></p>
 <p>Work in progress: recover determine asymptotic expansion.</p>
 <p>Idea of proof: use Maass forms. Build a vector-valued form out of
 <span class="math inline">\(\sigma\)</span>. Circle method.</p>
+<h1
+id="on-the-local-functional-equation-for-archimedean-exterior-square-l-function-of-mathrmgl_n-ravi-raghunathan">On
+the local functional equation for archimedean exterior square L-function
+of <span class="math inline">\(\mathrm{GL}_n\)</span>, <span
+class="nodecor"><em>Ravi Raghunathan</em></span></h1>
+<p>The purpose of the talk is to complete the archimedean theory of the
+exterior square <span class="math inline">\(L\)</span>-function of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_r\)</span> via the theory of
+integral representations due to Jacquet and Shalika.</p>
+<ul>
+<li><p><span class="math inline">\(F\)</span>: local, characteristic
+zero</p></li>
+<li><p><span class="math inline">\(\psi_F : F \rightarrow
+\mathbb{C}\)</span>, nontrivial</p></li>
+<li><p><span class="math inline">\(\pi\)</span>: irreducible admissible
+representation of <span class="math inline">\(G_r :=
+{\mathop{\mathrm{GL}}}_r(F)\)</span>.</p></li>
+</ul>
+<p>Focus on the case <span class="math inline">\(F\)</span> archimedean,
+since the results are new only in that case.</p>
+<p>The proofs are usually simpler when <span
+class="math inline">\(r\)</span> is odd, so we’ll focus on the case
+<span class="math inline">\(r = 2 n\)</span>.</p>
+<p>The basic idea is as in Tate’s thesis. To each irreducible admissible
+representation <span class="math inline">\(\pi\)</span> of <span
+class="math inline">\(G_r\)</span>, the local Langlands correspondence
+attaches an <span class="math inline">\(n\)</span>-dimensional
+representation <span class="math inline">\(\rho(\pi)\)</span> of the
+Weil group (resp. Weil–Deligne group) when <span
+class="math inline">\(F\)</span> is archimedean (resp. <span
+class="math inline">\(p\)</span>-adic). For a character <span
+class="math inline">\(\chi : F^\times \rightarrow \mathbb{C}\)</span>,
+the twisted exterior square <span
+class="math inline">\(L\)</span>-function and <span
+class="math inline">\(\varepsilon\)</span>-factor of <span
+class="math inline">\(\pi\)</span> are defined via the local Langlands
+correspondence: <span class="math display">\[L(s, \pi, \wedge^2, \chi)
+:= L(s, \wedge^2(\rho(\pi)) \otimes \chi),\]</span> <span
+class="math display">\[\varepsilon(s, \pi, \wedge^2, \chi) :=
+\varepsilon(s, \wedge^2(\rho(\pi)) \otimes \chi, \psi_F).\]</span> The
+right hand sides are the Artin <span
+class="math inline">\(L\)</span>-function and <span
+class="math inline">\(\varepsilon\)</span>-factor. When the character
+<span class="math inline">\(\chi\)</span> is trivial, we drop it from
+the notation.</p>
+<div class="example">
+<p><strong>Example 78</strong>. If <span
+class="math inline">\(\pi_p\)</span> is an unramified representation of
+<span class="math inline">\(G_n(\mathbb{Q}_p)\)</span>, then <span
+class="math inline">\(\rho(\pi) = \chi_1 \oplus \dotsb \oplus
+\chi_n\)</span>, <span class="math inline">\(\chi_i = \lvert .
+\rvert_p^{\lambda_i}\)</span>, then with <span
+class="math inline">\(\alpha_i(p) = p^{- \lambda_i}\)</span>, we have
+<span class="math display">\[L_G(s, \pi_p, \wedge^2) = \prod_{i &lt; j}
+\frac{1}{ \left( 1 - \alpha_i(p) \alpha_j(p) p^{- s} \right)}.\]</span>
+In fact, the above formula is valid (even for finite extensions of <span
+class="math inline">\(\mathbb{Q}_p\)</span>) as long as <span
+class="math inline">\(\chi_i \chi_j\)</span> is ramified, whenever <span
+class="math inline">\(\chi_i\)</span> and <span
+class="math inline">\(\chi_j\)</span> are both ramified.</p>
+</div>
+<p>If <span class="math inline">\(F\)</span> is <span
+class="math inline">\(p\)</span>-adic, we denote by <span
+class="math inline">\(\mathfrak{o}_F\)</span> the ring of integers, and
+<span class="math inline">\(q\)</span> the cardinality of the residue
+field. We let <span class="math inline">\(N_r\)</span> denote the
+standard maximal unipotent subgroup, and <span
+class="math inline">\(Z_r\)</span> the center of <span
+class="math inline">\(G_r\)</span>. Let <span
+class="math inline">\(M_r\)</span> denote the space of all <span
+class="math inline">\(r \times r\)</span> matrices, and <span
+class="math inline">\(V_r\)</span> the subspace of upper-triangular
+<span class="math inline">\(r \times r\)</span> matrices.</p>
+<p>We set <span class="math display">\[w_n =
+  \begin{pmatrix}
+    &amp;  &amp; 1 \\
+    &amp; \dotsb &amp;  \\
+    1 &amp;  &amp;  \\
+  \end{pmatrix},
+  \quad
+  w_{n, n} :=
+  \begin{pmatrix}
+    0    &amp; 1_n \\
+    1_n         &amp; 0 \\
+  \end{pmatrix}.\]</span> We view these as elements of <span
+class="math inline">\(G_n\)</span> or <span
+class="math inline">\(G_r\)</span>, respectively.</p>
+<p>Okay, one more thing. We will assume our representations are generic,
+i.e., have a Whittaker model, which means you can embed the
+representation into a space of functions on <span
+class="math inline">\(G\)</span>. We extend <span
+class="math inline">\(\psi_F\)</span> to a character of <span
+class="math inline">\(N_r\)</span> by setting <span
+class="math inline">\(\psi(u) := \prod_{j = 1}^{r - 1} \psi_F(u_{j, j +
+1})\)</span> for <span class="math inline">\(u \in N_r\)</span>. We will
+assume that <span class="math inline">\(\psi\)</span> is an irreducible
+generic representation of <span class="math inline">\(G_n\)</span> with
+respect to <span class="math inline">\(\psi\)</span> as above. We denote
+the Harish–Chandra Schwartz space of Whittaker functions on <span
+class="math inline">\(\pi\)</span> by <span
+class="math inline">\(\mathcal{W}(\pi, \psi)\)</span>, and refer to it
+in this talk simply as the Whittaker model of <span
+class="math inline">\(\pi\)</span>.</p>
+<p>When <span class="math inline">\(F\)</span> is archimedean, the space
+<span class="math inline">\(\mathcal{W}(\pi, \psi)\)</span> consists of
+smooth functions satisfying a moderate growth condition, transformation
+property with respect to <span class="math inline">\(N_r\)</span> and
+<span class="math inline">\(\psi\)</span>, and is a Frech<span>é</span>t
+space.</p>
+<p>We turn to the integral representation of Jacquet and Shalika. For
+each <span class="math inline">\(W \in \mathcal{W}(\pi, \psi)\)</span>,
+we define the function <span class="math inline">\(\tilde{W}\)</span> on
+<span class="math inline">\(G_r\)</span> by <span
+class="math display">\[\tilde{W}(g) := W(w_n {}^{\iota} g), \quad
+  {}^\iota g := {}^t g^{-1}.\]</span> The Whittaker model of <span
+class="math inline">\(\tilde{\pi}_v\)</span>, <span
+class="math inline">\(\mathcal{W}(\tilde{\pi}, \bar{\psi})\)</span>,
+consists precisely of the set of functions <span
+class="math inline">\(\{\tilde{W} : W \in \mathcal{W}(\pi,
+\psi)\}\)</span>. Let <span
+class="math inline">\(\mathcal{S}(F^n)\)</span> be the space of Schwartz
+functions. Use self-dual Haar measures. Then the integral is <span
+class="math display">\[J(s, W, \phi) = \int_{N_n \backslash G_n}
+  \int_{V_n \backslash M_n}
+  W \left( \sigma
+    \begin{pmatrix}
+      1_n      &amp; X \\
+      0 &amp; 1_n \\
+    \end{pmatrix}
+    \begin{pmatrix}
+      g &amp; 0 \\
+      0 &amp; g \\
+    \end{pmatrix}\right)
+  \psi(- \mathop{\mathrm{trace}}X)
+  \, d X
+  \phi(e_n g)
+  \lvert \det g \rvert^s \, d g\]</span> for <span
+class="math inline">\(W \in \mathcal{W}(\pi, \psi)\)</span> and <span
+class="math inline">\(\phi \in \mathcal{S}(F^n)\)</span> and <span
+class="math inline">\(s \in \mathbb{C}\)</span> and <span
+class="math inline">\(\sigma\)</span> the permutation matrix given by
+<span class="math display">\[\begin{pmatrix}
+    1 &amp; 2 &amp; \cdots &amp; n &amp; \mid &amp; n+1 &amp; n+2 &amp;
+\cdots &amp; 2n \\
+    1 &amp; 3 &amp; \cdots &amp; 2n-1 &amp; \mid &amp; 2 &amp; 4 &amp;
+\cdots &amp; 2n
+  \end{pmatrix}\]</span></p>
+<div class="proposition">
+<p><strong>Proposition 79</strong> (Jacquet–Shalika 1990). </p>
+<ol>
+<li><p><em>For a generic irreducible representation <span
+class="math inline">\(\pi\)</span> of <span
+class="math inline">\(G_n\)</span>, the integrals <span
+class="math inline">\(J(s, W, \phi)\)</span> converge absolutely for
+<span class="math inline">\(\Re(s) &gt; 1 - \eta\)</span> for some <span
+class="math inline">\(\eta &gt; 0\)</span>.</em></p></li>
+<li><p><em>The integrals admit meromorphic continuation.</em></p></li>
+<li><p><em>The integrals define elements of <span
+class="math inline">\(\mathbb{C}(q^{- s})\)</span>.</em></p></li>
+</ol>
+</div>
+<p>We can thus take the fractional ideal of <span
+class="math inline">\(\mathbb{C}[q^s, q^{- s}]\)</span> generated by
+these integrals. The generator can be taken (by results of Belt) to be
+of the form <span class="math inline">\(1 / P(q^{-s})\)</span>. This is
+then defined to be the Jacquet–Shalika exterior square <span
+class="math inline">\(L\)</span>-value. Are these the same as the Artin
+<span class="math inline">\(L\)</span>-functions? Yes:</p>
+<div id="theorem:cnojbgtred" class="theorem">
+<p><strong>Theorem 80</strong> (Kewat–R, Y. Jo). <em>Let <span
+class="math inline">\(F\)</span> be a <span
+class="math inline">\(p\)</span>-adic field. Then with <span
+class="math inline">\(\pi\)</span> as above, <span
+class="math display">\[L_{JS}(s, \pi, \wedge^2)
+    =
+    L(s, \pi, \wedge^2).\]</span></em></p>
+</div>
+<p>We now want to do the same thing in the archimedean setting, where
+less is known. Implicit in Jacquet–Shalika is that these integrals admit
+meromorphic continuation.</p>
+<p>First main result:</p>
+<div id="theorem:cnojbgttz1" class="theorem">
+<p><strong>Theorem 81</strong>. <em>For <span class="math inline">\(r =
+2 n\)</span>, the quotients <span class="math display">\[\Xi(s, W, \phi)
+:= \frac{J(s, W, \phi)}{ L(s, \pi, \wedge^2)}\]</span> are entire and of
+finite order in vertical strips. Moreover, if <span
+class="math inline">\(\pi\)</span> is “nearly tempered”, then for every
+<span class="math inline">\(s_0 \in \mathbb{C}\)</span>, we can choose
+<span class="math inline">\(W \in \mathcal{W}(\pi, \psi)\)</span> and
+<span class="math inline">\(\phi \in \mathcal{S}(F^n)\)</span> such that
+<span class="math inline">\(\Xi(s_0, W, \phi) \neq 0\)</span>.</em></p>
+</div>
+<p>Here “nearly tempered” means that every pole of the <span
+class="math inline">\(L\)</span>-function is realized by one of the
+integrals, so that the integrals really do capture the <span
+class="math inline">\(L\)</span>-function more-or-less completely.</p>
+<p>Second main result is the local functional equation:</p>
+<div class="theorem">
+<p><strong>Theorem 82</strong>. <em>With conditions as above, we have
+<span class="math display">\[\frac{J(1 - s, \rho(w_{n, n}) \tilde{W},
+\hat{\phi})}{L(1 - s, \tilde{\pi}, \wedge^2)}
+    = \varepsilon_{J S}(s, \pi, \wedge^2, \psi)
+    \frac{J(s, W, \phi)}{L(s, \pi, \wedge^2)},\]</span> where <span
+class="math inline">\(\varepsilon_{J S}\)</span> is of the form <span
+class="math inline">\(A_0 B_0^s\)</span>.</em></p>
+</div>
+<p>For <span class="math inline">\(F\)</span> <span
+class="math inline">\(p\)</span>-adic this was proved by Matringe, and
+in the odd case by Cogdell–???.</p>
+<p>The main new tool we will use in the proofs of our results is the
+following very nice observation of Beuzart–Plessis (2021), which is
+deduced from Theorem 2 of Finis–Lapid–Muller (2015).</p>
+<div class="theorem">
+<p><strong>Theorem 83</strong> (Beuzart–Plessis). <em>Let <span
+class="math inline">\(k\)</span> be a number field and let <span
+class="math inline">\(w_0\)</span> and <span
+class="math inline">\(w_1\)</span> be places of <span
+class="math inline">\(k\)</span> with <span
+class="math inline">\(w_1\)</span> non-archimedean. Let <span
+class="math inline">\(V\)</span> be any open subset of <span
+class="math inline">\(\operatorname{Temp}({\mathop{\mathrm{GL}}}_n(k_{w_0}))\)</span>.
+There exists a cuspidal automorphic representation <span
+class="math inline">\(\Pi = \otimes_w &#39; \Pi_v\)</span> of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n(\mathbb{A}_k)\)</span> such
+that <span class="math inline">\(\Pi_{w_0} \in V\)</span> and <span
+class="math inline">\(\Pi_w\)</span> is unramified for every finite
+place <span class="math inline">\(w \neq w_1\)</span>.</em></p>
+</div>
+<p>The nice new part of this theorem is that you can embed archimedean
+representations as well. Moreover, there is this density that happens –
+the moment you have an open set, you can find something there that can
+be pushed inside a global representation. Once you have this, you’re in
+great shape, because we were already (in Kewat–R) able to do this
+whenever we could push our representations into global ones. Indeed,
+Beuzart–Plessis used the above theorem to prove analogues of our main
+results (Theorems <a href="#theorem:cnojbgttz1"
+data-reference-type="ref" data-reference="theorem:cnojbgttz1">81</a> and
+<a href="#theorem:cnojbgtred" data-reference-type="ref"
+data-reference="theorem:cnojbgtred">80</a>) for the Asai <span
+class="math inline">\(L\)</span>-function.</p>
+<p>Let’s say a bit about the proof. Directly imitating Beuzart–Plessis
+allows us to prove a functional equation, but we don’t’ know that the
+<span class="math inline">\(\varepsilon\)</span>-factor that we get
+matches the Artin <span
+class="math inline">\(\varepsilon\)</span>-factor. However, using the
+embedding theorem for different pairs of places (three times) allows us
+to show that the two <span
+class="math inline">\(\varepsilon\)</span>-factors are in fact the same.
+What remains to show:</p>
+<ul>
+<li><p>Nonvanishing of <span class="math inline">\(\Xi(s_0, W_v,
+\phi_v)\)</span> in general.</p></li>
+<li><p>Showing that there exist finitely many Whittaker and Schwartz
+functions that realize the <span
+class="math inline">\(L\)</span>-factor.</p></li>
+</ul>
+<p>Humphries and Jo <a href="#ref-2021arXiv2112.06860" class="citation"
+data-cites="2021arXiv2112.06860">(Humphries and Jo 2021)</a> prove
+the second assertion up to a polynomial factor, using a single test
+vector.</p>
 <div id="refs" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" role="list">
 <div id="ref-2024arXiv2401.08855" class="csl-entry" role="listitem">
@@ -3107,6 +3373,11 @@ href="http://arxiv.org/abs/2404.00738v2">http://arxiv.org/abs/2404.00738v2</a>.
 Hua, Shenghao, Bingrong Huang, and Liangxun Li. 2024. <span>“Joint Value
 Distribution of Hecke–Maass Forms,”</span> May. <a
 href="http://arxiv.org/abs/2405.00996v1">http://arxiv.org/abs/2405.00996v1</a>.
+</div>
+<div id="ref-2021arXiv2112.06860" class="csl-entry" role="listitem">
+Humphries, Peter, and Yeongseong Jo. 2021. <span>“Test Vectors for
+Archimedean Period Integrals,”</span> December. <a
+href="http://arxiv.org/abs/2112.06860v1">http://arxiv.org/abs/2112.06860v1</a>.
 </div>
 <div id="ref-2024arXiv2406.14659" class="csl-entry" role="listitem">
 Lee, Seewoo. 2024. <span>“Algebraic Proof of Modular Form Inequalities
