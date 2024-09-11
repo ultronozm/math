@@ -1923,5 +1923,147 @@ Work in progress: recover determine asymptotic expansion.
 Idea of proof: use Maass forms.  Build a vector-valued form out of $\sigma$.  Circle method.
 
 
+\section{On the local functional equation for archimedean exterior square L-function of $\mathrm{GL}_n$, \textnormal{\emph{Ravi Raghunathan}}}
+
+The purpose of the talk is to complete the archimedean theory of the exterior square $L$-function of $\GL_r$ via the theory of integral representations due to Jacquet and Shalika.
+\begin{itemize}
+\item $F$: local, characteristic zero
+\item $\psi_F : F \rightarrow \mathbb{C}$, nontrivial
+\item $\pi$: irreducible admissible representation of $G_r := \GL_r(F)$.
+\end{itemize}
+Focus on the case $F$ archimedean, since the results are new only in that case.
+
+The proofs are usually simpler when $r$ is odd, so we'll focus on the case $r = 2 n$.
+
+The basic idea is as in Tate's thesis.  To each irreducible admissible representation $\pi$ of $G_r$, the local Langlands correspondence attaches an $n$-dimensional representation $\rho(\pi)$ of the Weil group (resp.\ Weil--Deligne group) when $F$ is archimedean (resp.\ $p$-adic).  For a character $\chi : F^\times \rightarrow \mathbb{C}$, the twisted exterior square $L$-function and $\eps$-factor of $\pi$ are defined via the local Langlands correspondence:
+\begin{equation*}
+  L(s, \pi, \wedge^2, \chi) := L(s, \wedge^2(\rho(\pi)) \otimes \chi),
+\end{equation*}
+\begin{equation*}
+  \eps(s, \pi, \wedge^2, \chi) := \eps(s, \wedge^2(\rho(\pi)) \otimes \chi, \psi_F).
+\end{equation*}
+The right hand sides are the Artin $L$-function and $\eps$-factor.  When the character $\chi$ is trivial, we drop it from the notation.
+
+\begin{example}
+  If $\pi_p$ is an unramified representation of $G_n(\mathbb{Q}_p)$, then $\rho(\pi) = \chi_1 \oplus \dotsb \oplus \chi_n$, $\chi_i = \lvert . \rvert_p^{\lambda_i}$, then with $\alpha_i(p) = p^{- \lambda_i}$, we have
+  \begin{equation*}
+    L_G(s, \pi_p, \wedge^2) = \prod_{i < j} \frac{1}{ \left( 1 - \alpha_i(p) \alpha_j(p) p^{- s} \right)}.
+  \end{equation*}
+  In fact, the above formula is valid (even for finite extensions of $\mathbb{Q}_p$) as long as $\chi_i \chi_j$ is ramified, whenever $\chi_i$ and $\chi_j$ are both ramified.
+\end{example}
+
+If $F$ is $p$-adic, we denote by $\mathfrak{o}_F$ the ring of integers, and $q$ the cardinality of the residue field.  We let $N_r$ denote the standard maximal unipotent subgroup, and $Z_r$ the center of $G_r$.  Let $M_r$ denote the space of all $r \times r$ matrices, and $V_r$ the subspace of upper-triangular $r \times r$ matrices.
+
+We set
+\begin{equation*}
+  w_n =
+  \begin{pmatrix}
+    &  & 1 \\
+    & \dotsb &  \\
+    1 &  &  \\
+  \end{pmatrix},
+  \quad
+  w_{n, n} :=
+  \begin{pmatrix}
+    0    & 1_n \\
+    1_n         & 0 \\
+  \end{pmatrix}.
+\end{equation*}
+We view these as elements of $G_n$ or $G_r$, respectively.
+
+Okay, one more thing.  We will assume our representations are generic, i.e., have a Whittaker model, which means you can embed the representation into a space of functions on $G$.  We extend $\psi_F$ to a character of $N_r$ by setting $\psi(u) := \prod_{j = 1}^{r - 1} \psi_F(u_{j, j + 1})$ for $u \in N_r$.  We will assume that $\psi$ is an irreducible generic representation of $G_n$ with respect to $\psi$ as above.  We denote the Harish--Chandra Schwartz space of Whittaker functions on $\pi$ by $\mathcal{W}(\pi, \psi)$, and refer to it in this talk simply as the Whittaker model of $\pi$.
+
+When $F$ is archimedean, the space $\mathcal{W}(\pi, \psi)$ consists of smooth functions satisfying a moderate growth condition, transformation property with respect to $N_r$ and $\psi$, and is a Frech{\'e}t space.
+
+We turn to the integral representation of Jacquet and Shalika.  For each $W \in \mathcal{W}(\pi, \psi)$, we define the function $\tilde{W}$ on $G_r$ by
+\begin{equation*}
+  \tilde{W}(g) := W(w_n {}^{\iota} g), \quad
+  {}^\iota g := {}^t g^{-1}.
+\end{equation*}
+The Whittaker model of $\tilde{\pi}_v$, $\mathcal{W}(\tilde{\pi}, \bar{\psi})$, consists precisely of the set of functions $\{\tilde{W} : W \in \mathcal{W}(\pi, \psi)\}$.  Let $\mathcal{S}(F^n)$ be the space of Schwartz functions.  Use self-dual Haar measures.  Then the integral is
+\begin{equation*}
+  J(s, W, \phi) = \int_{N_n \backslash G_n}
+  \int_{V_n \backslash M_n}
+  W \left( \sigma
+    \begin{pmatrix}
+      1_n      & X \\
+      0 & 1_n \\
+    \end{pmatrix}
+    \begin{pmatrix}
+      g & 0 \\
+      0 & g \\
+    \end{pmatrix}\right)
+  \psi(- \trace X)
+  \, d X
+  \phi(e_n g)
+  \lvert \det g \rvert^s \, d g
+\end{equation*}
+for $W \in \mathcal{W}(\pi, \psi)$ and $\phi \in \mathcal{S}(F^n)$ and $s \in \mathbb{C}$ and $\sigma$ the permutation matrix given by
+\begin{equation*}
+  \begin{pmatrix}
+    1 & 2 & \cdots & n & \mid & n+1 & n+2 & \cdots & 2n \\
+    1 & 3 & \cdots & 2n-1 & \mid & 2 & 4 & \cdots & 2n
+  \end{pmatrix}
+\end{equation*}
+
+\begin{proposition}[Jacquet--Shalika 1990]
+  \begin{enumerate}
+  \item   For a generic irreducible representation $\pi$ of $G_n$, the integrals $J(s, W, \phi)$ converge absolutely for $\Re(s) > 1 - \eta$ for some $\eta > 0$.
+  \item The integrals admit meromorphic continuation.
+  \item The integrals define elements of $\mathbb{C}(q^{- s})$.
+  \end{enumerate}
+\end{proposition}
+We can thus take the fractional ideal of $\mathbb{C}[q^s, q^{- s}]$ generated by these integrals.  The generator can be taken (by results of Belt) to be of the form $1 / P(q^{-s})$.  This is then defined to be the Jacquet--Shalika exterior square $L$-value.  Are these the same as the Artin $L$-functions?  Yes:
+
+\begin{theorem}[Kewat--R, Y.\ Jo]\label{theorem:cnojbgtred}
+  Let $F$ be a $p$-adic field.  Then with $\pi$ as above,
+  \begin{equation*}
+    L_{JS}(s, \pi, \wedge^2)
+    =
+    L(s, \pi, \wedge^2).
+  \end{equation*}
+\end{theorem}
+
+We now want to do the same thing in the archimedean setting, where less is known.  Implicit in Jacquet--Shalika is that these integrals admit meromorphic continuation.
+
+First main result:
+
+\begin{theorem}\label{theorem:cnojbgttz1}
+  For $r = 2 n$, the quotients
+  \begin{equation*}
+    \Xi(s, W, \phi) := \frac{J(s, W, \phi)}{ L(s, \pi, \wedge^2)}
+  \end{equation*}
+  are entire and of finite order in vertical strips.  Moreover, if $\pi$ is ``nearly tempered'', then for every $s_0 \in \mathbb{C}$, we can choose $W \in \mathcal{W}(\pi, \psi)$ and $\phi \in \mathcal{S}(F^n)$ such that $\Xi(s_0, W, \phi) \neq 0$.
+\end{theorem}
+
+Here ``nearly tempered'' means that every pole of the $L$-function is realized by one of the integrals, so that the integrals really do capture the $L$-function more-or-less completely.
+
+Second main result is the local functional equation:
+\begin{theorem}
+  With conditions as above, we have
+  \begin{equation*}
+    \frac{J(1 - s, \rho(w_{n, n}) \tilde{W}, \hat{\phi})}{L(1 - s, \tilde{\pi}, \wedge^2)}
+    = \eps_{J S}(s, \pi, \wedge^2, \psi)
+    \frac{J(s, W, \phi)}{L(s, \pi, \wedge^2)},
+  \end{equation*}
+  where $\eps_{J S}$ is of the form $A_0 B_0^s$.
+\end{theorem}
+For $F$ $p$-adic this was proved by Matringe, and in the odd case by Cogdell--???.
+
+The main new tool we will use in the proofs of our results is the following very nice observation of Beuzart--Plessis (2021), which is deduced from Theorem 2 of Finis--Lapid--Muller (2015).
+
+\begin{theorem}[Beuzart--Plessis]
+  Let $k$ be a number field and let $w_0$ and $w_1$ be places of $k$ with $w_1$ non-archimedean.  Let $V$ be any open subset of $\operatorname{Temp}(\GL_n(k_{w_0}))$.  There exists a cuspidal automorphic representation $\Pi = \otimes_w ' \Pi_v$ of $\GL_n(\mathbb{A}_k)$ such that $\Pi_{w_0} \in V$ and $\Pi_w$ is unramified for every finite place $w \neq w_1$.
+\end{theorem}
+
+The nice new part of this theorem is that you can embed archimedean representations as well.  Moreover, there is this density that happens -- the moment you have an open set, you can find something there that can be pushed inside a global representation.  Once you have this, you're in great shape, because we were already (in Kewat--R) able to do this whenever we could push our representations into global ones.  Indeed, Beuzart--Plessis used the above theorem to prove analogues of our main results (Theorems \ref{theorem:cnojbgttz1} and \ref{theorem:cnojbgtred}) for the Asai $L$-function.
+
+Let's say a bit about the proof.  Directly imitating Beuzart--Plessis allows us to prove a functional equation, but we don't' know that the $\eps$-factor that we get matches the Artin $\eps$-factor.  However, using the embedding theorem for different pairs of places (three times) allows us to show that the two $\eps$-factors are in fact the same.  What remains to show:
+\begin{itemize}
+\item Nonvanishing of $\Xi(s_0, W_v, \phi_v)$ in general.
+\item Showing that there exist finitely many Whittaker and Schwartz functions that realize the $L$-factor.
+\end{itemize}
+Humphries and Jo \cite{2021arXiv2112.06860} prove the second assertion up to a polynomial factor, using a single test vector.
+
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
