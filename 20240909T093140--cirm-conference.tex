@@ -2065,5 +2065,518 @@ Let's say a bit about the proof.  Directly imitating Beuzart--Plessis allows us 
 \end{itemize}
 Humphries and Jo \cite{2021arXiv2112.06860} prove the second assertion up to a polynomial factor, using a single test vector.
 
-\bibliography{refs}{} \bibliographystyle{plain}
+\section{Traces of Poincare series at square discriminants and Fourier coefficients of mock modular forms, \textnormal{\emph{Vaibhav Kalia}}}
+(Joint work with PhD supervisor Balesh Kumar.)
+
+[Oops, started late]
+
+$\eps_\delta = 1$ if $\delta \equiv 1(4)$, and $\eps_d = i$ otherwise.
+
+Fix $d, D \equiv 0, 1 (4)$; call them \emph{discriminants} if they are nonzero.
+
+Fix $\tau \in \mathbb{H}$.
+
+Let $k \in \tfrac{1}{2} \mathbb{Z}$. Assume $\Gamma = \SL_2(\mathbb{Z})$ if $k \in \mathbb{Z}$, else $\Gamma = \Gamma_0(4)$.
+
+We define the slash operator and Kohnen's space $M_k^{!, +}$.
+
+Let $j$ be Klein's $j$-function with $q$-expansion
+\begin{equation*}
+  j(\tau) = q^{-1} + 744 + 196884q + \dotsb.
+\end{equation*}
+Zagier 2002: we can give a basis for $M_{3/2}^{!, +}$ as $\mathcal{G}_d$, indexed by $0 < d \equiv 0, 1(4)$, where
+\begin{equation*}
+  \mathcal{G}_d(\tau) = q^{- d} + \sum_{0 > D \equiv 0, 1 (4)} a(d, D) q^{- D},
+\end{equation*}
+where
+\begin{equation*}
+  a(d, D) = \operatorname{Tr}_{D, d}(j - 744)
+  := \frac{1}{\sqrt{d}}
+  \sum_{Q \in \PSL_2(\mathbb{Z}) \backslash \mathcal{Q}_{d D}}
+  \frac{\chi_d(Q)}{ \lvert \Gamma_Q \rvert}(j - 744)(\tau_Q).
+\end{equation*}
+Further, if for $0 > d \equiv 0, 1(4)$ we define
+\begin{equation*}
+  \mathcal{F}_d(\tau) := q^d + \sum_{0 < D \equiv 0 , 1(4)} a(D, d) q^D,
+\end{equation*}
+then Borcherds (1995) basis for $M_{1/2}^{!, +}$ is given by $\mathcal{F}_d$ for $0 > d \equiv 0,1(4)$.
+
+\begin{question}
+  Are there analogues of the functions $\operatorname{Tr}_{D, d}(\bullet)$ when $d D > 0$ for weight zero functions?  Are they related to any famiy of modular forms?
+\end{question}
+\begin{answer}
+  Yes:  harmonic weak Maass forms and mock modular forms.
+\end{answer}
+
+We recall the definition of a weight $k$ harmonic weak Maass form on $\Gamma$.  It's any smooth function $f : \mathbb{H} \rightarrow \mathbb{C}$ that satisfies $f |_k A(\tau) = f(\tau)$, annihilated by $\Delta_k$ (hyperbolic Laplacian), and has an exponential growth condition at all cusps.  We denote by $\mathcal{H}_k ^!$ the space of such weight $k$ harmonic Maass forms on $\Gamma$.
+
+By a \emph{sesqui} harmonic Maasss form of weight $k$, we mean the same thing, but without the second condition concerning $\Delta_k$, and instead $\xi_k \circ \Delta_k(f) = 0$, where $\xi_k$ is as in the definition of the shadow.
+
+The Fourier expansion of $f \in \mathcal{H}_k ^!$ at $\infty$ with $k \neq 1$ is given by
+\begin{equation*}
+  f(\tau) = \sum_{
+    \substack{
+      n \in \mathbb{Z}  \\
+      n \gg - \infty      
+    }
+  } c_f^+(n) q^n + c_f^-(0) y^{1 - k}
+  + \sum_{
+    \substack{
+      n \in \mathbb{Z} - \{0\}  \\
+      n \ll \infty      
+    }
+  } c_f^-(n)
+  W_k(2 \pi n y) q^n.
+\end{equation*}
+
+Following Zagier (2007), a \emph{mock modular form} of weight $k$ for $\Gamma$ is the holomorphic part $f^+$ of $f \in \mathcal{H}_k ^!$.  It turns out that $\xi_k(f)$ is a weakly holmorphic of weight $2-k$, called the \emph{shadow} of $f$.
+
+Duke--Imamoglu--Toth (2011) constructed a basis $\mathcal{F}_d$, indexed by $d < 0$, for mock modular forms, where
+\begin{equation*}
+  \mathcal{F}_d = \sum_{D > 0} a(D, d) q^D
+\end{equation*}
+with $a(d, D)$ defined in terms of the cycle integrals
+\begin{equation*}
+  (2 \pi)^{-1} \sum_{Q \in \Gamma \backslash \mathcal{Q}_{d D}}
+  \chi_d(Q) \int_{C_Q}(j - 744)(\tau)
+  \, \frac{d \tau}{ Q(\tau, 1)}
+\end{equation*}
+for $d , d > 0$ with $d D \neq \square$.
+
+To interpret $a(D, d)$ when $d D = \square$, appeal to BFI2015 and Andersen2015.
+
+JKK2013--2014: basis $\mathcal{G}_d$, indexed by $d > 0$, with coefficients $b(d, D)$ given in terms of twisted traces of cycle integrals of $\hat{\mathbb{J}}_1(\tau)$, where $\Delta_0(\hat{\mathbb{J}}_1) = - j + 720$ (done in the case where $d, D < 0$ and $d D \neq \square$).
+
+What should $b(d, D)$ be when $d, D < 0$ and $d D = \square$?  We'll see in a moment.
+
+We'll need the notion of Niebur Poincar{\'e} series (1973), which we've already seen, defined for $\Re(s) > 1$ by
+\begin{equation*}
+  G_{- 1}(\tau, s) = \sum_{A \in \Gamma_\infty \backslash \Gamma}
+  e \left( - \Re(A \tau) \right)
+  \phi_{- 1, s} \left( \Im(A \tau) \right).
+\end{equation*}
+Here
+\begin{equation*}
+  \phi_{- 1, s}(y) := 2 \pi y^{1/2} I_{s - 1/2}(2 \pi y).
+\end{equation*}
+It defines a smooth weight zero function for $\Gamma$.
+
+The traces of cycle integrals of these Niebur Poincar{\'e} series we'll discuss now.
+\begin{itemize}
+\item If $0 < d, D$ with $D$ fundamental and $d D \neq \square$, we have (DIT 2011)
+  \begin{equation*}
+    \operatorname{Tr}_{d, D}(G_{- 1}(\tau, s)) := \frac{1}{2 \pi}
+    \sum_{Q \in \Gamma \backslash \mathcal{Q}_{d D}}
+    \chi_D(Q) \int_{C_Q} G_{- 1}(\tau, s)
+    \, \frac{d \tau}{ Q(\tau, 1)}.
+  \end{equation*}
+\item With $d, D < 0$ and $D$ fundamental and $d D \neq \square$, due to $\chi_D(- Q) = \sgn(D) \chi_D(Q)$, we can define
+  \begin{equation*}
+    \operatorname{Tr}_{d, D}(G_{- 1}(\tau, s)) =
+    \frac{1}{ \pi}
+    \sum_{Q \in \Gamma_\infty \backslash \mathcal{Q}_{d D}^+}
+    \chi_D(Q) \int_{S_Q} e(- \Re(\tau))
+    \phi_{- 1, s}(\Im (\tau))
+    \, \frac{d \tau}{ Q(\tau, 1)}.
+  \end{equation*}
+\item Superscripted $+$ means $a > 0$.
+\end{itemize}
+
+If $0 < d$, $D  = \square$ and $D$ fundamental, then the above trace is not defined. Andersen 2015:
+\begin{equation*}
+  \operatorname{Tr}_{d, D}(G_{- 1}(\tau, s))
+  :=
+  \frac{1}{2 \pi}
+  \sum_{Q \in \Gamma \backslash \mathcal{Q}_{d D}}
+  \chi_D(Q) \int_{C_Q} G_{- 1, Q}(\dotsb).
+\end{equation*}
+ETC.
+
+
+Modified traces:
+\begin{equation*}
+  \operatorname{Tr}_{d, D}(G_{- 1}(\tau, s)) = \dotsb,
+\end{equation*}
+\begin{equation*}
+  \tilde{\operatorname{Tr}}_{d, D}(G_{- 1}(\tau, s)) := \frac{1}{ \pi}
+  \sum_{Q \in \Gamma_\infty \backslash \mathcal{Q}_{d D}^+}
+  \chi_D(Q) \int_{C_Q} e(- \Re(\tau))
+  \phi_{- 1, s} (\Im \tau)
+  \, \frac{d \tau}{ Q(\tau, 1)}.
+\end{equation*}
+
+JKK2014: $\hat{\mathbb{J}}_1(\tau, s) := \partial_s G_{- 1}(\tau, s)$ and proved that $\hat{\mathbb{J}}_1(\tau) := \hat{\mathbb{J}}_1(\tau, 1)$ is a sesqui-harmonic Maass form of weight zero for $\Gamma$.  We define
+\begin{equation*}
+  \tilde{\operatorname{Tr}}_{d, D}(\hat{\mathbb{J}}_1(\tau)) :=
+  \partial \P \tilde{\operatorname{Tr}}_{d, D}(G_{- 1}(\tau, s))|_{s=1}
+\end{equation*}
+when  $d , D < 0$ with $d D = \square$.
+
+\begin{theorem}[-, Kumar 2024]
+  For $d, D$ negative with $D$ fundamental and $d D = \square$, we have
+  \begin{equation*}
+    b(d, D) = - 8 \sqrt{d D} \tilde{\operatorname{Tr}}_{d,D}(\dotsb),
+  \end{equation*}
+  and also ETC.
+\end{theorem}
+
+Idea of the proof:
+\begin{itemize}
+\item $\tilde{\operatorname{Tr}}_{d, D}(G_{- 1}(\tau, s)) = \alpha(s, d D) \sum_{c = 1}^\infty \frac{S(d, D, 4 c)}{c^{1/2}}J_{s - 1/2} \left( \frac{\pi \sqrt{d D}}{c} \right)$, where
+  \begin{equation*}
+    S(d, D, 4 a)
+    := \sum_{
+      \substack{
+        b (4 a)  \\
+        (b^2 - d D) / 4 a \in \mathbb{Z}        
+      }
+    }
+    \chi_D \left( \left[ a, b, \frac{b^2 - d D}{4 a} \right] \right)
+    e \left( \frac{b}{2 a} \right).
+  \end{equation*}
+\item $\tilde{\operatorname{Tr}}_{d, D}(\hat{\mathbb{J}}_1 \dotsb)$, etc.
+\end{itemize}
+
+
+We can further relate these traces to the regularized inner product.  Let $f, g \in M_{1/2}^{!, +}$ (resp.\ $M_0 ^!$).  There exists $G \in \mathcal{H}_{3/2}^{!, +}$ (resp.\ $\mathcal{H}_2^!$) such that $\xi_-(G) = g$ (BDS2017).  Then
+\begin{equation*}
+  \langle f, g \rangle = \rho_k \sum_{n \in \mathbb{Z}} c_f(n) \dotsb.
+\end{equation*}
+ETC.  Relate to Borcherds.
+
+Idea of the proof:
+\begin{itemize}
+\item Since mock modular forms $\mathcal{G}_d$ with shadow $\mathcal{F}_d$ has
+  \begin{equation*}
+    b(d, D) = 4 \sqrt{d D} c_{\lvert d \rvert}(\lvert D \rvert) + 192 \pi H(\lvert d \rvert)
+    H(\lvert D \rvert),
+  \end{equation*}
+  we get by a computation
+  \begin{equation*}
+    \langle \mathcal{F}_d, \mathcal{F}_D \rangle = 2 \sqrt{\lvert D d \rvert}
+    c_{\lvert d \rvert}(\lvert D \rvert) + 96 \pi H(\dotsb),
+  \end{equation*}
+  we get ETC.
+\end{itemize}
+
+Next:
+\begin{corollary}
+  Let $D$ be a negative fundamental discriminant.  Then we have
+  \begin{equation*}
+    \tilde{\operatorname{Tr}}_{D, D}(\hat{\mathbb{J}}_1(\tau))
+    =
+    - \frac{1}{4 \pi \sqrt{\lvert D \rvert}}
+    \sum_{n > 0}
+    \qr{D}{n}
+    \frac{\langle j_n + 24 \sigma(n), j_1 + 24 \rangle}{n}
+    e^{- 2 \pi n / \lvert D \rvert}
+    - \dotsb.
+  \end{equation*}
+\end{corollary}
+Idea of the proof: ANS2021 computed inner products of $\mathcal{F}_D$ in terms of exponential integrals, and then explicitly computed $\tilde{J}$, defined such that $\xi_2(\tilde{J}) = j_1 = j - 744$, to be given by $4 \pi h_1 - 8 \pi E_2^\ast$, where $h_1 \in H_2 ^!$ (DIT2016) satisfies $\xi_2(4 \pi h_1) = j_1 + 24$, and
+\begin{equation*}
+  E_2^\ast(\tau) := 1 - 24 \sum_{n \geq 1} \sigma(n) q^n.
+\end{equation*}
+We can thus write this inner product in terms of the Fourier coefficients of the harmonic Maass forms $h_1$.  We then just need to use that $\xi_2(4 \pi h_1) = j_1 + 24$ to write $c_{4 \pi h_1}^-(n) = 4 \pi n c_{j_1 + 24}(- n)$, then similarly for $+$.
+
+As final remarks:
+\begin{itemize}
+\item For $n  < 0$, the Fourier coefficients $c_{j_1 + 24}(- n)$ of $j_1 + 24$ is the Rademacher--Petersson formula
+  \begin{equation*}
+    \frac{2 \pi}{ \sqrt{- n}}
+    \sum_{c> 0}
+    \frac{K(- 1, - n, c)}{c}
+    I_1 \left( \frac{4 \pi \sqrt{- n}}{c} \right).
+  \end{equation*}
+\item   The regularized inner product $\langle j_n + 24 \sigma(n), j_1 + 24 \rangle$ can also be interpreted in terms of the Rademacher--ETC.
+\end{itemize}
+
+
+\section{Limiting behaviour and modular completions of MacMahon-like q-series, \textnormal{\emph{Badri Vishal Pandey}}}
+Preprint: \cite{2024arXiv2402.08340}.
+
+\begin{definition}[MacMahon's $q$-series]
+  \begin{equation*}
+    \mathcal{A}_a(q) := \sum_{1 \leq n_1 < \dotsb < n_a}
+    \frac{q^{n_1 + \dotsb + n_a}}{(1 - q^{n_1})^{a_1} \dotsb}.
+  \end{equation*}
+\end{definition}
+\begin{example}
+  \begin{equation*}
+    \mathcal{A}_1(q) = \sum_{n \geq 1} \frac{q^n}{(1 - q^n)^{2}}
+    = \frac{1}{24}
+    - \frac{1}{24} E_2(\tau).
+  \end{equation*}
+  This is a quasimodular form.
+\end{example}
+
+Motivation of our work is the following theorem:
+\begin{theorem}[Amdeberhan--Ono--Singh]
+  Let $a \in \mathbb{N}$.  We have
+  \begin{equation*}
+    q^{- \frac{a(a + 1)}{2}} \mathcal{A}_a(q) = \prod_{n \geq 1} \frac{1}{(1 - q^n)^3} + \O(\dotsb).
+  \end{equation*}
+\end{theorem}
+\begin{example}
+  We have
+  \begin{equation*}
+    \prod_{n \geq 1} \frac{1}{(1 - q^n)^3}
+    = 1 + 3 q + 9 q^2 + 22 q^4 + \dotsb,
+  \end{equation*}
+  and these agree to increasing order with $q^{-1} \mathcal{A}_1$, $q^{- 3} \mathcal{A}_2$, $q^{- 6} \mathcal{A}_3$, $q^{-10} \mathcal{A}_4$, $q^{-15} \mathcal{A}_5$, $q^{- 21} \mathcal{A}_6$, etc.
+\end{example}
+
+Let $p_k(n)$ count the partitions of $n$ with parts having $k$-colors.  Its generating function is
+\begin{equation*}
+  \sum_{n \geq 0} p_k(n) q^n = \prod_{n \geq 1}
+  \frac{1}{(1 - q^n)^k}.
+\end{equation*}
+\begin{question}[Ono]
+  Find a family of functions that approximate $k$-colored partitions.
+\end{question}
+
+\begin{definition}
+  For $a, r, s \in \mathbb{N}$ and $k \in \mathbb{Z}$, define the $q$-series
+  \begin{equation*}
+    \mathcal{A}_{a, k, r}(q) := \sum_{1 \leq n_1 < \dotsb < n_a}
+    \frac{q^{r(n_1 + \dotsb + n_a)}}{(1 - q^{n_1})^k \dotsb} =: \sum_{n \geq 0} c_{a, k, r}(n) q^n,
+  \end{equation*}
+  \begin{equation*}
+    \mathcal{B}_{a, k, r, s}(q) = \sum_{\dotsb}
+    \frac{q^{r(n_1^2 + \dotsb + n_a^2) + s(n_1 + \dotsb + n_a)}}{\dotsb}
+    =: \sum_{n \geq 0} d_{a,k,r,s}(n) q^n.
+  \end{equation*}
+\end{definition}
+
+\begin{theorem}[Bringmann, Craig, van-Ittersum, P.]
+  Let $a, r, s \in \mathbb{N}$ and $k \in \mathbb{Z}$.  We have
+  \begin{equation*}
+    q^{- \frac{r a(a + 1)}{2}} \mathcal{A}_{a, k, r}(q) = \prod_{n \geq 1}
+    \frac{1}{(1 - q^{r n})(1 - q^n)^k}
+    + \O(q^{a + 1}),
+  \end{equation*}
+  and similarly for $\mathcal{B}$.
+\end{theorem}
+\begin{example}
+  We have
+  \begin{equation*}
+    \frac{1}{(1 - q^n)^4} = 1 + 4 q + 14 q^2 + 40 q^3 + \dotsb,
+  \end{equation*}
+  approximately to increasing accuracy by $q^{-1} \mathcal{A}_{1, 3, 1}$, $q^{- 3} \mathcal{A}_{2, 3, 1}$, $q^{- 6} \mathcal{A}_{3, 3, 1}$, and so on.
+\end{example}
+
+We want to study these functions $\mathcal{A}$ and $\mathcal{B}$.
+
+\begin{theorem}[Bringmann, Craig, van-Ittersum, P.]
+  If $a, r \in \mathbb{N}$, then $\mathcal{A}_{a, 2 r, r}$ is a quasimodular form of (mixed) weight $2 a r$.
+\end{theorem}
+\begin{example}
+  Formulas for $\mathcal{A}_{2, 4, 2}$ and $\mathcal{A}_{2, 4, 3}$ in terms of $G_4, G_6, G_2, G_3, G_7, G_5$.
+\end{example}
+\begin{remark}
+  The proof uses the quasi-shuffle algebra.
+\end{remark}
+\begin{remark}
+  If $k \neq 2 r$, then odd Eisenstein series are involved.
+\end{remark}
+
+\begin{corollary}[Bringmann, Craig, van-Ittersum, P.]
+  Let $a, r, m \in \mathbb{N}$.  There are infinitely many non-nested AP $A n + B$ with
+  \begin{equation*}
+    c_{a, 2 r, r}(A n + B) \equiv 0 \pmod{m}.
+  \end{equation*}
+\end{corollary}
+\begin{conjecture}[Bringmann, Craig, van-Ittersum, P.]
+  Let $a,k,r,s \in \mathbb{N}$.  For any prime $p$, we have
+  \begin{equation*}
+    c_{a, k , r}(p^{\alpha + 1} n + p^\alpha \beta) \equiv 0 \pmod{p^{\nu_p(k) - \alpha}}.
+  \end{equation*}
+  ETC.
+\end{conjecture}
+
+We move now to results on $\mathcal{B}$, which turns out to have modular properties.
+\begin{definition}
+  We call a function $\hat{f}(\tau, \bar{\tau})$ a \emph{completion} of $f(\tau)$ if
+  \begin{equation*}
+    \lim_{\bar{\tau} \rightarrow - i \infty}
+    \hat{f}(\tau, \bar{\tau})
+    = f(\tau).
+  \end{equation*}
+\end{definition}
+\begin{theorem}
+  Let $k, r, s \in \mathbb{N}$.
+  \begin{enumerate}
+  \item The function $\mathcal{B}_{a, k, r, s}$ is a polynomial in $\mathcal{B}_{k, r, s} := \mathcal{B}_{1, k, r, s}$ of degree $a$.
+  \item $\mathcal{B}_{k, r, s} + \mathcal{B}_{k, r, k - s}$ are a mixed weight linear combination of:
+    \begin{enumerate}[(a)]
+    \item functions admitting a modular completion
+    \item\label{enumerate:cnojbnhici} powers of $q$ times theta functions
+    \end{enumerate}
+  \item If $k = s + 1$, then \eqref{enumerate:cnojbnhici} in the above linear combination vanishes.
+  \end{enumerate}
+\end{theorem}
+
+Define Zwegers' multivariable Appell function for $\ell \in \mathbb{N}$ by
+\begin{equation*}
+  A_{\ell}(z_1, z_2 \tau)
+  = \zeta_1^{\ell / 2}
+  \sum_{n \in \mathbb{Z}}
+  \frac{(- 1)^{\ell n} q^{\frac{\ell n(n + 1)2}{}} \dotsb}{\dotsb}.
+\end{equation*}
+
+Define some $R$.  Then $\hat{A}_{\ell}$ is given in terms of $A_{\ell}$ and $\vartheta$ and $R$.
+
+Theorem of Zwegers describes transformation of $\hat{A}_{\ell}$.
+
+Now we briefly describe the idea of the proof of our result.  Taylor expansion where Taylor coefficients turn out to be similar functions:
+\begin{equation*}
+  \exp \left( \sum_{n \geq 1}
+    \frac{(- 1)^{n + 1}}{ n}
+    \mathcal{B}_{n k, n r, n s}(q) X^n\right)
+  = \sum_{j \geq 0}
+  \mathcal{B}_{j, k, r, s}(q) X^j.
+\end{equation*}
+From this we get that the coefficients on the right hand side are indeed polynomials in terms of the coefficients on the left hand side.  This gives the first part.  To get the other parts, we use that
+\begin{align*}
+  \mathcal{B}_{j, r, s - k + j}(q) + \mathcal{B}_{j, r, k - s}(q)
+  &= \sum_{n \in \mathbb{Z} - \{0\}}
+    \frac{q^{r n^2 +(s - k + j) n}}{(1 - q^n)^j}
+  \\
+  &= - \frac{1}{j !}
+    \left[ \frac{\partial^i}{\partial \zeta^j}(1 - \zeta) \sum_{n \in \mathbb{Z}}
+    \frac{q^{r n^2 +(s + 1 - k) n}}{1 - \zeta q^n}\right]|_{z=0}
+  \\
+  &=
+    - \frac{1}{j!}
+    \left[ \frac{\partial^j}{\partial \zeta^j}(1 - \zeta) \zeta^{- r}
+    A_{2 r}(z,(- k - r + s + 1) \tau  \tau)\right]|_{z=0}.
+\end{align*}
+We get
+\begin{equation*}
+  \mathcal{B}_{k, r, k - 1}(q) + \mathcal{B}_{k, r, 1}(q)
+  = - \frac{1}{k!}
+  \sum_{\ell = 0}^k
+  \frac{\alpha_{1/2}(k, \ell)}{(2 \pi i)^{\ell}}
+  f_{r, \ell }(\tau),
+\end{equation*}
+where
+\begin{equation*}
+  f_{r, \ell}(\tau) :=
+  \left[ \frac{\partial^{\ell}}{ \partial z^{\ell}}
+    \left( \left( \zeta^{-1/2} - \zeta^{1/2} \right) \zeta^{- r} A_{2 r}(z, - r \tau, \tau) \right)\right]_{z = 0}
+\end{equation*}
+and $\alpha_{1/2}(k, \ell)$ is a generalized Stirling number defined by a recurrence.  Enough to show that $f_{r, \ell}(\tau)$ can be completed.
+
+Fact: Taylor coefficients of a Jacobi form are quasi-modular.
+
+\begin{example}[$k=2=s+1, r=1$]
+  \begin{enumerate}
+  \item We write $\mathcal{B}_{2, 2, 1, 1}(q)$ as the coefficient of $X^2$ in
+    \begin{equation*}
+      \exp \left( \mathcal{B}_{2, 1, 1}(q) X - \tfrac{1}{2} \mathcal{B}_{4, 2, 2}(q) X^2 + \O(X^3) \right),
+    \end{equation*}
+    which we compute to be $\tfrac{1}{2} \mathcal{B}_{2, 1, 1}^2(q) - \tfrac{1}{2} \mathcal{B}_{4, 2, 2}(q)$.
+  \item ETC.
+  \end{enumerate}
+\end{example}
+
+
+\section{Explicit lower bounds on the conductor of abelian varieties with specified bad reduction, \textnormal{\emph{Pierre Tchamitchian}}}
+
+The first part is about $L$-functions.  Consider a ``good'' $L$-function: there exists
+\begin{itemize}
+\item $N > 0$, the conductor, 
+\item $(d_1, d_2)$ with $d = d_1 + 2 d_2$, the signature,
+\item $\mu_j$ and $\nu_k$, the spectral parameters ($j \leq d_1, k \leq d_2$)
+\end{itemize}
+such that the completed $L$-function
+\begin{equation*}
+  \Lambda(s) = N^{s/2}
+  \prod_{j \leq d_1}
+  \Gamma_{\mathbb{R}}(s + \mu_j) \prod_{k \leq d_2} \Gamma_{\mathbb{C}}(s + \nu_k) L(s)
+\end{equation*}
+satisfies
+\begin{equation*}
+  \Lambda(s) = \eps \tilde{\Lambda}(1 - s)
+\end{equation*}
+for some $\eps$, and $L(s)$ admits an Euler product
+\begin{equation*}
+  L(s) = \prod_p F_p(p^{- s})^{-1}
+  = \prod_p
+  \left( 1 - \alpha_{1, p} p^{- s} \right)^{-1}
+  \dotsb
+  \left( 1 - \alpha_{d_p, p} p^{- s} \right)^{-1},
+\end{equation*}
+absolutely convergent for $\sigma > 1$.
+
+\begin{definition}
+  We say that $F : \mathbb{R} \rightarrow \mathbb{R}$ is a \emph{Mestre test function} if there exists $\eps > 0$ such that
+  \begin{enumerate}[(i)]
+  \item $F(x) \exp \left((\tfrac{1}{2} + \eps) \lvert x \rvert \right)$ is integrable
+  \item $F(x) \exp \left((\tfrac{1}{2} + \eps) x \right)$ has bounded variation, is integrable, and the value at each point is the average of its right and left limits
+  \item $(F(x) - F(0)) / x$ has bounded variation.
+  \end{enumerate}
+\end{definition}
+Then  we get the Weil--Mestre explicit formula: for $A = \pi^{- d/2} 2^{- d_2} N^{1/2}$
+and $\Phi(s) = \int F(x) e^{(s - 1/2)x}\, d x$, we have
+\begin{equation*}
+  \sum_\rho \Phi(\rho) - \sum_\mu \Phi(\mu) + \sum_{j \leq d_1}
+  I(\tfrac{1}{2}, \mu_j /2) + I(1/2, \overline{\mu_j}/ 2)
+  + \sum_{k \leq d_2} J(1, \nu_k) + J(1, \overline{\nu_k})
+\end{equation*}
+\begin{equation*}
+  = 2 F(0) \log(A) - \sum_{p, i, m \geq 1}
+  \left( \alpha_{i, p}^m F(m \log p)
+    + \overline{\alpha_{i, p}}
+    ^m F(- m \log p)
+  \right)
+  \frac{\log p}{ p^{m/2}}.
+\end{equation*}
+Morally, the proof is a Fourier transform, as in the prime number theorem.  You integrate the function $\Phi(s) \Lambda '(s) / \Lambda(s)$ along the rectangular contour with real parts $- \eps$ and $1 + \eps$.  Relate left and right hadn sides using functional equation.  Compute explicitly the right hand side using the Euler product, and use a Fourier transform.  Because of this, we use GRH.
+
+Trick: choose $F(x)$ such that $\Re(\Phi(s)) > 0$ for $s$ on the critical line.  Equivalently, choose $F(x)$ with a positive Fourier transform.  Then we have the \emph{Weil--Mestre explicit inequality}
+\begin{multline*}
+  2 F(0) \log(A) \geq \sum_{j \leq d_1}
+  I(\tfrac{1}{2}, \mu_j /2)
+  + I(\tfrac{1}{2}, \overline{\mu_j}/2)
+  + \sum_{k \leq d_2} J(1, \nu_k) + J(1, \overline{\nu_k}) \\
+  + \sum_{p, i, m \geq 1} \left( \alpha_{i, p}^m F(m \log p) +
+    \overline{\alpha_{i, p}}^m F(- m \log p)\right)
+  \frac{\log p}{p^{m/2}}.
+\end{multline*}
+\begin{theorem}[Poitou, Odlyzko, 1976]
+  Let $K$ be a numebr field of degree $n$ and discriminant $d_K$, with $r_1$ real embeddings and $r_2$ complex embeddings.  Then, for $n$ big enough,
+  \begin{equation*}
+    \lvert d_K \rvert^{1/n} >(215.3)^{r_1 / n}(44.7)^{r_2 /n}.
+  \end{equation*}
+\end{theorem}
+
+Let's talk about bad reduction of elliptic curves.  Take $E$ over $\mathbb{Q}$, say
+\begin{equation*}
+  y^2 = x^3 + a x + b
+\end{equation*}
+with $4 a^3 + 27 b^2 \neq 0$.  By reducing the coefficients (of a minimal model at $p$) modulo $p$, one gets a curve $E_p$ over $\mathbb{F}_p$.  Then we end up in one of the following cases:
+\begin{itemize}
+\item $E_p$ is an elliptic curve over $\mathbb{F}_p$
+\item $E_p$ is a singular curve, with $E_{p, n s} \cong \mathbb{G}_m$
+\item $E_p$ is a singular curve, and $E_{p, ns} \cong \mathbb{G}_a$
+\end{itemize}
+Set respectively $n_p = 0, 1, 2$ depending upon the reduction (unless $p \in \{2,3\}$).
+
+The \emph{conductor} of $E$ of the elliptic curve is defined by $N_E := \prod p^{n_p}$.
+
+We define the $L$-series in terms of the $a_p := p + 1 - \# E_p(\mathbb{F}_p)$, by $L_p(s) = 1 - a_p p^{- s} + p^{1 - 2 s}$ if $E$ has good redcution, omitting the final term if bad reduction.  We multiply these together to get $L_E(s)$.  Then we have the modularity theorem, saying that these admit an analytic continuation.  We also have the Mordell--Weil theorem and BSD conjecture.
+
+If $F$ is even, has positive Fourier transform, and support in $[-1, 1]$, and write $F_\lambda(x) = F(x / \lambda)$ for $\lambda > 0$, then we have the Mestre inequality.  It involves
+\begin{equation*}
+  M_{\lambda, F} = 2 \log(2 \pi) + 2 I_{F_\lambda, 2} = 2 \left( \dotsb \right).
+\end{equation*}
+
+Instead of looking at all elliptic curves, we can only look at the ones with some prescribed reduction.
+
+We can now do the same things for abelian varieties.  Looking at the bad reduction, there's a smooth part, torus part and unipotent part.  We associate $L$-functions and Satake parameters.  We have a Mestre inequality (1986): the conductor satisfies $N_A \geq 10.323^g$.
+
+LMFDB.
+
+Everything that we described here over $\mathbb{Q}$ also works over number fields.\bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
