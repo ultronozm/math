@@ -1689,6 +1689,123 @@ To prove the non-emptiness of the intersection with maximal EO stratum, we use t
 \end{itemize}
 We translate the condition of having maximal EO type to linear algebra conditions on the Hasse--Witt triple.  By explicitly computing them, we are able to verify the rank conditions.
 
+\section{Hyperbolic Counting Problems, \textnormal{\emph{Marius Voskou}}}
+Preprint: \cite{2024arXiv2407.03134}.
 
+We start with an interlude on hyperbolic geometry.  Work with $\PSL_2(\mathbb{R})$ (orientation-preserving isometries), lattice points $\gamma \cdot z$, where $\gamma \in \Gamma$, a discrete cofinite subgroup of $\PSL_2(\mathbb{R})$, and $z \in \mathbb{H}$.
+
+Consider a hyperbolic circle of center $w$, radius $R$.
+
+This looks like a Euclidean circle; the only difference is that the center is slightly lower than what you'd expect, which has to do with the fact that distances blow up as you get closer to the $x$-axis.
+
+We're now ready to formulate our first hyperbolic counting problem: take
+\begin{equation*}
+  N(z, w, R) := \# \left\{ \gamma z : \gamma \in \Gamma, \dist(w, \gamma z) \leq R \right\}.
+\end{equation*}
+
+The same method as in the Euclidean counting problem does, in principle work.  We get a main term comparable to the area, an error term comparable to the circumference.  The problem is that in hyperbolic geometry, these are comparable -- both are comparable to $e^R$ -- so the error term is not smaller than the main term.  Instead, we use the spectral theory of automorphic forms.
+
+To that end, the first step is to write our count in terms of the automorphic kernel:
+\begin{equation*}
+  N(z, w, R) = K(z, w)
+  = \sum_{\gamma} \mathbf{1}(\dist(w, \gamma z) < R).
+\end{equation*}
+We know that automorphic kernels have nice spectral expansions in terms of eigenfunctions of the hyperbolic Laplacian.  Since it's a 20 minute talk, we'll just take spectral theory as a black box and not say much about it.  The thing we want to note is that the hyperbolic Laplacian has two kinds of eigenvalues:
+\begin{itemize}
+\item large eigenvalues: $\lambda \geq 1/4$, $\lambda = s(1 - s), s = 1/2 + i t$.
+\item small eigenvalues: $\lambda < 1/4, \lambda = s(1 - s), s \in \left(1/2,1\right]$, of which there are finitely many.
+\end{itemize}
+Using this spectral expansion, Selberg in the 70's proved an asymptotic formula for $N(z, w, R)$:
+\begin{theorem}[Selberg 1970, Gunther 1980, Good 1983]
+  We have
+  \begin{equation*}
+    N(z, w, \log X)
+    = \frac{2 \pi}{\area(\mathbb{H} / \Gamma)}
+    X + \sum_{s_j}
+    c_j(z, w) X^{s_j} + \O(X^{2/3}),
+  \end{equation*}
+  where the sum is over finitely many real numbers $s_j \in(1/2, 1)$, corresponding to the small eigenvalues.
+\end{theorem}
+
+Now, let's move to a slightly more complicated problem: let's ask what happens if instead of points, we have geodesics.  For fixed (closed) geodesics $\ell_1, \ell_2$, how many geodesics $\gamma \cdot \ell_1$ have distance $\leq R$ from $\ell_2$?  For simplicity, take $\ell_1 = \ell_2 = \ell$.
+
+[Picture of a pair of closed geodeics intersecting.]
+
+The distance between closed geodesics is the length of the common perpendicular.  We want to count how many closed geodesics are at given distance from one closed geodesic.
+
+Our strategy is again to use the spectral theory of automorphic forms.  We can write the count as the integral of an automorphic kernel:
+\begin{equation*}
+  N(\ell_1, \ell_2, R) = \int_{\ell_1} \int_{\ell_2}
+  K(z, w)
+  \, d s(z)
+  \, d s(w).
+\end{equation*}
+This leads to an asymptotic formula:
+\begin{theorem}[Good 1983, Lekkas--Petridis 2024]
+  We have
+  \begin{equation*}
+    N(\ell, \log X)
+    = \frac{2(\len \ell)^2}{\pi \area(\mathbb{H} / \Gamma)} X
+    + \sum_{s_j}(\ell) X^{s_j} + E(X),
+  \end{equation*}
+  where $E(X) = \O(X^{2/3})$.
+\end{theorem}
+
+Let's say a few words about why it's necessary to have a second proof of this.  The first proof by Good was hard to read, and some people still question whether it was valid.  In particular, if you want to do refinements of this or apply his methods to obtain related results, it's difficult.  Petridis--Lekkas found simpler methods that also apply to other problems.
+
+\begin{conjecture}
+  We have $E(X) = \O(X^{1/2 + \eps})$.  (And similarly for the previous problem, and many similar problems.)
+\end{conjecture}
+
+This has been around for many decades, and we have zero improvements on $X^{2/3}$.
+
+What we're going to try to do now is to motivate this conjecture.  To that end, we'll start by saying why we can't do any better:
+\begin{theorem}[V.\ 2024]
+  We  have
+  \begin{equation*}
+    E(X) = \Omega \left( X^{1/2}(\log \log X)^{1/4 - \delta} \right).
+  \end{equation*}  
+\end{theorem}
+
+\begin{theorem}[Lekkas--Petridis 2024]
+  We have
+  \begin{equation*}
+    \left( \frac{1}{X} \int_X^{2 X} \lvert E(u) \rvert^2 \, d u \right)^{1/2} \ll X^{1/2} \log X.
+  \end{equation*}  
+\end{theorem}
+
+Now, let's restrict to the case of a primitive hyperbolic element
+\begin{equation*}
+  h =
+  \begin{pmatrix}
+    m    & 0 \\
+    0 & m^{-1} \\
+  \end{pmatrix}.
+\end{equation*}
+For $\ell = \mathcal{I} / \langle h \rangle$, we have
+\begin{equation*}
+  \cosh \dist(\ell, \gamma \ell) = \max \left( \lvert a d + b c \rvert, 1 \right),
+\end{equation*}
+so our counting problem can be rephrased as follows: how many double cosets $\gamma \in \langle h \rangle \backslash \Gamma / \langle h \rangle$ with $\lvert a d + b c \rvert < X$?  We can also ask, are there more $\gamma$ with $a d + b c > 0$ than $a d + b c < 0$, or less?  Equivalently, are there more $a, d$ having the same sign than different, or less?  Geometric interpretation: the sign corresponds to the direction of the image $\gamma \cdot \ell$, and whether it lies on the left or the right of $\ell$.  This behaves differently as we tilde $\ell$ to some $\ell_\theta$.  Idea: consider
+\begin{equation*}
+  \frac{\partial^2}{\partial \theta \partial \phi}
+  N(\ell_\theta, \ell_\phi, R).  
+\end{equation*}
+
+Let's finish with a nice arithmetic application.  Fix a prime $p$.  For $\Gamma$ an appropriate quaternion order, and $m = \left( 1 + \sqrt{2} \right)^2$:
+\begin{theorem}[V.\ 2023, $p=5$; Hejhal 1982]
+  We have
+  \begin{equation*}
+    \sum_{n \leq X} \mathcal{N}(n) \mathcal{N}(p n \pm 1)
+    =
+    \frac{p}{p + \qr{2}{p}}
+    \cdot \left( \frac{\log m}{ \pi} \right)^2 X +
+    \sum_{1/2 < s_j < 1}
+    a_j^{\pm} X^{s_j} + \O(X^{2/3}),
+  \end{equation*}
+  where $a_j^{\pm}$ is real and $\mathcal{N}(n)$ is the number of $\mathfrak{a} \leq \mathbb{Z}[\sqrt{2}]$ with $\norm(\mathfrak{a}) = n$.
+\end{theorem}
+
+That's all.
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
