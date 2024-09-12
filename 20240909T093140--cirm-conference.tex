@@ -2581,7 +2581,7 @@ LMFDB.
 Everything that we described here over $\mathbb{Q}$ also works over number fields.
 
 \section{Analytic ranks of modular forms with nontrivial character, \textnormal{\emph{Maarten Derickx}}}
-
+Link to actual slides: \url{https://bit.ly/analytic-ranks}.
 
 We write $S_2(\Gamma)^{\mathrm{zero}}$ to consist of those newforms $f$ for which $L(f, 1) = 0$, where $\Gamma = \Gamma_0(N)$ or $\Gamma_1(N)$.
 
@@ -3321,8 +3321,330 @@ The Lie algebra problem is to show that for each $x \in \mathfrak{g}_\tau - \mat
   The conjecture is false for $(\SO_6, \SO_5)$, by explicit numerical computation.
 \end{example}
 
-So for the orthogonal case, we need to address the transversality problem more directly.
+So for the orthogonal case, we need to address the transversality problem more directly.  Experiments with this thus far, some experiments with Gr\"{o}bner bases.
 
+\section{Subconvexity for Rankin--Selberg $L$-functions, \textnormal{\emph{Sumit Kumar}}}
+
+Let's start with the setup.
+\begin{itemize}
+\item $f$: Hecke cusp form for $\Gamma_0(p)$ and nebentypus $\chi$.
+\item $g$: Hecke cusp form for $\SL_2(\mathbb{Z})$ and trivial nebentypus.
+\item Consider the Dirichlet series
+  \begin{equation*}
+    L(s, f \otimes g) = L(2 s, \chi)
+    \sum_{n = 1}^\infty \frac{\lambda_f(n) \lambda_g(n)}{ n^s},
+    \quad
+    \Re(s) > 1,
+  \end{equation*}
+  where the $\lambda(n)$ are the normalized Fourier coefficients.  It satisfies a functional equation and has meromorphic continuation to $\mathbb{C}$.
+\end{itemize}
+
+We want to estimate $L(\tfrac{1}{2}, f \otimes g)$ as $p \rightarrow \infty$ with $g$ fixed.
+
+Functional equation yields the following approximateion by a finite Dirichlet polynomial, of length roughly the square-root of the conductor:
+\begin{equation*}
+  L(\tfrac{1}{2}, f \otimes g) \approx \sum_{n \ll p^{1 + \eps}}
+  \frac{\lambda_f(n) \lambda_g(n)}{ n^{1/2}} W(n).
+\end{equation*}
+Here $W$ is a smooth function satisfying some nice decay conditions.  Using this approximation, one can show that
+\begin{equation*}
+  L(\tfrac{1}{2}, f \otimes g) \ll_{g, \eps} p^{1/2 + \eps} =
+  (p^2)^{1/4 + \eps},
+\end{equation*}
+the convexity bound.  Our aim is to show that
+\begin{equation}\label{eq:cnojsamf9d}
+  L(\tfrac{1}{2}, f \otimes g) \ll_g(p^2)^{1/4 - \delta} \text{ for some } \delta > 0.
+\end{equation}
+\begin{itemize}
+\item The first estimate of the form \eqref{eq:cnojsamf9d} was shown by Kowalski--Michel--Vanderkam \cite{KMV02} when $f$ is holomorphic and $\chi$ has conductor $\ll p^{1/2}$.  
+\item Michel \cite{Mi04} removed the the latter condition and obtained \eqref{eq:cnojsamf9d} with $\delta = 1/2114$ for $g$ holomorphic and $\chi$ non-trivial.  
+\item Harcos--Michel \cite{MR2207235} proved \eqref{eq:cnojsamf9d} with $\delta = 1/2826$ for $g$ holomorphic/Maass cusp forms and non-trivial $\chi$.
+\item Michel--Venkatesh \cite{michel-2009} generalized all the above results (uniform in all aspects of $f$).
+\end{itemize}
+Michel and Michel--Harcos use spectral theory of automorphic forms.  Michel--Venkatesh use period integral approach (geometric arguments).  In this talk, we will use Munshi's delta symbol approach to prove our theorem.
+
+\begin{theorem}[K--Aggarwal--Kwan--Leung--Li--Young]
+  Let $f$ be a Hecke cusp form of prime level $p$ and nebentypus $\chi$, and let $g$ be a fixed $\GL(2)$ form.  Then we have
+  \begin{equation*}
+    L(\tfrac{1}{2}, f \otimes g) \ll_{g, \eps}(p^2)^{1/4 - 1/1100 + \eps}.
+  \end{equation*}
+  For $\chi$ trivial, we have
+  \begin{equation*}
+    L(\tfrac{1}{2}, f \otimes g) \ll_{g, \eps} \dotsb.
+  \end{equation*}
+\end{theorem}
+We use the $\delta$-method along with amplification.  Key input is DFI estimates of bilinear sum
+\begin{equation*}
+  \sum_n a(n) \sum_{m} b(m)
+  e \left( \frac{c \bar{m}}{n} \right).
+\end{equation*}
+
+Let's now say something about the $\delta$-method.  For $n \in \mathbb{Z}$, $\delta(n) = 1$ if $n = 0$ and $\delta(n) = 0$ otherwise.  We think $\delta(n) = \int_0^1 e(n x) \, d x$.  Delta method is a variant of classical ricle method with no ``minor arc'' contributions.  We use the Fourier expansion (DFI) for $\lvert n \rvert \leq N$,
+\begin{equation*}
+  \delta(n)
+  = \frac{1}{Q}
+  \sum_{q \leq Q}
+  \frac{1}{q}
+  \sum_{a(q)^*}
+  e \left( \frac{a n}{q} \right)
+  \int_{\mathbb{R}}
+  g(q, x)
+  e \left( \frac{n x}{q Q} \right)
+  \, d x,
+\end{equation*}
+where $g(q, x)$ is a smooth function and $Q \leq \sqrt{N}$.
+
+Let's now give a sketch of the proof.  On applying the approximate functional equation, we see that
+\begin{equation*}
+  L(\tfrac{1}{2} , f \otimes g) \ll \sup_{N \ll p} \frac{S(N)}{\sqrt{N}},
+\end{equation*}
+where
+\begin{equation*}
+  S(N) = \sum_n \lambda_f(n) \lambda_g(n) W(n / N).
+\end{equation*}
+Here $W$ is a fixed bump function, taking the value one on some interval.  The goal is to show that
+\begin{equation*}
+  S(N) \ll N^{1 - \delta} \qquad \text{ for } N \approx p, \quad \text{ some } \delta > 0.
+\end{equation*}
+To that end, we write
+\begin{align*}
+  S(N) &=
+         \sum_n \lambda_f(n) \lambda_g(n) W(n/N)
+  \\
+       &=
+         \sum_n \sum_m \lambda_f(n) \lambda_g(m)
+         W(n/N) W_1(m/N)
+         \delta(m - n)
+  \\
+       &=
+         \frac{1}{Q}
+         \sum_q \int_{\mathbb{R}}
+         \frac{g(q, x)}{q}
+         \sum_{a(q)^\ast}
+         S_1(a, q, x) S_2(a, q, x) \, d x.
+\end{align*}
+Here $Q = \sqrt{N}$.  (To be precise, we have suppressed the amplifier from our sketch of the argument, but that is used to treat the diagonal.)  Also
+\begin{equation*}
+  S_1(a, q, x) = \sum_{m} \lambda_f(m) e \left( \frac{a m}{q} \right)
+  W_1(m, q, x),
+\end{equation*}
+\begin{equation*}
+  S_2(a, q, x) = \sum_n \lambda_g(n) e \left( \frac{- a n}{q} \right)
+  W_2(n, q, x).
+\end{equation*}
+So what we have done is to separate out the coefficients $\lambda_f$ and $\lambda_g$.  The next step is to analyze $S_1$ and $S_2$ using Voronoi summation.  In the generic case $q \sim Q = \sqrt{p}$, we see that
+\begin{equation*}
+  S_1(\dotsb) \rightsquigarrow \frac{N \chi(- q)}{Q \sqrt{p}}
+  \sum_{m \asymp p}
+  \lambda_f(m)
+  e \left( \frac{- \overline{a p} m}{q} \right).
+\end{equation*}
+(This step doesn't lose or gain anything.)  Similarly,
+\begin{equation*}
+  S_2(\dotsb) \rightsquigarrow \frac{N}{Q} \sum_{m \asymp 1} \lambda_f(n) e \left( \frac{\bar{a} m}{q} \right).
+\end{equation*}
+(Here we have gained a lot.)  Combining everything together so far, we arrive at
+\begin{equation*}
+  S(N) \rightsquigarrow \frac{1}{\sqrt{p}}
+  \sum_{m \asymp p} \lambda_f(m)
+  \sum_q \chi(- q) \sum_{n \asymp 1} \lambda_f(n) c_q(p n - m).
+\end{equation*}
+Here
+\begin{equation*}
+  c_q(n) = \sum_{a (q)}^\ast e \left( \frac{a n}{q} \right)
+\end{equation*}
+is the Ramanujan sum.  Thus far, we have ``shown'' that
+\begin{equation*}
+  S(N) \ll \sqrt{p} Q \sqrt{Q} = N p^{1/4},
+\end{equation*}
+assuming square-root savings in $c_q(\dotsb)$.  (Of course, we get more saving than that for $c_q$, but we're doing a bunch of averaging.)  Next, we apply Cuachy to the $m$-sum to obtain
+\begin{equation*}
+  \lvert S(N) \rvert^2 \ll \sum_m
+  \left|
+    \sum_q
+    \chi(- q)
+    \sum_{n \asymp 1}
+    \lambda_f(n) c_q(p n - m)\right|^2.
+\end{equation*}
+We now open the square and apply Poisson summation to the $m$-sum:
+\begin{multline*}
+  \sum_{m \asymp p} c_{q_1}(p n_1 - m)
+  \overline{  c_{q_2}(p n_2 - m)}
+  \\
+  \rightsquigarrow p
+  \sqrt{q_1 q_2} \delta(q_1 = q_2, n_1 = n_2)
+  + \sum_{m \asymp 1}
+  e \left( \frac{\overline{q_2} m p n_1}{q_1} +
+    \frac{\overline{q_1} m p n_2}{ q_2}\right).
+\end{multline*}
+The remaining sum over $q_1$ and $q_2$ is given by
+\begin{equation*}
+  B = \sum_{q_1 \asymp Q}
+  \sum_{q_2 \asymp Q} \chi(q_1) \overline{\chi}(q_2) e \left( \frac{a \overline{q_1}}{ q_2} \right),
+  \quad a = p m(n_2 - n_1).
+\end{equation*}
+Here we apply DFI estimate $B \ll Q^{2 - 1/48}$ \cite{MR1437494}.  The proof follows.
+
+
+\section{Archimedean Distinguished Representations and Exceptional Poles, \textnormal{\emph{
+      Akash Yadav}}}
+
+Preprint: \cite{2024arXiv2401.09063}
+
+Let $F$ be a non-archimedean local field, $E$ either $F \times F$ (split case) or a quadratic extension (inert case).  $\pi$: irreducible generic representation of $\GL_n(E)$.
+
+\begin{definition}
+  A representation $\pi$ is said to be $\GL_n(F)$-distinguished if $\Hom_{\GL_n(F)}(\pi,1) \neq 0$.
+\end{definition}
+This is related to Rankin--Selberg and Asai $L$-functions according as we are in the split or inert case.
+
+\begin{itemize}
+\item $\psi : E \rightarrow S^1$ fixed additive character
+\item $\mathcal{W}(\pi, \psi)$ Whittaker model of $\pi$ 
+\item $\mathcal{S} = \mathcal{S}(F^n)$: Schwartz space
+\item $e_n =(0, 0, \dotsc, 1) \in F^n$
+\item $N_n \leq \GL_n$: subgroup of unipotent upper-triangular matrices
+\end{itemize}
+We consider the family of Rankin--Selberg integrals in the split case (resp.\ Flicker integrals in the inert case)
+\begin{equation*}
+  \mathcal{J}(\pi) = \left\{ I(s, W, \Phi) : W \in \mathcal{W}(\pi, \psi), \Phi \in \mathcal{S} \right\},
+\end{equation*}
+\begin{equation*}
+  I(s, W, \Phi) := \int_{N_n(F) \backslash \GL_n(F)} W(g)
+  \Phi(e_n g)
+  \lvert \det g \rvert^s_F \, d g.
+\end{equation*}
+
+Jacquet, Piatetski-Shapiro and Shalika (resp.\ Beuzart--Plessis)showed that these integrals converge for $\Re(s)$ large enough and are holomorphic multiples of the Rankin--Selberg (resp.\ Asai) $L$-functions.  We have a filtration $\mathcal{S} = \mathcal{S}^0 \supset \dotsb \supset \mathcal{S} ^m$, where $\mathcal{S}^m$ is the set of vanishing functions to order at least $m$ at $0$.  At a pole $s_0$ of maximal order for $\mathcal{J}(\pi)$, each integral as above has a Laurent expansion
+\begin{equation}\label{eq:cnojsuo68y}
+  \frac{B_{s_0}(W, \Phi)}{(s - s_0)^d} + \dotsb,
+\end{equation}
+where $B_{s_0}$ is bilinear.  ``Exceptional pole of level $d$ at $s_0$'' means $B_{s_0} \neq 0$ [I think; slides were pretty fast].
+
+\begin{theorem}[Y., 2024]\label{theorem:cnojsu3jzl}
+  Let $\pi$ be an irreducible generic representation of $\GL_n(E)$, assumed to be \emph{nearly tempered} in the inert case.  Then $\pi$ is distinguished if and only if the family of integrals $\mathcal{J}(\pi)$ has an exceptional pole of level zero at $0$.
+\end{theorem}
+
+Here we say that $\pi$ is \emph{nearly tempered} if
+\begin{equation*}
+  \pi \cong   \left( \pi_1 \otimes \lvert \det \rvert_E^{r_1} \right)
+  \times  \dotsb \times
+  \left( \pi_k \otimes \lvert \det \rvert_E^{r_k} \right),
+\end{equation*}
+where each $\gamma_i \in \mathbb{R}$ or $\lvert \gamma_i \rvert < 1/4$.
+
+In 2010, Matringe established for $E/F$ quadratic non-archimedean that $\pi$ is distinguished iff its Asai $L$-function has san exceptional pole at $0$.  In the non-archimedean setting, the Asai $L$-function serves as the greatest common divisor of the family of Flicker integrals, ensuring that the quotient of these integrals and the Asai $L$-function is nonvanishing.  But in the archimedean case, the nonvanishing of this quotient is known only for nearly tempered representations (in the inert case).
+
+We'll first prove the ``if'' direction of this theorem.  Suppose $s = s_0$ is a pole of maximal order $d$ for $\mathcal{J}(\pi)$, then we have an expansion as in \eqref{eq:cnojsuo68y}, where
+\begin{equation*}
+  B_{s_0}(g \cdot W, g \cdot \Phi)
+  =
+  \lvert \det \rvert^{s_0}  B_{s_0}(W, \Phi).
+\end{equation*}
+Note that $\mathcal{S}^1$ is a codimension $1$ subspace of $\mathcal{S}$, being the kernel of the evaluation at zero map $\mathcal{S} \rightarrow \mathbb{C}$.  Therefore, if $s = s_0$ is an exceptional pole of level $0$ for the family $\mathcal{J}(\pi)$, then $B_{s_0}$ is of the form
+\begin{equation*}
+  B_{s_0}(W, \Phi) = \lambda_{s_0}(W) \Phi(0),
+\end{equation*}
+where $\lambda_{s_0}$ is nonzero and satisfies
+\begin{equation*}
+  \lambda_{s_0}(g \cdot W) = \lvert \det g \rvert^{- s_0} \lambda_{s_0}(W).
+\end{equation*}
+Taking $s_0$, we see that $\lambda_0 \neq 0$, and so $\pi$ is $\GL_n(F)$-distinguished.
+
+In the remainder of the talk, we focus on proving the ``only if'' direction.  We focus on the split case; the inert case will follow from a similar argument.
+
+Let $W_F$ be the Weil group of $F$, either $\mathbb{C}^\times$ if $F = \mathbb{C}$ or $\mathbb{C}^\times \sqcup j \mathbb{C}^\times$ for $F = \mathbb{R}$, where $j^2 =  - 1$ and $j w j^{-1} = \bar{w}$.  To any continuous finite-dimensional $\phi : W_F \rightarrow \GL(V)$, Tate associates $L(s, \phi)$ and $\eps(s, \phi, \psi ')$.  Let $\pi = \pi_1 \otimes \pi_2$: irreducible representation of $\GL_n(E) = \GL_n(F) \times \GL_n(F)$.  Let $\phi_1, \phi_2$ denote the associated Langlands parameter, so that $\phi_1 \otimes \phi_2$ is the parameter giving rise to the Rankin--Selberg $L$-function.  In 1983 and 2010, Jacquet, Piatetski-Shapiro and Shalika resolved the analytic properties of Rankin--Selberg integrals.
+\begin{theorem}[JPSS 1983, Jacquet 2010]
+  For $\pi = \pi_1 \otimes \pi_@$, $W$ and $\Phi$ as above:
+  \begin{enumerate}
+  \item The local integrals $I(s, W, \Phi)$ converges for $\Re(s)$ large enough and extend meromorphically.
+  \item We have the local functional equation.
+  \item The normalized local integrals are holomorphic, and for any $s_0 \in \mathbb{C}$, do not vanish identically.
+  \end{enumerate}
+\end{theorem}
+
+We turn to \emph{continuity of integrals}.  Let
+\begin{equation*}
+  P _n =
+  \begin{pmatrix}
+    \ast    & \ast & \dotsb & \ast \\
+    \dotsb            & \dotsb & \dotsb & \ast \\
+    \ast            & \ast & \ast & \ast \\
+    0            & 0 & 0 & 1 \\
+  \end{pmatrix}
+\end{equation*}
+denote the mirabolic subgroup of $\GL_n$.  For $W \in \mathcal{W}(\pi, \psi_n)$, consider the local Rankin--Selberg integrals
+\begin{equation*}
+  I(s, W, \Phi).
+\end{equation*}
+
+\begin{proposition}[Cogdell 2005, Chai 2015]
+  The normalized local Rankin--Selberg integrals are continuous.
+  \begin{equation*}
+    \frac{I(s, W, \Phi)}{L(s, \pi, \mathrm{RS})}.
+  \end{equation*}
+\end{proposition}
+\begin{proposition}[Beuzart-Plessis, 2001]
+  The normalized Rankin--Selberg integrals don't vanish identically.  
+\end{proposition}
+\begin{proposition}[Ehud Moshe Baruch, 2003]
+  For a distinguished representation $\pi$, any $P_n(F)$-invariant linear form on $\pi$ is actually $\GL_n(F)$-invariant.
+\end{proposition}
+
+We now give the proof of Theorem \ref{theorem:cnojsu3jzl}  Let $\pi = \pi_1 \otimes \pi_2$, with irreducible generic representations of $\GL_n(F)$.  We need to prove that if $\pi$ is distingiushed, then $s = 0$ is an exceptional pole of level $0$ for the family $\mathcal{J}(\pi)$.  For $\Re(s)$ sufficiently negative, consider the integral
+\begin{equation*}
+  I(1 - s, \tilde{W},\tilde{\Phi}) = \int_{N_n(F) \backslash \GL_n(F)}
+  \tilde{W}(g) \hat{\Phi}(e_n g) \lvert \det g \rvert^{1 - s} \, d g.
+\end{equation*}
+We assume that $W$ is a pure tensor of $K_n$-finite components.  Then we can write
+\begin{equation*}
+  \tilde{W}_1(g k) = \sum_l h_l(k) \tilde{W_l} '(g),
+\end{equation*}
+and similarly for $W_2$, with $g_j$ in place of $h_l$.
+
+Now we set $f_i = h_l g j$, and form $\tilde{W}(g k) = \sum_i f_i(k) \tilde{W}_i(g)$.  Since $\pi$ is distingiushed, its central character is distinguished.
+
+Using the Iwasawa decomposition, we get
+\begin{equation*}
+  I(1 - s, \tilde{W}, \hat{\Phi})
+  = \dotsb,
+\end{equation*}
+then divide to get:
+\begin{align*}
+  \frac{I(1 - s, \tilde{W}, \hat{\Phi})}{L(1 - s, \tilde{\pi}, \mathrm{RS})}
+  &= \int_{K_n}
+    \frac{\Psi(1 - s, \tilde{\pi}(k) \tilde{W})}{ L(1 - s, \tilde{\pi}, \mathrm{RS})}
+    \int_{F^\times} \hat{\Phi}(e_n a k) \lvert a \rvert^{n(1 - s)} \, d ^\times  a \, d k \\
+  &=
+    \dotsb.
+\end{align*}
+This leads to
+\begin{equation*}
+  \frac{I(1, \tilde{W}, \hat{\Phi})}{L(1, \tilde{\pi}, \mathrm{RS})}
+  = \int_{K_n}
+  \frac{\Psi(1, \tilde{\pi}(k), \tilde{W})}{L(1, \tilde{\pi}, \mathrm{RS})}
+  \int_{F^\times} \hat{\Phi}(e_n a k) \lvert a \rvert^n \,d^\times a \, d k.
+\end{equation*}
+As $\pi$ is distinguished, so is $\tilde{\pi}$.  Now pass from the $P_n(F)$-invariance to $\GL_n(F)$-invariance to eventually get the equality
+\begin{equation*}
+  \frac{I(1, \tilde{W}, \hat{\Phi})}{L(1, \tilde{\pi}, \mathrm{RS})}
+  =
+  \frac{\Psi(1, \tilde{W})}{ L(1, \tilde{\pi}, \mathrm{RS})}
+  \Phi(0),
+\end{equation*}
+which we  now know miust hold for zll $W$ and $\Phi$.  Using the functional equation at $s = 0$, we get
+\begin{equation*}
+  \frac{I(1, \tilde{W}, \hat{\Phi})}{L(1, \tilde{\pi}, \mathrm{RS})}
+  =
+  \alpha
+  \frac{I(0, {W}, {\Phi})}{L(0, {\pi}, \mathrm{RS})}
+\end{equation*}
+for some $\alpha \in \mathbb{C}^\times$.  From the earlier calculation, the left hand side of the above equation vanishes for any $\Phi \in S^1$, thus the ratio on the right hand side of the above vanishes.  But then $s = 0$ is a pole for $L(s,, \pi, \mathrm{RS})$, say of order $d$.  Thus $s =0$ must be a pole for the family $\mathcal{J}(\pi)$ of maximal order $d$.  Observe that
+\begin{equation*}
+  B_0(W, \Phi) = \left( \lim_{s \rightarrow 0} s^d L(s, \pi, \mathrm{RS}) \right)
+  \frac{I(0, W, \Phi)}{ L(0, \pi, \mathrm{RS})}
+\end{equation*}
+for all $W$ and $\Phi$.  By previous discussion, the bilinear form $B_0$ is nontrivial and vanishes on $S^1$.  Therefore, $s =0$ must be an exceptional pole of level $0$ for the family $\mathcal{J}(\pi)$.  This completes the proof of the theorem.  Thank you.
 
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
