@@ -225,7 +225,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2024-09-11 12:24:57
+2024-09-12 10:44:05
       <a href="20240909T093140--cirm-conference.tex" class="my-link">tex</a>
       <a href="20240909T093140--cirm-conference.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20240909T093140--cirm-conference.tex" class="my-link">history</a>
@@ -357,6 +357,32 @@ id="toc-explicit-lower-bounds-on-the-conductor-of-abelian-varieties-with-specifi
 lower bounds on the conductor of abelian varieties with specified bad
 reduction, <span class="nodecor"><em>Pierre
 Tchamitchian</em></span></a></li>
+<li><a
+href="#analytic-ranks-of-modular-forms-with-nontrivial-character-maarten-derickx"
+id="toc-analytic-ranks-of-modular-forms-with-nontrivial-character-maarten-derickx">Analytic
+ranks of modular forms with nontrivial character, <span
+class="nodecor"><em>Maarten Derickx</em></span></a></li>
+<li><a
+href="#sharp-conditional-bounds-for-moments-of-products-of-automorphic-l-functions-markus-valås-hagen"
+id="toc-sharp-conditional-bounds-for-moments-of-products-of-automorphic-l-functions-markus-valås-hagen">Sharp
+conditional bounds for moments of products of automorphic L-functions,
+<span class="nodecor"><em>Markus Valås Hagen</em></span></a></li>
+<li><a href="#sub-weyl-bound-for-gl2-l-functions-prahlad-sharma"
+id="toc-sub-weyl-bound-for-gl2-l-functions-prahlad-sharma">Sub-Weyl
+bound for GL(2) L-functions, <span class="nodecor"><em>Prahlad
+Sharma</em></span></a>
+<ul>
+<li><a href="#background" id="toc-background">Background</a></li>
+<li><a href="#main-result" id="toc-main-result">Main result</a></li>
+<li><a href="#proof-sketch" id="toc-proof-sketch">Proof sketch</a>
+<ul>
+<li><a href="#setup" id="toc-setup">Setup</a></li>
+<li><a href="#trivial-delta" id="toc-trivial-delta">Trivial
+delta</a></li>
+<li><a href="#going-beyond-weyl" id="toc-going-beyond-weyl">Going beyond
+Weyl</a></li>
+</ul></li>
+</ul></li>
 </ul>
 </nav>
 <h1
@@ -3977,6 +4003,692 @@ parameters. We have a Mestre inequality (1986): the conductor satisfies
 <p>Everything that we described here over <span
 class="math inline">\(\mathbb{Q}\)</span> also works over number
 fields.</p>
+<h1
+id="analytic-ranks-of-modular-forms-with-nontrivial-character-maarten-derickx">Analytic
+ranks of modular forms with nontrivial character, <span
+class="nodecor"><em>Maarten Derickx</em></span></h1>
+<p>We write <span
+class="math inline">\(S_2(\Gamma)^{\mathrm{zero}}\)</span> to consist of
+those newforms <span class="math inline">\(f\)</span> for which <span
+class="math inline">\(L(f, 1) = 0\)</span>, where <span
+class="math inline">\(\Gamma = \Gamma_0(N)\)</span> or <span
+class="math inline">\(\Gamma_1(N)\)</span>.</p>
+<div class="conjecture">
+<p><strong>Conjecture 106</strong> (Brumer). <em>Roughly half the
+modular forms should have positive analytic rank, and roughly half
+should have analytic rank zero: <span class="math display">\[\#
+S_2(\Gamma_0(p))^{\mathrm{zero}} \sim \frac{1}{2} \#
+S_2(\Gamma_0(p)).\]</span></em></p>
+</div>
+<p>The sign functional equation forces <span class="math display">\[\#
+S_2(\Gamma_0(p))^{\mathrm{zero}}
+  \geq \left( \tfrac{1}{2} - \varepsilon\right)
+  \# S_2(\Gamma_0(p))^{\mathop{\mathrm{new}}},
+  \qquad \text{ for }\]</span>&lt;++&gt;</p>
+<p>[Okay, he’s showing some slides of the LMFDB.]</p>
+<div class="theorem">
+<p><strong>Theorem 107</strong> (Michel–Kowalski). <em>We have <span
+class="math display">\[\# S_2(\Gamma_0(p))^{\mathrm{zero}}
+    \leq \left( \frac{5}{6} + \varepsilon\right) \#
+S_2(\Gamma_0(p))^{\mathop{\mathrm{new}}}.\]</span></em></p>
+</div>
+<p>[More LMFDB. The <span class="math inline">\(\chi\)</span> with <span
+class="math inline">\(r_\chi(p) := \# S_2(p, \chi)^{\mathrm{zero}} &gt;
+0\)</span> for the primes <span class="math inline">\(p &lt;
+100000\)</span>. Pretty rare that there’s more than one relevant modular
+form per character.]</p>
+<div id="conjecture:cnojrtinnd" class="conjecture">
+<p><strong>Conjecture 108</strong> (D., Stoll). <em>If <span
+class="math inline">\(\# S_2(p, \chi)^{\mathrm{zero}} &gt; 0\)</span>,
+then <span class="math inline">\(\mathop{\mathrm{ord}}\chi \leq
+30\)</span>, or at least <span
+class="math inline">\(\mathop{\mathrm{ord}}\chi\)</span> grows super
+slowly with respect to <span class="math inline">\(p\)</span>.</em></p>
+</div>
+<p>This is like the equivalent of Brumer’s conjecture with nontrivial
+character.</p>
+<p>[More LMFDB discussion. Examples with higher order should come from
+elliptic curves with higher rank.]</p>
+<p>Let’s give an application of Conjecture <a
+href="#conjecture:cnojrtinnd" data-reference-type="ref"
+data-reference="conjecture:cnojrtinnd">108</a>. Let <span
+class="math inline">\(p\)</span> be a prime, <span
+class="math inline">\(K\)</span> a number field of degree <span
+class="math inline">\(d\)</span>, <span class="math inline">\(E\)</span>
+an elliptic curve over <span class="math inline">\(K\)</span>.</p>
+<div class="theorem">
+<p><strong>Theorem 109</strong> (Oesterle). <em>Suppose <span
+class="math inline">\(p \mid E(K)_{\mathop{\mathrm{tors}}}\)</span>,
+then <span class="math inline">\(p &lt;(3^{d/2} +
+1)^2\)</span>.</em></p>
+</div>
+<p>Set <span class="math display">\[r_1(p) := \#
+S_2(\Gamma_1(p))^{\mathrm{zero}}
+  -
+  \# S_2(\Gamma_0(p))^{\mathrm{zero}}
+  =
+  \sum_{\chi \neq \chi_{\text{triv}}} \# S_2(p,
+\chi)^{\mathrm{zero}}.\]</span></p>
+<div class="theorem">
+<p><strong>Theorem 110</strong> (D. Stoll). <em>Suppose <span
+class="math inline">\(r_1(p) \leq \log_6(p) - 4\)</span> for <span
+class="math inline">\(p\)</span> large enough. Then for <span
+class="math inline">\(p\)</span> large enough, we have <span
+class="math inline">\(p \mid E(K)_{\mathop{\mathrm{tors}}}\)</span>
+implies <span class="math inline">\(p \leq 6 d + 1\)</span>.</em></p>
+</div>
+<p>(...)</p>
+<div class="example">
+<p><strong>Example 111</strong>. Let <span class="math inline">\(p
+=99991\)</span>. Suppose there exists a number field <span
+class="math inline">\(K\)</span> of degree <span
+class="math inline">\(d\)</span>, and an elliptic curve over <span
+class="math inline">\(K\)</span>, such that if <span
+class="math inline">\(p \mid E(K)_{\mathop{\mathrm{tors}}}\)</span>,
+then <span class="math inline">\(p \geq 33330\)</span>. This is sharp,
+since complex multiplication gives examples with <span
+class="math inline">\(p \mid E(K)_{\mathop{\mathrm{tors}}}\)</span> and
+<span class="math inline">\(d = 33330\)</span>.</p>
+</div>
+<div class="proposition">
+<p><strong>Proposition 112</strong> (D., Stoll). <em>For every prime
+<span class="math inline">\(p = m^2 \pm 108\)</span>, there is a genus
+<span class="math inline">\(2\)</span> curve <span
+class="math inline">\(C_p\)</span> such that</em></p>
+<ul>
+<li><p><em><span class="math inline">\(\mathbb{Z}[\zeta_3]\)</span> is
+contained in <span
+class="math inline">\(\mathop{\mathrm{End}}\mathop{\mathrm{Jac}}(C_p)\)</span>
+(i.e., <span class="math inline">\(\mathop{\mathrm{Jac}}(C_p)\)</span>
+is of <span class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span>
+type)</em></p></li>
+<li><p><em><span
+class="math inline">\(\mathop{\mathrm{Jac}}(C_p)\)</span> is modular of
+level <span class="math inline">\(p\)</span>.</em></p></li>
+<li><p><em>If <span
+class="math inline">\(\mathop{\mathrm{Jac}}(C_p)\)</span> is simple,
+then the associated modular form has character of order <span
+class="math inline">\(3\)</span> or <span
+class="math inline">\(6\)</span>.</em></p></li>
+</ul>
+</div>
+<div class="proposition">
+<p><strong>Proposition 113</strong>. <em>Every character <span
+class="math inline">\(\chi\)</span> of order <span
+class="math inline">\(6\)</span> in the table satisfies <span
+class="math inline">\(p = m^2 \pm 108\)</span>, and Mordell–Weil rank
+<span class="math inline">\(\mathop{\mathrm{Jac}}(C_p)(\mathbb{Q}) &gt;
+0\)</span>.</em></p>
+</div>
+<div class="lemma">
+<p><strong>Lemma 114</strong> (D., Stoll). Assume Bunyakovsky’s
+conjecture. Then there are infinitely many characters <span
+class="math inline">\(\chi :(\mathbb{Z} / p \mathbb{Z})^\ast \rightarrow
+\mathbb{C}^\times\)</span> of order <span
+class="math inline">\(6\)</span> such that <span
+class="math inline">\(\# S_2(p, \chi)^{\mathrm{zero}} \geq
+1\)</span>.</p>
+</div>
+<p>We did something similar for characters of order <span
+class="math inline">\(3\)</span>, twisting elliptic curves.</p>
+<div class="lemma">
+<p><strong>Lemma 115</strong> (D., Stoll). Let <span
+class="math inline">\(\chi\)</span> mod <span
+class="math inline">\(p\)</span> be of order <span
+class="math inline">\(3\)</span>. Then there exists <span
+class="math inline">\(f \in S_2(p, \chi)^{\mathrm{zero}}\)</span> with
+coefficients in <span class="math inline">\(\mathbb{Q}(\zeta_3)\)</span>
+iff there is an elliptic curve <span class="math inline">\(E\)</span>
+over <span class="math inline">\(\mathbb{Q}\)</span> such that</p>
+<ol>
+<li><p><span class="math inline">\(E\)</span> has conductor <span
+class="math inline">\(p^2\)</span>,</p></li>
+<li><p>(...)</p></li>
+</ol>
+</div>
+<p>Let <span class="math inline">\(\chi\)</span> be of order <span
+class="math inline">\(n\)</span>. Let <span
+class="math inline">\(\mathbb{S}_2(p, \chi)\)</span> denote the space of
+cuspidal modular symbols with coefficients in <span
+class="math inline">\(\mathbb{Q}(\zeta_n)\)</span>, and <span
+class="math inline">\(\mathbb{T}_\chi \subset
+\mathop{\mathrm{End}}S_2(p, \chi)\)</span> the Hecke algebra.</p>
+<div class="lemma">
+<p><strong>Lemma 116</strong> (The winding element <span
+class="math inline">\(e\)</span>). There is an explicit <span
+class="math inline">\(e \in \mathbb{S}_2(p, \chi)\)</span> such that
+<span class="math display">\[\dim_{\mathbb{Q}(\zeta_n)}(\mathbb{T}_\chi
+\otimes \mathbb{Q})e +
+    \# S_2(p, \chi)^{\mathrm{zero}}
+    = \# S_2(p, \chi)^{\mathop{\mathrm{new}}}
+    = \dim S_2(p, \chi).\]</span></p>
+</div>
+<ul>
+<li><p><span
+class="math inline">\(\dim_{\mathbb{Q}(\zeta_n)}(\mathbb{T}_\chi \otimes
+\mathbb{Q}) e\)</span> is computable with magma in reasonable time when
+<span class="math inline">\(n\)</span> is small enough and <span
+class="math inline">\(p &lt; 100000\)</span>.</p></li>
+<li><p>If <span class="math inline">\(n \asymp p\)</span>, then <span
+class="math inline">\(\dim_{\mathbb{Q}} \mathbb{Q}(\zeta_n) \asymp
+p\)</span> which makes the computation unfeasible for <span
+class="math inline">\(p \asymp 100000\)</span>.</p></li>
+<li><p>For <span class="math inline">\(n\)</span> large, work over <span
+class="math inline">\(\mathbb{F}_p\)</span> for a <span
+class="math inline">\(p\)</span> that splits completely in <span
+class="math inline">\(\mathbb{Q}(\zeta_n)\)</span>.</p></li>
+</ul>
+<h1
+id="sharp-conditional-bounds-for-moments-of-products-of-automorphic-l-functions-markus-valås-hagen">Sharp
+conditional bounds for moments of products of automorphic L-functions,
+<span class="nodecor"><em>Markus Valås Hagen</em></span></h1>
+<p>Want to study <span class="math display">\[I_k(T) := \int_T^{2 T}
+  \left| \zeta(\tfrac{1}{2} + i t) \right|^{2 k} \, d t.\]</span> Gives
+us a lot of information:</p>
+<ul>
+<li><p>Taking <span class="math inline">\(k\)</span> large, we amplify
+the peaks, giving a way to study extreme values.</p></li>
+<li><p>Showing that <span class="math inline">\(I_k(T) \ll T^{1 +
+\varepsilon}\)</span> for each <span
+class="math inline">\(\varepsilon&gt; 0\)</span> and <span
+class="math inline">\(k \in \mathbb{N}\)</span> is equivalent to knowing
+the Lindelöf hypothesis, i.e., that <span
+class="math inline">\(\zeta(\tfrac{1}{2} + i t) \ll
+t^\varepsilon\)</span> for each <span
+class="math inline">\(\varepsilon&gt; 0\)</span>.</p></li>
+</ul>
+<div class="conjecture">
+<p><strong>Conjecture 117</strong>. <em><span
+class="math inline">\(I_k(T) \sim C_k T(\log T)^{k^2}\)</span>, for any
+real <span class="math inline">\(k &gt; 0\)</span>, where <span
+class="math inline">\(C_k\)</span> is predicted precisely via random
+matrix theory.</em></p>
+</div>
+<p>Moments are closely related to the distribution of <span
+class="math inline">\(\zeta\)</span>. Selberg central limit theorem: for
+fixed <span class="math inline">\(V \in \mathbb{R}\)</span> and large
+<span class="math inline">\(T\)</span>, we have <span
+class="math display">\[\Phi_T(V) := \frac{1}{T}
+  \mathop{\mathrm{vol}}\left(
+    t \in[T, 2 T] :
+    \frac{\log \lvert \zeta(\tfrac{1}{2} + i t) \rvert}{
+\sqrt{\tfrac{1}{2} \log \log T}} \geq V\right)
+  \sim \frac{1}{\sqrt{2 \pi}}
+  \int_V^\infty e^{- x^2 /2} \, d x.\]</span> In other words, <span
+class="math inline">\(\log \lvert \zeta(\tfrac{1}{2} + i t)
+\rvert\)</span>, sampled for <span class="math inline">\(t \in[T, 2
+T]\)</span>, is approximately a normal variable with mean zero and
+variance <span class="math inline">\(\tfrac{1}{2} \log \log
+T\)</span></p>
+<p>The order of magnitude of <span class="math inline">\(I_k(T)\)</span>
+is closely related to <span class="math inline">\(\Phi_T(V)\)</span> for
+<span class="math inline">\(V \asymp k \sqrt{\log \log T}\)</span>.</p>
+<p>What do we know about <span
+class="math inline">\(I_k(T)\)</span>?</p>
+<ul>
+<li><p>Asymptotics for <span class="math inline">\(k = 1,
+2\)</span></p></li>
+<li><p><span class="math inline">\(I_k(T) \asymp T (\log
+T)^{k^2}\)</span> for <span class="math inline">\(0 &lt; k \leq
+2\)</span></p></li>
+<li><p>Assuming RH, <span class="math inline">\(I_k(T) \ll T(\log
+T)^{k^2}\)</span> for all <span class="math inline">\(k &gt;
+0\)</span>.</p></li>
+</ul>
+<p><span class="math inline">\(L\)</span>-functions in general are
+attached to some object <span class="math inline">\(X\)</span>, and are
+used to study that object. <span class="math inline">\(X\)</span> can be
+an elliptic curve, a modular form, a number field, etc. Also has
+pleasant analytic properties. It is believed that all <span
+class="math inline">\(L\)</span>-functions should arise from automorphic
+<span class="math inline">\(L\)</span>-functions, or products of them.
+This gives, at least for the speaker, a reason to be interested in
+automorphic <span class="math inline">\(L\)</span>-functions. GRH (Grand
+Riemann Hypothesis) asserts the Riemann Hypothesis for all automorphic
+<span class="math inline">\(L\)</span>-functions, i.e., all nontrivial
+zeros <span class="math inline">\(\rho\)</span> satisfy <span
+class="math inline">\(\Re(\rho) = 1/2\)</span>.</p>
+<p>Automorphic <span class="math inline">\(L\)</span>-functions also
+have Dirichlet series and Euler product for <span
+class="math inline">\(\Re(s) &gt; 1\)</span>, say <span
+class="math display">\[L(s) = \sum_{n \geq 1}
+  \frac{a_L(n)}{ n^s}.\]</span> In our proof, we need control over these
+coefficients. If <span class="math inline">\(\Lambda_L(n)\)</span>
+denotes the coefficients of the Dirichlet series of <span
+class="math inline">\(L&#39;/L(s)\)</span>, then the Generalized
+Ramanujan Conjecture gives the pointwise bound <span
+class="math display">\[\lvert \Lambda_L(n) \rvert \leq m_L
+\Lambda(n),\]</span> where <span class="math inline">\(m_L\)</span> is a
+fixed constant depending only on <span class="math inline">\(L\)</span>.
+There are also milder alternatives to GRC, such as the so-called
+“Hypothesis H” of Rudnick–Sarnak, which may be understood as an average
+version of GRC. In particular, GRC implies Hypothesis H.</p>
+<p>From now on, “<span class="math inline">\(L\)</span>-function” means
+“automorphic <span class="math inline">\(L\)</span>-function.”</p>
+<p>It’s expected that moments of <span
+class="math inline">\(L\)</span>-functions behave like those of the zeta
+function, i.e., <span class="math display">\[\int_T^{2 T} \left|
+L(\tfrac{1}{2} + i t) \right|^{2 k} \sim C_{k, L} T(\log
+T)^{k^2}.\]</span> We want to study moments, but with several <span
+class="math inline">\(L\)</span>-functions at once, e.g., <span
+class="math display">\[\int_T^{2 T}
+  \left| L_1(\tfrac{1}{2} + i t) \right|^{2 k_1}
+  \left| L_2(\tfrac{1}{2} + i t) \right|^{2 k_2} \, d t.\]</span> This
+sheds light on the independence between them. Given two distinct
+irreducible <span class="math inline">\(L\)</span>-functions, we expect
+<em>independence</em> between them. In particular, <span
+class="math display">\[\begin{gathered}
+  \frac{1}{T} \int_T^{2 T}
+  \left| L_1(\tfrac{1}{2} + i t) \right|^{2 k_1}
+  \left| L_2(\tfrac{1}{2} + i t) \right|^{2 k_2} \, d t
+  \\
+  \approx
+  \frac{1}{T}
+  \int_T^{2 T}
+  \left| L_1(\tfrac{1}{2} + i t) \right|^{2 k_1} \, d t
+  \times \frac{1}{T}
+  \int_T^{2 T}
+  \left| L_2(\tfrac{1}{2} + i t) \right|^{2 k_2} \, d t
+  \asymp(\log T)^{k_1^2 + k_2^2}.
+\end{gathered}\]</span></p>
+<p>Milinovich–Turnage-Butterbaugh (2014): Let <span
+class="math inline">\(k _1, \dotsc, k_r &gt; 0\)</span> be real numbers.
+Let <span class="math inline">\(L_1, \dotsc, L_r\)</span> be distinct
+irreducible cuspidal automorphic <span
+class="math inline">\(L\)</span>-functions with unitary central
+characters. Assume the Generalized Riemann Hypothesis and Hypothesis H.
+Then, for each <span class="math inline">\(\varepsilon&gt; 0\)</span>,
+we have the almost sharp bound <span class="math display">\[\int_T^{2 T}
+\prod_{i = 1}^r \left| L_i(\tfrac{1}{2} + i t) \right|^{2 k_i} \, d t
+  \ll T(\log T)^{k_1^2 + \dotsb + k_r^2 + \varepsilon}.\]</span></p>
+<div class="theorem">
+<p><strong>Theorem 118</strong> (H. 2024+). <em>Keep the assumptions
+above, but assume GRC instead of Hypothesis H. Then <span
+class="math display">\[T(\log T)^{k_1^2 + \dotsb + k_r^2} \ll \int_T^{2
+T}
+    \prod_{i = 1}^r
+    \left| L_i(\tfrac{1}{2} + it) \right|^{2 k_i}
+    \ll T(\log T)^{k_1^2 + \dotsb + k_r^2}.\]</span></em></p>
+</div>
+<p>Let’s discuss some applications. For <span
+class="math inline">\(\Re(s) &gt; 1\)</span> and <span
+class="math inline">\(0 &lt; \alpha \leq 1\)</span>, the Hurwitz zeta
+function in defined by <span class="math display">\[\zeta(s, \alpha) =
+\sum_{n \geq 0} \frac{1}{(n + \alpha)^s}.\]</span> Admits an analytic
+continuation to <span class="math inline">\(\mathbb{C} - \{1\}\)</span>.
+These are interesting functions because the analogue of the RH fails
+when <span class="math inline">\(\alpha \neq 1/2, 1\)</span>, but <span
+class="math inline">\(\zeta(s, \alpha)\)</span> has many similarities
+with <span class="math inline">\(\zeta\)</span> either way. From now on,
+let <span class="math inline">\(\alpha = a/q\)</span> (<span
+class="math inline">\(\gcd(a, q) = 1, 1 \leq a \leq q\)</span>). Then
+it’s conjectured that <span class="math display">\[\int_T^{2 T} \left|
+\zeta(\tfrac{1}{2} + i t, \alpha) \right|^{2 k}
+  \, d t
+  \sim c_{k, \alpha} T(\log T)^{k^2}.\]</span></p>
+<ul>
+<li><p>Proven for <span class="math inline">\(k = 1, 2\)</span>
+unconditionally (Andersson, Rane, Sahay).</p></li>
+<li><p>Assuming RH for every Dirichlet <span
+class="math inline">\(L\)</span>-function modulo <span
+class="math inline">\(q\)</span>, Sahay (2023) proved for every positive
+integer <span class="math inline">\(k\)</span> and <span
+class="math inline">\(\varepsilon&gt; 0\)</span>, one has <span
+class="math display">\[T(\log T)^{k^2} \ll \int_T^{2 T}
+    \left| \zeta(\tfrac{1}{2} + i t, \alpha) \right|^{2 k} \, d t
+    \ll
+    T(\log T)^{k^2 + \varepsilon}.\]</span></p></li>
+</ul>
+<div class="theorem">
+<p><strong>Theorem 119</strong> (H. 2024+). <em>Let <span
+class="math inline">\(\alpha = a/q\)</span>, where <span
+class="math inline">\(\gcd(a, q) = 1\)</span>, <span
+class="math inline">\(1 \leq a \leq q\)</span>. Assume RH for all
+Dirichlet <span class="math inline">\(L\)</span>-functions modulo <span
+class="math inline">\(q\)</span>. Then for all <span
+class="math inline">\(k &gt; 1/2\)</span>, we have <span
+class="math display">\[T(\log T)^{k^2} \ll \int_T^{2 T}
+    \left| \zeta(\tfrac{1}{2} + i t, \alpha) \right|^{2 k} \, d t
+    \ll
+    T(\log T)^{k^2}.\]</span></em></p>
+</div>
+<div class="proof">
+<p><em>Proof idea for upper bound, <span
+class="math inline">\(k\)</span> an integer.</em> By orthogonality of
+Dirichlet characters, we have <span
+class="math display">\[\zeta(\tfrac{1}{2} + i t, \tfrac{a}{q})
+    =
+    \frac{q    ^{1/2 + i t}}{\varphi(q)}
+    \sum_{\chi(q)} \overline{\chi(a)}
+    L(\tfrac{1}{2} + i t, \chi).\]</span> Taking <span
+class="math inline">\(k\)</span>-th power and using the multnomial
+theorem, we get a sum over different products of Dirichlet <span
+class="math inline">\(L\)</span>-functions with different powers. Taking
+the second moment, we have to compute (up to order) many terms of the
+form (which we know from our main theorem) <span
+class="math display">\[\prod_{i = 1}^r
+    \left| L_i(\tfrac{1}{2} + it) \right|^{2 k_i}.\]</span> ◻</p>
+</div>
+<p>Another application concerns large deviations. Selberg CLT for
+several <span class="math inline">\(L\)</span>-functions at once: <span
+class="math display">\[\frac{1}{T} \mathop{\mathrm{vol}}\left( t \in[T,
+2 T] :
+    \frac{\log \left| L_j(\tfrac{1}{2} + i t)
+\right|}{\sqrt{\tfrac{1}{2} \log \log T}} \geq V_j, j = 1, \dotsc,
+r\right)
+  \sim \prod_{j = 1}^{r}
+  \int_{V_j}^\infty e^{- x^2 / 2} \, d x\]</span> for fixed <span
+class="math inline">\(V_j\)</span>. Controls typical fluctuations.
+Conditional result (Selberg + Bombieri–Hejhal), requiring a strong zero
+density estimate.</p>
+<div class="theorem">
+<p><strong>Theorem 120</strong> (H. 2024+). <em>Assume GRH and GRC. Let
+<span class="math inline">\(V_j \asymp \sqrt{\log \log T}\)</span>. Then
+<span class="math display">\[\frac{1}{T}
+    \log \left( t \in[T, 2 T] : \frac{\log \lvert L_j(\tfrac{1}{2} + i
+t) \rvert}{ \sqrt{\log \log T}} \geq V_j, 1 \leq j \leq r \right)
+    \asymp \exp \left( -(1 + o (1))
+      \frac{V_1^2 + \dotsb + V_r^2}{2}\right).\]</span></em></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Sketch of proof." data-folded-text="Sketch of proof. (...)">Sketch of proof.</em></a>
+<span class="proof-content"> The large deviations <span
+class="math inline">\(V_j \asymp \sqrt{\log \log T}\)</span> are
+controlled by the moments. Let <span class="math inline">\(V_j = C_j
+\sqrt{\log \log T}\)</span>. Then <span
+class="math display">\[\begin{align}
+    \frac{1}{T}
+    \mathop{\mathrm{vol}}\left( t \in[T, 2 T] :
+      \frac{\log \lvert L_j(\tfrac{1}{2} + i t) \rvert}{
+\sqrt{\tfrac{1}{2} \log \log T}} \geq V_j, 1 \leq j \leq r\right)
+    &amp;=
+    \frac{1}{T}
+    \mathop{\mathrm{vol}}\left( t \in[T, 2 T] :
+      \lvert L_j(\tfrac{1}{2} + i t) \rvert \geq(\log T)^{\sqrt{C_j^2
+/2}}
+      , 1 \leq j \leq r\right).
+  
+\end{align}\]</span> Now apply Chebyshev, then our knowledge of
+moments, then choose <span class="math inline">\(k_j = C_j /
+\sqrt{2}\)</span> to get the desired bound. ◻</p>
+</span></div>
+<p>[Slide that says “Do I have more time?”.]</p>
+<p>Let’s now discuss the proof strategy for moments. The lower bound
+proof strategy is due to Heath–Brown. For <span
+class="math inline">\(\zeta\)</span>, the argument starts with <span
+class="math display">\[\int_T^{2 T}
+  \left| \zeta(\tfrac{1}{2} + i t) \right|^{2 k} \, d t
+  \geq
+  \int_T^{2 T}
+  \left| \sum_{n \leq T}
+    \frac{d_k(n)}{n^{1/2 + i t}}\right|^2 \, d t
+  - \int_T^{2 T}
+  \left| \zeta(\tfrac{1}{2} + i t)
+    - \sum_{n \leq T}
+    \frac{d_k(n)}{n^{1/2 + i t}}\right|^2 \,d t.\]</span> First term on
+the RHS can be computed by Montgomery–Vaughan mean value theorem. Second
+term is dealt with by means of a version of Hadamard three lines
+theorem, moving the line of integration to <span
+class="math inline">\(\Re(s) = 5/4\)</span>, where the corresponding
+integral is small. For the upper bound, lots of ideas are combined:</p>
+<ul>
+<li><p>Soundararajan and Chandee: on GRH, bounding <span
+class="math inline">\(L\)</span>-functions on the critical line by just
+an Euler product (with no information from zeros)</p></li>
+<li><p>Radziwill: integrating over certain subsets where our <span
+class="math inline">\(L\)</span>-functions behave “typically”, instead
+of the whole of <span class="math inline">\([T, 2 T]\)</span>.</p></li>
+<li><p>Harper/Radziwill–Soundararajan: splitting up Dirichlet polynomial
+into many parts with progressively smaller variance.</p></li>
+</ul>
+<h1 id="sub-weyl-bound-for-gl2-l-functions-prahlad-sharma">Sub-Weyl
+bound for GL(2) L-functions, <span class="nodecor"><em>Prahlad
+Sharma</em></span></h1>
+<h2 id="background">Background</h2>
+<p>Hardy–Littlewood (1921) (written down by Landau): <span
+class="math display">\[\zeta(\tfrac{1}{2} + i t) \ll_\varepsilon t^{1/6
++ \varepsilon}, \quad t \geq 1.\]</span> Uses Weyl differencing
+technique to estimate <span class="math inline">\(\sum_{n \sim N} n^{i
+t}\)</span>. Since then, several improvements have been done to this
+bound, leading to many important techniques for estimating exponential
+sums. We’ll only mention some of them. One is Bombieri–Iwaniec’s bound,
+refined by Huxley (2005), giving <span
+class="math display">\[\zeta(\tfrac{1}{2} + i t) \ll_\varepsilon t^{1/6
+- 13/1230 + \varepsilon}, \quad t \geq 1.\]</span> The state of the art
+is due to Bourgain (2017), who obtained <span
+class="math display">\[\zeta(\tfrac{1}{2} + i t) \ll_\varepsilon t^{1/6
+- 1/84 + \varepsilon}, \qquad t \geq 1,\]</span> using decoupling method
+from harmonic analysis.</p>
+<p>For general automorphic <span
+class="math inline">\(L\)</span>-functions, one has the convexity bound
+(Phragmen–Lindelöf convexity principle plus functional equation) <span
+class="math display">\[L(\tfrac{1}{2} + i t, F)
+\ll_\varepsilon\mathfrak{q}(t, F)^{1/4 + \varepsilon},\]</span> while
+the analogue of the Weyl bound is <span
+class="math display">\[L(\tfrac{1}{2} + i t, F)
+\ll_\varepsilon\mathfrak{q}(t, F)^{1/6 + \varepsilon}.\]</span> A
+“sub–Weyl” bound is an improvement on the <span
+class="math inline">\(1/6\)</span> exponent.</p>
+<p>There are important applications of subconvexity bounds.</p>
+<ul>
+<li><p>A. Good (1982): Weyl bound for <span
+class="math inline">\(f\)</span> holomorphic of level <span
+class="math inline">\(1\)</span>,</p>
+<p><span class="math display">\[L(\tfrac{1}{2} + i t, f)
+\ll_\varepsilon(t^2)^{1/6 + \varepsilon}.\]</span></p></li>
+<li><p>K. Aggarwal and S. Singh (2017): Weyl bound for <span
+class="math inline">\(\mathop{\mathrm{GL}}(2)\)</span> <span
+class="math inline">\(t\)</span>-aspect, using the “<span
+class="math inline">\(\mathop{\mathrm{GL}}(2)\)</span> delta
+method”.</p></li>
+<li><p>K. Aggarwal (2018): Weyl bound for <span
+class="math inline">\(\mathop{\mathrm{GL}}(2)\)</span> <span
+class="math inline">\(t\)</span>-aspect using the “trivial delta
+method”.</p></li>
+<li><p>V. Blomer, S. Jana, P. Nelson (2021): Weyl bound for <span
+class="math inline">\(\mathop{\mathrm{GL}}(2) \times
+\mathop{\mathrm{GL}}(2) \times \mathop{\mathrm{GL}}(2)\)</span> using
+the period integral approach.</p></li>
+</ul>
+<p>In particular, we haven’t yet seen a sub-Weyl bound for <span
+class="math inline">\(\mathop{\mathrm{GL}}(2)\)</span>.</p>
+<h2 id="main-result">Main result</h2>
+<p>Using a further refinement of the trivial delta method, we
+obtain:</p>
+<div class="theorem">
+<p><strong>Theorem 121</strong> (R. Holowinsky, R. Munshi, S.,
+J. Streipel). <em>Let <span class="math inline">\(f\)</span> be a <span
+class="math inline">\({\mathop{\mathrm{SL}}}_2(\mathbb{Z})\)</span> form
+(cuspidal or Eisenstein). We have <span
+class="math display">\[L(\tfrac{1}{2} + i t, f) \ll_{\varepsilon, f}
+    (t^2)^{1/6 - 1/96 + \varepsilon}.\]</span></em></p>
+</div>
+<p>Some remarks:</p>
+<ul>
+<li><p>Taking <span class="math inline">\(f\)</span> to be Eisenstein,
+we get a sub-Weyl bound for zeta, between Bourgain’s and
+Bombieri–Iwaniec’s: <span class="math display">\[\frac{1}{6} -
+\frac{1}{84}
+    &lt; \frac{1}{6} - \frac{1}{96}
+    &lt; \frac{1}{6} - \frac{1}{168}.\]</span></p></li>
+<li><p>The limiting bound of the method is <span
+class="math inline">\(\zeta(\tfrac{1}{2} + i t) \ll_\varepsilon t^{1/8 +
+\varepsilon}\)</span>. Speaker thinks that with more effort, they could
+improve upon Bourgain’s bound.</p></li>
+<li><p>The method is soft, using no exponent pair estimates.</p></li>
+</ul>
+<h2 id="proof-sketch">Proof sketch</h2>
+<h3 id="setup">Setup</h3>
+<p>By the approximate functional equation, <span
+class="math display">\[L(\tfrac{1}{2} + i t, f) \approx t^{-1/2} \sum_{n
+\asymp t}
+  \lambda(n) n^{- it}.\]</span> Trivial estimation gives the convexity
+bound <span class="math display">\[L(\tfrac{1}{2} + i t, f) \ll
+t^{1/2}.\]</span> Need to save <span
+class="math inline">\(t^{1/6}\)</span> plus something more in <span
+class="math display">\[S := \sum_{n \asymp t} \lambda(n) n^{- i
+t}\]</span> to get sub–Weyl.</p>
+<h3 id="trivial-delta">Trivial delta</h3>
+<p>Let’s now discuss the <span
+class="math inline">\(\delta\)</span>-symbol. Let <span
+class="math inline">\(\delta : \mathbb{Z} \rightarrow \{0, 1\}\)</span>
+denote the characteristic function of <span
+class="math inline">\(0\)</span>: <span class="math display">\[\delta(k)
+=
+  \begin{cases}
+    1 &amp; \text{ if } k = 0, \\
+    0 &amp; \text{ otherwise.}
+  \end{cases}\]</span> Then <span class="math display">\[S = \sum_{m
+\asymp t} \sum_{n \asymp t}
+  \lambda(m) \delta(m - n) n^{- it}.\]</span> The <em>trivial delta
+symbol</em> comes from observing that for <span class="math inline">\(p
+&gt; t\)</span>, we have <span class="math display">\[\delta(m - n) =
+\frac{1}{p}
+  \sum_{b(p)} e \left( \frac{b(m - n)}{p} \right).\]</span></p>
+<p>To optimize the delta symbol, we employ “conductor lowering”. We
+first use <span class="math display">\[m - n \ll t /
+K  \leftrightsquigarrow
+  \frac{1}{K}
+  \int_{v \sim K}
+  (m / n)^{i v} \, d v\]</span> for some <span class="math inline">\(K
+&lt; t\)</span>, and then detect the smaller equation <span
+class="math display">\[m - n = 0.\]</span> This reduces the number of
+variables we are introducing (saving from the <span
+class="math inline">\(v\)</span>-integral) and reduces the conductor
+size arising from the delta symbol expansion.</p>
+<p>We are led to proceed with <span class="math display">\[S =
+\frac{1}{K}
+  \sum_{m \asymp t} \sum_{n \asymp t}
+  \lambda(m)
+  \delta(m - n)
+  n^{- i t}
+  \int_{v \asymp K}
+  (m / n)^{i v} \, d v.\]</span> We choose a set of primes <span
+class="math inline">\(\mathcal{P}\)</span> of size <span
+class="math inline">\(P\)</span> such that <span
+class="math display">\[P &gt; t /K.\]</span> Then <span
+class="math display">\[\delta(m - n) = \frac{1}{\lvert \mathcal{P}
+\rvert}
+  \sum_{p \in \mathcal{P}}
+  \frac{1}{p}
+  \sum_{b(p)}
+  e \left( \frac{b(m - n)}{p} \right).\]</span> Substituting, we arrive
+at <span class="math display">\[S = \frac{1}{K}
+  \int_{v \asymp K}
+  \frac{1}{ P}
+  \sum_{p \in \mathcal{P}}
+  \frac{1}{p} \sum_{b(p)}
+  \sum_{m \asymp t}
+  \lambda(m)
+  e \left( \frac{b m}{p} \right)
+  m^{i v}
+  \sum_{n \asymp t}
+  e \left( \frac{- b n}{p} \right)
+  n^{- i(t + v)}
+  \, d v.\]</span> Dualizing (Voronoi and Poisson), get <span
+class="math display">\[S = \frac{t^{3/2}}{K^{3/2} P^3}
+  \sum_{p \in \mathcal{P}}
+  \sum_{m \asymp p^2 K^2 / t}
+  \sum_{n \asymp p}
+  \lambda(m)
+  e \left( \frac{\bar{n}m}{p} \right)
+  (n/p)^{i t}
+  e^{i \phi(m, n, p)}.\]</span> Trivially, <span
+class="math display">\[S \ll t^{1/2} K^{1/2} P = t \cdot \frac{K^{1/2}
+P}{t^{1/2}}.\]</span> We are <span class="math inline">\(\frac{K^{1/2}
+P}{t^{1/2}}\)</span> away from subconvexity.</p>
+<p>Everything so far has been as in previous works. <span
+class="math display">\[\left( \sum_{m \asymp P^2 K^2 / t} \left|
+\lambda(m) \right|^2 \right)^{1/2}
+  \left( \sum_{m \asymp P^2 K^2 / t}
+    \left| \sum_{p \in \mathcal{P}} \sum_{n \asymp P}
+      e \left( \frac{\bar{n} m}{ p} \right)
+      (n /p)^{i t} e^{i \phi(m, n,
+p)}\right|^2\right)^{1/2}.\]</span></p>
+<ul>
+<li><p>Diagonal contributes <span class="math inline">\(P^2 \cdot
+P^2  K^2 / t\)</span>.</p></li>
+<li><p>Off-diagonal contributes <span class="math inline">\(P^4 \cdot
+\sqrt{K}\)</span>.</p></li>
+<li><p>Therefore <span class="math display">\[S \ll t^{1/2} K^{1/2} +
+\frac{t}{K^{1/4}}.\]</span> With the optimal choice <span
+class="math inline">\(K = t^{2/3}\)</span>, we get <span
+class="math display">\[S \ll t^{1 - 1/6}.\]</span></p></li>
+</ul>
+<h3 id="going-beyond-weyl">Going beyond Weyl</h3>
+<p>We go back to the step just before, and use Diophantine
+approximation. Write <span class="math display">\[S =
+\frac{t^{3/2}}{K^{3/2} P^3}
+  \sum_{p \in \mathcal{P}}
+  \sum_{n \asymp p}
+  \left( \frac{n}{p} \right)^{i t}
+  \sum_{m \asymp p^2 K^2 / t}
+  \lambda(m)
+  e \left( \frac{\bar{n} m}{ p} \right)
+  e^{i \phi(m, n, p)}.\]</span> Fix <span class="math inline">\(Q \geq
+1\)</span>. For each <span class="math inline">\((n, p)\)</span>, choose
+<span class="math inline">\((a, q)\)</span>, with <span
+class="math inline">\(q \leq Q\)</span>, such that <span
+class="math display">\[\frac{\bar{n}}{p} = \frac{a}{q} + \beta, \quad
+  \beta \leq \frac{1}{q Q}.\]</span> Then <span class="math display">\[e
+\left( \frac{\bar{n}m}{p} \right)
+  = e \left( \frac{a m}{q} \right)
+  e(m \beta).\]</span> Choose <span class="math inline">\(Q\)</span>
+such that <span class="math display">\[m \beta \asymp K \implies Q
+\asymp P \sqrt{\frac{K}{t}},\]</span> which is smaller than <span
+class="math inline">\(P\)</span>, although the analytic conductor
+remains the same. The <span
+class="math inline">\(\mathop{\mathrm{GL}}(2)\)</span> sum now becomes
+<span class="math display">\[\sum_{m} \lambda(m) e \left( \frac{\bar{n}
+m}{p} \right)
+  e^{i \phi(m, n, p)}
+  =
+  \sum_{m } \lambda(m)
+  e \left( \frac{a m}{q} \right)
+  e(m \beta)
+  e^{i \phi(m,n , p)},\]</span> where the conductors are <span
+class="math inline">\(P^2 \cdot K^2\)</span> for the LHS and <span
+class="math inline">\(Q^2 \cdot K^2\)</span> for the RHS. After Voronoi
+once more, we obtain <span class="math display">\[S = \frac{t}{K P^2}
+\sum_{p \in \mathcal{P}} \sum_{n \asymp p}
+  (n /p)^{i t}
+  \sum_{m \asymp K}
+  \lambda(m)
+  e \left( \frac{\bar{a} m}{q} \right) \mathcal{J}(m, n, p).\]</span>
+Trivially at this stage, we get <span class="math display">\[S \ll
+t,\]</span> which gives convexity.</p>
+<p>We observe that <span class="math display">\[e \left( \frac{\bar{a}
+m}{q} \right)\]</span> is still additive with respect to <span
+class="math inline">\(m\)</span>.</p>
+<p>We now apply Cauchty–Schwarz followed by Poisson summation, giving
+<span class="math display">\[\left( \sum_{m \asymp K}
+    \left| \lambda(m) \right|^2\right)^{1/2}
+  \left( \sum_{m \asymp K}
+    \left| \sum_{p \in \mathcal{P}} \sum_{n \asymp P}
+      e \left( \frac{\bar{a} m}{q} \right)
+      (n/p)^{i t}
+      \mathcal{J}(m, n, p)\right|^2\right)^{1/2}.\]</span> The diagonal
+contributes <span class="math inline">\(P^2 \cdot K\)</span>. The
+off-diagonal gives <span class="math inline">\(P^4 \cdot
+\sqrt{K}\)</span>. Therefore <span class="math display">\[S \ll
+\frac{t}{P} + \frac{t}{ K^{1/4}}.\]</span> Here the diagonal is
+negligibly small, while the off-diagonal is the same as earlier.</p>
+<p>With the best possible choice <span class="math inline">\(K = t^{1 -
+\varepsilon}\)</span>, we get <span class="math display">\[S \ll t^{1 -
+1/4},\]</span> which gives <span class="math display">\[L(\tfrac{1}{2} +
+i t, f) \ll t^{1/4 + \varepsilon},\]</span> <span
+class="math display">\[\zeta(\tfrac{1}{2} + i t) \ll t^{1/8 +
+\varepsilon}.\]</span> Some degeneracies arise in the non-generic cases
+<span class="math inline">\(q \leq Q t^{- \delta}\)</span>, <span
+class="math inline">\(\beta \ll \frac{t^{- \delta}}{Q^2}\)</span>. These
+are relatively simpler when <span class="math inline">\(K \ll
+t^{3/4}\)</span>. Thus, for now, we obtain <span
+class="math display">\[S \ll \frac{t}{(t^{3/4})^{1/4}} = t^{1 -
+3/16},\]</span> that is to say, <span
+class="math display">\[L(\tfrac{1}{2} + i t, f)
+  \ll t^{1/3 - 1/48 + \varepsilon},\]</span> <span
+class="math display">\[\zeta(\tfrac{1}{2} + i t, f)
+  \ll t^{1/6 - 1/96 + \varepsilon}.\]</span></p>
 <div id="refs" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" role="list">
 <div id="ref-2024arXiv2401.08855" class="csl-entry" role="listitem">
