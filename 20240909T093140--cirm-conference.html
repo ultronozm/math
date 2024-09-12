@@ -225,7 +225,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2024-09-12 15:57:45
+2024-09-12 16:26:15
       <a href="20240909T093140--cirm-conference.tex" class="my-link">tex</a>
       <a href="20240909T093140--cirm-conference.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20240909T093140--cirm-conference.tex" class="my-link">history</a>
@@ -407,6 +407,11 @@ href="#archimedean-distinguished-representations-and-exceptional-poles-akash-yad
 id="toc-archimedean-distinguished-representations-and-exceptional-poles-akash-yadav">Archimedean
 Distinguished Representations and Exceptional Poles, <span
 class="nodecor"> <em>Akash Yadav</em></span></a></li>
+<li><a
+href="#unconditional-computation-of-the-class-groups-of-real-quadratic-fields-andrei-seymour-howell"
+id="toc-unconditional-computation-of-the-class-groups-of-real-quadratic-fields-andrei-seymour-howell">Unconditional
+computation of the class groups of real quadratic fields <span
+class="nodecor"><em>Andrei Seymour-howell</em></span></a></li>
 </ul>
 </nav>
 <h1
@@ -5389,6 +5394,269 @@ class="math inline">\(s =0\)</span> must be an exceptional pole of level
 <span class="math inline">\(0\)</span> for the family <span
 class="math inline">\(\mathcal{J}(\pi)\)</span>. This completes the
 proof of the theorem. Thank you.</p>
+<h1
+id="unconditional-computation-of-the-class-groups-of-real-quadratic-fields-andrei-seymour-howell">Unconditional
+computation of the class groups of real quadratic fields <span
+class="nodecor"><em>Andrei Seymour-howell</em></span></h1>
+<p>Joint work with Ce Bian, Andrew Booker, Austin Docherty, Michael
+Jacobson Jr.</p>
+<p>Let’s start off by saying how <em>I</em> use class number
+computations. Imaginary class numbers are actually used to compute
+holomorphic modular forms using a trace formula.</p>
+<p>Real quadratic class numbers are used to compute Maass forms, again
+using a trace formula. Thus <span class="math display">\[\text{more
+class numbers} = \text{more automorphic forms}.\]</span> Numerical
+verification of the Selberg eigenvalue conjecture up to level 880 also
+used to compute Maass forms by Strombergsson et al.</p>
+<p>Previous computatinos:</p>
+<div id="tab:bounds_and_invariants">
+<table>
+<caption>Comparison of bounds and invariants for different
+sources</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Source</strong></th>
+<th style="text-align: left;"><strong>Bound</strong></th>
+<th style="text-align: left;"><strong>Invariants</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Gauss</td>
+<td style="text-align: left;"><span class="math inline">\(\Delta &lt;
+1000\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(h_{\Delta}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Saito and Wada 1988</td>
+<td style="text-align: left;"><span class="math inline">\(\Delta &lt;
+10^6\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(\mathrm{Cl}_\Delta\)</span> and <span
+class="math inline">\(R_\Delta\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Jacobson 1988</td>
+<td style="text-align: left;"><span class="math inline">\(\Delta &lt;
+10^9\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(\mathrm{Cl}_\Delta\)</span> and <span
+class="math inline">\(R_\Delta\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">te Riele and Williams 2003</td>
+<td style="text-align: left;"><span class="math inline">\(\Delta &lt;
+10^9\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(h_\Delta\)</span> and <span
+class="math inline">\(R_\Delta\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>How fast?</p>
+<ul>
+<li><p>Hafner and McCurley <span
+class="math inline">\(\operatorname{O}(\exp((\log \Delta)^{1/2 +
+\varepsilon}))\)</span> (runtime heurstic)</p></li>
+<li><p>Buchmann: <span
+class="math inline">\(\operatorname{O}(\Delta^{1/4 +
+\varepsilon})\)</span></p></li>
+<li><p>Lenstra/Shanks <span
+class="math inline">\(\operatorname{O}(\Delta^{1/5 +
+\varepsilon})\)</span></p></li>
+</ul>
+<p>Unfortunately, these algorithms all rely on GRH.</p>
+<p>Now let’s talk about imaginary quadratic fields. Ramachandran,
+Jacobson and Williams used modular forms to unconditionally compute and
+verify class numbers of imaginary quadratic fields.</p>
+<ul>
+<li><p>Compute a list of class numbers for imaginary quadratic fields up
+to discriminant of size say <span class="math inline">\(X\)</span>. With
+Buchmann’s algorithm, you would get a lower bound to the size of the
+class numbers.</p></li>
+<li><p>Use the trace formula for holomorphic forms of fixed weight and
+level to derive an upper bound and compare the two.</p></li>
+</ul>
+<p>The nice thing about modular forms is that everything is finite . In
+fact, in their algorithm, no modular forms are needed, since we can
+choose a space of fixed weight and level that is empty and still derive
+a nontrivial expression for the class numbers. With this, they managed
+to compute several class numbers for discriminants of size <span
+class="math inline">\(10 ^{12}\)</span>.</p>
+<p>In this talk, we mimic the above for the real quadratic case.</p>
+<p>We recall that a function <span class="math inline">\(f : \mathbb{H}
+\rightarrow \mathbb{C}\)</span> is a <em>Maass cusp form</em> on <span
+class="math inline">\(\Gamma =
+{\mathop{\mathrm{SL}}}_2(\mathbb{Z})\)</span> if it is</p>
+<ul>
+<li><p>automorphic,</p></li>
+<li><p>an egienfunction of the Laplacian <span
+class="math inline">\(\Delta\)</span>,</p></li>
+<li><p>lies in <span class="math inline">\(L^2(\Gamma \backslash
+\mathbb{H})\)</span>, and</p></li>
+<li><p>vanishes at the cusp of <span class="math inline">\(\Gamma
+\backslash \mathbb{H}\)</span>.</p></li>
+</ul>
+<p>For any <span class="math inline">\(f\)</span> and nonzero integer
+<span class="math inline">\(n\)</span>, we have the Hecke operator <span
+class="math inline">\(T_n\)</span> that maps Maass forms to Maass forms.
+Furthermore <span class="math inline">\(f\)</span> has a Fourier
+expansion of the form <span class="math display">\[\sum_{n \neq 0} a(n)
+\sqrt{y} K_{i r}(2 \pi \lvert y n \rvert) e(n x).\]</span> Here <span
+class="math inline">\(\lambda = 1/4 + r^2\)</span>.</p>
+<p>The Selberg trace formula allows one to consider the whole spectrum
+of Maass cusp forms. Selberg derived this in the 1950’s to prove the
+existence of Maass cusp forms.</p>
+<p>In our case, if we have a Hecke eigenbasis <span
+class="math inline">\(\{f_j\}\)</span> of level <span
+class="math inline">\(1\)</span> Maass cusp forms with respective
+Laplace iegenvalues <span class="math inline">\(\lambda_j = 1/4 +
+r_j^2\)</span> and Hecke eigenvalues <span
+class="math inline">\(a_j(n)\)</span>, the Selberg trace formula allows
+us to compare <span class="math display">\[(\text{spectral side})
+\sum_{j = 1}^\infty a_j(n) H(\lambda_j) =(\text{geometric
+side}).\]</span> Here <span class="math inline">\(H\)</span> is some
+nice analytic test function, and <span class="math inline">\(n \neq
+0\)</span>. Important for us is that the geometric side involves class
+numbers of real quadratic fields. Explicitly, if we take some function
+<span class="math inline">\(h\)</span> (think of a Gaussian) and let
+<span class="math inline">\(g\)</span> be its Fourier transform, then
+the trace formula, in more detail, says <span
+class="math display">\[\sum_{j = 1}^\infty a_j(n) h(r_j)
+  = \sum_{
+    \substack{
+      t \in \mathbb{Z}   \\
+      \sqrt{D} = \sqrt{t^2 - 4 n} \notin \mathbb{Q}      \\
+      D &gt; 0
+    }
+  }
+  L(1, \psi_D) g \left( \log \left( \frac{(\lvert t \rvert +
+\sqrt{D})^2}{4 n} \right)
+    + \Psi(n)\right),\]</span> where, with <span class="math inline">\(D
+= d \ell^2\)</span>, we have <span class="math display">\[L(1, \psi_D) =
+\frac{L(1, \psi_d)}{ \ell} \prod_{p \mid \ell}
+  \left( 1 +(1 - \psi_d(p)) \frac{\dotsb}{\dotsb} \right).\]</span>
+Choosing a specific test function, we can write the trace formula as
+<span class="math display">\[\sum_{j = 1}^\infty a_j(n) h(r_j)
+  = \sum_{
+    \substack{
+      t \in \mathbb{Z}  \\
+      \sqrt{D} = \sqrt{t^2 - 4 n} \notin \mathbb{Q}
+      \\
+      0 &lt; D \leq X
+    }
+  }
+  L(1, \psi_D) \left( 1 - \frac{D}{X} \right)^k  + \Psi(n).\]</span>
+Truncating the spectral sum and rearranging, we have <span id="eq:cnojsyvbb3" class="math display">\[\label{eq:cnojsyvbb3}\tag{4}
+  \sum_{
+    \substack{
+      t \in \mathbb{Z}  \\
+      \sqrt{D} = \sqrt{t^2 - 4 n} \notin \mathbb{Q} \\ 0 &lt; D \leq
+X      
+    }
+  } L(1, \psi_D) \left( 1 - \frac{D}{X} \right)^k =
+  \sum_{r_j \leq R}
+  a_j(n) h(r_j) + E_n - \Psi(n).\]</span> The point is that <span
+class="math inline">\(E_n\)</span>, while we don’t know it explicitly,
+we can bound it to be quite small. What this gives us is an <em>upper
+bound</em> that we can compute, provided that we have some list of Maass
+forms. We saw on Tuesday that there is a list of Maass forms that have
+been computed. So, how does the algorithm work?</p>
+<ol>
+<li><p>We compute the class number and regulator for real quadratic
+fields up to discriminant <span class="math inline">\(X\)</span>, plus a
+bit extra. Recall that Buchmann’s algorithm will give a lower bound to
+the size of the class number unconditionally. We also need the
+regulator, but we’ll go into that later.</p></li>
+<li><p><span id="enumerate:cnojsyxaw8"
+label="enumerate:cnojsyxaw8"></span> Now we need to compute the spectral
+side of the trace formula for all <span class="math inline">\(n \leq
+\sqrt{X}\)</span> and a bound for the error <span
+class="math inline">\(E_n\)</span>. This will be used as an upper bound
+on the size of the class numbers.</p></li>
+<li><p>To verify a given class number, we double its contribution to the
+left hand side of <a href="#eq:cnojsyvbb3" data-reference-type="eqref"
+data-reference="eq:cnojsyvbb3">\((4)\)</a> (what we call “the
+hyperbolic sum”) and hope we get something bigger than what our upper
+bound says, giving the required contradiction and showing that our class
+number was in fact correct.</p></li>
+</ol>
+<p>An important point of this is that in step <a
+href="#enumerate:cnojsyxaw8" data-reference-type="eqref"
+data-reference="enumerate:cnojsyxaw8">\((2)\)</a>, we
+need to rigorously compute the Laplace eigenvalues and all Hecke
+eigenvalues up to <span class="math inline">\(\sqrt{X}\)</span> for
+several Maass cusp forms.</p>
+<p>So that’s basically the algorithm.</p>
+<p>[pause for questions] [no questions] [speaker taking a sip of water
+from his water bottle]</p>
+<p>As we said, Buchmann’s algorithm computes the class number in <span
+class="math inline">\(\operatorname{O}(\Delta^{1/4 +
+\varepsilon})\)</span> unconditionally. Due to work of De Haan, Jacobson
+and Williams, we can unconditionally compute the regulator in <span
+class="math inline">\(\operatorname{O}(\Delta^{1/6 +
+\varepsilon})\)</span>. Thus to compute all class numbers and regulators
+up to discriminant <span class="math inline">\(X\)</span> takes time
+<span class="math inline">\(\operatorname{O}(X^{5/4 +
+\varepsilon})\)</span>.</p>
+<p>Now we need to compute the trace formula for all <span
+class="math inline">\(n \leq \sqrt{X}\)</span>. This computation is
+dominated by the computation of the hyperbolic terms. Overall, we get
+<span class="math inline">\(\operatorname{O}(X^{5/4 +
+\varepsilon})\)</span>.</p>
+<p>We implemented this algorithm and have unconditionally computed all
+class numbers and regulators up to discriminant <span
+class="math inline">\(X = 10^{11}\)</span>. To do this, we computed the
+Laplace eigenvalues of the first 2184 Maass forms of level <span
+class="math inline">\(1\)</span>, and all Hecke eigenvalues <span
+class="math inline">\(a_n\)</span> with <span class="math inline">\(n
+\leq \sqrt{X}\)</span>. We are currently running this code to improve
+this bound to <span class="math inline">\(X = 2^{40}\)</span>.</p>
+<p>Can we do better than this? For the imaginary quadratic field case,
+to compute the class number, Jacobson and Mosunov used a relation
+between the Fourier coefficients of one of the classical Jacobi theta
+function and the Hurwitz class number. Computing the Fourier
+coefficients can be done in subexponential time. Indeed, if you take the
+(third) Jacobi theta function <span
+class="math display">\[\vartheta_3(\tau) = \sum_{n \in \mathbb{Z}}
+q^{n^2}\]</span> and look at its cube’s <span
+class="math inline">\(q\)</span>-expansion <span
+class="math display">\[\vartheta_3(\tau)^3 = \sum_{n \in 0}^\infty E(n)
+q^n,\]</span> then <span class="math inline">\(E(n)\)</span> is
+essentially the Hurwitz class number. So you just need to compute the
+Fourier coefficients of this well-known modular form, which can be done
+in subexponential time.</p>
+<p>Something similar <em>should</em> be possible for real quadratic
+fields. Goldfeld and Hoffstein <a href="#ref-MR788407" class="citation"
+data-cites="MR788407">(Goldfeld and Hoffstein 1985)</a> derived a
+half-integral weight Eisenstein series whose Fourier coefficients are
+related to <span class="math inline">\(L(1, \chi_{\Delta})\)</span> for
+<span class="math inline">\(\Delta &gt; 0\)</span>. Using Hejhal’s
+algorithm, one could copute the Fourier coefficients, and hence the
+<span class="math inline">\(L(1, \chi_\Delta)\)</span> value in
+subexponential time. However, to get the class number, we still need the
+regulator. Hence currently the best speed we could obtain is <span
+class="math inline">\(\operatorname{O}(X^{7/6 + \varepsilon})\)</span>,
+to compute all class numbers up to discriminant <span
+class="math inline">\(X\)</span>. (The regulator computation remains the
+slowest part, still requiring <span
+class="math inline">\(D^{1/6}\)</span>.)</p>
+<p>[picture of Cohen–Lenstra heuristics]</p>
+<p>This is just data showing the ratio of actual vs. expected
+frequencies of odd class numbers <span class="math inline">\(h\)</span>
+over <span class="math inline">\(\Delta \leq X\)</span>. Looks like it
+follows it pretty well. There are some cases where it looks like it
+doesn’t, but that’s just because we haven’t computed enough. The line
+describing occurrences of fields with “class number three” looks the
+weirdest, but someone has convinced the speaker not to be concerned.</p>
+<p>Would the computation be faster if we had more eigenvalues for Maass
+forms? The speed is dominated by computing the left hand side of <a
+href="#eq:cnojsyvbb3" data-reference-type="eqref"
+data-reference="eq:cnojsyvbb3">\((4)\)</a>, so not obviously.
+But maybe one could combine Hejhal’s algorithm with Turing’s method?
+Relevant paper of Smajlovic–Jorgensen–Then.</p>
 <div id="refs" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" role="list">
 <div id="ref-2024arXiv2401.08855" class="csl-entry" role="listitem">
@@ -5454,6 +5722,14 @@ Ganguly, Soumendra, Peter Humphries, Yongxiao Lin, and Ramon Nunes.
 class="math inline">\(\mathrm{GL}_3\)</span> <span
 class="math inline">\(L\)</span>-Functions,”</span> August. <a
 href="http://arxiv.org/abs/2408.00596v1">http://arxiv.org/abs/2408.00596v1</a>.
+</div>
+<div id="ref-MR788407" class="csl-entry" role="listitem">
+Goldfeld, Dorian, and Jeffrey Hoffstein. 1985. <span>“Eisenstein Series
+of <span><span class="math inline">\({1\over 2}\)</span></span>-Integral
+Weight and the Mean Value of Real <span>D</span>irichlet <span><span
+class="math inline">\(L\)</span></span>-Series.”</span> <em>Invent.
+Math.</em> 80 (2): 185–208. <a
+href="https://doi.org/10.1007/BF01388603">https://doi.org/10.1007/BF01388603</a>.
 </div>
 <div id="ref-MR2207235" class="csl-entry" role="listitem">
 Harcos, Gergely, and Philippe Michel. 2006. <span>“The Subconvexity
