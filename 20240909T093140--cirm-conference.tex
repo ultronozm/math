@@ -3168,6 +3168,161 @@ that is to say,
   \ll t^{1/6 - 1/96 + \eps}.
 \end{equation*}
 
+\section{Hybrid subconvex bounds for selfdual $GL_3$ L-functions via $\GL_3 \times \mathrm{GL}_2$ vs. $\GL_4 \times \GL_1$ spectral reciprocity, \textnormal{\emph{Soumendra Ganguly}}}
+
+Let's start by discussing Motohashi's formula (1997).  It concerns
+\begin{equation*}
+  \sum_{f \in \mathcal{F}_1}
+  \frac{L(\tfrac{1}{2} , f)^3}{ L(1, \ad f)}
+  h(t_f) + \dotsb
+  = \text{main term }
+  +
+  \int_{\mathbb{R}}
+  \left| \zeta(\tfrac{1}{2} + i t) \right|^4 \mathcal{H}(t) \, d t.
+\end{equation*}
+Here $f$ runs over an orthonormal basis for the space of Hecke--Maass forms for $\SL(2,\mathbb{Z})$, $h$ is some nice enough function, and $\mathcal{H}$ is some integral transform of $h$.
+
+[Ed: Motohashi's formula goes the other way]
+
+Kwan (2021), Humphries--Khan (2022), Wu (2023): various formulas of the shape
+\begin{equation*}
+  \sum_f \frac{L(\tfrac{1}{2}, F \otimes f)}{L(1, \ad f)} h(t_f)
+  + \dotsb
+  = \text{main term } +
+  \int_{\mathbb{R}} L(\tfrac{1}{2} + i t, F)
+  \zeta(\tfrac{1}{2} - i t) \mathcal{H}(t) \, d t.
+\end{equation*}
+These recover Motohashi's formula by specializing to $F$ an Eisenstein series.
+
+We focus on the approach of Humphries--Khan, which works only $F$ self-dual, but works for a broad range of test functions.
+
+We consider generalizations to higher levels.  This is joint work with Humphries and Lin.  Preprint: \cite{2024arXiv2408.00596}.  We consider levels $q = q_1 q_2$, where $(q_1, q_2) = 1$, and take for $\chi_1$ a primitive Dirichlet character modulo $q_1$.
+
+We consider the family
+\begin{equation*}
+  \mathcal{F}_2 = \left\{ g \otimes \chi_1 : g \in \mathcal{B}(q, \bar{\chi}_1^2) \right\}.
+\end{equation*}
+We show that for $F$ self-dual,
+\begin{multline}\label{eq:cnojr4ohm4}
+  \sum_{f \in \mathcal{F}_2} \frac{L(\tfrac{1}{2}, F \otimes f)}{L(1, \ad f)} h(t_f)
+  + \dotsb
+  \\
+  = \text{main } +
+  \frac{q_2^{1/2}}{ q_1}
+  \sum_{\psi_1(q_1)}
+  \int_{\mathbb{R}}
+  L(\tfrac{1}{2} + i t, F \otimes \psi_1)
+  L(\tfrac{1}{2} - i t, \overline{\psi_1})
+  \mathcal{Z}_{\chi_1}(\psi_1, t)
+  \mathcal{H}(t) \, d t
+  + \dotsb.
+\end{multline}
+Here $\dotsb$ includes contributions from lower level, holomorphic forms, and the continuous spectrum.  Also,
+\begin{equation*}
+  \mathcal{Z}_{\chi_1}(\psi_1, t) \approx g(\chi_1, \psi_1),
+\end{equation*}
+which appears in the work of Conrey--Iwaniec and Petrow--Young.
+
+As an application of this, we show the following subconvexity bounds:
+\begin{equation*}
+  L(\tfrac{1}{2} + i t, F \otimes \chi)
+  \ll_{F, \eps}
+  \left( q(\lvert t \rvert + 1)\right)^{3/5 + \eps}
+  \left(
+    1 +
+    \frac{q^{2/5} }{q_1^{1/2}(\lvert t \rvert + 1)^{1/10}}
+    +
+    \frac{q_1^{1/8}}{(q(\lvert t \rvert + 1))^{1/10}}
+  \right),
+\end{equation*}
+where $F$ is fixed and self-dual, while $\chi$ is a primitive Dirichlet character of conductor $q$ (any positive integer).
+
+Also, for $f \in \mathcal{B}^\ast(q^2, \chi_0)$ such that $f \otimes \bar{\chi}$ has level dividing $q$, we have
+\begin{equation*}
+  L(\tfrac{1}{2}, F \otimes f)
+  \ll_{F, \eps}
+  \left( q(\lvert t_f \rvert + 1) \right)^{6/5 + \eps}
+  \left( 1 + \frac{q^4}{q_1(\lvert t_f \rvert + 1)^{1/5}}
+    + \frac{q_1^{1/4}}{(q(\lvert t \rvert + 1))^{1/5}}\right).
+\end{equation*}
+
+These bounds are hybrid in the aspects of $q$, $t_f$ and $t$.  Taking $q_1 = q$, we get a bound of
+\begin{equation*}
+  q^{5/8 + \eps}(\lvert t \rvert + 1)^{3/5 + \eps}.
+\end{equation*}
+If we further assume
+\begin{equation*}
+  q^{4/5}(\lvert t \rvert + 1)^{- 1/5} \ll q_1 \ll q^{4/5}(\lvert t \rvert + 1)^{4/5},
+\end{equation*}
+then the bound becomes
+\begin{equation*}
+  (q(\lvert t \rvert + 1))^{3/5 + \eps}.
+\end{equation*}
+
+For the proof of the spectral reciprocity formula \ref{eq:cnojr4ohm4}, we replace $1/2$ with $s$ of large enough real part, then open the Dirichlet series and apply Kuznetsov.  The diagonal term gives the main term.  For the off-diagonal term, we open the Kloosterman sums and apply Voronoi.  After some manipulations, we find two Dirichlet series, which eventually yields the $L$-factors on the right hand side, together with the integral transform.
+
+\section{Subconvex bounds for $\SO(n+1) \times \SO(n)$, \textnormal{\emph{Blanca Gil Rosell}}}
+Aim is to find an analogue of subconvex bounds for unitary groups $\U_{n + 1} \times \U_n$, but for orthogonal groups $\SO_{n + 1} \times \SO_n$.
+
+Branching coefficients: for automorphic forms $\varphi \in \pi$ on $G$ and $\varphi_H \in \pi_H$ on $H$, then
+\begin{equation*}
+  \left| \int_{H(\mathbb{Q}) \backslash H(\mathbb{A})}
+    \varphi \cdot \varphi_H\right|^2
+  = \mathcal{L}(\pi \times \pi_H, \tfrac{1}{2}) \times (\text{local integrals}).
+\end{equation*}
+Conjecture of Ichino--Ikeda is that $\mathcal{L}(\pi \times \pi_H, \tfrac{1}{2})$ is essentially $L(\pi \times \pi_H, \tfrac{1}{2})$.  Essentially known for unitary groups, widely open for orthogonal groups.
+
+For $f \in G(\mathbb{A})$,
+\begin{equation*}
+  \sum_\pi \sum_{\varphi \in \mathcal{B}(\pi)}
+  \rho(f) \varphi(x) \overline{\varphi(y)}
+  = \sum_{\gamma \in G(\mathbb{Q})}
+  f(x^{-1} \gamma y).
+\end{equation*}
+Choose $f$ and $\varphi_H$ ``microlocalized'' (Nelson--Venkatesh) and use the ``amplification method'' (Duke--Friedlander--Iwaniec, Iwaniec--Sarnak),
+\begin{equation*}
+  \sum_\pi L(\pi \times \pi_H, \tfrac{1}{2}) w_{f, \varphi_H}(\pi)
+  = \int_{x, y \in H(\mathbb{Q}) \backslash H(\mathbb{A})}
+  \varphi_H(x) \overline{\varphi_H(y)}
+  \sum_{\gamma \in G(\mathbb{Q})} f(x^{-1} \gamma y) \, d x \, d y.
+\end{equation*}
+
+Reduces to a transversality problem that we now describe.  Let $F$ be af ield, $V =  V_H \oplus F_e$ a quadratic space.
+\begin{itemize}
+\item $(G, H) =(\SO_{n + 1}, \SO_n)$,
+\item $\mathfrak{g}, \mathfrak{h}$: Lie algebras,
+\item $\tau \in \mathfrak{g} \rightsquigarrow \tau_H \in \mathfrak{h}$: upper left-block, i.e.,
+  \begin{equation*}
+    \tau =
+    \begin{pmatrix}
+      \tau_H      & \ast \\
+      \ast                  & \ast \\
+    \end{pmatrix}.
+  \end{equation*}
+  Nelson--Venkatesh: choose $\tau$ (resp.\ $\tau_H$) to be microlocal parameters attached to $\pi$ (resp.\ $\pi_H$).  Roughly speaking, their eigenvalues are the parameters of the representations.
+\end{itemize}
+
+Call $\tau$ \emph{stable} if $\gcd(P_\tau, P_{\tau_H}) = 1$.
+
+Bounds for geometric side of relative trace formula boil reduce, via Cauchy--Schwarz, to solving the \emph{transversality problem}, which is to show that for $a \in G - H Z$, there exists $z \in H_{\tau_H}$ such that $a z \notin H G_\tau$.
+\begin{itemize}
+\item Marshall: depth aspect, $\tau$ and $\tau_H$ semisimple
+\item Nelson: depth aspect
+\item Nelson--Hu: horizontal aspects
+\end{itemize}
+
+The Lie algebra problem is to show that for each $x \in \mathfrak{g}_\tau - \mathfrak{z}$, there exists $z \in \mathfrak{h}_{\tau_H}$ such that $[x,[z,\tau]] \notin [\mathfrak{h},\tau]$.
+
+\begin{conjecture}[Nelson 2024, private communication]
+  The Lie algebra problem can probably be solved for $(\SO_{n+1}, \SO_n)$, and would be a good first PhD project.
+\end{conjecture}
+
+\begin{example}
+  The conjecture is false for $(\SO_6, \SO_5)$, by explicit numerical computation.
+\end{example}
+
+So for the orthogonal case, we need to address the transversality problem more directly.
+
 
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
