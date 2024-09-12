@@ -3646,5 +3646,152 @@ for some $\alpha \in \mathbb{C}^\times$.  From the earlier calculation, the left
 \end{equation*}
 for all $W$ and $\Phi$.  By previous discussion, the bilinear form $B_0$ is nontrivial and vanishes on $S^1$.  Therefore, $s =0$ must be an exceptional pole of level $0$ for the family $\mathcal{J}(\pi)$.  This completes the proof of the theorem.  Thank you.
 
+\section{Unconditional computation of the class groups of real quadratic fields
+  \textnormal{\emph{Andrei Seymour-howell}}}
+
+Joint work with Ce Bian, Andrew Booker, Austin Docherty, Michael Jacobson Jr.
+
+Let's start off by saying how \emph{I} use class number computations.  Imaginary class numbers are actually used to compute holomorphic modular forms using a trace formula.
+
+Real quadratic class numbers are used to compute Maass forms, again using a trace formula.  Thus
+\begin{equation*}
+  \text{more class numbers} = \text{more automorphic forms}.
+\end{equation*}
+Numerical verification of the Selberg eigenvalue conjecture up to level 880 also used to compute Maass forms by Strombergsson et al.
+
+Previous computatinos:
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|l|l|}
+    \hline
+    \textbf{Source} & \textbf{Bound} & \textbf{Invariants} \\
+    \hline
+    Gauss & $\Delta < 1000$ & $h_{\Delta}$ \\
+    \hline
+    Saito and Wada 1988 & $\Delta < 10^6$ & $\mathrm{Cl}_\Delta$ and $R_\Delta$ \\
+    \hline
+    Jacobson 1988 & $\Delta < 10^9$ & $\mathrm{Cl}_\Delta$ and $R_\Delta$ \\
+    \hline
+    te Riele and Williams 2003 & $\Delta < 10^9$ & $h_\Delta$ and $R_\Delta$ \\
+    \hline
+  \end{tabular}
+  \caption{Comparison of bounds and invariants for different sources}
+  \label{tab:bounds_and_invariants}
+\end{table}
+
+How fast?
+\begin{itemize}
+\item Hafner and McCurley $\O(\exp((\log \Delta)^{1/2 + \eps}))$ (runtime heurstic)
+\item Buchmann: $\O(\Delta^{1/4 + \eps})$
+\item Lenstra/Shanks $\O(\Delta^{1/5 + \eps})$
+\end{itemize}
+Unfortunately, these algorithms all rely on GRH.
+
+Now let's talk about imaginary quadratic fields.  Ramachandran, Jacobson and Williams used modular forms to unconditionally compute and verify class numbers of imaginary quadratic fields.
+\begin{itemize}
+\item Compute a list of class numbers for imaginary quadratic fields up to discriminant of size say $X$.  With Buchmann's algorithm, you would get a lower bound to the size of the class numbers.
+\item Use the trace formula for holomorphic forms of fixed weight and level to derive an upper bound and compare the two.
+\end{itemize}
+The nice thing about modular forms is that everything is finite . In fact, in their algorithm, no modular forms are needed, since we can choose a space of fixed weight and level that is empty and still derive a nontrivial expression for the class numbers.  With this, they managed to compute several class numbers for discriminants of size $10 ^{12}$.
+
+In this talk, we mimic the above for the real quadratic case.
+
+We recall that a function $f : \mathbb{H} \rightarrow \mathbb{C}$ is a \emph{Maass cusp form} on $\Gamma = \SL_2(\mathbb{Z})$ if it is
+\begin{itemize}
+\item automorphic,
+\item an egienfunction of the Laplacian $\Delta$,
+\item lies in $L^2(\Gamma \backslash \mathbb{H})$, and
+\item vanishes at the cusp of $\Gamma \backslash \mathbb{H}$.
+\end{itemize}
+For any $f$ and nonzero integer $n$, we have the Hecke operator $T_n$ that maps Maass forms to Maass forms.  Furthermore $f$ has a Fourier expansion of the form
+\begin{equation*}
+  \sum_{n \neq 0} a(n) \sqrt{y} K_{i r}(2 \pi \lvert y n \rvert) e(n x).
+\end{equation*}
+Here $\lambda = 1/4 + r^2$.
+
+The Selberg trace formula allows one to consider the whole spectrum of Maass cusp forms.  Selberg derived this in the 1950's to prove the existence of Maass cusp forms.
+
+In our case, if we have a Hecke eigenbasis $\{f_j\}$ of level $1$ Maass cusp forms with respective Laplace iegenvalues $\lambda_j = 1/4 + r_j^2$ and Hecke eigenvalues $a_j(n)$, the Selberg trace formula allows us to compare
+\begin{equation*}
+  (\text{spectral side}) \sum_{j = 1}^\infty a_j(n) H(\lambda_j) =(\text{geometric side}).
+\end{equation*}
+Here $H$ is some nice analytic test function, and $n \neq 0$.  Important for us is that the geometric side involves class numbers of real quadratic fields.  Explicitly, if we take some function $h$ (think of a Gaussian) and let $g$ be its Fourier transform, then the trace formula, in more detail, says
+\begin{equation*}
+  \sum_{j = 1}^\infty a_j(n) h(r_j)
+  = \sum_{
+    \substack{
+      t \in \mathbb{Z}   \\
+      \sqrt{D} = \sqrt{t^2 - 4 n} \notin \mathbb{Q}      \\
+      D > 0
+    }
+  }
+  L(1, \psi_D) g \left( \log \left( \frac{(\lvert t \rvert + \sqrt{D})^2}{4 n} \right)
+    + \Psi(n)\right),
+\end{equation*}
+where, with $D = d \ell^2$, we have
+\begin{equation*}
+  L(1, \psi_D) = \frac{L(1, \psi_d)}{ \ell} \prod_{p \mid \ell}
+  \left( 1 +(1 - \psi_d(p)) \frac{\dotsb}{\dotsb} \right).
+\end{equation*}
+Choosing a specific test function, we can write the trace formula as
+\begin{equation*}
+  \sum_{j = 1}^\infty a_j(n) h(r_j)
+  = \sum_{
+    \substack{
+      t \in \mathbb{Z}  \\
+      \sqrt{D} = \sqrt{t^2 - 4 n} \notin \mathbb{Q}
+      \\
+      0 < D \leq X
+    }
+  }
+  L(1, \psi_D) \left( 1 - \frac{D}{X} \right)^k  + \Psi(n).
+\end{equation*}
+Truncating the spectral sum and rearranging, we have
+\begin{equation}\label{eq:cnojsyvbb3}
+  \sum_{
+    \substack{
+      t \in \mathbb{Z}  \\
+      \sqrt{D} = \sqrt{t^2 - 4 n} \notin \mathbb{Q} \\ 0 < D \leq X      
+    }
+  } L(1, \psi_D) \left( 1 - \frac{D}{X} \right)^k =
+  \sum_{r_j \leq R}
+  a_j(n) h(r_j) + E_n - \Psi(n). 
+\end{equation}
+The point is that $E_n$, while we don't know it explicitly, we can bound it to be quite small.  What this gives us is an \emph{upper bound} that we can compute, provided that we have some list of Maass forms.  We saw on Tuesday that there is a list of Maass forms that have been computed.  So, how does the algorithm work?
+\begin{enumerate}
+\item We compute the class number and regulator for real quadratic fields up to discriminant $X$, plus a bit extra.  Recall that Buchmann's algorithm will give a lower bound to the size of the class number unconditionally.  We also need the regulator, but we'll go into that later.
+\item\label{enumerate:cnojsyxaw8} Now we need to compute the spectral side of the trace formula for all $n \leq \sqrt{X}$ and a bound for the error $E_n$.  This will be used as an upper bound on the size of the class numbers.
+\item To verify a given class number, we double its contribution to the left hand side of  \eqref{eq:cnojsyvbb3} (what we call ``the hyperbolic sum'') and hope we get something bigger than what our upper bound says, giving the required contradiction and showing that our class number was in fact correct.
+\end{enumerate}
+An important point of this is that in step \eqref{enumerate:cnojsyxaw8}, we need to rigorously compute the Laplace eigenvalues and all Hecke eigenvalues up to $\sqrt{X}$ for several Maass cusp forms.
+
+So that's basically the algorithm.
+
+[pause for questions]  [no questions]  [speaker taking a sip of water from his water bottle]
+
+As we said, Buchmann's algorithm computes the class number in $\O(\Delta^{1/4 + \eps})$ unconditionally.  Due to work of De Haan, Jacobson and Williams, we can unconditionally compute the regulator in $\O(\Delta^{1/6 + \eps})$.  Thus to compute all class numbers and regulators up to discriminant $X$ takes time $\O(X^{5/4 + \eps})$.
+
+Now we need to compute the trace formula for all $n \leq \sqrt{X}$.  This computation is dominated by the computation of the hyperbolic terms.  Overall, we get $\O(X^{5/4 + \eps})$.
+
+We implemented this algorithm and have unconditionally computed all class numbers and regulators up to discriminant $X = 10^{11}$.  To do this, we computed the Laplace eigenvalues of the first 2184 Maass forms of level $1$, and all Hecke eigenvalues $a_n$ with $n \leq \sqrt{X}$.  We are currently running this code to improve this bound to $X = 2^{40}$.
+
+Can we do better than this?  For the imaginary quadratic field case, to compute the class number, Jacobson and Mosunov used a relation between the Fourier coefficients of one of the classical Jacobi theta function and the Hurwitz class number.  Computing the Fourier coefficients can be done in subexponential time.  Indeed, if you take the (third) Jacobi theta function
+\begin{equation*}
+  \vartheta_3(\tau) = \sum_{n \in \mathbb{Z}} q^{n^2}
+\end{equation*}
+and look at its cube's $q$-expansion
+\begin{equation*}
+  \vartheta_3(\tau)^3 = \sum_{n \in 0}^\infty E(n) q^n,
+\end{equation*}
+then $E(n)$ is essentially the Hurwitz class number.  So you just need to compute the Fourier coefficients of this well-known modular form, which can be done in subexponential time.
+
+Something similar \emph{should} be possible for real quadratic fields.  Goldfeld and Hoffstein \cite{MR788407} derived a half-integral weight Eisenstein series whose Fourier coefficients are related to $L(1, \chi_{\Delta})$ for $\Delta > 0$.  Using Hejhal's algorithm, one could copute the Fourier coefficients, and hence the $L(1, \chi_\Delta)$ value in subexponential time.  However, to get the class number, we still need the regulator.  Hence currently the best speed we could obtain is $\O(X^{7/6 + \eps})$, to compute all class numbers up to discriminant $X$.  (The regulator computation remains the slowest part, still requiring $D^{1/6}$.)
+
+[picture of Cohen--Lenstra heuristics]
+
+This is just data showing the ratio of actual vs. expected frequencies of odd class numbers $h$ over $\Delta \leq X$.  Looks like it follows it pretty well.  There are some cases where it looks like it doesn't, but that's just because we haven't computed enough.  The line describing occurrences of fields with ``class number three'' looks the weirdest, but someone has convinced the speaker not to be concerned.
+
+Would the computation be faster if we had more eigenvalues for Maass forms?  The speed is dominated by computing the left hand side of \eqref{eq:cnojsyvbb3}, so not obviously.  But maybe one could combine Hejhal's algorithm with Turing's method?  Relevant paper of Smajlovic--Jorgensen--Then.
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
