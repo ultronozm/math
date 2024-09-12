@@ -2578,5 +2578,596 @@ We can now do the same things for abelian varieties.  Looking at the bad reducti
 
 LMFDB.
 
-Everything that we described here over $\mathbb{Q}$ also works over number fields.\bibliography{refs}{} \bibliographystyle{plain}
+Everything that we described here over $\mathbb{Q}$ also works over number fields.
+
+\section{Analytic ranks of modular forms with nontrivial character, \textnormal{\emph{Maarten Derickx}}}
+
+
+We write $S_2(\Gamma)^{\mathrm{zero}}$ to consist of those newforms $f$ for which $L(f, 1) = 0$, where $\Gamma = \Gamma_0(N)$ or $\Gamma_1(N)$.
+
+\begin{conjecture}[Brumer]
+  Roughly half the modular forms should have positive analytic rank, and roughly half should have analytic rank zero:
+  \begin{equation*}
+    \# S_2(\Gamma_0(p))^{\mathrm{zero}} \sim \frac{1}{2} \# S_2(\Gamma_0(p)).
+  \end{equation*}
+\end{conjecture}
+
+The sign functional equation forces
+\begin{equation*}
+  \# S_2(\Gamma_0(p))^{\mathrm{zero}}
+  \geq \left( \tfrac{1}{2} - \eps \right)
+  \# S_2(\Gamma_0(p))^{\new},
+  \qquad \text{ for }
+\end{equation*}<++>
+
+
+[Okay, he's showing some slides of the LMFDB.]
+
+\begin{theorem}[Michel--Kowalski]
+  We have
+  \begin{equation*}
+    \# S_2(\Gamma_0(p))^{\mathrm{zero}}
+    \leq \left( \frac{5}{6} + \eps \right) \# S_2(\Gamma_0(p))^{\new}.
+  \end{equation*}
+\end{theorem}
+
+[More LMFDB.  The $\chi$ with $r_\chi(p) := \# S_2(p, \chi)^{\mathrm{zero}} > 0$ for the primes $p < 100000$.  Pretty rare that there's more than one relevant modular form per character.]
+
+\begin{conjecture}[D.,\ Stoll]\label{conjecture:cnojrtinnd}
+  If $\# S_2(p, \chi)^{\mathrm{zero}} > 0$, then $\ord \chi \leq 30$, or at least $\ord \chi$ grows super slowly with respect to $p$.
+\end{conjecture}
+This is like the equivalent of Brumer's conjecture with nontrivial character.
+
+[More LMFDB discussion.  Examples with higher order should come from elliptic curves with higher rank.]
+
+Let's give an application of Conjecture \ref{conjecture:cnojrtinnd}.  Let $p$ be a prime, $K$ a number field of degree $d$, $E$ an elliptic curve over $K$.
+\begin{theorem}[Oesterle]
+  Suppose $p \mid E(K)_{\tors}$, then $p <(3^{d/2} + 1)^2$.
+\end{theorem}
+Set
+\begin{equation*}
+  r_1(p) := \# S_2(\Gamma_1(p))^{\mathrm{zero}}
+  -
+  \# S_2(\Gamma_0(p))^{\mathrm{zero}}
+  =
+  \sum_{\chi \neq \chi_{\text{triv}}} \# S_2(p, \chi)^{\mathrm{zero}}.
+\end{equation*}
+\begin{theorem}[D.\ Stoll]
+  Suppose $r_1(p) \leq \log_6(p) - 4$ for $p$ large enough.  Then for $p$ large enough, we have $p \mid E(K)_{\tors}$ implies $p \leq 6 d + 1$.
+\end{theorem}
+
+(...)
+
+\begin{example}
+  Let $p =99991$.  Suppose there exists a number field $K$ of degree $d$, and an elliptic curve over $K$, such that if $p \mid E(K)_{\tors}$, then $p \geq 33330$.  This is sharp, since complex multiplication gives examples with $p \mid E(K)_{\tors}$ and $d = 33330$.
+\end{example}
+
+\begin{proposition}[D.,\ Stoll]
+  For every prime $p = m^2 \pm 108$, there is a genus $2$ curve $C_p$ such that
+  \begin{itemize}
+  \item $\mathbb{Z}[\zeta_3]$ is contained in $\End \Jac(C_p)$ (i.e., $\Jac(C_p)$ is of $\GL_2$ type)
+  \item $\Jac(C_p)$ is modular of level $p$.
+  \item If $\Jac(C_p)$ is simple, then the associated modular form has character of order $3$ or $6$.
+  \end{itemize}
+\end{proposition}
+
+\begin{proposition}
+  Every character $\chi$ of order $6$ in the table satisfies $p = m^2 \pm 108$, and Mordell--Weil rank $\Jac(C_p)(\mathbb{Q}) > 0$.
+\end{proposition}
+
+\begin{lemma}[D.,\ Stoll]
+  Assume Bunyakovsky's conjecture.  Then there are infinitely many characters $\chi :(\mathbb{Z} / p \mathbb{Z})^\ast \rightarrow \mathbb{C}^\times$ of order $6$ such that $\# S_2(p, \chi)^{\mathrm{zero}} \geq 1$.
+\end{lemma}
+
+We did something similar for characters of order $3$, twisting elliptic curves.
+\begin{lemma}[D.,\ Stoll]
+  Let $\chi$ mod $p$ be of order $3$.  Then there exists $f \in S_2(p, \chi)^{\mathrm{zero}}$ with coefficients in $\mathbb{Q}(\zeta_3)$ iff there is an elliptic curve $E$ over $\mathbb{Q}$ such that
+  \begin{enumerate}
+  \item $E$ has conductor $p^2$,
+  \item (...)
+  \end{enumerate}
+\end{lemma}
+
+Let $\chi$ be of order $n$.  Let $\mathbb{S}_2(p, \chi)$ denote the space of cuspidal modular symbols with coefficients in $\mathbb{Q}(\zeta_n)$, and $\mathbb{T}_\chi \subset \End S_2(p, \chi)$ the Hecke algebra.
+\begin{lemma}[The winding element $e$]
+  There is an explicit $e \in \mathbb{S}_2(p, \chi)$ such that
+  \begin{equation*}
+    \dim_{\mathbb{Q}(\zeta_n)}(\mathbb{T}_\chi \otimes \mathbb{Q})e +
+    \# S_2(p, \chi)^{\mathrm{zero}}
+    = \# S_2(p, \chi)^{\new}
+    = \dim S_2(p, \chi).
+  \end{equation*}
+\end{lemma}
+\begin{itemize}
+\item $\dim_{\mathbb{Q}(\zeta_n)}(\mathbb{T}_\chi \otimes \mathbb{Q}) e$ is computable with magma in reasonable time when $n$ is small enough and $p < 100000$.
+\item If $n \asymp p$, then $\dim_{\mathbb{Q}} \mathbb{Q}(\zeta_n) \asymp p$ which makes the computation unfeasible for $p \asymp 100000$.
+\item For $n$ large, work over $\mathbb{F}_p$ for a $p$ that splits completely in $\mathbb{Q}(\zeta_n)$.
+\end{itemize}
+
+\section{Sharp conditional bounds for moments of products of automorphic L-functions, \textnormal{\emph{Markus Valås Hagen}}}
+
+Want to study
+\begin{equation*}
+  I_k(T) := \int_T^{2 T}
+  \left| \zeta(\tfrac{1}{2} + i t) \right|^{2 k} \, d t.
+\end{equation*}
+Gives us a lot of information:
+\begin{itemize}
+\item Taking $k$ large, we amplify the peaks, giving a way to study extreme values.
+\item Showing that $I_k(T) \ll T^{1 + \eps}$ for each $\eps > 0$ and $k \in \mathbb{N}$ is equivalent to knowing the Lindel\"{o}f hypothesis, i.e., that $\zeta(\tfrac{1}{2} + i t) \ll t^\eps$ for each $\eps > 0$.
+\end{itemize}
+\begin{conjecture}
+  $I_k(T) \sim C_k T(\log T)^{k^2}$, for any real $k > 0$, where $C_k$ is predicted precisely via random matrix theory.
+\end{conjecture}
+
+Moments are closely related to the distribution of $\zeta$.  Selberg central limit theorem: for fixed $V \in \mathbb{R}$ and large $T$, we have
+\begin{equation*}
+  \Phi_T(V) := \frac{1}{T}
+  \vol \left(
+    t \in[T, 2 T] :
+    \frac{\log \lvert \zeta(\tfrac{1}{2} + i t) \rvert}{ \sqrt{\tfrac{1}{2} \log \log T}} \geq V\right)
+  \sim \frac{1}{\sqrt{2 \pi}}
+  \int_V^\infty e^{- x^2 /2} \, d x.
+\end{equation*}
+In other words, $\log \lvert \zeta(\tfrac{1}{2} + i t) \rvert$, sampled for $t \in[T, 2 T]$, is approximately a normal variable with mean zero and variance $\tfrac{1}{2} \log \log T$
+
+The order of magnitude of $I_k(T)$ is closely related to $\Phi_T(V)$ for $V \asymp k \sqrt{\log \log T}$.
+
+What do we know about $I_k(T)$?
+\begin{itemize}
+\item Asymptotics for $k = 1, 2$
+\item $I_k(T) \asymp T (\log T)^{k^2}$ for $0 < k \leq 2$
+\item Assuming RH, $I_k(T) \ll T(\log T)^{k^2}$ for all $k > 0$.
+\end{itemize}
+
+$L$-functions in general are  attached to some object $X$, and are used to study that object.  $X$ can be an elliptic curve, a modular form, a number field, etc.  Also has pleasant analytic properties.  It is believed that all $L$-functions should arise from automorphic $L$-functions, or products of them.  This gives, at least for the speaker, a reason to be interested in automorphic $L$-functions.  GRH (Grand Riemann Hypothesis) asserts the Riemann Hypothesis for all automorphic $L$-functions, i.e., all nontrivial zeros $\rho$ satisfy $\Re(\rho) = 1/2$.
+
+Automorphic $L$-functions also have Dirichlet series and Euler product for $\Re(s) > 1$, say
+\begin{equation*}
+  L(s) = \sum_{n \geq 1}
+  \frac{a_L(n)}{ n^s}.
+\end{equation*}
+In our proof, we need control over these coefficients.  If $\Lambda_L(n)$ denotes the coefficients of the Dirichlet series of $L'/L(s)$, then the Generalized Ramanujan Conjecture gives the pointwise bound
+\begin{equation*}
+  \lvert \Lambda_L(n) \rvert \leq m_L \Lambda(n),
+\end{equation*}
+where $m_L$ is a fixed constant depending only on $L$.  There are also milder alternatives to GRC, such as the so-called ``Hypothesis H'' of Rudnick--Sarnak, which may be understood as an average version of GRC.  In particular, GRC implies Hypothesis H.
+
+From now on, ``$L$-function'' means ``automorphic $L$-function.''
+
+It's expected that moments of $L$-functions behave like those of the zeta function, i.e.,
+\begin{equation*}
+  \int_T^{2 T} \left| L(\tfrac{1}{2} + i t) \right|^{2 k} \sim C_{k, L} T(\log T)^{k^2}.
+\end{equation*}
+We want to study moments, but with several $L$-functions at once, e.g.,
+\begin{equation*}
+  \int_T^{2 T}
+  \left| L_1(\tfrac{1}{2} + i t) \right|^{2 k_1}
+  \left| L_2(\tfrac{1}{2} + i t) \right|^{2 k_2} \, d t.
+\end{equation*}
+This sheds light on the independence between them.  Given two distinct irreducible $L$-functions, we expect \emph{independence} between them.  In particular,
+\begin{multline*}
+  \frac{1}{T} \int_T^{2 T}
+  \left| L_1(\tfrac{1}{2} + i t) \right|^{2 k_1}
+  \left| L_2(\tfrac{1}{2} + i t) \right|^{2 k_2} \, d t
+  \\
+  \approx
+  \frac{1}{T}
+  \int_T^{2 T}
+  \left| L_1(\tfrac{1}{2} + i t) \right|^{2 k_1} \, d t
+  \times \frac{1}{T}
+  \int_T^{2 T}
+  \left| L_2(\tfrac{1}{2} + i t) \right|^{2 k_2} \, d t
+  \asymp(\log T)^{k_1^2 + k_2^2}.
+\end{multline*}
+
+Milinovich--Turnage-Butterbaugh (2014): Let $k _1, \dotsc, k_r > 0$ be real numbers.  Let $L_1, \dotsc, L_r$ be distinct irreducible cuspidal automorphic $L$-functions with unitary central characters.  Assume the Generalized Riemann Hypothesis and Hypothesis H.  Then, for each $\eps > 0$, we have the almost sharp bound
+\begin{equation*}
+  \int_T^{2 T} \prod_{i = 1}^r \left| L_i(\tfrac{1}{2} + i t) \right|^{2 k_i} \, d t
+  \ll T(\log T)^{k_1^2 + \dotsb + k_r^2 + \eps}.
+\end{equation*}
+
+\begin{theorem}[H.\ 2024+]
+  Keep the assumptions above, but assume GRC instead of Hypothesis H.  Then
+  \begin{equation*}
+    T(\log T)^{k_1^2 + \dotsb + k_r^2} \ll \int_T^{2 T}
+    \prod_{i = 1}^r
+    \left| L_i(\tfrac{1}{2} + it) \right|^{2 k_i}
+    \ll T(\log T)^{k_1^2 + \dotsb + k_r^2}.
+  \end{equation*}
+\end{theorem}
+
+Let's discuss some applications.  For $\Re(s) > 1$ and $0 < \alpha \leq 1$, the Hurwitz zeta function in defined by
+\begin{equation*}
+  \zeta(s, \alpha) = \sum_{n \geq 0} \frac{1}{(n + \alpha)^s}.
+\end{equation*}
+Admits an analytic continuation to $\mathbb{C} - \{1\}$.  These are interesting functions because the analogue of the RH fails when $\alpha \neq 1/2, 1$, but $\zeta(s, \alpha)$ has many similarities with $\zeta$ either way.  From now on, let $\alpha = a/q$ ($\gcd(a, q) = 1, 1 \leq a \leq q$).  Then it's conjectured that
+\begin{equation*}
+  \int_T^{2 T} \left| \zeta(\tfrac{1}{2} + i t, \alpha) \right|^{2 k}
+  \, d t
+  \sim c_{k, \alpha} T(\log T)^{k^2}.
+\end{equation*}
+\begin{itemize}
+\item Proven for $k = 1, 2$ unconditionally (Andersson, Rane, Sahay).  
+\item Assuming RH for every Dirichlet $L$-function modulo $q$, Sahay (2023) proved for every positive integer $k$ and $\eps > 0$, one has
+  \begin{equation*}
+    T(\log T)^{k^2} \ll \int_T^{2 T}
+    \left| \zeta(\tfrac{1}{2} + i t, \alpha) \right|^{2 k} \, d t
+    \ll
+    T(\log T)^{k^2 + \eps}.
+  \end{equation*}
+\end{itemize}
+\begin{theorem}[H.\ 2024+]
+  Let $\alpha = a/q$, where $\gcd(a, q) = 1$, $1 \leq a \leq q$.  Assume RH for all Dirichlet $L$-functions modulo $q$.  Then for all $k > 1/2$, we have
+  \begin{equation*}
+    T(\log T)^{k^2} \ll \int_T^{2 T}
+    \left| \zeta(\tfrac{1}{2} + i t, \alpha) \right|^{2 k} \, d t
+    \ll
+    T(\log T)^{k^2}.
+  \end{equation*}
+\end{theorem}
+\begin{proof}[Proof idea for upper bound, $k$ an integer]
+  By orthogonality of Dirichlet characters, we have
+  \begin{equation*}
+    \zeta(\tfrac{1}{2} + i t, \tfrac{a}{q})
+    =
+    \frac{q    ^{1/2 + i t}}{\varphi(q)}
+    \sum_{\chi(q)} \overline{\chi(a)}
+    L(\tfrac{1}{2} + i t, \chi).
+  \end{equation*}
+  Taking $k$-th power and using the multnomial theorem, we get a sum over different products of Dirichlet $L$-functions with different powers.  Taking the second moment, we have to compute (up to order) many terms of the form (which we know from our main theorem)
+  \begin{equation*}
+    \prod_{i = 1}^r
+    \left| L_i(\tfrac{1}{2} + it) \right|^{2 k_i}.
+  \end{equation*}
+\end{proof}
+
+Another application concerns large deviations.  Selberg CLT for several $L$-functions at once:
+\begin{equation*}
+  \frac{1}{T} \vol \left( t \in[T, 2 T] :
+    \frac{\log \left| L_j(\tfrac{1}{2} + i t) \right|}{\sqrt{\tfrac{1}{2} \log \log T}} \geq V_j, j = 1, \dotsc, r\right)
+  \sim \prod_{j = 1}^{r}
+  \int_{V_j}^\infty e^{- x^2 / 2} \, d x
+\end{equation*}
+for fixed $V_j$.  Controls typical fluctuations.  Conditional result (Selberg + Bombieri--Hejhal), requiring a strong zero density estimate.
+\begin{theorem}[H.\ 2024+]
+  Assume GRH and GRC.  Let $V_j \asymp \sqrt{\log \log T}$.  Then
+  \begin{equation*}
+    \frac{1}{T}
+    \log \left( t \in[T, 2 T] : \frac{\log \lvert L_j(\tfrac{1}{2} + i t) \rvert}{ \sqrt{\log \log T}} \geq V_j, 1 \leq j \leq r \right)
+    \asymp \exp \left( -(1 + o (1))
+      \frac{V_1^2 + \dotsb + V_r^2}{2}\right).
+  \end{equation*}
+\end{theorem}
+\begin{proof}[Sketch of proof]
+  The large deviations $V_j \asymp \sqrt{\log \log T}$ are controlled by the moments.  Let $V_j = C_j \sqrt{\log \log T}$.  Then
+  \begin{align*}
+    \frac{1}{T}
+    \vol \left( t \in[T, 2 T] :
+      \frac{\log \lvert L_j(\tfrac{1}{2} + i t) \rvert}{ \sqrt{\tfrac{1}{2} \log \log T}} \geq V_j, 1 \leq j \leq r\right)
+    &=
+    \frac{1}{T}
+    \vol \left( t \in[T, 2 T] :
+      \lvert L_j(\tfrac{1}{2} + i t) \rvert \geq(\log T)^{\sqrt{C_j^2 /2}}
+      , 1 \leq j \leq r\right).
+  \end{align*}
+  Now apply Chebyshev, then our knowledge of moments, then choose $k_j = C_j / \sqrt{2}$ to get the desired bound.
+\end{proof}
+
+[Slide that says ``Do I have more time?''.]
+
+Let's now discuss the proof strategy for moments.  The lower bound proof strategy is due to Heath--Brown.  For $\zeta$, the argument starts with
+\begin{equation*}
+  \int_T^{2 T}
+  \left| \zeta(\tfrac{1}{2} + i t) \right|^{2 k} \, d t
+  \geq
+  \int_T^{2 T}
+  \left| \sum_{n \leq T}
+    \frac{d_k(n)}{n^{1/2 + i t}}\right|^2 \, d t
+  - \int_T^{2 T}
+  \left| \zeta(\tfrac{1}{2} + i t)
+    - \sum_{n \leq T}
+    \frac{d_k(n)}{n^{1/2 + i t}}\right|^2 \,d t.
+\end{equation*}
+First term on the RHS can be computed by Montgomery--Vaughan mean value theorem.  Second term is dealt with by means of a version of Hadamard three lines theorem, moving the line of integration to $\Re(s) = 5/4$, where the corresponding integral is small.  For the upper bound, lots of ideas are combined:
+\begin{itemize}
+\item Soundararajan and Chandee: on GRH, bounding $L$-functions on the critical line by just an Euler product (with no information from zeros)
+\item Radziwill: integrating over certain subsets where our $L$-functions behave ``typically'', instead of the whole of $[T, 2 T]$.
+\item Harper/Radziwill--Soundararajan: splitting up Dirichlet polynomial into many parts with progressively smaller variance.
+\end{itemize}
+
+\section{Sub-Weyl bound for GL(2) L-functions, \textnormal{\emph{Prahlad Sharma}}}
+
+\subsection{Background}
+
+Hardy--Littlewood (1921) (written down by Landau):
+\begin{equation*}
+  \zeta(\tfrac{1}{2} + i t) \ll_\eps t^{1/6 + \eps}, \quad t \geq 1.
+\end{equation*}
+Uses Weyl differencing technique to estimate $\sum_{n \sim N} n^{i t}$.  Since then, several improvements have been done to this bound, leading to many important techniques for estimating exponential sums.  We'll only mention some of them.  One is Bombieri--Iwaniec's bound, refined by Huxley (2005), giving
+\begin{equation*}
+  \zeta(\tfrac{1}{2} + i t) \ll_\eps t^{1/6 - 13/1230 + \eps}, \quad t \geq 1.
+\end{equation*}
+The state of the art is due to Bourgain (2017), who obtained
+\begin{equation*}
+  \zeta(\tfrac{1}{2} + i t) \ll_\eps t^{1/6 - 1/84 + \eps}, \qquad t \geq 1,
+\end{equation*}
+using decoupling method from harmonic analysis.
+
+For general automorphic $L$-functions, one has the convexity bound
+(Phragmen--Lindel\"{o}f convexity principle plus functional equation)
+\begin{equation*}
+  L(\tfrac{1}{2} + i t, F) \ll_\eps \mathfrak{q}(t, F)^{1/4 + \eps},
+\end{equation*}
+while the analogue of the Weyl bound is
+\begin{equation*}
+  L(\tfrac{1}{2} + i t, F) \ll_\eps \mathfrak{q}(t, F)^{1/6 + \eps}.
+\end{equation*}
+A ``sub--Weyl'' bound is an improvement on the $1/6$ exponent.
+
+There are important applications of subconvexity bounds.
+\begin{itemize}
+\item A.\ Good (1982): Weyl bound for $f$ holomorphic of level $1$,
+
+  \begin{equation*}
+    L(\tfrac{1}{2} + i t, f) \ll_\eps(t^2)^{1/6 + \eps}.
+  \end{equation*}
+\item K.\ Aggarwal and S.\ Singh (2017): Weyl bound for $\GL(2)$ $t$-aspect, using the ``$\GL(2)$ delta method''.
+\item K.\ Aggarwal (2018): Weyl bound for $\GL(2)$ $t$-aspect using the ``trivial delta method''.
+\item V.\ Blomer, S.\ Jana, P.\ Nelson (2021): Weyl bound for $\GL(2) \times \GL(2) \times \GL(2)$ using the period integral approach.
+\end{itemize}
+In particular, we haven't yet seen a sub-Weyl bound for $\GL(2)$.
+
+\subsection{Main result}
+
+Using a further refinement of the trivial delta method, we obtain:
+\begin{theorem}[R.\ Holowinsky, R.\ Munshi, S., J.\ Streipel]
+  Let $f$ be a $\SL_2(\mathbb{Z})$ form (cuspidal or Eisenstein).  We have
+  \begin{equation*}
+    L(\tfrac{1}{2} + i t, f) \ll_{\eps, f}
+    (t^2)^{1/6 - 1/96 + \eps}.
+  \end{equation*}
+\end{theorem}
+Some remarks:
+\begin{itemize}
+\item Taking $f$ to be Eisenstein, we get a sub-Weyl bound for zeta, between Bourgain's and Bombieri--Iwaniec's:
+  \begin{equation*}
+    \frac{1}{6} - \frac{1}{84}
+    < \frac{1}{6} - \frac{1}{96}
+    < \frac{1}{6} - \frac{1}{168}.
+  \end{equation*}
+\item The limiting bound of the method is $\zeta(\tfrac{1}{2} + i t) \ll_\eps t^{1/8 + \eps}$.  Speaker thinks that with more effort, they could improve upon Bourgain's bound.
+\item The method is soft, using no exponent pair estimates.
+\end{itemize}
+
+\subsection{Proof sketch}
+
+\subsubsection{Setup}
+
+By the approximate functional equation,
+\begin{equation*}
+  L(\tfrac{1}{2} + i t, f) \approx t^{-1/2} \sum_{n \asymp t}
+  \lambda(n) n^{- it}.
+\end{equation*}
+Trivial estimation gives the convexity bound
+\begin{equation*}
+  L(\tfrac{1}{2} + i t, f) \ll t^{1/2}.
+\end{equation*}
+Need to save $t^{1/6}$ plus something more in
+\begin{equation*}
+  S := \sum_{n \asymp t} \lambda(n) n^{- i t}
+\end{equation*}
+to get sub--Weyl.
+
+\subsubsection{Trivial delta}
+
+Let's now discuss the $\delta$-symbol.  Let $\delta : \mathbb{Z} \rightarrow \{0, 1\}$ denote the characteristic function of $0$:
+\begin{equation*}
+  \delta(k) =
+  \begin{cases}
+    1 & \text{ if } k = 0, \\
+    0 & \text{ otherwise.}
+  \end{cases}
+\end{equation*}
+Then
+\begin{equation*}
+  S = \sum_{m \asymp t} \sum_{n \asymp t}
+  \lambda(m) \delta(m - n) n^{- it}.
+\end{equation*}
+The \emph{trivial delta symbol} comes from observing that for $p > t$, we have
+\begin{equation*}
+  \delta(m - n) = \frac{1}{p}
+  \sum_{b(p)} e \left( \frac{b(m - n)}{p} \right).
+\end{equation*}
+
+To optimize the delta symbol, we employ ``conductor lowering''.  We first use
+\begin{equation*}
+  m - n \ll t / K  \leftrightsquigarrow
+  \frac{1}{K}
+  \int_{v \sim K}
+  (m / n)^{i v} \, d v
+\end{equation*}
+for some $K < t$, and then detect the smaller equation
+\begin{equation*}
+  m - n = 0.
+\end{equation*}
+This reduces the number of variables we are introducing (saving from the $v$-integral) and reduces the conductor size arising from the delta symbol expansion.
+
+We are led to proceed with
+\begin{equation*}
+  S = \frac{1}{K}
+  \sum_{m \asymp t} \sum_{n \asymp t}
+  \lambda(m)
+  \delta(m - n)
+  n^{- i t}
+  \int_{v \asymp K}
+  (m / n)^{i v} \, d v.
+\end{equation*}
+We choose a set of primes $\mathcal{P}$ of size $P$ such that
+\begin{equation*}
+  P > t /K.
+\end{equation*}
+Then
+\begin{equation*}
+  \delta(m - n) = \frac{1}{\lvert \mathcal{P} \rvert}
+  \sum_{p \in \mathcal{P}}
+  \frac{1}{p}
+  \sum_{b(p)}
+  e \left( \frac{b(m - n)}{p} \right).
+\end{equation*}
+Substituting, we arrive at
+\begin{equation*}
+  S = \frac{1}{K}
+  \int_{v \asymp K}
+  \frac{1}{ P}
+  \sum_{p \in \mathcal{P}}
+  \frac{1}{p} \sum_{b(p)}
+  \sum_{m \asymp t}
+  \lambda(m)
+  e \left( \frac{b m}{p} \right)
+  m^{i v}
+  \sum_{n \asymp t}
+  e \left( \frac{- b n}{p} \right)
+  n^{- i(t + v)}
+  \, d v.
+\end{equation*}
+Dualizing (Voronoi and Poisson), get
+\begin{equation*}
+  S = \frac{t^{3/2}}{K^{3/2} P^3}
+  \sum_{p \in \mathcal{P}}
+  \sum_{m \asymp p^2 K^2 / t}
+  \sum_{n \asymp p}
+  \lambda(m)
+  e \left( \frac{\bar{n}m}{p} \right)
+  (n/p)^{i t}
+  e^{i \phi(m, n, p)}.
+\end{equation*}
+Trivially,
+\begin{equation*}
+  S \ll t^{1/2} K^{1/2} P = t \cdot \frac{K^{1/2} P}{t^{1/2}}.
+\end{equation*}
+We are $\frac{K^{1/2} P}{t^{1/2}}$ away from subconvexity.
+
+Everything so far has been as in previous works.
+\begin{equation*}
+  \left( \sum_{m \asymp P^2 K^2 / t} \left| \lambda(m) \right|^2 \right)^{1/2}
+  \left( \sum_{m \asymp P^2 K^2 / t}
+    \left| \sum_{p \in \mathcal{P}} \sum_{n \asymp P}
+      e \left( \frac{\bar{n} m}{ p} \right)
+      (n /p)^{i t} e^{i \phi(m, n, p)}\right|^2\right)^{1/2}.
+\end{equation*}
+\begin{itemize}
+\item Diagonal contributes $P^2 \cdot P^2  K^2 / t$.
+\item Off-diagonal contributes $P^4 \cdot \sqrt{K}$.
+\item Therefore
+  \begin{equation*}
+    S \ll t^{1/2} K^{1/2} + \frac{t}{K^{1/4}}.
+  \end{equation*}
+  With the optimal choice $K = t^{2/3}$, we get
+  \begin{equation*}
+    S \ll t^{1 - 1/6}.
+  \end{equation*}
+\end{itemize}
+
+\subsubsection{Going beyond Weyl}
+
+We go back to the step just before, and use Diophantine approximation.  Write
+\begin{equation*}
+  S = \frac{t^{3/2}}{K^{3/2} P^3}
+  \sum_{p \in \mathcal{P}}
+  \sum_{n \asymp p}
+  \left( \frac{n}{p} \right)^{i t}
+  \sum_{m \asymp p^2 K^2 / t}
+  \lambda(m)
+  e \left( \frac{\bar{n} m}{ p} \right)
+  e^{i \phi(m, n, p)}.
+\end{equation*}
+Fix $Q \geq 1$.  For each $(n, p)$, choose $(a, q)$, with $q \leq Q$, such that
+\begin{equation*}
+  \frac{\bar{n}}{p} = \frac{a}{q} + \beta, \quad
+  \beta \leq \frac{1}{q Q}.
+\end{equation*}
+Then
+\begin{equation*}
+  e \left( \frac{\bar{n}m}{p} \right)
+  = e \left( \frac{a m}{q} \right)
+  e(m \beta).
+\end{equation*}
+Choose $Q$ such that
+\begin{equation*}
+  m \beta \asymp K \implies Q \asymp P \sqrt{\frac{K}{t}},
+\end{equation*}
+which is smaller than $P$, although the analytic conductor remains the same.  The $\GL(2)$ sum now becomes
+\begin{equation*}
+  \sum_{m} \lambda(m) e \left( \frac{\bar{n} m}{p} \right)
+  e^{i \phi(m, n, p)}
+  =
+  \sum_{m } \lambda(m)
+  e \left( \frac{a m}{q} \right)
+  e(m \beta)
+  e^{i \phi(m,n , p)},
+\end{equation*}
+where the conductors are $P^2 \cdot K^2$ for the LHS and $Q^2 \cdot K^2$ for the RHS.  After Voronoi once more, we obtain
+\begin{equation*}
+  S = \frac{t}{K P^2} \sum_{p \in \mathcal{P}} \sum_{n \asymp p}
+  (n /p)^{i t}
+  \sum_{m \asymp K}
+  \lambda(m)
+  e \left( \frac{\bar{a} m}{q} \right) \mathcal{J}(m, n, p).
+\end{equation*}
+Trivially at this stage, we get
+\begin{equation*}
+  S \ll t,
+\end{equation*}
+which gives convexity.
+
+We observe that
+\begin{equation*}
+  e \left( \frac{\bar{a} m}{q} \right)
+\end{equation*}
+is still additive with respect to $m$.
+
+We now apply Cauchty--Schwarz followed by Poisson summation, giving
+\begin{equation*}
+  \left( \sum_{m \asymp K}
+    \left| \lambda(m) \right|^2\right)^{1/2}
+  \left( \sum_{m \asymp K}
+    \left| \sum_{p \in \mathcal{P}} \sum_{n \asymp P}
+      e \left( \frac{\bar{a} m}{q} \right)
+      (n/p)^{i t}
+      \mathcal{J}(m, n, p)\right|^2\right)^{1/2}.
+\end{equation*}
+The diagonal contributes $P^2 \cdot K$.  The off-diagonal gives $P^4 \cdot \sqrt{K}$.  Therefore
+\begin{equation*}
+  S \ll \frac{t}{P} + \frac{t}{ K^{1/4}}.
+\end{equation*}
+Here the diagonal is negligibly small, while the off-diagonal is the same as earlier.
+
+With the best possible choice $K = t^{1 - \eps}$, we get
+\begin{equation*}
+  S \ll t^{1 - 1/4},
+\end{equation*}
+which gives
+\begin{equation*}
+  L(\tfrac{1}{2} + i t, f) \ll t^{1/4 + \eps},
+\end{equation*}
+\begin{equation*}
+  \zeta(\tfrac{1}{2} + i t) \ll t^{1/8 + \eps}.
+\end{equation*}
+Some degeneracies arise in the non-generic cases $q \leq Q t^{- \delta}$, $\beta \ll \frac{t^{- \delta}}{Q^2}$.  These are relatively simpler when $K \ll t^{3/4}$.  Thus, for now, we obtain
+\begin{equation*}
+  S \ll \frac{t}{(t^{3/4})^{1/4}} = t^{1 - 3/16},
+\end{equation*}
+that is to say,
+\begin{equation*}
+  L(\tfrac{1}{2} + i t, f)
+  \ll t^{1/3 - 1/48 + \eps},
+\end{equation*}
+\begin{equation*}
+  \zeta(\tfrac{1}{2} + i t, f)
+  \ll t^{1/6 - 1/96 + \eps}.
+\end{equation*}
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
