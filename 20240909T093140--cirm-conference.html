@@ -225,7 +225,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2024-09-12 11:47:02
+2024-09-12 15:57:45
       <a href="20240909T093140--cirm-conference.tex" class="my-link">tex</a>
       <a href="20240909T093140--cirm-conference.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20240909T093140--cirm-conference.tex" class="my-link">history</a>
@@ -398,6 +398,15 @@ id="toc-subconvex-bounds-for-mathopmathrmson1-times-mathopmathrmson-blanca-gil-r
 bounds for <span class="math inline">\(\mathop{\mathrm{SO}}(n+1) \times
 \mathop{\mathrm{SO}}(n)\)</span>, <span class="nodecor"><em>Blanca Gil
 Rosell</em></span></a></li>
+<li><a href="#subconvexity-for-rankinselberg-l-functions-sumit-kumar"
+id="toc-subconvexity-for-rankinselberg-l-functions-sumit-kumar">Subconvexity
+for Rankin–Selberg <span class="math inline">\(L\)</span>-functions,
+<span class="nodecor"><em>Sumit Kumar</em></span></a></li>
+<li><a
+href="#archimedean-distinguished-representations-and-exceptional-poles-akash-yadav"
+id="toc-archimedean-distinguished-representations-and-exceptional-poles-akash-yadav">Archimedean
+Distinguished Representations and Exceptional Poles, <span
+class="nodecor"> <em>Akash Yadav</em></span></a></li>
 </ul>
 </nav>
 <h1
@@ -4022,6 +4031,8 @@ fields.</p>
 id="analytic-ranks-of-modular-forms-with-nontrivial-character-maarten-derickx">Analytic
 ranks of modular forms with nontrivial character, <span
 class="nodecor"><em>Maarten Derickx</em></span></h1>
+<p>Link to actual slides: <a href="https://bit.ly/analytic-ranks"
+class="uri">https://bit.ly/analytic-ranks</a>.</p>
 <p>We write <span
 class="math inline">\(S_2(\Gamma)^{\mathrm{zero}}\)</span> to consist of
 those newforms <span class="math inline">\(f\)</span> for which <span
@@ -4907,7 +4918,477 @@ class="math inline">\(({\mathop{\mathrm{SO}}}_6,
 {\mathop{\mathrm{SO}}}_5)\)</span>, by explicit numerical computation.</p>
 </div>
 <p>So for the orthogonal case, we need to address the transversality
-problem more directly.</p>
+problem more directly. Experiments with this thus far, some experiments
+with Gröbner bases.</p>
+<h1
+id="subconvexity-for-rankinselberg-l-functions-sumit-kumar">Subconvexity
+for Rankin–Selberg <span class="math inline">\(L\)</span>-functions,
+<span class="nodecor"><em>Sumit Kumar</em></span></h1>
+<p>Let’s start with the setup.</p>
+<ul>
+<li><p><span class="math inline">\(f\)</span>: Hecke cusp form for <span
+class="math inline">\(\Gamma_0(p)\)</span> and nebentypus <span
+class="math inline">\(\chi\)</span>.</p></li>
+<li><p><span class="math inline">\(g\)</span>: Hecke cusp form for <span
+class="math inline">\({\mathop{\mathrm{SL}}}_2(\mathbb{Z})\)</span> and
+trivial nebentypus.</p></li>
+<li><p>Consider the Dirichlet series <span class="math display">\[L(s, f
+\otimes g) = L(2 s, \chi)
+    \sum_{n = 1}^\infty \frac{\lambda_f(n) \lambda_g(n)}{ n^s},
+    \quad
+    \Re(s) &gt; 1,\]</span> where the <span
+class="math inline">\(\lambda(n)\)</span> are the normalized Fourier
+coefficients. It satisfies a functional equation and has meromorphic
+continuation to <span
+class="math inline">\(\mathbb{C}\)</span>.</p></li>
+</ul>
+<p>We want to estimate <span class="math inline">\(L(\tfrac{1}{2}, f
+\otimes g)\)</span> as <span class="math inline">\(p \rightarrow
+\infty\)</span> with <span class="math inline">\(g\)</span> fixed.</p>
+<p>Functional equation yields the following approximateion by a finite
+Dirichlet polynomial, of length roughly the square-root of the
+conductor: <span class="math display">\[L(\tfrac{1}{2}, f \otimes g)
+\approx \sum_{n \ll p^{1 + \varepsilon}}
+  \frac{\lambda_f(n) \lambda_g(n)}{ n^{1/2}} W(n).\]</span> Here <span
+class="math inline">\(W\)</span> is a smooth function satisfying some
+nice decay conditions. Using this approximation, one can show that <span
+class="math display">\[L(\tfrac{1}{2}, f \otimes g) \ll_{g, \varepsilon}
+p^{1/2 + \varepsilon} =
+  (p^2)^{1/4 + \varepsilon},\]</span> the convexity bound. Our aim is to
+show that <span id="eq:cnojsamf9d" class="math display">\[\label{eq:cnojsamf9d}\tag{2}
+  L(\tfrac{1}{2}, f \otimes g) \ll_g(p^2)^{1/4 - \delta} \text{ for some
+} \delta &gt; 0.\]</span></p>
+<ul>
+<li><p>The first estimate of the form <a href="#eq:cnojsamf9d"
+data-reference-type="eqref"
+data-reference="eq:cnojsamf9d">\((2)\)</a> was shown by
+Kowalski–Michel–Vanderkam <a href="#ref-KMV02" class="citation"
+data-cites="KMV02">(Kowalski, Michel, and VanderKam 2002)</a> when
+<span class="math inline">\(f\)</span> is holomorphic and <span
+class="math inline">\(\chi\)</span> has conductor <span
+class="math inline">\(\ll p^{1/2}\)</span>.</p></li>
+<li><p>Michel <a href="#ref-Mi04" class="citation" data-cites="Mi04">(P. Michel
+2004)</a> removed the the latter condition and obtained <a
+href="#eq:cnojsamf9d" data-reference-type="eqref"
+data-reference="eq:cnojsamf9d">\((2)\)</a> with <span
+class="math inline">\(\delta = 1/2114\)</span> for <span
+class="math inline">\(g\)</span> holomorphic and <span
+class="math inline">\(\chi\)</span> non-trivial.</p></li>
+<li><p>Harcos–Michel <a href="#ref-MR2207235" class="citation"
+data-cites="MR2207235">(Harcos and Michel 2006)</a> proved <a
+href="#eq:cnojsamf9d" data-reference-type="eqref"
+data-reference="eq:cnojsamf9d">\((2)\)</a> with <span
+class="math inline">\(\delta = 1/2826\)</span> for <span
+class="math inline">\(g\)</span> holomorphic/Maass cusp forms and
+non-trivial <span class="math inline">\(\chi\)</span>.</p></li>
+<li><p>Michel–Venkatesh <a href="#ref-michel-2009" class="citation"
+data-cites="michel-2009">(Philippe Michel and Venkatesh 2010)</a>
+generalized all the above results (uniform in all aspects of <span
+class="math inline">\(f\)</span>).</p></li>
+</ul>
+<p>Michel and Michel–Harcos use spectral theory of automorphic forms.
+Michel–Venkatesh use period integral approach (geometric arguments). In
+this talk, we will use Munshi’s delta symbol approach to prove our
+theorem.</p>
+<div class="theorem">
+<p><strong>Theorem 124</strong> (K–Aggarwal–Kwan–Leung–Li–Young).
+<em>Let <span class="math inline">\(f\)</span> be a Hecke cusp form of
+prime level <span class="math inline">\(p\)</span> and nebentypus <span
+class="math inline">\(\chi\)</span>, and let <span
+class="math inline">\(g\)</span> be a fixed <span
+class="math inline">\(\mathop{\mathrm{GL}}(2)\)</span> form. Then we
+have <span class="math display">\[L(\tfrac{1}{2}, f \otimes g) \ll_{g,
+\varepsilon}(p^2)^{1/4 - 1/1100 + \varepsilon}.\]</span> For <span
+class="math inline">\(\chi\)</span> trivial, we have <span
+class="math display">\[L(\tfrac{1}{2}, f \otimes g) \ll_{g, \varepsilon}
+\dotsb.\]</span></em></p>
+</div>
+<p>We use the <span class="math inline">\(\delta\)</span>-method along
+with amplification. Key input is DFI estimates of bilinear sum <span
+class="math display">\[\sum_n a(n) \sum_{m} b(m)
+  e \left( \frac{c \bar{m}}{n} \right).\]</span></p>
+<p>Let’s now say something about the <span
+class="math inline">\(\delta\)</span>-method. For <span
+class="math inline">\(n \in \mathbb{Z}\)</span>, <span
+class="math inline">\(\delta(n) = 1\)</span> if <span
+class="math inline">\(n = 0\)</span> and <span
+class="math inline">\(\delta(n) = 0\)</span> otherwise. We think <span
+class="math inline">\(\delta(n) = \int_0^1 e(n x) \, d x\)</span>. Delta
+method is a variant of classical ricle method with no “minor arc”
+contributions. We use the Fourier expansion (DFI) for <span
+class="math inline">\(\lvert n \rvert \leq N\)</span>, <span
+class="math display">\[\delta(n)
+  = \frac{1}{Q}
+  \sum_{q \leq Q}
+  \frac{1}{q}
+  \sum_{a(q)^*}
+  e \left( \frac{a n}{q} \right)
+  \int_{\mathbb{R}}
+  g(q, x)
+  e \left( \frac{n x}{q Q} \right)
+  \, d x,\]</span> where <span class="math inline">\(g(q, x)\)</span> is
+a smooth function and <span class="math inline">\(Q \leq
+\sqrt{N}\)</span>.</p>
+<p>Let’s now give a sketch of the proof. On applying the approximate
+functional equation, we see that <span
+class="math display">\[L(\tfrac{1}{2} , f \otimes g) \ll \sup_{N \ll p}
+\frac{S(N)}{\sqrt{N}},\]</span> where <span class="math display">\[S(N)
+= \sum_n \lambda_f(n) \lambda_g(n) W(n / N).\]</span> Here <span
+class="math inline">\(W\)</span> is a fixed bump function, taking the
+value one on some interval. The goal is to show that <span
+class="math display">\[S(N) \ll N^{1 - \delta} \qquad \text{ for } N
+\approx p, \quad \text{ some } \delta &gt; 0.\]</span> To that end, we
+write <span class="math display">\[\begin{align}
+  S(N) &amp;=
+         \sum_n \lambda_f(n) \lambda_g(n) W(n/N)
+  \\
+       &amp;=
+         \sum_n \sum_m \lambda_f(n) \lambda_g(m)
+         W(n/N) W_1(m/N)
+         \delta(m - n)
+  \\
+       &amp;=
+         \frac{1}{Q}
+         \sum_q \int_{\mathbb{R}}
+         \frac{g(q, x)}{q}
+         \sum_{a(q)^\ast}
+         S_1(a, q, x) S_2(a, q, x) \, d x.
+\end{align}\]</span> Here <span class="math inline">\(Q =
+\sqrt{N}\)</span>. (To be precise, we have suppressed the amplifier from
+our sketch of the argument, but that is used to treat the diagonal.)
+Also <span class="math display">\[S_1(a, q, x) = \sum_{m} \lambda_f(m) e
+\left( \frac{a m}{q} \right)
+  W_1(m, q, x),\]</span> <span class="math display">\[S_2(a, q, x) =
+\sum_n \lambda_g(n) e \left( \frac{- a n}{q} \right)
+  W_2(n, q, x).\]</span> So what we have done is to separate out the
+coefficients <span class="math inline">\(\lambda_f\)</span> and <span
+class="math inline">\(\lambda_g\)</span>. The next step is to analyze
+<span class="math inline">\(S_1\)</span> and <span
+class="math inline">\(S_2\)</span> using Voronoi summation. In the
+generic case <span class="math inline">\(q \sim Q = \sqrt{p}\)</span>,
+we see that <span class="math display">\[S_1(\dotsb) \rightsquigarrow
+\frac{N \chi(- q)}{Q \sqrt{p}}
+  \sum_{m \asymp p}
+  \lambda_f(m)
+  e \left( \frac{- \overline{a p} m}{q} \right).\]</span> (This step
+doesn’t lose or gain anything.) Similarly, <span
+class="math display">\[S_2(\dotsb) \rightsquigarrow \frac{N}{Q} \sum_{m
+\asymp 1} \lambda_f(n) e \left( \frac{\bar{a} m}{q} \right).\]</span>
+(Here we have gained a lot.) Combining everything together so far, we
+arrive at <span class="math display">\[S(N) \rightsquigarrow
+\frac{1}{\sqrt{p}}
+  \sum_{m \asymp p} \lambda_f(m)
+  \sum_q \chi(- q) \sum_{n \asymp 1} \lambda_f(n) c_q(p n - m).\]</span>
+Here <span class="math display">\[c_q(n) = \sum_{a (q)}^\ast e \left(
+\frac{a n}{q} \right)\]</span> is the Ramanujan sum. Thus far, we have
+“shown” that <span class="math display">\[S(N) \ll \sqrt{p} Q \sqrt{Q} =
+N p^{1/4},\]</span> assuming square-root savings in <span
+class="math inline">\(c_q(\dotsb)\)</span>. (Of course, we get more
+saving than that for <span class="math inline">\(c_q\)</span>, but we’re
+doing a bunch of averaging.) Next, we apply Cuachy to the <span
+class="math inline">\(m\)</span>-sum to obtain <span
+class="math display">\[\lvert S(N) \rvert^2 \ll \sum_m
+  \left|
+    \sum_q
+    \chi(- q)
+    \sum_{n \asymp 1}
+    \lambda_f(n) c_q(p n - m)\right|^2.\]</span> We now open the square
+and apply Poisson summation to the <span
+class="math inline">\(m\)</span>-sum: <span
+class="math display">\[\begin{gathered}
+  \sum_{m \asymp p} c_{q_1}(p n_1 - m)
+  \overline{  c_{q_2}(p n_2 - m)}
+  \\
+  \rightsquigarrow p
+  \sqrt{q_1 q_2} \delta(q_1 = q_2, n_1 = n_2)
+  + \sum_{m \asymp 1}
+  e \left( \frac{\overline{q_2} m p n_1}{q_1} +
+    \frac{\overline{q_1} m p n_2}{ q_2}\right).
+\end{gathered}\]</span> The remaining sum over <span
+class="math inline">\(q_1\)</span> and <span
+class="math inline">\(q_2\)</span> is given by <span
+class="math display">\[B = \sum_{q_1 \asymp Q}
+  \sum_{q_2 \asymp Q} \chi(q_1) \overline{\chi}(q_2) e \left( \frac{a
+\overline{q_1}}{ q_2} \right),
+  \quad a = p m(n_2 - n_1).\]</span> Here we apply DFI estimate <span
+class="math inline">\(B \ll Q^{2 - 1/48}\)</span> <a href="#ref-MR1437494" class="citation"
+data-cites="MR1437494">(Duke, Friedlander, and Iwaniec 1997)</a>. The
+proof follows.</p>
+<h1
+id="archimedean-distinguished-representations-and-exceptional-poles-akash-yadav">Archimedean
+Distinguished Representations and Exceptional Poles, <span
+class="nodecor"> <em>Akash Yadav</em></span></h1>
+<p>Preprint: <a href="#ref-2024arXiv2401.09063" class="citation"
+data-cites="2024arXiv2401.09063">(Yadav 2024)</a></p>
+<p>Let <span class="math inline">\(F\)</span> be a non-archimedean local
+field, <span class="math inline">\(E\)</span> either <span
+class="math inline">\(F \times F\)</span> (split case) or a quadratic
+extension (inert case). <span class="math inline">\(\pi\)</span>:
+irreducible generic representation of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n(E)\)</span>.</p>
+<div class="definition">
+<p><strong>Definition 125</strong>. A representation <span
+class="math inline">\(\pi\)</span> is said to be <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n(F)\)</span>-distinguished
+if <span
+class="math inline">\({\mathop{\mathrm{Hom}}}_{{\mathop{\mathrm{GL}}}_n(F)}(\pi,1)
+\neq 0\)</span>.</p>
+</div>
+<p>This is related to Rankin–Selberg and Asai <span
+class="math inline">\(L\)</span>-functions according as we are in the
+split or inert case.</p>
+<ul>
+<li><p><span class="math inline">\(\psi : E \rightarrow S^1\)</span>
+fixed additive character</p></li>
+<li><p><span class="math inline">\(\mathcal{W}(\pi, \psi)\)</span>
+Whittaker model of <span class="math inline">\(\pi\)</span></p></li>
+<li><p><span class="math inline">\(\mathcal{S} =
+\mathcal{S}(F^n)\)</span>: Schwartz space</p></li>
+<li><p><span class="math inline">\(e_n =(0, 0, \dotsc, 1) \in
+F^n\)</span></p></li>
+<li><p><span class="math inline">\(N_n \leq
+{\mathop{\mathrm{GL}}}_n\)</span>: subgroup of unipotent upper-triangular
+matrices</p></li>
+</ul>
+<p>We consider the family of Rankin–Selberg integrals in the split case
+(resp. Flicker integrals in the inert case) <span
+class="math display">\[\mathcal{J}(\pi) = \left\{ I(s, W, \Phi) : W \in
+\mathcal{W}(\pi, \psi), \Phi \in \mathcal{S} \right\},\]</span> <span
+class="math display">\[I(s, W, \Phi) := \int_{N_n(F) \backslash
+{\mathop{\mathrm{GL}}}_n(F)} W(g)
+  \Phi(e_n g)
+  \lvert \det g \rvert^s_F \, d g.\]</span></p>
+<p>Jacquet, Piatetski-Shapiro and Shalika (resp. Beuzart–Plessis)showed
+that these integrals converge for <span
+class="math inline">\(\Re(s)\)</span> large enough and are holomorphic
+multiples of the Rankin–Selberg (resp. Asai) <span
+class="math inline">\(L\)</span>-functions. We have a filtration <span
+class="math inline">\(\mathcal{S} = \mathcal{S}^0 \supset \dotsb \supset
+\mathcal{S} ^m\)</span>, where <span
+class="math inline">\(\mathcal{S}^m\)</span> is the set of vanishing
+functions to order at least <span class="math inline">\(m\)</span> at
+<span class="math inline">\(0\)</span>. At a pole <span
+class="math inline">\(s_0\)</span> of maximal order for <span
+class="math inline">\(\mathcal{J}(\pi)\)</span>, each integral as above
+has a Laurent expansion <span id="eq:cnojsuo68y" class="math display">\[\label{eq:cnojsuo68y}\tag{3}
+  \frac{B_{s_0}(W, \Phi)}{(s - s_0)^d} + \dotsb,\]</span> where <span
+class="math inline">\(B_{s_0}\)</span> is bilinear. “Exceptional pole of
+level <span class="math inline">\(d\)</span> at <span
+class="math inline">\(s_0\)</span>” means <span
+class="math inline">\(B_{s_0} \neq 0\)</span> [I think; slides were
+pretty fast].</p>
+<div id="theorem:cnojsu3jzl" class="theorem">
+<p><strong>Theorem 126</strong> (Y., 2024). <em>Let <span
+class="math inline">\(\pi\)</span> be an irreducible generic
+representation of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n(E)\)</span>, assumed to be
+<em>nearly tempered</em> in the inert case. Then <span
+class="math inline">\(\pi\)</span> is distinguished if and only if the
+family of integrals <span
+class="math inline">\(\mathcal{J}(\pi)\)</span> has an exceptional pole
+of level zero at <span class="math inline">\(0\)</span>.</em></p>
+</div>
+<p>Here we say that <span class="math inline">\(\pi\)</span> is
+<em>nearly tempered</em> if <span class="math display">\[\pi
+\cong   \left( \pi_1 \otimes \lvert \det \rvert_E^{r_1} \right)
+  \times  \dotsb \times
+  \left( \pi_k \otimes \lvert \det \rvert_E^{r_k} \right),\]</span>
+where each <span class="math inline">\(\gamma_i \in \mathbb{R}\)</span>
+or <span class="math inline">\(\lvert \gamma_i \rvert &lt;
+1/4\)</span>.</p>
+<p>In 2010, Matringe established for <span
+class="math inline">\(E/F\)</span> quadratic non-archimedean that <span
+class="math inline">\(\pi\)</span> is distinguished iff its Asai <span
+class="math inline">\(L\)</span>-function has san exceptional pole at
+<span class="math inline">\(0\)</span>. In the non-archimedean setting,
+the Asai <span class="math inline">\(L\)</span>-function serves as the
+greatest common divisor of the family of Flicker integrals, ensuring
+that the quotient of these integrals and the Asai <span
+class="math inline">\(L\)</span>-function is nonvanishing. But in the
+archimedean case, the nonvanishing of this quotient is known only for
+nearly tempered representations (in the inert case).</p>
+<p>We’ll first prove the “if” direction of this theorem. Suppose <span
+class="math inline">\(s = s_0\)</span> is a pole of maximal order <span
+class="math inline">\(d\)</span> for <span
+class="math inline">\(\mathcal{J}(\pi)\)</span>, then we have an
+expansion as in <a href="#eq:cnojsuo68y" data-reference-type="eqref"
+data-reference="eq:cnojsuo68y">\((3)\)</a>, where <span
+class="math display">\[B_{s_0}(g \cdot W, g \cdot \Phi)
+  =
+  \lvert \det \rvert^{s_0}  B_{s_0}(W, \Phi).\]</span> Note that <span
+class="math inline">\(\mathcal{S}^1\)</span> is a codimension <span
+class="math inline">\(1\)</span> subspace of <span
+class="math inline">\(\mathcal{S}\)</span>, being the kernel of the
+evaluation at zero map <span class="math inline">\(\mathcal{S}
+\rightarrow \mathbb{C}\)</span>. Therefore, if <span
+class="math inline">\(s = s_0\)</span> is an exceptional pole of level
+<span class="math inline">\(0\)</span> for the family <span
+class="math inline">\(\mathcal{J}(\pi)\)</span>, then <span
+class="math inline">\(B_{s_0}\)</span> is of the form <span
+class="math display">\[B_{s_0}(W, \Phi) = \lambda_{s_0}(W)
+\Phi(0),\]</span> where <span
+class="math inline">\(\lambda_{s_0}\)</span> is nonzero and satisfies
+<span class="math display">\[\lambda_{s_0}(g \cdot W) = \lvert \det g
+\rvert^{- s_0} \lambda_{s_0}(W).\]</span> Taking <span
+class="math inline">\(s_0\)</span>, we see that <span
+class="math inline">\(\lambda_0 \neq 0\)</span>, and so <span
+class="math inline">\(\pi\)</span> is <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n(F)\)</span>-distinguished.</p>
+<p>In the remainder of the talk, we focus on proving the “only if”
+direction. We focus on the split case; the inert case will follow from a
+similar argument.</p>
+<p>Let <span class="math inline">\(W_F\)</span> be the Weil group of
+<span class="math inline">\(F\)</span>, either <span
+class="math inline">\(\mathbb{C}^\times\)</span> if <span
+class="math inline">\(F = \mathbb{C}\)</span> or <span
+class="math inline">\(\mathbb{C}^\times \sqcup j
+\mathbb{C}^\times\)</span> for <span class="math inline">\(F =
+\mathbb{R}\)</span>, where <span class="math inline">\(j^2 =  -
+1\)</span> and <span class="math inline">\(j w j^{-1} =
+\bar{w}\)</span>. To any continuous finite-dimensional <span
+class="math inline">\(\phi : W_F \rightarrow
+\mathop{\mathrm{GL}}(V)\)</span>, Tate associates <span
+class="math inline">\(L(s, \phi)\)</span> and <span
+class="math inline">\(\varepsilon(s, \phi, \psi &#39;)\)</span>. Let
+<span class="math inline">\(\pi = \pi_1 \otimes \pi_2\)</span>:
+irreducible representation of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n(E) =
+{\mathop{\mathrm{GL}}}_n(F) \times {\mathop{\mathrm{GL}}}_n(F)\)</span>. Let
+<span class="math inline">\(\phi_1, \phi_2\)</span> denote the
+associated Langlands parameter, so that <span
+class="math inline">\(\phi_1 \otimes \phi_2\)</span> is the parameter
+giving rise to the Rankin–Selberg <span
+class="math inline">\(L\)</span>-function. In 1983 and 2010, Jacquet,
+Piatetski-Shapiro and Shalika resolved the analytic properties of
+Rankin–Selberg integrals.</p>
+<div class="theorem">
+<p><strong>Theorem 127</strong> (JPSS 1983, Jacquet 2010). <em>For <span
+class="math inline">\(\pi = \pi_1 \otimes \pi_@\)</span>, <span
+class="math inline">\(W\)</span> and <span
+class="math inline">\(\Phi\)</span> as above:</em></p>
+<ol>
+<li><p><em>The local integrals <span class="math inline">\(I(s, W,
+\Phi)\)</span> converges for <span class="math inline">\(\Re(s)\)</span>
+large enough and extend meromorphically.</em></p></li>
+<li><p><em>We have the local functional equation.</em></p></li>
+<li><p><em>The normalized local integrals are holomorphic, and for any
+<span class="math inline">\(s_0 \in \mathbb{C}\)</span>, do not vanish
+identically.</em></p></li>
+</ol>
+</div>
+<p>We turn to <em>continuity of integrals</em>. Let <span
+class="math display">\[P _n =
+  \begin{pmatrix}
+    \ast    &amp; \ast &amp; \dotsb &amp; \ast \\
+    \dotsb            &amp; \dotsb &amp; \dotsb &amp; \ast \\
+    \ast            &amp; \ast &amp; \ast &amp; \ast \\
+    0            &amp; 0 &amp; 0 &amp; 1 \\
+  \end{pmatrix}\]</span> denote the mirabolic subgroup of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n\)</span>. For <span
+class="math inline">\(W \in \mathcal{W}(\pi, \psi_n)\)</span>, consider
+the local Rankin–Selberg integrals <span class="math display">\[I(s, W,
+\Phi).\]</span></p>
+<div class="proposition">
+<p><strong>Proposition 128</strong> (Cogdell 2005, Chai 2015). <em>The
+normalized local Rankin–Selberg integrals are continuous. <span
+class="math display">\[\frac{I(s, W, \Phi)}{L(s, \pi,
+\mathrm{RS})}.\]</span></em></p>
+</div>
+<div class="proposition">
+<p><strong>Proposition 129</strong> (Beuzart-Plessis, 2001). <em>The
+normalized Rankin–Selberg integrals don’t vanish identically.</em></p>
+</div>
+<div class="proposition">
+<p><strong>Proposition 130</strong> (Ehud Moshe Baruch, 2003). <em>For a
+distinguished representation <span class="math inline">\(\pi\)</span>,
+any <span class="math inline">\(P_n(F)\)</span>-invariant linear form on
+<span class="math inline">\(\pi\)</span> is actually <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n(F)\)</span>-invariant.</em></p>
+</div>
+<p>We now give the proof of Theorem <a href="#theorem:cnojsu3jzl"
+data-reference-type="ref" data-reference="theorem:cnojsu3jzl">126</a>
+Let <span class="math inline">\(\pi = \pi_1 \otimes \pi_2\)</span>, with
+irreducible generic representations of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n(F)\)</span>. We need to
+prove that if <span class="math inline">\(\pi\)</span> is distingiushed,
+then <span class="math inline">\(s = 0\)</span> is an exceptional pole
+of level <span class="math inline">\(0\)</span> for the family <span
+class="math inline">\(\mathcal{J}(\pi)\)</span>. For <span
+class="math inline">\(\Re(s)\)</span> sufficiently negative, consider
+the integral <span class="math display">\[I(1 - s,
+\tilde{W},\tilde{\Phi}) = \int_{N_n(F) \backslash
+{\mathop{\mathrm{GL}}}_n(F)}
+  \tilde{W}(g) \hat{\Phi}(e_n g) \lvert \det g \rvert^{1 - s} \, d
+g.\]</span> We assume that <span class="math inline">\(W\)</span> is a
+pure tensor of <span class="math inline">\(K_n\)</span>-finite
+components. Then we can write <span class="math display">\[\tilde{W}_1(g
+k) = \sum_l h_l(k) \tilde{W_l} &#39;(g),\]</span> and similarly for
+<span class="math inline">\(W_2\)</span>, with <span
+class="math inline">\(g_j\)</span> in place of <span
+class="math inline">\(h_l\)</span>.</p>
+<p>Now we set <span class="math inline">\(f_i = h_l g j\)</span>, and
+form <span class="math inline">\(\tilde{W}(g k) = \sum_i f_i(k)
+\tilde{W}_i(g)\)</span>. Since <span class="math inline">\(\pi\)</span>
+is distingiushed, its central character is distinguished.</p>
+<p>Using the Iwasawa decomposition, we get <span
+class="math display">\[I(1 - s, \tilde{W}, \hat{\Phi})
+  = \dotsb,\]</span> then divide to get: <span
+class="math display">\[\begin{align}
+  \frac{I(1 - s, \tilde{W}, \hat{\Phi})}{L(1 - s, \tilde{\pi},
+\mathrm{RS})}
+  &amp;= \int_{K_n}
+    \frac{\Psi(1 - s, \tilde{\pi}(k) \tilde{W})}{ L(1 - s, \tilde{\pi},
+\mathrm{RS})}
+    \int_{F^\times} \hat{\Phi}(e_n a k) \lvert a \rvert^{n(1 - s)} \, d
+^\times  a \, d k \\
+  &amp;=
+    \dotsb.
+\end{align}\]</span> This leads to <span
+class="math display">\[\frac{I(1, \tilde{W}, \hat{\Phi})}{L(1,
+\tilde{\pi}, \mathrm{RS})}
+  = \int_{K_n}
+  \frac{\Psi(1, \tilde{\pi}(k), \tilde{W})}{L(1, \tilde{\pi},
+\mathrm{RS})}
+  \int_{F^\times} \hat{\Phi}(e_n a k) \lvert a \rvert^n \,d^\times a \,
+d k.\]</span> As <span class="math inline">\(\pi\)</span> is
+distinguished, so is <span class="math inline">\(\tilde{\pi}\)</span>.
+Now pass from the <span class="math inline">\(P_n(F)\)</span>-invariance
+to <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n(F)\)</span>-invariance to
+eventually get the equality <span class="math display">\[\frac{I(1,
+\tilde{W}, \hat{\Phi})}{L(1, \tilde{\pi}, \mathrm{RS})}
+  =
+  \frac{\Psi(1, \tilde{W})}{ L(1, \tilde{\pi}, \mathrm{RS})}
+  \Phi(0),\]</span> which we now know miust hold for zll <span
+class="math inline">\(W\)</span> and <span
+class="math inline">\(\Phi\)</span>. Using the functional equation at
+<span class="math inline">\(s = 0\)</span>, we get <span
+class="math display">\[\frac{I(1, \tilde{W}, \hat{\Phi})}{L(1,
+\tilde{\pi}, \mathrm{RS})}
+  =
+  \alpha
+  \frac{I(0, {W}, {\Phi})}{L(0, {\pi}, \mathrm{RS})}\]</span> for some
+<span class="math inline">\(\alpha \in \mathbb{C}^\times\)</span>. From
+the earlier calculation, the left hand side of the above equation
+vanishes for any <span class="math inline">\(\Phi \in S^1\)</span>, thus
+the ratio on the right hand side of the above vanishes. But then <span
+class="math inline">\(s = 0\)</span> is a pole for <span
+class="math inline">\(L(s,, \pi, \mathrm{RS})\)</span>, say of order
+<span class="math inline">\(d\)</span>. Thus <span
+class="math inline">\(s =0\)</span> must be a pole for the family <span
+class="math inline">\(\mathcal{J}(\pi)\)</span> of maximal order <span
+class="math inline">\(d\)</span>. Observe that <span
+class="math display">\[B_0(W, \Phi) = \left( \lim_{s \rightarrow 0} s^d
+L(s, \pi, \mathrm{RS}) \right)
+  \frac{I(0, W, \Phi)}{ L(0, \pi, \mathrm{RS})}\]</span> for all <span
+class="math inline">\(W\)</span> and <span
+class="math inline">\(\Phi\)</span>. By previous discussion, the
+bilinear form <span class="math inline">\(B_0\)</span> is nontrivial and
+vanishes on <span class="math inline">\(S^1\)</span>. Therefore, <span
+class="math inline">\(s =0\)</span> must be an exceptional pole of level
+<span class="math inline">\(0\)</span> for the family <span
+class="math inline">\(\mathcal{J}(\pi)\)</span>. This completes the
+proof of the theorem. Thank you.</p>
 <div id="refs" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" role="list">
 <div id="ref-2024arXiv2401.08855" class="csl-entry" role="listitem">
@@ -4949,6 +5430,12 @@ Craig, William, Jan-Willem van Ittersum, and Ken Ono. 2024.
 <span>“Integer Partitions Detect the Primes,”</span> May. <a
 href="http://arxiv.org/abs/2405.06451v2">http://arxiv.org/abs/2405.06451v2</a>.
 </div>
+<div id="ref-MR1437494" class="csl-entry" role="listitem">
+Duke, W., J. Friedlander, and H. Iwaniec. 1997. <span>“Bilinear Forms
+with <span>K</span>loosterman Fractions.”</span> <em>Invent. Math.</em>
+128 (1): 23–43. <a
+href="https://doi.org/10.1007/s002220050135">https://doi.org/10.1007/s002220050135</a>.
+</div>
 <div id="ref-MR2966067" class="csl-entry" role="listitem">
 Ernvall-Hytönen, Anne-Maria. 2012. <span>“On a Conjecture by
 <span>B</span>elfiore and <span>S</span>olé on Some Lattices.”</span>
@@ -4968,6 +5455,14 @@ class="math inline">\(\mathrm{GL}_3\)</span> <span
 class="math inline">\(L\)</span>-Functions,”</span> August. <a
 href="http://arxiv.org/abs/2408.00596v1">http://arxiv.org/abs/2408.00596v1</a>.
 </div>
+<div id="ref-MR2207235" class="csl-entry" role="listitem">
+Harcos, Gergely, and Philippe Michel. 2006. <span>“The Subconvexity
+Problem for <span>R</span>ankin-<span>S</span>elberg <span><span
+class="math inline">\(L\)</span></span>-Functions and Equidistribution
+of <span>H</span>eegner Points. <span>II</span>.”</span> <em>Invent.
+Math.</em> 163 (3): 581–655. <a
+href="https://doi.org/10.1007/s00222-005-0468-6">https://doi.org/10.1007/s00222-005-0468-6</a>.
+</div>
 <div id="ref-2024arXiv2404.00738" class="csl-entry" role="listitem">
 Ho, Sheng-Yang Kevin. 2024. <span>“The Rational Torsion Subgroup of
 <span class="math inline">\(J_0(\mathfrak{p}^r)\)</span>,”</span> March.
@@ -4984,6 +5479,12 @@ Humphries, Peter, and Yeongseong Jo. 2021. <span>“Test Vectors for
 Archimedean Period Integrals,”</span> December. <a
 href="http://arxiv.org/abs/2112.06860v1">http://arxiv.org/abs/2112.06860v1</a>.
 </div>
+<div id="ref-KMV02" class="csl-entry" role="listitem">
+Kowalski, E., P. Michel, and J. VanderKam. 2002.
+<span>“Rankin-<span>S</span>elberg <span><span
+class="math inline">\(L\)</span></span>-Functions in the Level
+Aspect.”</span> <em>Duke Math. J.</em> 114 (1): 123–91.
+</div>
 <div id="ref-2024arXiv2406.14659" class="csl-entry" role="listitem">
 Lee, Seewoo. 2024. <span>“Algebraic Proof of Modular Form Inequalities
 for Optimal Sphere Packings,”</span> June. <a
@@ -4995,6 +5496,20 @@ Covers of <span class="math inline">\(\mathbb{P}^1\)</span> of <span
 class="math inline">\(p\)</span>-Ordinary Ekedahl-Oort Type,”</span>
 March. <a
 href="http://arxiv.org/abs/2303.13350v3">http://arxiv.org/abs/2303.13350v3</a>.
+</div>
+<div id="ref-Mi04" class="csl-entry" role="listitem">
+Michel, P. 2004. <span>“The Subconvexity Problem for
+<span>R</span>ankin-<span>S</span>elberg <span><span
+class="math inline">\(L\)</span></span>-Functions and Equidistribution
+of <span>H</span>eegner Points.”</span> <em>Ann. Of Math. (2)</em> 160
+(1): 185–236.
+</div>
+<div id="ref-michel-2009" class="csl-entry" role="listitem">
+Michel, Philippe, and Akshay Venkatesh. 2010. <span>“The Subconvexity
+Problem for <span><span class="math inline">\({\rm
+GL}_2\)</span></span>.”</span> <em>Publ. Math. Inst. Hautes Études
+Sci.</em>, no. 111: 171–271. <a
+href="https://doi.org/10.1007/s10240-010-0025-8">https://doi.org/10.1007/s10240-010-0025-8</a>.
 </div>
 <div id="ref-MR4032962" class="csl-entry" role="listitem">
 Oggier, Frédérique, and Jean-Claude Belfiore. 2019. <span>“On the
@@ -5012,6 +5527,11 @@ href="http://arxiv.org/abs/2406.06294v1">http://arxiv.org/abs/2406.06294v1</a>.
 Voskou, Marios. 2024. <span>“Refined Counting of Geodesic Segments in
 the Hyperbolic Plane,”</span> July. <a
 href="http://arxiv.org/abs/2407.03134v1">http://arxiv.org/abs/2407.03134v1</a>.
+</div>
+<div id="ref-2024arXiv2401.09063" class="csl-entry" role="listitem">
+Yadav, Akash. 2024. <span>“Archimedean Distinguished Representations and
+Exceptional Poles,”</span> January. <a
+href="http://arxiv.org/abs/2401.09063v2">http://arxiv.org/abs/2401.09063v2</a>.
 </div>
 </div>
 <script>
