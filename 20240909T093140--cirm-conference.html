@@ -225,7 +225,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2024-09-12 10:44:05
+2024-09-12 11:47:02
       <a href="20240909T093140--cirm-conference.tex" class="my-link">tex</a>
       <a href="20240909T093140--cirm-conference.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20240909T093140--cirm-conference.tex" class="my-link">history</a>
@@ -383,6 +383,21 @@ delta</a></li>
 Weyl</a></li>
 </ul></li>
 </ul></li>
+<li><a
+href="#hybrid-subconvex-bounds-for-selfdual-gl_3-l-functions-via-mathopmathrmgl_3-times-mathrmgl_2-vs.-mathopmathrmgl_4-times-mathopmathrmgl_1-spectral-reciprocity-soumendra-ganguly"
+id="toc-hybrid-subconvex-bounds-for-selfdual-gl_3-l-functions-via-mathopmathrmgl_3-times-mathrmgl_2-vs.-mathopmathrmgl_4-times-mathopmathrmgl_1-spectral-reciprocity-soumendra-ganguly">Hybrid
+subconvex bounds for selfdual <span class="math inline">\(GL_3\)</span>
+L-functions via <span class="math inline">\({\mathop{\mathrm{GL}}}_3
+\times \mathrm{GL}_2\)</span> vs. <span
+class="math inline">\({\mathop{\mathrm{GL}}}_4 \times
+{\mathop{\mathrm{GL}}}_1\)</span> spectral reciprocity, <span
+class="nodecor"><em>Soumendra Ganguly</em></span></a></li>
+<li><a
+href="#subconvex-bounds-for-mathopmathrmson1-times-mathopmathrmson-blanca-gil-rosell"
+id="toc-subconvex-bounds-for-mathopmathrmson1-times-mathopmathrmson-blanca-gil-rosell">Subconvex
+bounds for <span class="math inline">\(\mathop{\mathrm{SO}}(n+1) \times
+\mathop{\mathrm{SO}}(n)\)</span>, <span class="nodecor"><em>Blanca Gil
+Rosell</em></span></a></li>
 </ul>
 </nav>
 <h1
@@ -4689,6 +4704,210 @@ class="math display">\[L(\tfrac{1}{2} + i t, f)
   \ll t^{1/3 - 1/48 + \varepsilon},\]</span> <span
 class="math display">\[\zeta(\tfrac{1}{2} + i t, f)
   \ll t^{1/6 - 1/96 + \varepsilon}.\]</span></p>
+<h1
+id="hybrid-subconvex-bounds-for-selfdual-gl_3-l-functions-via-mathopmathrmgl_3-times-mathrmgl_2-vs.-mathopmathrmgl_4-times-mathopmathrmgl_1-spectral-reciprocity-soumendra-ganguly">Hybrid
+subconvex bounds for selfdual <span class="math inline">\(GL_3\)</span>
+L-functions via <span class="math inline">\({\mathop{\mathrm{GL}}}_3
+\times \mathrm{GL}_2\)</span> vs. <span
+class="math inline">\({\mathop{\mathrm{GL}}}_4 \times
+{\mathop{\mathrm{GL}}}_1\)</span> spectral reciprocity, <span
+class="nodecor"><em>Soumendra Ganguly</em></span></h1>
+<p>Let’s start by discussing Motohashi’s formula (1997). It concerns
+<span class="math display">\[\sum_{f \in \mathcal{F}_1}
+  \frac{L(\tfrac{1}{2} , f)^3}{ L(1, \mathop{\mathrm{ad}}f)}
+  h(t_f) + \dotsb
+  = \text{main term }
+  +
+  \int_{\mathbb{R}}
+  \left| \zeta(\tfrac{1}{2} + i t) \right|^4 \mathcal{H}(t) \, d
+t.\]</span> Here <span class="math inline">\(f\)</span> runs over an
+orthonormal basis for the space of Hecke–Maass forms for <span
+class="math inline">\(\mathop{\mathrm{SL}}(2,\mathbb{Z})\)</span>, <span
+class="math inline">\(h\)</span> is some nice enough function, and <span
+class="math inline">\(\mathcal{H}\)</span> is some integral transform of
+<span class="math inline">\(h\)</span>.</p>
+<p>[Ed: Motohashi’s formula goes the other way]</p>
+<p>Kwan (2021), Humphries–Khan (2022), Wu (2023): various formulas of
+the shape <span class="math display">\[\sum_f \frac{L(\tfrac{1}{2}, F
+\otimes f)}{L(1, \mathop{\mathrm{ad}}f)} h(t_f)
+  + \dotsb
+  = \text{main term } +
+  \int_{\mathbb{R}} L(\tfrac{1}{2} + i t, F)
+  \zeta(\tfrac{1}{2} - i t) \mathcal{H}(t) \, d t.\]</span> These
+recover Motohashi’s formula by specializing to <span
+class="math inline">\(F\)</span> an Eisenstein series.</p>
+<p>We focus on the approach of Humphries–Khan, which works only <span
+class="math inline">\(F\)</span> self-dual, but works for a broad range
+of test functions.</p>
+<p>We consider generalizations to higher levels. This is joint work with
+Humphries and Lin. Preprint: <a href="#ref-2024arXiv2408.00596" class="citation"
+data-cites="2024arXiv2408.00596">(Ganguly et al. 2024)</a>. We
+consider levels <span class="math inline">\(q = q_1 q_2\)</span>, where
+<span class="math inline">\((q_1, q_2) = 1\)</span>, and take for <span
+class="math inline">\(\chi_1\)</span> a primitive Dirichlet character
+modulo <span class="math inline">\(q_1\)</span>.</p>
+<p>We consider the family <span class="math display">\[\mathcal{F}_2 =
+\left\{ g \otimes \chi_1 : g \in \mathcal{B}(q, \bar{\chi}_1^2)
+\right\}.\]</span> We show that for <span
+class="math inline">\(F\)</span> self-dual, <span id="eq:cnojr4ohm4" class="math display">\[\begin{gathered}
+\label{eq:cnojr4ohm4}\tag{1}
+  \sum_{f \in \mathcal{F}_2} \frac{L(\tfrac{1}{2}, F \otimes f)}{L(1,
+\mathop{\mathrm{ad}}f)} h(t_f)
+  + \dotsb
+  \\
+  = \text{main } +
+  \frac{q_2^{1/2}}{ q_1}
+  \sum_{\psi_1(q_1)}
+  \int_{\mathbb{R}}
+  L(\tfrac{1}{2} + i t, F \otimes \psi_1)
+  L(\tfrac{1}{2} - i t, \overline{\psi_1})
+  \mathcal{Z}_{\chi_1}(\psi_1, t)
+  \mathcal{H}(t) \, d t
+  + \dotsb.
+\end{gathered}\]</span> Here <span class="math inline">\(\dotsb\)</span>
+includes contributions from lower level, holomorphic forms, and the
+continuous spectrum. Also, <span
+class="math display">\[\mathcal{Z}_{\chi_1}(\psi_1, t) \approx g(\chi_1,
+\psi_1),\]</span> which appears in the work of Conrey–Iwaniec and
+Petrow–Young.</p>
+<p>As an application of this, we show the following subconvexity bounds:
+<span class="math display">\[L(\tfrac{1}{2} + i t, F \otimes \chi)
+  \ll_{F, \varepsilon}
+  \left( q(\lvert t \rvert + 1)\right)^{3/5 + \varepsilon}
+  \left(
+    1 +
+    \frac{q^{2/5} }{q_1^{1/2}(\lvert t \rvert + 1)^{1/10}}
+    +
+    \frac{q_1^{1/8}}{(q(\lvert t \rvert + 1))^{1/10}}
+  \right),\]</span> where <span class="math inline">\(F\)</span> is
+fixed and self-dual, while <span class="math inline">\(\chi\)</span> is
+a primitive Dirichlet character of conductor <span
+class="math inline">\(q\)</span> (any positive integer).</p>
+<p>Also, for <span class="math inline">\(f \in \mathcal{B}^\ast(q^2,
+\chi_0)\)</span> such that <span class="math inline">\(f \otimes
+\bar{\chi}\)</span> has level dividing <span
+class="math inline">\(q\)</span>, we have <span
+class="math display">\[L(\tfrac{1}{2}, F \otimes f)
+  \ll_{F, \varepsilon}
+  \left( q(\lvert t_f \rvert + 1) \right)^{6/5 + \varepsilon}
+  \left( 1 + \frac{q^4}{q_1(\lvert t_f \rvert + 1)^{1/5}}
+    + \frac{q_1^{1/4}}{(q(\lvert t \rvert +
+1))^{1/5}}\right).\]</span></p>
+<p>These bounds are hybrid in the aspects of <span
+class="math inline">\(q\)</span>, <span
+class="math inline">\(t_f\)</span> and <span
+class="math inline">\(t\)</span>. Taking <span class="math inline">\(q_1
+= q\)</span>, we get a bound of <span class="math display">\[q^{5/8 +
+\varepsilon}(\lvert t \rvert + 1)^{3/5 + \varepsilon}.\]</span> If we
+further assume <span class="math display">\[q^{4/5}(\lvert t \rvert +
+1)^{- 1/5} \ll q_1 \ll q^{4/5}(\lvert t \rvert + 1)^{4/5},\]</span> then
+the bound becomes <span class="math display">\[(q(\lvert t \rvert +
+1))^{3/5 + \varepsilon}.\]</span></p>
+<p>For the proof of the spectral reciprocity formula <a
+href="#eq:cnojr4ohm4" data-reference-type="ref"
+data-reference="eq:cnojr4ohm4">1</a>, we replace <span
+class="math inline">\(1/2\)</span> with <span
+class="math inline">\(s\)</span> of large enough real part, then open
+the Dirichlet series and apply Kuznetsov. The diagonal term gives the
+main term. For the off-diagonal term, we open the Kloosterman sums and
+apply Voronoi. After some manipulations, we find two Dirichlet series,
+which eventually yields the <span
+class="math inline">\(L\)</span>-factors on the right hand side,
+together with the integral transform.</p>
+<h1
+id="subconvex-bounds-for-mathopmathrmson1-times-mathopmathrmson-blanca-gil-rosell">Subconvex
+bounds for <span class="math inline">\(\mathop{\mathrm{SO}}(n+1) \times
+\mathop{\mathrm{SO}}(n)\)</span>, <span class="nodecor"><em>Blanca Gil
+Rosell</em></span></h1>
+<p>Aim is to find an analogue of subconvex bounds for unitary groups
+<span class="math inline">\({\mathop{\mathrm{U}}}_{n + 1} \times
+{\mathop{\mathrm{U}}}_n\)</span>, but for orthogonal groups <span
+class="math inline">\({\mathop{\mathrm{SO}}}_{n + 1} \times
+{\mathop{\mathrm{SO}}}_n\)</span>.</p>
+<p>Branching coefficients: for automorphic forms <span
+class="math inline">\(\varphi \in \pi\)</span> on <span
+class="math inline">\(G\)</span> and <span
+class="math inline">\(\varphi_H \in \pi_H\)</span> on <span
+class="math inline">\(H\)</span>, then <span
+class="math display">\[\left| \int_{H(\mathbb{Q}) \backslash
+H(\mathbb{A})}
+    \varphi \cdot \varphi_H\right|^2
+  = \mathcal{L}(\pi \times \pi_H, \tfrac{1}{2}) \times (\text{local
+integrals}).\]</span> Conjecture of Ichino–Ikeda is that <span
+class="math inline">\(\mathcal{L}(\pi \times \pi_H,
+\tfrac{1}{2})\)</span> is essentially <span class="math inline">\(L(\pi
+\times \pi_H, \tfrac{1}{2})\)</span>. Essentially known for unitary
+groups, widely open for orthogonal groups.</p>
+<p>For <span class="math inline">\(f \in G(\mathbb{A})\)</span>, <span
+class="math display">\[\sum_\pi \sum_{\varphi \in \mathcal{B}(\pi)}
+  \rho(f) \varphi(x) \overline{\varphi(y)}
+  = \sum_{\gamma \in G(\mathbb{Q})}
+  f(x^{-1} \gamma y).\]</span> Choose <span
+class="math inline">\(f\)</span> and <span
+class="math inline">\(\varphi_H\)</span> “microlocalized”
+(Nelson–Venkatesh) and use the “amplification method”
+(Duke–Friedlander–Iwaniec, Iwaniec–Sarnak), <span
+class="math display">\[\sum_\pi L(\pi \times \pi_H, \tfrac{1}{2}) w_{f,
+\varphi_H}(\pi)
+  = \int_{x, y \in H(\mathbb{Q}) \backslash H(\mathbb{A})}
+  \varphi_H(x) \overline{\varphi_H(y)}
+  \sum_{\gamma \in G(\mathbb{Q})} f(x^{-1} \gamma y) \, d x \, d
+y.\]</span></p>
+<p>Reduces to a transversality problem that we now describe. Let <span
+class="math inline">\(F\)</span> be af ield, <span
+class="math inline">\(V =  V_H \oplus F_e\)</span> a quadratic
+space.</p>
+<ul>
+<li><p><span class="math inline">\((G, H) =({\mathop{\mathrm{SO}}}_{n +
+1}, {\mathop{\mathrm{SO}}}_n)\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathfrak{g}, \mathfrak{h}\)</span>:
+Lie algebras,</p></li>
+<li><p><span class="math inline">\(\tau \in \mathfrak{g}
+\rightsquigarrow \tau_H \in \mathfrak{h}\)</span>: upper left-block,
+i.e., <span class="math display">\[\tau =
+    \begin{pmatrix}
+      \tau_H      &amp; \ast \\
+      \ast                  &amp; \ast \\
+    \end{pmatrix}.\]</span> Nelson–Venkatesh: choose <span
+class="math inline">\(\tau\)</span> (resp. <span
+class="math inline">\(\tau_H\)</span>) to be microlocal parameters
+attached to <span class="math inline">\(\pi\)</span> (resp. <span
+class="math inline">\(\pi_H\)</span>). Roughly speaking, their
+eigenvalues are the parameters of the representations.</p></li>
+</ul>
+<p>Call <span class="math inline">\(\tau\)</span> <em>stable</em> if
+<span class="math inline">\(\gcd(P_\tau, P_{\tau_H}) = 1\)</span>.</p>
+<p>Bounds for geometric side of relative trace formula boil reduce, via
+Cauchy–Schwarz, to solving the <em>transversality problem</em>, which is
+to show that for <span class="math inline">\(a \in G - H Z\)</span>,
+there exists <span class="math inline">\(z \in H_{\tau_H}\)</span> such
+that <span class="math inline">\(a z \notin H G_\tau\)</span>.</p>
+<ul>
+<li><p>Marshall: depth aspect, <span class="math inline">\(\tau\)</span>
+and <span class="math inline">\(\tau_H\)</span> semisimple</p></li>
+<li><p>Nelson: depth aspect</p></li>
+<li><p>Nelson–Hu: horizontal aspects</p></li>
+</ul>
+<p>The Lie algebra problem is to show that for each <span
+class="math inline">\(x \in \mathfrak{g}_\tau - \mathfrak{z}\)</span>,
+there exists <span class="math inline">\(z \in
+\mathfrak{h}_{\tau_H}\)</span> such that <span
+class="math inline">\([x,[z,\tau]] \notin
+[\mathfrak{h},\tau]\)</span>.</p>
+<div class="conjecture">
+<p><strong>Conjecture 122</strong> (Nelson 2024, private communication).
+<em>The Lie algebra problem can probably be solved for <span
+class="math inline">\(({\mathop{\mathrm{SO}}}_{n+1},
+{\mathop{\mathrm{SO}}}_n)\)</span>, and would be a good first PhD
+project.</em></p>
+</div>
+<div class="example">
+<p><strong>Example 123</strong>. The conjecture is false for <span
+class="math inline">\(({\mathop{\mathrm{SO}}}_6,
+{\mathop{\mathrm{SO}}}_5)\)</span>, by explicit numerical computation.</p>
+</div>
+<p>So for the orthogonal case, we need to address the transversality
+problem more directly.</p>
 <div id="refs" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" role="list">
 <div id="ref-2024arXiv2401.08855" class="csl-entry" role="listitem">
@@ -4741,6 +4960,13 @@ Fouvry, Étienne, Emmanuel Kowalski, and Philippe Michel. 2023.
 <span>“Toroidal Families and Averages of l-Functions, i,”</span> March.
 <a
 href="http://arxiv.org/abs/2303.11664v3">http://arxiv.org/abs/2303.11664v3</a>.
+</div>
+<div id="ref-2024arXiv2408.00596" class="csl-entry" role="listitem">
+Ganguly, Soumendra, Peter Humphries, Yongxiao Lin, and Ramon Nunes.
+2024. <span>“Strong Hybrid Subconvexity for Twisted Selfdual <span
+class="math inline">\(\mathrm{GL}_3\)</span> <span
+class="math inline">\(L\)</span>-Functions,”</span> August. <a
+href="http://arxiv.org/abs/2408.00596v1">http://arxiv.org/abs/2408.00596v1</a>.
 </div>
 <div id="ref-2024arXiv2404.00738" class="csl-entry" role="listitem">
 Ho, Sheng-Yang Kevin. 2024. <span>“The Rational Torsion Subgroup of
