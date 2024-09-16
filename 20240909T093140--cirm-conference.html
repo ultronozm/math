@@ -225,7 +225,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2024-09-12 16:26:15
+2024-09-16 16:21:54
       <a href="20240909T093140--cirm-conference.tex" class="my-link">tex</a>
       <a href="20240909T093140--cirm-conference.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20240909T093140--cirm-conference.tex" class="my-link">history</a>
@@ -412,6 +412,37 @@ href="#unconditional-computation-of-the-class-groups-of-real-quadratic-fields-an
 id="toc-unconditional-computation-of-the-class-groups-of-real-quadratic-fields-andrei-seymour-howell">Unconditional
 computation of the class groups of real quadratic fields <span
 class="nodecor"><em>Andrei Seymour-howell</em></span></a></li>
+<li><a
+href="#hilbert-eisenstein-series-and-generalized-rankinselberg-l-series-mingkuan-zhang"
+id="toc-hilbert-eisenstein-series-and-generalized-rankinselberg-l-series-mingkuan-zhang">Hilbert
+Eisenstein series and generalized Rankin–Selberg <span
+class="math inline">\(L\)</span>-series, <span
+class="nodecor"><em>Mingkuan Zhang</em></span></a></li>
+<li><a
+href="#symplectic-period-is-preserved-under-the-jacquetlanglands-correspondence-mahendra-verma"
+id="toc-symplectic-period-is-preserved-under-the-jacquetlanglands-correspondence-mahendra-verma">Symplectic
+period is preserved under the Jacquet–Langlands correspondence, <span
+class="nodecor"><em>Mahendra Verma</em></span></a></li>
+<li><a href="#minor-arc-bounds-for-primes-mayank-pandey"
+id="toc-minor-arc-bounds-for-primes-mayank-pandey">Minor arc bounds for
+primes, <span class="nodecor"><em>Mayank Pandey</em></span></a></li>
+<li><a href="#tba-jay-jorgenson" id="toc-tba-jay-jorgenson">TBA, <span
+class="nodecor"><em>Jay Jorgenson</em></span></a></li>
+<li><a
+href="#the-global-gangrossprasad-conjecture-for-fourierjacobi-periods-on-unitary-groups-paul-boisseau"
+id="toc-the-global-gangrossprasad-conjecture-for-fourierjacobi-periods-on-unitary-groups-paul-boisseau">The
+global Gan–Gross–Prasad conjecture for Fourier–Jacobi periods on unitary
+groups, <span class="nodecor"><em>Paul Boisseau</em></span></a></li>
+<li><a
+href="#counting-higher-degree-prime-ideals-in-number-fields-and-effective-chebotarev-aditya-ghosh"
+id="toc-counting-higher-degree-prime-ideals-in-number-fields-and-effective-chebotarev-aditya-ghosh">Counting
+higher degree prime ideals in number fields and effective Chebotarev,
+<span class="nodecor"><em>Aditya Ghosh</em></span></a></li>
+<li><a
+href="#exploring-index-of-nilpotency-in-certain-spaces-of-modular-forms-swati"
+id="toc-exploring-index-of-nilpotency-in-certain-spaces-of-modular-forms-swati">Exploring
+index of nilpotency in certain spaces of modular forms, <span
+class="nodecor"><em>Swati</em></span></a></li>
 </ul>
 </nav>
 <h1
@@ -5590,8 +5621,6 @@ need to rigorously compute the Laplace eigenvalues and all Hecke
 eigenvalues up to <span class="math inline">\(\sqrt{X}\)</span> for
 several Maass cusp forms.</p>
 <p>So that’s basically the algorithm.</p>
-<p>[pause for questions] [no questions] [speaker taking a sip of water
-from his water bottle]</p>
 <p>As we said, Buchmann’s algorithm computes the class number in <span
 class="math inline">\(\operatorname{O}(\Delta^{1/4 +
 \varepsilon})\)</span> unconditionally. Due to work of De Haan, Jacobson
@@ -5657,6 +5686,1208 @@ href="#eq:cnojsyvbb3" data-reference-type="eqref"
 data-reference="eq:cnojsyvbb3">\((4)\)</a>, so not obviously.
 But maybe one could combine Hejhal’s algorithm with Turing’s method?
 Relevant paper of Smajlovic–Jorgensen–Then.</p>
+<h1
+id="hilbert-eisenstein-series-and-generalized-rankinselberg-l-series-mingkuan-zhang">Hilbert
+Eisenstein series and generalized Rankin–Selberg <span
+class="math inline">\(L\)</span>-series, <span
+class="nodecor"><em>Mingkuan Zhang</em></span></h1>
+<p>Let <span class="math inline">\(F\)</span> be a real quadratic field,
+<span class="math inline">\(G = {\mathop{\mathrm{SL}}}_2\)</span>. For a
+Hecke character <span class="math inline">\(\chi\)</span> of <span
+class="math inline">\(F\)</span>, denote by <span
+class="math inline">\(I (s, \chi)\)</span> the corresponding induced
+representation on <span
+class="math inline">\({\mathop{\mathrm{Res}}}_{F/\mathbb{Q}}
+G(\mathbb{A})\)</span>, and <span class="math inline">\(E(h, \Phi,
+s)\)</span> the corresponding Hilbert Eisenstein series.</p>
+<p>Denote by <span class="math inline">\(\chi_{E/F}\)</span> the
+quadratic Hecke character of <span class="math inline">\(F\)</span> for
+<span class="math inline">\(E/F\)</span>. There is an <span
+class="math inline">\({\mathop{\mathrm{SL}}}_2(\mathbb{A}_F)\)</span>-equivariant
+map <span class="math display">\[\lambda = \prod \lambda_v :
+\mathcal{S}(W_{\mathbb{A}_F}) \rightarrow I(0, \chi),\]</span> <span
+class="math display">\[g \mapsto \lambda(\phi)(g) :=(\omega(g)
+\phi)(0),\]</span> whose images are called <em>Siegel sections</em>.</p>
+<p>At an archimedean place <span class="math inline">\(v\)</span> of
+<span class="math inline">\(F\)</span>, and for <span
+class="math inline">\(k \in \mathbb{Z}\)</span> and <span
+class="math inline">\(\chi_v\)</span> a character of <span
+class="math inline">\(F_v^\times \cong \mathbb{R}^\times\)</span> such
+that <span class="math inline">\(\chi_v(-1) =(- 1)^k\)</span>, we have
+the standard section <span class="math inline">\(\Phi_\infty^k  \in I(s,
+\chi_v)\)</span> of weight <span class="math inline">\(k\)</span>,
+satisfying <span class="math display">\[\Phi_\infty^k(g \kappa(\theta),
+s) = e(k \theta) \Phi_\infty^k(g, s).\]</span></p>
+<p>Let <span class="math inline">\(- D_i &lt; 0\)</span> be coprime
+fundamental discriminants <span class="math inline">\((i=1,2)\)</span>
+and <span class="math inline">\(K_i = \mathbb{Q}(\sqrt{- D_i})\)</span>.
+For <span class="math display">\[\Phi = \lambda_{E/F} \left(
+\mathrm{char}(\hat{\mathfrak{o}}_E) \right) \otimes \Phi_\infty^{k_1}
+\otimes \Phi_\infty^{k_2},\]</span> we define the corresponding
+Eisenstein series <span class="math display">\[E(h, \Phi, s) =
+\sum_{\eta \in B(F) \backslash G(F)} \Phi(\eta h, s).\]</span> It is a
+non-holomorphic Hilbert modular form with level <span
+class="math inline">\({\mathop{\mathrm{SL}}}_2(\mathfrak{o}_F)\)</span>.</p>
+<p>Given <span class="math inline">\(\Phi = \lambda_{K_i /
+\mathbb{Q}}(\mathrm{char}(\hat{\mathfrak{o}}_{K_i})) \otimes
+\Phi_\infty^k\)</span>, write <span class="math display">\[E(h, \Phi, s)
+:= \sum_{\eta \in B(\mathbb{Q}) \backslash G(\mathbb{Q})}
+  \Phi(\eta h, s).\]</span> It is a non-holomorphic elliptic modular
+form with level <span
+class="math inline">\(\Gamma_0(d_{K_i})\)</span>.</p>
+<p>Let’s discuss CM cycles. Let <span class="math inline">\((V,
+Q)\)</span> be a quadratic space over <span
+class="math inline">\(\mathbb{Q}\)</span> of signature <span
+class="math inline">\((n, 2)\)</span>, and set <span
+class="math inline">\(H = \operatorname{GSpin}(V)\)</span> and <span
+class="math inline">\(\mathcal{D}\)</span> for the Grassmannian of
+two-dimensional negatively oriented subspaces of <span
+class="math inline">\(V_{Rr}\)</span>. For a compact open <span
+class="math inline">\(K \subseteq H(\mathbb{A}_f)\)</span>, we obtain
+the corresponding Shimura variety <span class="math display">\[X_K :=
+H(\mathbb{Q}) \backslash(\mathcal{D} \times H(\mathbb{A}_f) )/K
+.\]</span> To obtain zero-cycles, let <span class="math inline">\(U
+\subset V\)</span> be a negative definite <span
+class="math inline">\(2\)</span>-dimensional subspace. It defines a two
+point subset <span class="math inline">\(\{z_U^{\pm }\} \subseteq
+\mathcal{D}\)</span> given by <span
+class="math inline">\(U_{\mathbb{R}}\)</span>, and we obtain a two-point
+subset <span class="math inline">\(Z(U) \subseteq X_K\)</span>.</p>
+<p>Let <span class="math inline">\(L\)</span> be an even lattice of
+<span class="math inline">\(V\)</span>, and <span
+class="math inline">\(K \subset H(\mathbb{A}_f)\)</span> a compact open
+subgroup stabilizing <span class="math inline">\(\hat{L}\)</span> and
+acting trivially on <span class="math inline">\(L &#39; / L\)</span>.
+Let <span class="math inline">\(f : \mathbb{H} \rightarrow S_L\)</span>
+be a harmonic MAass form of weight <span class="math inline">\(1 -
+\tfrac{n}{2} - 2 j\)</span>. For <span class="math inline">\(z \in
+\mathcal{D}\)</span> we obtain a regularized Green function <span
+class="math inline">\(\Phi^j(z, h, f)\)</span>.</p>
+<p>The space <span class="math inline">\(U\)</span> determines two
+definite lattices <span class="math inline">\(N = L \cap U\)</span>,
+<span class="math inline">\(P = L \cap U^\perp\)</span>. For any <span
+class="math inline">\(g \in S_{2 - k + 2 j, \rho_L}\)</span> with <span
+class="math inline">\(k = 1 - \tfrac{n}{2}\)</span>, we define <span
+class="math display">\[L(g, U, s) = \left([\theta_P(\tau), E_N(\tau, s,
+1)]_j, g(\tau) \right)_{\mathrm{Pet}}.\]</span></p>
+<div class="theorem">
+<p><strong>Theorem 131</strong> (Bruinier et al). <em>...</em></p>
+</div>
+<p>The Shimura lift is a lift from half-integral weight modular forms to
+integral weight modular forms.</p>
+<div class="theorem">
+<p><strong>Theorem 132</strong>. <em>...</em></p>
+</div>
+<p>We turn to generalized Rankin–Selberg <span
+class="math inline">\(L\)</span>-series. Consider the quadratic space
+<span class="math display">\[V := \left\{ A \in M_2(F) : A^t = A&#39;
+\right\},\]</span> with the quadratic form <span
+class="math inline">\(\det\)</span>. It has signature <span
+class="math inline">\((2, 2)\)</span> and <span
+class="math inline">\(\chi_V(x) =(x, D)_{\mathbb{Q}} =
+\chi_F(x)\)</span>. For a cusp form <span class="math inline">\(g \in
+S_{2 j + 2, \rho_L}\)</span>, the Rankin–Selberg type integral.</p>
+<p>(...)</p>
+<div class="question">
+<p><strong>Question 133</strong>. Can we express <span
+class="math inline">\(L(s, g, L)\)</span> in terms of <span
+class="math inline">\(g\)</span> similarly as in the case <span
+class="math inline">\(n = 1\)</span>.</p>
+</div>
+<p>For a Schwartz function <span class="math inline">\(\varphi \in
+\mathcal{S}(V(\mathbb{A}))\)</span>, we define the theta function <span
+class="math inline">\(\theta(g, h, \varphi)\)</span> and its integral
+<span class="math inline">\(I(h, \Xi, \varphi, s)\)</span>, which
+coincides with the Eisenstein series attached to a section <span
+class="math inline">\(\mathcal{F}(h, s, \Xi, \varphi) \in I(s,
+\chi)\)</span>.</p>
+<div class="theorem">
+<p><strong>Theorem 134</strong> (M. and Y. ’24). <em>For any Siegel
+section <span class="math inline">\(\Phi \in I(s, \chi)\)</span> and
+<span class="math inline">\(n \geq 1\)</span>, there exists a standard
+section <span class="math inline">\(\Xi \in I(s, \chi_2)\)</span> and
+<span class="math inline">\(\varphi \in
+\mathcal{S}(V(\mathbb{A}))\)</span> and a function <span
+class="math inline">\(C(s)\)</span> (real-analytic at <span
+class="math inline">\(s =0\)</span>) such that <span
+class="math display">\[\mathcal{F}(h, s, \Xi, \varphi) = C(s) \Phi(h,s)
++ \operatorname{O}(s^n).\]</span></em></p>
+</div>
+<p>This means we can compute the derivative of Hilbert Eisenstein series
+using theta integrals.</p>
+<p>Let’s now see some examples of this lifting map. We discuss invariant
+vectors. For <span class="math inline">\(F = F_\alpha =
+\mathbb{Q}_p(\varpi)\)</span> the ramified quadratic extension of <span
+class="math inline">\(\mathbb{Q}_p\)</span> with <span
+class="math inline">\(p = \alpha \cdot \varpi^2\)</span> odd, <span
+class="math inline">\(\alpha \in \mathbb{Z}_p^\times\)</span>, we get a
+valuation ring <span class="math inline">\(\mathcal{O}\)</span> and
+different ideal <span class="math inline">\(\mathfrak{d}\)</span>.</p>
+<p>We denote by <span class="math inline">\(\Phi_\infty^{(k_1, k_2)} \in
+I(s, \chi_\infty)\)</span> the standard section. We denote by <span
+class="math inline">\(\varphi_\infty^{k, l}(a, b, \nu_1, \nu_2) \in
+\mathcal{S}(V(\mathbb{R}))\)</span> the standard Schwartz function. We
+define certain local factors <span
+class="math inline">\(\varphi_p\)</span>. Then the corresponding
+Eisenstein series is the classical Doi–Naguyama one.</p>
+<p>The Shintani lift corresponds to the quadratic space <span
+class="math inline">\(V_{(2, 1)} =(M_2(\mathbb{Q})^{\mathrm{tr}=0}, D_1
+\cdot \det)\)</span>. To introduce the twisted Shintani lift, we need
+the genus character <span class="math inline">\(\psi_{\Delta,
+r}(\mathfrak{c}_h)\)</span>. Then we obtain an intertwining map <span
+class="math inline">\(\psi_{\Delta, r} : \mathcal{D} \rightarrow
+\mathcal{D}(\Delta)\)</span> between the representations <span
+class="math inline">\(\tilde{\rho}\)</span> and <span
+class="math inline">\(\rho_{\Delta}\)</span>. We can then define the
+twisted theta functions <span class="math display">\[\theta_{\Delta, r,
+h}(\tau, z) := \sum_{
+    \substack{
+      \delta \in \mathcal{D}(\Delta)  \\
+      \pi(\delta) = r h \\
+      Q_\Delta(\delta) \equiv \dotsb
+    }
+  }
+  \dotsb.\]</span> With this twisted version of Shintani lift, we can
+express generalized Rankin–Selberg <span
+class="math inline">\(L\)</span>-series associated to a vector-valued
+lifting of a scalar-valued modular form:</p>
+<div class="theorem">
+<p><strong>Theorem 135</strong>. <em>Assume <span
+class="math inline">\(- D_1\)</span> and <span class="math inline">\(-
+D_2\)</span> are fundamental discriminants and coprime to squarefree
+<span class="math inline">\(N\)</span>. If <span
+class="math inline">\(G^{v v}\)</span> is the vector valued lifting of a
+scalar valued modular form <span class="math inline">\(G\)</span> with
+level <span class="math inline">\(\Gamma_0(N)\)</span>, then <span
+class="math display">\[L(s, G^{vv}, L_N) =
+    \left( \frac{\chi_1(p)}{2}
+      \Gamma_{\mathbb{R}}(s + 2 + j)
+      L(s + 1, \chi_1)
+      \lvert D_1 \rvert^{\frac{s + 1}{2}}
+    \right)^{-1}
+    \times
+    \frac{H_j}{(4 \pi D_2)^{\frac{s + j + 1}{2}}}
+    \sum_{n = 1}^\infty
+    \frac{a_{D_2 n^2}(\mathrm{Sh}_{D_1}^{(0, j + 1)}(G))}{ n^{s + j +
+1}}.\]</span> Furthermore, if <span class="math inline">\(G\)</span> is
+a normalized eigenform, then we can more explicitly evaluate <span
+class="math inline">\(L(s, G^{vv}, L_N)\)</span>.</em></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 136</strong> (Ye ’22). <em>Let <span
+class="math inline">\(\pi_N(\tau)\)</span> be a Hauptmodul of a genus
+zero modular curve <span class="math inline">\(\Gamma_0(N) \backslash
+\mathbb{H}\)</span> for <span class="math inline">\(N \geq 2\)</span>.
+Then we can cook up a Borcherds lift.</em></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 137</strong> (M. and Y. 24). <em>Let <span
+class="math inline">\(\pi_p(\tau)\)</span> be the Hauptmodul of a genus
+zero modular curve <span class="math inline">\(\Gamma_0(p) \backslash
+\mathbb{H}\)</span> for prime <span class="math inline">\(p \geq
+2\)</span>. Assume <span class="math inline">\(- D_1\)</span> and <span
+class="math inline">\(- D_2\)</span> are fundamnetal discriminants and
+coprime to <span class="math inline">\(p\)</span>. When <span
+class="math inline">\(D_1\)</span> or <span
+class="math inline">\(D_2\)</span> is sufficiently large, the algebraic
+integer <span class="math display">\[\prod_{(z_1, z_2) \in Z(W)}
+    (\pi_p(z_1) - \pi_p(z_2))\]</span> is not a unit.</em></p>
+</div>
+<h1
+id="symplectic-period-is-preserved-under-the-jacquetlanglands-correspondence-mahendra-verma">Symplectic
+period is preserved under the Jacquet–Langlands correspondence, <span
+class="nodecor"><em>Mahendra Verma</em></span></h1>
+<p>Let <span class="math inline">\(F\)</span> be a number field, <span
+class="math inline">\(\mathcal{A}\)</span> its adele ring, <span
+class="math inline">\(G\)</span> an algebraic group over <span
+class="math inline">\(\mathbb{Q}\)</span>, <span
+class="math inline">\(H\)</span> a closed subgroup. “Automorphic forms
+on <span class="math inline">\(G\)</span>” means complex-valued
+functions on <span class="math inline">\(G(\mathbb{Q}) \backslash
+G(\mathbb{A})\)</span> with nice properties. “Automorphic representation
+of <span class="math inline">\(G(\mathbb{A})\)</span>” means realization
+of representation of <span class="math inline">\(G(\mathbb{A})\)</span>
+on the space of automorphic forms. An automorphic form <span
+class="math inline">\(f\)</span> is a <em>cusp form</em> if <span
+class="math display">\[\int_{U(\mathbb{Q}) \backslash U(\mathbb{A})}
+  f(u g) \, d u = 0\]</span> for all unipotent radicals <span
+class="math inline">\(U\)</span> of all proper parabolic subgroups. Cusp
+forms generate cuspidal automorphic representations.</p>
+<p>Let <span class="math inline">\(\pi\)</span> be an automorphic
+representation of <span class="math inline">\(G\)</span>. Consider the
+period integral <span class="math display">\[\int_{H(\mathbb{Q})
+\backslash H(\mathbb{A})} f(h) \, d h.\]</span> For a general
+automorphic form, the period integral may not converge, and it is of
+interest to define via regularization. We say that an irreducible
+automorphic representation <span class="math inline">\(\pi\)</span> of
+<span class="math inline">\(G(\mathbb{A})\)</span> is <span
+class="math inline">\(H(\mathbb{A})\)</span><em>-distinguished</em> if
+the above period integral is not identically zero on the space of <span
+class="math inline">\(\pi\)</span>. These period integrals are related
+to special values of certaind cl-functions, and also appear in the
+context of Langlands functoriality.</p>
+<p>Consider the example <span class="math display">\[E(z, s) = \sum_{(m,
+n) \neq(0, 0)}
+  \frac{\Im(z)^s}{ \lvert m z + n \rvert^{2 s}}, \quad z \in \mathbb{H},
+s \in \mathbb{C}\]</span> on the upper half-plane, which can be lifted
+as an automorphic form <span class="math inline">\(E(g, s)\)</span> on
+<span class="math inline">\({\mathop{\mathrm{SL}}}_2(\mathbb{Q})
+\backslash {\mathop{\mathrm{SL}}}_2(\mathbb{A})\)</span>. Further, <span
+class="math display">\[\int_{{\mathop{\mathrm{SO}}}_2(\mathbb{Q})
+\backslash {\mathop{\mathrm{SO}}}_2(\mathbb{A})} E(g, s) \, d g =
+\zeta_{\mathbb{Q}(i)}(s).\]</span> There’s number theory behind such
+period integrals, which provides the main reason to study them.</p>
+<p>Our interest is not in which automorphic forms are distinguished.
+Specifically, we take <span class="math inline">\(G =
+{\mathop{\mathrm{GL}}}_{2n}\)</span> and <span class="math inline">\(H =
+{\mathop{\mathrm{Sp}}}_{2n}\)</span>. Thus, for an automorphic form <span
+class="math inline">\(f\)</span> on <span
+class="math inline">\({\mathop{\mathrm{GL}}}_{2n}\)</span>, we consider
+the period integral <span
+class="math display">\[\int_{{\mathop{\mathrm{Sp}}}_{2 n}(\mathbb{Q})
+\backslash {\mathop{\mathrm{Sp}}}_{2 n}(\mathbb{A})}
+  f(h) \, d h.\]</span> We say that an irreducible, automorphic
+representation <span class="math inline">\(\pi\)</span> of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_{2 n}(\mathbb{A})\)</span> is
+<span class="math inline">\({\mathop{\mathrm{Sp}}}_{2
+n}(\mathbb{A})\)</span>-distinguished.</p>
+<p>There is a local analogue of symplectic period, which can be defined
+at each place <span class="math inline">\(v\)</span> of <span
+class="math inline">\(F\)</span>. We say that a representation <span
+class="math inline">\(\pi_v\)</span> of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_{2 n}(F_v)\)</span> has a
+symplectic period if <span
+class="math inline">\({\mathop{\mathrm{Hom}}}_{{\mathop{\mathrm{Sp}}}_{2
+n}}(\pi_v, \mathbb{C}) \neq 0\)</span>. Recall that an irreducible,
+cuspidal automorphic representation <span
+class="math inline">\(\pi\)</span> of <span
+class="math inline">\(G(\mathbb{A})\)</span> decomposes as a restricted
+tensor product over all places <span class="math inline">\(v\)</span> of
+<span class="math inline">\(F\)</span>, denoted <span
+class="math inline">\(\pi = \bigotimes \pi_v\)</span>. Global
+nonvanishing implies local nonvanishing.</p>
+<p>We need a parametrization of automorphic representations of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_{2 n}(\mathbb{A})\)</span>,
+due to Moeglin–Waldspurger. An irreducible unitary representation of
+<span class="math inline">\({\mathop{\mathrm{GL}}}_{2
+n}(\mathbb{A})\)</span> is called a <em>discrete</em> automorphic
+representation if it occurs as a discrete summand in the space <span
+class="math inline">\(L^2({\mathop{\mathrm{GL}}}_{2 n}(F) \backslash
+{\mathop{\mathrm{GL}}}_{2 n}(\mathbb{A}))\)</span>. There is a bijection
+between discrete automorphic representations <span
+class="math inline">\(\pi\)</span> of <span
+class="math inline">\(G(\mathbb{A})\)</span> and pairs <span
+class="math inline">\((r, \tau)\)</span>, where <span
+class="math inline">\(r\)</span> divides <span class="math inline">\(2
+n\)</span> and <span class="math inline">\(\tau\)</span> is an
+irreducible cuspidal automorphic representation of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_r(\mathbb{A})\)</span>.</p>
+<div class="theorem">
+<p><strong>Theorem 138</strong> (Jacquet–Rallis–Offen). <em><span
+class="math inline">\(\pi\)</span> has a nonzero symplecitc period if
+and only if <span class="math inline">\(2 n / r\)</span> is even. In
+particular, let <span class="math inline">\(\pi\)</span> be a cuspidal
+automorphic representation of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_{2 n}\)</span>. Then its
+symplectic period vanishes.</em></p>
+</div>
+<p>If <span class="math inline">\(\pi = \bigotimes \pi_v\)</span> has a
+nonzero symplectic period, then <span
+class="math inline">\(\pi_v\)</span> has nonzero <span
+class="math inline">\({\mathop{\mathrm{Sp}}}_{2 n}(F_v)\)</span>-invariant
+linear functional. The <span class="math inline">\(\pi_v\)</span>’s are
+generic, and so have a Whittaker model. Heumos–Rallis proved that an
+irreducible representation can not have both. (It is important to note
+that some aspects of the local questions need global methods, and on the
+other hand, some global questions need local results.)</p>
+<p>The group <span
+class="math inline">\({\mathop{\mathrm{Sp}}}_n(D)\)</span> can be defined
+as <span class="math display">\[{\mathop{\mathrm{Sp}}}_n(D) = \left\{ A
+\in {\mathop{\mathrm{GL}}}_n(D) : A J {}^t \bar{A} = J \right\},\]</span>
+where <span class="math display">\[J =
+  \begin{pmatrix}
+    &amp;  &amp;  &amp; 1 \\
+    &amp;  &amp; 1 &amp;  \\
+    &amp; \dotsb &amp;  &amp;  \\
+    1 &amp;  &amp;  &amp;  \\
+  \end{pmatrix}.\]</span> The group <span
+class="math inline">\({\mathop{\mathrm{Sp}}}_n(D)\)</span> is the unique
+non-split inner form of the group <span
+class="math inline">\({\mathop{\mathrm{Sp}}}_{2 n}(\mathbb{Q})\)</span>.
+Clearly <span class="math inline">\({\mathop{\mathrm{Sp}}}_{2 n}(D)
+\subseteq {\mathop{\mathrm{GL}}}_{2 n}(D)\)</span>, and one can again ask
+for vanishing or nonvanishing of the period integral for automorphic
+forms.</p>
+<p>We can relate these two setups via the Jacquet–Langlands
+correspondence.</p>
+<ul>
+<li><p><span class="math inline">\(\mathrm{D S}_{2 n}\)</span>: the set
+of discrete automorphic representations of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_{2
+n}(\mathbb{A})\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathrm{D S}_{2 n}&#39;\)</span>: the
+set of discrete automorphic representations of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_{n}(D_{\mathbb{A}})\)</span>.</p></li>
+<li><p>For an automorphic representation <span
+class="math inline">\(\pi\)</span> of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n(D)\)</span>, we denote by
+<span class="math inline">\(\mathrm{JL}(\pi)\)</span> its
+Jacquet–Langlands lift to <span
+class="math inline">\({\mathop{\mathrm{GL}}}_{2 n}\)</span>.</p></li>
+<li><p>(We say that a discrete automorphic representation <span
+class="math inline">\(\pi\)</span> of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_{2 n}\)</span> is <span
+class="math inline">\(D\)</span>-compatible if it is so at each
+place.)</p></li>
+</ul>
+<div class="theorem">
+<p><strong>Theorem 139</strong> (Jacquet–Langlands–Badulescu–???).
+<em>There is a unique injective map <span
+class="math display">\[\mathrm{J L} : \mathrm{D S}_n &#39; \rightarrow
+\mathrm{D S}_{2 n}\]</span> such that for all <span
+class="math inline">\(\pi &#39; \in \mathrm{D S}_n &#39;\)</span>, we
+have <span class="math inline">\(\operatorname{JL}(\pi &#39;)_v = \pi_v
+&#39;\)</span> for all places <span class="math inline">\(v \notin
+V\)</span>. [Further details the speaker says aren’t so important for
+the talk.]</em></p>
+</div>
+<p>When <span class="math inline">\(D = F\)</span>, cuspidal automorphic
+representations are not always distinguished.</p>
+<div class="proposition">
+<p><strong>Proposition 140</strong>. <em>For odd <span
+class="math inline">\(n \geq 1\)</span>, there is a cuspidal automorphic
+representation <span class="math inline">\(\pi\)</span> of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n(D)\)</span> and some <span
+class="math inline">\(f \in \pi\)</span> such that <span
+class="math display">\[\int_{[{\mathop{\mathrm{Sp}}}_n(D)]} f \neq
+0.\]</span></em></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 141</strong>. <em>Suppose <span
+class="math inline">\(\pi\)</span> is a cuspidal automorphic
+representation of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n(D)\)</span> whose
+Jacquet–Langlands lift is cuspidal. Then the symplectic period of that
+lift vanishes identically.</em></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 142</strong>. <em>If <span
+class="math inline">\(\pi\)</span> is an automorphic representation of
+<span class="math inline">\({\mathop{\mathrm{GL}}}_n(D)\)</span> that
+appears in the discrete spectrum and is distinguished by <span
+class="math inline">\({\mathop{\mathrm{Sp}}}_n(D)\)</span>, then its
+Jacquet–Langlands lift to <span
+class="math inline">\({\mathop{\mathrm{GL}}}_{2 n}\)</span> is
+distinguished by <span class="math inline">\({\mathop{\mathrm{Sp}}}_{2
+n}\)</span>.</em></p>
+</div>
+<p>Conjectured by Dipendra Prasad that the converse is also true. We
+have some partial results, and in progress for general <span
+class="math inline">\(n\)</span>.</p>
+<div class="conjecture">
+<p><strong>Conjecture 143</strong>. <em>An automorphic representation in
+the discrete spectrum of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n(D)\)</span> is
+distinguished by <span
+class="math inline">\({\mathop{\mathrm{Sp}}}_n(D)\)</span> if and only if
+its Jacquet–Langlands lift to <span
+class="math inline">\({\mathop{\mathrm{GL}}}_{2 n}\)</span> is
+distinguished by <span class="math inline">\({\mathop{\mathrm{Sp}}}_{2
+n}\)</span></em></p>
+</div>
+<p>Let <span class="math inline">\(\sigma\)</span> be an irreducible
+cuspidal automorphic representation of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_1(D)\)</span>. Then we can
+construct Eisenstein series <span class="math inline">\(E(g, \varphi,
+s)\)</span>, converging absolutely for <span
+class="math inline">\(\Re(s)\)</span> large, with meromorphic
+continuation to all <span class="math inline">\(s\)</span> and a simple
+pole inside <span class="math inline">\(\Re(s) \geq 0\)</span> and
+depending on <span class="math inline">\(\sigma\)</span>, the only
+possible pole in that region is either at <span class="math inline">\(s
+= 1\)</span> or <span class="math inline">\(s = 2\)</span>. For <span
+class="math inline">\(s_0 \in \{1, 2\}\)</span>, we define the residue
+<span class="math inline">\(E_{- s_0}(\phi)\)</span> by <span
+class="math display">\[E_{- s_0}(g, \phi) = \lim_{s \rightarrow s_0}(s -
+s_0) E(g, \phi, s).\]</span> These are square-integrable automorphic
+forms on <span
+class="math inline">\({\mathop{\mathrm{GL}}}_{2}(D)\)</span>.</p>
+<div class="theorem">
+<p><strong>Theorem 144</strong>. <em>The function <span
+class="math inline">\(E_{- 1}(g, \phi)\)</span> is integrable over <span
+class="math inline">\([{\mathop{\mathrm{Sp}}}_2(D)]\)</span> and <span
+class="math display">\[\int_{[{\mathop{\mathrm{Sp}}}_2(D)]} E_{- 1}(\phi,
+\bullet)
+    = \int_{K \cap {\mathop{\mathrm{Sp}}}_2(D_{\mathbb{A}})}
+    \int_{(M \cap H) \backslash(M \cap H)(D_{\mathbb{A}})^1}
+    \phi(m k) \, d m \, d k.\]</span> Moreover, there is a choice of
+<span class="math inline">\(\phi\)</span> such that the integral is
+nonzero.</em></p>
+</div>
+<p>As a consequence of the above theorem, we have the following
+result:</p>
+<div class="theorem">
+<p><strong>Theorem 145</strong>. <em>Any nonzero cuspidal automorphic
+representation in the discrete spectrum of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2(D)\)</span> is of the form
+<span class="math inline">\(\pi = J(2, \sigma)\)</span> and is
+distinguished by <span
+class="math inline">\({\mathop{\mathrm{Sp}}}_2(D)\)</span>. Further, its
+image under the global Jacquet–Langlands correspondence is distinguished
+by <span class="math inline">\({\mathop{\mathrm{Sp}}}_4\)</span>.</em></p>
+</div>
+<h1 id="minor-arc-bounds-for-primes-mayank-pandey">Minor arc bounds for
+primes, <span class="nodecor"><em>Mayank Pandey</em></span></h1>
+<p>The main object we’ll be discussing is the following exponential sum,
+for <span class="math inline">\(X\)</span> large: <span
+class="math display">\[S(\alpha) :=   \sum_{p &lt; X} e(p \alpha),
+\qquad
+  e(\alpha) := e^{2 \pi i \alpha}.\]</span> This has been studied for
+the purpose of understanding the additive structure of primes. For
+example, it was introduced in studying the weak Goldbach conjecture by
+the circle method, not exactly in this form, but by Hardy–Littlewood,
+and Vinogradov was able to obtain a sufficiently good understanding of
+this sum to show that every large enough odd number is a sum of three
+primes. But there are many problems concerning linear patterns in the
+primes that can be solved simply by understanding this exponential sum.
+Currently, we can’t hope to understand <span
+class="math inline">\(S(\alpha)\)</span> for all <span
+class="math inline">\(\alpha\)</span>, but</p>
+<ul>
+<li><p>when <span class="math inline">\(\alpha\)</span> is “structured”,
+we try to estimate <span class="math inline">\(S(\alpha)\)</span> (the
+<em>major arcs</em> case), while</p></li>
+<li><p>for “generic” <span class="math inline">\(\alpha\)</span>, we try
+to bound <span class="math inline">\(S(\alpha)\)</span> from above (the
+<em>minor arcs</em> case).</p></li>
+</ul>
+<p>This is often the case for exponential sums, that you try to study
+them in this manner. Very often, as is the case with the primes,
+“structured” ends up meaning that <span
+class="math inline">\(\alpha\)</span> is close to a rational with small
+denominator. This isn’t always the case – for instance, if you have a
+sum over numbers missing a digit, you won’t just have rationals with
+small denominator, but instead something involving the base – but
+there’s none of that here.</p>
+<p>We’ll discuss some improvements on our understanding of minor arcs.
+Before we get into this, we’ll talk about what one might expect for
+<span class="math inline">\(S(\alpha)\)</span> and how that relates to
+<span class="math inline">\(\alpha\)</span>. Say we have some <span
+class="math inline">\(\alpha\)</span>, and we’re trying to understand
+<span class="math inline">\(e(n \alpha)\)</span>. One thing one might do
+is approximate <span class="math inline">\(\alpha\)</span> by a rational
+with small denominator: <span class="math display">\[\alpha =
+\frac{a}{q} + \beta , \qquad
+  q \leq \sqrt{X}, \quad
+  \lvert \beta \rvert \leq \frac{1}{q \sqrt{X}}.\]</span> We’re
+guaranteed such an approximation by Dirichlet. What we’re looking at is
+then <span class="math display">\[e \left( \frac{a n}{q} \right)
+  e(n \beta).\]</span> This is somewhat lower in complexity than <span
+class="math inline">\(e(n \alpha)\)</span>, because if you expand the
+latter into multiplicative characters (archimedean and non-archimedean),
+then the conductors involved are at most <span
+class="math display">\[C(\alpha) := q(1 + \lvert \beta \rvert X) \ll
+\sqrt{X}.\]</span> (We note that <span
+class="math inline">\(C(\alpha)\)</span> is not quite well-defined due
+to the possibility of overlap, but to be more precise, you could take an
+infimum over all such approximations.) We’ll also write <span
+class="math display">\[T := 1 + \lvert \beta \rvert X\]</span> for the
+archimedean part. One might expect that <span
+class="math display">\[S(\alpha) = \mathrm{MT} +
+\operatorname{O}(X^{1/2}),\]</span> where <span
+class="math display">\[\mathrm{MT} \approx \frac{X}{q T}.\]</span> Under
+GRH, one gets the error term <span
+class="math inline">\(\operatorname{O}(X^{3/4})\)</span> – this is how
+Hardy–Littlewood handled the weak Goldbach conjecture under GRH for
+large enough <span class="math inline">\(n\)</span>.</p>
+<p>Now we’ll discuss what exactly we mean by “structured” and “generic”.
+We’ll define the major arcs to height <span
+class="math inline">\(Q\)</span> to be <span
+class="math display">\[\mathcal{M}_Q := \left\{ \alpha \in \mathbb{R} /
+\mathbb{Z} : C(\alpha) \leq Q \right\}.\]</span> This is formulated a
+bit differently, but equivalent to the major arcs you see in the circle
+method, where you look at conditions like <span
+class="math display">\[\left| \alpha - \frac{a}{q} \right|
+  \leq \frac{Q}{q X}, \qquad q \leq Q.\]</span> The minor arcs are
+defined to be the complement: <span class="math display">\[m_Q
+:=(\mathbb{R} / \mathbb{Z}) - \mathcal{M}_Q.\]</span> We’ll assume that
+the major arcs can be dealt with, maybe after averaging over <span
+class="math inline">\(Q\)</span>, as is often the case. It often
+suffices to understand major arcs for <span
+class="math inline">\(Q\)</span> up to some large power of a logarithm.
+We’ll be talking about upper bounds on the minor arcs. What Vinogradov
+showed in the 1930’s is that on the minor arcs, <span
+class="math display">\[\sup_{\alpha \in m_Q} \lvert S(\alpha) \rvert \ll
+\frac{X}{\sqrt{Q}}
+  + X \exp \left( - c \sqrt{\log X} \right).\]</span> This here is a bit
+artificial. There’s a result of Vaughan (1977) who replaced the error
+term with <span class="math inline">\(X^{4/5}\)</span> (up to logarithms
+– we’re focusing here on the exponents). So now <span
+class="math inline">\(Q\)</span> should be thought of as a small power
+of <span class="math inline">\(X\)</span>, and we’ll aim to improve
+things in that region.</p>
+<p>The main theorem that we’ll present today is the following joint
+result with Maksym Radziwill:</p>
+<div class="theorem">
+<p><strong>Theorem 146</strong> (P., Radziwill, 2024). <em>We have <span
+class="math display">\[\sup_{\alpha \in m_Q}
+    \left| S(\alpha) \right|
+    \ll \frac{X}{ \sqrt{Q}}
+    + X^{4/5 - \delta}\]</span> for</em></p>
+<ul>
+<li><p><em><span class="math inline">\(\delta &lt; 1/120\)</span>
+(smooth cutoff),</em></p></li>
+<li><p><em><span class="math inline">\(\delta &lt; 1/160\)</span> (sharp
+cutoff).</em></p></li>
+</ul>
+</div>
+<p>We’ll now discuss Vaughan’s <span
+class="math inline">\(X^{4/5}\)</span> and how we get around that.
+Vinogradov noticed that to study a general sum over primes, say <span
+class="math display">\[\sum_{p \asymp X}
+  a(p),\]</span> where we’re trying to show cancellation in such a sum,
+it suffices to understand, for arbitrarily sets of scales <span
+class="math inline">\(N_1, \dotsc, N_k\)</span> with <span
+class="math inline">\(N_1 \dotsb N_k = X\)</span>, sums of the sort
+<span class="math display">\[\sum_{
+    \substack{
+      n_1 \asymp N_1  \\
+      \dotsb \\
+      n_k \asymp N_k
+    }
+  }
+  a(n_1 \dotsb n_k).\]</span> With this idea, you can show that this is
+the sum of <span class="math inline">\((\log
+X)^{\operatorname{O}(1)}\)</span> many sums of the shape <span
+class="math display">\[\sum_{d \asymp D}
+  \left| \sum_{m \asymp X / D}
+    a(m d)
+  \right|\]</span> and <span class="math display">\[\sum_{
+    \substack{
+      \sqrt{D} \ll
+      m, n
+      \ll X / \sqrt{D}
+      \\
+      m n \asymp X      
+    }
+  }
+  \alpha(m) \beta(n) a(m n).\]</span> This is basically what Vaughan
+does. Specializing to our case of <span class="math inline">\(a(n) = e(n
+\alpha)\)</span>, we obtain the estimates <span id="eq:cnoj8jgz12" class="math display">\[\label{eq:cnoj8jgz12}\tag{5}
+  \sum_{d \asymp D}
+  \left| \sum_{m \asymp X / D}
+    a(m d)
+  \right|
+  \ll D + \frac{X}{D} + \frac{X}{Q},\]</span> and <span id="eq:cnoj8jh43f" class="math display">\[\label{eq:cnoj8jh43f}\tag{6}
+  \sum_{
+    \substack{
+      \sqrt{D} \ll
+      m, n
+      \ll X / \sqrt{D}
+      \\
+      m n \asymp X      
+    }
+  }
+  \alpha(m) \beta(n) a(m n)
+  \ll
+  \frac{X}{ D^{1/4}}
+  + \frac{X}{(\sqrt{X} / \sqrt{D})^{1/4}} +
+  \frac{X}{ \sqrt{Q}}.\]</span> If you optimize, then you end up taking
+<span class="math inline">\(D^{4/5}\)</span>, which gives Vaughan’s
+bound. In the first estimate <a href="#eq:cnoj8jgz12"
+data-reference-type="eqref"
+data-reference="eq:cnoj8jgz12">\((5)\)</a>, we’re just
+estimating a geometric series. For the second estimate <a
+href="#eq:cnoj8jh43f" data-reference-type="eqref"
+data-reference="eq:cnoj8jh43f">\((6)\)</a>, we apply Cauchy.</p>
+<p>There’s the case <span class="math inline">\(N_1 = \dotsb = N_5 =
+X^{1/5}\)</span>. It turns out that if you do some combinatorics, then
+this is the only case that one encounters. Namely, to improve the <span
+class="math inline">\(X^{4/5}\)</span> bound, it suffices to do so just
+for the following sort of sum: <span id="eq:cnoj8jk6lo" class="math display">\[\label{eq:cnoj8jk6lo}\tag{7}
+  \sum_{n_1, \dotsc, n_5 \asymp X^{1/5}}
+  e(n_1 \dotsb n_5 \alpha)
+  \ll \frac{X}{\sqrt{Q}}
+  + X^{4/5 - \delta}.\]</span> We’ll focus on the generic case, which
+turns out to be the most difficult, where <span
+class="math display">\[\alpha = \frac{a}{q}, \qquad
+  q \asymp \sqrt{X}.\]</span> Rather than proceeding as in the Type I or
+Type II bounds, we pass to characters and put in absolute values to see
+that the left hand side of <a href="#eq:cnoj8jk6lo"
+data-reference-type="eqref"
+data-reference="eq:cnoj8jk6lo">\((7)\)</a> is majorized by <span
+class="math display">\[\sum_{\chi}
+  \left| \sum_{n \asymp X^{1/5}}
+    \chi(n)\right|^5.\]</span> If you apply Cauchy, then the above is
+<span id="eq:cnoj8jox9s" class="math display">\[\label{eq:cnoj8jox9s}\tag{8}
+  \leq \left( \frac{1}{q}
+    \sum_\chi
+    \left| \sum_{N^{1/5}} \chi(n) \right|^4\right)^2
+  \left( \sum_\chi
+    \left| \sum_{N^{1/5}} \chi(n) \right|^6\right)^{1/2}.\]</span> The
+fourth moment can be understood as a sum of divisor functions: <span
+class="math display">\[\frac{1}{q} \sum_\chi \left| \sum_{n \asymp
+X^{2/5}} \chi(n) d(n) \right|^2.\]</span> One can show that you have
+square root cancellation on average, and that this is sharp.. So there’s
+nothing to do in the first factor in <a href="#eq:cnoj8jox9s"
+data-reference-type="eqref"
+data-reference="eq:cnoj8jox9s">\((8)\)</a> to improve the upper
+bound. For the second factor, we have <span
+class="math display">\[\sum_{\chi} \left| \sum_{n \asymp X^{3/5}}
+    \chi(n) d(n)\right|^3 \ll X^{6/5}.\]</span> Our result then boils
+down to improving this last estimate in the exponent. This reduces to
+estimating <span class="math display">\[\# \left\{ \chi : \left| \sum_{n
+\asymp X^{2/5}} \chi(n) d(n) \right| \geq V \right\}.\]</span> In this
+case, the above is at most <span class="math display">\[X^{\frac{2}{5}
+\frac{3}{4}}
+  = X^{\frac{3}{10}}.\]</span> Recently, Guth–Maynard finally improved
+an old estimate of Huxley, and it turns out that their methods readily
+adapt to a sum over <span class="math inline">\(\chi(n)\)</span> as
+well. The final result they have is slightly worse because at some point
+they chop up into intervals, but for our purposes, we can take certain
+estimates in Guth–Maynard that translate to the setting of <span
+class="math inline">\(\chi(n)\)</span>, requiring no substantial
+modification to the proof. We can thus get <span
+class="math inline">\(X^{3/10 - \delta}\)</span> via a “Guth–Maynard
+<span class="math inline">\(q\)</span>-analogue”. That’s how we succeed
+in the end.</p>
+<h1 id="tba-jay-jorgenson">TBA, <span class="nodecor"><em>Jay
+Jorgenson</em></span></h1>
+<p>Any way we can construct automorphic forms is worthwhile. What we’ll
+discuss now is partially completed and ongoing work with Cogdell and
+Smajlovic. We’re motivated by three examples, all falling under the
+canopy of “Kronecker limit formula”:</p>
+<div class="example">
+<p><strong>Example 147</strong> (Parabolic Eisenstein series). <span
+class="math display">\[E_{\mathrm{par}}(s, z) = \sum_{\gamma \in
+\Gamma_\infty \backslash \Gamma}
+    (\Im \gamma z)^s, \qquad \Gamma =
+{\mathop{\mathrm{PSL}}}_2(\mathbb{Z}).\]</span> In general, as <span
+class="math inline">\(s \rightarrow 0\)</span>, the above is <span
+class="math display">\[C_0 +
+    C_1
+    \left(
+      \log \lVert \Delta(t) \rVert^2
+      + C_2\right) s
+    + \operatorname{O}(s^2).\]</span> It’s well known that this
+satisfies the differential equation <span class="math display">\[\left(
+\Delta + s(s - 1) \right) \mathcal{E}_{\mathrm{par}}(s, z).\]</span></p>
+</div>
+<div class="example">
+<p><strong>Example 148</strong> (Hyperbolic Eisenstein series).
+Kudla–Millson had what we saw as a real parallel to this. They
+considered any Fuchsian group of the first kind. They picked some
+hyperbolic geodesic <span class="math inline">\(\gamma\)</span> on
+there, and considered the form-valued Eisenstein series <span
+class="math display">\[\mathcal{E}_{\mathrm{hyp}, \gamma}
+    (s,z)
+    = \sum_{\Gamma_\gamma \backslash \Gamma}
+    \left( \cosh(d(\eta z, \gamma)) \right)^{- s}
+    \, d \gamma z.\]</span> In this case, <span
+class="math display">\[\left( \Delta + s(s - 1) \right)
+\mathcal{E}_{\mathrm{hyp}}(s, z)
+    = \pm s_2 \mathcal{E}_{\mathrm{hyp}}(s + 2, z).\]</span> That’s the
+first part. The next part they proved, the speaker found particularly
+striking. They studied the behavior as <span class="math inline">\(s
+\rightarrow 0\)</span>, and showed that with the right normalization, it
+is given by <span class="math display">\[\omega_\gamma +
+\operatorname{O}(s).\]</span></p>
+</div>
+<p>Jurg Kramer and I cooked up what we thought was the analogue for the
+elliptic Eisenstein series:</p>
+<div class="example">
+<p><strong>Example 149</strong>. Pick a point <span
+class="math inline">\(w\)</span> in the Riemann surface, and set <span
+class="math display">\[\mathcal{E}_{\ell, w}(s, z) = \sum_{\eta \in
+\Gamma}
+    \left( \sinh(d(\eta z, w)) \right)^{- s}.\]</span> Kramer–von
+Pippich took <span class="math inline">\(\Gamma =
+{\mathop{\mathrm{PSL}}}_2(\mathbb{Z})\)</span> and <span
+class="math inline">\(w =i\)</span> and obtained the <span
+class="math inline">\(s \rightarrow 0\)</span> limit <span
+class="math display">\[- \log \left| E_4(z) \Delta(z)^{- 1/2}(z) \right|
+s
+    + \operatorname{O}(s^2)\]</span> and for <span
+class="math inline">\(w = \rho\)</span> obtained instead <span
+class="math display">\[- \log \left| E_4(z) \Delta(z)^{- 1/3}(z) \right|
+s
+    + \operatorname{O}(s^2).\]</span></p>
+</div>
+<p>von Pippch studied <span
+class="math inline">\(\mathcal{E}_{\mathrm{ell}}\)</span> in general,
+for <span class="math inline">\(\Gamma \leq
+{\mathop{\mathrm{PSL}}}_2(\mathbb{R})\)</span>. Then the present
+collaboration tried to see to what extent this generalized.</p>
+<div class="theorem">
+<p><strong>Theorem 150</strong> (CJS). <em>Let <span
+class="math inline">\(X\)</span> be any compact complex projective
+Kähler variety. Let <span class="math inline">\(D\)</span> be any
+divisor, smooth up to dimension <span class="math inline">\(2\)</span>.
+Set <span class="math display">\[C_\rho(s, z, w) =(\Delta + s(s -
+\rho))^{-1}.\]</span> Then <span class="math display">\[\int_D C_p(s, z,
+w) \mu(w)
+    = C_{- 1}(s) + C_0 \left( \log \lVert F_D(z) \rVert^2 + C_1 \right)
+s
+    + \operatorname{O}(s^2).\]</span></em></p>
+</div>
+<p>If <span class="math inline">\(X\)</span> happened to be a compact
+Riemann surface, then we’ve recovered the results concerning elliptic
+Eisenstein series. Next:</p>
+<ol>
+<li><p>For <span class="math inline">\(X = \Gamma \backslash
+\mathbb{H}\)</span>, <span class="math display">\[\sum_{z \in D_f}
+    \sum_{w \in D_g}
+    \implies
+    f(\operatorname{div}g) = g(\operatorname{div}f).\]</span> Gave
+another proof of Weil reciprocity.</p></li>
+<li><p><span class="math inline">\(X = \mathbb{C} \mathbb{P}^n\)</span>,
+<span class="math inline">\(D = (H)\)</span> (hyperplane section) with
+<span class="math inline">\(\deg(D) = 1\)</span>. Then <span
+class="math inline">\(F_D\)</span> is a linear form. We started fighting
+the constant <span class="math inline">\(C_1\)</span>. By looking at the
+spectral expansion, we obtained an evaluation of the Mahler measure of
+that linear form. What turned out to be extremely interesting for us is
+that the only instance where the Mahler measure had been evaluated
+explicitly was when all the coefficients were <span
+class="math inline">\(1\)</span>. This turned out to be the one case we
+couldn’t handle, due to sharpness of Cauchy–Schwarz in that case. But we
+were able to evaluate it. For us, it began to indicate that there was
+something worthwhile here.</p>
+<p>To be precise, our result was valid for <span class="math inline">\(n
+\geq 3\)</span>. For <span class="math inline">\(n = 2\)</span>, there
+was a technical difficulty in the proof, resolved in a later paper by
+others.</p></li>
+</ol>
+<p>What’s next? We should really try to work this out not just for the
+compact Kähler manifolds, but something more exotic, like finite volume
+quotients of symmetric spaces. Look for instance at <span
+class="math inline">\({\mathop{\mathrm{Sp}}}_4\)</span>. Take the Siegel
+upper half-space. There is a Siegel modular form <span
+class="math inline">\(\chi_{10}\)</span> that vanishes on the “diagonal
+divisor”. The speaker thinks we should have a nice Eisenstein series
+involving such divisors for which the Kronecker limit formula gives
+<span class="math inline">\(\chi_{10}\)</span>. This should allow us to
+have some additional point of view on Mahler measures, not just as
+integrals of log-norms of equations, but rather something that looks
+more like integrals of log-norms of hypersections of divisors, and that
+could be a lot of fun.</p>
+<p>[question on the relevance of <span
+class="math inline">\(\chi_{10}\)</span> – yeah, could do others]</p>
+<p>[question about whether one could use points other than <span
+class="math inline">\(\rho\)</span> or <span
+class="math inline">\(i\)</span> in the <span
+class="math inline">\({\mathop{\mathrm{SL}}}_2(\mathbb{Z})\)</span> result
+– yeah, could consider other points]</p>
+<p>[thanks to the organizers and scientific committee, applause]</p>
+<p>[next talk at 11:30 – stay tuned!]</p>
+<h1
+id="the-global-gangrossprasad-conjecture-for-fourierjacobi-periods-on-unitary-groups-paul-boisseau">The
+global Gan–Gross–Prasad conjecture for Fourier–Jacobi periods on unitary
+groups, <span class="nodecor"><em>Paul Boisseau</em></span></h1>
+<p>Joint work with Weixiao Lu and Hang Xue.</p>
+<ul>
+<li><p><span class="math inline">\(F\)</span>: number field, <span
+class="math inline">\(\mathbb{A}\)</span>: adele ring</p></li>
+<li><p><span class="math inline">\(G\)</span>:reductive group over <span
+class="math inline">\(F\)</span>, <span class="math inline">\([G] :=
+G(F) \backslash G(\mathbb{A})\)</span></p></li>
+<li><p><span class="math inline">\(H \leq G\)</span>: algebraic
+subgroup, <span class="math inline">\([H] := H(F) \backslash
+H(\mathbb{A})\)</span></p></li>
+<li><p><span class="math inline">\(\pi\)</span>: irreducible unitary
+cuspidal automorphic representation of <span
+class="math inline">\(G\)</span>,</p></li>
+<li><p><span class="math inline">\(r : {}^L G \rightarrow
+\mathop{\mathrm{GL}}(V)\)</span>.</p></li>
+</ul>
+<p>The goal is to find relations when <span
+class="math inline">\(\varphi \in \pi\)</span> varies for <span
+class="math display">\[\underbrace
+{
+  \int_{[H]} \varphi(h) \, d h
+}_{
+  \text{period side}
+}
+\longleftrightarrow
+\underbrace
+{
+  L(s, \pi, r)
+}_{
+  \text{$L$-function side}
+}.\]</span> Applications of such statements include</p>
+<ul>
+<li><p>analytic properties of <span
+class="math inline">\(L\)</span>-functions, poles,</p></li>
+<li><p>functionl equation, and</p></li>
+<li><p>computation of special values.</p></li>
+</ul>
+<p>To make this statement more precise, let’s give two examples.</p>
+<p>Let’s start with Tate’s thesis, working with <span
+class="math inline">\({\mathop{\mathrm{GL}}}_1\)</span>, thus let <span
+class="math inline">\(\chi\)</span> be an automorphic character of <span
+class="math inline">\(\mathbb{A}^\times\)</span>. For <span
+class="math inline">\(\Phi \in \mathcal{S}(\mathbb{A})\)</span>, set
+<span class="math display">\[\Theta(h, \Phi):= \sum_{\chi \in F^\times}
+\Phi(h x), \quad h \in \mathbb{A}^\times.\]</span> For <span
+class="math inline">\(\Re(s) &gt; 1\)</span>, consider <span
+class="math display">\[Z(\chi, \Phi, s) := \int_{F^\times \backslash
+\mathbb{A}^\times}
+  \chi(h) \Theta(h, \Phi) \lvert h \rvert^s \, d h.\]</span></p>
+<div class="theorem">
+<p><strong>Theorem 151</strong> (Tate). <em>Assume that <span
+class="math inline">\(\Phi = \bigotimes \Phi_v\)</span>. For <span
+class="math inline">\(S\)</span> a large enough finite set of places of
+<span class="math inline">\(F\)</span>, we have <span
+class="math display">\[Z(\chi, \Phi, s) = L(s, \chi) \prod_{v \in S}
+    \frac{Z_v(\chi_v, \Phi_v, s)}{ L_v(s, \chi_v)}.\]</span></em></p>
+</div>
+<p>For our second example, we describe Rankin–Selberg theory. We now
+take <span class="math display">\[G = {\mathop{\mathrm{GL}}}_n \times
+{\mathop{\mathrm{GL}}}_n \geq H = {\mathop{\mathrm{GL}}}_n
+\xrightarrow{\Delta} G.\]</span> For <span class="math inline">\(\Phi
+\in \mathcal{S}(\mathbb{A}^n)\)</span>, set <span
+class="math display">\[\Theta(h, \Phi) = \sum_{x \in F^n - \{0\}}
+\Phi({}^t h x), \qquad h \in H(\mathbb{A}).\]</span> Let <span
+class="math inline">\(\pi\)</span> be a cuspidal automorphic
+representation of <span class="math inline">\(G\)</span>. For <span
+class="math inline">\(\varphi \in \pi\)</span>, consider <span
+class="math display">\[\mathcal{P}_H(\varphi, \Phi, s)
+  = \int_{[H]}
+  \varphi(h) \Theta(h, \Phi) \lvert \det h \rvert^s \, d h \qquad
+(\Re(s) &gt; 1).\]</span> In this setting, there is the following
+result:</p>
+<div class="theorem">
+<p><strong>Theorem 152</strong> (Jacquet, Piatetski-Shapiro, Shalika).
+<em>Assume that <span class="math inline">\(\varphi = \bigotimes
+\varphi_v\)</span> and <span class="math inline">\(\Phi = \bigotimes
+\Phi_v\)</span>. Then <span
+class="math display">\[\mathcal{P}_H(\varphi, \Phi, s) = L(s,
+\pi)\prod_{v \in S}
+    \frac{Z_v(\varphi_v, \Phi_v, s)}{ L_v(s, \pi_v)}.\]</span> Moreover,
+for generic <span class="math inline">\(s\)</span>, we have <span
+class="math display">\[\mathcal{P}_H(\cdot, \cdot, s) \neq 0 \iff L(s,
+\pi) \neq 0.\]</span></em></p>
+</div>
+<p>Our goal is to generalize these integral representations to <span
+class="math inline">\(\mathop{\mathrm{U}}(V) \subset
+\mathop{\mathrm{U}}(V) \times \mathop{\mathrm{U}}(V)\)</span>. Some
+data:</p>
+<ul>
+<li><p><span class="math inline">\(E/F\)</span>: quadratic extension of
+number fields</p></li>
+<li><p><span class="math inline">\((V, \langle \bullet, \bullet
+\rangle)\)</span>: Hermitian space over <span
+class="math inline">\(E/F\)</span> of dimension <span
+class="math inline">\(n\)</span>.</p></li>
+<li><p><span class="math inline">\(G_V = \mathop{\mathrm{U}}(V) \times
+\mathop{\mathrm{U}}(V)\)</span>, <span class="math inline">\(H_V =
+\mathop{\mathrm{U}}(V)\)</span>.</p></li>
+</ul>
+<p>We first need a period <span
+class="math inline">\(\mathcal{P}_{H_V}\)</span> and an <span
+class="math inline">\(L\)</span>-function.</p>
+<p>One technical point we need to deal with is the Weil representation.
+Set:</p>
+<ul>
+<li><p><span class="math inline">\(\psi\)</span>: nontrivial unitary
+character of <span class="math inline">\(F \backslash
+\mathbb{A}\)</span>.</p></li>
+<li><p><span class="math inline">\(\eta\)</span>: the quadratic
+character of <span class="math inline">\(F^\times \backslash
+\mathbb{A}^\times\)</span> associated to <span
+class="math inline">\(E/F\)</span> by global class field
+theory.</p></li>
+<li><p><span class="math inline">\(\mu\)</span>: a character of <span
+class="math inline">\(E^\times \backslash \mathbb{A}_E^\times\)</span>
+such that <span class="math inline">\(\mu |_{F^\times \backslash
+\mathbb{A}^\times} = \eta\)</span>.</p></li>
+</ul>
+<p>By a classical construction of Weil and Kudla, one can associate to
+<span class="math inline">\((\psi, \mu)\)</span> an automorphic
+representation <span class="math inline">\(\omega_{\psi, \mu}\)</span>
+of <span
+class="math inline">\(\mathop{\mathrm{U}}(V)(\mathbb{A})\)</span>. This
+is the <em>Weil representation</em>. It is realized on <span
+class="math inline">\(\mathcal{S}(\mathbb{A}^n)\)</span>. This space
+will be used to construct our theta series: given <span
+class="math display">\[\phi \in \omega_{\psi, \mu} =
+\mathcal{S}(\mathbb{A}^n),\]</span> we set <span
+class="math display">\[\theta(h, \phi) := \sum_{x \in F^n} \left(
+\omega_{\psi, \mu}(h) \phi \right)(x),
+  \qquad
+  h \in H_V(\mathbb{A}).\]</span> We now do the same thing as in
+Rankin–Selberg theory. Let <span class="math inline">\(\pi\)</span> be a
+cuspidal representation of <span
+class="math inline">\(G_V(\mathbb{A})\)</span>, and <span
+class="math inline">\(\varphi \in \pi\)</span>. The Fourier–Jacobi
+period is then <span id="eq:cnoj8qa59i" class="math display">\[\label{eq:cnoj8qa59i}\tag{9}
+  \mathcal{P}_{H_V}(\varphi, \phi) = \int_{[H_V]} \varphi(h) \theta(h,
+\phi) \, d h.\]</span></p>
+<div class="remark">
+<p><strong>Remark 153</strong>. We explicate the Weil representation and
+theta series in the split case. If <span class="math inline">\(E = F
+\times F\)</span>, then <span class="math inline">\(V = F^n \times
+F^n\)</span>, <span class="math inline">\(\mathop{\mathrm{U}}(V) =
+{\mathop{\mathrm{GL}}}_n\)</span> and <span
+class="math display">\[\theta(h, \phi) = \mu(h) \lvert \det h
+\rvert^{1/2} \sum_{x \in F^n}
+    \phi({}^t h x).\]</span> What do we expect the period <a
+href="#eq:cnoj8qa59i" data-reference-type="eqref"
+data-reference="eq:cnoj8qa59i">\((9)\)</a> to represent in this
+case? Rankin–Selberg <span
+class="math inline">\(L\)</span>-function.</p>
+</div>
+<p>In general, there exists <span class="math inline">\(\mathrm{BC} :
+{}^L \mathop{\mathrm{U}}(V) \rightarrow {}^L {\mathop{\mathrm{GL}}}_{n,
+E}\)</span>. By functoriality, there should be a map from automorphic
+representations of <span
+class="math inline">\(\mathop{\mathrm{U}}(V)\)</span> to automorphic
+representations of <span class="math inline">\({\mathop{\mathrm{GL}}}_{n,
+E}\)</span>.</p>
+<div class="theorem">
+<p><strong>Theorem 154</strong> (Mok, Kaletha–Minguez–Shin–White).
+<em>For every cuspidal representation <span
+class="math inline">\(\pi\)</span> of <span
+class="math inline">\(\mathop{\mathrm{U}}(V)\)</span>, the base-change
+<span class="math inline">\(\mathrm{BC}(\pi)\)</span> exists.</em></p>
+</div>
+<p>If <span class="math inline">\(\pi\)</span> is a cuspidal
+representation of <span class="math inline">\(G_V\)</span>, we have a
+completed Rankin–Selberg <span class="math inline">\(L\)</span>-function
+<span class="math inline">\(L(s, \operatorname{BC}(\pi))\)</span>. We
+want to vary <span class="math inline">\(V\)</span> but keep the <span
+class="math inline">\(L\)</span>-function fixed.</p>
+<div class="definition">
+<p><strong>Definition 155</strong>. Let <span class="math inline">\(V_1,
+V_2\)</span> be two skew-Hermitian spaces. Let <span
+class="math inline">\(\pi_1\)</span> be a cuspidal representation of
+<span class="math inline">\(G_{V_1}\)</span>, and <span
+class="math inline">\(\pi_2\)</span> a cuspidal representation of <span
+class="math inline">\(G_{V_2}\)</span>. We say that <span
+class="math inline">\(\pi_1\)</span> and <span
+class="math inline">\(\pi_2\)</span> are in the same <span
+class="math inline">\(L\)</span><em>-packet</em> if <span
+class="math inline">\(\operatorname{BC}(\pi_1) =
+\operatorname{BC}(\pi_2)\)</span>. (In particular, they have the same
+<span class="math inline">\(L\)</span>-function.)</p>
+</div>
+<div id="theorem:cnoj8qj2jg" class="theorem">
+<p><strong>Theorem 156</strong> (B., Lu, Xue). <em>Let <span
+class="math inline">\(\pi\)</span> be an irreducible unitary cuspidal
+representation of <span class="math inline">\(G_{V}\)</span>. Assume
+that <span class="math inline">\(\operatorname{BC}(\pi)\)</span> is
+generic. The following are equivalent:</em></p>
+<ol>
+<li><p><em><span class="math inline">\(L(\tfrac{1}{2},
+\operatorname{BC}(\pi) \otimes \mu) \neq 0\)</span>.</em></p></li>
+<li><p><em>There exists <span class="math inline">\(V&#39;\)</span> and
+<span class="math inline">\(\pi &#39;\)</span> (cuspidal representation
+of <span class="math inline">\(G_{V&#39;}\)</span>) in the same <span
+class="math inline">\(L\)</span>-packet as <span
+class="math inline">\(\pi\)</span> such that <span
+class="math display">\[\left( \mathcal{P}_{H_{V &#39;}} \right) |_{\pi
+&#39; \otimes \omega_{\psi, \mu}} \neq 0.\]</span></em></p></li>
+</ol>
+</div>
+<p>Some remarks:</p>
+<ul>
+<li><p>By local GGP (Gan, Ichino, Xue), the pair <span
+class="math inline">\((V&#39;, \pi &#39;)\)</span> is unique.</p></li>
+<li><p>This theorem was known under some local conditions by works of
+Xue.</p></li>
+<li><p>In the Bessel case, this was proved by Beuzart-Plessis,
+Chaudouard, Zydor. Their proof was an inspiration for our proof in the
+Fourier–Jacobi case.</p></li>
+</ul>
+<p>So we have Theorem <a href="#theorem:cnoj8qj2jg"
+data-reference-type="ref" data-reference="theorem:cnoj8qj2jg">156</a>,
+which is very nice, but what we would really like to have is a formula
+relating the period to the <span class="math inline">\(L\)</span>-value.
+For this, we need to define the local Fourier–Jacobi periods. Write
+<span class="math inline">\(\pi = \bigotimes \pi_v\)</span>, <span
+class="math inline">\(\omega_{\psi, \mu} = \bigotimes \omega_v\)</span>,
+<span class="math inline">\(\varphi = \bigotimes \varphi_v\)</span>,
+<span class="math inline">\(\phi = \bigotimes \phi_v\)</span>, <span
+class="math inline">\(\langle \bullet, \bullet \rangle_\pi = \prod_v
+\langle \bullet, \bullet \rangle_v\)</span>, <span
+class="math inline">\(\langle \bullet, \bullet \rangle_\omega = \prod
+\langle \bullet, \bullet \rangle_v\)</span>, <span
+class="math inline">\(d h = \prod \, d h_v\)</span>. Let <span
+class="math inline">\(v\)</span> be a place of <span
+class="math inline">\(F\)</span>. The local Fourier–Jacobi period is
+<span class="math display">\[\mathcal{P}_{H_V, v}(\varphi_v, \varphi_v)
+= \int_{H_V(F_v)} \langle \pi_v(h_v) \varphi_v, \varphi_v \rangle_v
+\langle \omega_v(h_v) \phi_v, \phi_v \rangle_v \, d h_v.\]</span></p>
+<ul>
+<li><p>If <span class="math inline">\(\pi_v\)</span> is tempered, this
+is absolutely convergent.</p></li>
+<li><p>Multiplicity one result (Aizenbud–Gourevitch–Rallis–Schiffmann ,
+Sun–Zhu): <span class="math display">\[\dim
+{\mathop{\mathrm{Hom}}}_{H_V(F_v)}(\pi_v \otimes \omega_v, \mathbb{C})
+\leq 1.\]</span></p></li>
+<li><p>Non-vanishing (Xue): <span
+class="math display">\[\mathcal{P}_{H_V, v} \neq 0 \iff \dim
+{\mathop{\mathrm{Hom}}}_{H_V(F_v)}(\pi_v \otimes \omega_v, \mathbb{C})
+&gt; 0.\]</span></p></li>
+</ul>
+<div class="theorem">
+<p><strong>Theorem 157</strong> (B., Lu, Xue, 2024). <em>Let <span
+class="math inline">\(\pi\)</span> be an irreducible unitary cuspidal
+representation of <span class="math inline">\(G_{V}\)</span>. Assume
+that <span class="math inline">\(\operatorname{BC}(\pi)\)</span> is
+generic and that for all <span class="math inline">\(v\)</span>, <span
+class="math inline">\(\pi_v\)</span> is tempered. Then <span
+class="math display">\[\left| \mathcal{P}_{H_V}(\varphi, \phi) \right|^2
+= 2^{- \beta} \Delta
+    \frac{L(\tfrac{1}{2}, \operatorname{BC}(\pi) \otimes \mu)}{L(1, \pi,
+\mathop{\mathrm{Ad}})}
+    \times \prod_{v \in S} \mathcal{P}_{H_V, v}
+    (\varphi_v, \varphi_v) \Delta_v^{-1}
+    \frac{L(1, \pi_v, \mathop{\mathrm{Ad}})}{L(\tfrac{1}{2},
+\operatorname{BC}(\pi_v) \otimes \mu_v )},\]</span> where</em></p>
+<ul>
+<li><p><em><span class="math inline">\(\Delta = \prod_{i = 1}^n L(i,
+\eta^i)\)</span>, <span class="math inline">\(\Delta_v = \prod_{i = 1}^n
+L(i, \eta_v^i)\)</span>,</em></p></li>
+<li><p><em><span class="math inline">\(\beta \in \mathbb{N}\)</span> is
+the number of isobaric components of <span
+class="math inline">\(\operatorname{BC}(\pi)\)</span>,</em></p></li>
+<li><p><em><span class="math inline">\(L(s, \pi,
+\mathop{\mathrm{Ad}})\)</span> is defined using <span
+class="math inline">\(\mathrm{BC}\)</span> and the Asai <span
+class="math inline">\(L\)</span>-function.</em></p></li>
+</ul>
+</div>
+<p>We note that the Ramanujan conjecture predicts that if <span
+class="math inline">\(\operatorname{BC}(\pi)\)</span> is generic, then
+<span class="math inline">\(\pi\)</span> is tempered.</p>
+<div class="corollary">
+<p><strong>Corollary 158</strong>. <em>Let <span
+class="math inline">\(\pi\)</span> be an irreducible unitary cuspidal
+representation of <span class="math inline">\(G_{V}\)</span>. Assume
+that <span class="math inline">\(\operatorname{BC}(\pi)\)</span> is
+generic and that for all <span class="math inline">\(v\)</span>, <span
+class="math inline">\(\pi_v\)</span> is tempered. Then <span
+class="math display">\[(\mathcal{P}_{H_V}) |_{\pi \otimes \omega_{\psi,
+\mu}} \neq 0
+    \iff
+    \begin{cases}
+      L(\tfrac{1}{2}, \operatorname{BC}(\pi) \otimes \mu) \neq
+0,      &amp;  \\
+      \text{for all $v$, we have $\mathop{\mathrm{Hom}}(\dotsb) \neq
+0$}                                                                       &amp;
+    \end{cases}\]</span></em></p>
+</div>
+<h1
+id="counting-higher-degree-prime-ideals-in-number-fields-and-effective-chebotarev-aditya-ghosh">Counting
+higher degree prime ideals in number fields and effective Chebotarev,
+<span class="nodecor"><em>Aditya Ghosh</em></span></h1>
+<p>References:</p>
+<ul>
+<li><p>Modular forms and CDT, Murty–Murty–Samadha</p></li>
+<li><p>Some applications of CDT, Serre.</p></li>
+</ul>
+<p>Motivating question: given a number field <span
+class="math inline">\(K\)</span>, how many prime ideals are there of
+degree <span class="math inline">\(k\)</span> up to a certain point. A
+revised question concerns the number <span
+class="math inline">\(\pi_k(x, K)\)</span> of degree <span
+class="math inline">\(k\)</span> prime ideals <span
+class="math inline">\(\mathfrak{p}\)</span> over rational <span
+class="math inline">\(p\)</span> such that <span class="math inline">\(p
+\leq x\)</span>.</p>
+<div class="theorem">
+<p><strong>Theorem 159</strong> (Breuillard–G, 2023). <em>We have <span
+class="math display">\[\pi_k(x, K) \sim \frac{P_k}{k}
+\operatorname{Li}(x).\]</span> If <span class="math inline">\(P_k =
+0\)</span>, then <span class="math inline">\(\pi_k(x, K) =
+0\)</span>.</em></p>
+</div>
+<p>Here <span class="math inline">\(P_k\)</span> are the Parker numbers
+for the associated Galois action.</p>
+<p>Let’s recall the Chebotarev density theorem. We have the prime number
+theorem (Hadamard, 1896) and prime ideal theorem (Landau 1903).
+Chebotarev density theorem gives equidistribution of Frobenius classes.
+One also has explicit results, e.g., Lagarias–Odlyzsko (1977): assuming
+GRH, for every <span class="math inline">\(x &gt; 2\)</span>, <span
+class="math display">\[\left| \pi_{C}(x, L|K)
+    - \frac{\lvert C \rvert}{ \lvert G \rvert} \operatorname{Lii}(x)
+  \right|
+  \leq
+  c_1
+  \left\{ \frac{\lvert C \rvert}{\lvert G \rvert}  + \dotsb \right\} +
+\dotsb.\]</span> There’s also an unconditional version.</p>
+<p>Serre 1981: reduced the error a bit: assuming GRH, for every <span
+class="math inline">\(x &gt; 2\)</span>, <span
+class="math display">\[\left| \pi_f(x, L|K) - \dotsb \right| \ll
+\dotsb.\]</span></p>
+<p>Consider the case where <span class="math inline">\(L\)</span> is the
+Galois closure of a number field <span class="math inline">\(K\)</span>.
+Take <span class="math inline">\(G = \mathop{\mathrm{Gal}}(L /
+\mathbb{Q})\)</span> and <span class="math inline">\(H =
+\mathop{\mathrm{Gal}}(L/K)\)</span>.</p>
+<div class="theorem">
+<p><strong>Theorem 160</strong> (Frobenius). <em>Let <span
+class="math inline">\(p\)</span> be a rational prime unramified in <span
+class="math inline">\(L\)</span>. Let <span
+class="math inline">\(U\)</span> be a prime in <span
+class="math inline">\(\mathcal{O}_L\)</span> lying over <span
+class="math inline">\(p\)</span>. Let <span class="math inline">\(\phi
+:= \mathop{\mathrm{Frob}}(U | p) \leq G\)</span>. <span
+class="math inline">\(\phi\)</span> acts by right multiplication on
+right cosets <span class="math inline">\(H \backslash G\)</span> with
+permutation cycle <span class="math inline">\((H \sigma_1, \dotsc, H
+\sigma_1 \phi^{m_1 - 1} \dotsb)\)</span>. Then ETC.</em></p>
+</div>
+<p>We can do the same with degree <span class="math inline">\(r\)</span>
+prime ideals. To count them, define class function on <span
+class="math inline">\(G\)</span>, <span
+class="math display">\[f_r(\sigma) = \# \left\{\text{$r$-cycles in
+permutation action of $\sigma$ on $H \backslash G$} \right\}.\]</span>
+We need esimatest for this.</p>
+<div class="theorem">
+<p><strong>Theorem 161</strong> (Parker). <em><span
+class="math display">\[\frac{P_k}{k} = \frac{1}{\lvert G \rvert} \sum_{g
+\in G} c_k(g).\]</span></em></p>
+</div>
+<p>The case <span class="math inline">\(k = 1\)</span> gives us
+Burnside’s lemma.</p>
+<p>We get versions of Chebotarev with less error than usual.</p>
+<div class="theorem">
+<p><strong>Theorem 162</strong>. <em><span
+class="math inline">\(\dotsb\)</span></em></p>
+</div>
+<p>Also a version with unconditional error:</p>
+<div class="theorem">
+<p><strong>Theorem 163</strong>. <em><span
+class="math inline">\(\dotsb\)</span>.</em></p>
+</div>
+<p>Idea or proof: decompose into irreducible characters of <span
+class="math inline">\(S_n\)</span>: <span class="math display">\[z_k =
+\sum_{\lambda : \text{partition of } n}
+  \langle z_k, \chi^\lambda \rangle \chi^\lambda,\]</span> where (due to
+Jacques, 1974): <span class="math display">\[\langle z_k, \chi^\lambda
+\rangle
+  =
+  \begin{cases}
+    \frac{1}{k}    &amp; \text{ if } \lambda_1 = n, \\
+    \frac{1}{k}(-1)^{k - \lambda_2}                   &amp; \text{ if }
+\lambda_1 = n - k \text{ and } \lambda_3 \leq 1, \\
+    \frac{1}{k}(- 1)^{k - \lambda_1}                   &amp; \text{ if }
+\lambda_2 = n - k + 1 \text{ and } \lambda_3 \dotsb.
+  \end{cases}\]</span> ETC.</p>
+<p>ETC.</p>
+<p>Improving past results and dropping AC.</p>
+<p>Serre, 1997. For <span class="math inline">\(M_K\)</span> the product
+of the <span class="math inline">\(\lvert P_K \rvert\)</span> distinct
+prime factors of <span class="math inline">\(\Delta_K\)</span>, we have
+<span class="math display">\[\log \Delta_K \leq(n_K - 1) \log M_K + n_K
+\lvert P_K \rvert \log n_K,\]</span> which we improve by a bit.</p>
+<p>ETC.</p>
+<h1 class="unnumbered"
+id="exploring-index-of-nilpotency-in-certain-spaces-of-modular-forms-swati">Exploring
+index of nilpotency in certain spaces of modular forms, <span
+class="nodecor"><em>Swati</em></span></h1>
 <div id="refs" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" role="list">
 <div id="ref-2024arXiv2401.08855" class="csl-entry" role="listitem">
