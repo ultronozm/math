@@ -3768,8 +3768,6 @@ An important point of this is that in step \eqref{enumerate:cnojsyxaw8}, we need
 
 So that's basically the algorithm.
 
-[pause for questions]  [no questions]  [speaker taking a sip of water from his water bottle]
-
 As we said, Buchmann's algorithm computes the class number in $\O(\Delta^{1/4 + \eps})$ unconditionally.  Due to work of De Haan, Jacobson and Williams, we can unconditionally compute the regulator in $\O(\Delta^{1/6 + \eps})$.  Thus to compute all class numbers and regulators up to discriminant $X$ takes time $\O(X^{5/4 + \eps})$.
 
 Now we need to compute the trace formula for all $n \leq \sqrt{X}$.  This computation is dominated by the computation of the hyperbolic terms.  Overall, we get $\O(X^{5/4 + \eps})$.
@@ -3793,5 +3791,818 @@ Something similar \emph{should} be possible for real quadratic fields.  Goldfeld
 This is just data showing the ratio of actual vs. expected frequencies of odd class numbers $h$ over $\Delta \leq X$.  Looks like it follows it pretty well.  There are some cases where it looks like it doesn't, but that's just because we haven't computed enough.  The line describing occurrences of fields with ``class number three'' looks the weirdest, but someone has convinced the speaker not to be concerned.
 
 Would the computation be faster if we had more eigenvalues for Maass forms?  The speed is dominated by computing the left hand side of \eqref{eq:cnojsyvbb3}, so not obviously.  But maybe one could combine Hejhal's algorithm with Turing's method?  Relevant paper of Smajlovic--Jorgensen--Then.
+
+\section{Hilbert Eisenstein series and generalized Rankin--Selberg $L$-series, \textnormal{\emph{Mingkuan Zhang}}}
+
+Let $F$ be a real quadratic field, $G = \SL_2$.  For a Hecke character $\chi$ of $F$, denote by $I (s, \chi)$ the corresponding induced representation on $\Res_{F/\mathbb{Q}} G(\mathbb{A})$, and $E(h, \Phi, s)$ the corresponding Hilbert Eisenstein series.
+
+Denote by $\chi_{E/F}$ the quadratic Hecke character of $F$ for $E/F$.  There is an $\SL_2(\mathbb{A}_F)$-equivariant map
+\begin{equation*}
+  \lambda = \prod \lambda_v : \mathcal{S}(W_{\mathbb{A}_F}) \rightarrow I(0, \chi),
+\end{equation*}
+\begin{equation*}
+  g \mapsto \lambda(\phi)(g) :=(\omega(g) \phi)(0),
+\end{equation*}
+whose images are called \emph{Siegel sections}.
+
+At an archimedean place $v$ of $F$, and for $k \in \mathbb{Z}$ and $\chi_v$ a character of $F_v^\times \cong \mathbb{R}^\times$ such that $\chi_v(-1) =(- 1)^k$, we have the standard section $\Phi_\infty^k  \in I(s, \chi_v)$ of weight $k$, satisfying
+\begin{equation*}
+  \Phi_\infty^k(g \kappa(\theta), s) = e(k \theta) \Phi_\infty^k(g, s).
+\end{equation*}
+
+Let $- D_i < 0$ be coprime fundamental discriminants $(i=1,2)$ and $K_i = \mathbb{Q}(\sqrt{- D_i})$.  For
+\begin{equation*}
+  \Phi = \lambda_{E/F} \left( \mathrm{char}(\hat{\mathfrak{o}}_E) \right) \otimes \Phi_\infty^{k_1} \otimes \Phi_\infty^{k_2},
+\end{equation*}
+we define the corresponding Eisenstein series
+\begin{equation*}
+  E(h, \Phi, s) = \sum_{\eta \in B(F) \backslash G(F)} \Phi(\eta h, s).
+\end{equation*}
+It is a non-holomorphic Hilbert modular form with level $\SL_2(\mathfrak{o}_F)$.
+
+Given $\Phi = \lambda_{K_i / \mathbb{Q}}(\mathrm{char}(\hat{\mathfrak{o}}_{K_i})) \otimes \Phi_\infty^k$, write
+\begin{equation*}
+  E(h, \Phi, s) := \sum_{\eta \in B(\mathbb{Q}) \backslash G(\mathbb{Q})}
+  \Phi(\eta h, s).
+\end{equation*}
+It is a non-holomorphic elliptic modular form with level $\Gamma_0(d_{K_i})$.
+
+Let's discuss CM cycles.  Let $(V, Q)$ be a quadratic space over $\mathbb{Q}$ of signature $(n, 2)$, and set $H = \operatorname{GSpin}(V)$ and $\mathcal{D}$ for the Grassmannian of two-dimensional negatively oriented subspaces of $V_{Rr}$.  For a compact open $K \subseteq H(\mathbb{A}_f)$, we obtain the corresponding Shimura variety
+\begin{equation*}
+  X_K := H(\mathbb{Q}) \backslash(\mathcal{D} \times H(\mathbb{A}_f) )/K .
+\end{equation*}
+To obtain zero-cycles, let $U \subset V$ be a negative definite $2$-dimensional subspace.  It defines a two point subset $\{z_U^{\pm }\} \subseteq \mathcal{D}$ given by $U_{\mathbb{R}}$, and we obtain a two-point subset $Z(U) \subseteq X_K$.
+
+Let $L$ be an even lattice of $V$, and $K \subset H(\mathbb{A}_f)$ a compact open subgroup stabilizing $\hat{L}$ and acting trivially on $L ' / L$.  Let $f : \mathbb{H} \rightarrow S_L$ be a harmonic MAass form of weight $1 - \tfrac{n}{2} - 2 j$.  For $z \in \mathcal{D}$ we obtain a regularized Green function $\Phi^j(z, h, f)$.
+
+The space $U$ determines two definite lattices $N = L \cap U$, $P = L \cap U^\perp$.  For any $g \in S_{2 - k + 2 j, \rho_L}$ with $k = 1 - \tfrac{n}{2}$, we define
+\begin{equation*}
+  L(g, U, s) = \left([\theta_P(\tau), E_N(\tau, s, 1)]_j, g(\tau) \right)_{\mathrm{Pet}}.
+\end{equation*}
+
+\begin{theorem}[Bruinier et al]
+  ...
+\end{theorem}
+
+The Shimura lift is a lift from half-integral weight modular forms to integral weight modular forms.
+
+\begin{theorem}
+  ...
+\end{theorem}
+
+We turn to generalized Rankin--Selberg $L$-series.  Consider the quadratic space
+\begin{equation*}
+  V := \left\{ A \in M_2(F) : A^t = A' \right\},
+\end{equation*}
+with the quadratic form $\det$.  It has signature $(2, 2)$ and $\chi_V(x) =(x, D)_{\mathbb{Q}} = \chi_F(x)$.  For a cusp form $g \in S_{2 j + 2, \rho_L}$, the Rankin--Selberg type integral.
+
+(...)
+
+\begin{question}
+  Can we express $L(s, g, L)$ in terms of $g$ similarly as in the case $n = 1$.
+\end{question}
+
+For a Schwartz function $\varphi \in \mathcal{S}(V(\mathbb{A}))$, we define the theta function $\theta(g, h, \varphi)$ and its integral $I(h, \Xi, \varphi, s)$, which coincides with the Eisenstein series attached to a section $\mathcal{F}(h, s, \Xi, \varphi) \in I(s, \chi)$.
+
+\begin{theorem}[M.\ and Y.\ '24]
+  For any Siegel section $\Phi \in I(s, \chi)$ and $n \geq 1$, there exists a standard section $\Xi \in I(s, \chi_2)$ and $\varphi \in \mathcal{S}(V(\mathbb{A}))$ and a function $C(s)$ (real-analytic at $s =0$) such that
+  \begin{equation*}
+    \mathcal{F}(h, s, \Xi, \varphi) = C(s) \Phi(h,s) + \O(s^n).
+  \end{equation*}
+\end{theorem}
+This means we can compute the derivative of Hilbert Eisenstein series using theta integrals.
+
+Let's now see some examples of this lifting map.  We discuss invariant vectors.  For $F = F_\alpha = \mathbb{Q}_p(\varpi)$ the ramified quadratic extension of $\mathbb{Q}_p$ with $p = \alpha \cdot \varpi^2$ odd, $\alpha \in \mathbb{Z}_p^\times$, we get a valuation ring $\mathcal{O}$ and different ideal $\mathfrak{d}$.
+
+We denote by $\Phi_\infty^{(k_1, k_2)} \in I(s, \chi_\infty)$ the standard section.  We denote by $\varphi_\infty^{k, l}(a, b, \nu_1, \nu_2) \in \mathcal{S}(V(\mathbb{R}))$ the standard Schwartz function.  We define certain local factors $\varphi_p$.  Then the corresponding Eisenstein series is the classical Doi--Naguyama one.
+
+The Shintani lift corresponds to the quadratic space $V_{(2, 1)} =(M_2(\mathbb{Q})^{\mathrm{tr}=0}, D_1 \cdot \det)$.  To introduce the twisted Shintani lift, we need the genus character $\psi_{\Delta, r}(\mathfrak{c}_h)$.  Then we obtain an intertwining map $\psi_{\Delta, r} : \mathcal{D} \rightarrow \mathcal{D}(\Delta)$ between the representations $\tilde{\rho}$ and $\rho_{\Delta}$.  We can then define the twisted theta functions
+\begin{equation*}
+  \theta_{\Delta, r, h}(\tau, z) := \sum_{
+    \substack{
+      \delta \in \mathcal{D}(\Delta)  \\
+      \pi(\delta) = r h \\
+      Q_\Delta(\delta) \equiv \dotsb
+    }
+  }
+  \dotsb.
+\end{equation*}
+With this twisted version of Shintani lift, we can express generalized Rankin--Selberg $L$-series associated to a vector-valued lifting of a scalar-valued modular form:
+\begin{theorem}
+  Assume $- D_1$ and $- D_2$ are fundamental discriminants and coprime to squarefree $N$.  If $G^{v v}$ is the vector valued lifting of a scalar valued modular form $G$ with level $\Gamma_0(N)$, then
+  \begin{equation*}
+    L(s, G^{vv}, L_N) =
+    \left( \frac{\chi_1(p)}{2}
+      \Gamma_{\mathbb{R}}(s + 2 + j)
+      L(s + 1, \chi_1)
+      \lvert D_1 \rvert^{\frac{s + 1}{2}}
+    \right)^{-1}
+    \times
+    \frac{H_j}{(4 \pi D_2)^{\frac{s + j + 1}{2}}}
+    \sum_{n = 1}^\infty
+    \frac{a_{D_2 n^2}(\mathrm{Sh}_{D_1}^{(0, j + 1)}(G))}{ n^{s + j + 1}}.
+  \end{equation*}
+  Furthermore, if $G$ is a normalized eigenform, then we can more explicitly evaluate $L(s, G^{vv}, L_N)$.
+\end{theorem}
+
+\begin{theorem}[Ye '22]
+  Let $\pi_N(\tau)$ be a Hauptmodul of a genus zero modular curve $\Gamma_0(N) \backslash \mathbb{H}$ for $N \geq 2$.  Then we can cook up a Borcherds lift.
+\end{theorem}
+
+\begin{theorem}[M.\ and Y.\ 24]
+  Let $\pi_p(\tau)$ be the Hauptmodul of a genus zero modular curve $\Gamma_0(p) \backslash \mathbb{H}$ for prime $p \geq 2$.  Assume $- D_1$ and $- D_2$ are fundamnetal discriminants and coprime to $p$.  When $D_1$ or $D_2$ is sufficiently large, the algebraic integer
+  \begin{equation*}
+    \prod_{(z_1, z_2) \in Z(W)}
+    (\pi_p(z_1) - \pi_p(z_2))
+  \end{equation*}
+  is not a unit.
+\end{theorem}
+
+\section{Symplectic period is preserved under the Jacquet–Langlands correspondence, \textnormal{\emph{Mahendra Verma}}}
+
+Let $F$ be a number field, $\mathcal{A}$ its adele ring, $G$ an algebraic group over $\mathbb{Q}$, $H$ a closed subgroup.  ``Automorphic forms on $G$'' means complex-valued functions on $G(\mathbb{Q}) \backslash G(\mathbb{A})$ with nice properties.  ``Automorphic representation of $G(\mathbb{A})$'' means realization of representation of $G(\mathbb{A})$ on the space of automorphic forms.  An automorphic form $f$ is a \emph{cusp form} if
+\begin{equation*}
+  \int_{U(\mathbb{Q}) \backslash U(\mathbb{A})}
+  f(u g) \, d u = 0
+\end{equation*}
+for all unipotent radicals $U$ of all proper parabolic subgroups.  Cusp forms generate cuspidal automorphic representations.
+
+Let $\pi$ be an automorphic representation of $G$.  Consider the period integral
+\begin{equation*}
+  \int_{H(\mathbb{Q}) \backslash H(\mathbb{A})} f(h) \, d h.
+\end{equation*}
+For a general automorphic form, the period integral may not converge, and it is of interest to define via regularization.  We say that an irreducible automorphic representation $\pi$ of $G(\mathbb{A})$ is $H(\mathbb{A})$\emph{-distinguished} if the above period integral is not identically zero on the space of $\pi$.  These period integrals are related to special values of certaind cl-functions, and also appear in the context of Langlands functoriality.
+
+Consider the example
+\begin{equation*}
+  E(z, s) = \sum_{(m, n) \neq(0, 0)}
+  \frac{\Im(z)^s}{ \lvert m z + n \rvert^{2 s}}, \quad z \in \mathbb{H}, s \in \mathbb{C}
+\end{equation*}
+on the upper half-plane, which can be lifted as an automorphic form $E(g, s)$ on $\SL_2(\mathbb{Q}) \backslash \SL_2(\mathbb{A})$.  Further,
+\begin{equation*}
+  \int_{\SO_2(\mathbb{Q}) \backslash \SO_2(\mathbb{A})} E(g, s) \, d g = \zeta_{\mathbb{Q}(i)}(s).
+\end{equation*}
+There's number theory behind such period integrals, which provides the main reason to study them.
+
+Our interest is not in which automorphic forms are distinguished.  Specifically, we take $G = \GL_{2n}$ and $H = \Sp_{2n}$.  Thus, for an automorphic form $f$ on $\GL_{2n}$, we consider the period integral
+\begin{equation*}
+  \int_{\Sp_{2 n}(\mathbb{Q}) \backslash \Sp_{2 n}(\mathbb{A})}
+  f(h) \, d h.
+\end{equation*}
+We say that an irreducible, automorphic representation $\pi$ of $\GL_{2 n}(\mathbb{A})$ is $\Sp_{2 n}(\mathbb{A})$-distinguished.
+
+There is a local analogue of symplectic period, which can be defined at each place $v$ of $F$.  We say that a representation $\pi_v$ of $\GL_{2 n}(F_v)$ has a symplectic period if $\Hom_{\Sp_{2 n}}(\pi_v, \mathbb{C}) \neq 0$.  Recall that an irreducible, cuspidal automorphic representation $\pi$ of $G(\mathbb{A})$ decomposes as a restricted tensor product over all places $v$ of $F$, denoted $\pi = \bigotimes \pi_v$.  Global nonvanishing implies local nonvanishing.
+
+We need a parametrization of automorphic representations of $\GL_{2 n}(\mathbb{A})$, due to Moeglin--Waldspurger.  An irreducible unitary representation of $\GL_{2 n}(\mathbb{A})$ is called a \emph{discrete} automorphic representation if it occurs as a discrete summand in the space $L^2(\GL_{2 n}(F) \backslash \GL_{2 n}(\mathbb{A}))$.  There is a bijection between discrete automorphic representations $\pi$ of $G(\mathbb{A})$ and pairs $(r, \tau)$, where $r$ divides $2 n$ and $\tau$ is an irreducible cuspidal automorphic representation of $\GL_r(\mathbb{A})$.
+
+\begin{theorem}[Jacquet--Rallis--Offen]
+  $\pi$ has a nonzero symplecitc period if and only if $2 n / r$ is even.  In particular, let $\pi$ be a cuspidal automorphic representation of $\GL_{2 n}$.  Then its symplectic period vanishes.
+\end{theorem}
+If $\pi = \bigotimes \pi_v$ has a nonzero symplectic period, then $\pi_v$ has  nonzero $\Sp_{2 n}(F_v)$-invariant linear functional.  The $\pi_v$'s are generic, and so have a Whittaker model.  Heumos--Rallis proved that an irreducible representation can not have both.  (It is important to note that some aspects of the local questions need global methods, and on the other hand, some global questions need local results.)
+
+The group $\Sp_n(D)$ can be defined as
+\begin{equation*}
+  \Sp_n(D) = \left\{ A \in \GL_n(D) : A J {}^t \bar{A} = J \right\},
+\end{equation*}
+where
+\begin{equation*}
+  J =
+  \begin{pmatrix}
+    &  &  & 1 \\
+    &  & 1 &  \\
+    & \dotsb &  &  \\
+    1 &  &  &  \\
+  \end{pmatrix}.
+\end{equation*}
+The group $\Sp_n(D)$ is the unique non-split inner form of the group $\Sp_{2 n}(\mathbb{Q})$.  Clearly $\Sp_{2 n}(D) \subseteq \GL_{2 n}(D)$, and one can again ask for vanishing or nonvanishing of the period integral for automorphic forms.
+
+We can relate these two setups via the Jacquet--Langlands correspondence.
+\begin{itemize}
+\item $\mathrm{D S}_{2 n}$: the set of discrete automorphic representations of $\GL_{2 n}(\mathbb{A})$.
+\item $\mathrm{D S}_{2 n}'$: the set of discrete automorphic representations of $\GL_{n}(D_{\mathbb{A}})$.
+\item For an automorphic representation $\pi$ of $\GL_n(D)$, we denote by $\mathrm{JL}(\pi)$ its Jacquet--Langlands lift to $\GL_{2 n}$.
+\item (We say that a discrete automorphic representation $\pi$ of $\GL_{2 n}$ is $D$-compatible if it is so at each place.)
+\end{itemize}
+
+\begin{theorem}[Jacquet--Langlands--Badulescu--???]
+  There is a unique injective map
+  \begin{equation*}
+    \mathrm{J L} : \mathrm{D S}_n ' \rightarrow \mathrm{D S}_{2 n}
+  \end{equation*}
+  such that for all $\pi ' \in \mathrm{D S}_n '$, we have $\operatorname{JL}(\pi ')_v = \pi_v '$ for all places $v \notin V$.  [Further details the speaker says aren't so important for the talk.]
+\end{theorem}
+
+When $D = F$, cuspidal automorphic representations are not always distinguished.
+
+\begin{proposition}
+  For odd $n \geq 1$, there is a cuspidal automorphic representation $\pi$ of $\GL_n(D)$ and some $f \in \pi$ such that
+  \begin{equation*}
+    \int_{[\Sp_n(D)]} f \neq 0.
+  \end{equation*}
+\end{proposition}
+\begin{theorem}
+  Suppose $\pi$ is a cuspidal automorphic representation of $\GL_n(D)$ whose Jacquet--Langlands lift is cuspidal.  Then the symplectic period of that lift vanishes identically.
+\end{theorem}
+
+\begin{theorem}
+  If $\pi$ is an automorphic representation of $\GL_n(D)$ that appears in the discrete spectrum and is distinguished by $\Sp_n(D)$, then its Jacquet--Langlands lift to $\GL_{2 n}$ is distinguished by $\Sp_{2 n}$.
+\end{theorem}
+Conjectured by Dipendra Prasad that the converse is also true.  We have some partial results, and in progress for general $n$.
+\begin{conjecture}
+  An automorphic representation in the discrete spectrum of $\GL_n(D)$ is distinguished by $\Sp_n(D)$ if and only if its Jacquet--Langlands lift to $\GL_{2 n}$ is distinguished by $\Sp_{2 n}$
+\end{conjecture}
+
+Let $\sigma$ be an irreducible cuspidal automorphic representation of $\GL_1(D)$.  Then we can construct Eisenstein series $E(g, \varphi, s)$, converging absolutely for $\Re(s)$ large, with meromorphic continuation to all $s$ and a simple pole inside $\Re(s) \geq 0$ and depending on $\sigma$, the only possible pole in that region is either at $s = 1$ or $s = 2$.  For $s_0 \in \{1, 2\}$, we define the residue $E_{- s_0}(\phi)$ by
+\begin{equation*}
+  E_{- s_0}(g, \phi) = \lim_{s \rightarrow s_0}(s - s_0) E(g, \phi, s).
+\end{equation*}
+These are square-integrable automorphic forms on $\GL_{2}(D)$.
+
+\begin{theorem}
+  The function $E_{- 1}(g, \phi)$ is integrable over $[\Sp_2(D)]$ and
+  \begin{equation*}
+    \int_{[\Sp_2(D)]} E_{- 1}(\phi, \bullet)
+    = \int_{K \cap \Sp_2(D_{\mathbb{A}})}
+    \int_{(M \cap H) \backslash(M \cap H)(D_{\mathbb{A}})^1}
+    \phi(m k) \, d m \, d k.
+  \end{equation*}
+  Moreover, there is a choice of $\phi$ such that the integral is nonzero.
+\end{theorem}
+As a consequence of the above theorem, we have the following result:
+\begin{theorem}
+  Any nonzero cuspidal automorphic representation in the discrete spectrum of $\GL_2(D)$ is of the form $\pi = J(2, \sigma)$ and is distinguished by $\Sp_2(D)$.  Further, its image under the global Jacquet--Langlands correspondence is distinguished by $\Sp_4$.
+\end{theorem}
+
+
+\section{Minor arc bounds for primes, \textnormal{\emph{Mayank Pandey}}}
+
+The main object we'll be discussing is the following exponential sum, for $X$ large:
+\begin{equation*}
+  S(\alpha) :=   \sum_{p < X} e(p \alpha), \qquad
+  e(\alpha) := e^{2 \pi i \alpha}.
+\end{equation*}
+This has been studied for the purpose of understanding the additive structure of primes.  For example, it was introduced in studying the weak Goldbach conjecture by the circle method, not exactly in this form, but by Hardy--Littlewood, and Vinogradov was able to obtain a sufficiently good understanding of this sum to show that every large enough odd number is a sum of three primes.   But there are many problems concerning linear patterns in the primes that can be solved simply by understanding this exponential sum.  Currently, we can't hope to understand $S(\alpha)$ for all $\alpha$, but
+\begin{itemize}
+\item when $\alpha$ is ``structured'', we try to estimate $S(\alpha)$ (the \emph{major arcs} case), while
+\item for ``generic'' $\alpha$, we try to bound $S(\alpha)$ from above (the \emph{minor arcs} case).
+\end{itemize}
+This is often the case for exponential sums, that you try to study them in this manner.  Very often, as is the case with the primes, ``structured'' ends up meaning that $\alpha$ is close to a rational with small denominator.  This isn't always the case -- for instance, if you have a sum over numbers missing a digit, you won't just have rationals with small denominator, but instead something involving the base -- but there's none of that here.
+
+We'll discuss some improvements on our understanding of minor arcs.  Before we get into this, we'll talk about what one might expect for $S(\alpha)$ and how that relates to $\alpha$.  Say we have some $\alpha$, and we're trying to understand $e(n \alpha)$.  One thing one might do is approximate $\alpha$ by a rational with small denominator:
+\begin{equation*}
+  \alpha = \frac{a}{q} + \beta , \qquad
+  q \leq \sqrt{X}, \quad
+  \lvert \beta \rvert \leq \frac{1}{q \sqrt{X}}.
+\end{equation*}
+We're guaranteed such an approximation by Dirichlet.  What we're looking at is then
+\begin{equation*}
+  e \left( \frac{a n}{q} \right)
+  e(n \beta).
+\end{equation*}
+This is somewhat lower in complexity than $e(n \alpha)$, because if you expand the latter into multiplicative characters (archimedean and non-archimedean), then the conductors involved are at most
+\begin{equation*}
+  C(\alpha) := q(1 + \lvert \beta \rvert X) \ll \sqrt{X}.
+\end{equation*}
+(We note that $C(\alpha)$ is not quite well-defined due to the possibility of overlap, but to be more precise, you could take an infimum over all such approximations.)  We'll also write
+\begin{equation*}
+  T := 1 + \lvert \beta \rvert X
+\end{equation*}
+for the archimedean part.  One might expect that
+\begin{equation*}
+  S(\alpha) = \mathrm{MT} + \O(X^{1/2}),
+\end{equation*}
+where
+\begin{equation*}
+  \mathrm{MT} \approx \frac{X}{q T}.
+\end{equation*}
+Under GRH, one gets the error term $\O(X^{3/4})$ -- this is how Hardy--Littlewood handled the weak Goldbach conjecture under GRH for large enough $n$.
+
+Now we'll discuss what exactly we mean by ``structured'' and ``generic''.  We'll define the major arcs to height $Q$ to be
+\begin{equation*}
+  \mathcal{M}_Q := \left\{ \alpha \in \mathbb{R} / \mathbb{Z} : C(\alpha) \leq Q \right\}.
+\end{equation*}
+This is formulated a bit differently, but equivalent to the major arcs you see in the circle method, where you look at conditions like
+\begin{equation*}
+  \left| \alpha - \frac{a}{q} \right|
+  \leq \frac{Q}{q X}, \qquad q \leq Q.
+\end{equation*}
+The minor arcs are defined to be the complement:
+\begin{equation*}
+  m_Q :=(\mathbb{R} / \mathbb{Z}) - \mathcal{M}_Q.
+\end{equation*}
+We'll assume that the major arcs can be dealt with, maybe after averaging over $Q$, as is often the case.  It often suffices to understand major arcs for $Q$ up to some large power of a logarithm.  We'll be talking about upper bounds on the minor arcs.  What Vinogradov showed in the 1930's is that on the minor arcs, 
+\begin{equation*}
+  \sup_{\alpha \in m_Q} \lvert S(\alpha) \rvert \ll \frac{X}{\sqrt{Q}}
+  + X \exp \left( - c \sqrt{\log X} \right).
+\end{equation*}
+This here is a bit artificial.  There's a result of Vaughan (1977) who replaced the error term with $X^{4/5}$ (up to logarithms -- we're focusing here on the exponents).  So now $Q$ should be thought of as a small power of $X$, and we'll aim to improve things in that region.
+
+The main theorem that we'll present today is the following joint result with Maksym Radziwill:
+\begin{theorem}[P., Radziwill, 2024]
+  We have
+  \begin{equation*}
+    \sup_{\alpha \in m_Q}
+    \left| S(\alpha) \right|
+    \ll \frac{X}{ \sqrt{Q}}
+    + X^{4/5 - \delta}
+  \end{equation*}
+  for
+  \begin{itemize}
+  \item $\delta < 1/120$ (smooth cutoff),
+  \item $\delta < 1/160$ (sharp cutoff).
+  \end{itemize}
+\end{theorem}
+
+We'll now discuss Vaughan's $X^{4/5}$ and how we get around that.  Vinogradov noticed that to study a general sum over primes, say
+\begin{equation*}
+  \sum_{p \asymp X}
+  a(p),
+\end{equation*}
+where we're trying to show cancellation in such a sum, it suffices to understand, for arbitrarily sets of scales $N_1, \dotsc, N_k$ with $N_1 \dotsb N_k = X$, sums of the sort
+\begin{equation*}
+  \sum_{
+    \substack{
+      n_1 \asymp N_1  \\
+      \dotsb \\
+      n_k \asymp N_k
+    }
+  }
+  a(n_1 \dotsb n_k).
+\end{equation*}
+With this idea, you can show that this is the sum of $(\log X)^{\O(1)}$ many sums of the shape
+\begin{equation*}
+  \sum_{d \asymp D}
+  \left| \sum_{m \asymp X / D}
+    a(m d)
+  \right|
+\end{equation*}
+and
+\begin{equation*}
+  \sum_{
+    \substack{
+      \sqrt{D} \ll
+      m, n
+      \ll X / \sqrt{D}
+      \\
+      m n \asymp X      
+    }
+  }
+  \alpha(m) \beta(n) a(m n).
+\end{equation*}
+This is basically what Vaughan does.  Specializing to our case of $a(n) = e(n \alpha)$, we obtain the estimates
+\begin{equation}\label{eq:cnoj8jgz12}
+  \sum_{d \asymp D}
+  \left| \sum_{m \asymp X / D}
+    a(m d)
+  \right|
+  \ll D + \frac{X}{D} + \frac{X}{Q},
+\end{equation}
+and
+\begin{equation}\label{eq:cnoj8jh43f}
+  \sum_{
+    \substack{
+      \sqrt{D} \ll
+      m, n
+      \ll X / \sqrt{D}
+      \\
+      m n \asymp X      
+    }
+  }
+  \alpha(m) \beta(n) a(m n)
+  \ll
+  \frac{X}{ D^{1/4}}
+  + \frac{X}{(\sqrt{X} / \sqrt{D})^{1/4}} +
+  \frac{X}{ \sqrt{Q}}.
+\end{equation}
+If you optimize, then you end up taking $D^{4/5}$, which gives Vaughan's bound.  In the first estimate \eqref{eq:cnoj8jgz12}, we're just estimating a geometric series.  For the second estimate \eqref{eq:cnoj8jh43f}, we apply Cauchy.
+
+There's the case $N_1 = \dotsb = N_5 = X^{1/5}$.  It turns out that if you do some combinatorics, then this is the only case that one encounters.  Namely, to improve the $X^{4/5}$ bound, it suffices to do so just for the following sort of sum:
+\begin{equation}\label{eq:cnoj8jk6lo}
+  \sum_{n_1, \dotsc, n_5 \asymp X^{1/5}}
+  e(n_1 \dotsb n_5 \alpha)
+  \ll \frac{X}{\sqrt{Q}}
+  + X^{4/5 - \delta}.
+\end{equation}
+We'll focus on the generic case, which turns out to be the most difficult, where
+\begin{equation*}
+  \alpha = \frac{a}{q}, \qquad
+  q \asymp \sqrt{X}.
+\end{equation*}
+Rather than proceeding as in the Type I or Type II bounds, we pass to characters and put in absolute values to see that the left hand side of \eqref{eq:cnoj8jk6lo} is majorized by
+\begin{equation*}
+  \sum_{\chi}
+  \left| \sum_{n \asymp X^{1/5}}
+    \chi(n)\right|^5.
+\end{equation*}
+If you apply Cauchy, then the above is
+\begin{equation}\label{eq:cnoj8jox9s}
+  \leq \left( \frac{1}{q}
+    \sum_\chi
+    \left| \sum_{N^{1/5}} \chi(n) \right|^4\right)^2
+  \left( \sum_\chi
+    \left| \sum_{N^{1/5}} \chi(n) \right|^6\right)^{1/2}.
+\end{equation}
+The fourth moment can be understood as a sum of divisor functions:
+\begin{equation*}
+  \frac{1}{q} \sum_\chi \left| \sum_{n \asymp X^{2/5}} \chi(n) d(n) \right|^2.
+\end{equation*}
+One can show that you have square root cancellation on average, and that this is sharp..  So there's nothing to do in the first factor in \eqref{eq:cnoj8jox9s} to improve the upper bound.  For the second factor, we have
+\begin{equation*}
+  \sum_{\chi} \left| \sum_{n \asymp X^{3/5}}
+    \chi(n) d(n)\right|^3 \ll X^{6/5}.
+\end{equation*}
+Our result then boils down to improving this last estimate in the exponent.  This reduces to estimating
+\begin{equation*}
+  \# \left\{ \chi : \left| \sum_{n \asymp X^{2/5}} \chi(n) d(n) \right| \geq V \right\}.
+\end{equation*}
+In this case, the above is at most
+\begin{equation*}
+  X^{\frac{2}{5} \frac{3}{4}}
+  = X^{\frac{3}{10}}.
+\end{equation*}
+Recently, Guth--Maynard finally improved an old estimate of Huxley, and it turns out that their methods readily adapt to a sum over $\chi(n)$ as well.  The final result they have is slightly worse because at some point they chop up into intervals, but for our purposes, we can take certain estimates in Guth--Maynard that translate to the setting of $\chi(n)$, requiring no substantial modification to the proof.  We can thus get $X^{3/10 - \delta}$ via a ``Guth--Maynard $q$-analogue''.  That's how we succeed in the end.
+
+
+\section{TBA, \textnormal{\emph{Jay Jorgenson}}}
+
+Any way we can construct automorphic forms is worthwhile.  What we'll discuss now is partially completed and ongoing work with Cogdell and Smajlovic.  We're motivated by three examples, all falling under the canopy of ``Kronecker limit formula'':
+\begin{example}[Parabolic Eisenstein series]
+  \begin{equation*}
+    E_{\mathrm{par}}(s, z) = \sum_{\gamma \in \Gamma_\infty \backslash \Gamma}
+    (\Im \gamma z)^s, \qquad \Gamma = \PSL_2(\mathbb{Z}).
+  \end{equation*}
+  In general, as $s \rightarrow 0$, the above is
+  \begin{equation*}
+    C_0 +
+    C_1
+    \left(
+      \log \lVert \Delta(t) \rVert^2
+      + C_2\right) s
+    + \O(s^2).
+  \end{equation*}
+  It's well known that this satisfies the differential equation
+  \begin{equation*}
+    \left( \Delta + s(s - 1) \right) \mathcal{E}_{\mathrm{par}}(s, z).
+  \end{equation*}
+\end{example}
+\begin{example}[Hyperbolic Eisenstein series]
+  Kudla--Millson had what we saw as a real parallel to this.  They considered any Fuchsian group of the first kind.  They picked some hyperbolic geodesic $\gamma$ on there, and considered the form-valued Eisenstein series
+  \begin{equation*}
+    \mathcal{E}_{\mathrm{hyp}, \gamma}
+    (s,z)
+    = \sum_{\Gamma_\gamma \backslash \Gamma}
+    \left( \cosh(d(\eta z, \gamma)) \right)^{- s}
+    \, d \gamma z.
+  \end{equation*}
+  In this case,
+  \begin{equation*}
+    \left( \Delta + s(s - 1) \right) \mathcal{E}_{\mathrm{hyp}}(s, z)
+    = \pm s_2 \mathcal{E}_{\mathrm{hyp}}(s + 2, z).
+  \end{equation*}
+  That's the first part.  The next part they proved, the speaker found particularly striking.  They studied the behavior as $s \rightarrow 0$, and showed that with the right normalization, it is given by
+  \begin{equation*}
+    \omega_\gamma + \O(s).
+  \end{equation*}
+\end{example}
+Jurg Kramer and I cooked up what we thought was the analogue for the elliptic Eisenstein series:
+\begin{example}
+  Pick a point $w$ in the Riemann surface, and set
+  \begin{equation*}
+    \mathcal{E}_{\ell, w}(s, z) = \sum_{\eta \in \Gamma}
+    \left( \sinh(d(\eta z, w)) \right)^{- s}.
+  \end{equation*}
+  Kramer--von Pippich took $\Gamma = \PSL_2(\mathbb{Z})$ and $w =i$ and obtained the $s \rightarrow 0$ limit
+  \begin{equation*}
+    - \log \left| E_4(z) \Delta(z)^{- 1/2}(z) \right| s
+    + \O(s^2)
+  \end{equation*}
+  and for $w = \rho$ obtained instead
+  \begin{equation*}
+    - \log \left| E_4(z) \Delta(z)^{- 1/3}(z) \right| s
+    + \O(s^2).
+  \end{equation*}
+\end{example}
+von Pippch studied $\mathcal{E}_{\mathrm{ell}}$ in general, for $\Gamma \leq \PSL_2(\mathbb{R})$.  Then the present collaboration tried to see to what extent this generalized.
+
+\begin{theorem}[CJS]
+  Let $X$ be any compact complex projective K\"{a}hler variety. Let $D$ be any divisor, smooth up to dimension $2$.  Set
+  \begin{equation*}
+    C_\rho(s, z, w) =(\Delta + s(s - \rho))^{-1}.
+  \end{equation*}
+  Then
+  \begin{equation*}
+    \int_D C_p(s, z, w) \mu(w)
+    = C_{- 1}(s) + C_0 \left( \log \lVert F_D(z) \rVert^2 + C_1 \right) s
+    + \O(s^2).
+  \end{equation*}
+\end{theorem}
+If $X$ happened to be a compact Riemann surface, then we've recovered the results concerning elliptic Eisenstein series.  Next:
+\begin{enumerate}
+\item For $X = \Gamma \backslash \mathbb{H}$,
+  \begin{equation*}
+    \sum_{z \in D_f}
+    \sum_{w \in D_g}
+    \implies
+    f(\div g) = g(\div f).
+  \end{equation*}
+  Gave another proof of Weil reciprocity.
+\item $X = \mathbb{C} \mathbb{P}^n$, $D = (H)$ (hyperplane section) with $\deg(D) = 1$.  Then $F_D$ is a linear form.  We started fighting the constant $C_1$.  By looking at the spectral expansion, we obtained an evaluation of the Mahler measure of that linear form.  What turned out to be extremely interesting for us is that the only instance where the Mahler measure had been evaluated explicitly was when all the coefficients were $1$.  This turned out to be the one case we couldn't handle, due to sharpness of Cauchy--Schwarz in that case.  But we were able to evaluate it.  For us, it began to indicate that there was something worthwhile here.
+
+  To be precise, our result was valid for $n \geq 3$.  For $n = 2$, there was a technical difficulty in the proof, resolved in a later paper by others.
+\end{enumerate}
+What's next?  We should really try to work this out not just for the compact K\"{a}hler manifolds, but something more exotic, like finite volume quotients of symmetric spaces.  Look for instance at $\Sp_4$.  Take the Siegel upper half-space.  There is a Siegel modular form $\chi_{10}$ that vanishes on the ``diagonal divisor''.  The speaker thinks we should have a nice Eisenstein series involving such divisors for which the Kronecker limit formula gives $\chi_{10}$.  This should allow us to have some additional point of view on Mahler measures, not just as integrals of log-norms of equations, but rather something that looks more like integrals of log-norms of hypersections of divisors, and that could be a lot of fun.
+
+[question on the relevance of $\chi_{10}$ -- yeah, could do others]
+
+[question about whether one could use points other than $\rho$ or $i$ in the $\SL_2(\mathbb{Z})$ result -- yeah, could consider other points]
+
+[thanks to the organizers and scientific committee, applause]
+
+[next talk at 11:30 -- stay tuned!]
+
+\section{The global Gan--Gross--Prasad conjecture for Fourier--Jacobi periods on unitary groups, \textnormal{\emph{Paul Boisseau}}}
+
+Joint work with Weixiao Lu and Hang Xue.
+
+\begin{itemize}
+\item $F$: number field, $\mathbb{A}$: adele ring
+\item $G$:reductive group over $F$, $[G] := G(F) \backslash G(\mathbb{A})$
+\item $H \leq G$: algebraic subgroup, $[H] := H(F) \backslash H(\mathbb{A})$
+\item $\pi$: irreducible unitary cuspidal automorphic representation of $G$,
+\item $r : {}^L G \rightarrow \GL(V)$.
+\end{itemize}
+The goal is to find relations when $\varphi \in \pi$ varies for
+\begin{equation*}
+\underbrace
+{
+  \int_{[H]} \varphi(h) \, d h
+}_{
+  \text{period side}
+}
+\longleftrightarrow
+\underbrace
+{
+  L(s, \pi, r)
+}_{
+  \text{$L$-function side}
+}.
+\end{equation*}
+Applications of such statements include
+\begin{itemize}
+\item analytic properties of $L$-functions, poles,
+\item functionl equation, and
+\item computation of special values.
+\end{itemize}
+To make this statement more precise, let's give two examples.
+
+Let's start with Tate's thesis, working with $\GL_1$, thus let $\chi$ be an automorphic character of $\mathbb{A}^\times$.  For $\Phi \in \mathcal{S}(\mathbb{A})$, set
+\begin{equation*}
+  \Theta(h, \Phi):= \sum_{\chi \in F^\times} \Phi(h x), \quad h \in \mathbb{A}^\times.
+\end{equation*}
+For $\Re(s) > 1$, consider
+\begin{equation*}
+  Z(\chi, \Phi, s) := \int_{F^\times \backslash \mathbb{A}^\times}
+  \chi(h) \Theta(h, \Phi) \lvert h \rvert^s \, d h.
+\end{equation*}
+\begin{theorem}[Tate]
+  Assume that $\Phi = \bigotimes \Phi_v$.  For $S$ a large enough finite set of places of $F$, we have
+  \begin{equation*}
+    Z(\chi, \Phi, s) = L(s, \chi) \prod_{v \in S}
+    \frac{Z_v(\chi_v, \Phi_v, s)}{ L_v(s, \chi_v)}.
+  \end{equation*}
+\end{theorem}
+
+For our second example, we describe Rankin--Selberg theory.  We now take
+\begin{equation*}
+  G = \GL_n \times \GL_n \geq H = \GL_n \xrightarrow{\Delta} G.
+\end{equation*}  For $\Phi \in \mathcal{S}(\mathbb{A}^n)$, set
+\begin{equation*}
+  \Theta(h, \Phi) = \sum_{x \in F^n - \{0\}} \Phi({}^t h x), \qquad h \in H(\mathbb{A}).
+\end{equation*}
+Let $\pi$ be a cuspidal automorphic representation of $G$.  For $\varphi \in \pi$, consider
+\begin{equation*}
+  \mathcal{P}_H(\varphi, \Phi, s)
+  = \int_{[H]}
+  \varphi(h) \Theta(h, \Phi) \lvert \det h \rvert^s \, d h \qquad (\Re(s) > 1).
+\end{equation*}
+In this setting, there is the following result:
+\begin{theorem}[Jacquet, Piatetski-Shapiro, Shalika]
+  Assume that $\varphi = \bigotimes \varphi_v$ and $\Phi = \bigotimes \Phi_v$.  Then
+  \begin{equation*}
+    \mathcal{P}_H(\varphi, \Phi, s) = L(s, \pi)\prod_{v \in S}
+    \frac{Z_v(\varphi_v, \Phi_v, s)}{ L_v(s, \pi_v)}.
+  \end{equation*}
+  Moreover, for generic $s$, we have
+  \begin{equation*}
+    \mathcal{P}_H(\cdot, \cdot, s) \neq 0 \iff L(s, \pi) \neq 0.
+  \end{equation*}
+\end{theorem}
+
+Our goal is to generalize these integral representations to $\U(V) \subset \U(V) \times \U(V)$.  Some data:
+\begin{itemize}
+\item $E/F$: quadratic extension of number fields
+\item $(V, \langle \bullet, \bullet \rangle)$: Hermitian space over $E/F$ of dimension $n$.
+\item $G_V = \U(V) \times \U(V)$, $H_V = \U(V)$.
+\end{itemize}
+We first need a period $\mathcal{P}_{H_V}$ and an $L$-function.
+
+One technical point we need to deal with is the Weil representation.  Set:
+\begin{itemize}
+\item $\psi$: nontrivial unitary character of $F \backslash \mathbb{A}$.
+\item $\eta$: the quadratic character of $F^\times \backslash \mathbb{A}^\times$ associated to $E/F$ by global class field theory.
+\item $\mu$: a character of $E^\times \backslash \mathbb{A}_E^\times$ such that $\mu |_{F^\times \backslash \mathbb{A}^\times} = \eta$.
+\end{itemize}
+By a classical construction of Weil and Kudla, one can associate to $(\psi, \mu)$ an automorphic representation $\omega_{\psi, \mu}$ of $\U(V)(\mathbb{A})$.  This is the \emph{Weil representation}.  It is realized on $\mathcal{S}(\mathbb{A}^n)$.  This space will be used to construct our theta series: given
+\begin{equation*}
+  \phi \in \omega_{\psi, \mu} = \mathcal{S}(\mathbb{A}^n),
+\end{equation*}
+we set
+\begin{equation*}
+  \theta(h, \phi) := \sum_{x \in F^n} \left( \omega_{\psi, \mu}(h) \phi \right)(x),
+  \qquad
+  h \in H_V(\mathbb{A}).
+\end{equation*}
+We now do the same thing as in Rankin--Selberg theory.  Let $\pi$ be a cuspidal representation of $G_V(\mathbb{A})$, and $\varphi \in \pi$.  The Fourier--Jacobi period is then
+\begin{equation}\label{eq:cnoj8qa59i}
+  \mathcal{P}_{H_V}(\varphi, \phi) = \int_{[H_V]} \varphi(h) \theta(h, \phi) \, d h.
+\end{equation}
+
+\begin{remark}
+  We explicate the Weil representation and theta series in the split case.  If $E = F \times F$, then $V = F^n \times F^n$, $\U(V) = \GL_n$ and
+  \begin{equation*}
+    \theta(h, \phi) = \mu(h) \lvert \det h \rvert^{1/2} \sum_{x \in F^n}
+    \phi({}^t h x).
+  \end{equation*}
+  What do we expect the period \eqref{eq:cnoj8qa59i} to represent in this case?  Rankin--Selberg $L$-function.
+\end{remark}
+
+In general, there exists $\mathrm{BC} : {}^L \U(V) \rightarrow {}^L \GL_{n, E}$.  By functoriality, there should be a map from automorphic representations of $\U(V)$ to automorphic representations of $\GL_{n, E}$.
+
+\begin{theorem}[Mok, Kaletha--Minguez--Shin--White]
+  For every cuspidal representation $\pi$ of $\U(V)$, the base-change $\mathrm{BC}(\pi)$ exists.
+\end{theorem}
+
+If $\pi$ is a cuspidal representation of $G_V$, we have a completed Rankin--Selberg $L$-function $L(s, \operatorname{BC}(\pi))$.  We want to vary $V$ but keep the $L$-function fixed.
+
+\begin{definition}
+  Let $V_1, V_2$ be two skew-Hermitian spaces.  Let $\pi_1$ be a cuspidal representation of $G_{V_1}$, and $\pi_2$ a cuspidal representation of $G_{V_2}$.  We say that $\pi_1$ and $\pi_2$ are in the same $L$\emph{-packet} if $\operatorname{BC}(\pi_1) = \operatorname{BC}(\pi_2)$.  (In particular, they have the same $L$-function.)
+\end{definition}
+\begin{theorem}[B., Lu, Xue]\label{theorem:cnoj8qj2jg}
+  Let $\pi$ be an irreducible unitary cuspidal representation of $G_{V}$.  Assume that $\operatorname{BC}(\pi)$ is generic.  The following are equivalent:
+  \begin{enumerate}
+  \item $L(\tfrac{1}{2}, \operatorname{BC}(\pi) \otimes \mu) \neq 0$.
+  \item There exists $V'$ and $\pi '$ (cuspidal representation of $G_{V'}$) in the same $L$-packet as $\pi$ such that
+    \begin{equation*}
+      \left( \mathcal{P}_{H_{V '}} \right) |_{\pi ' \otimes \omega_{\psi, \mu}} \neq 0.
+    \end{equation*}
+  \end{enumerate}
+\end{theorem}
+Some remarks:
+\begin{itemize}
+\item By local GGP (Gan, Ichino, Xue), the pair $(V', \pi ')$ is unique.
+\item This theorem was known under some local conditions by works of Xue.
+\item In the Bessel case, this was proved by Beuzart-Plessis, Chaudouard, Zydor.  Their proof was an inspiration for our proof in the Fourier--Jacobi case.
+\end{itemize}
+
+So we have Theorem \ref{theorem:cnoj8qj2jg}, which is very nice, but what we would really like to  have is a formula relating the period to the $L$-value.  For this, we need to define the local Fourier--Jacobi periods.  Write $\pi = \bigotimes \pi_v$, $\omega_{\psi, \mu} = \bigotimes \omega_v$, $\varphi = \bigotimes \varphi_v$, $\phi = \bigotimes \phi_v$, $\langle \bullet, \bullet \rangle_\pi = \prod_v \langle \bullet, \bullet \rangle_v$, $\langle \bullet, \bullet \rangle_\omega = \prod \langle \bullet, \bullet \rangle_v$, $d h = \prod \, d h_v$.  Let $v$ be a place of $F$.  The local Fourier--Jacobi period is
+\begin{equation*}
+  \mathcal{P}_{H_V, v}(\varphi_v, \varphi_v) = \int_{H_V(F_v)} \langle \pi_v(h_v) \varphi_v, \varphi_v \rangle_v \langle \omega_v(h_v) \phi_v, \phi_v \rangle_v \, d h_v.
+\end{equation*}
+\begin{itemize}
+\item If $\pi_v$ is tempered, this is absolutely convergent.
+\item Multiplicity one result (Aizenbud--Gourevitch--Rallis--Schiffmann , Sun--Zhu):
+  \begin{equation*}
+    \dim \Hom_{H_V(F_v)}(\pi_v \otimes \omega_v, \mathbb{C}) \leq 1.
+  \end{equation*}
+\item Non-vanishing (Xue):
+  \begin{equation*}
+    \mathcal{P}_{H_V, v} \neq 0 \iff \dim \Hom_{H_V(F_v)}(\pi_v \otimes \omega_v, \mathbb{C}) > 0.
+  \end{equation*}
+\end{itemize}
+\begin{theorem}[B., Lu, Xue, 2024]
+  Let $\pi$ be an irreducible unitary cuspidal representation of $G_{V}$.  Assume that $\operatorname{BC}(\pi)$ is generic and that for all $v$, $\pi_v$ is tempered.  Then
+  \begin{equation*}
+    \left| \mathcal{P}_{H_V}(\varphi, \phi) \right|^2 = 2^{- \beta} \Delta
+    \frac{L(\tfrac{1}{2}, \operatorname{BC}(\pi) \otimes \mu)}{L(1, \pi, \Ad)}
+    \times \prod_{v \in S} \mathcal{P}_{H_V, v}
+    (\varphi_v, \varphi_v) \Delta_v^{-1}
+    \frac{L(1, \pi_v, \Ad)}{L(\tfrac{1}{2}, \operatorname{BC}(\pi_v) \otimes \mu_v )},
+  \end{equation*}
+  where
+  \begin{itemize}
+  \item $\Delta = \prod_{i = 1}^n L(i, \eta^i)$, $\Delta_v = \prod_{i = 1}^n L(i, \eta_v^i)$,
+  \item $\beta \in \mathbb{N}$ is the number of isobaric components of $\operatorname{BC}(\pi)$,
+  \item $L(s, \pi, \Ad)$ is defined using $\mathrm{BC}$ and the Asai $L$-function.
+  \end{itemize}
+\end{theorem}
+We note that the Ramanujan conjecture predicts that if $\operatorname{BC}(\pi)$ is generic, then $\pi$ is tempered.
+
+\begin{corollary}
+  Let $\pi$ be an irreducible unitary cuspidal representation of $G_{V}$.  Assume that $\operatorname{BC}(\pi)$ is generic and that for all $v$, $\pi_v$ is tempered.  Then
+  \begin{equation*}
+    (\mathcal{P}_{H_V}) |_{\pi \otimes \omega_{\psi, \mu}} \neq 0
+    \iff
+    \begin{cases}
+      L(\tfrac{1}{2}, \operatorname{BC}(\pi) \otimes \mu) \neq 0,      &  \\
+      \text{for all $v$, we have $\Hom (\dotsb) \neq 0$}                                                                       & 
+    \end{cases}
+  \end{equation*}
+\end{corollary}
+
+\section{Counting higher degree prime ideals in number fields and effective Chebotarev, \textnormal{\emph{Aditya Ghosh}}}
+References:
+\begin{itemize}
+\item Modular forms and CDT, Murty--Murty--Samadha
+\item Some applications of CDT, Serre.
+\end{itemize}
+
+Motivating question: given a number field $K$, how many prime ideals are there of degree $k$ up to a certain point.  A revised question concerns the number $\pi_k(x, K)$ of degree $k$ prime ideals $\mathfrak{p}$ over rational $p$ such that $p \leq x$.
+
+\begin{theorem}[Breuillard--G, 2023]
+  We have
+  \begin{equation*}
+    \pi_k(x, K) \sim \frac{P_k}{k} \operatorname{Li}(x).
+  \end{equation*}
+  If $P_k = 0$, then $\pi_k(x, K) = 0$.
+\end{theorem}
+Here $P_k$ are the Parker numbers for the associated Galois action.
+
+Let's recall the Chebotarev density theorem.  We have the prime number theorem (Hadamard, 1896) and prime ideal theorem (Landau 1903).  Chebotarev density theorem gives equidistribution of Frobenius classes.  One also has explicit results, e.g., Lagarias--Odlyzsko (1977): assuming GRH, for every $x > 2$,
+\begin{equation*}
+  \left| \pi_{C}(x, L|K)
+    - \frac{\lvert C \rvert}{ \lvert G \rvert} \operatorname{Lii}(x)
+  \right|
+  \leq
+  c_1
+  \left\{ \frac{\lvert C \rvert}{\lvert G \rvert}  + \dotsb \right\} + \dotsb.
+\end{equation*}
+There's also an unconditional version.
+
+Serre 1981: reduced the error a bit: assuming GRH, for every $x > 2$,
+\begin{equation*}
+  \left| \pi_f(x, L|K) - \dotsb \right| \ll \dotsb.
+\end{equation*}
+
+Consider the case where $L$ is the Galois closure of a number field $K$.  Take $G = \Gal(L / \mathbb{Q})$ and $H = \Gal(L/K)$.
+\begin{theorem}[Frobenius]
+  Let $p$ be a rational prime unramified in $L$.  Let $U$ be a prime in $\mathcal{O}_L$ lying over $p$.  Let $\phi := \Frob(U | p) \leq G$.  $\phi$ acts by right multiplication on right cosets $H \backslash G$ with permutation cycle $(H \sigma_1, \dotsc, H \sigma_1 \phi^{m_1 - 1} \dotsb)$.  Then ETC.
+\end{theorem}
+
+We can do the same with degree $r$ prime ideals.  To count them, define class function on $G$,
+\begin{equation*}
+  f_r(\sigma) = \# \left\{\text{$r$-cycles in permutation action of $\sigma$ on $H \backslash G$} \right\}.
+\end{equation*}
+We need esimatest for this.
+
+\begin{theorem}[Parker]
+  \begin{equation*}
+    \frac{P_k}{k} = \frac{1}{\lvert G \rvert} \sum_{g \in G} c_k(g).
+  \end{equation*}
+\end{theorem}
+The case $k = 1$ gives us Burnside's lemma.
+
+We get versions of Chebotarev with less error than usual.
+
+\begin{theorem}
+  $\dotsb$
+\end{theorem}
+
+Also a version with unconditional error:
+\begin{theorem}
+  $\dotsb$.
+\end{theorem}
+
+Idea or proof: decompose into irreducible characters of $S_n$:
+\begin{equation*}
+  z_k = \sum_{\lambda : \text{partition of } n}
+  \langle z_k, \chi^\lambda \rangle \chi^\lambda,
+\end{equation*}
+where (due to Jacques, 1974):
+\begin{equation*}
+  \langle z_k, \chi^\lambda \rangle
+  =
+  \begin{cases}
+    \frac{1}{k}    & \text{ if } \lambda_1 = n, \\
+    \frac{1}{k}(-1)^{k - \lambda_2}                   & \text{ if } \lambda_1 = n - k \text{ and } \lambda_3 \leq 1, \\
+    \frac{1}{k}(- 1)^{k - \lambda_1}                   & \text{ if } \lambda_2 = n - k + 1 \text{ and } \lambda_3 \dotsb.
+  \end{cases}
+\end{equation*}
+ETC.
+
+ETC.
+
+Improving past results and dropping AC.
+
+Serre, 1997.  For $M_K$ the product of the $\lvert P_K \rvert$ distinct prime factors of $\Delta_K$, we have
+\begin{equation*}
+  \log \Delta_K \leq(n_K - 1) \log M_K + n_K \lvert P_K \rvert \log n_K,
+\end{equation*}
+which we improve by a bit.
+
+ETC.
+
+\section{Exploring index of nilpotency in certain spaces of modular forms, \textnormal{\emph{Swati}}}
+
+
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
