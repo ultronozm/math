@@ -225,7 +225,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2024-10-04 14:19:08
+2024-10-04 16:36:36
       <a href="20241004T093059--clay-conference-final-day.tex" class="my-link">tex</a>
       <a href="20241004T093059--clay-conference-final-day.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20241004T093059--clay-conference-final-day.tex" class="my-link">history</a>
@@ -249,6 +249,11 @@ href="#pol-van-hoften-vu-amsterdam-igusa-stacks-and-exotic-hecke-correspondences
 id="toc-pol-van-hoften-vu-amsterdam-igusa-stacks-and-exotic-hecke-correspondences">Pol
 van Hoften (VU Amsterdam), <em>Igusa stacks and exotic Hecke
 correspondences</em></a></li>
+<li><a
+href="#jack-thorne-the-ramanujan-conjecture-for-bianchi-modular-forms"
+id="toc-jack-thorne-the-ramanujan-conjecture-for-bianchi-modular-forms">Jack
+Thorne, <em>The Ramanujan Conjecture for Bianchi Modular
+Forms</em></a></li>
 </ul>
 </nav>
 <h1
@@ -671,9 +676,9 @@ class="math inline">\(U := \lvert X \rvert - Y\)</span>, the quotient
 <span class="math display">\[\mathcal{A}_U := \mathcal{A} /
 \mathcal{A}_Y.\]</span></p>
 </div>
-<p>We then have the following result <span class="citation"
-data-cites="2022arXiv2207.04671">(<strong>2022arXiv2207.04671?</strong>,
-Theorem 1.1.1)</span>:</p>
+<p>We then have the following result <a href="#ref-2022arXiv2207.04671" class="citation"
+data-cites="2022arXiv2207.04671">(Dotto, Emerton, and Gee 2022, Theorem
+1.1.1)</a>:</p>
 <div class="theorem">
 <p><strong>Theorem 4</strong> (DEG). <em><span
 class="math inline">\(\tilde{\mathcal{A}} : U \mapsto A_U\)</span> is a
@@ -1143,7 +1148,6 @@ sense to it, by taking level structures of this kind. It does seem a bit
 reminiscent of the arguments of Cornut–Vatsal proving Mazur’s
 conjecture. But the part that needs proving is not in measure theory,
 but instead in number theory and Diophantine geometry.</p>
-<p>[applause]</p>
 <p>Assuming this, you get modularity of all compatible systems as in
 Serre’s conjecture.</p>
 <div class="remark">
@@ -1215,7 +1219,7 @@ S_{\overline{\mathbb{F}_p}}\]</span> as a closed <em>Goren–Oort
 stratum</em>. (This surface has two Goren–Oort strata.) These curves
 moreover sit inside here Hecke equivariantly.</p>
 </div>
-<div class="example">
+<div id="example:cnpp15w7ik" class="example">
 <p><strong>Example 10</strong>. Let <span
 class="math inline">\(E\)</span> be imaginary quadratic. Let <span
 class="math inline">\(W\)</span> be a Hermitian <span
@@ -1286,8 +1290,736 @@ recordeing the signature. The Newton strata hit by the correspondence
 <span class="math inline">\((s,t)\)</span> are precisely the
 intersection <span class="math inline">\(B(G, - \mu ) \cap B(G, - \mu
 &#39;)\)</span>.</p>
+<p>Let <span class="math inline">\((\mathbf{G}, \mathbf{X})\)</span> be
+a Shimura datum. Fix a prime <span class="math inline">\(p\)</span>,
+together with an isomorphism <span class="math inline">\(\mathbb{C}
+\cong \overline{\mathbb{Q}_p}\)</span>. Let <span
+class="math inline">\(\mathbf{P}\)</span> be a <span
+class="math inline">\(\mathbf{G}\)</span>-torsor over <span
+class="math inline">\(\mathop{\mathrm{Spec}}\mathbb{Q}\)</span>, and let
+<span class="math inline">\(\mathbf{G} &#39; :=
+{\mathop{\mathrm{Aut}}}_{\mathbf{G}}(\mathbf{P})\)</span>.</p>
+<p>Note that in the setting of Example <a href="#example:cnpp15w7ik"
+data-reference-type="ref" data-reference="example:cnpp15w7ik">10</a>,
+the torsors in the unitary setting classify unitary spaces, and the
+<span class="math inline">\(\mathbf{P}\)</span> that we’re taking
+corresponds to <span class="math inline">\(W&#39;\)</span>. Fix an
+isomorphism <span class="math display">\[\mathbf{P} \otimes
+\mathbb{A}_f^p \cong \mathbf{G} \otimes \mathbb{A}_f^p.\]</span> This
+corresponds to fixing a <span class="math inline">\(W&#39;\)</span> and
+fixing this isomorphism, although we’re happy to fix it at the adeles
+away from <span class="math inline">\(p\)</span>.</p>
+<p>Let <span class="math inline">\(\mathbf{X} &#39;\)</span> be a
+Shimura datum for <span class="math inline">\(\mathbf{G}&#39;\)</span>.
+We’re assuming it exists. In the case of unitary Shimura varieties,
+there’s not much choice, because it’s pinned down by what happens at
+<span class="math inline">\(\infty\)</span>. But we can certainly write
+down an orthogonal group with some signature condition for which there
+are no Shimura data. We thus need to put some condition here. We can
+consider <span class="math display">\[\operatorname{Sh}(\mathbf{G},
+\mathbf{X})_{\mathbf{E}}, \qquad
+  \operatorname{Sh}(\mathbf{G} &#39;, \mathbf{X} )_{\mathbf{E}
+&#39;},\]</span> where maybe we’re secretly taking an inverse limit over
+levels away from <span class="math inline">\(p\)</span>.</p>
+<div class="conjecture">
+<p><strong>Conjecture 12</strong> (Scholze). <em>There are Igusa stacks
+<span class="math inline">\(\operatorname{IGS}(\mathbf{G}, \mathbf{X})
+\rightarrow \mathrm{Bun}_{G}\)</span> and <span
+class="math inline">\(\operatorname{IGS}(\mathbf{G} &#39;, \mathbf{X})
+\rightarrow \mathrm{Bun}_{G&#39;}\)</span>.</em></p>
+</div>
+<p>You might argue that there are two or three possible Igusa stacks,
+but that cannot be the case – these are actually unique if they exist
+(work in progress of Kim). So we can really work with these objects as
+if they’re unique. They also exist in the Hodge type case.</p>
+<p>In order to compare these two Igusa stacks, well, one lives over
+<span class="math inline">\(\mathrm{Bun}_G\)</span>, the other over
+<span class="math inline">\(\mathrm{Bun}_{G&#39;}\)</span>. Set <span
+class="math inline">\(G := \mathbf{G}_{\mathbb{Q}_p}\)</span> and <span
+class="math inline">\(G&#39; := \mathbf{G}
+&#39;_{\mathbb{Q}_p}\)</span>. Then <span class="math inline">\(P :=
+\mathbf{P}_{\mathbb{Q}_p}\)</span> is a <span
+class="math inline">\(G\)</span>-torsor over <span
+class="math inline">\(\mathbb{Q}_p\)</span>, and you can think of this
+as a basic element of the Kottwitz set, giving an element of <span
+class="math inline">\(\mathrm{Bun}_G(\mathbb{F}_p)_{\mathrm{basic}}\)</span>,
+and Fargues–Scholze will tell you that there is an isomorphism that
+somehow sends the class of <span class="math inline">\(P\)</span> to the
+class of <span class="math inline">\(1\)</span>: <span
+class="math display">\[\mathrm{Bun}_G \rightarrow \mathrm{Bun}_{G
+&#39;}\]</span> <span class="math display">\[\mapsto [1].\]</span> One
+Igusa stack lives over <span
+class="math inline">\(\mathrm{Bun}_G\)</span>, the other over <span
+class="math inline">\(\mathrm{Bun}_{G&#39;}\)</span>, so we can relate
+them. In fact, Igusa stacks live over <span
+class="math inline">\(\mathrm{Bun}_{G, \mu} \subset
+\mathrm{Bun}_G\)</span> and <span
+class="math inline">\(\mathrm{Bun}_{G&#39;, \mu &#39;} \subset
+\mathrm{Bun}_{G&#39;}\)</span>, so we let <span
+class="math inline">\(\mathrm{Bun}_{G, \mu, \mu &#39;}\)</span> and
+<span class="math inline">\(\mathrm{Bun}_{G&#39;, \mu, \mu
+&#39;}\)</span> be their intersections. We’ll then have our Igusa stacks
+<span class="math display">\[\operatorname{IGS}(\mathbf{G}, \mathbf{X})
+\mu &#39;
+  \rightarrow
+  \mathrm{Bun}_{G, \mu, \mu &#39;},\]</span> <span
+class="math display">\[\operatorname{IGS}(\mathbf{G}&#39;,
+\mathbf{X}&#39;) \mu
+  \rightarrow
+  \mathrm{Bun}_{G&#39;, \mu, \mu &#39;}.\]</span></p>
+<div id="conjecture:cnpp17dreg" class="conjecture">
+<p><strong>Conjecture 13</strong> (Sempliner + E). <em>There is a <span
+class="math inline">\(\mathbf{G}(\mathbb{A}_f^p)\)</span>-equivariant
+isomorphism <span class="math display">\[\begin{tikzcd}
+      &amp; \operatorname{IGS}(\mathbf{G}, \mathbf{X}) \mu &#39;
+\arrow[ld, &quot;t&quot;&#39;] \arrow[rd, &quot;s&quot;] \arrow[r]
+      &amp; \operatorname{IGS}(\mathbf{G} &#39;, \mathbf{X} &#39;){\mu}
+\arrow[d]
+      \\
+      \mathrm{Bun}_{G, \mu, \mu &#39;} &amp; &amp; \mathrm{Bun}_{G&#39;,
+\mu, \mu &#39;}
+    \end{tikzcd}\]</span></em></p>
+</div>
+<p>[speaker in the way of his conjecture]</p>
+<div class="remark">
+<p><strong>Remark 14</strong>. For <span class="math inline">\(b \in
+B(G, \mu, \mu &#39;)\)</span>, we get <span
+class="math inline">\(G(\mathbb{A}_f^p) \times
+\tilde{G_b}\)</span>-equivariant isomorphisms <span
+class="math display">\[\operatorname{IG}^b(\mathbf{G}, \mathbf{X})
+\times \operatorname{IG}^b(\mathbf{G} &#39;, \mathbf{X} &#39;),\]</span>
+geometrizing work of G?–T?.</p>
+</div>
+<div class="remark">
+<p><strong>Remark 15</strong>. There should be a version with <span
+class="math inline">\(\mathbb{P}\)</span> allowed to be a Kottwitz
+cocycle (Sempliner–Taylor).</p>
+</div>
+<div class="remark">
+<p><strong>Remark 16</strong>. Note that <span
+class="math inline">\(H^1({\mathop{\mathrm{Res}}}_{F / \mathbb{Q}}
+{\mathop{\mathrm{GL}}}_2) = 0\)</span>. From our point of view, this
+explains why you have to go to an auxiliary unitary Shimura variety in
+this work of Tian–Xiao.</p>
+</div>
+<div class="remark">
+<p><strong>Remark 17</strong>. If the Igusa stacks moreover satisfy the
+integral diagram <span class="math display">\[\begin{CD}         
+      S_{K_p}(\mathbf{G}, \mathbf{X})^{\mathrm{an}} @&gt;&gt;&gt;
+\operatorname{Sht}_{g, \mu}^{\mathrm{an}}\\
+      @VVV  @VVV \\
+      \operatorname{IGS}(\mathbf{G}, \mathbf{X}) @&gt;&gt;&gt;
+\mathrm{Bun}_G\\
+    \end{CD}\]</span> then this implies and generalizes a conjecture (or
+hypothesis) of Xiao–Zhu. There’s just a small diagram chase to relate
+this conjecture to theirs. Gives <span id="eq:cnpp17s7i9" class="math display">\[\label{eq:cnpp17s7i9}\tag{10}
+    \mathbf{P}_{\mathbb{Q}_p} \xrightarrow{\cong}
+\mathbf{G}_{\mathbb{Q}_p}.\]</span></p>
+</div>
+<div class="remark">
+<p><strong>Remark 18</strong>. Often, there aren’t so many of these
+<span class="math inline">\(\mathbb{P}\)</span>’s. The situation is most
+interesting for adjoint groups. Most adjoint groups will just have these
+cohomology classes lying around.</p>
+</div>
+<p>Let’s give one more example.</p>
+<div class="example">
+<p><strong>Example 19</strong> (New). Let <span
+class="math inline">\(F\)</span> be real quadratic. Let <span
+class="math inline">\(V\)</span> over <span
+class="math inline">\(F\)</span> be a quadratic space (something with a
+quadratic form). We want the signatures to be <span
+class="math inline">\((2, n - 2)\)</span> and <span
+class="math inline">\((2, n - 2)\)</span>, with <span
+class="math inline">\(n\)</span> <em>odd</em> (odd orthogonal groups are
+nicer than even orthogonal groups for many reasons). We take <span
+class="math inline">\(\mathbf{G} = R_{F / \mathbb{Q}}
+\mathop{\mathrm{SO}}(V)\)</span>, and <span
+class="math inline">\(p\)</span> split in <span
+class="math inline">\(F\)</span> such that <span
+class="math inline">\(\mathbf{G}_{\mathbb{Q}_p}\)</span> is split. We
+take <span class="math inline">\(\mathbf{G} &#39; = R_{F/ Q}
+\mathop{\mathrm{SO}}(V&#39;)\)</span>, where <span
+class="math inline">\(V \otimes \mathbb{A}_f^p \cong V&#39; \otimes
+\mathbb{A}_f^p\)</span>, and <span
+class="math inline">\(V_{\mathbb{R}}&#39;\)</span> has signature <span
+class="math inline">\((2, n - 2)\)</span>, <span
+class="math inline">\((0, n)\)</span> and <span
+class="math inline">\(V_{\mathfrak{p}_2}&#39;\)</span> is non-split,
+<span class="math inline">\(V_{\mathfrak{p}_1}&#39;\)</span> is
+split.</p>
+<p>There’s a similar story in type C, where you take symplectic groups,
+change them at one infinite place and one corresponding <span
+class="math inline">\(p\)</span>-adic place if <span
+class="math inline">\(p\)</span> is split.</p>
+</div>
+<p>We need two assumptions.</p>
+<div class="theorem">
+<p><strong>Theorem 20</strong> (vH–Sempliner). <em>Suppose <span
+class="math inline">\(\mathbf{G}_{\mathbb{Q}_p}\)</span> is split over
+an unramified extension (not necessarily quasi-split), <span
+class="math inline">\(p &gt; 2\)</span>, and some technical condition is
+satisfied, and <span class="math inline">\((\mathbf{G},
+\mathbf{X})\)</span> is of Hodge type, then Conjecture <a
+href="#conjecture:cnpp17dreg" data-reference-type="ref"
+data-reference="conjecture:cnpp17dreg">13</a> holds.</em></p>
+<p><em>This result is conditional on the conjecture of Xiao–Zhu
+concerning Hecke correspondences, although they have announced the proof
+as of last year. (For <span
+class="math inline">\(\mathbf{G}_{\mathbb{Q}_p}\)</span> quasi-split and
+<span class="math inline">\(\mathbf{P}_{\mathbb{Q}_p} \cong
+\mathbf{G}_{\mathbb{Q}_p}\)</span> trivial.)</em></p>
+</div>
+<p>Now, what we can do is go back to this comment that the conjecture is
+most interesting for adjoint groups. Given adjoint abelian type <span
+class="math inline">\(\mathbf{G}, \mathbf{X}, \mathbf{P}\)</span>, you
+can ask if there is a Hodge type <span
+class="math display">\[(\mathbf{G}_2, \mathbf{X}_2, \mathbf{P}_2)
+\rightarrow(\mathbf{G} , \mathbf{X} , \mathbf{P}).\]</span> It’s hard to
+answer this question in the negative, because then you need to classify
+Hodge type Shimura varieties or something. This is always true in type B
+and type C. It’s sometimes true in type <span
+class="math inline">\(\mathbb{D}^{\mathbb{R}}\)</span>, <span
+class="math inline">\(\mathbb{D}^{\mathbb{H}}\)</span>, and <span
+class="math inline">\(A\)</span>. (If your group is locally <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n\)</span> at <span
+class="math inline">\(p\)</span>, then we don’t know how to show that.)
+This is work in progress. In the function field case there are no
+conditions and you can write anything down, more-or-less.</p>
+<p>In my remaining time, I don’t want to say too much about the proof.
+If you really want to know it, there’s a YouTube video from Bonn last
+year. The point is to go in the Xiao–Zhu case (<span
+class="math inline">\(G_{\mathbb{Q}_p}\)</span> is quasi-split and the
+torsor is trivial) and look at what their theorem on exotic
+correspondences tell you, then with some effort, you realize that you
+can reverse the arrow in <a href="#eq:cnpp17s7i9"
+data-reference-type="eqref"
+data-reference="eq:cnpp17s7i9">\((10)\)</a>.</p>
+<p>Leads to a fixed point theorem for Igusa stacks.</p>
+<p>Let’s conclude by discussing <em>applications to cohomology</em>. We
+give the theorem first.</p>
+<div class="theorem">
+<p><strong>Theorem 21</strong> (vH–Sempliner). <em>If the conjecture
+holds for <span class="math inline">\((\mathbf{G}, \mathbf{X},
+\mathbf{P})\)</span>, then we can compare the cohomology of the two
+different Shimura varieties: for <span
+class="math inline">\(\phi\)</span> a supercuspidal Fargues–Scholze
+<span class="math inline">\(L\)</span>-parameter <span
+class="math display">\[W_{\mathbb{Q}_p} \rightarrow {}^L G = {}^L
+G&#39;\]</span> from the Weil group of <span
+class="math inline">\(\mathbb{Q}_p\)</span> to the dual group of <span
+class="math inline">\(G\)</span> (or equivalently, of <span
+class="math inline">\(G&#39;\)</span>), we can prove that <span
+class="math display">\[R
+\Gamma_{\acute{e}t}(\operatorname{Sh}(\mathbf{G}, \mathbf{X}),
+\overline{\mathbb{Q}_p})_{\phi}
+    \neq 0 \iff
+    R f_{\acute{e}t}(\operatorname{Sh}(\mathbf{G} &#39;, \mathbf{X}
+&#39;))_{\phi} \neq 0.\]</span> More precisely, if <span
+class="math inline">\(\phi\)</span> satisfies <span
+class="math display">\[{\mathop{\mathrm{Stab}}}_\phi =
+Z(\hat{G})^{\Gamma_p}\]</span> and if <span
+class="math inline">\(\mathbf{P}_{\mathbb{Q}_p}\)</span> is trivial,
+then what happens is that <span class="math display">\[R
+f_{\acute{e}t}(\operatorname{Sh}(\mathbf{G}, \mathbf{X}),
+\mathbb{Q}_{\ell})\]</span> is a direct summand over <span
+class="math inline">\(G(\mathbb{A}_f^p)\)</span> of <span
+class="math display">\[R
+\Gamma_{\acute{e}t}(\operatorname{Sh}(\mathbf{G}, \mathbf{X}),
+\overline{\mathbb{Q}_p})_{\phi},\]</span> or vice-versa. But this
+inclusion is not Galois-equivariant.</em></p>
+<p><em>If you like, you can put <span
+class="math inline">\(\overline{\mathbb{F}_{\ell}}\)</span>-coefficients
+there.</em></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> Glue together Igusa stacks to build <span
+class="math display">\[\tilde{\mathcal{F}}
+    \in D_{\acute{e}t}(\mathrm{Bun}_G)\]</span> such that <span
+class="math display">\[R \Gamma_{\acute{e}t}(\mathbf{G}) = i_1^\ast
+    \mathcal{V}_\mu  \tilde{\mathcal{F}}\]</span> and <span
+class="math display">\[i_1^\ast \mathcal{V}_{\mu &#39;}
+\tilde{\mathcal{F}} =
+    R \Gamma_{\acute{e}t}(\mathbf{G} &#39;)\]</span> and</p>
+<p><span class="math display">\[\begin{tikzcd}
+      {\mathop{\mathrm{Hom}}}_{X_{\hat{G}}}(V_\mu, V_{\mu&#39;})
+\arrow[dd, &quot;f&quot;] \arrow[rr] &amp; &amp; \mathop{\mathrm{Hom}}(R
+\Gamma_{\acute{e}t}(\mathbf{G}), R
+\Gamma_{\acute{e}t}(\mathbf{G}&#39;))_{\phi} \\
+      &amp; &amp; \\
+      {\mathop{\mathrm{Hom}}}_{X_{\hat{G}, \phi}}(V_{\mu}, V_{\mu &#39;})
+\arrow[uurr, &quot;g&quot;] &amp; &amp;
+    \end{tikzcd}\]</span> Something about <span
+class="math inline">\(X_{\hat{G}, \phi} = \ast /
+Z(\hat{G})^\Gamma\)</span>. ◻</p>
+</span></div>
+<h1
+id="jack-thorne-the-ramanujan-conjecture-for-bianchi-modular-forms">Jack
+Thorne, <em>The Ramanujan Conjecture for Bianchi Modular Forms</em></h1>
+<p>Let’s begin by saying a bit about the classical story. Let’s think
+first about the Ramanujan <span class="math inline">\(\Delta\)</span>
+function <span class="math display">\[\Delta(z) = q \prod_{n =
+1}^\infty(1 - q^n)^{2 4} \in
+S_{12}({\mathop{\mathrm{SL}}}_2(\mathbb{Z})).\]</span> Ramanujan (1916):
+if <span class="math inline">\(p\)</span> is prime, then <span
+class="math inline">\(\lvert \tau(p) \rvert \leq 2 p^{11/2}\)</span>. An
+equivalent formulation is that the Hecke polynomial <span
+class="math inline">\(X^2 - \tau(p) X + p^{11}\)</span>, when written as
+a product of linear factors <span class="math inline">\((X - \alpha_p)(
+X - \beta_p)\)</span>, has the property that the matrix <span
+class="math display">\[\gamma_p := p^{- 11/2}
+  \begin{pmatrix}
+    \alpha_p    &amp; 0 \\
+    0 &amp; \beta_p  \\
+  \end{pmatrix}\]</span> lies in <span
+class="math inline">\({\mathop{\mathrm{SU}}}_2(\mathbb{R})\)</span>.</p>
+<p>The Sato–Tate conjecture (maybe first observed in some cases by Serre
+in 1966) says that the elements <span class="math inline">\([\gamma_p]
+\in {\mathop{\mathrm{SU}}}_2(\mathbb{R}) / \mathrm{conjugacy}\)</span> are
+equidistributed with respect to the natural measure on the space of
+conjugacy classes, namely, the pushforward of the probability Haar
+measure.</p>
+<p>Deligne (1969) associates to <span
+class="math inline">\(\Delta\)</span> the compatible system <span
+class="math inline">\((\rho_{\Delta, \ell} : G_{\mathbb{Q}} \rightarrow
+{\mathop{\mathrm{GL}}}_2(\mathbb{Q}_{\ell}))_{\ell}\)</span>, occurring in
+the <span>é</span>tale cohomology <span
+class="math display">\[H^\ast_{\acute{e}t}(\mathrm{K S},
+\mathbb{Q}_{\ell}),\]</span> where <span class="math inline">\(\mathrm{K
+S}\)</span> stands for Kuga–Sato. Using this, he showed that the Weil
+conjectures imply the Ramanujan conjecture.</p>
+<p>A bit earlier, Serre observed that to prove Sato–Tate (assuming
+Ramanujan), it is enough to show that for each <span
+class="math inline">\(m \geq 1\)</span>, the symmetric power <span
+class="math inline">\(L\)</span>-functions <span
+class="math inline">\(L({\mathop{\mathrm{sym}}}^m \rho_{\Delta,_{\ell}},
+s)\)</span> have a meromorphic continuation to the complex numbers that
+is holomorphic and nonvanishing on the boundary of the region of
+absolute convergence, namely when <span class="math inline">\(\Re(s) = 1
++ \tfrac{11m}{2}\)</span>.</p>
+<p>The proof was completed by Barnet–Lamb, Geraghty, Harris and Taylor
+in 2011, following earier work of Clozel and Shepherd–Barron. They
+proved Sato–Tate for <span class="math inline">\(\Delta\)</span> by
+showing that for each <span class="math inline">\(m \geq 1\)</span>,
+<span class="math inline">\({\mathop{\mathrm{sym}}}^m
+\rho_{\Delta,_{\ell}}\)</span> is potentially automorphic, i.e., there
+exists an extension <span class="math inline">\(F_m |
+\mathbb{Q}\)</span> and cuspidal automorphic <span
+class="math inline">\(\Pi_m \circlearrowleft {\mathop{\mathrm{GL}}}_{m +
+1}(\mathbb{A}_{F_m})\)</span> with the property that the <span
+class="math inline">\(L\)</span>-function of the restricted
+representation is equal to the standard <span
+class="math inline">\(L\)</span>-function of that automorphic
+representation: <span class="math display">\[L({\mathop{\mathrm{sym}}}^m
+\rho_{\Delta,_{\ell}} | _{G_{F_m}}, s)
+  =
+  L(\Pi_m, s).\]</span> That was a very exciting result when it was
+proved. It also gave a “new” proof of the Ramanujan conjecture for <span
+class="math inline">\(\Delta\)</span>. Why is that? Well, there’s a
+standard argument that if you know the potential automorphy for
+infintiely many symmetric powers, then combining the trivial bound for
+the symmetric powers yields the Ramanujan bound for the form you start
+with. (When the speaker and Newton first did symmetric power
+functoriality over <span class="math inline">\(\mathbb{Q}\)</span> for
+<span class="math inline">\(\Delta\)</span>, people asked if it gave a
+new proof of Ramanujan, but the answer was probably no, because we used
+purity. But I think it should be possible to prove potential modularity
+without using purity, so it deserves to be called a “new” proof.)</p>
+<p>What’s the generalized Ramanujan conjecture (GRC) for <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span>? Fix a number
+field <span class="math inline">\(F\)</span>, and a cuspidal automorphic
+representation <span class="math inline">\(\pi \circlearrowleft
+{\mathop{\mathrm{GL}}}_2(\mathbb{A}_F)\)</span>. Just for normalization,
+let’s suppose that the central character <span
+class="math inline">\(\omega_\pi\)</span> is unitary. Then the
+generalized Ramanujan conjecture is the statement that for each place
+<span class="math inline">\(v\)</span> of your number field, the
+representation <span class="math inline">\(\pi_v\)</span> is tempered.
+Put another way, this says that if you apply the local Langlands
+correspondence to get a parameter and take the image, giving <span
+class="math display">\[\operatorname{rec}_{F_v}(\lambda_v)(L_{F_v}),\]</span>
+you get a relatively compact subset (i.e., of compact closure). This
+corresponds in the unramified case to the eigenvalues or Satake
+parameters being of absolute value one.</p>
+<p>What is the generalized Sato–Tate conjecture (GST)? The assertion is
+that there is some compact subgroup <span class="math inline">\(M_\pi
+\leq {\mathop{\mathrm{GL}}}_2(\mathbb{C})\)</span> such that for each
+finite unramified place <span class="math inline">\(v \nmid N(\pi)
+\infty\)</span>, the element <span
+class="math display">\[\operatorname{rec}_{F_v} \left( \pi_v
+\right)({\mathop{\mathrm{Frob}}}_v) =: \gamma_v\]</span> conjugate to an
+element of <span class="math inline">\(M_\pi\)</span>, and the conjugacy
+classes <span class="math inline">\([\gamma_v] \in M_\pi /
+\mathrm{conjugacy}\)</span> is equidistributed as <span
+class="math inline">\(v\)</span> varies. What’s known? We know GRC when
+<span class="math inline">\(\pi\)</span> is CM (“automorphic
+induction”), where it is easy. Another case is when <span
+class="math inline">\(F\)</span> is a totally real number field and
+<span class="math inline">\(\pi\)</span>, our automorphic
+representation, is associated to Hilbert modular forms of regular
+weight. That means of weights <span class="math inline">\((k_v)_{v \mid
+\infty}\)</span>, <span class="math inline">\(v\)</span> ranging over
+the set of infinite places of our totally real field, with <span
+class="math inline">\(k_v \geq 2\)</span>. The methods used to prove
+this are similar to what were used with <span
+class="math inline">\(\Delta\)</span>.</p>
+<p>Beyond that setting, I don’t think there are other examples, besides
+those we’re about to talk about, where we know the Ramanujan conjecture.
+In general, we have only partial information coming from known cases of
+symmetric power lifting applied to small rank general linear groups. To
+give an example of the kinds of things you can say, there’s a rather
+charming theorem of Dinakar Ramakrishnan (1997) which says that over any
+number field, for any cusp form <span class="math inline">\(\pi\)</span>
+over <span class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span>, the
+Ramanujan conjecture is true for <span class="math inline">\(\pi
+_v\)</span> for at least <span class="math inline">\(90\%\)</span> of
+the places <span class="math inline">\(v\)</span> of your number field.
+That is to say, the set of such places <span
+class="math inline">\(v\)</span> has lower Dirichlet density at least
+<span class="math inline">\(9/10\)</span>.</p>
+<p>Now let’s talk about some cases where we can actually say more.</p>
+<p>Suppose <span class="math inline">\(F\)</span> is CM and <span
+class="math inline">\(\pi\)</span> is of weight <span
+class="math inline">\(2\)</span>, and in particular, regular algebraic.
+This means that <span class="math display">\[(\pi^\infty)^K
+\hookrightarrow H^\ast_{\mathop{\mathrm{cusp}}} \left( \Gamma \backslash
+\mathbb{H}_3^{[F^+ : \mathbb{Q}]}, \mathbb{C} \right).\]</span> Then GRC
+and GST are known for <span class="math inline">\(\pi\)</span>. How did
+we prove this? Well, we in fact showed that for each <span
+class="math inline">\(m \geq 1\)</span>, the representation <span
+class="math display">\[{\mathop{\mathrm{sym}}}^m \rho_{\pi, \ell} : G_F
+\rightarrow {\mathop{\mathrm{GL}}}_{m + 1}(\mathbb{Q}_{\ell})\]</span> is
+potentially automorphic. There’s one surprising feature of this that’s
+worth drawing your attention to. In the setting of the <span
+class="math inline">\(\Delta\)</span> function or more generally a
+Hilbert modular form, one knows how to realize the Galois representation
+in almost all cases inside the cohomology of Shimura variety. That’s how
+one can prove purity first. But for these ones over CM fields, we only
+know how to construct them using congruences. So we don’t know purity
+any way other than by using the potential automorphy of the associated
+symmetric power representations.</p>
+<p>The work we want to talk about today is a generalization of this that
+removes the “weight <span class="math inline">\(2\)</span>”
+condition.</p>
+<div class="theorem">
+<p><strong>Theorem 22</strong> (Boxer–Calegari–Gee–Newton–Thorne, <a href="#ref-2023arXiv2309.15880"
+class="citation" data-cites="2023arXiv2309.15880">(Boxer et al.
+2023)</a>). <em>Suppose <span class="math inline">\(F\)</span> is a
+CM field, and <span class="math inline">\(\pi\)</span> has parallel
+weight. Then GRC and GST hold for <span
+class="math inline">\(\pi\)</span>.</em></p>
+</div>
+<p>Our assumption says that <span class="math display">\[(\pi^\infty )^K
+\hookrightarrow H^\ast_{\mathop{\mathrm{cusp}}} \left( \bigoplus_{\tau :
+F \hookrightarrow \mathbb{C}}
+    {\mathop{\mathrm{sym}}}^{k - 2} \mathbb{C}^2\right),\]</span> or <span
+class="math display">\[\operatorname{H T}_\tau\left(\rho_{\pi,
+\ell}\right) = \{0, k - 1\}.\]</span></p>
+<div class="remark">
+<p><strong>Remark 23</strong>. </p>
+<ol>
+<li><p><span id="enumerate:cnpp2drvjk"
+label="enumerate:cnpp2drvjk"></span> This parallel weight condition is
+vacuous if <span class="math inline">\([F: \mathbb{Q}] = 2\)</span>, the
+reason being that there’s this so-called purity lemma of Clozel that
+says that the weights of any regular algebraic form on <span
+class="math inline">\({\mathop{\mathrm{GL}}}_n\)</span> over any totally
+complex field are invariant under complex conjugation. That’s why we
+called the lecture “the Ramanujan conjecture for Bianchi modular forms”,
+and there we have no restrictions.</p></li>
+<li><p><span id="enumerate:cnpp2dtmbo"
+label="enumerate:cnpp2dtmbo"></span> What’s far from obvious is that the
+theorem is in fact non-empty, in the sense that you can find interesting
+examples of automorphic representations of this type of parallel weight.
+Over a totally real field, we have dimension formulas that make such
+existence obvious. But we can find an example. The simplest one might be
+that there exists such a <span class="math inline">\(\pi\)</span> over
+<span class="math inline">\(\mathbb{Q}(\sqrt{- 2})\)</span> that has
+level <span class="math inline">\(\Gamma_0(5 + 7 \sqrt{- 2})\)</span>
+and parallel weight .</p></li>
+<li><p>Matsumoto <a href="#ref-2023arXiv2312.01551" class="citation"
+data-cites="2023arXiv2312.01551">(Matsumoto 2023)</a> has proved the
+same theorem, with no restriction on the weight.</p></li>
+</ol>
+</div>
+<p>Let’s now talk about the proof strategy. Let <span
+class="math inline">\(F\)</span> be a CM field, <span
+class="math inline">\(\pi\)</span> on <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2(\mathbb{A}_F)\)</span> of
+parallel weight, non-CM. Fix <span class="math inline">\(m \geq
+1\)</span>, and consider <span class="math inline">\(R_{\ell} =
+{\mathop{\mathrm{Sym}}}^m \rho_{\pi, \ell} : G_F \rightarrow
+{\mathop{\mathrm{GL}}}_{m + 1}(\mathbb{Q}_{\ell})\)</span>. Approach to
+proving potential automorphy of <span
+class="math inline">\(R_{\ell}\)</span>:</p>
+<ol>
+<li><p>Write down a compatible system <span class="math inline">\(\left(
+S_{\ell} : G_{F(t)} \rightarrow
+{\mathop{\mathrm{GL}}}_{n}(\mathbb{Q}_{\ell}) \right)\)</span>, where
+<span class="math inline">\(n := m + 1\)</span>.</p></li>
+<li><p>Choose a prime <span class="math inline">\(p \neq
+q\)</span></p></li>
+<li><p>Find a Galois extension <span class="math inline">\(F &#39; /
+F\)</span>, <span class="math inline">\(t_0 \in F&#39;\)</span> such
+that we have the first congruence <span
+class="math display">\[\left(     t_0^\ast \overline{S_p} : G_{F &#39;}
+\rightarrow {\mathop{\mathrm{GL}}}_n(F_{\ell}) \right)
+    \cong \overline{R}_p |_{ G_{F &#39;}}\]</span> and such that <span
+class="math inline">\(t_0^\ast \overline{S}_q\)</span> is residually
+automorphic.</p></li>
+<li><p>Apply automorphy lifting theorem (ALTs) twice to see first that
+<span class="math inline">\(t_0^\ast S_q\)</span> is automorphic, then
+that the <span class="math inline">\(p\)</span>-adic member <span
+class="math inline">\(t_0^\ast S_p\)</span> is automorphic. We then
+apply the automorphy lifting theorem to deduce that <span
+class="math inline">\(R_p |_{G_F &#39;}\)</span> is
+automorphic.</p></li>
+</ol>
+<p>This argument has been applied in many examples. Whether you can make
+it work or not in a given case is clearly very dependent on the strength
+of the ALTs in your arsenal. Let us thus first review a bit about what
+we know about ALTs in this setting.</p>
+<p>The setting is that <span class="math inline">\(F\)</span> is a CM
+field, and we’re thinking of <span
+class="math inline">\(n\)</span>-dimensional Galois representations
+<span class="math display">\[\rho_1, \rho_2 : G_F \rightarrow
+{\mathop{\mathrm{GL}}}_n(\mathbb{Q}_{\ell})\]</span> which have isomorphic
+residual representations <span class="math inline">\(\overline{\rho_1}
+\cong \overline{\rho_2}\)</span> that we might assume to be irreducible.
+We assume moreover that both are de Rham and Hodge–Tate regular, and
+that <span class="math inline">\(\rho_2\)</span> is automorphic. We then
+want to know, what additional conditions do we need to put to ensure
+that <span class="math inline">\(\rho_1\)</span> is automorphic? The
+most important condition that we’re <em>not</em> adding here is
+conjugate self-duality. We would otherwise be in what’s called the
+defect zero setting, which is for example the one used to understand the
+symmetric powers of <span class="math inline">\(\Delta\)</span>. That
+theory is now very mature and general and powerful, and could give a
+result in this case with almost no additional hypotheses. But we’re
+interested in the <em>positive</em> defect setting, which is the one
+relevant for this theorem, and the technology is nowhere near as
+advanced.</p>
+<p>So that’s the setup.</p>
+<p>(A) The first result we want to mention is what’s sometimes called
+the “natural output of the Taylor–Wiles–Kisin method” (not sure it’s in
+the literature in this form, but you can deduce it using the standard
+kinds of argument from the recent work of Caraiani–Newton, who in
+particular proved particular cases of local-global compatibility at
+primes <span class="math inline">\(\ell = p\)</span>). In this setting,
+we can deduce the automorphy of <span class="math inline">\(\rho
+_1\)</span> assuming the further condition that for every finite place
+<span class="math inline">\(v \nmid \infty\)</span>, we have the
+relation denoted <span class="math display">\[\rho_2 |_{G_{F_v}}
+\rightsquigarrow \rho_1 |_{G_{F_v}}\]</span> introduced by BLGGT in
+2014, whose meaning depends upon whether we’re talking about an <span
+class="math inline">\(\ell\)</span>-adic place or not.</p>
+<ul>
+<li><p>If it’s non-<span class="math inline">\(\ell\)</span>-adic, then
+it says that the two restrictions define points in the <em>same</em>
+irreducible component of <span class="math inline">\(R_v^D\)</span>,
+plus the additional condition that this be the unique component
+containing the representation associated to <span
+class="math inline">\(\rho_2\)</span>.</p></li>
+<li><p>If we’re talking about an <span
+class="math inline">\(\ell\)</span>-adic place, then the condition is
+slightly more complicated, but what we want to say is something like
+that both of these representations are crystalline and have the same
+Hodge–Tate weights, which means that they both define points of the same
+Kisin ring, and we then ask that these two representations again define
+points on the same irreducible component of that crystalline fixed
+weight lifting ring <span class="math inline">\(R_v^{\mathrm{cr},
+\lambda}\)</span> of the residual representation.</p></li>
+</ul>
+<p>(B) That’s one thing we know how to do. Here’s another. This is a
+theorem that’s proved in the 10-author paper. Suppose either that
+either</p>
+<ul>
+<li><p>for every <span class="math inline">\(v \mid \ell\)</span>, both
+<span class="math inline">\(\rho_1 |_{G_{F_v}}\)</span> and <span
+class="math inline">\(\rho_2 |_{G_{F_v}}\)</span> are
+Fontaine–Laffaille, or</p></li>
+<li><p>for all <span class="math inline">\(v \mid \ell\)</span>, both
+restrictions are ordinary.</p></li>
+</ul>
+<p>Then <span class="math inline">\(\rho_1\)</span> is automorphic. This
+is what happens when you implement the so-called “Ihara-avoidance” trick
+of Taylor. Somehow you put yourself in a situation where, above each
+irreducible component in the special fiber of the lifting that you have
+to worry about, there is exactly one irreducible component of the
+lifting ring itself.</p>
+<p>BLGGT start with something like these (A) and (B), and input some
+additional tools in the conjugate self-dual setting. These include
+Khare–Wintenberger, which gives a very strong local-global principle
+allowing you to produce auxiliary representations that you want. But
+can’t apply this in general, because the lifts you won’t simply don’t
+exist. You’d also like to be able to use the so-called “Harris tensor
+product trick”, which in some sense <em>is</em> available here, but is
+less effective for reasons we’ll come to in a bit.</p>
+<p>(C) We’re now ready to mention the first new tool that we introduce
+in our paper. This is a new automorphy lifting theorem. Suppose that for
+each <span class="math inline">\(v \mid \ell\)</span>, the two
+representations <span class="math inline">\(\rho_1 |_{G_{F_v}}\)</span>
+and <span class="math inline">\(\rho_2 |_{G_{F_v}}\)</span> are
+crystalline, of Hodge–Tate weights the minimum possible, namely <span
+class="math inline">\(\{0, 1, \dotsc, n - 1\}\)</span>. Let’s suppose
+also that we have this relation <span class="math inline">\(\rho_2
+|_{G_{F_v}} \rightsquigarrow \rho_1 |_{G_{F_v}}\)</span>. This <span
+class="math inline">\(\rho_1\)</span> is automorphic. This is a bit of a
+hybrid between (A) and (B), because you have no conditions to verify at
+places away from <span class="math inline">\(\ell\)</span>, but there
+<em>are</em> conditions to verify at the <span
+class="math inline">\(\ell\)</span>-adic places. We can prove this by
+using Ihara-avoidance <em>provided</em> that these local lifting rings
+that are going to appear, namely <span
+class="math inline">\(R_v^{\mathrm{cr}, \{0, \dotsc, n - 1\}}\)</span>
+have this unique lifting property, namely, that each minimal prime of
+<span class="math inline">\(R_v^{\mathrm{cr}, \{0, \dotsc, n - 1\}} /
+(\ell)\)</span> is the specialization of a unique minimal prime <span
+class="math inline">\(R_v^{\mathrm{cr}, \{0, \dotsc, n - 1\}}\)</span>.
+(So that’s a special proprety that would be true if it were smooth, but
+is true more generally.) This follows if <span
+class="math inline">\(R_v^{\mathrm{cr}, \{0, \dotsc, n - 1\}} /
+(\ell)\)</span> is generically reduced. We prove this provided that the
+prime is bigger than the dimension, i.e., <span
+class="math inline">\(\ell &gt; n\)</span>. This is a completely
+separate result. How do we prove it? Well, we prove it using the
+Emerton–Gee stack, which makes studying this kind of question much
+easier. Let’s just describe the structure in words. This special fiber
+of the lifting ring, we realize it as a versal ring and can reduce this
+statement to proving that the associated substack of the EG stack is
+generically reduced, but then because that’s an algebraic stack you have
+much more room to wiggle around, and then you can reduce that question
+to finding one point on each irreducible component that’s formally
+smooth, and that’s something you can do by explicit computation.</p>
+<p>Let’s now come back to the general situation of <span
+class="math inline">\(R_{\ell} = {\mathop{\mathrm{sym}}}^m \rho_{\pi,
+\ell}\)</span>, which we are assuming has Hodge–Tate weights <span
+class="math inline">\(\operatorname{H T}(\rho_{\pi, \ell}) = \{0, k -
+1\}\)</span>. That means that <span id="eq:cnpp2hsxjl" class="math display">\[\label{eq:cnpp2hsxjl}\tag{11}
+  \operatorname{H T}(R_{\ell}) = \left\{ 0, k - 1, 2(k - 1), \dotsc, m(k
+- 1) \right\}.\]</span> Then any (interesting) parameter <span
+class="math inline">\(S_{\ell} : G_{F(t)} \rightarrow
+{\mathop{\mathrm{GL}}}_n(\mathbb{Q}_{\ell})\)</span> that you’ll produce
+is coming from geometry, and the Hodge–Tate weights will be consecutive,
+and that’s because of the conditions imposed by Griffiths
+transversality. That means that if we want to apply this automorphy
+lifting theorem, we can’t, because the Hodge–Tate weights in <a
+href="#eq:cnpp2hsxjl" data-reference-type="eqref"
+data-reference="eq:cnpp2hsxjl">\((11)\)</a> are not consecutive.
+So instead, we’re going to do something different: we show the potential
+automorphy of another representation, namely, of <span
+class="math display">\[R_{\ell} \otimes T_{\ell} : G_F \rightarrow
+{\mathop{\mathrm{GL}}}_{(k - 1)(m + 1)}(\mathbb{Q}_{\ell}),\]</span></p>
+<p>where <span class="math inline">\(T_{\ell} : G_F \rightarrow
+{\mathop{\mathrm{GL}}}_{k - 1}(\mathbb{Q}_{\ell})\)</span> is some
+auxiliary thing, with <span class="math inline">\(\operatorname{H
+T}(T_{\ell}) = \{0, \dotsc, k - 2\}\)</span> (consecutive, so we stand a
+chance of proving that it’s potentially automorphic)</p>
+<div class="remark">
+<p><strong>Remark 24</strong>. There’s a separate problem of relating
+this to what we started with, which amounts to removing the <span
+class="math inline">\(T_{\ell}\)</span> somehow, but we don’t want to
+talk about this.</p>
+</div>
+<p>Where does <span class="math inline">\(S_{\ell}\)</span> come from?
+We’ll find it inside the cohomology of the Dwork family, which is the
+family of algebraic varieties depending upon the parameter <span
+class="math inline">\(t\)</span> and given by the equation <span
+class="math display">\[Y_t : x_1^N + \dotsb + x_N^N = t N x_1 \dotsb
+x_N,\]</span> which is a family of hypersurfaces inside the projective
+space <span class="math inline">\(\mathbb{P}_{F(t)}^{N - 1}\)</span>.
+What’s going on here is there’s an action of a certain group <span
+class="math inline">\(H = \ker \left( \Pi : \mu_N^N \rightarrow \mu_N
+\right)\)</span>, acting on projective space by multiplication on
+coordinates and acting on <span class="math inline">\(Y_t\)</span>,
+hence on the cohomology <span
+class="math inline">\(H^\ast_{\acute{e}t}(Y_{t, \overline{F(t)},
+\mathbb{Q}_{\ell}})\)</span>, and <span
+class="math inline">\(S_{\ell}\)</span> is a certain eigenspace. We want
+to mention the work of Qian, a student of Taylor, who is the first
+person to look at pieces of the Dwork family that are not conjugate
+self-dual. We’re using the construction in his paper.</p>
+<p>The main problem now is that to apply this new automorphy lifting
+theorem (C), we need to find all the data <span
+class="math inline">\(p\)</span>, <span
+class="math inline">\(T_p\)</span>, <span class="math inline">\(F&#39; |
+F\)</span> and <span class="math inline">\(t_0 \in F&#39;\)</span> such
+that for every place <span class="math inline">\(v&#39; \mid p\)</span>
+in <span class="math inline">\(F&#39;\)</span>, all the representations
+<span class="math inline">\(R_p \otimes T_p |_{G_{F&#39;_{v
+&#39;}}}\)</span> and <span class="math inline">\(t_0^\ast
+S_p  |_{G_{F_v &#39;}}\)</span> lie on a common irreducible component of
+the local lifting ring <span class="math inline">\(R^{\mathrm{cr}}_{v
+&#39;}\)</span>. That’s exactly this next relation that we need to
+verify to prove the theorem. That’s <em>a priori</em> quite tricky,
+because this ring, when the base field is highly ramified, we don’t know
+anything about the components. Related work of Kisin. We need to be able
+to control things coming from the cohomology of the Dwork family. In
+practice, there are two things you might look for. Either</p>
+<ul>
+<li><p>want everything to be ordinary (and crystalline), or</p></li>
+<li><p>everything “of niveau <span
+class="math inline">\(2\)</span>”.</p></li>
+</ul>
+<p>Surprisingly, the hard thing is finding enough specializations of the
+cohomology of the Dwork family that are both crystalline and ordinary.
+That’s the other main technical thing which we show how to do.</p>
+<p>So the second main ingredient in our paper is finding enough
+crystalline ordinary representations of <span
+class="math inline">\(S_p\)</span>, i.e., in the Dwork family. Let’s
+conclude by saying a few words about how we do that. These
+representations are constructed inside the cohomology of an algebraic
+variety, so this is really a question about the action of Frobenius.
+That is, we need to find <span
+class="math inline">\(\overline{t_0}\)</span> in the algebraic closure
+of the residue field <span
+class="math inline">\(\overline{k(v)}\)</span> such that if we look at
+the crystalline cohomology of the fiber of the Dwork family, <span
+class="math display">\[H^\ast_{\mathrm{cr}} \left( Y_{\overline{t_0}}
+\right)^{\chi}\]</span> has to be ordinary. How do we do that? Well,
+there’s this very nice recent theorem of Drinfeld–Kedlaya which is very
+general – it’s about families of isocrystals – that says in particular
+that there exists a Zariski open, nonempty subset of the affine line
+over the residue field <span class="math display">\[U \subset
+\mathbb{A}^1_{k(v)}\]</span> such that the Newton polygon is, first of
+all, constant for <span class="math inline">\(\overline{t_0} \in
+\overline{k(v)}\)</span>, and moreover, if we write <span
+class="math inline">\(s_1 \geq \dotsb \geq s_n\)</span> for the slopes
+of this generic Newton polygon (these are what you need to control if
+you’re showing that there’s a point where the polygon is ordinary), then
+they can’t increase too quickly: <span class="math display">\[s_i \leq
+s_{i + 1} + 1\]</span> for all <span class="math inline">\(i = 1,
+\dotsc, n - 1\)</span>. You can think of this as an analogue of
+Griffiths transversality but for the slopes of the generic Newton
+polygon. This means that to show that you have an ordinary point, it’s
+enough to show that the lowest slope vanishes: <span
+class="math inline">\(s_n = 0\)</span>. Equivalently, if you look at the
+trace of Frobenius, you have to show that that’s not zero mod <span
+class="math inline">\(p\)</span>. We do that by an explicit
+computation.</p>
 <div id="refs" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" role="list">
+<div id="ref-2023arXiv2309.15880" class="csl-entry" role="listitem">
+Boxer, George, Frank Calegari, Toby Gee, James Newton, and Jack A.
+Thorne. 2023. <span>“The Ramanujan and Sato-Tate Conjectures for Bianchi
+Modular Forms,”</span> September. <a
+href="http://arxiv.org/abs/2309.15880v1">http://arxiv.org/abs/2309.15880v1</a>.
+</div>
+<div id="ref-2022arXiv2207.04671" class="csl-entry" role="listitem">
+Dotto, Andrea, Matthew Emerton, and Toby Gee. 2022. <span>“Localization
+of Smooth <span class="math inline">\(p\)</span>-Power Torsion
+Representations of <span
+class="math inline">\(GL_2(Q_p)\)</span>,”</span> July. <a
+href="http://arxiv.org/abs/2207.04671v3">http://arxiv.org/abs/2207.04671v3</a>.
+</div>
+<div id="ref-2023arXiv2312.01551" class="csl-entry" role="listitem">
+Matsumoto, Kojiro. 2023. <span>“On the Potential Automorphy and the
+Local-Global Compatibility for the Monodromy Operators at <span
+class="math inline">\(p \neq l\)</span> over CM Fields,”</span>
+December. <a
+href="http://arxiv.org/abs/2312.01551v2">http://arxiv.org/abs/2312.01551v2</a>.
+</div>
 <div id="ref-MichelVenkateshICM" class="csl-entry" role="listitem">
 Michel, Philippe, and Akshay Venkatesh. 2006. <span>“Equidistribution,
 <span><span class="math inline">\(L\)</span></span>-Functions and
