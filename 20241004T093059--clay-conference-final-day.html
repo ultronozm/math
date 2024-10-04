@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>20241004T093059--clay-conference-final-day</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+    <div class="my-links-container">
+2024-10-04 14:19:08
+      <a href="20241004T093059--clay-conference-final-day.tex" class="my-link">tex</a>
+      <a href="20241004T093059--clay-conference-final-day.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20241004T093059--clay-conference-final-day.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a
+href="#matthew-emerton-aspects-of-p-adic-categorical-local-langlands-for-mathopmathrmgl_2mathbbq_p"
+id="toc-matthew-emerton-aspects-of-p-adic-categorical-local-langlands-for-mathopmathrmgl_2mathbbq_p">Matthew
+Emerton, <em>Aspects of <span class="math inline">\(p\)</span>-adic
+categorical local Langlands for <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2(\mathbb{Q}_p)\)</span></em></a></li>
+<li><a
+href="#andrew-wiles-university-of-oxford-non-abelian-descent-and-modularity"
+id="toc-andrew-wiles-university-of-oxford-non-abelian-descent-and-modularity">Andrew
+Wiles (University of Oxford), <em>Non-abelian descent and
+modularity</em></a></li>
+<li><a
+href="#pol-van-hoften-vu-amsterdam-igusa-stacks-and-exotic-hecke-correspondences"
+id="toc-pol-van-hoften-vu-amsterdam-igusa-stacks-and-exotic-hecke-correspondences">Pol
+van Hoften (VU Amsterdam), <em>Igusa stacks and exotic Hecke
+correspondences</em></a></li>
+</ul>
+</nav>
+<h1
+id="matthew-emerton-aspects-of-p-adic-categorical-local-langlands-for-mathopmathrmgl_2mathbbq_p">Matthew
+Emerton, <em>Aspects of <span class="math inline">\(p\)</span>-adic
+categorical local Langlands for <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2(\mathbb{Q}_p)\)</span></em></h1>
+<p>Fix <span class="math inline">\(p \geq 5\)</span> and <span
+class="math inline">\(G :=
+{\mathop{\mathrm{GL}}}_2(\mathbb{Q}_p)\)</span>. Let <span
+class="math inline">\(E / \mathbb{Q}_p\)</span> be a finite extension,
+with ring of integers <span class="math inline">\(\mathcal{O}\)</span>
+and residue field <span class="math inline">\(\mathbb{F}\)</span>. Let
+<span class="math inline">\(\zeta : G_{\mathbb{Q}_p} \rightarrow
+\mathcal{O}^\times\)</span> be trivial (or <span
+class="math inline">\(\varepsilon\)</span>, the cyclotomic character, if
+you want). It will play the role of a central character.</p>
+<p>Let <span class="math inline">\(\mathcal{A}\)</span> denote the
+category of smooth representations of <span
+class="math inline">\(G\)</span>, with central character <span
+class="math inline">\(\zeta\)</span>, on locally torsion <span
+class="math inline">\(\mathcal{O}\)</span>-modules, i.e., any element of
+the module is killed by some <span
+class="math inline">\(p^n\)</span>.</p>
+<p>We denote by <span class="math inline">\(\mathfrak{X}\)</span> the
+“<span class="math inline">\(E G\)</span> stack” parametrizing families
+of projective rank <span class="math inline">\(2\)</span>
+<span>é</span>tale <span class="math inline">\((\varphi,
+\Gamma)\)</span>-modules over Fontaine’s ring <span
+class="math display">\[\mathbf{A}_{\mathbb{Q}_p} =
+\widehat{\mathbb{Z}_p((\tau))},\]</span> where <span
+class="math inline">\(\varphi(1 + \tau) =(1 + \tau)^p\)</span> and <span
+class="math inline">\(\gamma_a(1 + \tau) =(1 + \tau)^a\)</span>. Here
+“family” means family over a <span
+class="math inline">\(p\)</span>-adically complete <span
+class="math inline">\(\mathcal{O}\)</span>-algebra. To match the central
+character condition, we’ll have a determinant condition. The determinant
+of our rank two <span class="math inline">\((\varphi,
+\Gamma)\)</span>-modules will be a rank one <span
+class="math inline">\((\varphi, \Gamma)\)</span>-module, and we want
+this determine to be to be <span class="math inline">\(\zeta
+\varepsilon^{-1}\)</span>. Those are the objects in play.</p>
+<div class="theorem">
+<p><strong>Theorem 1</strong> (Dotto–Emerton–Gee). <em>There exists a
+fully faithful functor <span class="math display">\[\mathfrak{a} : D_{f
+.g.}^{\mathrm{b}}(\mathcal{A}) \hookrightarrow
+D_{\mathrm{coh}}^{\mathrm{b}}(\mathfrak{X}).\]</span></em></p>
+</div>
+<div class="remark">
+<p><strong>Remark 2</strong>. It might be that what we’ve written
+doesn’t characterize the functor. We don’t claim that there is a unique
+functor. It is going to satisfy certain properties. We don’t know that
+they characterize it, but it is in some sense reasonable. Maybe at first
+it’s a bit hard to see what we mean at all, but a very rough idea is
+that an object in <span class="math inline">\(\mathcal{A}\)</span>,
+which is a smooth representation, well, one could at least think of a
+smooth representation that is not irreducible (or at least admissible)
+as some family, or integral, of representations that are irreducible (or
+admissible). There is a classical mod <span
+class="math inline">\(p\)</span> Langlands that relates irreducible mod
+<span class="math inline">\(p\)</span> representations (the building
+blocks in <span class="math inline">\(\mathcal{A}\)</span>) to
+semisimple mod <span class="math inline">\(p\)</span> <span
+class="math inline">\(2\)</span>-dimensional Galois representations of
+<span class="math inline">\(G_{\mathbb{Q}_p}\)</span>, which are somehow
+closed points in <span class="math inline">\(\mathfrak{X}\)</span>. So
+the building block of the functor will be that the building blocks in
+<span class="math inline">\(\mathcal{A}\)</span> go to some sort of
+skyscrapers in <span class="math inline">\(\mathfrak{X}\)</span>, and a
+typical element of <span class="math inline">\(\mathcal{A}\)</span> will
+be some direct integral of building blocks, while a typical element of
+<span class="math inline">\(\mathfrak{X}\)</span> will be a direct
+integral of its fibers. That’s how you’re supposed to imagine this
+functor going.</p>
+</div>
+<p>When you have a derived category and put a subscript at the bottom
+(indicating cohomologies in a subcategory), this condition should be a
+reasonably behaved one for this notion to give you a reasonable
+subcategory. One would want to know that “finitely generated” is a
+reasonable condition to put on <span
+class="math inline">\(\mathcal{A}\)</span>-modules. There’s kind of a
+fact which is that in <span class="math inline">\(\mathcal{A}\)</span>,
+“finitely generated” is equivalent to “finitely presented”. So <span
+class="math inline">\(\mathcal{A}\)</span> has a kind of “Noetherian”
+nature. We want to say a bit more about this, partly to introduce more
+notation and concepts, but also, it’s clear what it means for a
+representation to be finitely generated, but less so for finitely
+presented in this setting, since <span
+class="math inline">\(\mathcal{A}\)</span> is not a category of modules
+over a ring. So let’s say a bit more about what “finitely presented”
+means here. The building blocks of the finitely generated modules are
+the <em>free</em> finite rank modules. The corresponding building blocks
+in <span class="math inline">\(\mathcal{A}\)</span></p>
+<p>If you have a finitely generated element of <span
+class="math inline">\(\mathcal{A}\)</span>, so it’s some <span
+class="math inline">\(G\)</span>-representation with a finite number of
+generators, then what you can do is you can act using <span
+class="math inline">\(K = {\mathop{\mathrm{GL}}}_2(\mathbb{Z}_p)\)</span>
+and the center <span class="math inline">\(Z \leq G\)</span> (which just
+acts by the scalar <span class="math inline">\(\zeta\)</span>) and act
+on your finitely many generators with <span class="math inline">\(K
+Z\)</span>. This will give you a finitely-generated <span
+class="math inline">\(K Z\)</span> module, but since the representation
+is smooth, you’ll actually get a finite <span
+class="math inline">\(\mathcal{O}\)</span>-module. A typical finitely
+generated <span class="math inline">\(G\)</span> module will be
+generated over <span class="math inline">\(G\)</span> by some finite
+<span class="math inline">\(\mathcal{O}\)</span>-module <span
+class="math inline">\(V\)</span>, which is a representation of <span
+class="math inline">\(K Z\)</span>. So what you can do is, your
+representation that you’re thinking about will be a quotient of a
+compact induction <span id="eq:cnpp1dqjrk" class="math display">\[\label{eq:cnpp1dqjrk}\tag{1}
+  {\mathop{\mathrm{ind}}}_{K Z}^{G} V \twoheadrightarrow \pi.\]</span>
+Thus such compact inductions are the building blocks of the finitely
+generated representations. Now <span class="math inline">\(\pi\)</span>
+being “finitely presented” is equivalent, by definition if you’d like,
+to the kernel of the map <a href="#eq:cnpp1dqjrk"
+data-reference-type="eqref"
+data-reference="eq:cnpp1dqjrk">\((1)\)</a> being finitely
+generated. (We note that if it is true for one such <span
+class="math inline">\(V\)</span>, it will be true for all <span
+class="math inline">\(V\)</span>.) It’s true for <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2(\mathbb{Q}_p)\)</span> that
+finitely generated implies finitely presented (by Berthel–Livre (?) and
+Breuil), but that’s not an obvious fact, nor a general one (e.g., it
+fails for <span class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span>
+over a quadratic extension of <span
+class="math inline">\(\mathbb{Q}_p\)</span>).</p>
+<p>We want to come back to these representations in a little bit, but
+first, let’s say what we mean by coherent. <span
+class="math inline">\(\mathfrak{X}\)</span> is a formal algebraic stack,
+and is in fact Noetherian, so you can write it as an increasing union,
+or colimit, of algebraic stacks <span
+class="math inline">\(\mathfrak{X}_n\)</span>: <span
+class="math display">\[\mathfrak{X} = \operatorname{colim}_n
+\mathfrak{X}_n.\]</span> Here <span class="math inline">\(\mathfrak{X}_n
+\hookrightarrow \mathfrak{X}_{n + 1}\)</span> are closed immersions,
+which we can think of as a “thickening”. You can push forward a coherent
+sheaf on <span class="math inline">\(\mathfrak{X}_n\)</span> to think of
+it as a coherent sheaf on <span class="math inline">\(\mathfrak{X}_{n +
+1}\)</span>, so you can take the colimit of those maps at the level of
+derived categories: <span
+class="math display">\[D_{\mathrm{coh}}^{\mathrm{b}}(\mathfrak{X}) :=
+  \operatorname{colim}_n
+D_{\mathrm{coh}}^{\mathrm{b}}(\mathfrak{X}_n).\]</span> You have to be a
+bit careful thinking about such things, however. For instance, the
+structure sheaf <span
+class="math inline">\(\mathcal{O}_{\mathfrak{X}}\)</span> is
+<em>not</em> coherent (by this definition). The structure sheaf <span
+class="math inline">\(\mathcal{O}_{\mathfrak{X}_n}\)</span> <em>is</em>
+a coherent sheaf on <span class="math inline">\(\mathfrak{X}\)</span>,
+and so <span class="math inline">\(\mathcal{O}_{\mathfrak{X}}\)</span>
+is kind of an inverse limit <span class="math inline">\(\varinjlim_n
+\mathcal{O}_{\mathfrak{X}_n}\)</span>, so in our framework, it will be a
+<em>pro-</em>coherent sheaf, but not itself a coherent sheaf: <span
+class="math display">\[\mathcal{O}_{\mathfrak{X}} =  \varinjlim_n
+\mathcal{O}_{\mathfrak{X}_n} \in \operatorname{Pro}
+  D_{\mathrm{coh}}^{\mathrm{b}}(\mathfrak{X}).\]</span></p>
+<p>So that’s at least some slight orientation about what the categories
+are. Now what we’d like to say is, how would you produce such a
+functor?</p>
+<p>We should have said earlier that one key property of this functor
+<span class="math inline">\(\mathfrak{a}\)</span> is that it is
+<em>exact</em>, i.e., preserves distinguished triangles. We actually use
+the language of stable <span class="math inline">\(\infty\)</span>
+categories rather than derived categories, which offers some technical
+advantages, but in the language of derived categories, we certainly want
+the property of exactness. This functor will not be <span
+class="math inline">\(t\)</span> exact</p>
+<p>There are abelian categories <span class="math inline">\(A\)</span>
+and <span class="math inline">\(X\)</span> underlying <span
+class="math inline">\(\mathcal{A}\)</span> and <span
+class="math inline">\(\mathfrak{X}\)</span>, but these will not be
+preserved by our functor, so working with derived categories is out of
+necessity. But if we were working with such abelian categories, say
+thinking of them as categories of modules over a ring, we could try to
+understand functors between them by understanding where the ring goes.
+What you discover is that any such functor is given by some sort of
+tensor, which you might call the <em>kernel</em> of such a functor (in
+the sense of an integral kernel). So if you’re given a functor and want
+to find the kernel, you just apply the functor to the ring, and this
+gives you the kernel to describe the functor in general. This gives a
+clue as to how you should think of this functor, but like we said, it’s
+not the category of modules over a ring. Why not? Well, roughly for two
+reasons. What would the ring be? Well, you’re looking at the category of
+representations of a group <span class="math inline">\(G\)</span>, so
+it’d be the category of modules over the group ring of <span
+class="math inline">\(G\)</span>, but why isn’t it that? Well, roughly,
+we’re looking at <span class="math inline">\(p\)</span>-power torsion
+modules, but not with any bounded amount of torsion necessarily, so the
+only coefficient ring that would make sense is <span
+class="math inline">\(\mathcal{O}\)</span>, but we’re not allowed to
+take <span class="math inline">\(\mathcal{O}[G]\)</span> itself or even
+the trivial representation of <span class="math inline">\(G\)</span> on
+<span class="math inline">\(\mathcal{O}\)</span> as a module of <span
+class="math inline">\(A\)</span>, because <span
+class="math inline">\(\mathcal{O} [G]\)</span> acts on modules that are
+too <span class="math inline">\(p\)</span>-adically big to be in our
+category, but also there’s no continuity condition built into that group
+ring, so that group ring acts on representations that are not continuous
+or smooth, so it doesn’t take into account the topology.</p>
+<p>So again, any finitely generated module is killed by some <span
+class="math inline">\(\mathcal{O} / p^n\)</span>, and then you might
+have your group <span class="math inline">\(K\)</span> and in fact <span
+class="math inline">\(K Z\)</span> acting (with <span
+class="math inline">\(Z\)</span> acting via <span
+class="math inline">\(\zeta\)</span>), and then some <span
+class="math inline">\(H\)</span> that is open and normal in <span
+class="math inline">\(K\)</span> might be acting trivially because the
+action is smooth, so the group algebra <span
+class="math display">\[\mathcal{O} / p^n[K Z / H]_\zeta\]</span> would
+be acting, but then the group ring of <span
+class="math inline">\(G\)</span> would act compatibly with the group
+ring of <span class="math inline">\(K Z\)</span>, leading to <span
+class="math display">\[\mathcal{O}[G]_\zeta  \otimes_{  \mathcal{O}[K
+Z]_\zeta }  \mathcal{O} / p^n[K Z / H]_\zeta
+  = {\mathop{\mathrm{ind}}}_{K Z}^G \mathcal{O} / p^n[K Z /
+H]_\zeta,\]</span> and then we might take an inverse limit, giving <span id="eq:cnpp1gy22u" class="math display">\[\label{eq:cnpp1gy22u}\tag{2}
+  \mathcal{O}[[G]]_\zeta
+  =
+  \varprojlim
+  \widehat{\mathcal{O}[G]_\zeta  \otimes_{  \mathcal{O}[K Z]_\zeta
+}  \mathcal{O} / p^n[K Z / H]_\zeta }
+  = \widehat{{\mathop{\mathrm{ind}}}_{K Z}^G \mathcal{O}[[K
+Z]]_\zeta}.\]</span> So it’s this inverse limit of the gadgets that were
+used for checking “finitely presented”. You can either think of this as
+literally the inverse limit of a topological ring, or as a formal
+inverse limit – not an object of <span
+class="math inline">\(\mathcal{A}\)</span>, but an object of <span
+class="math inline">\(\operatorname{Pro} \mathcal{A}\)</span>.</p>
+<p>So again, if we actually were looking at the category of modules over
+a ring, this would be projective over that, but instead it’s a
+projective pro-generator. In fact, it is the case that this category
+fully faithfully embeds in the category of finitely presented modules
+over this last ring <a href="#eq:cnpp1gy22u" data-reference-type="eqref"
+data-reference="eq:cnpp1gy22u">\((2)\)</a>. The key thing is
+that, to the extent that our category <span
+class="math inline">\(\mathcal{A}\)</span> is a category of modules over
+anything, it is a category of modules over this ring <a
+href="#eq:cnpp1gy22u" data-reference-type="eqref"
+data-reference="eq:cnpp1gy22u">\((2)\)</a>, and so to find a
+kernel, we should apply our functor to this ring, leading us to consider
+<span class="math display">\[L_\infty := \mathfrak{a} \left(
+\mathcal{O}[[G]]_\zeta \right).\]</span> Applying our functor to this
+pro-object should lead to another pro-object. One of the first
+properties (not obvious) is that what this will give will be a
+pro-coherent sheaf (rather than a pro-complex). The name <span
+class="math inline">\(L_\infty\)</span> goes back to a paper (with
+Caraiani, Gee, Shin, others) studying patching, where we posited a
+hypothetical true <span class="math inline">\(p\)</span>-adic local
+Langlands object; “<span class="math inline">\(L\)</span>” was chosen
+because it came next to “<span class="math inline">\(M\)</span>” in the
+alphabet.</p>
+<p>The Morita-theoretic yoga we were just recalling is that <span
+class="math inline">\(\mathfrak{a}\)</span> is given by <span
+class="math display">\[\pi \mapsto L_\infty
+\otimes_{\mathcal{O}[[G]]_\zeta} \pi.\]</span> Here <span
+class="math inline">\(\pi\)</span> is an object of <span
+class="math inline">\(\mathcal{A}\)</span>, or more generally <span
+class="math inline">\(D_{\mathrm{fg}}^{\mathrm{b}}(\mathcal{A})\)</span>.
+You can resolve <span class="math inline">\(\pi\)</span> by considering
+free modules over this ring or via compact inductions at finite levels.
+If you just resolve <span class="math inline">\(\pi\)</span> by finitely
+presented modules over this ring (which you can do), then you just get
+copies of <span class="math inline">\(L_\infty\)</span>, which is a
+pro-object. So something you have to prove is that you actually land in
+coherent sheaves when you put in a <span
+class="math inline">\(\pi\)</span>, rather than just pro-coherent
+sheaves. Note that <span class="math inline">\(L_\infty\)</span> is
+pro-coherent (rather than coherent), so this is something special about
+<span class="math inline">\(\pi\)</span>.</p>
+<p>Okay, but first, we have to know what <span
+class="math inline">\(L_\infty\)</span> actually is. For this, you have
+to guess. It’s given by the ideas of Colmez, who explained how to
+convert <span class="math inline">\(2\)</span>-dimensional Galois
+representations into representations of <span
+class="math inline">\(G_{\mathbb{Q}_p}\)</span> (a rather small object
+of <span class="math inline">\(\mathcal{A}\)</span>). He did it by a
+formula: take your Galois rep, turn it into a <span
+class="math inline">\((\varphi, \Gamma)\)</span>-module <span
+class="math inline">\(V\)</span>, then take <span
+class="math display">\[D^{\natural} \otimes _{\zeta \varepsilon^2}
+\mathbb{P}^1.\]</span> (This is notation Colmez introduced.) Here <span
+class="math inline">\(\mathbb{P} ^1\)</span> has an action of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2(\mathbb{Q}_p)\)</span>. We
+do this for the universal <span class="math inline">\((\varphi,
+\Gamma)\)</span>-module over <span
+class="math inline">\(\mathfrak{X}\)</span>. That is to say, our stack
+has a universal <span class="math inline">\((\varphi,
+\Gamma)\)</span>-module, and we check that we can implement Colmez’s
+construction naturally, producing this object.</p>
+<p>What this object will look like is sort of, if this formal stack
+<span class="math inline">\(\mathfrak{X}\)</span> were some formal
+spectrum <span class="math inline">\(\operatorname{Spf} A\)</span> of
+some ring <span class="math inline">\(A\)</span> (say locally in the
+fppf topology), then the <span class="math inline">\((\varphi,
+\Gamma)\)</span>-module is some finite rank module over something like
+<span class="math inline">\(\mathbb{A}_{\mathbb{Q}_p}\)</span>, but with
+<span class="math inline">\(\mathbb{Z}_p\)</span> replaced by this other
+algebra <span class="math inline">\(A\)</span>. Then, roughly, <span
+class="math inline">\(\mathbb{P}^1\)</span> looks like a power series
+ring. So if you’re on a chart on <span
+class="math inline">\(\mathfrak{X}\)</span> of the form <span
+class="math inline">\(\operatorname{Spf} A\)</span>, then <span
+class="math inline">\(L_\infty\)</span> is roughly <span
+class="math inline">\(A[[T]]\)</span>. So we’re already seeing the
+coefficients <span class="math inline">\(A\)</span> (which is a bit like
+the structure sheaf of <span
+class="math inline">\(\mathfrak{X}\)</span>, pro just along the formal
+directions in <span class="math inline">\(\mathfrak{X}\)</span>) but
+also this <span class="math inline">\([[T]]\)</span>, which is another
+pro direction. That’s the pro nature of this <span
+class="math inline">\(L_\infty\)</span>.</p>
+<p>Having produced this <span class="math inline">\(L_\infty\)</span>,
+it’s not clear that the resulting functor does anything that you want,
+e.g., that it lands in <span
+class="math inline">\(D_{\mathrm{coh}}^{\mathrm{b}}(\mathfrak{X})\)</span>
+rather than some more pro version, and it’s not clear that it’s fully
+faithful. So to study this functor, we need some tools. We want to
+conclude the talking by saying what those tools are. For that, we need
+to come back to <span class="math inline">\(\mathfrak{X}\)</span>, which
+we recall is this stack of <span class="math inline">\((\varphi,
+\Gamma)\)</span>-module. Fontaine tells us that if we take a point of
+<span class="math inline">\(\mathfrak{X}\)</span> over some (literally)
+finite <span class="math inline">\(\mathcal{O}\)</span>-algebra, that’s
+a rank two <span class="math inline">\((\varphi,
+\Gamma)\)</span>-module, then this gives a Galois representation. So if
+you probe <span class="math inline">\(\mathfrak{X}\)</span> with small
+rings, you get Galois representations. But if you probe <span
+class="math inline">\(\mathfrak{X}\)</span> with <em>big</em> rings, you
+get stuff that’s too big. But somehow <span
+class="math display">\[\mathfrak{X}[\overline{\mathbb{F}_p}]
+  \leftrightarrow
+  \bar{\rho} : G_{\mathbb{Q}_p} \rightarrow
+{\mathop{\mathrm{GL}}}_2(\overline{\mathbb{F}_p}).\]</span> Now <span
+class="math inline">\(\mathfrak{X}\)</span> is an algebraic stack, so it
+has these <span
+class="math inline">\(\overline{\mathbb{F}_p}\)</span>-points (what you
+might call “finite type” points), which, if it were a variety, would be
+the closed points, but here we have an Artin rather than Deligne–Mumford
+stack, so such points are not in general closed, but instead specialize
+to semisimplifications. Thus the semisimple <span
+class="math inline">\(\bar{\rho}\)</span>’s correspond to the closed
+<span class="math inline">\(\overline{\mathbb{F}_p}\)</span>-points:
+<span
+class="math display">\[\mathfrak{X}(\overline{\mathbb{F}_p})_{\mathrm{closed}}
+  \leftrightarrow \bar{\rho}^{\mathrm{ss}}.\]</span></p>
+<p>There’s another thing, a scheme <span
+class="math inline">\(X\)</span> (that will in the minute be a formal
+scheme over <span class="math inline">\(\operatorname{Spf}
+\mathcal{O}\)</span>), such that <span
+class="math inline">\(X(\overline{\mathbb{F}_p})\)</span> is in
+bijection with <span
+class="math inline">\(\mathfrak{X}(\overline{\mathbb{F}_p})_{\mathrm{closed}}\)</span>.
+The underlying reduce scheme <span
+class="math inline">\(X_{\mathop{\mathrm{red}}}\)</span> will be a chain
+of copies of the projective line, where the number of them is <span
+class="math inline">\(\tfrac{p \mp 1}{2}\)</span>, where the sign is
+given by <span class="math inline">\(\zeta(- 1) = \pm 1\)</span>. What
+we claim is that semisimple Galois representations naturally arrange
+themselves in this way. It’s an observation that in some sense goes back
+to computations in the beginning of this century that were later brought
+out in conversations of Berget and Breuil, and partly pointed out by
+Kisin, but kind of carefully noted and promoted to thinking you could
+really think about by Emerton and Gee, as part of this <span
+class="math inline">\(E G\)</span> stack, and so we’ll maybe tell you
+how this goes, at least briefly.</p>
+<p>We’ll be looking at the reduction <span
+class="math inline">\(\overline{\varepsilon}\)</span> of our cyclotomic
+character mod <span class="math inline">\(p\)</span>. Maybe we’re
+looking at a direct sum of two characters, say <span id="eq:cnpp1hxgb1" class="math display">\[\label{eq:cnpp1hxgb1}\tag{3}
+  \begin{pmatrix}
+    w_\alpha \cdot \bar{\varepsilon}^i    &amp;  \\
+                                   &amp; w_{\alpha^{-1}} \cdot
+\bar{\varepsilon}^{-(i + 1)} \\
+  \end{pmatrix}.\]</span> Here <span class="math inline">\(i\)</span> is
+a discrete variable, while <span class="math inline">\(\alpha\)</span>
+lives in some <span class="math inline">\(\mathbb{G}_m\)</span>. This
+kind of a thing is a common thing you’ll see in number theory talks on
+Galois representations. A general principle in mathematics, going back
+at least to Arabic algebraists (pre-Renaissance), is that a piece of
+notation can refer either to a number or a variable, and this leads to
+the idea of the <span class="math inline">\(E G\)</span> stack, which is
+that <a href="#eq:cnpp1hxgb1" data-reference-type="eqref"
+data-reference="eq:cnpp1hxgb1">\((3)\)</a> should really be a
+family of things. Now, what happens if you let <span
+class="math inline">\(\alpha\)</span> go to <span
+class="math inline">\(\infty\)</span>? There’s a natural way to think
+about it coming from the theory of reduction of crystalline theorems (or
+Serre’s conjectures, etc). If you send <span
+class="math inline">\(\alpha\)</span> to <span
+class="math inline">\(0\)</span>, then the above will go to an
+irreducible induction, then take the inverse to get what happens near
+<span class="math inline">\(\infty\)</span>.</p>
+<p>So what we said is tha tthe closed points of <span
+class="math inline">\(\mathfrak{X}\)</span> are in bijection with these
+semisimple guys, and once you know that, there’s a unique way to produce
+a morphism of underlying topological spaces, <span
+class="math display">\[\lvert \mathfrak{X} \rvert \rightarrow \lvert X
+\rvert,\]</span> once you’ve matched the closed points. Then you can
+essentially push forward the structure sheaf on <span
+class="math inline">\(\mathfrak{X}\)</span> to get a structure sheaf
+<span class="math inline">\(\mathcal{O}_X = f_\ast
+\mathcal{O}_{\mathfrak{X}}\)</span> under <span class="math inline">\(f
+: \mathfrak{X} \rightarrow X\)</span>. By Paskunas, semisimple <span
+class="math inline">\(\bar{\rho}\)</span> correspond to <em>blocks</em>
+of <span class="math inline">\(A\)</span> that are locally admissible
+(colimits of admissible). One can make the following:</p>
+<div class="definition">
+<p><strong>Definition 3</strong>. Given a closed subset <span
+class="math inline">\(Y \hookrightarrow \lvert X \rvert\)</span>, we
+define <span class="math display">\[\mathcal{A}_Y := \left\{
+      \begin{array}{@{}l@{}}
+        \pi \in \mathcal{A} : \text{all nonzero subquotients} \\
+        \text{of $\pi$ lie in blocks} \\
+        \text{induced by $Y \in \mathcal{Y}$}
+      \end{array}
+    \right\} \subseteq \mathcal{A}.\]</span> We then define, for <span
+class="math inline">\(U := \lvert X \rvert - Y\)</span>, the quotient
+<span class="math display">\[\mathcal{A}_U := \mathcal{A} /
+\mathcal{A}_Y.\]</span></p>
+</div>
+<p>We then have the following result <span class="citation"
+data-cites="2022arXiv2207.04671">(<strong>2022arXiv2207.04671?</strong>,
+Theorem 1.1.1)</span>:</p>
+<div class="theorem">
+<p><strong>Theorem 4</strong> (DEG). <em><span
+class="math inline">\(\tilde{\mathcal{A}} : U \mapsto A_U\)</span> is a
+stack of abelian categories over <span class="math inline">\(\lvert X
+\rvert\)</span>, with <span class="math inline">\(\Gamma(X,
+\tilde{\mathcal{A}}) = \mathcal{A}\)</span>.</em></p>
+</div>
+<p>Now for <span class="math inline">\(x \in
+X(\overline{\mathbb{F}_p})\)</span>, we have a formal substack <span
+class="math inline">\(D_{\mathrm{fg}}^{\mathrm{b}}(\mathcal{A}_x)
+\xrightarrow{\mathfrak{a}} D_{\mathrm{fg}}^{\mathrm{b}}(\mathfrak{X}_x
+)\)</span>. In characteristic <span class="math inline">\(p\)</span>,
+you can thicken up pseudorepresentations, but not deform them
+nontrivially. These sort of stacks were first studied by
+Carl(?)–Wang–Erickson. Using Colmez–Paskunas’s work, and then the work
+of Johansson–Newton–Wang–Erickson, we can rewrite <span
+class="math display">\[\mathfrak{a}
+|_{D_{\mathrm{fg}}^{\mathrm{b}}(\mathcal{A}_x)}\]</span> in terms of
+Colmez’s functors, and then using the mentioned work in this rewritten
+form, we deduce that this functor is fully faithful. This version of the
+functor was thus already studied in somewhat disguised form by those
+authors. We thus have some “fully faithfulness” available. With that in
+hand, our arguments need to combine with this localization theory and
+diagrams like <span class="math display">\[\begin{CD}         
+    D^{\mathrm{b}}_{\mathrm{fg}}(\mathcal{A})    @&gt;
+\mathfrak{a}&gt;&gt; D_{\mathrm{coh}}^{\mathrm{b}}(\mathfrak{X})\\
+    @VVV  @VVV \\
+    D_{\mathrm{fg}}^{\mathrm{b}} @&gt;&gt; \mathfrak{a}_U&gt;
+D_{\mathrm{coh}}^{\mathrm{b}}(f^{-1}(U)).\\
+  \end{CD}\]</span> to get to the whole setting. That’s roughly how we
+prove the theorem.</p>
+<p>We note that nearly everything in the proof is specific to <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2(\mathbb{Q}_p)\)</span>, in
+a very fundamental way.</p>
+<div class="remark">
+<p><strong>Remark 5</strong>. <span
+class="math inline">\(\mathfrak{X}\)</span> makes sense in great
+generality, but <span class="math inline">\(X\)</span> does not.</p>
+</div>
+<p>[next talk at 11:00!!!!]</p>
+<h1
+id="andrew-wiles-university-of-oxford-non-abelian-descent-and-modularity">Andrew
+Wiles (University of Oxford), <em>Non-abelian descent and
+modularity</em></h1>
+<p>So I’ve been thinking for a long time now about how to prove
+modularity more generally. Modularity lifting is in very good shape,
+whereas proving residual modularity is much more hard, and besides the
+theorem of Khare and Wintenberger, there isn’t something very general.
+Seems extremely difficult to generalize Khare–Wintenberger directly, so
+I’ve been trying to take the approach using potential modularity, which
+is known quite generally. Suppose you have a representation (<span
+class="math inline">\(\ell\)</span>-adic, or a compatible system) <span
+class="math inline">\(\rho\)</span>, over some totally real field <span
+class="math inline">\(F_0\)</span>. You know that if you take some
+not-necessarily-solvable totally real field <span
+class="math inline">\(F\)</span> of <span
+class="math inline">\(F_0\)</span>, passing from <span
+class="math inline">\(\rho\)</span> to <span
+class="math inline">\(\tilde{\rho}\)</span>, then you can find an
+automorphic form <span class="math inline">\(f\)</span> that corresponds
+to <span class="math inline">\(\tilde{\rho}\)</span>. This <span
+class="math inline">\(f\)</span> will be invariant (since <span
+class="math inline">\(\tilde{\rho}\)</span> comes from <span
+class="math inline">\(F_0\)</span>), and the question then arises: does
+<span class="math inline">\(f\)</span> equal to the lift <span
+class="math inline">\(\tilde{f}_0\)</span> of some <span
+class="math inline">\(f_0\)</span>? Namely, can we find the <span
+class="math inline">\(f_0\)</span> over <span
+class="math inline">\(F_0\)</span> such that the natural diagram
+commutes? That will be a way of finding modularity. Thus, potential
+modularity reduces the problem to descent, but unfortunately, it’s
+nonsolvable descent.</p>
+<p>One example where we can do this is cyclic base change, where we do
+get descent, but cyclic base changes depends upon the trace formula, and
+this works in contexts where you have (inner) forms or a group, or when
+you have a subgroup given by invariance under one element, as is the
+case for cyclic base change. For non-solvable base change, invariance is
+much more subtle, so we trade one problem for a much harder one.</p>
+<p>What we’re going to do is cyclic base change in a slightly different
+context from normal and see how to replace the arguments in that.</p>
+<p>Let’s take <span class="math inline">\(F\)</span> and <span
+class="math inline">\(F_0\)</span> totally real number fields. We’re
+going to assume that <span class="math inline">\(F / F_0\)</span> is a
+cyclic extension, with Galois group generated by some element <span
+class="math inline">\(\sigma\)</span>. (This generality is sufficient
+for what we want to use it for.) We assume moreover that <span
+class="math inline">\(F / F_0\)</span> is unramified. Let <span
+class="math inline">\(D_0\)</span> be a quaternion algebra over <span
+class="math inline">\(F_0\)</span> that is ramified at all the infinite
+places and unramified at the finite ones. To do this, we need to assume
+that <span class="math inline">\([F_0 : \mathbb{Q}] \equiv 0
+\pmod{2}\)</span>. This restriction on the finite places is not really
+essential, but as we’ll explain later, there’s a reason why we wanted to
+include it.</p>
+<p>We then form a Shimura variety (really a set) <span
+class="math display">\[X_0 := X_0(U_0) =
+  D_0^\times \backslash D_{0, f}^\times  / U_0,\]</span> where</p>
+<ul>
+<li><p><span class="math inline">\(D_0^\times\)</span> is the
+multiplicative group of our quaternion algebra,</p></li>
+<li><p><span class="math inline">\(D_{0, f}^\ast\)</span> is its group
+of finite adelic points, and</p></li>
+<li><p><span class="math inline">\(U_0\)</span> is some level structure,
+say <span class="math inline">\(U_0 = U_0(\mathfrak{n}_0)\)</span>
+(“<span class="math inline">\(\Gamma_0(\bullet)\)</span>” structure)
+with <span class="math inline">\(\mathfrak{n}_0\)</span>
+square-free.</p></li>
+</ul>
+<p>We then have a space <span class="math display">\[S(U_0) = \left\{ f
+: X_0(U_0) \rightarrow \mathbb{C}  \right\}.\]</span> It might seem like
+this is a very simple structure, but it carries the action of the Hecke
+operators in the usual way, and moreover, by the theorem of
+Jacquet–Langlands and Shimizu, this <span
+class="math inline">\(S(U_0)\)</span> is isomorphic as a Hecke module to
+the space of weight two Hilbert modular forms of level <span
+class="math inline">\(U_0\)</span>. I’m going to work with these spaces
+instead of with <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span> and Hilbert
+modular forms. From the point of view of the trace formula, basically
+we’re focusing on the elliptic elements in the trace formula. I think
+one could do this for <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span> instead, but it’s
+simpler and easier to handle if we do it in this context.</p>
+<p>Let’s turn to the trace formula. Trace of what? Let <span
+class="math inline">\((\pi_0) \subseteq \mathcal{O}_{F_0}\)</span> be a
+prime that splits completely in <span class="math inline">\(F\)</span>,
+thus <span class="math inline">\(\pi_0 = \prod_i
+\pi^{\sigma^i}\)</span>, with <span class="math inline">\((\pi)
+\subseteq \mathcal{O}_F\)</span>. What we want to compute is the trace
+on the space of forms here. We’re going to consider the vector space
+<span class="math inline">\(\mathbb{C}[X_0]\)</span>, which has two
+important bases:</p>
+<ol>
+<li><p><span id="enumerate:cnpp1no6c8"
+label="enumerate:cnpp1no6c8"></span> <span
+class="math inline">\(X_0\)</span> itself, given characteristic
+functions of points <span class="math inline">\(t_{0, i}\)</span>,
+and</p></li>
+<li><p><span id="enumerate:cnpp1npes7"
+label="enumerate:cnpp1npes7"></span> a basis of eigenforms <span
+class="math inline">\(\mathcal{F}_0\)</span> for the Hecke
+operators.</p></li>
+</ol>
+<p>What we want to compute is the trace of <span
+class="math inline">\(T_{\pi_0}\)</span>. We can express this
+analytically in terms of <span
+class="math inline">\(\mathcal{F}_0\)</span>, and geometrically in terms
+of the points. We write this as <span
+class="math display">\[\mathop{\mathrm{trace}}T_{\pi_0}
+|_{\mathcal{F}_0}
+  = \lvert T_{\pi_0} \cdot \Delta_{X_0} \rvert,
+  \qquad
+  \Delta_{X_0} = \Delta \subset X_0 \times X_0.\]</span></p>
+<p>What we need to do is to relate the trace of <span
+class="math inline">\(T_{\pi_0}\)</span> on <span
+class="math inline">\(\mathcal{F}_0\)</span> to <span
+class="math inline">\(T_{\pi}\)</span> acting on the space of invariant
+forms over <span class="math inline">\(F\)</span>. But the way of
+getting from <span class="math inline">\(X_0\)</span> to <span
+class="math inline">\(X\)</span> is going to be via the geometric side.
+So we want to understand what this set <span
+class="math inline">\(T_{\pi_0} \cdot \Delta_{X_0}\)</span> is.</p>
+<p>So, what is an element <span class="math inline">\(Q \in
+T_{\pi}\)</span>? We pick some <span class="math inline">\(t_{0,
+i}\)</span>, some coset representative <span
+class="math inline">\(\varpi_{\pi_0}\)</span>, and we write <span
+class="math display">\[t_{0, i} \varpi_{\pi_0 } = \gamma_0 t_{0, i}
+u_0,\]</span> where <span class="math inline">\(\gamma_0 \in
+D_0^\times\)</span> and <span class="math inline">\(u_0 \in
+U_0\)</span>. So we get some expression like that, and reading off from
+this, we can see for instance that <span
+class="math inline">\(\gamma_0\)</span> has determinant (or norm) of the
+same ideal as <span class="math inline">\(\pi_0\)</span>.</p>
+<p>So associated to this <span class="math inline">\(Q\)</span>, we have
+some <span class="math inline">\(t_{0, i}\)</span> (some representative
+of <span class="math inline">\(X_0\)</span>) and an element <span
+class="math inline">\(\gamma_0\)</span> of <span
+class="math inline">\(D_0^\times\)</span>. It moreover satisfies a
+quadratic equation over <span class="math inline">\(F_0\)</span>, so it
+actually lies in some quadratic extension <span
+class="math display">\[L_0 = F_0(\gamma_0).\]</span> That quadratic
+extension is necessarily CM (coming from the fact that <span
+class="math inline">\(D_0\)</span> is ramified at all infinite
+places).</p>
+<p>Now, what we want to do is associate a similar kind of thing over
+<span class="math inline">\(F\)</span>. So, to get over <span
+class="math inline">\(F\)</span> from the element <span
+class="math inline">\(\gamma_0\)</span>, we choose <span
+class="math display">\[\gamma \in L = F(\gamma_0)\]</span> so that <span id="eq:cnpp1n6c66" class="math display">\[\label{eq:cnpp1n6c66}\tag{4}
+  \mathcal{N}_{L / L_0}(\gamma) = \gamma_0.\]</span> (Because it’s a
+cyclic extension, class field theory tells you that you only need to
+check this locally. It’s easy to see from our construction and Hasse’s
+theorem that such a <span class="math inline">\(\gamma\)</span> exists.)
+In view of <a href="#eq:cnpp1n6c66" data-reference-type="eqref"
+data-reference="eq:cnpp1n6c66">\((4)\)</a>, it’s easy to see
+that <span class="math display">\[(\gamma) = \mathfrak{b}^{\sigma - 1}
+\mathfrak{p},\]</span> where <span class="math inline">\(n(\mathfrak{p})
+=(\pi)\)</span> is a prime divisor of <span
+class="math inline">\(\pi\)</span>, lying above the corresponding
+factorization of <span class="math inline">\(\gamma_0\)</span>. So we
+have a prime factorization like this and can turn it back into adelic
+language. If we pick adelic representatives for the ideals, then we can
+write this as <span class="math display">\[\beta^\sigma \omega_{\pi} =
+\gamma \beta u.\]</span> Now, what does this say? Thinking about it, it
+gives us an element of <span class="math inline">\(T_\pi \sigma \cdot
+\Delta_X\)</span>, where <span class="math inline">\(X = X(U_0)\)</span>
+is defined like <span class="math inline">\(X_0\)</span>, but now over
+<span class="math inline">\(F\)</span>, in terms of <span
+class="math inline">\(D = D_0 \otimes_{F_0} F\)</span>.</p>
+<p>So what we’ve ended up with is a map <span id="eq:cnpp1oiwza" class="math display">\[\label{eq:cnpp1oiwza}\tag{5}
+  T_{\pi_0} \cdot \Delta_{X_0} \hookrightarrow T_{\pi^\sigma} \cdot
+\Delta_X.\]</span> Now we want to analyze surjectivity. In the trace
+formula (for cyclic base change, anyway), enormous use is made of the
+norm operator, which is defined like the usual norm operator, but
+defined on the non-abelian group <span
+class="math inline">\(D^\times\)</span> rather than just on the
+multiplicative group of some field such as <span
+class="math inline">\(F^\times\)</span>. This requires making a choice,
+such as <span class="math display">\[\mathcal{N}_\sigma : D \ni y
+\mapsto y y^{\sigma} y^{\sigma^2} \dotsb.\]</span> Obviously the norm of
+<span class="math inline">\(\gamma\)</span> is <span
+class="math inline">\(\gamma_0\)</span>. What you find is that <span
+class="math display">\[\mathcal{N}_\sigma(\gamma_1) \sim
+\mathcal{N}_\sigma(\gamma_2) \implies \gamma_1 \sim^\sigma
+\gamma_2.\]</span> Here</p>
+<ul>
+<li><p><span class="math inline">\(\sim\)</span> denotes
+conjugacy,</p></li>
+<li><p><span class="math inline">\(\sim^\sigma\)</span> denotes <span
+class="math inline">\(\sigma\)</span>-conjugacy.</p></li>
+</ul>
+<p>You can show in this way that there’s actually a converse map to <a
+href="#eq:cnpp1oiwza" data-reference-type="eqref"
+data-reference="eq:cnpp1oiwza">\((5)\)</a>. That’s the mechanism
+that the proof of cyclic base change will use. Actually, this refines <a
+href="#eq:cnpp1oiwza" data-reference-type="eqref"
+data-reference="eq:cnpp1oiwza">\((5)\)</a> to an
+isomorphism.</p>
+<p>Now in the usual development of cyclic base change, it’s important to
+note that the norm map only gives you a norm map on conjugacy classes,
+i.e. it’s not well-defined on elements. You can thus compare orbits and,
+more generally, orbital integrals, using this. But we’re not going to
+get into it, because this method doesn’t work in the non-solvable case
+at all.</p>
+<p>We get that far, and with what we have, we can now complete the proof
+of base change in this case. We have <span
+class="math display">\[\mathop{\mathrm{trace}}T_{\pi_0}
+|_{\mathcal{F}_0} =
+  \lvert T_{\pi_0} \cdot \Delta_{X_0} \rvert
+  =
+  \lvert T_{\pi^\sigma} \cdot \Delta_X \rvert
+  =
+  \mathop{\mathrm{trace}}T_{\pi^\sigma} |_{\mathcal{F}}
+  = \mathop{\mathrm{trace}}T_\pi
+|_{\mathcal{F}^{\mathrm{inv}}}.\]</span> Here</p>
+<ul>
+<li><p>the second equality comes from the geometric argument that we
+just gave,</p></li>
+<li><p>the third equality comes from the trace formula for <span
+class="math inline">\(X\)</span>,</p></li>
+<li><p>the fourth equality uses that <span
+class="math inline">\(\sigma\)</span> permutes the non-invariant forms,
+but is trivial on the invariant ones.</p></li>
+</ul>
+<p>Okay, we’ve only done this for certain <span
+class="math inline">\(\pi\)</span> (splitting completely into principal
+ideals), but now Cebotarev, using the associated Galois representations,
+tells us that we get this for all places.</p>
+<p>So that’s what we want to model this argument about generalizing the
+trace formula on.</p>
+<p>The first key problem in doing so is that, as I said, we don’t have
+one <span class="math inline">\(\sigma\)</span>, so we can’t apply this
+argument. But also, the cohomological method simply doesn’t work more
+generally.</p>
+<p>We replace this now, as in class field theory, we find an analytic
+argument to replace this cohomological argument. Let me explain that
+first, since this is much simpler. Let’s focus on the case of a
+non-solvable extension, with no abelian subquotient. We’ll continue to
+use <span class="math inline">\(F\)</span> and <span
+class="math inline">\(F_0\)</span> for the two fields, and we write
+<span class="math inline">\(d =[F : F_0]\)</span> for their degree. We
+again choose primes <span class="math inline">\(\pi_0\)</span> in <span
+class="math inline">\(F_0\)</span> that split completely into principal
+primes in <span class="math inline">\(F\)</span>, and consider the
+following sum <span id="eq:cnpp1o4jp4" class="math display">\[\label{eq:cnpp1o4jp4}\tag{6}
+  \sum_{\pi_0} \frac{1}{d}
+  \sum_{\pi \mid \pi_0}
+  \sum_{f \in \mathcal{F}^{\mathrm{inv}}}
+  a_\pi(f) \cdot \operatorname{Norm}(\pi)^{- s}.\]</span> Here, again,
+<span class="math inline">\(\mathcal{F} ^{\mathrm{inv}}\)</span> is (a
+basis for) the space of forms invariant under the action of the Galois
+group.</p>
+<div class="remark">
+<p><strong>Remark 6</strong>. “Invariant” is in a suitably defined sense
+– there is a choice here regarding whether to take things up to twist.
+The thing that’s confusing is that invariant cyclic Galois
+representations do not descend, but that’s the only obstruction. For
+instance, projective representations always descend.</p>
+</div>
+<p>We’re going to compare that, on the one hand, to <span id="eq:cnpp1pcyts" class="math display">\[\label{eq:cnpp1pcyts}\tag{7}
+  \sum_{\pi_0} \sum_{f \in \mathcal{F}_0}
+  a_{\pi_0}(f_0)
+  \operatorname{Norm}(\pi_0)^{- s}.\]</span> Here, as before, <span
+class="math inline">\(\mathcal{F}_0\)</span> is a basis for eigenforms
+on <span class="math inline">\(F_0\)</span>.</p>
+<p>In the above, we further restrict <span
+class="math inline">\(\pi_0\)</span> to primes of degree <span
+class="math inline">\(1\)</span> that split completely in <span
+class="math inline">\(M\)</span>, a totally real field that contains the
+Hilbert class field <span class="math inline">\(H_F\)</span> of <span
+class="math inline">\(F\)</span>. The first sum <a href="#eq:cnpp1o4jp4"
+data-reference-type="eqref"
+data-reference="eq:cnpp1o4jp4">\((6)\)</a> would then be the
+main part contributing to these <span
+class="math inline">\(L\)</span>-functions for the supposed base changes
+to <span class="math inline">\(M\)</span> of these forms. That is to
+say, if we actually had base changes to <span
+class="math inline">\(M\)</span>, then this would be the main part, at
+least as far as convergence goes; the rest over <span
+class="math inline">\(M\)</span> (if they existed) would have Dirichlet
+series that converge at <span class="math inline">\(\Re(s) =
+3/2\)</span>.</p>
+<p>By potential automorphy, we can choose <span
+class="math inline">\(M\)</span> such that <span
+class="math inline">\(\mathcal{F}_0\)</span> and <span
+class="math inline">\(\mathcal{F}\)</span> are simultaneously
+automorphic over <span class="math inline">\(M\)</span>.</p>
+<p>If we make a similar construction as in the discussion of cyclic base
+change, then the coefficients here in the non-solvable case would be
+<span class="math display">\[\frac{1}{d} \sum_{\pi_0} \sum_{\pi \mid
+\pi_0} \sum_{f \in \mathcal{F}^{\mathrm{inv}}}
+  a_{\pi}(f)\]</span> will be greater than or equal to <span
+class="math display">\[\sum_{\pi_0}  \sum_{f_0 \in \mathcal{F}_0 }
+  a_{\pi_0}(f),\]</span> so the difference is nonnegative. Now they’re
+not cuspidal these two, but we can match up the Eisenstein parts of <a
+href="#eq:cnpp1pcyts" data-reference-type="eqref"
+data-reference="eq:cnpp1pcyts">\((7)\)</a> and <a
+href="#eq:cnpp1pcyts" data-reference-type="eqref"
+data-reference="eq:cnpp1pcyts">\((7)\)</a> easily. We thus
+obtain an <span class="math inline">\(L\)</span>-function that is
+cuspidal (i.e., no pole) and has positive coefficients. It’s not
+difficult to deduce that for almost all <span
+class="math inline">\(\pi_0\)</span>, we get equality.</p>
+<p>That side of the argument, also as in class field theory, can be done
+relatively simply. The problem is the construction. How do we get this
+map between the two? If we go back to the same kind of argument here
+(try and construct a <span class="math inline">\(\gamma\)</span> in the
+same way), we can find that the norm of <span
+class="math inline">\(\gamma\)</span> is <span
+class="math inline">\(\gamma_0\)</span>, but what happens is that you
+get the identity, of ideals in <span class="math inline">\(L =
+F(\gamma_0) = F(\gamma)\)</span>, <span class="math display">\[(\gamma)
+= \prod_t \mathfrak{b}_t^{\sigma_t - 1} \cdot \mathfrak{p}.\]</span>
+(This uses some class field theory. You have to set it up right. It’s
+not trivial, but you can put yourself in this situation. It’s not just
+Hasse’s theorem, as in the cyclic case.) We don’t have a <span
+class="math inline">\(\sigma\)</span> that is picking out the invariant
+forms. What I want to do now is, instead of what I did before, let’s
+view this as one entry of <span id="eq:cnpp1ptgfj" class="math display">\[\label{eq:cnpp1ptgfj}\tag{8}
+  (\prod T_{b_t} \sigma_t) T_\pi t_{0, i}
+  = \prod T_{b_t} \cdot t_{0, i},\]</span> where <span
+class="math inline">\(b_t = n_{L / F}(\mathfrak{b}_t)\)</span>.</p>
+<p><strong>Step 1</strong>. Replace <span
+class="math inline">\(T_\pi\)</span> by <span
+class="math inline">\(T_\pi T_\alpha\)</span>, where <span
+class="math inline">\(T_\alpha\)</span> projects to the invariant part.
+Once you’ve done that, because <span
+class="math inline">\(T_\alpha\)</span> projects, the identity <a
+href="#eq:cnpp1ptgfj" data-reference-type="eqref"
+data-reference="eq:cnpp1ptgfj">\((8)\)</a> becomes <span id="eq:cnpp1pvo6p" class="math display">\[\label{eq:cnpp1pvo6p}\tag{9}
+  T_\pi T_\alpha
+  \prod_t T_{b_t}   t_{0, i}
+  = \prod_t T_{b_t}  t_{0, i}.\]</span> Now what we do is choose our
+<span class="math inline">\(T_{b_t}\)</span> so that they’re invertible.
+We have to make sure we can do that in the original thing. Then we view
+the products over <span class="math inline">\(t\)</span> in <a
+href="#eq:cnpp1pvo6p" data-reference-type="eqref"
+data-reference="eq:cnpp1pvo6p">\((9)\)</a> as new basis
+elements. Now we’re getting something that looks more like the trace of
+of <span class="math inline">\(T_\pi T_\alpha\)</span>. For this, we
+need that <span class="math inline">\(\prod T_{b_t}\)</span> is
+invertible in <span class="math inline">\(\mathbb{C}[X]\)</span>.</p>
+<p>Okay, so that looks nice, but the issue is that in doing <a
+href="#eq:cnpp1ptgfj" data-reference-type="eqref"
+data-reference="eq:cnpp1ptgfj">\((8)\)</a>, I only gave you one
+coset representative for the Hecke operator, but we need the whole Hecke
+operator, not just one entry. This is where it becomes more complicated.
+I’m not going to go into it in detail, but the idea is that you make the
+<span class="math inline">\(b_t\)</span>’s complicated ideals (products
+of many ideals) and you consider different factorizations of <span
+class="math inline">\(b_t\)</span> and you get different
+representatives, and you have to do it in such a way that you can make
+sure you get all the representatives on both sides of <a
+href="#eq:cnpp1pvo6p" data-reference-type="eqref"
+data-reference="eq:cnpp1pvo6p">\((9)\)</a>. So you choose your
+<span class="math inline">\(b_t\)</span>’s so that there are many prime
+factors, then you can always change each prime factor to its complex
+conjugate, which gives you a huge number of choices. Making sure this
+works is a little like the ergodic method that people have used. I don’t
+want to go into the argument because it is rather involved, but for this
+argument to work, we need a version of Cebotarev in this context. What
+it says is that</p>
+<ol>
+<li><p><span id="enumerate:cnpp1p8snz"
+label="enumerate:cnpp1p8snz"></span> If you pick one of these CM fields
+<span class="math inline">\(L_f^\times \rightarrow D_f^\times
+\rightarrow X(U_0)\)</span>, then this factors through some class group
+<span class="math display">\[C_0 = L^\times \backslash L_f^\times /
+U_{\mathcal{O}}^\times \rightarrow X(U_0).\]</span> (Here <span
+class="math inline">\(U_{\mathcal{O}}^\times\)</span> is some level
+structure in <span class="math inline">\(L_f^\times\)</span>,
+corresponding to the class group of an order.) We need this to be
+surjective and equidistributed. This can be proven using Waldspurger
+formula (Zhang, Tian, ...). This kind of argument has been used in this
+context by Zhang in simpler settings, with some of the new refinements
+of Waldspurger.</p></li>
+<li><p><span id="enumerate:cnpp1p8trm"
+label="enumerate:cnpp1p8trm"></span> If you have a map from <span
+class="math inline">\(L_f^\times\)</span> to <em>two</em> copies of
+<span class="math inline">\(X(U_0)\)</span> that is twisted, say <span
+class="math display">\[L_f^\times \rightarrow
+    D_f^\times \times D_f^\times
+    \rightarrow
+    X(U_0) \times X(U_0)\]</span> <span class="math display">\[\ell_f
+\mapsto(\ell_f, \ell_f a_f)\]</span> where <span
+class="math inline">\(a_f\)</span> is some element of <span
+class="math inline">\(L_f^\times\)</span> corresponding to some ideal
+<span class="math inline">\(\mathfrak{a}_f\)</span> of sufficiently
+large norm, then you want this map to be surjective and equidistributed
+as the discriminant <span class="math inline">\(D_{\mathcal{O}}\)</span>
+tends to <span class="math inline">\(\infty\)</span>. This is the mixing
+conjecture (in this context) of Michel–Venkatesh <a href="#ref-MichelVenkateshICM" class="citation"
+data-cites="MichelVenkateshICM">(Michel and Venkatesh
+2006)</a>.</p></li>
+</ol>
+<p>Assertion <a href="#enumerate:cnpp1p8trm" data-reference-type="eqref"
+data-reference="enumerate:cnpp1p8trm">\((2)\)</a> is not
+yet proved. Over <span class="math inline">\(\mathbb{Q}\)</span>,
+Khayutin has proved this. Robinson, in his thesis, and generalized some
+of this to totally real fields. Unfortunately, we actually need
+something a bit stronger: for the subgroup of squares <span
+class="math inline">\(L_f^{\times 2}\)</span>, and even the subgroup of
+fourth powers <span class="math inline">\(L_f^{\times 4}\)</span>.</p>
+<p>How does Khayutin do this? This proof depends initially upon a
+classification of measures of Einsiedler–Lindenstrauss. Basically, the
+idea is quite <span class="math inline">\(p\)</span>-adic. Rather than
+doing it with level <span class="math inline">\(U_0\)</span>, they allow
+the level at two primes to go to <span
+class="math inline">\(\infty\)</span> (as the discriminant goes to <span
+class="math inline">\(\infty\)</span>) and get some invariance. If you
+assume that the projections are surjective and equidistributed (which we
+know from the first method <a href="#enumerate:cnpp1p8snz"
+data-reference-type="eqref"
+data-reference="enumerate:cnpp1p8snz">\((1)\)</a>), then
+the joinings theorem of Einsiedler–Lindenstrauss says that the support
+must be on some joining. Khayutin finds some nice system of
+neighborhoods to calculate whether there could be any. Want to know that
+the measure comes from the full space rather than some Hecke operator.
+Want to know that no Hecke operator captures too much of the image. In
+other words, you’re trying to bound the intersection of the Hecke
+operator with the image of this CM orbit. Khayutin does this by reducing
+it to a counting argument involving counting numbers of points in a
+certain Diophantine geometric setup. He manages to bound it using sieve
+theory, a relative trace formula, and arguments from Diophantine
+geometry. It’s got a strong <span class="math inline">\(p\)</span>-adic
+sense to it, by taking level structures of this kind. It does seem a bit
+reminiscent of the arguments of Cornut–Vatsal proving Mazur’s
+conjecture. But the part that needs proving is not in measure theory,
+but instead in number theory and Diophantine geometry.</p>
+<p>[applause]</p>
+<p>Assuming this, you get modularity of all compatible systems as in
+Serre’s conjecture.</p>
+<div class="remark">
+<p><strong>Remark 7</strong>. There is another approach to the mixing
+conjecture by Blomer–Brumley assuming GRH.</p>
+</div>
+<div class="remark">
+<p><strong>Remark 8</strong>. The reason we used “split at all finite
+primes” is that we think this should work for the Artin conjecture in
+simpler cases, because Artin representations are potentially automorphic
+– go up to somewhere it’s dihedral. You might think I’m using potential
+automorphy in this analytic argument, and we are, because it’s simpler,
+but you can always make that analytic argument over a solvable extension
+of the base field, using Brauer’s theorem. So we think it may be
+possible to understand the Artin conjecture from this point of view.</p>
+</div>
+<h1
+id="pol-van-hoften-vu-amsterdam-igusa-stacks-and-exotic-hecke-correspondences">Pol
+van Hoften (VU Amsterdam), <em>Igusa stacks and exotic Hecke
+correspondences</em></h1>
+<p>Let’s say something about exotic Hecke correspondences. This phrase
+was perhaps coined by Zhu, but it’s a kind of theme in the geometry of
+Shimura varieties, which is that mod <span
+class="math inline">\(p\)</span> Shimura varieties for “related groups”
+have “related geometry”. Certainly in work of Ribet this already plays a
+role – his proof of the <span
+class="math inline">\(\varepsilon\)</span>-conjecture involves passing
+because modular curves (such as in the “<span
+class="math inline">\(p\)</span>-<span class="math inline">\(q\)</span>
+switch”). This was taken up by Helm, who considered unitary Shimura
+varieties. There’s then the work of Tian–Xiao; in the work of these two
+people, it was all a bit of an art. The work of Xiao–Zhu turned it into
+more of a science by giving a rigorous formulation of when these sorts
+of things should exist, explaining where they should come from.</p>
+<p>We would like to start by giving some examples so that we have a
+feeling for what these things are. As a kind of bonus, the result that
+we’ll state will apply to these examples.</p>
+<div id="example:cnpp15n4tc" class="example">
+<p><strong>Example 9</strong>. Let <span
+class="math inline">\(F\)</span> be a real quadratic field, with <span
+class="math inline">\(p\)</span> split. To be precise, maybe we should
+fix an ordering <span class="math inline">\(\{\infty_1, \infty_2
+\}\)</span> of the real place, and <span class="math inline">\(\{
+\mathfrak{p}_1, \mathfrak{p}_2\}\)</span> for the <span
+class="math inline">\(p\)</span>-adic places. Let <span
+class="math inline">\(S\)</span> be the mod <span
+class="math inline">\(p\)</span> Hilbert modular surface, choosing the
+level in such a way that it has good reduction. This is some nice smooth
+surface over <span class="math inline">\(\mathbb{F}_p\)</span>. We also
+need our Shimura curves. For <span class="math inline">\(i = 1,
+2\)</span>, consider <span class="math inline">\(B_i := B_{\infty_i
+\mathfrak{p}_i}\)</span>. This is the quaternion algebra over <span
+class="math inline">\(F\)</span> ramified precisely at <span
+class="math inline">\(\infty_i\)</span> and <span
+class="math inline">\(\mathfrak{p}_i\)</span>. We denote the
+corresponding Shimura curve by <span
+class="math inline">\(X_{B_i}\)</span>, over <span
+class="math inline">\(\mathbb{F}_p\)</span>.</p>
+<p>What we’re being vague about is that these Shimura curves are defined
+over <span class="math inline">\(F\)</span>, the reflex field, and I’m
+not telling you what <span class="math inline">\(p\)</span>-adic places
+I’m taking. Secretly, we’re fixing an isomorphism <span
+class="math display">\[(B_i \otimes \mathbb{A}_f^p )^\times \cong
+{\mathop{\mathrm{GL}}}_2(\mathbb{A}_f^p),\]</span> and everything is
+canonical relative to this choice.</p>
+<p>Tian–Xiao tells us that <span class="math display">\[X_{B_i,
+\overline{\mathbb{F}_p}} \hookrightarrow
+S_{\overline{\mathbb{F}_p}}\]</span> as a closed <em>Goren–Oort
+stratum</em>. (This surface has two Goren–Oort strata.) These curves
+moreover sit inside here Hecke equivariantly.</p>
+</div>
+<div class="example">
+<p><strong>Example 10</strong>. Let <span
+class="math inline">\(E\)</span> be imaginary quadratic. Let <span
+class="math inline">\(W\)</span> be a Hermitian <span
+class="math inline">\(E\)</span>-module of rank <span
+class="math inline">\(2 n\)</span>. Choose some Hermitian <span
+class="math inline">\(E\)</span>-module <span
+class="math inline">\(W&#39;\)</span> of rank <span
+class="math inline">\(2 n\)</span>, with <span class="math inline">\(W
+\otimes \mathbb{A}_f \cong W &#39; \otimes \mathbb{A}_f\)</span>. So
+somehow, as Hermitian <span class="math inline">\(E\)</span>-modules,
+they’re isomorphic to each other. Then at an inert prime <span
+class="math inline">\(p &gt; 2\)</span> in <span
+class="math inline">\(E\)</span>, we can consider the Shimura variety
+for <span class="math inline">\(X\)</span> over <span
+class="math inline">\(\overline{\mathbb{F}_p}\)</span>, as well as the
+Shimura variety for <span class="math inline">\(W&#39;\)</span>, and
+there exists a correspondence (rather than just a map) <span
+class="math display">\[\begin{tikzcd}
+      &amp; \operatorname{Sh}(W | W&#39;) \arrow[ld, &quot;t&quot;&#39;]
+\arrow[rd, &quot;s&quot;] &amp; \\
+      \operatorname{Sh}(W&#39;)_{\overline{\mathbb{F}_p}} &amp; &amp;
+\operatorname{Sh}(W)_{\overline{\mathbb{F}_p}}
+    \end{tikzcd}\]</span> and <span class="math inline">\(s, t\)</span>
+have image a closed nonempty union of Newton strata.</p>
+<p>Note that if we were in the definite case for <span
+class="math inline">\(W&#39;\)</span>, then the corresponding Shimura
+variety would be a set; the picture thus depends upon the archimedean
+situation.</p>
+<p>There’s thus some sort of art .</p>
+</div>
+<div class="remark">
+<p><strong>Remark 11</strong>. If <span
+class="math inline">\(\operatorname{Sh}(W)_{\overline{\mathbb{F}_p}}\)</span>
+is a moduli of certain abelian varieties <span
+class="math inline">\(A\)</span> with <span
+class="math inline">\(E\)</span>-action, and <span
+class="math inline">\(\operatorname{Sh}(W&#39;)_{\overline{\mathbb{F}_p}}\)</span>
+is a moduli of certain abelian varieties <span
+class="math inline">\(B\)</span>, then <span
+class="math display">\[\operatorname{Sh}(W |
+W&#39;)_{\overline{\mathbb{F}_p}} = \left\{ \text{$p$-power $E$-linear
+isogenies } A \rightarrow B \right\}.\]</span> Note that these things
+don’t lift to characteristic zero, i.e., to <span
+class="math inline">\(\overline{\mathbb{Q}}\)</span>, due to issues
+involving the signature when <span class="math inline">\(W \not \cong
+W&#39;\)</span>.</p>
+</div>
+<p>This remark doesn’t apply to the first example, Example <a
+href="#example:cnpp15n4tc" data-reference-type="ref"
+data-reference="example:cnpp15n4tc">9</a> but you have to be a bit
+careful because these Shimura varieties are <em>not</em> of PEL type. To
+construct these, you have to put yourself in a situation where, by
+passing to auxiliary Shimura varieties, you can do something related to
+abelian varieties. This theme will also appear in the rest of the
+talk.</p>
+<p>Given that we’ve identified <span class="math inline">\(W\)</span>
+and <span class="math inline">\(W&#39;\)</span> over the adeles, given
+<span class="math inline">\(\alpha\)</span>, we get in particular that
+<span class="math display">\[\operatorname{GU}(W)_{\mathbb{Q}_p}
+  \cong
+  \operatorname{GU}(W&#39;)_{\mathbb{Q}_p} =: G.\]</span> Newton strata
+are indexed by the subsets <span class="math inline">\(B(G, -
+\mu)\)</span> and <span class="math inline">\(B(G, - \mu &#39;)\)</span>
+of <span class="math inline">\(B(G)\)</span>. Here <span
+class="math inline">\(\mu\)</span> and <span class="math inline">\(\mu
+&#39;\)</span> are cocharacters coming from the Shimura datum,
+recordeing the signature. The Newton strata hit by the correspondence
+<span class="math inline">\((s,t)\)</span> are precisely the
+intersection <span class="math inline">\(B(G, - \mu ) \cap B(G, - \mu
+&#39;)\)</span>.</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-MichelVenkateshICM" class="csl-entry" role="listitem">
+Michel, Philippe, and Akshay Venkatesh. 2006. <span>“Equidistribution,
+<span><span class="math inline">\(L\)</span></span>-Functions and
+Ergodic Theory: On Some Problems of
+<span>Y</span>u. <span>L</span>innik.”</span> In <em>International
+<span>C</span>ongress of <span>M</span>athematicians. <span>V</span>ol.
+<span>II</span></em>, 421–57. Eur. Math. Soc., Zürich.
+</div>
+</div>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
