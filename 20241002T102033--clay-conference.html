@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Notes from 2024 Clay Research Conference</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+    <div class="my-links-container">
+2024-10-04 19:28:21
+      <a href="20241002T102033--clay-conference.tex" class="my-link">tex</a>
+      <a href="20241002T102033--clay-conference.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20241002T102033--clay-conference.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+<header id="title-block-header">
+<h1 class="title">Notes from 2024 Clay Research Conference</h1>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>Unedited notes from the talks of Ana Caraiani, Mark Andrea de
+Cataldo, Timothy Gowers, Rahul Pandharipande. These notes are
+incomplete, have not been proofread, and should be considered only a
+crude approximation to what happened in the lectures, filtered through
+my own misunderstandings and distractions. Any errors should be assumed
+to be due to the note-taker. Corrections welcome!</p>
+</div>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a
+href="#ana-caraiani-imperial-the-cohomology-of-shimura-varieties-a-survey-of-recent-developments"
+id="toc-ana-caraiani-imperial-the-cohomology-of-shimura-varieties-a-survey-of-recent-developments">Ana
+Caraiani (Imperial), <em>The cohomology of Shimura varieties – a survey
+of recent developments</em></a>
+<ul>
+<li><a href="#shimura-varieties" id="toc-shimura-varieties">Shimura
+varieties</a></li>
+<li><a href="#examples" id="toc-examples">Examples</a></li>
+<li><a href="#intersection-cohomology"
+id="toc-intersection-cohomology">Intersection cohomology</a></li>
+</ul></li>
+<li><a
+href="#mark-andrea-de-cataldo-stony-brook-the-pw-conjecture-in-non-abelian-hodge-theory"
+id="toc-mark-andrea-de-cataldo-stony-brook-the-pw-conjecture-in-non-abelian-hodge-theory">Mark
+Andrea de Cataldo (Stony Brook), <em>The <span
+class="math inline">\(P=W\)</span> Conjecture in Non Abelian Hodge
+Theory</em></a></li>
+<li><a
+href="#timothy-gowers-cambridge-some-recent-developments-in-combinatorics"
+id="toc-timothy-gowers-cambridge-some-recent-developments-in-combinatorics">Timothy
+Gowers (Cambridge), <em>Some recent developments in
+combinatorics</em></a>
+<ul>
+<li><a href="#ramseys-theorem" id="toc-ramseys-theorem">Ramsey’s
+theorem</a></li>
+<li><a href="#arithmetic-progressions-of-length-3"
+id="toc-arithmetic-progressions-of-length-3">Arithmetic progressions of
+length <span class="math inline">\(3\)</span></a></li>
+<li><a href="#the-inverse-theorem-for-the-uniformity-norms"
+id="toc-the-inverse-theorem-for-the-uniformity-norms">The inverse
+theorem for the uniformity norms</a></li>
+<li><a href="#the-expectation-threshold-conjecture"
+id="toc-the-expectation-threshold-conjecture">The expectation threshold
+conjecture</a></li>
+<li><a href="#the-erdoshajnal-conjecture"
+id="toc-the-erdoshajnal-conjecture">The Erdos–Hajnal conjecture</a></li>
+<li><a href="#the-union-closed-conjecture"
+id="toc-the-union-closed-conjecture">The union-closed
+conjecture</a></li>
+</ul></li>
+<li><a
+href="#rahul-pandharipande-eth-zürich-cycles-on-the-moduli-space-of-abelian-varieties"
+id="toc-rahul-pandharipande-eth-zürich-cycles-on-the-moduli-space-of-abelian-varieties">Rahul
+Pandharipande (ETH Zürich), <em>Cycles on the moduli space of abelian
+varieties</em></a>
+<ul>
+<li><a href="#abelian-varieties" id="toc-abelian-varieties">Abelian
+varieties</a></li>
+<li><a href="#tautological-classes-on-mathcala_g"
+id="toc-tautological-classes-on-mathcala_g">Tautological classes on
+<span class="math inline">\(\mathcal{A}_g\)</span></a></li>
+<li><a href="#cycle-questions" id="toc-cycle-questions">Cycle
+questions</a></li>
+<li><a href="#pixtons-relations-on-barmathcalm_g-n"
+id="toc-pixtons-relations-on-barmathcalm_g-n">Pixton’s relations on
+<span class="math inline">\(\bar{\mathcal{M}}_{g, n}\)</span></a></li>
+<li><a href="#pull-back-via-torelli"
+id="toc-pull-back-via-torelli">Pull-back via Torelli</a></li>
+<li><a href="#genus-g-6" id="toc-genus-g-6">Genus <span
+class="math inline">\(g = 6\)</span></a></li>
+<li><a href="#projection" id="toc-projection">Projection</a></li>
+<li><a href="#results-and-conjectures-about-mathrmn-l_g-d"
+id="toc-results-and-conjectures-about-mathrmn-l_g-d">Results and
+conjectures about <span class="math inline">\(\mathrm{N L}_{g,
+d}\)</span></a></li>
+</ul></li>
+</ul>
+</nav>
+<h1
+id="ana-caraiani-imperial-the-cohomology-of-shimura-varieties-a-survey-of-recent-developments">Ana
+Caraiani (Imperial), <em>The cohomology of Shimura varieties – a survey
+of recent developments</em></h1>
+<p>For this talk, we’ll focus not on modularity, but instead on some
+really fascinating geometric objects that sometimes give you a concrete,
+explicit geometric realization of the Langlands correspondence, namely,
+Shimura varieties. We’ll thus talk about these fascinating objects and
+their many symmetries. There’s been much recent progress in the area.
+Towards the end of the talk, we’ll give some high level view on how some
+of the different talks at the workshop this week connect to each
+other.</p>
+<p>To begin, we’ll discuss Shimura varieties.</p>
+<h3 id="shimura-varieties">Shimura varieties</h3>
+<p>The global Langlands correspondence is supposed to match up different
+kinds of data showing up in different contexts. On the harmonic analysis
+side, what you see are systems of eigenvalues that show up from the
+geometry or topology or analysis of certain highly symmetric spaces.
+That’s the perspective from which we’ll approach Shimura varieties.
+Later on, on the arithmetic side of the Langlands correspondence, we’ll
+see the kind of data that comes from counting solutions to polynomial
+equations modulo primes. But for now we’ll focus on spaces with a lot of
+symmetry that know about a lot of interesting systems of
+eigenvalues.</p>
+<p>These spaces will be attached to connected reductive groups <span
+class="math inline">\(G\)</span> over <span
+class="math inline">\(\mathbb{Q}\)</span> (e.g., <span
+class="math inline">\(G = {\mathop{\mathrm{GL}}}_2\)</span> or <span
+class="math inline">\({\mathop{\mathrm{SL}}}_2\)</span>). We want to look
+at the so-called symmetric space <span class="math inline">\(X\)</span>
+for the real points of the group. This is a real manifold endowed with a
+Riemannian metric. We can just take <span class="math inline">\(X =
+G(\mathbb{R}) / K_\infty^0 A_\infty^0\)</span>. This definition makes
+sense over the reals, but we want something to reflect the structure
+that we started with over the rational numbers. We get this by taking
+quotients. The space <span class="math inline">\(X\)</span> has, by
+construction, a left action of <span
+class="math inline">\(G(\mathbb{R})\)</span>. If we had, for instance,
+started over <span class="math inline">\(\mathbb{Z}\)</span>, then we
+could form the subgroup of integral points <span
+class="math inline">\(\Gamma\)</span> inside <span
+class="math inline">\(G(\mathbb{R})\)</span>. Shimura varieties are very
+roughly the locally symmetric spaces of the form <span
+class="math inline">\(\Gamma \backslash X\)</span> that arise in this
+way. By taking <span class="math inline">\(\Gamma\)</span> sufficiently
+small (e.g., by imposing some congruences conditions), we can ensure
+that this quotient has the structure of a smooth real manifold.</p>
+<p>This is just a first approximation – Shimura varieties have
+additional structure. One first piece of additional structure is what’s
+called Hecke symmetry. (This shows up even before you start talking
+about Shimura varieties.) Take the finite adelic points <span
+class="math inline">\(G(\mathbb{A}_f)\)</span>, given by the restricted
+product of the <span class="math inline">\(G(\mathbb{Q}_p)\)</span> for
+all primes <span class="math inline">\(p\)</span>. Arithmetic groups
+essentially arise by taking a small enough compact open subgroup <span
+class="math inline">\(K \subset G(\mathbb{A}_f)\)</span>. We then want
+to view our locally symmetric space not as a real quotient as above, but
+instead as a double quotient <span class="math display">\[X_K =
+  G(\mathbb{Q}) \backslash  (X \times G(\mathbb{A}_f)) / K.\]</span>
+This is not so far apart from taking a disjoint union of real quotients
+as above. More precisely, by strong approximation, we have <span
+class="math display">\[G(\mathbb{A}_f) = \sqcup_{
+    \substack{
+      i \in I  \\
+      \text{finite set}      
+    }
+  }
+  G(\mathbb{Q}) \gamma_i K,\]</span> and so <span
+class="math display">\[X_K = \sqcup_{i \in I} X / \Gamma_i , \qquad
+  \Gamma_i = G(\mathbb{Q}) \cap \gamma_i K \gamma_i^{-1}.\]</span> This
+last construction of <span class="math inline">\(X_K\)</span> makes
+apparent the full force of symmetries available. The right thing to do
+is to consider the inverse limit of these objects <span
+class="math inline">\(X_K\)</span> as <span
+class="math inline">\(K\)</span> gets smaller and smaller. (It’s
+sometimes useful to restrict to those <span
+class="math inline">\(K\)</span> that are unramified outside some finite
+set of primes.) This inverse limit has a natural action of <span
+class="math inline">\(G(\mathbb{A}_f)\)</span>. Passing to cohomology,
+e.g., <span class="math display">\[\varinjlim_{K} H^\ast(X_K,
+\mathbb{C}),\]</span> we retain an action of <span
+class="math inline">\(G(\mathbb{A}_f)\)</span>.</p>
+<p>We can remember the Hecke symmetry at finite level through the action
+of a Hecke algebra. Namely, if you just want to look at some fixed
+finite level congruence subgroup <span class="math inline">\(K\)</span>,
+then we can remember the symmetry coming from <span
+class="math inline">\(G(\mathbb{A}_f)\)</span> by considering the
+corresponding algebra of averaging operators <span
+class="math inline">\(\mathbb{T}\)</span>, called the Hecke algebra. We
+then obtain an action <span class="math display">\[\mathbb{T}
+\circlearrowright H^\ast(X_K, \mathbb{C}).\]</span></p>
+<h3 id="examples">Examples</h3>
+<p>We’ll now give one example and one non-example of Shimura varieties,
+followed by the general case.</p>
+<ol>
+<li><p><span id="enumerate:cnpo4gcep4"
+label="enumerate:cnpo4gcep4"></span> <span class="math inline">\(G =
+{\mathop{\mathrm{GL}}}_2\)</span> over <span
+class="math inline">\(\mathbb{Q}\)</span>. The symmetric space is <span
+class="math inline">\(X = {\mathop{\mathrm{GL}}}_2(\mathbb{R}) /
+{\mathop{\mathrm{SO}}}_2(\mathbb{R}) \mathbb{R}_{&gt; 0}\)</span>, which
+we may identify with the disjoint union <span
+class="math display">\[\mathbb{H}^{\pm} = \{ z \in \mathbb{C} : \Im(z)
+&gt; 0 \text{ or } \Im(z) &lt; 0\}\]</span> of upper and lower complex
+half-planes. This identification comes from the action <span
+class="math display">\[\gamma =
+    \begin{pmatrix}
+      a      &amp; b \\
+      c &amp; d \\
+    \end{pmatrix}
+    \in {\mathop{\mathrm{GL}}}_2(\mathbb{R}).\]</span> That’s the
+symmetric space; how about the locally symmetric space? The <span
+class="math inline">\(X_K\)</span> are, by this approximation result,
+just disjoint unions of quotients <span class="math inline">\(\Gamma
+\backslash \mathbb{H}\)</span>, where <span class="math inline">\(\Gamma
+\subseteq {\mathop{\mathrm{SL}}}_2(\mathbb{Z})\)</span> is a
+<em>congruence subgroup</em>, namely, a finite-index subgroup cut out by
+congruence conditions. There’s a famous picture:</p>
+<figure id="fig:myimage">
+<img src="fund-domain.png" style="width:50.0%" />
+<figcaption>Fundamental domain for <span
+class="math inline">\({\mathop{\mathrm{SL}}}_2(\mathbb{Z}) \backslash
+\mathbb{H}\)</span></figcaption>
+</figure>
+<p>This looks like a punctured Riemann sphere, with a cusp at <span
+class="math inline">\(\infty\)</span> corresponding to the <span
+class="math inline">\(y \rightarrow \infty\)</span> limit and some
+orbifold-like points around the roots of unity <span
+class="math inline">\(\rho = \exp(2 \pi i / 3)\)</span> and <span
+class="math inline">\(\rho^2\)</span>.</p>
+<p>So, this is a locally symmetric space, but in fact, even more happens
+in this example. First of all, these are <em>Riemann surfaces</em>,
+hence after compactifying at the cusps, they give rise to smooth
+projective curves over the complex numbers. But what’s even more special
+is that these curves can be defined by polynomial equations with
+<em>rational</em> coefficients.</p>
+<p>Roughly speaking, Shimura varieties are locally symmetric spaces that
+admit an algebraic structure.</p>
+<p>A cohomology theory for algebraic varieties is the <span>é</span>tale
+cohomology, introduced by Grothendieck roughly 60 years ago. This is
+supposed to behave kind of like the singular Betti cohomology for
+topological spaces, but should compare while with de Rham cohomology. We
+take our curve <span class="math inline">\(S_K\)</span> over the
+rational numbers and pass to its realization <span
+class="math inline">\(S_K \times_{\mathbb{Q}} \bar{\mathbb{Q}}\)</span>
+over the algebraic numbers, then take <span>é</span>tale cohomology with
+coefficients in <span class="math inline">\(\mathbb{Q}_{\ell}\)</span>,
+and take the limit over <span class="math inline">\(K\)</span>: <span
+class="math display">\[H^\ast
+    :=
+    \varinjlim H^\ast_K
+    :=
+    \varinjlim_{K} H_{\acute{e}t}^\ast(S_K \times_{\mathbb{Q}}
+\bar{\mathbb{Q}}, \mathbb{Q}_{\ell}).\]</span> This retains the Hecke
+symmetry (an action of <span
+class="math inline">\({\mathop{\mathrm{GL}}}_2(\mathbb{A}_f)\)</span>) and
+a Galois symmetry (an action of <span
+class="math inline">\(\mathop{\mathrm{Gal}}(\bar{\mathbb{Q}} /
+\mathbb{Q})\)</span>).</p>
+<p>Let’s now get even more explicit. Let <span
+class="math inline">\(f\)</span> be a cusp form of weight <span
+class="math inline">\(2\)</span>. It contributes to the cohomology <span
+class="math inline">\(H^i\)</span> in degree <span
+class="math inline">\(i = 1\)</span>. Writing <span
+class="math inline">\(\mathfrak{m}_f\)</span> for the Hecke ideal
+corresponding to the system of eigenvalues attached to <span
+class="math inline">\(f\)</span>, we can identify <span
+class="math inline">\(H^1_K[\mathfrak{m}_f]\)</span> with the Galois
+representation attached to <span class="math inline">\(f\)</span>, which
+we denote <span id="eq:cnpo4f57z3" class="math display">\[\label{eq:cnpo4f57z3}\tag{1}
+    \rho_{\mathfrak{m}, \ell} : G_{\mathbb{Q}} \rightarrow
+{\mathop{\mathrm{GL}}}_2(\bar{\mathbb{Q}}_{\ell}).\]</span> We can also
+describe <span class="math inline">\(H_K^0\)</span>. If <span
+class="math inline">\(\mathfrak{m} \subseteq \mathbb{T}\)</span> occurs
+in it, then the corresponding Galois representation <a
+href="#eq:cnpo4f57z3" data-reference-type="eqref"
+data-reference="eq:cnpo4f57z3">\((1)\)</a> has the form <span
+class="math inline">\(\chi(1 + \chi_{\mathrm{cycl}})\)</span>, where
+<span class="math inline">\(\chi\)</span> is a finite order character of
+<span class="math inline">\(G_{\mathbb{Q}}\)</span> and <span
+class="math display">\[\chi_{\mathrm{cycl}} : G_{\mathbb{Q}} \rightarrow
+\mathop{\mathrm{Gal}}\left( \mathbb{Q}(\mu_{\ell^\infty}) / \mathbb{Q}
+\right) \cong \mathbb{Z}_{\ell}^\times\]</span> is the cyclotomic
+character. Explicitly, if <span class="math inline">\(p\)</span> is a
+prime with <span class="math inline">\(p \neq \ell\)</span>, then <span
+class="math inline">\(\rho_{\mathfrak{m},
+\ell}(\mathrm{Frob}_p)\)</span> has eigenvalues <span
+class="math inline">\(\{\alpha, \alpha p\}\)</span>. This gives an
+example of the general phenomenon that cohomology away from the middle
+degree becomes degenerate.</p></li>
+<li><p><span id="enumerate:cnpo4gb852"
+label="enumerate:cnpo4gb852"></span> We now give a non-example. Take an
+imaginary quadratic extension <span class="math inline">\(F =
+\mathbb{Q}(\sqrt{- d})\)</span>, where <span class="math inline">\(d
+&gt; 0\)</span> is square-free. Take <span class="math inline">\(G =
+{\mathop{\mathrm{SL}}}_2 / F\)</span>. Let <span
+class="math inline">\(X\)</span> be a symmetric space for <span
+class="math inline">\(G(\mathbb{R})\)</span>, which turns out to be
+identified with <span
+class="math inline">\({\mathop{\mathrm{SL}}}_2(\mathbb{C}) /
+{\mathop{\mathrm{SU}}}_2(\mathbb{R})\)</span>, which we may identify
+further with hyperbolic <span class="math inline">\(3\)</span>-space
+<span class="math inline">\(\mathbb{H}^3\)</span>. This has odd real
+dimension, hence has no hope of having a complex structure. Thus, here,
+<span class="math inline">\(X_K\)</span> are arithmetic hyperbolic <span
+class="math inline">\(3\)</span>-manifolds, with no algebraic structure.
+That’s the general picture for locally symmetric spaces.</p></li>
+<li><p><span id="enumerate:cnpo4ghhcx"
+label="enumerate:cnpo4ghhcx"></span> What gave us an algebraic structure
+in example <a href="#enumerate:cnpo4gcep4" data-reference-type="eqref"
+data-reference="enumerate:cnpo4gcep4">\((1)\)</a> was
+that we started with a moduli space of elliptic curves with additional
+structure. If we consider now <span class="math inline">\(G :=
+{\mathop{\mathrm{GSp}}}_{2 g}\)</span> over <span
+class="math inline">\(\mathbb{Q}\)</span>, then the corresponding
+Shimura varieties <span class="math inline">\(S_K\)</span> are moduli
+spaces of abelian varieties of dimension <span
+class="math inline">\(g\)</span>, with principal polarizations and <span
+class="math inline">\(K\)</span>-level structures. There are other
+higher rank groups that give rise to Shimura groups, such as unitary
+groups, but they are special within the broader realm of reductive
+groups. Anyway, the main point is that you have a Galois symmetry in
+addition to the Hecke symmetry. These varieties are smooth and
+quasi-projective and defined over <span
+class="math inline">\(\mathbb{Q}\)</span> or some finite extension, and
+often, but not always, can be related to a moduli problem of abelian
+varieties with extra structure. That’s something that’s very useful in
+their study – the ones with this feature are often better understood
+than those without. Because they have these additional symmetries, they
+are also good test objects for conjectures in arithmetic
+geometry.</p></li>
+</ol>
+<p>For the rest of the talk, we’ll talk about the feature discussed
+above for <span class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span>
+where the most nondegenerate stuff occurs in middle degree, and away
+from that, one sees some degeneration.</p>
+<h3 id="intersection-cohomology">Intersection cohomology</h3>
+<p>If you want a cohomology theory that is very well-behaved (e.g.,
+satisfies Poincare duality) in the setting of varieties that are
+quasi-projective but not necessarily projective, then you can work with
+something called intersection cohomology. Conjectures of Arthur and
+Kottwitz (from more than twenty years ago) predict what the intersection
+cohomology <span class="math inline">\(\operatorname{IH}^\ast(S_K,
+\ast)\)</span> of a Shimura variety should look like, over <span
+class="math inline">\(\ast = \mathbb{C}\)</span> or <span
+class="math inline">\(\mathbb{Q}_{\ell}\)</span>. There’s a Lefschetz
+structure and a Hodge structure. By looking at the interactions of these
+structures, one is led to the expectation that <span
+class="math display">\[\operatorname{IH}^{d - k}(S_K, \mathbb{Q}_{\ell})
+\cong \operatorname{IH}^{d + k}(S_K, \mathbb{Q}_{\ell})\]</span> is more
+and more degenerate as <span class="math inline">\(k\)</span> grows.
+Here <span class="math inline">\(d = \dim S_K\)</span>. In
+characteristic zero, one can approach these conjectures using known
+results toward functoriality.</p>
+<p>In the rest of talk, we turn to the question: is there an analogue of
+Arthu’s conjecture with torsion coefficients, e.g., for the intersection
+cohomology <span class="math inline">\(\operatorname{IH}^\ast(S_K,
+\mathbb{F}_{\ell})\)</span> with coefficients in a finite field?
+Questions of this form have many applications, which will come up in the
+research workshop this week. If you can put some nondegeneracy condition
+and know that cohomology will be concentrated in the middle degree, then
+this can be very useful for proving modularity theorems, the kinds of
+results useful for establishing the “other direction” of the Langlands
+correspondence. This also plays a role in the prize-winning work of
+Newton–Thorne. It also has applications to Euler systems, which are used
+to attack the BSD conjecture (Naomi Sweeting’s talk yesterday at the
+workshop). This kind of result has also played a key role in advances in
+understanding the Langlands correspondence in the Bianchi setting, such
+as in work of Caraiani–Newton. It’s also just interesting to see what
+the cohomology looks like in the torsion setting, to understand the
+analogues of conjectures originally formulated by Langlands.</p>
+<p>To end, we’ll describe a sample theorem in the compact case, and
+mention some work in progress specifically for intersection cohomology.
+We give a sample result, informally stated.</p>
+<div class="theorem">
+<p><strong>Theorem 1</strong> (Sample theorem). <em>Assume <span
+class="math inline">\(S_K\)</span> is compact. Let <span
+class="math inline">\(\mathfrak{m} \subseteq \mathbb{T}\)</span> be a
+system of Hecke eigenvalues occurring in <span
+class="math inline">\(H^\ast(S_K, \mathbb{F}_{\ell})\)</span>. If <span
+class="math inline">\(\mathfrak{m}\)</span> is sufficiently generic
+(representation-theoretic condition at <span class="math inline">\(p
+\neq \ell\)</span>, excluding cases like <span
+class="math inline">\(\{\alpha, \alpha p\}\)</span> discussed earlier),
+then <span class="math display">\[H^\ast(S_K,
+\mathbb{F}_{\ell})_{\mathfrak{m}}\]</span> is concentrated in middle
+degree <span class="math inline">\(d = \dim S_K\)</span>.</em></p>
+</div>
+<p>We didn’t put attribution here, because it’s a bit complicated. The
+strategy for proving this is due to Caraiani–Scholze, then a better
+version was put forth by Koshikawa (a speaker on Monday), then an even
+stronger version put up last year by Hamann–Lee <a href="#ref-2023arXiv2309.08705" class="citation"
+data-cites="2023arXiv2309.08705">(Hamann and Lee 2023)</a>. Results
+like this apply to most unitary Shimura varieties, and <span
+class="math inline">\({\mathop{\mathrm{GSp}}}_4\)</span>, but not quite in
+general, for various reasons. The modern proof of the theorem uses the
+Igusa stack of M. Zhang, extended in work of Daniels–Kim–van
+Hoften–Zhang for more general Shimura varieties. When you work over
+<span class="math inline">\(p\)</span>-adic fields, namely, over <span
+class="math inline">\(\mathbb{C}_p\)</span>, there is a Cartesian
+diagram <span class="math display">\[\begin{CD}         
+    \mathcal{S}_{K^p}    @&gt;&gt;&gt; \mathcal{H}_{G, \mu}\\
+    @VVV  @VVV \\
+    \mathrm{Igs} @&gt;\bar{\pi}&gt;&gt; \mathrm{Bun}_G\\
+  \end{CD}\]</span> due to work of various authors. (Here <span
+class="math inline">\(\mathrm{Igs}\)</span> is the so-called Igusa
+stack.) This gives a way to understand cohomology of Shimura varieties
+using ideas from the geometric Langlands program. Namely, for
+well-behaved sheaves on <span
+class="math inline">\(\mathrm{Bun}_G\)</span>, one has access to
+excursion operators, coming from Fargues–Scholze. This leads to the most
+conceptual proof of the sample theorem. The global input that you need
+is to know that the relative cohomology <span class="math display">\[R
+\bar{\pi}_\ast \mathbb{F}_{\ell}\]</span> is, in some sense, a perverse
+sheaf on <span class="math inline">\(\mathrm{Bun}_G\)</span>. One can
+recover <span class="math display">\[\varinjlim_{K_p}
+H^\ast(\mathrm{Sh}_{K^p K_p}, \mathbb{F}_{\ell})_{\mathfrak{m}}\]</span>
+by applying a Hecke symmetry <span class="math inline">\(T_\mu\)</span>
+to <span class="math inline">\((R \bar{\pi}_\ast
+\mathbb{F}_{\ell})_{\mathfrak{m}}\)</span>. Then <span
+class="math inline">\(T_\mu\)</span> is perverse <span
+class="math inline">\(t\)</span>-exact on a generic subcategory (coming
+from the work of Linus Hamann). These themes will recur in the talks of
+Mingjia Zhang and Pol van Hoften.</p>
+<p>We conclude by mentioning that in joint work, we are constructing an
+intersection complex on the Igusa stack that should recover the
+intersection cohomology of Shimura varieties, so you should have a
+theorem like the above (for middle degree) but instead for the
+intersection cohomology. Depending upon the <span
+class="math inline">\(t\)</span>-exactness properties of this Hecke
+operator on various subcategories, you could potentially realize the
+relative cohomology of the Igusa stack as a global incarnation of the
+generalized eigensheaves that showed up in Koshikawa’s talk, and the
+analogue of Arthur’s conjectures should be explained by <span
+class="math inline">\(t\)</span>-exactness properties on smaller
+subcategories.</p>
+<div class="remark">
+<p><strong>Remark 2</strong>. We understand what the points on <span
+class="math inline">\(\mathrm{Bun}_G\)</span> look like. For instance,
+in <span class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span>, the
+Igusa stack will reach two points, supersingular and ordinary, and the
+fibers will be more complicated objects called Igusa varieties. The
+fibers of the map <span class="math inline">\(\bar{\pi}\)</span> are
+related to these. What’s really important about the Igusa stack is that
+it’s kind of globalizing, giving a way to glue together these objects.
+The moduli problem is abelian varieties but up to <span
+class="math inline">\(p\)</span>-power isogeny.</p>
+</div>
+<h1
+id="mark-andrea-de-cataldo-stony-brook-the-pw-conjecture-in-non-abelian-hodge-theory">Mark
+Andrea de Cataldo (Stony Brook), <em>The <span
+class="math inline">\(P=W\)</span> Conjecture in Non Abelian Hodge
+Theory</em></h1>
+<p>The topic of the workshop is the <span class="math inline">\(P =
+W\)</span> conjecture in non-abelian Hodge theory. The purpose of this
+hour is to introduce that conjecture.</p>
+<ul>
+<li><p>First, we’ll say what non-abelian Hodge theory is.</p></li>
+<li><p>The <span class="math inline">\(P = W\)</span> conjecture then
+has two parts: <span class="math inline">\(P\)</span> and <span
+class="math inline">\(W\)</span>.</p></li>
+<li><p>We’ll then state the conjecture, report on the status of the
+conjecture, and give some concluding remarks.</p></li>
+</ul>
+<p>Before non-abelian Hodge theory, there is of course abelian Hodge
+theory. Today “abelian” refers to <span
+class="math inline">\({\mathop{\mathrm{GL}}}_1 =
+\mathbb{C}^\times\)</span>, while “non-abelian” refers to <span
+class="math inline">\({\mathop{\mathrm{GL}}}_r\)</span> with <span
+class="math inline">\(r &gt; 1\)</span>.</p>
+<p>Let <span class="math inline">\(X\)</span> be a curve, with genus
+<span class="math inline">\(g \geq 2\)</span>. The main object today
+will be an <span class="math inline">\(H^1\)</span>. In the abelian
+case, we’ll get a Lie group, but in the non-abelian case, we won’t get a
+Lie group, but we’ll instead get a complex algebraic variety that we’ll
+study on its own terms. The <span class="math inline">\(H^1\)</span> of
+interest will be <span class="math display">\[H^1(X, \mathbb{C}^\times)
+=
+  \frac{H^1(X, \mathbb{C})}{H^1(X, \mathbb{Z})}.\]</span> We can think
+of this as <span class="math inline">\(\mathop{\mathrm{Hom}}(\pi_1(X),
+\mathbb{C}^\times)\)</span> (later, we’ll need to work with an
+equivalence relation, but that relation is trivial here because the
+group <span class="math inline">\({\mathop{\mathrm{GL}}}_1\)</span> is
+abelian). It is isomorphic to <span
+class="math inline">\((\mathbb{C}^\times)^{2 g}\)</span>. It is a
+complex algebraic variety, and is affine – it can be embedded as a
+closed subvariety of some finite-dimensional affine space. We can think
+of this further as the character variety <span
+class="math inline">\(M_B(X, {\mathop{\mathrm{GL}}}_1)\)</span> (here
+<span class="math inline">\(B\)</span> stands for “Betti”).</p>
+<p>There are ways to describe cohomology, and we have the de Rham
+theorem. We can view the above quotient as <span
+class="math display">\[\frac{H^1_{d R}(X, \mathbb{C})}{H^1(X,
+\mathbb{Z})},\]</span> but we can then put connections on <span
+class="math inline">\(X \times \mathbb{C}\)</span>, and the above
+quotient then identifies with <span
+class="math display">\[\frac{  \left( \frac{\text{closed
+forms}}{\text{exact forms}} \right)}{
+    H^1(X, \mathbb{Z})
+  }
+  =
+  \frac{\text{flat connections on $X \times
+\mathbb{C}$}}{\text{gauge}}.\]</span> We can also define <span
+class="math inline">\(M_{d R}(X, {\mathop{\mathrm{GL}}}_1)\)</span>. It is
+also a complex Lie group, but we want to emphasize that the relation
+between these two is not always so simple. There is a biholomorphism
+<span class="math display">\[M_{d R}(X, {\mathop{\mathrm{GL}}}_1) \cong
+M_B(X, {\mathop{\mathrm{GL}}}_1).\]</span> That is to say, as complex
+analytic spaces, these are the same. But if defined correctly, the left
+hand side is not affine, while the right hand side is affine. (There are
+no polynomial functions on the left, but there are on the right.)</p>
+<p>There’s something you can do when you have a connection <span
+class="math inline">\(D\)</span>: you can write it as a closed
+connection <span class="math inline">\(D_0\)</span> plus a form <span
+class="math inline">\(\eta\)</span>, thus <span class="math inline">\(D
+= D_0 + \eta\)</span>. There is a canonical metric associated to a flat
+connection. From this, we get an essentially canonical harmonic metric
+<span class="math inline">\(H\)</span>. You can take the</p>
+<ul>
+<li><p>the real part <span class="math inline">\(\Re(\eta)\)</span> and
+its <span class="math inline">\((1,0)\)</span> part, and</p></li>
+<li><p>the imaginary part <span class="math inline">\(\Im(\eta)\)</span>
+and its <span class="math inline">\((0,1)\)</span> part.</p></li>
+</ul>
+<p>From <span class="math inline">\(\eta\)</span> and <span
+class="math inline">\(H\)</span> we extract holomorphic connections
+<span class="math display">\[L_{\mathrm{dR}, \nabla^{\mathrm{hol}}},
+\quad
+  L_{\mathrm{Dol}, a},\]</span> where <span
+class="math inline">\(a\)</span> is a holomorphic <span
+class="math inline">\(1\)</span>-form. We obtain <span
+class="math inline">\(M_{d R} \rightarrow
+\mathop{\mathrm{Jac}}(X)\)</span>, whose fibers are holomorphic <span
+class="math inline">\(1\)</span>-forms <span
+class="math inline">\(\Omega\)</span>.</p>
+<p>We get a vector bundle <span class="math inline">\(\Omega\)</span>
+given by <span class="math display">\[\begin{CD}
+    M_{\mathrm{Dol}}(X,
+{\mathop{\mathrm{GL}}}_1)    @&gt;&gt;&gt;\mathop{\mathrm{Jac}}(X)\\
+    @|  @. \\
+    T^\ast \mathop{\mathrm{Jac}}(X) @&gt;&gt;&gt;
+\mathop{\mathrm{Jac}}\Omega\\
+  \end{CD}\]</span> <span class="math display">\[H^1_{\mathrm{d R}} =
+\bar{\Omega} \oplus \Omega = \mathop{\mathrm{Jac}}(X) \times
+\Omega.\]</span> and <span class="math inline">\(M_{\mathrm{Dol}} \cong
+M_{\mathrm{d R}}\)</span> in the smooth category, but not
+biholomorphically.</p>
+<p>We turn now to <span
+class="math inline">\({\mathop{\mathrm{GL}}}_r\)</span>. We again have an
+affine algebraic variety <span class="math display">\[M_B(X,
+{\mathop{\mathrm{GL}}}_r) = \mathop{\mathrm{Hom}}(\pi_1,
+{\mathop{\mathrm{GL}}}_r) / \operatorname{conj}
+{\mathop{\mathrm{GL}}}_r.\]</span> There’s also the de Rham side <span
+class="math display">\[M_{\mathrm{d R}}(X, {\mathop{\mathrm{GL}}}_r) =
+  \frac{\text{rank $r$ hol.\ v.\ bundles on $X$}, \nabla : E \rightarrow
+E \otimes T_X^\ast}{\text{isom}}.\]</span> The third object is the
+Dolbeaut moduli space <span class="math display">\[M_{\mathrm{Dol}}(X,
+{\mathop{\mathrm{GL}}}_r) =
+  \frac{\text{rank $r$ hol.\ v.\ bundles on } X, E : \xrightarrow{a} E
+\otimes T_X^\ast}{
+    \text{isom}
+  },\]</span> where now <span class="math inline">\(a\)</span> is merely
+a linear map rather than a connection.</p>
+<p>These are three <em>a priori</em> different algebraic varieties (and
+indeed, different already in rank one), but bearing the same relations
+as in the abelian case. These are singular now, whereas before they were
+complex Lie groups. What happens here is that <span
+class="math inline">\(M_{\mathrm{d R}}\)</span> and <span
+class="math inline">\(M_{\mathrm{Dol}}\)</span> are canonically
+homeomorphic (using that <span class="math inline">\(H\)</span> is
+harmonic, due to Carlette), while <span
+class="math inline">\(M_B\)</span> and <span
+class="math inline">\(M_{\mathrm{d R}}\)</span> are biholomorphic, via
+holonomy. This is the content of the non-abelian Hodge theorem, due to
+Hitchin for <span class="math inline">\({\mathop{\mathrm{SL}}}_2\)</span>,
+contribution concerning <span class="math inline">\(H\)</span> due to
+Carlette, putting it together by Carlos Simpson; established in the late
+80’s, early 90’s (and established thus far under some non-singularity
+assumptions: <span class="math inline">\(d = c_1 E\)</span>, <span
+class="math inline">\((r, d) = 1\)</span>).</p>
+<p>We saw earlier that you can take a Riemann surface <span
+class="math inline">\(X\)</span> and study its cohomology group <span
+class="math inline">\(H^1(X, \mathbb{C})\)</span> and its various moduli
+space <span class="math inline">\(M\)</span>, which today we study from
+the point of view of singular cohomology <span
+class="math inline">\(H^\ast(M)\)</span>. The <span
+class="math inline">\(P = W\)</span> conjecture is about studying the
+singular cohomologies of these spaces when we look at them through the
+optics of their different structures.</p>
+<p><span class="math inline">\(W\)</span> stands for “weight”, coming
+from the mixed Hodge theory due to Deligne. We consider a smooth
+projective manifold <span class="math inline">\(Y\)</span>, and work
+with <span class="math inline">\(\mathbb{C}\)</span> coefficients. Then
+<span class="math display">\[H^k(Y, \mathbb{C}) = \oplus_{p + q = k}
+  H^{p, q}(Y),\]</span> which we call a <em>pure weight</em> <span
+class="math inline">\(k\)</span> <em>Hodge structure</em>. Now Deligne
+discovered that if we drop “smooth” and “projective” and instead
+consider merely quasi-projective <span class="math inline">\(Y\)</span>,
+then the cohomology <span class="math inline">\(H^k(Y,
+\mathbb{C})\)</span> does not admit such a decomposition, but admits a
+weight filtration <span class="math display">\[W_0 \subset W_1 \subset
+\dotsb \subset W_{2 k} = H^k.\]</span> This is functorial with respect
+to <span class="math inline">\(Y \rightarrow Y&#39;\)</span>. We get
+graded quotients <span class="math display">\[\operatorname{Gr}_w^W H^k
+  =
+  W_w / W_{w - 1}
+  = \oplus_{p + q = w} H^{p, q}.\]</span></p>
+<p>For example, consider the variety <span
+class="math inline">\(\mathbb{C}^\times\)</span>. We can then consider
+the space <span class="math inline">\(H^1(\mathbb{C}^\times,
+\mathbb{C})\)</span> or <span
+class="math inline">\(H^1(\mathbb{C}^\times, \mathbb{Q})\)</span>. In
+either case, the space is generated by <span class="math inline">\(d z /
+z\)</span>, and coincides with <span class="math inline">\(H^{1,
+1}\)</span> when <span class="math inline">\(w = 2\)</span>. We can
+realize the space as the kernel of <span
+class="math display">\[H^2(\mathbb{P}^1)^{\oplus 2} \rightarrow H^2
+\mathbb{P}^1.\]</span> Comparing weights suggests why we call this
+“mixed”.</p>
+<p>To study <span class="math inline">\((\mathbb{C}^\times )^{2
+g}\)</span>, we can use Kunneth.</p>
+<p>We spent a lot of time with the three moduli spaces, but the <span
+class="math inline">\(P = W\)</span> conjecture is really about Betti
+and Dolbeault, so we now abandon the space <span
+class="math inline">\(M_{d R}\)</span>.</p>
+<p>Now, the cohomology of <span class="math inline">\(M_{B}(X,
+{\mathop{\mathrm{GL}}}_r)\)</span> is known to have a relatively simple
+structure: <span class="math display">\[H^k(M_B(X,
+{\mathop{\mathrm{GL}}}_r))
+  = \oplus_{
+    \substack{
+      0 \leq w \leq 2 k  \\
+      \text{$w$: even}      
+    }
+  }
+  H^{w, w}(M_B).\]</span></p>
+<ul>
+<li><p><span class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span>:
+Hausel–R-Villegas</p></li>
+<li><p><span class="math inline">\({\mathop{\mathrm{GL}}}_r\)</span>:
+Shendl</p></li>
+</ul>
+<p>Here <span class="math inline">\(W = W_B\)</span> on <span
+class="math inline">\(H(M_B(X, {\mathop{\mathrm{GL}}}_r))\)</span>.</p>
+<p>We now consider <span class="math inline">\(P\)</span> perverse. The
+easier way to enter is via <span
+class="math inline">\(D\)</span>-modules via the Riemann–Hilbert
+correspondence. We can then understand the topology, through the work of
+Goresky–Macpherson and BBDG. If you have a morphism of varieties <span
+class="math inline">\(h : M \rightarrow A\)</span>, then we get a Leray
+filtration of spectral sequences on the singular cohomology <span
+class="math inline">\(H(M)\)</span> of the domain. Now let’s pretend
+that <span class="math inline">\(h\)</span> is a fiber bundle, just to
+give a face to this filtration. Turn <span
+class="math inline">\(A\)</span> into a cell complex, so that the fiber
+bundle is trivial on the cell. Take <span
+class="math inline">\(A_K\)</span>, form its preimage <span
+class="math inline">\(h^{-1}(A_K)\)</span>, its cohomology, the
+restriction map, and its kernel: <span class="math display">\[L = \ker
+\left( H^d(M) \rightarrow H^d(h^{-1}(A_K)) \right).\]</span> This is the
+standard 1950’s way to look at the Leray spectral sequence. Now, one
+reason why we wrote the paper like this is because we are going to
+consider a “Hitchin map” from the Dolbeaut moduli space <span
+class="math display">\[M_{\mathrm{Dol}} \xrightarrow{h}
+\mathbb{C}^{\frac{\dim M}{2}}(E, a),\]</span> where <span
+class="math display">\[E \xrightarrow{a} E,\]</span> what’s called the
+spectral cover associated with <span class="math inline">\((E,
+a)\)</span>. The map <span class="math inline">\(h\)</span> is proper,
+and is equivariant with respect to a certain <span
+class="math inline">\(\mathbb{C}^\times\)</span> action. Everything
+retracts to zero in such a way that the Leray filtration <span
+class="math inline">\(L_h\)</span> is zero. It’s simple to deduce that
+the weight filtration on <span
+class="math inline">\(W_{\mathrm{Dol}}\)</span> is also trivial.</p>
+<p>Now let’s look at the cohomology on the Betti moduli space and the
+Dolbeault moduli spaces. The isomorphisms between these spaces, given by
+the non-abelian Hodge theorem, give isomorphisms between their
+cohomology. The <span class="math inline">\(P = W\)</span> conjecture
+asks, what corresponds on the Dolbeault side to the filtration <span
+class="math inline">\(M_B\)</span> on the Betti side? It can’t be either
+<span class="math inline">\(W_{\mathrm{Dol}}\)</span>, or the Leray
+filtration <span class="math inline">\(L_h\)</span>.</p>
+<p>Let <span class="math inline">\(P\)</span> on <span
+class="math inline">\(H^{\cdot}(M, \mathbb{Q})\)</span> be formal. There
+is a geometric description via the Lefschetz hyperplaen theorem. We can
+take the Dolbeaut moduli space and the Hitchin map <span
+class="math inline">\(h : M_{\mathrm{Dol}} \rightarrow
+\mathbb{C}^N\)</span>. We can restrict this to the preimage <span
+class="math inline">\(h^{-1}(\mathbb{C}^k)\)</span> of <span
+class="math inline">\(\mathbb{C}^k \subseteq \mathbb{C}^N\)</span>. This
+induces a map in cohomology, whose kernel describes <span
+class="math inline">\(P\)</span>: <span class="math display">\[P_p
+H^d(M_{\mathrm{Dol}}) = \ker ( H^d(M_{\mathrm{Dol}}) \rightarrow H^d
+(h^{-1}(\mathbb{C}^{d-p-1}))).\]</span></p>
+<div class="conjecture">
+<p><strong>Conjecture 3</strong> (<span class="math inline">\(P =
+W\)</span>, de Cataldo–Hausel–Migliorini, 2008). <em>Under the
+isomorphism in cohomology coming from the non-abelian Hodge theorem, we
+have <span class="math display">\[H^\ast M_{\mathrm{Dol}}
+\leftrightarrow H^\ast M_B,\]</span> <span class="math display">\[P_p
+\leftrightarrow W_{2 p}.\]</span></em></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 4</strong> (<span class="math inline">\(P=W\)</span>
+for Riemann surfaces <span class="math inline">\(X\)</span>, <span
+class="math inline">\({\mathop{\mathrm{GL}}}_r\)</span>, coprime case;
+2022: Maulik–Shen, Hausel–Mellit–Minets–Schiffmann; 2023:
+Maulik–Shen–Yin). <em>.</em></p>
+</div>
+<p>It seems that this <span class="math inline">\(P = W\)</span>
+phenomenon is not just restricted to the contents of the non-abelian
+Hodge theorem, but occurs, but work of many people, in different setups,
+such as in mirror symmetry, cluster varieties, geometric depth and
+combinatorics, and the study of complex hyper Kähler varieties. Somehow
+<span class="math inline">\(P = W\)</span> seems to be true in many
+cases.</p>
+<p>Having stated the conjecture, let’s make some concluding remarks. We
+take <span class="math inline">\(\dim X \geq 1\)</span>, and <span
+class="math inline">\(G\)</span> a reductive group. In this case, the
+varieties are always singular, so the cohomology we’ll work with is
+always the intersection cohomology <span
+class="math inline">\(\mathrm{IH}^\ast\)</span>. Two theorems are
+relevant.</p>
+<ul>
+<li><p>One is relative hard Lefschetz. Hard Lefschetz says that for a
+smooth projective variety <span class="math inline">\(Y\)</span> and
+<span class="math inline">\(\eta = c_1(A)\)</span> on <span
+class="math inline">\(X\)</span>, with <span
+class="math inline">\(A\)</span> ample, we have <span
+class="math display">\[H^{n - k} \xrightarrow[\cong]{\eta^k} H^{n +
+k}.\]</span> Relative Hard Lefschetz (BBDG, Saito) says that <span
+class="math display">\[\operatorname{Gr}^p_{\dim M - k} H^d
+M_{\mathrm{Dol}} \xrightarrow{\eta^k}
+    \operatorname{Gr}^p_{\dim M + k} H^{d + 2 k}
+M_{\mathrm{Dol}},\]</span> with <span class="math inline">\(\eta \in H^2
+M_{\mathrm{Dol}}\)</span> corresponding to <span
+class="math inline">\(\eta \in H^2 M_B\)</span> (<span
+class="math inline">\(H^{1, 1}\)</span> vs. <span
+class="math inline">\(H^{2, 2}\)</span>).</p></li>
+<li><p>The other is the curious hard Lefschetz, which says <span
+class="math display">\[{\mathop{\mathrm{Gr}}}^W_{2 \dim M - 2 k} H^d M_{B}
+\xrightarrow[\cong]{\eta^k}
+    \operatorname{Gr}^W_{2 \dim M + 2 k} H^{d + 2 k} M_B .\]</span> For
+<span class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span>, this is
+Hausel–R-Villegas. For <span
+class="math inline">\({\mathop{\mathrm{GL}}}_r\)</span>, Mellit. The
+proofs don’t give a fundamental reason why this should be true, and it
+would be interesting to obtain such a reason.</p></li>
+</ul>
+<h1
+id="timothy-gowers-cambridge-some-recent-developments-in-combinatorics">Timothy
+Gowers (Cambridge), <em>Some recent developments in
+combinatorics</em></h1>
+<p>Lots of recent progress that we highlight here.</p>
+<p>Criteria for inclusion:</p>
+<ul>
+<li><p>Proved in the last five years.</p></li>
+<li><p>“Notable” (e.g., reported in Quanta)</p></li>
+<li><p>Solved a problem that people didn’t expect to be solved any time
+soon.</p></li>
+<li><p>(Proved by “new entrants”.)</p></li>
+</ul>
+<h3 id="ramseys-theorem">Ramsey’s theorem</h3>
+<div class="theorem">
+<p><strong>Theorem 5</strong> (Ramsey’s theorem). <em>For every <span
+class="math inline">\(k\)</span> and <span
+class="math inline">\(l\)</span>, there exists <span
+class="math inline">\(n\)</span> such that every graph with <span
+class="math inline">\(n\)</span> vertices contains a clique of size
+<span class="math inline">\(k\)</span> or an independent set of size
+<span class="math inline">\(l\)</span>.</em></p>
+</div>
+<p>The smallest such <span class="math inline">\(n\)</span> is the
+Ramsey number <span class="math inline">\(R(k, l)\)</span>.</p>
+<div class="theorem">
+<p><strong>Theorem 6</strong> (Ramsey’s theorem, equivalent
+formulation). <em>For every <span class="math inline">\(k\)</span> and
+<span class="math inline">\(l\)</span>, there exists <span
+class="math inline">\(n\)</span> such that if the edges of the complete
+graph with <span class="math inline">\(n\)</span> vertices are colored
+red or blue, then there is a clique of size <span
+class="math inline">\(k\)</span> with all its edges red or all its edges
+blue.</em></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof sketch." data-folded-text="Proof sketch. (...)">Proof sketch.</em></a>
+<span class="proof-content"> Let the vertices be <span
+class="math inline">\(v_1, \dotsc, v_N\)</span> with <span
+class="math inline">\(n = 2^{2 k}\)</span>.</p>
+<p>Find <span class="math inline">\(i_1 &lt; \dotsb &lt; i_{2
+k}\)</span> such that if <span class="math inline">\(r &lt; s\)</span>,
+then the color of the edge <span class="math inline">\(v_{i_r}
+v_{i_s}\)</span> depends only on <span
+class="math inline">\(i_r\)</span>.</p>
+<p>Do this inductively, choosing <span class="math inline">\(v_{i_1},
+\dotsc, v_{i_{2 k}}\)</span> and <span class="math inline">\(V_{i_1}
+\supset \dotsb \supset V_{i_{2 k}}\)</span> such that for each <span
+class="math inline">\(t\)</span>, we have that <span
+class="math inline">\(v_{i_t}\)</span> is the minimal element of <span
+class="math inline">\(V_{i_{t - 1}}\)</span>, all edges from <span
+class="math inline">\(v_{i_t}\)</span> to <span
+class="math inline">\(V_{i_t}\)</span> have the same color, and <span
+class="math inline">\(\lvert V_{i t} \rvert \geq 2^{2 k -
+t}\)</span>.</p>
+<p>Now from the vertices <span class="math inline">\(v_{i_1}, \dotsc,
+v_{i_{2 k}}\)</span>, choose <span class="math inline">\(k\)</span> of
+them such that the color in question is the same for each one. ◻</p>
+</span></div>
+<p>The argument shows that <span class="math inline">\(R(k, k) \leq
+4^k\)</span>. A tighter version due to Erdos and Szekeres gives an upper
+bound of <span class="math display">\[\binom{2(k - 1)}{ k - 1} =
+\operatorname{O}(4^k / \sqrt{k}).\]</span> Lower bound: <span
+class="math inline">\(R(k, k) \geq 2^{k /2}\)</span>. (In fact, one can
+do slightly better than this.)</p>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Sketch of proof." data-folded-text="Sketch of proof. (...)">Sketch of proof.</em></a>
+<span class="proof-content"> Pick a red/blue coloring of the edges of
+<span class="math inline">\(K_n\)</span> at random. Calculate that if
+<span class="math inline">\(n \leq 2^{k/2}\)</span>, then the expected
+number of monochromatic cliques of size <span
+class="math inline">\(k\)</span> is strictly less than <span
+class="math inline">\(1\)</span>. ◻</p>
+</span></div>
+<p>There’s an exponential size gap between this <span
+class="math inline">\(4^k / \sqrt{k}\)</span> and <span
+class="math inline">\(2^{k /2}\)</span>, each given by rather
+straightforward arguments, so it became very tempting to try to close
+that gap.</p>
+<ul>
+<li><p>What is <span class="math inline">\(\lim_{k \rightarrow \infty}
+R(k, k)^{1/k}\)</span>?</p></li>
+<li><p>Does it even exist?</p></li>
+<li><p>Previous progress of R<span>ö</span>dl, Thomason, Conlon, Sah –
+quasirandomness.</p></li>
+<li><p>Is <span class="math inline">\(\limsup_{k \rightarrow \infty}
+R(k, k)^{1/k} &lt; 4\)</span>?</p></li>
+<li><p>Is <span class="math inline">\(\liminf_{k \rightarrow \infty}
+R(k, k)^{1/k} &gt; \sqrt{2}\)</span>?</p></li>
+</ul>
+<p>These last questions were open until 16th March 2023, when Campos,
+Griffiths, Morris and Sahasrabudhe proved <span
+class="math display">\[R(k, k) \leq 4^k e^{- k / 80 + o(k)}.\]</span>
+Here we note that <span class="math inline">\(4 \exp(-1/80) = 3.9503112
+\dotsc\)</span></p>
+<p>Rather than quasirandomness, they used a delicate elementary approach
+via finding monochromatic “books”. (A <em>book</em> is a graph with
+vertex set <span class="math inline">\(R \cup S\)</span> that contains
+all edges with at least one vertex in <span
+class="math inline">\(S\)</span>.)</p>
+<p>Let’s quickly look at <span class="math inline">\(R(k, l)\)</span>,
+where <span class="math inline">\(k\)</span> is <em>fixed</em>.
+Essentially the same arguments as above give <span
+class="math display">\[R(3, k) = k^2 \text{ up to log factors},\]</span>
+<span class="math display">\[k^{5/2} \leq R(4, k) \leq k^3 \text{ up to
+log factors.}\]</span> The log factors for <span
+class="math inline">\(R(3, k)\)</span> have now been removed and we know
+that <span class="math inline">\(R(3, k) = k^2 / \log k\)</span> up to a
+constant. (Upper bound by Ajtai, Komlos and Szemeredi in 1980, lower
+bound by Kim in 1995.) But the <span class="math inline">\(R(4,
+k)\)</span> gap is bigger, and was very stubborn.</p>
+<p>6th June 2023, Mattheus and Verstraete: <span
+class="math display">\[R(4, k) = \Omega(k^3 / \log^4 t).\]</span>
+Compares with the AKS upper bound of <span
+class="math inline">\(\operatorname{O}(k^3 / \log^2 t)\)</span>. They
+randomly sample from algebraically constructed structures with special
+properties.</p>
+<h3 id="arithmetic-progressions-of-length-3">Arithmetic progressions of
+length <span class="math inline">\(3\)</span></h3>
+<div class="theorem">
+<p><strong>Theorem 7</strong> (Szemeredi, 1975). <em>For every <span
+class="math inline">\(\delta &gt; 0\)</span> and <span
+class="math inline">\(k \in \mathbb{N}\)</span>, there exists <span
+class="math inline">\(n \in \mathbb{N}\)</span> such that every subset
+<span class="math inline">\(A\)</span> of <span
+class="math inline">\(\{1, \dotsc, n\}\)</span> of size at least <span
+class="math inline">\(\delta n\)</span> contains an arithmetic
+progression of length <span class="math inline">\(k\)</span>.</em></p>
+</div>
+<p>The case <span class="math inline">\(k = 3\)</span> was proved by
+Roth in 1953, who showed that <span class="math inline">\(A\)</span>
+contains a 3AP if <span class="math inline">\(\delta \geq C / \log \log
+n\)</span>. A lot of subsequent work was devoted to improving this bound
+(Szemeredi, Heath–Brown, Bourgain, Sanders, Bloom, Schoen), getting to
+<span class="math inline">\((\log \log n)^{3 + o(1)} / \log
+n\)</span>.</p>
+<p>A lower bound of <span class="math inline">\(\exp(- c \sqrt{\log
+n})\)</span> proved by Behrend in 1946. Small refinement due to Elkin,
+given a simpler proof by Green and Wolf. Recently the constant <span
+class="math inline">\(c\)</span> improved by Elsholtz, Hunter, Proske
+and Sauermann. Still leaves a big gap.</p>
+<p>7th July 2020: Bloom and Sisask obtained a bound of <span
+class="math inline">\(1 /(\log n)^{1 + c}\)</span> for some positive
+<span class="math inline">\(c\)</span>.</p>
+<p>10th February 2023: Kelley and Meka improved this to a Behrend-style
+bound of <span class="math inline">\(\exp(- c(\log n)^\beta)\)</span>.
+We now know that <span class="math inline">\(\beta\)</span> can be taken
+to be <span class="math inline">\(1/11\)</span>. The proof was
+surprising not that bad.</p>
+<h3 id="the-inverse-theorem-for-the-uniformity-norms">The inverse
+theorem for the uniformity norms</h3>
+<p>One way to prove Szemeredi’s theorem is as follows. Given a subset
+<span class="math inline">\(A \subset \{1, \dotsc, n\}\)</span> of
+density <span class="math inline">\(\delta\)</span>, identify <span
+class="math inline">\(\{1, \dotsc, n\}\)</span> with <span
+class="math inline">\(\mathbb{Z} / n  \mathbb{Z}\)</span> and define
+<span class="math inline">\(f : \mathbb{Z} / n \mathbb{Z} \rightarrow
+\mathbb{R}\)</span> by <span class="math display">\[f(x) =
+  \begin{cases}
+    1 - \delta &amp;  x \in A \\
+    - \delta               &amp; \text{ otherwise}.
+  \end{cases}\]</span> Then <span class="math inline">\(A\)</span>
+contains roughly the same number of <span
+class="math inline">\(k\)</span>APs as a random set (i.e., around <span
+class="math inline">\(\delta^k n^2\)</span>) if <span
+class="math inline">\(f\)</span> is small in a certain norm, called the
+<span class="math inline">\(U^{k - 1}\)</span>-norm.</p>
+<p>What does the <span class="math inline">\(U^k\)</span> norm look like
+when <span class="math inline">\(k = 3\)</span>? <span
+class="math display">\[\begin{align}
+  &amp;\lVert f \rVert_{U^3}^8 \\
+  &amp;= \mathbb{E}_{x, a,b,c}
+    f(x) \overline{f(x - a) f(x - b) f(x - c)}
+    f(x - a - b)
+    f(x - b - c)
+    f(x - a - c)
+    \overline{f(x - a - b - c)}.
+\end{align}\]</span></p>
+<p>We then need to understand what <span
+class="math inline">\(f\)</span> (and hence <span
+class="math inline">\(A\)</span>) is like if <span
+class="math inline">\(\lVert f \rVert_{U^k}\)</span> is large. For that,
+we need <em>inverse theorems</em> for the <span
+class="math inline">\(U^k\)</span> norm.</p>
+<div class="theorem">
+<p><strong>Theorem 8</strong> (Weak inverse theorem). <em>If <span
+class="math inline">\(\lVert f \rVert_\infty \leq 1\)</span> and <span
+class="math inline">\(\lVert f \rVert_{U^k} \geq c\)</span>, then there
+is a polynomial <span class="math inline">\(\phi\)</span> of degree
+<span class="math inline">\(k - 1\)</span> and an arithmetic progression
+<span class="math inline">\(P\)</span> of length tending to infinity
+with <span class="math inline">\(n\)</span> such that <span
+class="math display">\[\left| \mathbb{E}_{x \in P} f(x) \exp(- 2 \pi i
+\phi(x) / n) \right| \geq \alpha(c).\]</span></em></p>
+</div>
+<p>Passing to a subprogression was necessary because of “generalized
+polynomials”. (Example: given <span class="math inline">\(x\)</span> we
+write it as <span class="math inline">\(a + b m\)</span> where <span
+class="math inline">\(m \approx \sqrt{n}\)</span> and <span
+class="math inline">\(a, b \leq m\)</span>, and then let <span
+class="math inline">\(\phi(x) = r a^2 + s a b + t b^2\)</span>.)</p>
+<p>Green and Tao gave a precise formulation of “generalized polynomial”
+in terms of nilmanifolds in 2006, motivated by the wish to generalize
+and strengthen the Green–Tao theorem</p>
+<div class="conjecture">
+<p><strong>Conjecture 9</strong> (loosely stated). <em>If <span
+class="math inline">\(\lVert f \rVert_{U^k}\)</span> is not small, then
+<span class="math inline">\(f\)</span> correlates with a generalized
+polynomial phase function.</em></p>
+</div>
+<p>Green, Tao and Ziegler proved this conjecture in 2010, but their
+proof did not give bounds (though in principle, with a lot of work, one
+could extract a very weak bound).</p>
+<p>In 2018, Manners gave a new proof of the theorem, obtaining a doubly
+exponential dependence (of the correlation with the generalized
+polynomial phase function on <span class="math inline">\(k\)</span> and
+the size of the <span class="math inline">\(U^k\)</span> norm). Already
+very notable as the proof introduced many interesting ideas and gave the
+first reasonable bound.</p>
+<p>28th February 2024: James Leng, Ashwin Sah and Mehtaab Sawhney proved
+a <em>quasipolynomial</em> dependence. Oversimplifying slightly, this
+gives a dependence of the form <span class="math inline">\(\alpha(c) =
+\exp(- \log(1/c)^{\operatorname{O}(1)})\)</span>. This has several
+applications, including significantly improved bounds for Szemeredi’s
+theorem, and simpler proofs of several other known theorems.</p>
+<h3 id="the-expectation-threshold-conjecture">The expectation threshold
+conjecture</h3>
+<p>Let <span class="math inline">\(G\)</span> be a graph with <span
+class="math inline">\(n\)</span> vertices. A <em>Hamilton cycle</em> is
+an ordering <span class="math inline">\(v_1, \dotsc, v_n\)</span> of the
+vertices such that <span class="math inline">\(v_1 v_2, v_2 v_3, \dotsc,
+v_{n - 1} v_n, v_n v_1\)</span> are all edges.</p>
+<p>If <span class="math inline">\(G\)</span> is a random graph where
+each edge is chosen independently with probability <span
+class="math inline">\(p =p(n)\)</span>, then how large does <span
+class="math inline">\(p\)</span> have to be before <span
+class="math display">\[\mathbb{P}[\text{$G$ contains a Hamilton cycle}]
+\geq 1/2?\]</span> KS (Komlos and Szemeredi) showed it’s about <span
+class="math inline">\((\log n + \log \log n) / n\)</span>, and a
+corresponding “hitting time” result. We call this the <em>threshold
+probability</em> for the problem.</p>
+<p>Alternatively, what is the expected number of Hamilton cycles if each
+edge is chosen with probability <span class="math inline">\(p\)</span>?
+The number of cyclic orderings of the vertices is <span
+class="math inline">\((n - 1)!\)</span>. Each one has a probability
+<span class="math inline">\(p^n\)</span> of giving rise to a Hamilton
+cycle. So it is <span class="math inline">\(p^n(n - 1)!\)</span>.</p>
+<p>If the probability of having a Hamilton cycle is at least <span
+class="math inline">\(1/2\)</span>, then the expected number of Hamilton
+cycles is at least <span class="math inline">\(1/2\)</span>. Is there
+anything resembling a converse to this implication? No obvious reason,
+but by staring at examples, one sees that they do seem to be the same up
+to logarithmic factors.</p>
+<p>A simple back-of-envelope calculation shows that in order for <span
+class="math inline">\(p^n(n - 1)!\)</span> to be at least <span
+class="math inline">\(1/2\)</span>, we need <span
+class="math inline">\(p\)</span> to be around <span
+class="math inline">\(e /n\)</span>. This is (lying a little) the
+<em>expectation threshold</em> for the problem. Since the actual
+threshold was about <span class="math inline">\(\log n / n\)</span>, the
+expectation threshold is off by a factor <span
+class="math inline">\(\log n\)</span>.</p>
+<div class="conjecture">
+<p><strong>Conjecture 10</strong> (Kahn, Kalai, 2006). <em>For all
+monotone graph properties, the threshold is at most <span
+class="math inline">\(\log n\)</span> times the expectation
+threshold.</em></p>
+</div>
+<p>Here’s a quick indication of how to generalize it. Take an increasing
+family <span class="math inline">\(\mathcal{F}\)</span> of subsets of
+<span class="math inline">\(\{1, \dotsc, n\}\)</span>. Choose a random
+subset <span class="math inline">\(A\)</span> of <span
+class="math inline">\(\{1, \dotsc, n\}\)</span> by picking each element
+independently with probability <span
+class="math inline">\(p\)</span>.</p>
+<p>The <em>threshold</em> for <span
+class="math inline">\(\mathcal{F}\)</span> is the <span
+class="math inline">\(p\)</span> at which <span
+class="math inline">\(\mathbb{P}[A \in \mathcal{F}]\)</span> passes
+<span class="math inline">\(1/2\)</span>.</p>
+<p>We say that <span class="math inline">\(\mathcal{F}\)</span> is <span
+class="math inline">\(p\)</span><em>-small</em> if there is a family
+<span class="math inline">\(\mathcal{G}\)</span> with the following two
+properties.</p>
+<ol>
+<li><p>For each <span class="math inline">\(F \in \mathcal{F}\)</span>,
+there exists <span class="math inline">\(G \in \mathcal{G}\)</span> such
+that <span class="math inline">\(G \subset F\)</span>.</p></li>
+<li><p>We have <span class="math inline">\(\sum_{G \in \mathcal{G}}
+p^{\lvert G \rvert} \leq 1/2\)</span>.</p></li>
+</ol>
+<p>If <span class="math inline">\(A\)</span> is chosen randomly as
+above, then <span class="math display">\[\mathbb{P}[G \subset A] =
+p^{\lvert G \rvert},\]</span> so <span
+class="math display">\[\mathbb{P}[A \in \mathcal{F}]
+  \leq \mathbb{P}[G \in \mathcal{G}, \,G \subset A]
+  \leq \sum_{G \in \mathcal{G}} p^{\lvert G \rvert} \leq
+1/2.\]</span></p>
+<p>The expectation threshold cojecture is that the resulting thresholds
+coincide up to mild factors.</p>
+<p>22nd August 2019: Alweiss, Lovett, Wu, Zhang: huge improvement to the
+bounds for the Erdos–Rado sunflower lemma, introducing the important new
+notion of a <span class="math inline">\(q\)</span>-spread probability
+measure.</p>
+<p>29th October 2019: Frankston, Kahan, Narayanan, Park</p>
+<p>31 March 2022: Park, Pham, beautiful <span
+class="math inline">\(4\)</span>-page proof.</p>
+<p>Still open: do the expectation threshold and fractional expectation
+threshold agree up to a constant factor?</p>
+<h3 id="the-erdoshajnal-conjecture">The Erdos–Hajnal conjecture</h3>
+<p>Let <span class="math inline">\(H\)</span> be a fixed graph. If we
+add the hypothesis that a graph <span class="math inline">\(G\)</span>
+does not contain an induced copy of <span
+class="math inline">\(H\)</span>, then by how much can we improve the
+bound in Ramsey’s theorem?</p>
+<div class="conjecture">
+<p><strong>Conjecture 11</strong> (Erdos and Hajnal, 1977). <em>For
+every <span class="math inline">\(H\)</span>, there exists <span
+class="math inline">\(\delta &gt; 0\)</span> such that if <span
+class="math inline">\(G\)</span> has <span
+class="math inline">\(n\)</span> vertices and does not contain an
+induced copy of <span class="math inline">\(H\)</span>, then <span
+class="math inline">\(G\)</span> has a clique or independent set of size
+at least <span class="math inline">\(n^\delta\)</span>.</em></p>
+</div>
+<p>Known for some simple families of graphs and one or two small graphs.
+The following special case was the simplest that was open:</p>
+<div class="question">
+<p><strong>Question 12</strong>. Is the new Erdos–Hajnal conjecture true
+when <span class="math inline">\(H\)</span> is a pentagon?</p>
+</div>
+<p>9th February 2021: Chudnovsky, Scott, Seymour and Spirkl proved
+several new cases of the conjecture, including that of the pentagon.
+Ties in with a major and very active theme of model theory.</p>
+<h3 id="the-union-closed-conjecture">The union-closed conjecture</h3>
+<div class="conjecture">
+<p><strong>Conjecture 13</strong> (Frankl, 1979). <em>Let <span
+class="math inline">\(\mathcal{A}\)</span> be a finite family of sets
+that is closed under taking unions. Then (except in the trivial case
+<span class="math inline">\(A = \{\emptyset\}\)</span>), there is an
+element <span class="math inline">\(x\)</span> that belongs to at least
+<span class="math inline">\(\lvert \mathcal{A} \rvert / 2\)</span>
+sets.</em></p>
+</div>
+<div class="example">
+<p><strong>Example 14</strong>. Let <span
+class="math inline">\(\mathcal{A}\)</span> consist of the sets <span
+class="math inline">\(\emptyset, \{1\}, \{1, 2, 3, \dotsc,
+100\}\)</span>.</p>
+</div>
+<p>This disproves the naive assertion that an aveage element belongs to
+at least half the sets, but one might try ot counter this example by
+conjecturing:</p>
+<div class="conjecture">
+<p><strong>Conjecture 15</strong>. <em>Let <span
+class="math inline">\(\mathcal{A}\)</span> be a nontrivial family of
+subsets of <span class="math inline">\(\{1, \dotsc, n\}\)</span>. Then
+there is a probability measure <span class="math inline">\(\mu\)</span>
+on <span class="math inline">\(\{1, \dotsc, n\}\)</span> such that if we
+select <span class="math inline">\(x\)</span> from <span
+class="math inline">\(\{1, \dotsc, n\}\)</span> at random according to
+<span class="math inline">\(\mu\)</span>, then the expected number of
+sets in <span class="math inline">\(\mathcal{A}\)</span> that <span
+class="math inline">\(x\)</span> belongs to is at least <span
+class="math inline">\(\lvert \mathcal{A} \rvert / 2\)</span></em></p>
+</div>
+<p>In 1994, Emanuel Knill obtained a lower bound of <span
+class="math inline">\(c \lvert \mathcal{A} \rvert / \log(\lvert
+\mathcal{A} \rvert)\)</span>.</p>
+<p>16 November 2022: Justin Gilmer proved that some element belongs to
+at least <span class="math inline">\(\lvert \mathcal{A}
+\rvert/100\)</span> of the sets, using an entropy argument. Work of
+Sawin and Jingbo Liu. Seems that serious new ideas are needed to get to
+<span class="math inline">\(1/2\)</span>.</p>
+<h1
+id="rahul-pandharipande-eth-zürich-cycles-on-the-moduli-space-of-abelian-varieties">Rahul
+Pandharipande (ETH Zürich), <em>Cycles on the moduli space of abelian
+varieties</em></h1>
+<p>We’re going to talk about cycles on the moduli space of abelian
+varieties. One advantage of speaking in the afternoon is that some of
+these topics have been introduced before, in particular, to Shimura
+varieties in Caraiani’s talk, of which the moduli of abelian varieties
+is an example. We’ll nevertheless give a short introduction to this
+space from a rather different perspective.</p>
+<h3 id="abelian-varieties">Abelian varieties</h3>
+<p>Abelian varieties with principal polarizations are of the form <span
+class="math inline">\(X = \mathbb{C}^g  / \Lambda\)</span>, where <span
+class="math inline">\(\Lambda \subseteq \mathbb{C}^g\)</span> is
+generated by the <span class="math inline">\(g\)</span> standard basis
+vectors together with the columns of <span class="math inline">\(g
+\times g\)</span> symmetric matrix <span
+class="math inline">\(\tau\)</span> with positive definite imaginary
+part, i.e., <span class="math inline">\(\Im(\tau) &gt; 0\)</span>. The
+<em>upper half plane</em> for <span class="math inline">\(\tau\)</span>
+in dimension <span class="math inline">\(1\)</span> generaliezs to the
+<em>Siegel upper half plane</em> for <span
+class="math inline">\(\tau\)</span> in higher dimensions, given by <span
+class="math display">\[\mathcal{H}_g = \left\{ \tau \in
+\mathop{\mathrm{Sym}}{\mathop{\mathrm{Mat}}}_{g \times g}(\mathbb{C}) :
+\Im(\tau) &gt; 0 \right\}.\]</span> The moduli space of principally
+polarized abelian varieties <span class="math display">\[\mathcal{A}_g =
+\mathcal{H}_g / {\mathop{\mathrm{Sp}}}_{2 g}(\mathbb{Z}),\]</span> of
+complex dimension <span class="math inline">\(\binom{g + 1}{2}\)</span>,
+where the group acts by fractional linear transformations.</p>
+<h3 id="tautological-classes-on-mathcala_g">Tautological classes on
+<span class="math inline">\(\mathcal{A}_g\)</span></h3>
+<p>The <em>Hodge bundle</em> <span
+class="math inline">\(\mathbb{E}\)</span> on <span
+class="math inline">\(\mathcal{A}_g\)</span> is a <span
+class="math inline">\(\mathbb{C}\)</span>-vector bundle of rank <span
+class="math inline">\(g\)</span>: we have <span
+class="math inline">\(\mathbb{E} \rightarrow \mathcal{A}_g\)</span>,
+with fibers <span class="math inline">\(T^\ast_{an, \chi, 0}
+\rightarrow[\chi] \in \mathcal{A}_g\)</span>. The <em>Chern classes</em>
+of <span class="math inline">\(\mathbb{E}\)</span> are <span
+class="math display">\[\lambda_i = c_i(\mathbb{E}) \in H^{2 i}(
+\mathcal{A}_g, \mathbb{Q} ).\]</span></p>
+<p>A result parallel to the <em>Madsen–Weiss Theorem</em> for the moduli
+space of curves holds:</p>
+<div class="theorem">
+<p><strong>Theorem 16</strong> (Borel 1974). <em>We have <span
+class="math display">\[\lim_{g \rightarrow \infty} H^\ast(\mathcal{A}_g,
+\mathbb{Q}) = \mathbb{Q}[\lambda_1, \lambda_3, \lambda_5,
+\dotsc].\]</span></em></p>
+</div>
+<p>(This is part of Borel’s study of the stable cohomology of the
+symplectic group.)</p>
+<div class="question">
+<p><strong>Question 17</strong>. Why are no <span
+class="math inline">\(\lambda\)</span> classes of even degree
+needed?</p>
+</div>
+<div class="answer">
+<p><strong>Answer 1</strong>. Because of <em>Mumford’s relation</em>
+<span class="math display">\[c(\mathbb{E} \oplus \mathbb{E}^\ast) = 1
+\in H^\ast(\mathcal{A}_g , \mathbb{Q})\]</span> which expands fully as
+<span class="math display">\[(1 + \lambda_1 + \dotsb + \lambda_g)
+\cdot(1 - \lambda_1 + \lambda_2 + \dotsb +(- 1)^g \lambda_g) =
+1.\]</span></p>
+</div>
+<p>For fixed dimension <span class="math inline">\(g\)</span>, we take
+Borel’s result as motivation to restrict our attention to the
+tautological algebra <span class="math display">\[R^\ast(\mathcal{A}_g)
+\subset \operatorname{CH}^\ast(\mathcal{A}_g, \mathbb{Q})\]</span>
+defined (by van der Geer, 1996) to be generated by the <span
+class="math inline">\(\lambda\)</span>-classes. These are the simplest
+ones to think about. The Chow ring is complicated in general to think
+about, but these ones are easier.</p>
+<div class="question">
+<p><strong>Question 18</strong>. What is the structure of the algebra
+<span class="math inline">\(R^\ast(\mathcal{A}_g)\)</span>?</p>
+</div>
+<div class="question">
+<p><strong>Question 19</strong>. What is the <em>ideal</em> of relations
+<span class="math display">\[0 \rightarrow \mathcal{J}_g \rightarrow
+\mathbb{Q}[\lambda_1, \dotsc, \lambda_g]
+    \rightarrow R^\ast(\mathcal{A}_g) \rightarrow 0?\]</span></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 20</strong> (van der Geer 1996). <em>We have <span
+class="math display">\[R^\ast(\mathcal{A}_g) =
+    \frac{\mathbb{Q}[\lambda_1, \dotsc, \lambda_g]}{\left\langle
+\lambda_g = 0,
+        c(\mathbb{E} \oplus \mathbb{E}^\ast) = 1\right\rangle}.\]</span>
+The beautiful proof depends upon the algebra satisfying
+<em>Poincar<span>é</span> duality</em> with socle in degree <span
+class="math inline">\(\binom{g}{2}\)</span>.</em></p>
+</div>
+<p>(Connection between this problem and the Lagrangian Grassmannian,
+whose cohomology shows up in the statement.)</p>
+<h3 id="cycle-questions">Cycle questions</h3>
+<div class="question">
+<p><strong>Question 21</strong>. Are there any classes of <em>algebraic
+cycles</em> in <span
+class="math inline">\(\operatorname{CH}^\ast(\mathcal{A}_g)\)</span>
+which are <em>not</em> tautological?</p>
+</div>
+<ul>
+<li><p>Are there classes of products <span
+class="math display">\[\mathcal{A}_{g_1} \times \mathcal{A}_{g_2}
+\rightarrow \mathcal{A}_{g_1 + g_2}\]</span> tautological in <span
+class="math inline">\(\operatorname{CH}^\ast(\mathcal{A}_{g_1 +
+g_2})\)</span>?</p></li>
+</ul>
+<p>The product locus is reminiscent of the boundary geometry of the
+moduli space of curves (i.e., connecting curves of given genus to get a
+nodal curve with the sum as its genus).</p>
+<p>The moduli of curves and abelian varieties are related via the
+<em>Torelli</em> map <span class="math display">\[\mathop{\mathrm{Tor}}:
+\mathcal{M}_g^c \rightarrow \mathcal{A}_g\]</span> defined by the
+Jacobian of stable curves of compact type, <span
+class="math display">\[\mathop{\mathrm{Tor}}([C])
+=[\mathop{\mathrm{Jac}}(C)].\]</span> A stable curve <span
+class="math inline">\([C] \in \mathcal{M}_g^c\)</span> of <em>compact
+type</em> is a connected nodal curve with only <em>separating</em>
+nodes. (This means that the dual graph of the curve should be a tree,
+with no loops of components.)</p>
+<p>The <em>Jacobian</em> of multidegree <span
+class="math inline">\(0\)</span> line bundles on <span
+class="math inline">\(C\)</span> is a principally polarized abelian
+variety of dimension <span class="math inline">\(g\)</span>, i.e., <span
+class="math display">\[\in \mathcal{A}_g.\]</span> This map is better
+than its restriction to smooth curves because it turns out to be
+proper.</p>
+<p>For a nonsingular curev <span class="math inline">\(C\)</span> of
+genus <span class="math inline">\(g\)</span>, <span
+class="math display">\[\mathop{\mathrm{Jac}}(C) = H^0(C,
+\Omega_C^1)^\ast / H_1(C, \mathbb{Z}).\]</span></p>
+<div class="question">
+<p><strong>Question 22</strong>. Does the pull-back <span
+class="math display">\[{\mathop{\mathrm{Tor}}}^\ast :
+\operatorname{CH}^\ast(\mathcal{A}_g) \rightarrow
+\operatorname{CH}^\ast(\mathcal{M}_g^{c})\]</span> yield any useful
+information about tautological cycles?</p>
+</div>
+<p>To say more, we turn to cycles on the <em>moduli space of
+curves</em>.</p>
+<h3 id="pixtons-relations-on-barmathcalm_g-n">Pixton’s relations on
+<span class="math inline">\(\bar{\mathcal{M}}_{g, n}\)</span></h3>
+<p>We define tautological classes <span
+class="math inline">\(\mathcal{R}_{g, A}^{d}\)</span> associated to the
+data:</p>
+<ul>
+<li><p><span class="math inline">\(g, n \in \mathbb{Z}_{\geq 0}\)</span>
+satisfying <span class="math inline">\(2 g - 2 + n &gt;
+0\)</span>,</p></li>
+<li><p><span class="math inline">\(A =(a_1, \dotsc, a_n)\)</span>, <span
+class="math inline">\(a_i \in \{0, 1\}\)</span>,</p></li>
+<li><p><span class="math inline">\(d \in \mathbb{Z}_{\geq 0}\)</span>
+satisfying <span class="math inline">\(d &gt; \frac{g - 1 + \sum_{i =
+1}^n a_i}{3}\)</span>.</p></li>
+</ul>
+<p>Pixton’s relations take the form <span
+class="math display">\[\mathcal{R}_{g, A}^{d} = 0 \quad \text{ in }
+\operatorname{CH}^{d}(\bar{\mathcal{M}}_{g, n},
+\mathbb{Q}).\]</span></p>
+<p>We start with the following two series: <span
+class="math display">\[B_0(T) = \sum_{i = 0}^\infty \frac{(6 i)!}{(2
+i)!(3 i)!}
+  (- T)^{i} = 1 - 60 T + \dotsb,\]</span> and <span
+class="math inline">\(B_1(T) = \dotsb\)</span>, and then there’s a sum
+over stable graphs given by <span class="math display">\[\mathcal{R}_{g,
+A}^{d}
+  = \sum_{\Gamma \in G_{g, n}}
+  \frac{1}{2^{h^1(\Gamma)}}
+  \left[ \Gamma, \prod \mathcal{K}_v \prod \Psi_{\ell} \prod \Delta_e
+\right]_d,\]</span> etc., and the outcome is that you get something
+that’s zero (theorem of Pandharipande–Pixto–Zvonkine, 2013). What
+remains open is that the conjecture (Pixton, 2012) that these are all
+the relations. Pixton’s relations provide the first proposal for the
+calculus of the tautological classes (initiated by Mumford in 1983),
+parallel to the Schubert calculus.</p>
+<p>Pixton’s relations can be restricted to the moduli space <span
+class="math inline">\(\mathcal{M}_{g, n}^{c}\)</span> of curves of
+<em>compact type</em>. Pixton conjectured that even there, these give a
+complete set of relations among tautological classes on <span
+class="math inline">\(\mathcal{M}_{g, n}^{c}\)</span>.</p>
+<h3 id="pull-back-via-torelli">Pull-back via Torelli</h3>
+<p>The Hodge bundle <span class="math inline">\(\mathbb{E} \rightarrow
+\mathcal{M}_g^{c}\)</span> is defined so as to have fibers <span
+class="math inline">\(\mathcal{H}^0(C, \omega_C)
+\rightarrow[C]\)</span>. The Torelli map <span
+class="math inline">\(\mathop{\mathrm{Tor}}: \mathcal{M}_g^{c}
+\rightarrow \mathcal{A}_g\)</span> respects the Hodge bundles, i.e.,
+<span class="math inline">\({\mathop{\mathrm{Tor}}}^\ast \mathbb{E} =
+\mathbb{E}\)</span>. The Chern classes of <span
+class="math inline">\(\mathbb{E} \rightarrow \mathcal{M}_g^{c}\)</span>
+lie in the tautological algebra by Mumford’s calculations: <span
+class="math display">\[\lambda_i = c_i(\mathbb{E}) \in
+R^i(\mathcal{M}_g^{c}).\]</span> Let <span
+class="math inline">\(\Lambda^\ast(\mathcal{M}_g^{c}) \subset
+R^\ast(\mathcal{M}_g^{c})\)</span> be generated by <span
+class="math inline">\(\lambda_1, \dotsc, \lambda_g\)</span>. Then <span
+class="math display">\[{\mathop{\mathrm{Tor}}}^\ast :
+R^\ast(\mathcal{A}_g) \rightarrow
+\Lambda^\ast(\mathcal{M}_g^{c}).\]</span> In genus <span
+class="math inline">\(g = 5\)</span>, we have <span
+class="math display">\[\dim_{\mathbb{Q}} \Lambda^\ast(\mathcal{M}_5^{c})
+= 11, \quad
+  \dim_{\mathbb{Q}} R^\ast(\mathcal{M}_5^c) = 66,\]</span> so <span
+class="math inline">\(\Lambda^\ast(\mathcal{M}_g^c)\)</span> is a small
+subspace of <span
+class="math inline">\(R^\ast(\mathcal{M}_g^{c})\)</span>. (You can
+imagine this as a tool to test whether your classes lie in the
+tautological ring: pull it back and check whether it falls outside this
+space.)</p>
+<p>We return to the simplest question about product cycles on <span
+class="math inline">\(\mathcal{A}_g\)</span>: <span
+class="math display">\[\in^{?} R^{g - 1}(\mathcal{A}_g).\]</span> The
+idea is to compute the Torelli pull-back and ask whether we have <span
+class="math display">\[{\mathop{\mathrm{Tor}}}^\ast[\mathcal{A}_1 \times
+\mathcal{A}_{g - 1} ] \in^{?}
+  \Lambda^{g - 1}(\mathcal{M}_g^{c}).\]</span> A refined statement is
+possible:</p>
+<div class="proposition">
+<p><strong>Proposition 23</strong> (Canning–Oprea–Pandharipande 2022).
+<em>If it were the case that <span class="math inline">\([\mathcal{A}_1
+\times \mathcal{A}_{g - 1}] \in R^{g - 1}(\mathcal{A}_g)\)</span>
+(subjunctively), then we must have <span class="math display">\[=
+\frac{g}{6 \lvert B_{2 g} \rvert}
+    \lambda_{g - 1} \in R^{g - 1}(\mathcal{A}_g).\]</span></em></p>
+</div>
+<p>Motivated by this proposition, we define <span
+class="math display">\[\Delta_g =[\mathcal{A}_1 \times \mathcal{A}_{g -
+1}]
+  - \frac{g}{6 \lvert B_{2 g} \rvert} \lambda_{g - 1}
+  \in \operatorname{CH}^{g - 1}(\mathcal{A}_g).\]</span> The outcome is
+an obstruction: <span id="eq:cnpo5ealj6" class="math display">\[\label{eq:cnpo5ealj6}\tag{2}
+  [\mathcal{A}_1 \times \mathcal{A}_{g - 1}] \in R^{g -
+1}(\mathcal{A}_g)
+  \implies {\mathop{\mathrm{Tor}}}^\ast \Delta_g = 0.\]</span> But can we
+do the calculation? We must study the subscheme <span
+class="math display">\[{\mathop{\mathrm{Tor}}}^{-1}(\mathcal{A}_1 \times
+\mathcal{A}_{g - 1}) \subset \mathcal{M}_g^c.\]</span> The irreducible
+components of this are in bijective correspondence with the set <span
+class="math inline">\(\operatorname{Part}(g - 1)\)</span> of partitions
+of <span class="math inline">\(g - 1\)</span>. The irreducible
+components are usually excess dimensional and intersect in a complicated
+configuration of strata in <span
+class="math inline">\(\mathcal{M}_{g}^{c}\)</span>. (The hardest part is
+to understand whether there are any nilpotents. Some very explicit
+algebraic geometry.) Doing the excess intersection theory, we find that
+<span class="math display">\[{\mathop{\mathrm{Tor}}}^\ast[\mathcal{A}_1
+\times \mathcal{A}_{g - 1}] = \sum_{\text{all strata } \Gamma}
+\operatorname{Cont}(\Gamma).\]</span> The sum is over all strata, and
+<span class="math inline">\(\operatorname{Cont}(\Gamma)\)</span> is a
+tautological class on <span
+class="math inline">\(\overline{\mathcal{M}_{\Gamma}}\)</span>. All
+totally explicit mathematics.</p>
+<p>We are now in a position to check whether the Torelli pullback is in
+fact zero: <span class="math display">\[{\mathop{\mathrm{Tor}}}^\ast
+\Delta_g =^? 0 \in R^{g - 1}(\mathcal{M}_g^{c}).\]</span> We do this
+using <code>Admcycles</code> (a SAGE package which calculates in the
+tautological algebra of the moduli of curves using Pixton’s
+relations).</p>
+<p><code>Admcycles</code> calculations show that <span
+class="math inline">\({\mathop{\mathrm{Tor}}}^\ast \Delta_g = 0\)</span>
+for <span class="math inline">\(g = 1,2,3,4,5\)</span>. We know Pixton’s
+relations are complete for <span class="math inline">\(\mathcal{M}_{g
+\leq 5}^{c}\)</span>. The first interesting case is when <span
+class="math inline">\(g = 6\)</span>.</p>
+<h3 id="genus-g-6">Genus <span class="math inline">\(g = 6\)</span></h3>
+<p>We now have full knowledge of <span
+class="math inline">\(R^\ast(\mathcal{M}_6^c)\)</span>:</p>
+<div class="theorem">
+<p><strong>Theorem 24</strong> (Canning–Larson–Schmitt 2023).
+<em>Pixton’s relations are complete for <span
+class="math inline">\(\mathcal{M}_6^c\)</span>.</em></p>
+</div>
+<p>This is an interesting direction in and of itself.</p>
+<ul>
+<li><p>For all <span class="math inline">\(g\)</span>, by
+Faber–Pandharipande 2003, we have <span class="math display">\[R^{2 g -
+3}(\mathcal{M}_{g}^c) \cong \mathbb{Q}, \quad R^{&gt; 2 g -
+3}(\mathcal{M}_g^c) = 0.\]</span></p></li>
+<li><p>For Pixton’s conjecture, non-vanishing must be proven after his
+relations are imposed. The ranks of the pairings <span
+class="math display">\[R^k(\mathcal{M}_6^c) \times R^{9 -
+k}(\mathcal{M}_6^c) \rightarrow R^9(\mathcal{M}_6^c) \cong
+\mathbb{Q}\]</span> can be computed by <code>Admcycles</code> and show
+that Pixton’s relations are complete in all cases, with the possible
+exception of <span
+class="math inline">\(R^5(\mathcal{M}_6^c)\)</span>.</p></li>
+<li><p>What happens in genus <span class="math inline">\(6\)</span>,
+which is why it’s the first interesting case, is that in codimension
+<span class="math inline">\(5\)</span>, Pixton predicts that <span
+class="math display">\[\dim_{\mathbb{Q}} R^5(\mathcal{M}_6^c) =
+72,\]</span> but the corresponding pairing rank has dimension <span
+class="math inline">\(71\)</span>.</p></li>
+<li><p>The proof is completed by establishing the exact sequence <span
+class="math display">\[R^4(\overline{\mathcal{M}}_{5, 2})
+    \xrightarrow{\alpha}
+    R^5(\overline{\mathcal{M}}_6)
+    \rightarrow R^5(\mathcal{M}_6^c) \rightarrow 0\]</span> and
+computing with <code>Admcycles</code>: <span
+class="math display">\[\dim_{\mathbb{Q}} \Im(\alpha) = 916, \quad
+\dim_{\mathbb{Q}} R^5(\overline{\mathcal{M}}_6) = 988.\]</span></p></li>
+<li><p>This result is the first case where Pixton’s conjecture is proven
+<em>without</em> relying on the novanishing obtained by ranks of
+pairings.</p></li>
+</ul>
+<p>We can now use <code>Admcycles</code> to calculate <span
+class="math inline">\({\mathop{\mathrm{Tor}}}^\ast \Delta_6\)</span>:</p>
+<div class="theorem">
+<p><strong>Theorem 25</strong> (Canning–Oprea–Pandharipande 2023).
+<em><span class="math inline">\({\mathop{\mathrm{Tor}}}^\ast \Delta_6 \neq
+0\)</span> in <span class="math inline">\(R^5(\mathcal{M}_6^c)\)</span>,
+so <span class="math display">\[\notin
+R^5(\mathcal{A}_6).\]</span></em></p>
+</div>
+<ul>
+<li><p>The relevant pairing is <span
+class="math display">\[R^4(\mathcal{M}_6^c) \times R^5(\mathcal{M}_6^c)
+\rightarrow R^9(\mathcal{M}_6^c) \cong \mathbb{Q}\]</span> is of rank
+<span class="math inline">\(71\)</span>. By Canning–Larson–Schmitt,
+<span class="math display">\[\dim_{\mathbb{Q}} R^4(\mathcal{M}_6^c) =
+71, \qquad
+    \dim_{\mathbb{Q}} R^5(\mathcal{M}_6^c) = 72.\]</span> Hence, there
+is a one-dimensional kernel of the pairing in <span
+class="math inline">\(R^5(\mathcal{M}_6^c)\)</span>.</p></li>
+<li><p>The calculation shows that <span
+class="math inline">\({\mathop{\mathrm{Tor}}}^\ast \Delta_6 \neq
+0\)</span> is the generator of the kernel of the pairing!</p></li>
+</ul>
+<p>So, that’s the end of the first part of this talk, but what does this
+mean? To start, what is the meaning of the obstruction <a
+href="#eq:cnpo5ealj6" data-reference-type="eqref"
+data-reference="eq:cnpo5ealj6">\((2)\)</a>?</p>
+<h3 id="projection">Projection</h3>
+<p>Tautological classes determine a <span
+class="math inline">\(\mathbb{Q}\)</span>-linear subspace <span
+class="math inline">\(R^\ast(\mathcal{A}_g) \subset
+\operatorname{CH}^\ast(\mathcal{A}_g)\)</span>. The cycle theory of
+<span class="math inline">\(\mathcal{A}_g\)</span> is special (compared
+to other moduli spaces that we study).</p>
+<div class="theorem">
+<p><strong>Theorem 26</strong> (Canning–Molcho–Oprea–Pandharipande
+2024). <em>There is a canonical <span
+class="math inline">\(\mathbb{Q}\)</span>-linear projection operator
+<span class="math display">\[\mathrm{taut} :
+\mathrm{CH}^\ast(\mathcal{A}_g) \rightarrow
+R^\ast(\mathcal{A}_g),\]</span> <span
+class="math inline">\(\mathrm{taut} |_{R^\ast(\mathcal{A}_g)} =
+{\mathop{\mathrm{id}}}_{R^\ast(\mathcal{A}_g)}\)</span>.</em></p>
+</div>
+<ul>
+<li><p>Projection yields a canonical direct sum decomposition <span
+class="math display">\[\operatorname{CH}^\ast(\mathcal{A}_g) \cong
+R^\ast(\mathcal{A}_g)
+    \oplus \mathrm{NT}^\ast(\mathcal{A}_g),\]</span> where <span
+class="math inline">\(\mathrm{NT}^\ast(\mathcal{A}_g) \subset
+\mathrm{CH}^\ast(\mathcal{A}_g)\)</span> is the <span
+class="math inline">\(\mathbb{Q}\)</span>-linear subspace of <em>purely
+non-tautological classes</em>: classes with <em>trivial</em>
+projection.</p></li>
+<li><p>For any cycle class <span class="math inline">\(\alpha \in
+\mathrm{CH}^\ast(\mathcal{A}_g)\)</span>, we can ask:</p>
+<ol type="i">
+<li><p><span id="enumerate:cnpo5egplj"
+label="enumerate:cnpo5egplj"></span> What is <span
+class="math inline">\(\operatorname{taut}(\alpha) \in
+R^\ast(\mathcal{A}_g)\)</span>?</p></li>
+<li><p>(...)</p></li>
+</ol></li>
+</ul>
+<p>Consider the classes of products <span
+class="math display">\[\mathcal{A}_{g_1} \times \dotsb \times
+\mathcal{A}_{g_{\ell}} \rightarrow \mathcal{A}_g.\]</span> The following
+result of Canning–Molcho–Oprea–Pandharipande (2024) answers question <a
+href="#enumerate:cnpo5egplj" data-reference-type="eqref"
+data-reference="enumerate:cnpo5egplj">\((i)\)</a> for all
+products, giving the answer in terms of a certain determinants.</p>
+<p>Some examples: <span
+class="math display">\[\operatorname{taut}([\mathcal{A}_1 \times
+\mathcal{A}_{g - 1}])
+  = \frac{g}{6 \lvert B_{2 g} \rvert} \lambda_{g - 1},\]</span> <span
+class="math display">\[\mathrm{taut}([\mathcal{A}_2 \times
+\mathcal{A}_{g - 2}]
+  )
+  = \frac{1}{360} \cdot \frac{g(g - 1)}{\lvert B_{2 g} \rvert \lvert
+B_{2 g - 2} \rvert}
+  \cdot \lambda_{g - 1} \lambda_{g - 3}.\]</span></p>
+<p>The first geometric cycle proven to have a nonvanishing
+non-tautological part is <span class="math display">\[\notin
+R^5(\mathcal{A}_6).\]</span> We expect <em>many</em> interesting
+non-tautological parts. The <em>product</em> loci are simplest to
+consider, but there are other <em>Noether–Lefschetz loci</em>. A
+beautiful class of examples is <span
+class="math inline">\(\mathrm{NL}_{g, d}\)</span> consisting of <span
+class="math inline">\((X, \theta) \in \mathcal{A}_g\)</span> such that
+there is an elliptic curve <span class="math inline">\(E \subset
+X\)</span> of degree <span class="math inline">\(d\)</span> with respect
+to <span class="math inline">\(\theta\)</span>. Since their classes lie
+in <span class="math inline">\([\mathcal{A}_1 \times \mathcal{A}_{g -
+1}]\)</span>, these examples represent an interesting generalization of
+the product loci. For the rest of the lecture, we’ll talk about these
+particular examples, which we’ve been thinking about in the past
+year.</p>
+<p>So again, you fix your <span
+class="math inline">\(\mathcal{A}_g\)</span>, then for every <span
+class="math inline">\(d\)</span>, there is a cycle, and this cycle is
+defined by requiring that your abelian variety have an elliptic curve
+inside your variety and requiring that the degree be <span
+class="math inline">\(d\)</span>.</p>
+<h3 id="results-and-conjectures-about-mathrmn-l_g-d">Results and
+conjectures about <span class="math inline">\(\mathrm{N L}_{g,
+d}\)</span></h3>
+<div class="theorem">
+<p><strong>Theorem 27</strong> (Iribar Lopez, 2024). <em>We have <span
+class="math display">\[\operatorname{taut}([\mathrm{N L}_{g, d}]) =
+\frac{d^{2 g - 1} g}{6 \lvert B_{2 g} \rvert}
+    \prod_{p \mid d}
+    \left( 1 - p^{2 - 2 g} \right) \lambda_{g - 1}.\]</span> Let <span
+class="math inline">\([\tilde{\mathrm{N L}}_{g, d}] = \sum_{d&#39; \mid
+d} \sigma_1 \left( \frac{d}{d&#39;} \right)[\mathrm{N L}_{g,
+d&#39;}]\)</span>. Then the result implies <span
+class="math display">\[\operatorname{taut} \left( \frac{(- 1)^{g}}{24}
+\lambda_{g - 1} + \sum_{d = 1}^\infty \right)
+    [\tilde{\mathrm{N L}}_{g, d}] q^{d}
+    = \frac{(- 1)^{g}}{24}
+    E_{2 g}(q)
+    \lambda_{g - 1},\]</span> where <span class="math inline">\(E_{2
+g}(q)\)</span> is the <em>Eisenstein series</em>. (We emphasize that you
+always get just a <span class="math inline">\(\lambda_{g -
+1}\)</span>.)</em></p>
+</div>
+<p>It is natural then to define <span class="math display">\[= \frac{(-
+1)^{g}}{24} \lambda_{g - 1}.\]</span></p>
+<p>This says that there’s a connection to <span
+class="math inline">\({\mathop{\mathrm{SL}}}_2(\mathbb{Z})\)</span>-modular
+forms. We want to make this connection more precise, although everything
+is conjectural from now on. Let <span class="math display">\[\mathrm{N
+L}_g \subset \operatorname{CH}^{g - 1}(\mathcal{A}_g)\]</span> denote
+the <span class="math inline">\(\mathbb{Q}\)</span>-span of the classes
+<span class="math display">\[\left\{[\tilde{\mathrm{N L}}_{g, d}]
+\right\}_{d \geq 0}
+  \subset \operatorname{CH}^{g - 1}(\mathcal{A}_g).\]</span> Let <span
+class="math inline">\(\mathrm{Mod}_{2 g}\)</span> be the <span
+class="math inline">\(\mathbb{Q}\)</span>-vector space of <span
+class="math inline">\({\mathop{\mathrm{SL}}}_2(\mathbb{Z})\)</span>
+modular forms of weight <span class="math inline">\(2 g\)</span> (with
+basis given by monomials in <span class="math inline">\(E_4\)</span> and
+<span class="math inline">\(E_6\)</span>).</p>
+<ul>
+<li><p><u>Modularity Conjecture I</u> (Pixton 2023): For <span
+class="math inline">\(g \geq 2\)</span>, we have <span
+class="math display">\[\dim_{\mathbb{Q}}(\mathrm{N L}_g) =
+\dim_{\mathbb{Q}}(\mathrm{Mod}_{2 g}).\]</span> Note that it’s not even
+clear that the span in question concerning <span
+class="math inline">\(\mathrm{N L}_g\)</span> is finite-dimensional
+(although the analogous statement for cohomology is clear).</p></li>
+<li><p><u>Modularity Conjecture II</u> (Green–Iribar, Lopez–C. Lian
+2024): the series <span class="math display">\[\sum_{d =
+0}^\infty[\tilde{\mathrm{N L}}_{g, d}] q^{d}\]</span> is the Fourier
+expansion of an <span
+class="math inline">\({\mathop{\mathrm{SL}}}_2(\mathbb{Z})\)</span>
+modular form of weight <span class="math inline">\(2 g\)</span> with
+coefficients in the Chow group <span
+class="math inline">\(\operatorname{CH}^{g - 1}(\mathcal{A}_g)\)</span>
+for <span class="math inline">\(g \geq 2\)</span>.</p>
+<p>We propose to unite these conjectures:</p></li>
+<li><p><u>Modularity Conjecture III</u>: For <span
+class="math inline">\(g \geq 2\)</span>, there is a unique isomorphism
+<span class="math display">\[\phi_g : \mathrm{N L}_{g} \rightarrow
+\mathrm{Mod}_{2 g}^\ast\]</span> that satisfies the property <span
+class="math display">\[f = \sum_{d = 0}^\infty f \circ \phi_g
+\left([\tilde{\mathrm{N L}}_{g, d}] \right) q^{d}\]</span> for every
+modular form <span class="math inline">\(f \in \mathrm{Mod}_{2
+g}\)</span>. (There’s even less evidence for this, but it’s the simplest
+possible explanation for the previous two.)</p>
+<p>The conjectures are not just about tautological classes:</p></li>
+<li><p><u>Theorem</u> (Iribar Lopez 2024): We have <span
+class="math inline">\([\mathrm{N L}_{g, d}] \notin R^{g -
+1}(\mathcal{A}_g)\)</span> for <span class="math inline">\(d \in \{1,
+2\}\)</span> and <span class="math inline">\(g = 12\)</span> and all
+even <span class="math inline">\(g \geq 16\)</span>.</p></li>
+</ul>
+<p>Several directions remain open. For instance, try to use knowledge of
+these classes to generate all the interesting nonvanishing in Pixton’s
+conjecture. That’s still somehow a pipe-dream; it worked in that one
+case, but we don’t know how to do it in general.</p>
+<div class="theorem">
+<p><strong>Theorem 28</strong> (Iribar Lopez–Pandharipande–H.-H. Tseng
+2024). <em>In the genus <span class="math inline">\(1\)</span> quantum
+cohomology of the Hilbert scheme <span
+class="math inline">\(\operatorname{Hilb}(\mathbb{C}^2, d)\)</span> of
+<span class="math inline">\(d\)</span> points in the plane, we have the
+evaluation <span class="math display">\[\left\langle(2)
+\right\rangle_1^{\operatorname{Hilb}(\mathbb{C}^2, d)}
+    = \frac{1}{24}
+    \frac{(t_1 + t_2)^2}{ t_1 t_2}
+    \left( {\mathop{\mathrm{Tr}}}_d + \sum_{k = 2}^{d}
+      \frac{\sigma_1(d - k)}{ d - k}
+{\mathop{\mathrm{Tr}}}_k\right).\]</span> Here <span
+class="math inline">\({\mathop{\mathrm{Tr}}}_k\)</span> is the trace of
+the operator of genus <span class="math inline">\(0\)</span> quantum
+multiplication by <span class="math inline">\(c_1(\mathcal{O} /
+\mathcal{I})\)</span> by <span class="math inline">\(c_1(\mathcal{O} /
+\mathcal{I})\)</span> on <span
+class="math inline">\(\operatorname{Hilb}(\mathbb{C}^2,
+k)\)</span>.</em></p>
+</div>
+<p>The theorem is connected to the calculation <span
+class="math display">\[\operatorname{taut}([\mathrm{N L}_{g, d}]) =
+  \frac{d^{2 g - 1} g}{ 6 \lvert B_{2 g} \rvert}
+  \prod_{p \mid d}
+  (1 - p^{2 - 2 g}) \lambda_{g - 1},\]</span> using many results: the
+GW/DT correspondence for families of local curves, Hodge integrals for
+families of elliptic curves, and a GW/NL correspondence for <span
+class="math inline">\(\mathcal{A}_g\)</span> in a form proven by
+Greer–Lian.</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-2023arXiv2309.08705" class="csl-entry" role="listitem">
+Hamann, Linus, and Si Ying Lee. 2023. <span>“Torsion Vanishing for Some
+Shimura Varieties,”</span> September. <a
+href="http://arxiv.org/abs/2309.08705v3">http://arxiv.org/abs/2309.08705v3</a>.
+</div>
+</div>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
