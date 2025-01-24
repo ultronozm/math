@@ -19,3 +19,8 @@
 *.dvi
 _region_.*
 .DS_Store
+/listing.json
+/test-basic.md
+/test-basic.tex
+/test.json
+/test.txt
