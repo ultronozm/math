@@ -7,3 +7,15 @@
 *.out
 *.synctex.gz
 *.pdfsync
+/*~
+*.aux
+*.pdf
+*.toc
+*.html
+*.idx
+*.ilg
+*.ind
+*.fmt
+*.dvi
+_region_.*
+.DS_Store
