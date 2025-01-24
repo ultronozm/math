@@ -8,10 +8,7 @@
 *.synctex.gz
 *.pdfsync
 /*~
-*.aux
-*.pdf
 *.toc
-*.html
 *.idx
 *.ilg
 *.ind
