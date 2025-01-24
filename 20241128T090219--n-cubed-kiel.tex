@@ -1,0 +1,2314 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+
+\begin{document}
+
+
+\title{Notes from n-cubed conference in Kiel, November 2024}
+
+\begin{abstract}
+  Notes on some talks from \url{https://www.math.uni-kiel.de/algebra/ncube/programme}, 28-30 November 2024.  These notes are incomplete, have not been proofread, and should be considered only a crude approximation to what happened in the lectures, filtered through my own misunderstandings and distractions.  Any errors should be assumed to be due to the note-taker.  Corrections welcome!
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+\section{Anke Pohl, \emph{Period functions for vector-valued Maass cusp forms and Jacobi Maass cusp forms}}
+
+(joint work with Roelof Bruggeman and YoungJu Choie)
+
+$\Gamma := \SL_2(\mathbb{Z})$.
+
+We consider classical Maass cusp forms $u$ for $\Gamma$.  We write $s$ for the spectral parameter, so that the $\Delta$-eigenvalue is $s(1 - s)$.
+
+These enjoy a bijective correspondence with certain \emph{period functions}
+\begin{equation*}
+  f :(0, \infty) \rightarrow \mathbb{C},
+\end{equation*}
+which are analytic functions satisfying
+\begin{equation*}
+  f(t) = f(t + 1) +(t + 1)^{- 2 s} f \left( \frac{t}{t + 1} \right)
+\end{equation*}
+such that the function
+\begin{equation*}
+  t \mapsto
+  \begin{cases}
+    f(t)    & \text{ on }(0, \infty), \\
+    - \frac{1}{\lvert t \rvert^{2 s}} f\left(- \frac{1}{t}\right)            & \text{ on }(- \infty, 0)
+  \end{cases}
+\end{equation*}
+extends continuously to $0$ (and $\infty$).
+
+This was introduced by Lewis--Zagier and generalized/extended to other Fuchsian groups by Bruggemann, Lewis, Zagier, Pohl, ...
+
+We wanted to generalize to higehr rank groups, but keeping the situation near to what we see here.  We consider the case of Jacobi Maass forms.  Let's give a half-definition of those.  Set $\Gamma^J := \mathrm{Hei}(\mathbb{Z}) \rtimes \Gamma$, which acts naturally on $\mathbb{H} \times \mathbb{C}$.  A Jacobi Maass form (JMF) of weight $k \in \mathbb{Z}$ and index $m \in \mathbb{Z}_{\geq 0}$ is roughly a function
+\begin{equation*}
+  F : \mathbb{H} \times \mathbb{C} \rightarrow \mathbb{C}
+\end{equation*}
+satisfying the following properties:
+\begin{enumerate}
+\item equivariance: for all $\gamma \in \Gamma^J$, we have
+  \begin{equation*}
+    F \mid_{k, m}^J g = F.
+  \end{equation*}
+\item eigenfunction of differential operators
+\item decay
+\end{enumerate}
+
+Pitale gave a theta decomposition: for $(\tau, z) \in \mathbb{H} \times \mathbb{C}$,
+\begin{equation*}
+  F(\tau, z) = \sum_{j \pmod{2 m}} F_j(\tau) \Theta_{m, j}(\tau, z),
+\end{equation*}
+for certain theta functions
+\begin{equation*}
+  \Theta_{m, j}(\tau, z) = \left( \Im \tau \right)^{1/4} \sum_{r \equiv j \pmod{2 m}}
+  e^{\pi i \tau r^2 / 2 m} e^{2 \pi i r z}.
+\end{equation*}
+Here $(F_j)_{j \pmod{2 m}}$ is a vector-valued Maass form of weight $k - 1/2$.  Note that this weight is a half-integer.  We eventually realized that this was not an issue -- one could indeed work with general real weights, we just needed to extend the theta decomposition accordingly.  In particular, we can relax $k$ to be a real number.
+
+Let's now give more precise definitions of the objects of interest.  We consider vector-valued Maass cusp forms of weight $k \in \mathbb{R}$ and a unitary representation $\rho : \Gamma \rightarrow \U(n)$, where $n \in \mathbb{N}$.  These are smooth functions $u : \mathbb{H} \rightarrow \mathbb{C}^n$ that satisfy
+\begin{enumerate}
+\item equivariance with respect to a multiplier system
+  \begin{equation*}
+    v_k : \Gamma \rightarrow \mathbb{C}^\times,
+  \end{equation*}
+  \begin{equation*}
+    v_k(g) = \frac{\eta(g z)^{2 k}}{(c z + d)^k \eta(z)^{2 k}}, \qquad
+    g =
+    \begin{pmatrix}
+      a      & b \\
+      c & d \\
+    \end{pmatrix} \in \Gamma,
+  \end{equation*},
+  where $z \in \mathbb{H}$ and $\eta$ is the Dedekind eta.
+\item eigenfunction of
+  \begin{equation*}
+    \Delta_k = - y^2(\partial_{x}^2 + \partial_y^2) + i k y \partial_x,
+    \quad
+    z = x + i y,
+  \end{equation*}
+  thus $\Delta_k u = s(1 - s) u$.  (Here we've changed the role of $z$.)
+\item exponential decay at $\infty$.
+\end{enumerate}
+
+We now define Jacobi Maass cusp forms (JMCF)?  Let $k \in \mathbb{R}$ be the weight, $m \in \mathbb{N}_{0}$ be the index/level.  We don't need to use the same multiplier system as above; the other ones are all obtained by a slight modification indexed by a parameter $a \in \mathbb{Z} / 12 \mathbb{Z}$.  The multiplier is defined using a function
+\begin{equation*}
+  \varphi_a : \Gamma \rightarrow \mathbb{C}^\times , \quad \varphi_a \left(
+    \begin{pmatrix}
+      1      & 1 \\
+      0 & 1 \\
+    \end{pmatrix} \right) = e^{- \pi i a / 6},
+  \quad
+  \varphi_a \left(
+    \begin{pmatrix}
+      0      & -1 \\
+      1 & 0 \\
+    \end{pmatrix} \right)
+  = e^{- \pi i a / 2},
+\end{equation*}
+and we then want to require
+\begin{equation*}
+  F \mid_{\varphi_a v_k, k, m}^J g := \varphi_a(g)^{-1} v_k(g)^{-1} F \mid_{k, m}^J g, \quad g \in J.
+\end{equation*}
+For shorthand, we write
+\begin{equation*}
+  F \mid_{\varphi_a v_k, k, m}^J h =: F \mid_{k, m}^J h, \quad h \in \mathrm{Hei}(\mathbb{Z}).
+\end{equation*}
+Then we require that for all $g \in \Gamma^J$, we have the equivariance property $F \mid_{\varphi_a v_k, k, m}^J g = F$.  We also require the Casimir eigenfunction property $C^{k, m} F = \lambda(s, k) F$.
+
+\begin{theorem}[BCP]
+  The space of Jacobi--Maass cusp forms with weight $k$, index $m$, spectral parameter $s$, and multiplier system $\varphi_a v_k$ is isomorphic to the space of Maass cusp forms for $\Gamma$ with weight $k - \tfrac{1}{2}$, parameter $\tfrac{s + 1}{2}$, and multiplier $\varphi_{a, m v_k - \tfrac{1}{2}}$.  The bijection is given by a theta decomposition.
+\end{theorem}
+
+Our goal is now to give a period function notion of the right hand side of this bijection (the one involving Maass forms).
+\begin{enumerate}
+\item Given a Maass cusp form $u$ with parameter $s$, we define, for $t > 0$,
+  \begin{equation*}
+    f(t) = \int_0^{i \infty} \eta_s(u, t),
+  \end{equation*}
+  where $\eta_s$ is a closed $1$-form.  We work with a contour in $\mathbb{H}$ from $0$ to $-1$ along a geodesic semicircle, then from $-1$ to $\infty$, and also a contour directly from $0$ to $i \infty$.  Then, with
+  \begin{equation*}
+    T =
+    \begin{pmatrix}
+      1      & 1 \\
+      0 & 1 \\
+    \end{pmatrix} \in \Gamma = \SL_2(\mathbb{Z}),
+    \quad T^{-t} =
+    \begin{pmatrix}
+      1      & 0 \\
+      -1 & 1 \\
+    \end{pmatrix},
+  \end{equation*}
+  we have
+  \begin{equation*}
+    f = \int_0^{i \infty} = \int_{- 1}^{i \infty} + \int^{- 1}_0 = \int_{T^{-1} 0}^{T^{-1} i \infty} + \int_{T^{- t} 0}^{T^{- t} \infty}
+    = f(t + 1) +(t + 1)^{- 2 s} f \left( \frac{t}{t + 1} \right),
+  \end{equation*}
+  where in the final step, we used that
+  \begin{equation*}
+    \int_{z_1}^{z_2} \eta(u, \bullet) \mid_s g(t) =
+    \int_{g^{-1} z_1}^{g^{-1} z_2} \eta_s(u, t).
+  \end{equation*}
+  For generalization purposes, what we see now is this.  If we have some reason to assume that we are looking for a functional equation of the same form, then we are now asking for one form which is behaving like as we would like to have it with the action given in our definition of vector-valued Maass cusp forms.
+  \begin{remark}
+    Why this path of integration?  It's motivated by trying to discretize the geodesic flow, in a classical way.  For this, you need a cross-section on the tangent bundle that is so discrete that it catches geodesics well.  We write down an operator
+    \begin{equation*}
+      \mathcal{L}_s f(t) = \sum_{p \in \operatorname{transport}^{-1}(t)} \lvert A'(p) \rvert^{- s} f(p).
+    \end{equation*}
+    Essentially we're asking where is the next point of intersection with our geodesic.  [Editor note: There are pictures, but I'm not so good at transcribing pictures, I guess.  Sorry.  Maybe next time.]
+  \end{remark}
+  We now focus on
+  \begin{equation*}
+    \mathcal{L}_s = I_s(T + T^t).
+  \end{equation*}
+  This is the action on $\mathbb{P}_{\mathbb{R}}^1$.  How to build the form $\eta$?  The old form was $\eta_s(u, t) =[u, R_s(t, \bullet)]$.  Now some precise formulas.  The kernel that we need to have is
+  \begin{equation*}
+    R_{s, k} : \mathbb{P}_{\mathbb{R}}^1 \times \mathbb{H} \rightarrow \mathbb{C}.
+  \end{equation*}
+  Green's form:
+  \begin{equation*}
+    [u_1, u_2]_k :=
+    \left( \frac{\partial u_1}{\partial t} u_2 + \frac{k}{4 i y} u_1 u_2  \right) \, d z
+    + 
+    \left( u_1 \frac{\partial u_2}{\partial t} - \frac{k}{4 i y} u_1 u_2 \right) \, d \bar{z},
+  \end{equation*}
+  \begin{equation*}
+    \Delta_k = - y^2(\partial_x^2 + \partial_y^2) + i k y \partial_x.
+  \end{equation*}
+  Now if we have an eigenfunction $u_1$ of $\Delta_k$ and $u_2$ of $\Delta_{- k}$, with the \emph{same eigenvalue}, then $[u_1, u_2]_k$ is \emph{closed}.  Now for any $t$, the function
+  \begin{equation*}
+    \Delta_{- k} R_{s, k}(t, \bullet) = s(1 - s) R_{s, k}
+  \end{equation*}
+  enjoys the correct transformation behavior.
+
+  For $u$ in $\mathrm{wMCF}_{s, k, \rho}$, we get a period function
+  \begin{equation*}
+    f(t) = \int_0^\infty \eta_{s, k}(u, t),
+  \end{equation*}
+  analytic on $(0, \infty)$, satisfying
+  \begin{equation*}
+    f = f \mid_{\rho v_k, s, k}^{\mathbb{P}}(T + T^t),
+  \end{equation*}
+  for which
+  \begin{equation*}
+    \begin{cases}
+      f      &  \text{ on }(0, \infty), \\
+      -f \mid_{\rho v_k , s , k}             &  \text{ on }(- \infty, 0)
+    \end{cases}
+  \end{equation*}
+  extends continuously to zero.
+\end{enumerate}
+
+\begin{theorem}[BCP]
+  For $\Re(s) =(0, 1)$, $s$ not of the form $\pm \tfrac{k}{2}$ mod $1$, the above correspondence defines an isomorphism.
+\end{theorem}
+
+\section{Philippe Gille, \emph{Loop torsors, Galois cohomology and more}}
+
+We decided to give kind of a survey talk, starting from torsors in some cohomological way, and coming to fresh things only at the end.
+
+Let's start with basic things.  We'll simplify our life by taking a field $k$ of characteristic zero.  We take for $k_s$ a separable closure, and write $\Gamma_k = \Gal(k_s / k)$.  Given a Galois module $A$, we may define the continuous group cohomology
+\begin{equation*}
+  H^i(k, A) := H^i_{\mathrm{cts}}(\Gamma_k, A).
+\end{equation*}
+Serre (1962) decided to extend such definitions to a non-abelian settingn.  Given a linear algebraic group $G _{/k} \subseteq \GL_n$, we define
+\begin{equation*}
+  H^0(k, G) := \GL_n(k),
+\end{equation*}
+\begin{equation*}
+  H^1(k, G) :=
+  \begin{cases}
+    \text{$1$-cocycles}    &  \\
+    \text{torsors}.                           & 
+  \end{cases}
+\end{equation*}
+(Two equivalent definitions.)  More precisely:
+\begin{definition}
+  A $1$\emph{-cocycle} $z : \Gamma_k \rightarrow G(k_s)$ is a continuous function satisfying $z_{\sigma \tau} = z_\sigma \sigma(z_\tau)$ for all $\sigma, \tau \in \Gamma_k$.
+\end{definition}
+Then
+\begin{equation*}
+  H^1(k, G) = Z^1(\Gamma_k, G(k_s)) / \sim,
+\end{equation*}
+where we say that $z \sim z '$ if there exists $g \in G(k_s)$ such that $z '_\sigma = g^{-1} z_\sigma \sigma(g)$.
+
+\begin{definition}
+  A $G$-variety $X$ (with a right action) is a \emph{torsor} if $G(k_s)$ acts simply-transitively on $X(k_s)$.
+\end{definition}
+
+\begin{example}
+  $H^1(k, \mathbb{G}_m)$, and more generally, $H^1(k, \GL_n)$, is trivial, by Hilbert 90.  $H^1(k, \mu_n) = k^\times / k^{\times n}$, using $a \mapsto \{x^n = a\}$.
+\end{example}
+\begin{example}
+  For $\O_n$, the orthogonal group of $\sum_{i = 1}^n x_i^2$, we have that $H^1(k, \O_n)$ is in bijection with isometry classes of regular quadratic forms of rank $n$.  Gauss tells you that any quadratic form is isometric to $q \simeq \sum_{i = 1}^n a_i x_i^2$.  We have $(\mu_2)^n \subset \O_n$ and
+  \begin{equation*}
+    H^1(k, \mu_2)^n \rightarrow H^1(k, \O_n),
+  \end{equation*}
+  \begin{equation*}
+    H^1(k, \mu_2)^n \cong (k^\times / k^{\times 2})^n
+  \end{equation*}
+  via sending $(a_i)$ to the class of $\sum_{i = 1}^n a_i x_i^2$.
+\end{example}
+\begin{example}
+  For $G = G_2 \supset \mu_2 \times \mu_2 \times \mathbb{Z} / 2 \mathbb{Z}$: the same phenomenon happens.  Related to the Cayley--Dickson construction of octonion algebras with parameters.
+\end{example}
+\begin{example}
+  For $G = \PGL_n = \GL_n / \mathbb{G}_m = \Aut(M_n)$, $H^1(k, \PGL_n)$ classifies central simple algebras of degree $n$.
+\end{example}
+
+\begin{example}
+  For $n = p$ prime, $\mu_p \times \mathbb{Z} / p \mathbb{Z} \subset \PGL_p$ via $\diag(1, x, \dotsc, x^{p - 1})$ and multiples of the elementary matrix $E_{n 1}$.  Get  
+  \begin{equation*}
+    H^1(k, \mu_p \times \mathbb{Z} / p \mathbb{Z}) \rightarrow H^1(k, \PGL_p).
+  \end{equation*}
+  \begin{equation*}
+    \cong k^\times / k^{\times p} \times H^1(k, \mathbb{Z} / p \mathbb{Z}) \ni(a, \mathcal{H})
+    \mapsto[(\mathcal{H}, a)].
+  \end{equation*}
+  Open question: is this onto?
+\end{example}
+
+\begin{theorem}[CGR, 2006]\label{theorem:cnra0ah0ad}
+  Let $G_{/k}$ reductive.  There is a finite subgroup $S \subset G$ such that
+  \begin{equation*}
+    H^1(F, S) \twoheadrightarrow H^1(F, G)
+  \end{equation*}
+  for all field extensions $F /k$.
+\end{theorem}
+To give the flavor, for $\PGL_n$, we can take $S = \left( (\mu_n)^n / \mu_n \right) \rtimes S_n$, where $(\mu_n)^n$ is diagonal and $S_n \subseteq \PGL_n$ is the Weyl group of permutation matrices.
+
+We now switch to \emph{rings}.  Let $G_{/k} \subset \GL_{n, R}$ be affine (linear) $R$-group schemes.  We can then define $H^1(R, G)$ to be the set of isomorphism classes of $G$-torsors $X$ over $\Spec(R)$.  This means
+\begin{equation*}
+  X \times_R G \cong X \times_R X
+\end{equation*}
+over $X$, and $X \rightarrow \Spec(R)$ is surjective.  We have analogues of Theorem \ref{theorem:cnra0ah0ad} when $R$ is a local ring.  My colleagues and I were interested in more general rings, in particular, polynomial rings and rings of Laurent polynomials.  It's very interesting to look at the reduction of torsors to find the smallest subgroup.  For example, maybe you know the famous result of Quillen--Suslin (1976), which says that if you take the ring $R = k[X_1, \dotsc, X_d]$, then all finitely-generated projective modules are free.  Equivalently, because $\GL_n$ is the group of automorphisms of the free projective module of rank $n$, this result says that
+\begin{equation*}
+  H^1(R, \mathrm{GL}_n) = \{1\}.
+\end{equation*}
+If you know that we have a surjection
+\begin{equation*}
+  H^1(R, S) \twoheadrightarrow
+  H^1(R, \mathrm{GL}_n)
+\end{equation*}
+for some finite $S$, then it ends the proof.  This is because the LHS is then nothing but $H^1(k, S)$, which goes to $H^1(k, \PGL_n)$.  So if someone were able to show that for this kind of ring that we have this kind of reduction, then it would give an alternate proof of this famous result of Quillen--Suslin.  (We don't know how to do that.)
+
+Consider now the Laurent polynomial ring
+\begin{equation*}
+  R_n = k[X^{\pm 1}, \dotsc, X^{\pm n}],
+\end{equation*}
+or $\mathbb{C}[e^{i \theta_1}, \dotsc, e^{i \theta_n}]$.  Given a ring $R /k$, we define loop torsors for $G_{/k}$.  This class includes ``finite torsors''.  Take a ring $R$ and a Galois cover $S$ with Galois group $\Gamma$.  In this Galois cover, you have a part $R_{\ell}$ given by extension of constants, thus $\ell / k$ is a Galois extension of fields, with $\Gal(\ell / k)$ acting on the extension $R_{\ell} / R$.  Then
+\begin{equation*}
+  H^1(\Gamma, G(S)) \hookrightarrow H^1(R, G),
+\end{equation*}
+with a map $H^1(\Gamma, G(\ell)) \rightarrow H^1(\Gamma, G(S))$.  We call a class a \emph{loop} if it satisfies this.
+
+\begin{theorem}[CGP]
+  For $G_{/k}$ reductive, we have a commutative diagram involving
+  \begin{equation*}
+    H^1(R_n, G) \rightarrow H^1(k((t_1)) \dotsb((t_n)), G)
+  \end{equation*}
+  and an inclusion of $H^1_{\mathrm{loop}}(R_n, G)$ into the LHS and a map $s$ from it to the RHS.
+\end{theorem}
+
+This theorem has a big drawback, which is the following.  $\GL_n(\mathbb{Z})$ acts on our set $R_n$ of Laurent polynomials, but not on $k((t_1)) \dotsb ((t_n))$.
+
+\begin{theorem}[Staviova] If $G$ is sufficiently isotropic, then
+  \begin{equation*}
+    H^1_{\mathrm{loop}}(R_m, G) = H^1(R_m, G).
+  \end{equation*}
+\end{theorem}
+
+The above story was all ten years ago.  Three years ago, Parimala from Emory called the speaker and said that she liked this framework of loop things, but it's too bad because you work with rings over a field.  We do arithmetics, and are interested in rings like
+\begin{equation*}
+  R := \mathbb{Z}_p[[t]][1/t, 1/p].
+\end{equation*}
+She said that there should also be loop torsors, etc., for these kinds of rings.  This turned out to be true, after some work.
+
+If we want to abstract such rings, we take $A$ to be a regular henselian ring with parameters $f_1, \dotsc, f_r$.  Take $D = \div(f_1) + \dotsb + \div(f_r)$ and $A_D = A_{f_1 \dotsb f_r}$.  What is nice is that there is a theory of covers (Abyankar's covers), and with those covers, you can play exactly the same game as with what we erased.  Namely, take your ring $A$, take $B$ (finite {\'e}tale Galois).
+
+% [speaker in front of blackboard]
+
+You get $A \rightarrow B$ {\'e}tale with $\# \mu_n(B) = n$, $A_D \rightarrow B \otimes_A A_D$ Galois, $A_D \rightarrow B_n$ with $\Gal(B_n / A_D)$ where
+\begin{equation*}
+  B_n = B \left( f_1^{\pm 1 / n} , \dotsc,  f_n^{\pm 1 / n} \right), \quad
+  (n, p) = 1.
+\end{equation*}
+Loop torsors:
+\begin{equation*}
+  H^1(\Gal(B_n / A_D), G(B_n)) \hookrightarrow H^1(A_D, G),
+\end{equation*}
+$G_{/A}$, with $H^1(\Gal(B_n / A_D), G(B))$ mapping into both.
+
+\begin{theorem}
+  For $G_{/A}$ reductive, we get a commutative diagram involving
+  \begin{equation*}
+    H^1(A_D, G) \rightarrow H^1(K_v, G)
+  \end{equation*}
+  where, as before, $H^1_{\mathrm{loop}}(A_D, G)$ includes into the LHS and maps to the RHS.
+\end{theorem}
+
+With $A = \mathbb{Z}_p[[t]]$, valuation $v$ on $K = \Frac(A)$ $K_v$: completion, we can blow up $\hat{X} \rightarrow X = \Spec(A)\ni x_0 \twoheadrightarrow k_v = k(x_1, \dotsc, x_{n - 1})$, $x_i = f_i / f_1$.
+
+Semiglobal fields: $\mathbb{Q}_p(t) = F$.  It applies to local-global principle
+\begin{equation*}
+  H^1(F, G) \hookrightarrow \prod_{v \in \Omega} H^1(F_v, G).
+\end{equation*}
+Here $\Omega$ is a set of discrete valuations.
+
+\section{Claudia Schoemann, \emph{Representations of $p$-adic groups and the Langlands correspondence}}
+
+We consider representations of connected reductive algebraic groups defined over a non-archimedean local field.  We'll classify some parabolically induced representations for $\U(5)$.
+
+Let $G$ be a connected reductive algebraic group, defined over a non-archimedean local field $F$.
+
+Let $V$ be a complex vector space, of arbitrary dimension.
+
+\begin{definition}
+  A representation
+  \begin{equation*}
+    \pi : G \rightarrow \GL(V)
+  \end{equation*}
+  is a group homomorphism.
+\end{definition}
+
+\begin{example}
+  Let $S_3$ be the symmetric group in three variables.  Then we can cnosider the permutation representation on $\GL_3(\mathbb{C})$.
+\end{example}
+
+We write $\mathcal{K}$ for the set of compact open subgroups of $G$.
+
+We define smooth and admissible representations.
+
+Let $F$ be a $p$-adic field and $E / F$ a quadratic field extension.
+
+Let $\Phi \in \GL_n(E)$ be a hermitian matrix, i.e., $\overline{\Phi}^t = \Phi$.  We can then define the associated unitary group $U_\Phi$.
+
+We consider $\Phi_n =(\Phi_{i j})$, where $\Phi_{i j} =(- 1)^{i - 1} \delta_{i, n + 1 - j}$.
+
+The irreducible unitary representations of $\U(3)$ over a $p$-adic field have been classified by David Keys, those of $\U(4)$ by Kazuko---Kuno.
+
+We work with $\U(5)$, which has three proper standard parabolic subgroups.
+
+Minimal Levi subgroups $M_0 \cong E^\times \times E^\times \times E^1$, with explicit matrix form.
+
+$M_1 = E^\times \times \GL_2(E)$, $M_2$ are other Levi subgroups.
+
+Characters of $M_0$ are of the form
+\begin{equation*}
+  \lambda := \lvert. \rvert^{\alpha_1} \chi_1 \otimes \lvert . \rvert^{\alpha_2} \chi_2 \otimes \lambda '.
+\end{equation*}
+
+Let $N_{E/F} : E \rightarrow F$ be the norm map.
+
+Local class field theory: $\omega_{E / F} : F^\times \rightarrow \mathbb{C}^\times$ the unique smooth nontrivial character with trivial restriction to the group of norms.  We also define a bunch of groups $X_{\dotsb}$ of characters of $E^\times$, characterized by where they're trivial.
+
+Representations induced from $M_0$.  Let $\alpha_1 = \alpha_2 = 0$.
+\begin{theorem}
+  $\chi_1 \times \chi_2 \rtimes \lambda'$ is reducible if and only if there exists $i \in \{1, 2\}$ such that $\chi_i \in X_{1_{F^\times}}$.
+\end{theorem}
+
+We also have a characterization of $\lvert . \rvert^{\alpha_1} \chi_1 \times \lvert . \rvert^{\alpha_2} \chi_2 \rtimes \lambda'$.
+
+The idea of the proof is to consider a representation of $M_0$, and look at the long intertwining operator corresponding ot the long Weyl element.  It's well-known that we get a reducible representation if and only if this operator is not an isomorphism.  We decompose the long element into short elements, and the operator into corresponding operators.  We can then pass to the representation theory of $\GL_2$, developed by Bernstein and Zelevinsky, to study the short intertwining operators.
+
+The next step is to look at the representations induced from $M_1$ and $M_2$.
+
+Let $\alpha > 0$ and $\chi$ be a unitary character of $E^\times$.  We investigate various induced representations, with cuspidal support in $M_0$.
+
+We define the notions of matrix coefficients and cuspidal, square-integrable and tempered representations.
+
+Langlands classification.  Let $0 < \alpha_2 \leq \alpha_1$ and $\alpha > 0$.  Let $\chi_1, \chi_2, \chi, \chi '$ be unitary characters of $E^\times$ such that $\chi ' \notin X_{1_{F^\times}}$.  Let $\sigma$ be a tempered representation of $\GL_2(E)$.  Let $\tau$ be a tempered representation of $\U(3)$.  Etc.  Form the Langlands quotient.  Restrict to $\chi_1, \chi_2 \in X_{N_{E/F}, E^\times}$.
+
+\begin{lemma}
+  Assume that we have a continuous family of induced irreducible representatiosn on the same vector space, indexed by a connected set, that possess nontrivial hermitian $G$-invariant forms.  Suppose that some representation in the family is unitary.  If a family of non-degenerate hermitian forms on a finite dimensional space is positive definite at one point of the index set, then it is positive definite everywhere.  Hence each representation in the family is unitary.
+\end{lemma}
+
+Let $G$ be reductive over a $p$-adic field $F$.  Let $\sigma : M \rightarrow \mathbb{C}^\times$ be unramified.  Let $\pi$ be an irrep of $M$.
+\begin{lemma}[Muic, Tadic]
+  The set of all unramified $\alpha : M \rightarrow \mathbb{C}^\times$ such that $\Ind_P^G(\pi \otimes \alpha)$ is reducible is (...).
+\end{lemma}
+
+We next consider representations with cuspidal support in $M_1$.  Let $\alpha > 0$ and let $\pi$ be a cuspidal unitary representation of $\GL_2(E)$.  If there exists $g \in \GL_2(E)$ such that $\pi(g) \neq \pi({}^t \bar{g}^{-1})$, then $\lvert . \rvert^\alpha \pi \rtimes \lambda ' = \operatorname{Lg}(\lvert . \rvert^\alpha \pi, \lambda ')$ is irreducible and non-unitary for all $\alpha > 0$.
+
+Theorem: we can describe more generally when such representations are unitary.
+
+The irreducible and unitary dual of the unitary group has a role in the Langlands program, which establishes a (conjectural) correspondence between representations of reductive algebraic groups and representations of Weil--Deligne groups.  For classical groups, being linear groups, we can obtain information about the non-linear Galois groups $\Gal(\bar{F}/F)$, their subgroups and representations.
+
+For $\GL_n(\mathbb{Q}_p)$: Henniart (2000), Harris--Taylor (2001), Scholze (2010).  Characterized by preserving $L$-factors and $\eps$-factors of pairs, and compatible with twisting and duals.
+
+The points of reducibility are given by the zeros and poles of intertwining operators, coinciding with the zeros and poles of the Plancherel measure that can also be expressed in terms of fractions of certain $L$-functions (Sha90, Sil79).  A tool for \emph{unitarity} is to integrate the theory of affine hecke algebras.  Properties of the representations of Hecke algebras (like unitarity) can often be transferred to the representations of reductive algebraic groups.
+
+For each non-archimedean place $p$, we obtain a reductive algebraic group $G_p$ and a representation $\pi_p$.  Glueing these together with those coming from the archimedean places gives a representation of the adelic group $G_{\mathbb{A}}$, giving a path to formulate the global Langlands program.
+
+Let $G_{/\mathbb{Q}}$ be a reductive algebraic group, e.g., $G = \mathrm{GL}_n$.  Automorphic cusp forms.  $L_0^2(G(\mathbb{Q}) \backslash G(A))$ decomposes as $\oplus m(\pi) H_\pi$.  The local representations $\pi_v$ have to satisfy some constraints: for almost all $p$, they are unramified principal series, and must be unitary.  Examples coming from classical modular forms.
+
+Many slides describing generalities on Langlands and automorphic forms.
+
+Outlook: continue this work for groups of higher rank, like $\U(6)$ and $\U(7)$.
+
+
+TALK STARTING SOON!!!!
+
+\section{Radu Toma, \emph{Effective equidistribution in analysing algorithmic hardness}}
+
+Today we'll discuss application of spectral theory of automorphic forms to analyzing how hard some problems are in cryptography.
+
+You have two parties, two friends let's say, say Radu and Edgar, and they want to communicate over the internet -- maybe some gossip about their boss?  They decide that the internet is an unsafe channel, which means that they each generate a public key PK and a secret key SK.  Using these, they can encrypt the message, where it looks like gibberish as it goes through the channel (so that nobody looking at that can understand it).  But maybe the boss, say Valentin, wants to understand what the gossip is all about.  What the boss sees is just the public keys and the gibberish message.  The protocol makes it hard to do this -- it requires the adversary to solve a hard problem.  But you say, watch out, the boss is really good at solving hard problems!  That might be true, but even a \emph{super}computer would have a hard time decoding these.  In particular, solving such problems takes longer than polynomial time.
+\begin{itemize}
+\item Diffie--Helmann ($H$): discrete logarithm problem (e.g., in modular arithmetic or on elliptic curve), i.e., given $a$ and $b = a^i$, find $i$.
+\item RSA: facatorization of large numbers.
+\item Knapsack problem and others did not give rise to safe protocols.
+\end{itemize}
+The issue is that before it was all about breaking the protocols using normal computers you have at the moment, but you might have heard that there is a potential future in which we might have actual functional quantum computers.  There is a famous algorithm of Shor that shows that the discrete logarithm problem, and factorization, are actually easy for a quantum computer.  So a quantum computer can actually break much existing encryption.  So people look for problems that are quantum-hard, so that we could use it for cryptography in the future.  Some examples of the latter are
+\begin{itemize}
+\item isogenies: given two supersingular elliptic curves with the same number of points, compute an isogeny between them
+\item shortest vector problem (SVP): given a lattice, compute (length of) shortest vector.
+\end{itemize}
+
+There was some drama a couple years ago when a generalization of Diffie--Helmann got spectacularly broken (``by a single-core PC in one hour'').  We'll talk more about lattice-based cryptography, but let's focus on the problem that we're interested in at the moment.  The issue is that in these protocols, you have to generate keys, generated according to some distribution that you decide.  It could be a random distribution, but that's not entirely clear (how do you generate large prime numbers?).  Expectations on hardness are in the \emph{worst case}: for any algorithm that tries to solve the problem, \emph{there is an instance} on which it fails.  For better security assumptions, want \emph{worst-case to average-case reductions}: a way to relate the average case to the worst case.
+
+As an example, consider the problem of computing isogenies.  Look at all supersingular elliptic curves over $\mathbb{F}_{p^2}$ for some given $p$.  Think of this as a graph, where the elliptic curves are vertices and edges represent isogenies of some given low degree (e.g., $3$).  The worst case: take any two elliptic curves and try to compute an isogeny between them.  Your assumption might be: perhaps there is an algorithm that does this efficiently for two \emph{random} pairs of elliptic curves.  What we'd like to show is that we can then also efficiently solve the worst case (contrary to what we know or expect regarding hardness).  Solution: start random walk from both elliptic curves, compute isogeny, walk back.  The graph is Ramanujan: the walk equidistributes fast.
+
+How eays are lattice problems, e.g., SVP, on average?  More subtle: usually work with approximate versions, e.g., $\gamma$-SVP: given a lattice $L$, find vectors of length at most $\gamma \cdot \lambda_1(L)$ (``approximately the shortest vector'').  You might say, well, I know an algorithm that computes this, there's this famous algorithm LLL that solves $\gamma$-SVP in poly-time for $\gamma = \O(2^n)$, where $n = \operatorname{rk}(L)$.  The only issue is that the approximation factor is exponential in the rank $n$.
+As soon as $n > 4$, LLL reaches its limits.
+
+Fix a number field $K$ of degree $d$.
+
+Module lattice: $\mathcal{O}_K$-module $M$ of rank $r$ with inner product on $M \otimes \mathbb{R}$ such that
+\begin{equation*}
+  \langle a \cdot v, w \rangle = \langle v, a^\ast \cdot w \rangle
+\end{equation*}
+for all $a \in K_{\mathbb{R}}$.
+
+Space of moduli lattices: $\GL_r(K) \backslash \GL_r(\mathbb{A}_K) / U_r(K_{\mathbb{R}} ) \GL_r(\hat{\mathcal{O}}_K)$.  There are special lattices of rank $d r$ (e.g., points on closed geodesics in the modular curve, or CM points).
+
+Cryptographers (De Boer, Ducas, Pellet--Mary, Wesolowski, CRYPTO 2020): Assume $K$ is the $m$-th cyclotomic field, $m$ a prime power.  If there is a polynomial algorithm for solving $\gamma$-Hermite-SVP over random module lattices of rank $1$ (called \emph{ideal lattices}), then there is a poly-time algorithm for solving $\gamma '$-Hermite SVP for any ideal lattice, with $\gamma ' = \gamma \cdot \O(m^{1/2 + \eps})$.  (This extends to other number fields, with more involved factors.)
+
+De Boer, Page, Toma, Wesolowski (soon): similar for SIVP for (fixed) rank $r$ -- polynomial approximation factors in terms of the degree of $K$.
+
+Idea:
+\begin{itemize}
+\item Start from an arbitrary module lattice $L$.  
+\item Deform a little at the archimedean places (the geometry).
+\item Take sublattices of index $p$, i.e., apply a Hecke operator.
+\item Arrive at a random distribution thanks to the spectral gap of Hecke operators (e.g., as in Clozel--Ullmo).
+\end{itemize}
+
+Mathematically, $g \in \GL_r(K_{\mathbb{R}})$ parametrizes your lattice $L$.  Look at
+\begin{equation*}
+  f_g(h) = \sum_{\gamma} f(g^{-1} \gamma h),
+\end{equation*}
+a bump function around $L$.  Equidistribution:
+\begin{equation*}
+  \lVert T_{\mathfrak{p}} f_g - \langle f_g, 1 \rangle \rVert \ll p^{-1/2} \lVert f_g \rVert.
+\end{equation*}
+Need good control over the size of $\lVert f_g \rVert$ in terms of $r$ and $r$; thus also need new tools in the cusp, where it is big.  Dream is to good this for generic lattices:
+\begin{equation*}
+  \lVert T_{\mathfrak{p}} f_g - \langle f_g, 1 \rangle \rVert \ll p^{-(r-1)/2} \lVert f_g \rVert.
+\end{equation*}
+Again, hard to handle the cusp.
+
+\section{Anis Zidani, \emph{Arithmetic of Bruhat--Tits group schemes over semilocal Dedekind rings}}
+
+Let $R$ be a DVR, with fraction field $K$.  Let $\hat{R}$ and $\hat{K}$ denote the completions.
+
+Assume for simplicity of exposition that the residue field of $R$ is \emph{perfect}.  (We can do things more generally, but ``there is some weird thing going on''.)
+
+Let $G$ be a reductive group over $K$.  Let $\mathfrak{B}(G_{\hat{K}})$ denote the Bruhat--Tits building of $G_{\hat{K}}$.
+\begin{definition}
+  A smooth, locally of finite presentation group scheme $\mathcal{G}$ over $R$ usch that $\mathcal{G}_K = G$ is called a \emph{group scheme stabilizer of a facet} of $G$ if $\mathcal{G}_{\hat{R}}$ is also one.  (Thus $\mathcal{G}(\hat{R}) \subset G(\hat{K})$ is the stabilizer of a facet in $\mathfrak{B}(G_{\hat{K}})$ for the action of $G(\hat{K})$.)  In this case, $\mathcal{G}^{\circ}$ is called a \emph{parahoric group scheme} of $G$.
+\end{definition}
+This extends the usual definitions known in the local complete case.
+\begin{example}
+  The N{\'e}ron model over $R$ of a torus over $K$.
+\end{example}
+\begin{example}
+  A reductive model of $G$ over $R$.
+\end{example}
+
+Main problem:
+\begin{question}
+  Given a group scheme $\mathcal{G}$ over $R$ such that $G := \mathcal{G}_K$, is the base change moprhism
+  \begin{equation*}
+    H^1_{\et}(R, \mathcal{G}) \rightarrow H^1_{\et}(K, G)
+  \end{equation*}
+  injective when $\mathcal{G}$ is:
+  \begin{enumerate}
+  \item\label{enumerate:cnra03idho} a group scheme stabilizer of a facet of $G$?
+  \item\label{enumerate:cnra03hv9s} a parahoric group scheme of $G$?
+  \end{enumerate}
+\end{question}
+This question has first been asked in an article of Bayer--Fluckiger and First in 2017 (both mainly studying classical algebraic groups).  Particular case of \eqref{enumerate:cnra03hv9s}: the Grothendieck--Serre conjecture over $R$.
+
+Bruhat--Tits II '84:
+\begin{itemize}
+\item If $G$ is semisimple simply connected and $R$ local complete, both parahorics and stabilizers of facets coincide and both questions admit a positive answer.
+\item A counter-example of $1$ exists in the complete case (for a quasi-split adjoint groups of type ${}^2 A_3$ split by an unramified question)
+\item The case when $G$ is semisimple, $R$ local complete, $\mathcal{G}$ parahoric associated to a hyperspecial vertex is addressed in the affirmative.
+\end{itemize}
+The reductive case (when $R$ is general) has been studied by Nisnevich (1982-84) and then clarified by Guo (2020).  The original idea of Nisnevich was to use patching techniques (we'll explain it later) to show that the problem reduces to two subproblems:
+\begin{enumerate}
+\item $R$: local complete.
+\item Proving that the decomposition $G(\hat{K}) = \mathcal{G}(\hat{R})$.
+\end{enumerate}
+The first point has already been proved by Bruhat--Tits.  Nisnevich uses their result, but at that time, their paper wasn't released, and the literature seems to have forgotten that it was in their paper.  Nisnevich also hasn't precised how the semisimple case gives the reductive case.
+
+In this talk, we'll present a general setup to study the main problem.  In particular, we'll deduce from it a simplified proof of Grothendieck--Serre (when $R$ is semilocal) and the following result.
+
+Let's talk about patching techniques.  We want to reduce the problem to two subproblems.  Consider the commutative diagram
+\begin{equation*}
+  \begin{CD}         
+    H^1_{\et}(R, G)    @>>> H^1_{\et}(\hat{R}, G)\\
+    @VVV  @VVV \\
+    H^1_{\et}(K, G)    @>>> H^1_{\et}(\hat{K}, \hat{G}).\\
+  \end{CD}
+\end{equation*}
+
+\begin{theorem}
+  The functor
+  \begin{equation*}
+    \mathfrak{X} \mapsto(\mathfrak{X}_K, \mathfrak{X}_{\hat{R}},(\mathfrak{X}_K)_{\hat{K}},(\mathfrak{X}_{\hat{R}, \hat{K}}))
+  \end{equation*}
+  is an equivalence of cateogries from the category of affines $R$-schemes to a certain category of triples.
+\end{theorem}
+
+We use patching techniques to show that the map $g \mapsto(G, \mathcal{G}_{\hat{R}}, \tau_g)$ defines a surjective map
+\begin{equation*}
+  G(\hat{K}) \rightarrow \ker \left( H^1_{\et}(R, \mathcal{G}) \rightarrow H^1_{\et}(\hat{R}, \mathcal{G})
+    \times_{H^1_{\et}(\hat{K}, G)} H^1_{\et}(K, G)\right).
+\end{equation*}
+What about the injectivity?  A rapid calculation shows that the fiber of an element $g \in G(\hat{K})$ is given exactly by $\mathcal{G}(\hat{R}) g G(K)$, etc.
+
+How to study the decomposition problem?  How do we study the obstruction of getting $G(\hat{K}) = G(K) \mathcal{G}(\hat{R})$?  First, observe that $\mathcal{G}(\hat{R})$ is an open subgroup of $G(\hat{K})$.  Usual topology results then show that $G(K) \mathcal{G}(\hat{R}) = \overline{G(K)} \mathcal{G}(\hat{R})$.  We now need to understand how big $\overline{G(K)}$ is in $G(\hat{K})$.  A good group to study in general is $G(\hat{K})^+$, the (normal) subgroup of $G(\hat{K})$ generated by all the $\hat{K}$-points of relative root groups.  When $G$ is isotropic over $K$, it verifies $G(\hat{K})^+ \subset \overline{G(K)^+}$.  Three cases are possible:
+\begin{enumerate}
+\item $G$ is anisotropic over $\hat{K}$: $G(\hat{K})^+ = 0 \subset \overline{G(K)}$.
+\item $G$ is isotropic over $K$: $G(\hat{K})^+ \subset \overline{G(K)^+} \subset \overline{G(K)}$:
+\item $G$ is anisotropic over $K$ but isotropic over $\hat{K}$: ???.
+\end{enumerate}
+There is a trick to deal with the last case:
+
+\begin{theorem}[Prasad, 1982]
+  Let $H$ be a $\hat{K}$-almost simple group.  Then every open unbounded subgroup over $H(\hat{K})$ contains $H(\hat{K})^+$.
+\end{theorem}
+This powerful theorem has been surprisingly forgotten in the literatuer.
+
+To simplify, let us show that we can apply it to $\overline{G(K)}$ when $G_{\hat{K}}$ is $\hat{K}$-almost simple (the general case works but is more technical).  Since $G_{\hat{K}}$ is isotropic, it admits a $\hat{K}$-isotropic maximal torus.  Using this, we can eventually deduce that $\overline{G(K)}$ is unbounded.  As for proving that $\overline{G(K)}$ is open, there are multiple ways.  It suffices to show it contains an open.  Guo actually proves that.  A classical trick of Raghunathan also gives the inclusion.  Thus we have finally proven the inclusion $G(\hat{K})^+ \subset \overline{G(K)}$.  Let's recall what we have done for the unboundedness.  We took an isotropic maximal torus.  The trick used for proving unboundedness can be used to show that $\overline{G(K)}$ also contains $S(\hat{K})$, where $S$ is a maximal $\hat{K}$-split torus.  We finally obtain what is required.
+
+We can then conclude the following cases:
+\begin{enumerate}
+\item $G$ semisimple simply-connected.
+\item $G$ reductive.
+\end{enumerate}
+We can actually create groups where the decomposition does not hold.
+
+To finish, let's discuss the complete case.  Let $\hat{K}^{\mathrm{ur}} / K$ denote the maximal unramified extension of the group $\Gamma^{\mathrm{ur}}$, $\hat{R}^{\mathrm{ur}}$ its DVR.
+
+Suppose $\mathcal{G}$ is a stabilizer of a facet (case $1$ of the question).  Let's take $\tilde{F} \subset \mathfrak{B}(G_{\hat{K}^{\mathrm{un}}})$, the facet such that $\mathcal{G}(\hat{R}^{\mathrm{ur}}) = G(\hat{K}^{\mathrm{ur}})_{\bar{F}}$'
+
+Notice that $G(\hat{K}^{\mathrm{ur}}) / G(\hat{K}^{\mathrm{ur}})$ is isomorphic to $\operatorname{Orb}(\tilde{F})$, with their $\Gamma^{\mathrm{ur}}$ actions.  We can now appeal to results in Serre's book.
+
+\section{Desirée Gijón Gómez, \emph{On the CM exception to the generalization of the Stephanous theorem}}
+
+\subsection{Introduction}
+
+Consider the $j$-invariant, i.e., the $\SL_2(\mathbb{Z})$-modular function $j : \mathbb{H} \rightarrow \mathbb{C}$ that characterizes elliptic curves over $\bar{\mathbb{Q}}$, thus $j(\tau) = j(\tau ')$ if and only if $E_\tau \cong E_{\tau '}$ over $\bar{\mathbb{Q}}$.  We have
+\begin{equation*}
+  j(q) = \frac{1}{q} + 744 + \sum_{n = 1}^\infty c(n) q^n,
+  \quad
+  q = e^{2 \pi i z}.
+\end{equation*}
+
+\begin{theorem}[Schneider '37]
+  $\tau$ and $j(\tau)$ are algebraic if and only if $\tau$ is a CM point.
+\end{theorem}
+
+\emph{The Stephanous theorem '96}: for all $0 < \lvert q \rvert < 1$, we have
+\begin{equation*}
+  \operatorname{trdeg} \mathbb{Q}(q, j(q)) \geq 1.
+\end{equation*}
+
+The generalizations of $j$ to genus $2$ curves are the Igusa invariants, which are three Siegel modular functions
+\begin{equation*}
+  j_1, j_2, j_3 : \mathbb{H}_2 = \left\{ \Omega =
+    \begin{pmatrix}
+      \tau_1      & \tau_2 \\
+      \tau_2               & \tau_3 \\
+    \end{pmatrix} \in M_2(\mathbb{C}) : \Omega^t = \Omega, \Im(\Omega) > 0 \right\}.
+\end{equation*}
+$\Sp_4(\mathbb{Z})$.  They also have Fourier expansions in $q_k = e^{2 \pi i \tau_k}$.  Schneider's theorem generalizes to the Igusa invariants:
+\begin{theorem}[Cohen--Shuga--Wolfart '96]
+  $\tau_k$, $j_k(\Omega)$ are algebraic if and only if $\Omega$ is a CM point.
+\end{theorem}
+The analogue of Stephanous theorem is open.  We want to ask whether CM points are exceptions to the hypothetical generalization.  More precisely,  we expect
+\begin{equation*}
+  \operatorname{trdeg} \mathbb{Q}(q_1, q_2, q_3, j_1(q), j_2(q), j_3(q)) \geq 3
+\end{equation*}
+to hold ``generically''.  Our answer to this question is that it depends -- ``yes'' in degrees $2$ and $1$, they are not exceptions for being CM.  The reason is that they belong to a special subvariety consisting of infinitely many points.
+
+For $\Omega \in \mathbb{H}_2$ CM points with $j_k(\Omega) \in \bar{\mathbb{Q}}$, we have $\operatorname{trdeg}(q_1, q_2, q_3) = \dim \operatorname{span} \mathbb{Q}(1, \tau_1, \tau_2, \tau_3) - 1$ by application of Schanuel's conjecture.  As a lower bound for the above, we have $\dim \operatorname{span}_{\mathbb{Q}}(1, \tau_1) = 2$.
+
+\begin{lemma}
+  ``Simplest'' period matrix.  $\Omega \in M_2(K)$, $K$ quadratic imaginary field, if and only if $A_{\Omega} \cong E^2$, with $E$ CM.
+\end{lemma}
+
+CM points, $\Omega \in \mathbb{H}_2$.
+\begin{itemize}
+\item $A_\Omega$ is simple: $\End_{\mathbb{Q}}(A_\Omega)$ is a quartic CM field.
+\item $A_{\Omega} \cong E_1 \times E_2$, CM eiptic curves: $\End(A_{\Omega}) = K_1 \times K_2$. 
+\item $A_{\Omega} \cong E^2$: $\End_{\mathbb{Q}}(A_\Omega) = M_2(K)$. (in the notation given below: $\operatorname{rank} \mathcal{L} = 3$, $\operatorname{rank} \mathcal{L}^{(1)} = 2$; Shimura and modular curves)
+\end{itemize}
+\begin{remark}
+  $\dim \operatorname{span} \mathbb{Q}(1, \tau_1, \tau_2, \tau_3)$ is \emph{not} $\Sp_4(\mathbb{Z})$-invariant.
+\end{remark}
+\begin{example}
+  $y^2 = x^6 - x$ has CM by $\mathbb{Q}(\sqrt{5}) \subset \mathbb{Q}(\xi_5)$,
+  \begin{equation*}
+    \Omega =
+    \begin{pmatrix}
+      - \xi^4 &  \xi^2 + 1 \\
+      \xi^2 + 1 & \xi^2 - \xi^3  \\
+    \end{pmatrix},
+    \quad
+    \dim \Delta = 4.
+  \end{equation*}
+  There exists $M \in \Sp_4(\mathbb{Z})$: if $\Omega ' = M \Omega$, then $- \tau_1 ' + \tau_2 ' + \tau_3' = 0$.
+\end{example}
+
+It turns out that the dimension of the span
+\begin{equation*}
+  \dim \operatorname{span} \mathbb{Q}(1, \tau_1, \tau_2, \tau_3, \tau_2^2 - \tau_1 \tau_3)
+\end{equation*}
+is actually $\Sp_4(\mathbb{Z})$-invariant.
+
+\subsection{Humbert singular relations}
+
+\begin{proposition}
+  For $\Omega \in \mathbb{H}_2$, the following are equivalent:
+  \begin{itemize}
+  \item there exists $f \in \End(A_\Omega)$ symmetric with respect to the Rosati involution.
+  \item there exist $(a, b, c, d, e) \in \mathbb{Z}^5$ such that
+    \begin{equation*}
+      a \tau_1 + b \tau_2 + c \tau_3 + d(\tau_2^2 - \tau_1 \tau_3) + e = 0.
+    \end{equation*}
+    (Not being trivial here corresponds to not being an integer above.)
+    Equivalent to $\mathbb{Z}[t] /(t^2 - 6 t +(a c + d e)) \subseteq \End(A_\Omega)$.
+  \item $\Delta = b^2 - 4(a c + d e)$
+  \end{itemize}
+\end{proposition}
+
+\subsection{Lattice of HSR}
+
+\begin{equation*}
+  \mathcal{L}_\Omega := \left\{(a,b,c,d,e) \in \mathbb{Z}^5 : \text{ $\Omega$ verifies HSR} \right\}.
+\end{equation*}
+We have the trivial bound $0 \leq \operatorname{rank} \mathcal{L}_\Omega \leq 3$.
+
+($\operatorname{span} \mathbb{Q}(1, \tau_1, \tau_2, \tau_3, \tau_2^2 - \tau_1 \tau_3) = \operatorname{span} \mathbb{Q}(1, \tau_1)$, giving the quadratic relation for $\tau_1$.)
+
+$0$ corresponds to $\End(A_\Omega) = \mathbb{Z}$.
+
+$3$ corresponds to when $A_\Omega \cong E^2$, for a CM elliptic curve $E$.
+
+\begin{proposition}
+  \begin{itemize}
+  \item If $\End(A_\Omega)$ is commutative, then $\operatorname{rank}(\mathcal{L}_\Omega) = 1$.
+  \item If $\End(A_\Omega)$ is an (Eichler) order in an indefinite quaternion algebra over $\mathbb{Q}$, then $\operatorname{rank} \mathcal{L}_\Omega = 2$.
+  \item
+  \end{itemize}
+\end{proposition}
+
+\section{Gabriela Weitze-Schmithüsen, \emph{Arithmeticity of the Kontsevich--Zorich monodromy of families of origami}}
+
+joint with Bonnafour, Kany, Kattler, Matthew, Nino Hernandez, Sedano--Mendoz, Valdez
+
+\subsection{Origami and Teichm\"uller curves}
+
+We fold some origami.  But it's kinda hard for me to tex up origami, so I guess we're in trouble here.  Anyway, we can fold some origami and then count the numbers of faces, edges and vertices to compute the Euler characteristic of the resulting folded surface.  In the specific example depicted on the blackboard, we get a surface of genus $3$, with some marked points.
+
+These are the type of objects we want to study: we take some Euclidean squares and glue them by translation.  I prefer another way to define them, namely, if you start with something like this, you have a natural map to the torus (namely, one square with opposite edges glued), so the surface comes with a natural covering of the torus:
+\begin{equation*}
+  p : X \rightarrow T.
+\end{equation*}
+The covering is an almost unramified covering, with all ramification over the one point at the vertex that we'll call $\infty$.  This is what we call ``origami'' or a ``square-tiled'' surface.  This covering comes with an additional ``translation structure'':
+
+\begin{remark}
+  The open subset $X^\ast := X - p^{-1}(\infty)$ carries a natural atlas $\mu$, where the charts come from the embedding of the squares into the plane, which is actually a \emph{translation atlas}, i.e., the transition maps are all (locally) translations, i.e., given by additional by some vector in $\mathbb{R}^2$.
+\end{remark}
+
+This is the geometric object that we obtain.  Since basically we can push up the structure that we have on the Euclidean plane, this gives us a metric on the surface, as well as a notion of directions on our surface.  We also get the structure of a Riemann surface.  We can extend it to the missing points, giving a holomorphic structure on all of $X$.  That is, $\mu$ defines a holomorphic structure $\hat{\mu}$ on $X$.  Then
+\begin{equation*}
+  [(X, \mu)] \in \mathcal{M}_g := \text{moduli space of closed Riemann surfaces of genus $g$}.
+\end{equation*}
+We obtain a holomorphic differential on $X$, which is the pullback of $d z$.
+
+We in fact get a whole family of translation structures, given by a curve in the moduli space.  For $A \in \SL_2(\mathbb{R})$, we define the translation atlas $\mu_A$ on $X^\ast$ by composing each chart with the linear map
+\begin{equation*}
+  \begin{pmatrix}
+    x    \\
+    y
+  \end{pmatrix}
+  \mapsto A
+  \begin{pmatrix}
+    x    \\
+    y
+  \end{pmatrix}.
+\end{equation*}
+We can again extend this to obtain $\hat{\mu}_A$, hence a holomorphic structure, hence a point in the moduli space.  This gives a map
+\begin{equation*}
+  \SL_2(\mathbb{R}) \rightarrow \mathcal{M}_g
+\end{equation*}
+\begin{equation*}
+  A \mapsto[(X, \hat{\mu}_A)].
+\end{equation*}
+\begin{fact}
+  The image of this map is an algebraic curve in $\mathcal{M}_g$.  It is a special case of a \emph{Teichm\"uller curve}.  
+\end{fact}
+
+\subsection{The affine group}
+
+The setting is that we take an origami $p : X \rightarrow T$ with genus $g$.  We have seen that this induces for us a translation surface $(X^\ast, \mu)$.  This comes with a natural holomorphic differential $\omega$.
+
+We look at homeomorphisms $f$ of our surface $X^\ast$ that are locally affine, i.e., of the form
+\begin{equation*}
+  \begin{pmatrix}
+    x    \\
+    y
+  \end{pmatrix}
+  \mapsto A
+  \begin{pmatrix}
+    x    \\
+    y
+  \end{pmatrix}
+  +
+  \begin{pmatrix}
+    c_1    \\
+    c_2
+  \end{pmatrix}.
+\end{equation*}
+
+\begin{definition}
+  $  \operatorname{Aff}^+(X^\ast, \mu) := \left\{ f \in \operatorname{Homeo}^+(X^\ast) : f \text{ is affine on charts} \right\}$.  This is our ``affine group''.
+\end{definition}
+
+\begin{remark}
+  \begin{enumerate}
+  \item The derivative map
+    \begin{equation*}
+      \operatorname{Aff}(X^\ast, \mu) \rightarrow \SL_2(\mathbb{R})
+    \end{equation*}
+    is given by $f \mapsto A$.
+  \item We are looking at affine homeomorphisms, which are in particular, homeomorphisms, hence act on homology.  We want to look at this action:
+    \begin{equation*}
+      \operatorname{Aff}(X^\ast, \mu) \circlearrowright H_1(X, \mathbb{Z}),
+    \end{equation*}
+    \begin{equation*}
+      [c] \mapsto[f_\ast(c)].
+    \end{equation*}
+  \end{enumerate}
+\end{remark}
+\begin{fact}
+  \begin{itemize}
+  \item We have the intersection form $\Omega$ on our surface, i.e.,
+    \begin{equation*}
+      \Omega : H_1(X, \mathbb{R}) \times H_1(X, \mathbb{R}) \rightarrow \mathbb{R}
+    \end{equation*}
+    and of course if we apply a homeomorphism, it preserves the intersection form.
+  \item We obtain
+    \begin{equation*}
+      \rho : \operatorname{Aff}^+(X, \mathbb{R}) \rightarrow \operatorname{SP}_\Omega(H^1(X, \mathbb{R})).
+    \end{equation*}
+  \item Consider the holonomy map induced by integrating our holomorphic differential over our cycle:
+    \begin{equation*}
+      H_1(X, \mathbb{R}) \rightarrow \mathbb{R}
+    \end{equation*}
+    \begin{equation*}
+      [c] \mapsto \int_c \omega.
+    \end{equation*}
+  \item Define $W_1 := \ker(\mathrm{hol})$, a $(2 g -2)$-dimensional vector space.  Define
+    \begin{equation*}
+      W_2 := W_1^\Omega := \left\{ v \in H_1(X, \mathbb{R}) : \Omega(v, W_1) = \{0\} \right\}.
+    \end{equation*}
+    This gives a splitting
+    \begin{equation*}
+      H_1(X, \mathbb{R}) = W_1 \oplus W_2.
+    \end{equation*}
+  \end{itemize}
+\end{fact}
+Then:
+\begin{enumerate}
+\item This splitting is respected by the action $\rho$ of the affine group.  We obtain in this way an action
+  \begin{equation*}
+    \rho_1 : \operatorname{Aff}^+(X, \mu) \rightarrow \Sp_\Omega(W_1).
+  \end{equation*}
+
+\item The splitting is defined already over $\mathbb{Z}$, thus
+  \begin{equation*}
+    H_1(X, \mathbb{Z}) = W_1^{\mathbb{Z}} \oplus W_2^{\mathbb{Z}} \rightsquigarrow \rho_n^{\mathbb{Z}} : \operatorname{Aff}^+(X, \mu)
+    \rightarrow \Sp_2(W_1^{\mathbb{Z}}).
+  \end{equation*}
+  
+\end{enumerate}
+\begin{definition}
+  The image of $\rho_1^{\mathbb{Z}}$ is called Kontsevich--Zorich monodromy.  We denote it by $\Gamma^0(X, \omega)$.
+\end{definition}
+\begin{question}
+  How big is $\Gamma^0(X, \omega)$?  Can it have finite index in $\Sp_\Omega(W_1^{\mathbb{Z}})$, i.e., be arithmetic?  This is possible only if it is Zariski-dense in $\Sp_\Omega(W_1)$, so let us restrict henceforth to origami where this happens.
+\end{question}
+
+Let's go back to our initial example (not recorded in these notes or on this stream, sadly).  We record some observations.
+\begin{enumerate}
+\item These six curves $\sigma_1, \sigma_2, \sigma_3, \zeta_1, \zeta_2, \zeta_3$ are a basis of $H_1(X, \mathbb{R})$.  The images under the holonomy map are respectively
+  \begin{equation*}
+    \begin{pmatrix}
+      1      \\
+      0  \\
+    \end{pmatrix},
+    \quad
+    \begin{pmatrix}
+      2 \\
+      0  \\
+    \end{pmatrix},    \quad
+    \begin{pmatrix}
+      5 \\
+      0  \\
+    \end{pmatrix},    \quad
+    \begin{pmatrix}
+      0 \\
+      1  \\
+    \end{pmatrix},    \quad
+    \begin{pmatrix}
+      0 \\
+      2  \\
+    \end{pmatrix},    \quad
+    \begin{pmatrix}
+      0 \\
+      3  \\
+    \end{pmatrix}.
+  \end{equation*}
+\item Basis of $W_1$: $\ell_1 = \sigma_2 - 2 \sigma_1$, $\ell_2 = \sigma_3 - 5 \sigma_1$, $\ell_3 = \zeta_2 - 2 \zeta_1$, $\ell_4 = \zeta_3 - 3 \zeta_1$.  You can now see elements of the kernel.
+\end{enumerate}
+This discussion gives rise to $f$, the affine homeomorphism with
+\begin{equation*}
+  \operatorname{der}(f) =
+  \begin{pmatrix}
+    1    & 10 \\
+    0 & 1 \\
+  \end{pmatrix}
+\end{equation*}
+that fixes the boundaries of the horizontaol cylinders.  We call this an affine Dehn multi twist in direction $
+\begin{pmatrix}
+  1  \\
+  0  \\
+\end{pmatrix}$.
+
+Let's look at how it acts.  Observe: $\rho(f)(\sigma_i) = \sigma_i$, $\rho(f)(\zeta_1) = \zeta_1 + 2 \sigma_3$, $\rho(f)(\zeta_2) = \zeta_2 + 2 \sigma_3 + 5 \sigma_2$, $\rho(f)(\zeta_3) = \zeta_3 + 2 \sigma_3 + 5 \sigma_2 + 10 \sigma_1$.  You now could compute everything explicitly; it's just linear algebra.  We get
+\begin{equation*}
+  \rho(f) =
+  \begin{pmatrix}
+    1    & 0 & 5 & 5 \\
+    0 & 1 & -2 & -4 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+  \end{pmatrix}.
+\end{equation*}
+Now, do we get something of finite index?
+\begin{theorem}[BKKMNSV]
+  $\Gamma^{(0)}(\mathcal{O}_{N, k})$ is an arithmetic subgroup for $k = 3 n$ and $N = 5 n$.  We have similar results for six other infinite families in genus $3$.
+\end{theorem}
+
+How do we prove arithmeticity?  We need three matrices in this case.  We'll do it quickly for lack of time.  [computer demonstration being loaded.  sorry guys, I can't code up an equivalent computer demonstration in real time, mainly because I'm sleepy]
+
+Some results:
+\begin{theorem}[Observation by Martin M\"oller, written up by Kany]
+  For origami in genus  $2$, the Kontsevich--Zorich monodromy is always a finite index subgroup of $\SL_2(\mathbb{Z})$.
+\end{theorem}
+(...)
+\begin{conjecture}[BKKMNSVW]
+  For origami in $H_2(2)$, th index $[\SL_2(\mathbb{Z}) : \Gamma^{(0)}]$ is always $1$ or $3$.
+\end{conjecture}
+
+\begin{theorem}[Kattler]
+  The conjecture is true if the number of squares is even.  If it is odd, it is at least true for one of the two $\SL_2(\mathbb{Z})$-orbits.  
+\end{theorem}
+
+\section{Claudia Alfes, \emph{Modular forms and their generalizations in number theory and geometry}}
+
+\subsection{Modular forms as generating series}
+
+\begin{definition}
+  Let $k \in \mathbb{Z}$.  A function $f : \mathbb{H} \rightarrow \mathbb{C}$ is called a \emph{modular} form of weight $k$ for $\Gamma = \SL_2(\mathbb{Z})$ if
+  \begin{enumerate}
+  \item $f$ is holomorphic on $\mathbb{H}$,
+  \item we have
+    \begin{equation*}
+      f \left( \frac{a z + b}{c z + d} \right) = (c z + d)^k f(z)
+      \quad
+      \text{ for all }
+      \quad 
+      \begin{pmatrix}
+        a        & b \\
+        c & d \\
+      \end{pmatrix} \in \SL_2(\mathbb{Z}).
+    \end{equation*}
+  \item $f$ is holomorphic at $\infty$, i.e., $f$ has a Fourier expansion $f(z) = \sum_{n \geq 0} a(n) q^n$.
+  \end{enumerate}  
+\end{definition}
+
+What often happens is that these $a(n)$ count something.  Some basic examples:
+\begin{enumerate}
+\item $r_4(n) = \# \left\{(a, b, c, d) \in \mathbb{Z}^4 : a^2 + b^2 + c^2 + d^2 = n \right\}$.  You might ask: is there a nicer formula for $r_4(n)$ that just what you get by counting, or can you describe its asymptotic growth?  One way to approach these question is to consider the generating series.  Turns out that $1 + \sum_{n = 1}^\infty r_4(n) q^n$ is a modular form of weight $2$ for $\Gamma_0(4)$.  One obtains eventually $r_4(n) = 8 \sum_{ \substack{
+      d \mid n  \\
+      4 \nmid d      
+    } }d$.
+\item Quite a different flavor is the partition function $p(n)$, the number of ways to write $n$ as a sum of integers $\leq n$.  We would again like to know something about the growth (more rigorous than ``it's hard to work out $p(7)$ by hand''), or a formula.  Turns out that
+  \begin{equation}\label{eq:cnrbgrf226}
+    \frac{1}{\eta(z)} = q^{- 1/24} \left( 1 + \sum_{n = 1}^\infty p(n) q^n \right)
+  \end{equation}
+  is again a modular form, i.e., the reciprocal of the $\eta$ function, which turns out to have a nice product formula $\eta(z) = q^{1/24} \prod_{n \geq 1}(1 - q^n)$.  The reciprocal \eqref{eq:cnrbgrf226} itself is in fact a \emph{weakly} holomorphic modular form of weight $- 1/2$, where ``weakly'' means that we allow poles at the cusp.  This enjoys an asymptotic formula (Hardy--Ramanujan, Rademacher).  Bruinier--Ono used the modularity to get a \emph{finite} algebraic formula for $p(n)$ (i.e., writing it as a finite sum of algebraic numbers).  
+\item Yesterday we saw in Claudia's talk a different example.  More examples relate to the modularity theorem and to monstrous moonshine.
+\end{enumerate}
+
+\subsection{CM points, geodesics, and generating series}
+
+Next, we want to look at modular forms (or modular ``objects'', perhaps not so nicely behaved as these ones) coming from traces of CM values or geodesic cycle integrals of other modular objects.
+
+Let $Q(x, y) = a x^2 + b x y + c y^2$ be a binary quadratic form with coefficients $a, b, c \in \mathbb{Z}$.  We denote by $D = b^2 - 4 a c$ the discriminant of $Q$, which is $\equiv 0, 1 \pmod{4}$.  We write $\mathcal{Q}_D$ for the set of all $Q$'s with discriminant $D$.  Then $\SL_2(\mathbb{Z})$ acts on $\mathcal{Q}_D$ with finitely many orbits.
+
+These binary quadratic forms give rise to CM points if you look at negative discriminants: for $D < 0$, the equation $Q(z, 1) = a z^2 + b z + c = 0$ has a unique solution $z_Q$ in the upper half-plane $\mathbb{H}$.  We call this a CM point.
+
+If we instead look at what happens with positive discriminants $D > 0$, we get geodesics in the upper half-plane:
+\begin{equation*}
+  c_Q = \left\{ z \in \mathbb{H} : a \lvert z \rvert^2 + b \Re(z) + c = 0 \right\}.
+\end{equation*}
+
+Shintani ('73, '75): for $F \in S_{2 k + 2}$, we have
+\begin{equation*}
+  \sum_{D > 0} \left( \sum_{Q \in \mathcal{Q}_D / \Gamma}
+    \int_{\Gamma_Q \backslash c_Q}
+    F(z) Q(z, 1)^k \, d z
+  \right) q^D
+\end{equation*}
+is a cusp form of weight $3/2 + k$.
+
+Zagier (2002): we have $q^{-1} + \sum_{D < 0} \left( \sum_{Q \in \mathcal{Q}_D / \SL_2(\mathbb{Z})} \frac{(j + 744)(z_Q)}{\lvert \Gamma_Q \rvert} \right) q^{- D} \in M_{3/2}^{!}$.
+
+We want to explain now how the theta correspondence gives a common framework to prove such results (nowadays we know a lot more in this direction).  The representation-theoretic reason for these things is the Howe correspondence, where you take a pair of commuting dual reductive groups, and look at representations that correspond to one another.  In the setting of Shintani's result, $F$ is a modular form for $\O(1, 2)$ and $f$ is a modular form for $\SL_2(\mathbb{R})$.  The subtlety is that in Shintani's setting, these are cusp forms, whereas in Zagier's, they are weakly modular, hence may blow up at the cusps.  In any event the, framework is to integrate your input $F(z)$, which transforms like a modular form of weight $k$, against a theta kernel $\theta(\tau, z)$, which has weight $\ell$ in $\tau$ and weight $k$ in $z$:
+\begin{equation*}
+  \int_{\Gamma \backslash \mathbb{H}} F(z) \overline{\theta(\tau, z)} \Im(z)^k \, d \mu(z).
+\end{equation*}
+Borcherds addressed the convergence issues in the weakly holomorphic case: he found a way to regularize it, inspired by the work of Javier and Moore.  Borcherds found a way to regularize the integral whenever it diverges.  (The behavior of $F$ at $\infty$ is ``too bad''.)  If the integral exists, we obtain a linear map from ``functions of weight $k$'' to ``functions of weight $\ell$''.
+
+What remains in the case that Shintani looked at are two things: checking cuspidality of the lift, and you have to really compute that the Fourier expansion is what you expected it to be.  That's a nice feature, that it's usually doable to compute the Fourier expansions of these things.
+
+In the other case of Zagier's result, Bruinier and Funke (2006) realized it as a special case of a theta lifting.   They enlarged the input space significantly to include harmonic weak Maass forms.
+\begin{definition}
+  A function $f : \mathbb{H} \rightarrow \mathbb{C}$ is called a \emph{harmonic weak Maass form} of weight $k$ and group $\Gamma$ if the following holds (here we assume $k \neq 1$, although there is a way to work around this):
+  \begin{itemize}
+  \item $\Delta_k f = 0$, $f$ is real-analytic on $\mathbb{H}$.
+  \item transforms as a modular form of weight $k$.
+  \item $f(z) = \sum_{n \gg - \infty} a_f(n) q^n + \sum_{n < 0} a_f^-(n) \Gamma(1 - k, 4 \pi n \Im(z)) q^n$.
+  \end{itemize}
+\end{definition}
+
+An alternative way to describe the growth condition is that if you apply a certain differential operator to this harmonic weak Maass form $f$, namely,
+\begin{equation*}
+  2 i \Im(z)^k \overline{\frac{\partial}{ \partial \bar{z}} f},
+\end{equation*}
+you get a cusp form.  An example is Ramanujan's mock theta functions.  These were shown to be exactly the holomorphic parts (i.e., the first sum) of these harmonic weak Maass forms.
+
+Now: modularity of generating series of traces of CM values and geodesic cycle integrals of ``all types'' of modular forms, with applications.  Of course there are examples of modular objects that are not holomorphic on $\mathbb{H}$ but rather meromorphic.  Before COVID (maybe 5,6,7 years ago): work with Schwagenscheidt and Bringmann \cite{2018arXiv1810.00612}.
+
+\subsection{An application of this theory in the Hilbert case}
+
+These are not forms on one copy of the upper half-plane, but rather two copies.  Let
+\begin{itemize}
+\item $F$: real quadratic field,
+\item $\mathcal{O}_F$ its ring of integers,
+\item $D > 0$ the discriminant,
+\item $\mathfrak{d}_F =(D)$ its different,
+\item a variable $Z =(z_1, z_2) \in \mathbb{H}^2$.
+\end{itemize}
+Now we replace this notion of quadratic forms by (elements of) lattices:
+\begin{itemize}
+\item Set
+  \begin{equation*}
+    L = \left\{
+      \begin{pmatrix}
+        a        & v' \\
+        v & b \\
+      \end{pmatrix} : a, b \in \mathbb{H}, v \in \mathcal{O}_F \right\},
+  \end{equation*}
+  equipped with the quadratic form $Q(X) = - \det(X)$.
+\item Set
+  \begin{equation*}
+    L ' = \left\{
+      \begin{pmatrix}
+        a        & v' \\
+        v & b \\
+      \end{pmatrix} : a, b \in \mathbb{H}, v \in \mathfrak{d}_F^{-1} \right\}.
+  \end{equation*}
+\item We replace the role of the group $\SL_2(\mathbb{Z})$ by that of $\SL_2(\mathcal{O}_F)$.
+\item We look at elements of the dual lattice that have determinant $- m / D$:
+  \begin{equation*}
+    L_n = \left\{ X \in L ' : Q(X) = m / D \right\}.
+  \end{equation*}
+\item Now $\SL_2(\mathcal{O}_F)$ acts on $L_m$ with finitely many orbits.  This is the kind of setup that gives us this notion of a trace again.  
+\item We need replacements for the CM points and the geodesics.  This can again be seen as a special case of a way more general setup where you look at orthogonal Shimura varieties and their special divisors; this is the kinds of hands-on realization for the Hilbert case.  We call these analogues ``algebraic cycles'' for $Q(X) < 0$: they are complex one-dimensional objects that again have a very explicit description as a zero set
+  \begin{equation*}
+    T_X = \left\{ Z \in \mathbb{H}^2 : q_Z(X) = 0 \right\}.
+  \end{equation*}
+  As for geodesics, we take the real-analytic cycles: for $Q(y) > 0$, we set
+  \begin{equation*}
+    C_y = \left\{  Z \in \mathbb{H}^2 : P Z(y) = 0 \right\}.
+  \end{equation*}
+\end{itemize}
+We now define the meromorphic Hilbert modular form that we want, inspired by a paper of Zagier (I think his habilitation thesis), where he defined these things but not the meromorphic ones, but rather Hilbert cusp forms, given by summing over this polynomial $q_Z$ that vanishes exactly at the cycle $C_y$:
+\begin{equation*}
+  \omega_n^{\mathrm{mero}}(Z) = \sum_{X \in L_n}
+  q_Z(X)^{- k}.
+\end{equation*}
+This is a meromorphic Hilbert modular form of weight $(k, k)$ for $\SL_2(\mathcal{O}_F)$, i.e.,
+\begin{equation*}
+  \omega_n^{\mathrm{mero}}(\gamma_1 z_1, \gamma_2 z_2) = (c_1 z_1 + d_1)^k (c_2 z_2 + d_2)^k \omega_1^{\mathrm{mero}}(Z),
+\end{equation*}
+with poles along all $T_X$'s.  Our main theorem is then the following.
+\begin{theorem}[Alfes--Depouilly--Kiefer--Schwagenscheidt]
+  Let $k \geq 4$ be even, $m > 0$, $n < 0$.  Then (taking the trace, which means summing over $y$, and integrating over the geodesics, modding out by the appropriate stabilizer), the quantity
+  \begin{equation*}
+    \sum_{y \in \Gamma \backslash L_m} \int_{\Gamma_y \backslash C_y} \omega_n^{\mathrm{mero}}(Z) q_Z(y)^{k - 1} \, d z_1 \, d z_2
+  \end{equation*}
+  is a rational multiple of $\pi i$.
+\end{theorem}
+
+How does this relate to everything we proved before?  These kind of Shintani type lifts from orthogonal modular forms (integral weight to half-integral in the $\SL_2(\mathbb{Z})$ case), the speaker doesn't know of any generalization of this Shintani type result for cusp forms, but there wasn't anything known for things that behave worse than cusp forms or Eisenstein series, and these weakly modular things indeed behave worse, so we had to find a way to get around this.  In the Hilbert case, this is a lot harder.  The proof of this result involves theta liftings and, these harmonic weak Maass forms are related to cusp forms by this differential operator, and here we need it to find preimages.  Here the Koecher principle tells you that at the cusp, you can't get any singularities, so there will be no meaningful notion of ``harmonic weak'' or ``weakly holomorphic'' because there is simply no room for bad singularities at the cusp, so we had to work with differential forms rather than functions, and somehow we managed to swim around everything and in the end get this result about these crazy things, showing that they are essentially rational.
+
+Q: What about orthogonal forms?  A: These might work for the case of signature $(2, n)$.  The differential geometry will get so much harder in that generality.
+
+Q: Can you get an estimate on the \emph{size} of the rational number produced by your theorem?  A.  Well, you write the number in question as a combination of Fourier coefficients of harmonic weak Maass forms and theta series.  You can reduce to evaluating theta functions at special cycles, something Kudla developed.  Maybe there are results on the sizes of these coefficients and you could combine this?  Maybe it would be possible.
+
+% [applause] [some discussion in the audience comparing to other works] [cool atmosphere, windows open, weather feels brisk; regular but relatively soft industrial noises coming from outside; speaker says no numerical examples were computed] [applause]
+
+\subsection{Claudio Meneses, \emph{Variations of Selberg zeta functions and analytic geometry of moduli spaces}}
+
+(work in progress, joint with Hartmut Weiss)
+
+Let's start by talking about the relationship to moduli of the Selberg zeta function for cofinite Fuchsian groups.
+\begin{itemize}
+\item $\Gamma \leq \PSL_2(\mathbb{R})$: cofinite Fuchsian group (not necessarily cocompact)
+\item $\chi : \Gamma \rightarrow \U(r)$: unitary representation
+\end{itemize}
+These will be understood as \emph{moduli parameters}.  ``Moduli'' here means that we can continuously deform these objects.  Today we fix $\Gamma$ and deform $\chi$.  The Selberg  zeta function is
+\begin{equation*}
+  Z(s, \Gamma, \chi) := \prod_{\{\gamma\}} \prod_{k = 1}^\infty \det \left( I - \chi(\gamma) e^{-(s + k) \ell(\gamma)} \right).
+\end{equation*}
+Here
+\begin{itemize}
+\item $\gamma$ runs over \emph{primitive conjugacy classes} of hyperbolic elements of $\Gamma$.
+\item $\ell(\gamma)$: length of closed geodesic associated to $\gamma$.
+\item absolutely convergent for $\Re(s) > 1$, analytic continuation to $s \in \mathbb{C}$.
+\end{itemize}
+Geometric motivation: \emph{analytic torsion}, an \emph{analytic invariant} associated to a \emph{flat hermitian vector bundle} that depends \emph{non-trivially} on moduli parameters.  The simplest $1$-dimensional case is deeply related to classical function theory.  This goes back to work of Ray--Singer.  [The speaker shows the abstract from that article on a slide.]
+
+Now let's say a little bit about the moduli.  How can one combine this moduli data for the Selberg zeta function into an algebro-geometric problem?  This goes by a combination of uniformization and the Narasimhan--Seshadri theorem.  Consider a compact Riemann surface of genus $> 1$.  Take a (stable) holomorphic vector bundle $E \rightarrow \Sigma$.  It turns out that one can construct such objects by starting with a Fuchsian group uniforming the surface, and an irreducible representation $\rho : \Gamma \rightarrow \U(r) $.  This can be generalized to cofinite Fuchsian groups (Mehta--Seshadri).  Here (stable) parabolic vector bundles $E_\ast \rightarrow \Sigma_\ast$ correspond to irreducible representations $\rho : \Gamma \rightarrow \U(r)$.  Here
+\begin{itemize}
+\item $\Sigma_\ast$ is the set of all compact Riemann surfaces $\Sigma$ together with a finite subset $\{z_1, \dotsc, z_n\} \subset \Sigma$ (we omit elliptic elements here to simplify exposition).
+\end{itemize}
+A \emph{parabolic bundle} $E_\ast$ on $\Sigma_\ast$ consists of the following data:
+\begin{itemize}
+\item a holomorphic vector bundle $\pi : E \rightarrow \Sigma$ of rank $r \geq 2$ (with the latter assumption making the problem interesting from the algebro-geometric side),
+\item flags $\pi^{- 1}(z_i) = E_{i 1} \supseteq E_{i 2} \supseteq \dotsb \supseteq E_{i r} \supseteq \{0\}$, $i = 1, \dotsc, n$.  One is thinking of each of these as a cusp for the Fuchsian group.  To the fiber for these points one associates a descending flag.  It need not be complete; it can have multiplicities.  To keep  track of that, we weight the flag by real numbers
+  \begin{equation*}
+    0 \leq \alpha_{i 1} \leq \dotsb \leq \alpha_{i r} < 1.
+  \end{equation*}
+  The relevant property of these weights is that on the algebro-geometric side, they play the role of stability parameters.  They can be deformed, giving rise to deformation of the moduli problem.
+\end{itemize}
+We should point out that this extended local system $E_\ast$ that one can construct from an irreducible representation is equipped with a canonical (singular) \emph{hermitian metric} $h$.  This leads to the construction of a \emph{Laplace operator} $\Delta$.  To construct this, one should think of a punctured surface maybe, acting on some $L^2$ space.
+
+Something we should say is that in the parabolic case where we allow marked points, there is no constraint on the genus of the surface, as long as there is a hyperbolicity constraint that allows uniformization by a Fuchsian group.
+
+Now we would like to point out that from the Lie theoretic side, the weights considered before actually determine $n$ conjugacy classes in $\U(r)$, by taking
+\begin{equation*}
+  \mathcal{U}_i = \left[
+    \begin{pmatrix}
+      e^{2 \pi \sqrt{-1} \alpha_{i 1}}      & 0 & 0 \\
+      0 & \dotsb & 0 \\
+      0 & 0 & e^{2 \pi \sqrt{- 1} \alpha_{i r}} \\
+    \end{pmatrix} \right]
+  \subseteq \U(r), \qquad
+  i = 1, \dotsc, r.
+\end{equation*}
+This says how the flags arise from a local system picture.  From a more geometric side, this leads to what one can call a relative character variety, which is just a space
+\begin{equation*}
+  \mathcal{K}_\alpha = \Hom(\Gamma, \U(r))_\alpha^{\mathrm{irr}} / \operatorname{PSU}(r).
+\end{equation*}
+This is a natural space of ``moduli parameters'' for (say) the zeta function we want to consider, once we fix the Fuchsian group.  This depends upon a choice: we fix conjugacy classes of parabolic generators (corresponding abstractly to generators for the fundamental group of the punctured surface; not a problem because we are fixing the Fuchsian group once and for all).  The Mehta--Seshadri theorem says that the relative character variety is diffeomorphic to the moduli space of stable parabolic bundles with weights $\alpha$:
+\begin{equation*}
+  \mathcal{N}_\alpha \cong \mathcal{K}_\alpha
+\end{equation*}.
+The character variety is a smooth manifold, while the moduli space of parabolic bundles is naturally a complex manifold, so one is comparing objects from different universes.  The moduli space $\mathcal{N}_\alpha$ comes endowed with a natural K\"{a}hler metric (which may be understood as a symplectic structure compatible with the complex structure).  We just want to think of it as a positive $(1, 1)$-form $\Omega_\alpha$.  This metric was originally introduced by Narasimhan (without parabolic structures), but it's in fact in the works of Petersson--Shimura--Weil.  The complex analytic interpretation of this K\"{a}hler structure is that we can work with the local system and take endomorphisms, forming $\End(E_0^\rho) \cong E_0^{\Ad_\rho}$, which is again a local system.  The way one constructs the K\"{a}hler structure $\Omega_\alpha$ is by inducing the $L^2$-metric on each $\mathcal{E}^{0, 1}(\Sigma_0, \End(E_0^\rho))$.  Here $\Sigma_0 := \Sigma - \{z_1, \dotsc, z_n\}$ is the punctured surface that one obtains, that has associated naturally a local system.  On the more analytic number theory side, we want to emphasize that this hermitian inner product giving rise to the K\"{a}hler metric is nothing but the Petersson inner product on $\Ad \rho$-automorphic $(0, 1)$-forms.
+
+We want to point out a question of S.\ J.\ Patterson, 1978 (the question is so natural that it must have been in the air even before, but this is the only place we've seen it stated).  The question is whether for arbitrary representations of a Fuchsian group is there any relation between special values of the Selberg zeta function at $s = 1$, i.e., $Z_G(1, \chi)$, and interpretation in terms of moduli spaces of vector bundles introduced by Weil, Narasimhan and Mumford.  We have a regularization of $\det \Delta$ on $\End E_0^\rho \cong E_0^{\Ad \rho}$.  Since the surface is non-compact, there is continuous spectrum, so the usual regularization trick doesn't work, but this is what one can do with the Selberg zeta function, which may be understood as a ``second regularization'' that gets rid of the continuous spectrum.  We then take $\lim_{s \rightarrow 1} Z(s, \Gamma, \Ad \rho)$.  Here the parabolic structures give rise to what we call tautological line bundles $\lambda_{i j} \rightarrow \mathcal{N}_\alpha$.  How can one associate natural line bundles to representations of a Fuchsian group of finite type?  It's generically defined by the lines $E_{i j} / E_{i j + 1}$, $i = 1, \dotsc, n$, $j = 1, \dotsc, r$.  This can be understood on the representation side as follows.  Look at one parabolic generator $\gamma_i$, the value of the representation $\rho(\gamma_i)$ at this argument, and then diagonalize that, giving hermitian structures on each $\lambda_{i j}$, hence curvature $(1, 1)$-forms on $\Omega_{i j}$.  Here $i$ runs through the punctures and $j$ runs through the rank of the unitary group, basically over the parabolic weights associated to a given puncture.  If we fix these two indices, we can associate an eigenvector that is defined up to a phase.  There is a construction of the curvature $(1,1)$-forms in terms of special values $E_i(\tau, v, 1)$ of $\Ad \rho$-Eisenstein--Maass series.  It turns out that these special values play the role of integral kernels in defining these $(1,1)$-forms.  From a geometric point of view (which is the speaker's interest), to understand the Ricci curvature of these metrics $\Omega_\alpha$, one can understand it as a $(1,1)$-form that represents the first Chern class,
+\begin{equation*}
+  \Theta_\alpha \in - 2 \pi \sqrt{- 1} c_1(K_{\mathcal{N}_\alpha}).
+\end{equation*}
+Related to curvature of Quillen metric on the index bundle $\lambda \rightarrow \mathcal{N}_\alpha$ for $\Delta$ on $E_0^{\Ad \rho}$.  Here one can define the Quillen metric using the naturally induced $L^2$-metric (coming from the K\"{a}hler metric), correcting it a bit:
+\begin{equation*}
+  \lVert . \rVert_Q^2 := \lVert . \rVert_{L^2}^2 \left( \det \Delta \right)^{-1} .
+\end{equation*}
+\begin{theorem}[Takhtajan--Zograf]
+  We have
+  \begin{equation*}
+    c_1 \left( \lambda, \lVert . \rVert_Q \right) = - \frac{r}{ \pi^2} \Omega_\alpha + \delta_\alpha,
+  \end{equation*}
+  where
+  \begin{equation*}
+    \delta_\alpha = - \frac{2}{\pi} \sum_{i = 1}^n \sum_{l, m = 1}^r \sgn(\alpha_{i l} - \alpha_{i m}) \left( 1 - 2 \lvert \alpha_{i l} - \alpha_{i m} \rvert \right) \Omega_{i l}.
+  \end{equation*}
+\end{theorem}
+Even though we regularize $\det \Delta$ by throwing away the continuous spectrum, the latter comes back when we calculate the curvature of the Quillen metric in terms of the cuspidal defect, because the contributions of the latter are defined using special values of Eisenstein series.  So the continuous spectrum is somehow hidden in the regularization.  Geometrically (or maybe what's interesting to me) is that here $\log \det \Delta$ has an interpretation as a \emph{Ricci potential}, i.e., it actually gives a comparison between K\"{a}hler forms:
+\begin{equation*}
+  - \frac{r}{\pi^2} \Omega_\alpha + \delta_\alpha = \frac{\sqrt{- 1}}{2 \pi} \left( \Theta_\alpha + \partial \bar{\partial} \log \det \Delta \right).
+\end{equation*}
+
+Now let's go to the second part of the talk.  What we considered before was some sort of geometric interpretation of the deformation of the special values of the Selberg zeta function by fixing the Fuchsian group and allowing the representation to change.  To define the moduli space, we had to fix the parabolic weights.  What we want to consider now is the subsequent problem of considering deformations of these parabolic weight parameters (or conjugacy classes in the unitary group).  We are thus interested in the behavior of analytic invariants under variations of parabolic weights/conjugacy classes.
+
+\begin{remark}
+  \begin{itemize}
+  \item Parabolic weights are parametrized as points in a \emph{convex polytope} $\mathcal{W}$.  
+  \item $\mathcal{W}$ may be thought of a some sort of space of conjugacy classes of puncture generators.  Something may happen in the case of genus zero which is that not every collection of conjugacy classes can be realized by a stable parabolic bundle, but for arbitrary genus $> 0$, that's always the case.
+  \item $\mathcal{N}_\alpha$ is \emph{generically compact}.  The interesting part is that if one looks at all these semi-stability walls that one can define on this polytope and removes their union, the coplement is actually a finite collection of convex simplices, and when one  chooses parabolic weights on each of these simplices, the resulting moduli space is compact.
+  \item As we just said: the existence of strictly semi-stable points gives rise to semi-stability walls in $\mathcal{W}$, with the complement being finitely many open chambers $\mathcal{C}$.
+  \item The biholomorphism type of $\mathcal{N}_\alpha$ is an \emph{open chamber invariant} -- it only changes when we cross a wall.
+  \end{itemize}
+\end{remark}
+
+From the formula of Takhtajan--Zograf, we get variation of the class $[\Omega_\alpha]$ in the K\"{a}hler cone of $\mathcal{N}_\alpha$, while the classes $c_1(K_{cn_\alpha})$ and $c_1(\lambda_{i j})$ are locally rigid.  The variation in cohomology is measured entirely by the variation in the K\"{a}hler cone.  A \emph{finer interpretation} concerns what we call the total character variety.  Consider arbitrary representations without fixing conjugacy classes of parabolic generators.  By construction, this space (or set, for now) is going to have a natural projection to the weight polytope
+\begin{equation*}
+  \pi : \mathcal{K} \rightarrow \mathcal{W}.
+\end{equation*}
+That is, if we fix an arbitrary irreducible representation and look at its conjugation class, we can look at what the conjugacy classes of parabolic generators are, and in this way we can project to the weight polytope.  This space is going to be not quite as nice; it'll be a (singular) Poisson manifold.  It's nice away from semi-stability walls.  The fibers $\mathcal{K}_\alpha = \pi^{-1}(\alpha)$ are symplectic leaves with respect to some natural Poisson structure (for fixed conjugacy classes of parabolic generators).
+
+One can read this infinitesimally as follows, at $[\rho] \in \mathcal{K}_\alpha \subseteq \mathcal{K}$:
+\begin{equation*}
+  T_{[\rho]} \mathcal{K} = H^1(\pi_1(\Sigma_0), \Ad \rho)
+\end{equation*}
+(group cohomology).  There's actually a way to model the vertical tangent space, that is, that which actually stays within a given conjugacy class without changing it.  Here we need to impose a further ``parabolic cycle'' constraint, giving
+\begin{equation*}
+  T_{[\rho]} \mathcal{K}_\alpha = H_P^1(\pi_1(\Sigma_0), \Ad \rho).
+\end{equation*}
+The complex-analytic structures that we want to consider, after Weil and Shimura, are associated to these previously-defined vector spaces.  They are so-called $\End(\mathbb{C}^r)$-valued automorphic forms of weight $2$.  These are functions $\phi : \mathbb{H} \rightarrow \End(\mathbb{C}^r)$ that satisfy the transformation rule
+\begin{equation*}
+  \phi(\gamma \tau) \gamma '(\tau)= \Ad \rho(\gamma) \cdot \phi(\tau), \qquad \tau \in \mathbb{H}, \gamma \in \Gamma.
+\end{equation*}
+We require the following two behaviors as we approach a cusp:
+\begin{itemize}
+\item \emph{regular}: $\lim_{\tau \rightarrow \tau_i} \phi(\tau)$ exists.  (Note that it has to be holomorphic.)
+\item \emph{cusp}: $\lim_{\tau \rightarrow \tau_i} \phi(\tau) = 0$.  
+\end{itemize}
+What's important to us is the classical Shimura isomorphism, which associates to any of these cusp forms an Eichler integral by choosing a reference point:
+\begin{equation*}
+  \phi \mapsto \mathcal{E}_\phi(\tau) := \int_{\tau_0}^\tau \phi(w) \, d w.
+\end{equation*}
+Note that when we change the reference point, the cohomology class of the associated object will not change even though the integral itself will change.  The transformation rule for the Eichler integral is almost automorphic, but with a correction term:
+\begin{equation*}
+  \mathcal{E}_\phi(\gamma \tau) = \Ad \rho \cdot \mathcal{E}_\phi(\tau) + z_\phi(\gamma),
+\end{equation*}
+where $z_\phi : \Gamma \rightarrow \End(\mathbb{C}^r)$ is a group cohomology $1$-cocycle.  Here the version of the Shimura isomorphism that we want to consider is the one that takes the real part
+\begin{equation*}
+  \phi \mapsto[\Re(z_\phi)].
+\end{equation*}
+(Here one has to be careful how to define the real part.  We do so with respect to the real structure defining the Lie algebra here.  Here we're thinking of $\End(\mathbb{C}^r)$ as the complexification of $\mathfrak{u}(n)$.)  One can naturally identify
+\begin{equation*}
+  H^1(\pi_1(\Sigma_0), \Ad_\rho) \cong \overline{\mathfrak{M}_2^{\mathbb{R}}(\Gamma, \Ad \rho)}.
+\end{equation*}
+We also have
+\begin{equation*}
+  H^1_P(\pi_1(\Sigma_0), \Ad_\rho)
+  \cong
+  \overline{\mathfrak{S}_2(\Gamma, \Ad \rho)}.
+\end{equation*}
+Let's just say that the Petersson inner product (defined in general between regular forms and cusp forms) leads to a Hodge projection (even though the Petersson inner product is not always defined between two regular forms)':
+\begin{equation*}
+  \mathfrak{M}_2(\Gamma, \Ad \rho) \rightarrow \mathfrak{S}_2(\Gamma, \Ad \rho),
+\end{equation*}
+which in turn gives rise to a splitting
+\begin{equation*}
+  H^1(\pi_1(\Sigma_0), \Ad \rho) \cong \overline{\mathfrak{S}_2(\Gamma, \Ad \rho)} \oplus \overline{\mathcal{E}_2^{\mathbb{R}}(\Gamma, \Ad \rho)},
+\end{equation*}
+where $\mathcal{E}_2(\Gamma, \Ad \rho)$ is a holomorphic Eisenstein series of weight $2$.  Geometrically, we opbtain fiberwise complex structures $\mathcal{K}_\alpha \cong \mathcal{N}_\alpha$, and a flat connection on open chambers $\pi \mid_{\mathcal{C}} : \mathcal{N} \rightarrow \mathcal{C}$, which gives rise to real horizontal coordinates.  [There is a picture, where the weight polytope is at the bottom and looking a bit complicated, and where the fibers at the walls may become singular, but as long as we stay within a chamber, the fibers are smooth complex manifolds.  The Shimura isomorphism allows us to form an orthogonal complement by which we may take derivatives along horizontal directions.]
+
+The resolvent kernel of $\Delta$ on $\End E_0^\rho$ is
+\begin{equation*}
+  G_s(\tau, \tau ') = \sum_{\gamma \in \Gamma} Q_s(\tau, \gamma \tau ') \Ad \rho(\gamma).
+\end{equation*}
+One can construct a Green's function
+\begin{equation*}
+  G(\tau, \tau ') = \lim_{s \rightarrow 1} \left( G_s(\tau, \tau ') - \frac{1}{s(s - 1)} \frac{1}{ \pi r(2 g - 2 + n)} \id \right).
+\end{equation*}
+If we subtract the scalar multiple of the identity by the standard resolvent on the upper half-plane, one can desingularize it:
+\begin{equation*}
+  \Psi(\tau) := \frac{\partial}{ \partial \tau '} \left( G(\tau, \tau ') - Q(\tau, \tau ') \right) \mid_{\tau ' = \tau}
+\end{equation*}
+is a \emph{smooth} regular automorphic form of weight $2$ that encodes deep geometric information.
+
+Takhtajan--Zograf first variation of the Selberg zeta function: let $\{E^\rho\} \in \mathcal{N}_\alpha$ and $\mu \in \overline{\mathfrak{S}_2(\Gamma, \Ad \rho)} \cong T_{\{E^\rho\}} \mathcal{N}_\alpha$.  Then
+\begin{equation*}
+  \partial \log \det \Delta \left( \frac{\partial}{ \partial \eps(\mu)} \right) = - \sqrt{- 1}\int_{\Sigma_0} \trace \left( \ad \mu \wedge \Psi \right) y^2 \, d V_{\mathbb{H}} = \langle \ad \mu, \ast \Psi \rangle_P.
+\end{equation*}
+So the resolvent knows the geometry of the variation of the Selberg zeta function.
+
+M.-Weiss extended first variation of Selberg zeta function.  For generic parabolic weights $\alpha \in \mathcal{C}$, $\{E^\rho\} \in \mathcal{N}_\alpha$ and $\mu \in \overline{\mathfrak{M}_2^{\mathbb{R}}(\Gamma, \Ad \rho)}$, we have
+\begin{equation*}
+  \partial \log \det \Delta \left( \frac{\partial}{ \partial \eps(\mu)} \right) = \left\langle \ad \mu, \ast \Psi \right\rangle_P^{\reg}
+  + \sum_{i = 1}^n \left\langle \ad \mu, \ast \theta_i \right\rangle_P^{\reg},
+\end{equation*}
+where the correction term is related to the presence of cusps. We want to emphasize that these inner products are no longer well-defined.  They are instead defined with respect to the Rankin--Selberg regularization of Zagier.  It uses special values $E_i(\tau, v, 2)$ of $\Ad \rho$-Eisenstein--Maass series.  The correction terms involve $\theta_i$, which are $\Ad \Ad \rho$-automorphic incomplete theta series for the $\Ad \Ad \rho(\gamma_i)$-invariant part of the $0$th Fourier coefficients of $\Psi$.  This is of course an incomplete story, because one can consider first (and higher) variational formulas for $\Omega_\alpha$ and $\Omega_{i j}$, which are direct by-products.  But let's talk about something else in the remaining time.  For $\Sigma_0 = \mathbb{C} \mathbb{P}^1 - \{z_1, \dotsc, z_n\}$, M.--Takhtajan: critical values of hermitian WZNW action defin a smooth function $S : \mathcal{N}_{0, \alpha} \rightarrow \mathbb{R}$ such that
+\begin{equation*}
+  \partial \bar{\partial} S = 2 \sqrt{- 1} \left( \Omega_\alpha - \sum_{i, j} \beta_{i j} \Omega_{i j} \right) \mid_{\mathcal{N}_{0, \alpha}},
+\end{equation*}
+where
+\begin{itemize}
+\item $\beta_{ ij}$: linear on parabolic weights, splitting coefficients of $E$, i.e., $-S/2$ is a K\"{a}hler potential for the $(1,1)$-forms $\Omega_\alpha$ and $\sum_{i, j} \beta_{i j} \Omega_{i j}$.
+\item Moreover, $\partial S$ is a Hodge projection of corresponding families of unitary Fuchsian systems on $\mathbb{C} \mathbb{P}^1 - \{z_1, \dotsc, z_n\}$.
+\item Caveat: the dependence of $\mathcal{N}_{0, \alpha} \subset \mathcal{N}_\alpha$ on parabolic weights is complicated.  That's, let's say, a motivation for trying to understand the problem we'll describe in the last five minutes of the talk.
+\end{itemize}
+
+Hyper--K\"{a}hler corresponds to K\"{a}hler and complex symplectic.  That is, it should mean ``complexification of a K\"{a}hler structure''.  One can parametrize it by a K\"{a}hler structure and a complex symplectic structure that are compatible in the same way that a K\"{a}hler structure can be understood as a Riemann metric and a symplectic structure that are compatible.
+
+What is the canonical example of a complex symplectic maniofld?  Well, $T^\ast \mathcal{N}$ for any complex manifold $\mathcal{N}$.
+
+\begin{theorem}[Feix--Kaledin]
+  Any \emph{real-analytic K\"{a}hler} metric on $\mathcal{N}$ extends uniquely to a \emph{tubular neighborhood of the zero section} in $T^\ast \mathcal{N}$ (isometric $S^1$-action).
+\end{theorem}
+
+The examples of interest are the so-called \emph{Hitchin moduli spaces}, which correspond to moduli of stable parabolic Higgs bundles $\mathcal{M}_\alpha$.  We have
+\begin{equation*}
+  \mathcal{N}_\alpha \hookrightarrow \mathcal{M}_\alpha
+\end{equation*}
+(holomorphic) and
+\begin{equation*}
+  T^\ast \mathcal{N}_\alpha \subset \mathcal{M}_\alpha
+\end{equation*}
+(Zariski open).  Minimal dimension: $\mathcal{N}_\alpha \cong \mathbb{C} \mathbb{P}^1$ (central sphere).
+
+Modularity conjecture (Boalch): all gravitational instantons of ALG type (non-compact, complete, non-flat hyper-K\"{a}hler $4$-manifolds with ``quadratic asymptotic volume growth'' are constructible as \emph{Hitchin moduli spaces}).
+
+In fact, there's only a finite set of families, depending on real and complex parameters.
+
+Perhaps the simplest example one can consider is the so-called toy model, which is the resolution of $(\Sigma_\lambda \times \mathbb{C}) / \mathbb{Z}_2$ (singularities of a complex curve, mod the natural $\mathbb{Z}_2$ action).  Elliptic curve $\Sigma_\lambda \rightarrow \mathbb{C} \mathbb{P}^1$ branched over $\{\lambda, 0, 1, \infty\}$.  We have an explicit construction of Hitchin system's geometric models.  The moduli space dependence on parabolic weights is \emph{explicitly known}.
+
+\begin{remark}
+  One can consider other numbers of marked points than $4$.
+\end{remark}
+
+Variation of K\"{a}hler metrics on $\mathcal{N}_\alpha$ can be understood in this toy model by the ``Kummer construction'' (Biquard--Minerbe) of gravitational instantons.  The explicit form of the metric is an outstanding problem.  A natural problem is to describe the  analytic dependence of the Gauss curvature of the central sphere on parabolic weights (in progress: apply variation of Ricci potentials).  The expected correspondence is that the semistability wall degeneration should correspond to formation of conical singularities.  It would be desirable to further and find a geometric model for the metric's wall-crossing.
+
+
+\section{Zeynab Ebrahimi, \emph{Classification of the Hilbert modular varieties and quaternionic Shimura varieties}}
+
+For dimension $2$, we mean up to birational classes.  For larger dimensions, we mean to compute the Kodaira dimension.
+
+We start with the following:
+
+\begin{question}
+  Is it possible to classify the Hilbert modular varieties?
+\end{question}
+
+Let's start with the definition of Hilbert modular varieties.
+
+Then we'll define quaternionic Shimura varieties.
+
+Then we'll give some classification results for each, and some idea of the proof.
+
+Let $K$ be a totally real number field, of degree $n$ over the rational numbers.  Let $\mathcal{O}_K$ denote its ring of integers.  The group  $\Gamma_K := \PSL_2(\mathcal{O}_K)$ is called the \emph{Hilbert modular group}.  It acts on $\mathbb{H}^n$.  We denote by $X_K := \Gamma_K \backslash \mathbb{H}^n$ the orbit space.  By compactifying $X_K$ (adding finitely many cusps), we obtain $Y_K$, a projective variety (in general, singular).  We refer to both $X_K$ and $Y_K$ as \emph{Hilbert modular varieties}.  By resolution of singularities applied to $Y_K$, we obtain $Z_K$, a \emph{smooth model of the Hilbert modular variety}.
+
+More generally, let $A$ be an indefinite quaternion algebra over $K$, let $\mathcal{O}$ be any order of $A$, and let $\mathcal{O}^1$ denote the group of norm one units of $\mathcal{O}$.  Then
+\begin{equation*}
+  A \otimes_{\mathbb{Q}} \mathbb{R} \cong M_2(\mathbb{R})^m \times \mathcal{D}^{n - m}.
+\end{equation*}
+Moreover, $\mathcal{O}^1$ is a discrete subgroup of $A \otimes_{\mathbb{Q}} \mathbb{R}$, so we can project to the first $m$ factors, giving another group that we call $\Gamma$.  The orbit space $X_\Gamma = \Gamma \backslash \mathbb{H}^m$ is called the \emph{quaternionic Shimura variety}.
+
+Note that if we just take $A = M_2(K)$, then $X_\Gamma = X_K$.  Thus the quaternionic Shimura case generalizes the Hilbert modular case.
+
+Since the classification results we'll present depend upon the Kodaira dimension, let's define that.  Let $X$ be a smooth variety of dimension $n$.  Let $K_X = \Lambda^n \Omega_X^1$ denote the canonical bundle of $X$ (here $\Omega_X^1$ denotes the cotangent bundle).  For $d \geq 0$, the $d$-th plurigenus $P_d$ of $X$ is the dimension of the space of global sections of $K_X^d$:
+\begin{equation*}
+  P_d := \dim H^0(X, K_X^d).
+\end{equation*}
+One important application of these invariants is that they may be used to determine when algebraic varieties may be rational.  By the way, being rational for a variety means that it is birationally equivalent to the projective space.  Note that to show that a variety cannot be rational, it suffices to identify one nonzero plurigenus.
+
+The \emph{Kodaira dimension} $\kappa$ is defined to be
+\begin{equation*}
+  \kappa =
+  \begin{cases}
+    - \infty    & \text{ if } P_d = 0 \text{ for all } d > 0, \\
+    \min \{k : P_d = \O(d^k)\}           & \text{ otherwise}.
+  \end{cases}
+\end{equation*}
+One way to interpret this definition is that the Kodaira dimension measures the rate of growth of the plurigenera, which we defined a bit earlier.  Also, Kodaira dimension can be either $- \infty$ or an integer between $0$ and $\dim X$.
+
+One may ask, how can we classify Hilbert modular varieties in dimension two, or Hilbert modular surfaces?  An algebraic variety $X$ is said to be of \emph{general type} if $\kappa(X) = \dim(X)$.  Those of general type seem too complicated to be classified.  Usually the way that we deal with such varieties is we try to determine which varieties are of general type, and then just somehow ignore them, and try to classify other varieties that are more simple.
+
+There is a result that tells us for precisely which discriminants these four cases can happen.  Let $K = \mathbb{Q}(\sqrt{d})$ be a real quadratic field of discriminant $D$.  Let $Z_K$ denote the canonical smooth model of the Hilbert modular surface associated with the field $K$.  Then the following ultimate classification result holds:
+\begin{itemize}
+\item $Z_K$ is rational if $D = 5,8,12,13,17,21,24,28,33,60$,
+\item $Z_K$ is a blow-up of a $K_3$-surface if $D =29,37,40,41,44,56,57,69,105$,
+\item $Z_K$ is a blow-up of an honestly elliptic surface if $D = 53,61,65,73,76,77,85,88,92,93,120,140,165$,
+\item (...)
+\end{itemize}
+Also:
+\begin{itemize}
+\item If $n > 6$, then $Z_K$ is of general type.
+\item For $n \leq 6$, there are only finitely many exceptional fields $K$ such that $Z_K$ is \emph{not} of general type.
+\end{itemize}
+
+For a quaternion algebra $A$, if $A \otimes_{\mathbb{Q}} \mathbb{R} \cong M_2(\mathbb{R}) \times \dotsb \times M_2(\mathbb{R})$, then $A$ is called a \emph{totally definite} quaternion algebra.  Now, we cansomehow classify the Shimura varieties.  Let $\Gamma$ denote the group of norm one units of a maximal order of $A$, and considered the corresponding quaternionic Shimura variety $X_\Gamma = \Gamma \backslash \mathbb{H}^n$ with smooth model $Z_\Gamma$.
+\begin{itemize}
+\item If $n > 6$, then $Z_\Gamma$ is of general type.
+\item For $n \leq 6$, there are only finitely many exceptional fields $K$ such that $Z_\Gamma$ is \emph{not} of general type.
+\end{itemize}
+
+Let's give a rough idea of how we can prove the latter theorem.  We have to prove that for $n > 6$, we have
+\begin{equation}\label{eq:cnrbhlraia}
+  P_d = \O(d^n).
+\end{equation}
+Now
+\begin{itemize}
+\item From the definition, we have $P_d = \dim H^0(Z_\Gamma, K_{Z_\Gamma}^d)$.
+\item If we take $f \in A(\Gamma)_{2 d}$, then we can extend $f \omega^{\otimes d}$ to a section of $H^0(Z_\Gamma, K_{Z_\Gamma}^d)$, where $\omega = d z_1 \wedge \dotsb \wedge d z_n$.
+\end{itemize}
+In fact, this cohomology is the same as the space of global sections of the sheaf of differential forms, and we know that this $f \omega^{\otimes d}$ -- where $f$ is just an automorphic form -- behaves like a differential form.  But on this $X_\Gamma$, we don't know that this $f \omega^{\otimes d}$ behaves like a differential form on the \emph{smooth} model $Z_\Gamma$.  If we can check that this is true, then we can claim that we can extend $f \omega^{\otimes d}$ to a section of the sheaf $H^0(Z_\Gamma, K_{Z_\Gamma}^d)$.  We now explain why we can do that.  Suppose $p \in X_\Gamma$ is a singular point.  Before resolving this singular point, we usually replace this point by some subvariety of curve which is locally isomorphic to $\mathbb{C}^n / \Gamma_P$, where we quotient by the stabilizer $\Gamma_P$.  This $f \omega^{\otimes d}$ is also a differential form on the resolution of this singularity by a theorem of Tai (?).  We wanted to prove \eqref{eq:cnrbhlraia}.  We know that
+\begin{equation*}
+  \dim A(\Gamma)_{2 d} \leq \dim H^0(Z_\Gamma, K_{z_\Gamma}^d) \implies \dim A(\Gamma)_{2 d} \leq P_d
+\end{equation*}
+by some paper of someone, and some other inequality by some other paper, which combine to give the required estimate.
+
+\section{Caner Nazaroglu, \emph{Averaging to higher depth mock modular forms}}
+
+As the title suggests, this talk will be a natural continuation of this morning's theme of discussing generalizations of modular forms.  This is joint and ongoing work with K.\ Bringmann on higher rank generalizations of mock modular forms.
+
+On a quadratic form $Q(x, y) = a x^2 + b x y + c y^2$ with integer coefficients, we have the standard action of the modular group.  The Hurwitz class number $H(N)$ is the number of classes of discriminant $-N$, weighted by their stabilizer.  The generating function
+\begin{equation*}
+  h_\alpha(\tau) = \sum_{n = 0}^\infty H(4 n + 3 \alpha) q^{n + \frac{3 \alpha}{4}}.
+\end{equation*}
+Zagier showed that $h_\alpha$ is the holomorphic part of a mock modular form
+\begin{equation*}
+  \hat{h}_\alpha(\tau, \bar{\tau}) := h_\alpha(\tau) - \frac{3 i}{ 4 \sqrt{2} \pi}
+  \int_{- \bar{\tau}}^{i \infty}
+  \frac{\vartheta_{1, \alpha}(w)}{(- i(w + \tau))^{3/2}} \, d w.
+\end{equation*}
+To do this, he constructed an appropriate Eisenstein series.
+
+Let's talk about Zagier's weight $3/2$ Eisenstein series.  Zagier studied the Eisenstein series
+\begin{equation*}
+  \hat{f}_{m, \mu}(\tau, \bar{\tau}, s) := \frac{v^s}{2}
+  \sum_{(c, d) \in \Lambda}
+  \frac{\Psi_m(M_{c, d})_{0, \mu}}{ \lvert c \tau + d \rvert^{2 s}(c \tau + d)^{3/2}}.
+\end{equation*}
+For $\Re(s) > 1/2$, this is holomorphic in $s$ and a \emph{real analytic modular form} in $\tau$.  More crucially, it analytically continues to  $s = 0$ and yields a modular completion of a mock modular form there.  In particular, taking $m = 1$ recovers Zagier's result.
+
+The easiest way to see the analytic continuation is to decompose into a Fourier series
+\begin{equation*}
+  - \sum_{n \in \mathbb{Z} - \frac{\mu^2}{4 m}}
+  e^{2 \pi i \tau n}
+  \mathcal{L}_{m, \mu}(n, 2 s + 2)
+  \mathcal{I}(v, n, s)
+\end{equation*}
+where we have a separation into the \emph{arithmetic contribution}
+\begin{equation*}
+  \mathcal{L}_{m, \mu}(n, s) = e^{\pi i /4} \sum_{c = 1}^\infty c^{- s + 1/2} \sum_{d(c)^\ast}
+  \Psi_m(M_{c, d})_{0, \mu} e^{2 \pi i \tfrac{d}{c}n}
+\end{equation*}
+and the analytic contribution
+\begin{equation*}
+  \mathcal{I}(v, n, s) = v^{- s - 1/2} e^{2 \pi n v} \int \frac{e^{- 2 x pi x n v}}{(1 - i x)^{3/2}(1 + x^2)^s} \, d x.
+\end{equation*}
+These can be separately analytically continued.  Expressing the Weil multiplier in terms of Gauss sums, we can write write the arithmetic part as
+\begin{equation*}
+  \frac{1}{\sqrt{2 m}}
+  \frac{L(\chi_{- 4 m n}, 2 s + 1)}{ \zeta(4 s + 2)}
+  \prod_{p : \text{bad}}
+  \mathcal{B}_{p, m, \mu}(n, 2 s + 1).
+\end{equation*}
+Every ingredient here has a meromorphic extension to $\mathbb{C}$.  At $s = 0$, the arithmetic part is \emph{holomorphic} except when $\chi_{- 4 m n}$ is principal (i.e., when $- 4 m n$ is a square) where it develops a \emph{simple pole}.
+
+The analytic part is already manifestly holomorphic for $\Re(s) > -1/4$, and can be expressed explicitly in terms of Whittaker functions.  On compact subsets for $s$ and for $\lvert n \rvert \gg 1$, we have uniform bounds
+\begin{equation*}
+  e^{- 2 \pi n v} \mathcal{I}(v, n, s) \ll \lvert n \rvert^D e^{- 2 \pi \lvert n \rvert v}.
+\end{equation*}
+At $s = 0$, we have no $v$ dependence!  By deforming the contour, one sees that
+\begin{equation*}
+  \mathcal{I}(v, n, 0) =
+  \begin{cases}
+    4 \pi \sqrt{2 n} &  \text{ if } n > 0, \\
+    0 & \text{ if } n \leq 0.
+  \end{cases}
+\end{equation*}
+This is what leads to (when $m = 1$)
+\begin{equation*}
+  f_{1, \alpha}(\tau) = - 12 \sum_{n = 0}^\infty H(4 n + 3 \alpha) q^{n + \frac{3 \alpha}{4}}.
+\end{equation*}
+This explains why we get a generating function for Hurwitz class numbers.
+
+This is the holomorphic part of this object, but we still have to deal with the pole.  This is what leads to the interesting mock modular behavior of this function.  Multiplying the simple pole from the arithmetic part and the zero of the analytic part, where the $\O(s)$ term is
+\begin{equation*}
+  \partial_s \mathcal{I}(v, n, 0) = \frac{\pi \sqrt{2}}{ \sqrt{v}} \int_1^\infty x^{- 3/2} e^{- 4 \pi \lvert n \rvert v x} \, d x,
+\end{equation*}
+gives a nonvanishing contribution.  These yield the usual error functions that we see in the completions of mock modular forms.
+
+In practice, we have to work with slightly more general objects.  A \emph{mixed mock modular form} $h$ of weight $k$ has a modular completion $\hat{h}(\tau, \bar{\tau})$ that satisfies
+\begin{equation*}
+  \frac{\partial}{ \partial \bar{\tau}} \hat{h} \in \bigoplus_j \tau_2^{r_j} \mathfrak{M}_{k + r_j} \otimes \overline{\mathfrak{M}_{2 + r_j}}.
+\end{equation*}
+(Here, of course, as your problem requires, you need to insert any set of adjectives (weakly, holomorphic, etc) -- we're being a little vague here, but besides that, this is what we mean.)
+\begin{itemize}
+\item Such objects can be constructed using indefinite theta functions of Zwegers over signature $(n - 1, 1)$ lattices.
+\item We now have a generalization for lattices with signature $(n - r, r)$: Alexandrov, Banerjee, Manschot, Pioline '16, N.\ '16, Kudla 16, Funke--Kudla '17, Zagier--Zwegers.
+\item The indefinite theta functions more generally fit into the space $\mathfrak{M}_k^d$ of mock modular forms with weight $k$ and depth $d$, with the space of their modular completions $\hat{\mathfrak{M}}_k^d$.  This is defined recursively starting with $\mathfrak{M}_k^0  = \hat{\mathfrak{M} }_k^0 = \mathfrak{M}_k$ and  then requiring
+  \begin{equation*}
+    \frac{\partial}{\partial \bar{\tau}} \hat{h} \in \bigoplus_j \tau_2^{r_j} \hat{\mathfrak{M}}_{k + r_j}^{d - 1}
+    \otimes \overline{\mathfrak{M}_{2 + r_j}}.
+  \end{equation*}
+\end{itemize}
+
+Let's give some examples.  Vafa--Witten theory (1995) is a topologically twisted four dimensional $\mathcal{N} = 4$ super Yang--Mills theory.
+\begin{itemize}
+\item On $\mathbb{C} \mathbb{P}^2$ and with $\U(2)$ gauge group, the partition function is given by (Klyachko '91, Yoshioka '94-95)
+  \begin{equation*}
+    f_{2, \alpha}(\tau) = \frac{3^\alpha(\tau)}{ \eta(\tau)^6}.
+  \end{equation*}
+  So you're seeing the appearance of a mock modular form already in this context.  More recently, this is work discussing how the non-holomorphic part can be obtain from boundary term contributions in that partition function calculation.
+\item For $\U(3)$ gauge group, we have $f_{3, \mu}(\tau) = \frac{h_{3, \mu}(\tau)}{\eta(\tau)^9}$ with explicit formulas given by Toda, Manschot, Kool, Weist, e.g.,
+  \begin{equation*}
+    h_{3, 0}(\tau) = \frac{1}{9} - q + 3 q^2 + 1 7 q^3 + 41 q^4 + 78 q^5 + 120 q^6 + 193 q 7 + \dotsb,
+  \end{equation*}
+  \begin{equation*}
+    h_{3, \pm 1}(\tau) = 3 q^{5/3} + 15 q^{8/3} + 36 q^{11/3} + 69 q^{14/3} + 114 q^{17/3} + 165 q^{20/3} + \dotsb.
+  \end{equation*}
+  This has a modular completion (Maschot '17)
+  \begin{equation*}
+    \hat{h}_{3, \mu}(\tau, \bar{\tau}) = h_{3, \mu}(\tau) - \frac{9 \sqrt{3} i}{2 \sqrt{2} \pi}
+    \sum_{\alpha \pmod{2}}
+    \int_{- \bar{\tau}}^{i \infty}
+    \frac{\hat{h}_\alpha(\tau, - w)
+      \vartheta_{3, 2 \mu + 3 \alpha}(w)}{\left( - i(w + \tau) \right)^{3/2}} \, d w.
+  \end{equation*}
+  You can use these modular properties to get information about the Fourier coefficients of these objects, but we'll skip that for the sake of time.
+\end{itemize}
+\begin{question}
+  Can Zagier's construction be generalized to higher depth?
+\end{question}
+A trivial observation: the trivial depth two mock modular form $f_{m_1, \mu_1}(\tau) f_{m_2, \mu_2}(\tau)$ comes from multiplying their series definitions.  The combination
+\begin{equation*}
+  8 h_{3, \mu}(\tau) - \sum_{\alpha \in \{0, 1\}}
+  f_{1, \alpha}(\tau) f_{3, 2 \mu + 3 a}(\tau)
+\end{equation*}
+has the \emph{same shadow} as the depth two mock modular form we are aiming for.
+\begin{itemize}
+\item Our double Eisenstein series will also have a vanishing constant mode in the holomorphic part.  There is a unique holomorphic modular form at this weight and multiplier system: the \emph{theta function} for the $E_6$ lattice (also an Eisenstein series).  This fixes our target depth two mock modular form as
+  \begin{equation*}
+    \mathcal{T}_\mu(\tau) := 8 h_{3 , \mu}(\tau) - \sum_{\alpha \in \{0, 1\}}
+    f_{1, \alpha}(\tau) \dotsb.
+  \end{equation*}
+\end{itemize}
+A new ingredient for double Eisenstein series is the existence of the \emph{invariant cross ratio}
+\begin{equation*}
+  y = \frac{c_1 \tau + d_1}{c_1 \bar{\tau} + d_1}
+  \frac{c_2 \bar{\tau} + d_2}{ c_2 \tau + d_2},
+\end{equation*}
+or equivalently,
+\begin{equation}\label{eq:cnrbhnjf3e}
+  x = i \frac{y + 1}{y - 1}
+  = \frac{c_1 c_2 \lvert \tau \rvert^2 +(c_1 d_2 + c_2 d_1) u + d_1 d_2}{ v(c_1 d_2 - c_2 d_1)}.
+\end{equation}
+This has natural invariance and homogeneity properties.  Our proposal:
+\begin{equation*}
+  \hat{H}_{m, \mu}(\tau, \bar{\tau}, s) = \frac{i s v^{2 s}}{2}
+  \sum_{
+    \substack{
+      (c_1 , d_1), (c_2, d_2) \in \Lambda  \\
+      c_1 d_2 - c_2 d_1 \neq 0      
+    }
+  }
+  \dotsb.
+\end{equation*}
+(...)
+
+We still have a complicated object, but for $c_1, c_2 > 0$, writing the right hand side of \eqref{eq:cnrbhnjf3e} as $\frac{x_1 x_2 + 1}{ x_2 - x_1}$ with $x_j := \frac{u + \tfrac{d_j}{c_j}}{v}$, we can separate the interaction term as
+\begin{equation}\label{eq:cnrbhnlztp}
+  \arctan(x_1) - \arctan(x_2) + \frac{\pi}{2} \sgn(x_2 - x_1),
+\end{equation}
+leading to an expression for $\hat{H}$.  A quick sketch: for the $n$-th Fourier coefficient, we have a decomposition into
+\begin{itemize}
+\item the arithmetic parts $\mathcal{L}_{m_1, \mu_1}(n - k)$ and $\mathcal{L}_{m_2, \mu_2}(k)$, 
+\item the analytic part, which vanishes for $n \leq 0$, and
+\item an infinite sum over $k$, slow due to the sign term in \eqref{eq:cnrbhnlztp}, which leads to many technical issues.
+\end{itemize}
+The structure is roughly that for $n > 0$, $n < 0$ and $n \leq 0$, the three parts just mentioned are respectively asymptotic to
+\begin{itemize}
+\item $1, 1, 1/s$,
+\item $1/s, 1, 1$
+\item $1/s$, $s$:non-holomorphic $1$.
+\end{itemize}
+That's the rough outline.  Our main result (in progress) is that, defining
+\begin{equation*}
+  \mathcal{H}_\mu(\tau) := \sum_{\alpha \in \{0, 1\}} H_{(1, 3),(\alpha, 2 \mu + 3 \alpha)}(\tau)
+\end{equation*}
+where $\mu \in \mathbb{Z} / 3 \mathbb{Z}$, the condition on the shadow and the $q^0$ term gives $\mathcal{H}_\mu(\tau) = \mathcal{T}_\mu(\tau)$, and we obtain an expression for the Fourier coefficients of $\mathcal{T}_\mu$ in terms of Hurwitz class numbers.
+
+We also obtain some numerical results and graph them.
+
+As a conclusion, this is a new way to construct depth two mock modular forms and already within the example we considered, we are led to alternative expressions for the Fourier coefficients and this results in identities when compare d with the constructions from indefinite theta functions.  What else can we get from the interplay between these two constructions ?
+
+Many generalizations are now possible.  What can we say about the space of depth two mock modular forms with these?
+
+We hope also to investigate the interplay with holomorphic projection, and even higher depth.
+
+\section{Xiaoyu Zhang, \emph{Mod $p$ theta liftings for unitary groups and Block--Kato conjecture}}
+
+\subsection{Introduction}
+
+Let $E = \mathbb{Q}$ or a quadratic extension.  Let $(V_1, V_2)$ be $E$-vector spaces, where, for some $\eps = \pm 1$,
+\begin{itemize}
+\item $V_1$ is $\eps$-Hermitian, and
+\item $V_2$ is $(- \eps)$-Hermitian.
+\end{itemize}
+Then $W = \Res_{E / \mathbb{Q}}(V_1 \otimes_E V_2)$ is a symplectic $\mathbb{Q}$-vector space.  We fix an isotropic decomposition $W = W_1 \oplus W_2$.  For any Schwartz--Bruhat function $\phi \in \mathcal{S}(W_1(\mathbb{A}))$, we have the associated theta series is the sum
+\begin{equation*}
+  \theta_\phi(g_1, g_2) = \sum_{x \in W_1} \left( \omega(g_1, g_2) \phi \right)(x), \qquad
+  (g_1, g_2) \in(H, G) =(\U(V_1), \U(V_2)),
+\end{equation*}
+with $\omega$ the Weil representation.  This is in fact an automorphic form on this product group, i.e., $\theta_\phi \in \mathcal{A}(H \times G)$.  Now for an automorphic form $f \in \mathcal{A}(H)$, we can take the integral against the theta function in the first variable, giving the theta lifting of $f$ with respect to $\phi$:
+\begin{equation*}
+  \theta_{\phi, f}(g_2) = \int_{H(\mathbb{Q}) \backslash H(\mathbb{A})} f(g_1) \theta_\phi(g_1, g_2) \, d g_1,
+\end{equation*}
+which defines $\theta_{\phi, f} \in \mathcal{A}(G)$.
+
+\begin{example}
+  $(H, G) =(\O_1 , \Sp_2)$.  Taking the Schwartz function $\phi$ to be the Gaussian, we recover the classical theta series:
+  \begin{equation*}
+    \phi(x) = e^{- 2 \pi x_\infty} \mathbf{1}_{\hat{\mathbb{Z}}}(x_f)
+    \rightsquigarrow
+    \theta_\phi(\tau) = \sum_{n \in \mathbb{Z}} q^{n^2}.
+  \end{equation*}
+\end{example}
+If we write $\pi$ for the automorphic representation of $H(\mathbb{A})$ generated by $f$, and $\theta(\pi)$ for the automorphic representation of $G(\mathbb{A})$ generated by all the theta lifts $\theta_{\phi, f}$ for $f \in \pi$ and $\phi \in \mathcal{S}$, then we arrive at a fundamental question in the theta correspondence:
+\begin{question}
+  When is $\theta(\pi)$ nonzero?
+\end{question}
+
+Rallis's program gives a criterion for this: roughly speaking, $\theta(\pi) \neq 0$ if and only if
+\begin{itemize}
+\item locally, $\theta(\pi_v) \neq 0$ for each place $v$, and
+\item $L(\pi, s_0) \neq 0$, where $s_0$ is a half-integer depending only upon $H$ and $G$.
+\end{itemize}
+This has been established for many pairs $(H, G)$ by the work of many people: Rallis, Kudla, Gan, Qiu, Takeda, Yamana, etc.  
+
+In this talk, we'll take a specific automorphic form $f$ and a specific Schwartz function $\phi$ and investigate arithmetic properties, e.g., checking if the theta lift is nonzero modulo $p$ provided that $f$ is.  
+
+\subsection{Main result}
+
+We restrict ourselves to unitary pairs: $(H, G) =(\U_{n + 1}, \U_{n, n})$ with $n \geq 1$ such that $H(\mathbb{R})$ is compact and $G$ is split.  Let $p$ be a prime, split in $E$, a quadratic imaginary extension of $\mathbb{Q}$.  We fix $\mathbb{C} \cong \mathbb{C}_p \supset \mathcal{O}_{\mathbb{C}_p} \supset \mathfrak{P}$.  For any irreducible algebraic representation $(\rho_\lambda, M_\lambda)$ of $H(\mathbb{C})$, and an automorphic form $f \in \mathcal{A}_\lambda(H, K_H)$ (here $\lambda$ is the weight, $K_H$ is the level), we define the $p$-adic avatar of $f$ to be
+\begin{equation*}
+  f_p : H(\mathbb{A}_f) \rightarrow M_\lambda(\mathbb{C}_p)
+\end{equation*}
+\begin{equation*}
+  h \mapsto \rho_\lambda(h_p)^{-1} f(h).
+\end{equation*}
+Then
+\begin{equation*}
+  f_p(\gamma h u) = \rho_\lambda(u_p)^{-1} f(h)
+  \quad
+  \text{ for all }
+  (\gamma, h, u) \in H(\mathbb{Q}) \times H(\mathbb{A}_f) \times K_H.
+\end{equation*}
+Assume $K_{H, p} \subset H(\mathbb{Z}_p)$.
+
+We say that $f$ is $p$\emph{-integral} if $f(h) \in M_\lambda(\mathcal{O}_{\mathbb{C}_p})$ for all $h$, and that it is $p$\emph{-primitive} if moreover $f \not \equiv 0 \pmod{\mathfrak{P}}$.
+
+Similarly, for $F \in \mathcal{A}_\tau(G, K_G)$ holomorphic, we have the Fourier expansion
+\begin{equation*}
+  F = \sum_{S \in \mathrm{Herm}_n(E)} a_S q^S, \quad
+  a_S \in M_\tau(\mathbb{C}), \quad
+  q^S = e^{2 \pi i \trace(S Z)}.
+\end{equation*}
+Then we say that $F$ is $p$\emph{-integral} if $a_S \in M_\tau(\mathcal{O}_{\mathbb{C}_p})$ for all $S$, and $p$\emph{-primitive} if $a_S \not \equiv 0 \pmod{\mathfrak{P}}$.
+
+Kashiwara--Vergne '78: under the theta correspondence, between $H(\mathbb{R})$ and $G(\mathbb{R})$, if we write
+\begin{equation*}
+  \lambda =(n_1 \geq n_2 \geq \dotsb \geq n_i > 0 > - m_1 \geq - m_2 \geq \dotsb \geq - m_j) \in \mathbb{Z}^{n + 1},
+\end{equation*}
+where $0 \leq i, j, \leq n$, then $\lambda$ corresponds to
+\begin{equation*}
+  \tau =(n_1, n_2, \dotsc, n_i , 0, \dotsc, 0) \otimes(0, 0, \dotsc, 0, - m_1, \dotsc, - m_j)
+\end{equation*}
+(higher weight representation for $\GL_n(\mathbb{C})^2$).
+
+\begin{theorem}[Z, 2023]
+  Let $\lambda, \tau$ be as above.  Also, fix an ideal $0 \neq \mathcal{N} \subset \mathcal{O}_E$.  We construct a Schwartz--Bruhat function
+  \begin{equation*}
+    \phi = \phi_{\lambda, \mathcal{N}} \in \mathcal{S}(W_1(\mathbb{A})) \otimes M_\lambda(\mathbb{C}) \otimes M_\lambda(\mathbb{C})
+  \end{equation*}
+  such that
+  \begin{enumerate}
+  \item If $p \nmid \disc(V_1) \disc(V_2)[H(\bar{\mathbb{Z}}) : K_H(\mathcal{N})]$ and $p > \max(\lambda_i - \lambda_{i + 1}, n)$, then for $p$-integral automorphic forms $f \in \mathcal{A}_\lambda(H, K_H(\mathcal{N}))$, the theta lift $\theta_{\phi, f} \in \mathcal{A}_\tau(G, K_G(\mathcal{N}))$ is also $p$-integral.
+  \item If moreover this irreducible representation $\lambda$ is of dimension $> 1$, then $f$ being $p$-primitive implies that $\theta_{\phi, f}$ is also $p$-primitive.  This gives what we mean by nonvanishing modulo $p$ of this theta lifting.
+  \end{enumerate}
+\end{theorem}
+\begin{remark}
+  Some previous work:
+  \begin{itemize}
+  \item For $(H, G) =(\mathrm{GU}_2, \mathrm{GU}_3)$, work of Finis '06.
+  \item For $(\GL_2, \mathrm{GO}_B)$, work of Prasanna, Emerton, Hida.
+  \item For $(\mathrm{GSO}_4, \mathrm{GSp}_4)$: Hsieh--Namikawa '17.  This is the work that we generalize to the present case.
+  \end{itemize}
+\end{remark}
+
+\subsection{An application}
+
+Take $n = 2$.  Then $(H, G) =(\U_3, \U_{2, 2})$.  In this case, $\pi$ is assumed to be irreducible, and we can associate a Galois representation
+\begin{equation*}
+  \rho_\pi : \Gamma_{\mathbb{Q}} \rightarrow {}^L H = \GL_3 \rtimes \mathbb{Z} /2,
+\end{equation*}
+and similarly for the theta lifting,
+\begin{equation*}
+  \rho_{\theta(\pi)} : \Gamma_{\mathbb{Q}} \rightarrow {}^L G = \GL_4 \rtimes \mathbb{Z} /2.
+\end{equation*}
+${}^L H$ acts on $\Lie({}^L H)$ and $\Lie({}^L G)$.  We have
+\begin{equation*}
+  \Lie({}^L G) / \Lie({}^L H) = \mathrm{Asai} \oplus \chi_{E/\mathbb{Q}}.
+\end{equation*}
+
+Work in progress:
+\begin{theorem}[Z, '24]
+  Assume modularity lifting theorems ($R = \mathbb{T}$) for $H$ and $G$.  Then
+  \begin{equation*}
+    \operatorname{Sel}(\mathbb{Q},
+    \rho \otimes 
+    \mathbb{C}_p / \mathbb{Q}_p
+    )^\vee
+  \end{equation*}
+  is a torsion $\mathcal{O}_{\mathbb{C}_p}$-module.  Its characteristic ideal in $\mathcal{O}_{\mathbb{C}_p}$ is generated by
+  \begin{equation*}
+    L^\ast(\pi, 1)
+    = \frac{L(\pi, 1)}{\Omega_\pi} \in G_{\mathbb{C}_p}.
+  \end{equation*}
+\end{theorem}
+
+% [applause]
+
+\subsection{Maxim Kirsebom, \emph{On an extreme value law for the unipotent flow on the space of unimodular lattices}}
+
+joint work with K.\ Mallahi--Karai.  \cite{2022arXiv2209.07283}
+
+The speaker hopes this will be a suitable Friday evening talk.
+
+Let's introduce things with a number-theoretic example.  Consider $X =[0, 1] - \mathbb{Q}$, and a continued fraction expansion $x =[a_1(x), a_2(x), \dotsc]$.  Define the Gauss measure
+\begin{equation*}
+  \mu_G(E) = \frac{1}{\log 2} \int_E \frac{d x}{1 + x}.
+\end{equation*}
+\begin{theorem}[Galambos 1972]
+  For $r > 0$, we have
+  \begin{equation*}
+    \mu_G \left( x \in X : \max_{1 \leq i \leq N} a_i(x) \leq N r \right)
+    \xrightarrow{N \rightarrow \infty}
+    e^{- \frac{1}{\log 2} \frac{1}{r}}.
+  \end{equation*}
+\end{theorem}
+Let's think about what this tells us about continued fraction digits.  Take the fractional part of $\pi$:
+\begin{equation*}
+  \{\pi\} =[7, 15, 1, 292, 1, 1, 1, \dotsc],
+\end{equation*}
+\begin{equation*}
+  a_{3 08} = 436, \qquad
+  a_{432} = 20776,
+  \qquad a_{28422} = 78629.
+\end{equation*}
+Those are the first six partial maxima.  It's kind of clear that it's a bit irregular when these maxima happen, so it's kind of difficult to predict when the next digit exceeds the best previous one.  If we pick a random number, we can ask for the probability that the largest digit is $\leq N r$, where $r$ is a parameter that we can change according to whether we want to know whether we have huge digits, small digits, etc.  That's an extreme value law.  We will discuss some examples like this in the context of dynamics.
+
+We start with $\mathbb{H}$, equipped with the hyperbolic metric $d$.  This gives rise to a hyperbolic area.  It is a model for hyperbolic geometry.  There are certain curves of constant curvature, the geodesics (half-circles).  There are also the horocycles, which hit the real axis in one point tangentially, and which can be described using unipotent one-parameter subgroups of $\SL_2(\mathbb{R})$.  As dynamicists, we like to look at such curves.  We should work in $T^1 \mathbb{H}$.  We can look at the action $\SL_2(\mathbb{R}) \circlearrowright \mathbb{H}$, and form the quotient $\mathbb{H} / \SL_2(\mathbb{Z})$.  We can draw pictures of dynamics on this.  
+
+We can also look at $T^1(\mathbb{H} / \SL_2(\mathbb{Z})) =: T^1 F$, which has a volume measure $\mu_L$.  This thing is non-compact but has finite volume, so we can normalize our measure to be a probability measure.
+
+[The speaker remembers the first time he saw the picture of a cusp, which was when he was a master's student in Aarhus; whenever he asked Simon a question, he would draw this picture, which he would call the ``infinite Samosa''.  Then he got a PhD position in the UK, so he learned what Samosas were, then at Bristol he learned about the upper half-plane, etc.]
+
+The geodesic flow $g_t$ and horocycle flow $h_t$ are both ergodic.  $g_t$ is fast mixing, while $h_t$ is slow mixing.
+
+If you want to understand cuspidal excursions, you could look at what is called a logarithm law.
+
+For $\mu_L$-a.e.\ $(z, v) \in T^1 F$, we have
+\begin{equation*}
+  \limsup_{t \rightarrow \infty}
+  \frac{d(\ast_t(z, v), \Im(z) = 1)}{\log t} = 1,
+\end{equation*}
+where $\ast \in \{g, h\}$.
+\begin{itemize}
+\item For $g_t$: Sullivan 1982.
+\item For $h_t$: Athreya--Margulis 2009.
+\end{itemize}
+\begin{multline*}
+  \mu_L \left((z, v) \in T^1 F : \max_{0 \leq t \leq T} d \left( \ast_t(z, v), \Im z = 1 \right)
+    \leq
+    \log T + r
+  \right)
+  \\
+  =
+  \begin{cases}
+    e^{- \tfrac{3}{\pi^2} e^{- r}} & \text{ for $g_t$ (Pollicott 2006)}, \\
+    F(r)                                 & \text{ for } h_t.
+  \end{cases}
+\end{multline*}
+The Pollicott proof of this uses the Galambos result that we started with, because as some of you know, Caroline Series and others proved back in the 80's that there was a connection between how geodesics cut through all these fundamental domains and the continued fraction expansion of the endpoints.  We chose to try a different method.  After all, one doesn't have an analogue of continued fractions for the horocycle flow.  What you can do is take the unit tangent bundle $T^1 F$ of the modular surface and identify it with $\SL_2(\mathbb{R}) / \SL_2(\mathbb{Z})$, which you can in turn identify with
+\begin{equation*}
+  \mathcal{L}_2 = \left\{ \Lambda = \operatorname{span}_{\mathbb{Z}}(v_1, v_2) : v_1, v_2 \in \mathbb{R}^2, \det(v_1, v_2) = 1 \right\},
+\end{equation*}
+the space of unimodular lattices in $\mathbb{R}^2$.  Under this identification, $\mu_L$ corresponds to the probability Haar measure.  In this setting, we already mentioned that the horocycle flow can be described by unipotent subgroups.  The geodesic flow can be described using diagonal matrices:
+\begin{equation*}
+  g_t =
+  \begin{pmatrix}
+    e^t    &  \\
+           & e^{- t} \\
+  \end{pmatrix},
+  \quad
+  h_t =
+  \begin{pmatrix}
+    1    & t \\
+    0 & 1 \\
+  \end{pmatrix},
+  \quad 
+  h_t
+  \begin{pmatrix}
+    x    \\
+    y  \\
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    x + t y    \\
+    y  \\
+  \end{pmatrix}.
+\end{equation*}
+We have this thing called the Mahler compactness criterion which says essentially that any compact subgroup of $\mathcal{L}_2$ avoids a neighborhood of zero, i.e., that a cusp excursion is the same as $\Lambda$ having a short vector.  [Now I learned yesterday that finding the shortest vector in a lattice is a quantum hard problem, so don't forget to be impressed here.]  To measure how far we are into the cusp, we define a function
+\begin{equation*}
+  \alpha_1 : \mathcal{L}_2 \rightarrow \mathbb{R},
+\end{equation*}
+\begin{equation*}
+  \alpha_1(\Lambda) = \log \sup_{v \in V} \frac{1}{\lVert V \rVert}.
+\end{equation*}
+(We should remove $0$ from our lattice each time -- let's do that by convention.)
+
+We look at
+\begin{equation*}
+  F_T(r) :=
+  \mu \left( \Lambda \in \mathcal{L}_2: \max_{0 \leq t \leq \sigma}
+    \alpha_1(h_t \Lambda)
+    \leq \tfrac{1}{2} \log T + r
+  \right).
+\end{equation*}
+We are now ready to state a theorem that Kevin and the speaker were able to prove.
+\begin{theorem}[K.\ Mllahi--Karai, K 2022]
+  The limit $F(r) = \lim_{T \rightarrow \infty} F_T(r)$ exists and is continuous for all $r \in \mathbb{R}$.  We have
+  \begin{equation*}
+    F(r) =
+    \begin{cases}
+      F_1(r) := 1 - \frac{3}{ \pi^2} e^{- 2 r}      & \text{ if } r > 0, \\
+      F_2(r) := 1 - \frac{3}{\pi^2} \left( - e^{- 2 r} + 4 r^2 - 4 r + 2 \right)& \text{ if } - \tfrac{1}{2} \log 2 \leq r \leq 0.
+    \end{cases}
+  \end{equation*}
+  There exist constants $C_0, C_1 > 0$ so that for $r \leq - \tfrac{1}{2} \log 2$
+  \begin{equation*}
+    C_0 e^{2 r} \leq F(r) \leq C_1 e^{2 r}.
+  \end{equation*}
+\end{theorem}
+
+Marklof--Pollicott, August 2024: this $F_2$ function continues to be the distribution function up to $- \log 2$, and then there is some further function $F_3$ that takes over.  Their method was quite similar to that of Pollicott from his geodesic flow proof, whereas ours takes place in this lattice setting.  As far as possible, let's sketch a proof of the theorem.  Actually, for the part where $r$ is positive, it is very simple, so we can almost give the complete proof.
+\begin{align*}
+  \left\{ \max_{0 \leq t \leq T} \alpha_1(h_t \Lambda) > 0 r + \tfrac{1}{2} \log T \right\}
+  &=
+    \left\{ \min_{0 \leq t \leq T} \inf_{v \in h_t \Lambda} \lVert V \rVert \leq e^{- r} T^{-1/2} \right\} \\
+  &= \left\{ \Lambda \cap \bigsqcup_{t \in[0, T]} h_{-t} B_{e^{- r} T^{-1/2}}(0) \neq \emptyset \right\}.
+\end{align*}
+Picture time.  Use that $v \in \Lambda \iff - v \in \Lambda$.  Form
+\begin{equation*}
+  U_{r, T}^+ = \bigcup_{t \in[0, T]} h_{- t} i_{r, T}^+.
+\end{equation*}
+\begin{equation*}
+  \mathcal{O}_{r, T}^+ = \bigcup_{t \in[0, T]} h_{- t} \mathcal{P}_{r, T}^+.
+\end{equation*}
+We have
+\begin{equation*}
+  I_{r, T}^+ \subseteq D_{r, T}^+ \subseteq \mathcal{O}_{r, T}^+.
+\end{equation*}
+
+\begin{lemma}\label{lemma:cnrbhysi29}
+  We have
+  \begin{equation*}
+    \operatorname{Leb}(\mathcal{O}_{r, T}^+ - I_{r, T}^+) \rightarrow 0.
+  \end{equation*}
+\end{lemma}
+
+\begin{lemma}\label{lemma:cnrbhysj11}
+  For $B \subseteq \mathbb{R}^2$ with $0 \notin B$, we have
+  \begin{equation*}
+    \mu \left( \Lambda \cap B \neq \emptyset \right) \leq \operatorname{Leb}(B).
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  This is a simple application of the Siegel formula.
+\end{proof}
+
+We obtain $F(r) = 1 - \lim_{T \rightarrow \infty} \mu \left( \Lambda \cap I_{r, T}^+ \neq \emptyset \right)$.  There's a very nice trick now.
+
+\begin{lemma}\label{lemma:cnrbhywc90}
+  If $A \subseteq \mathbb{R}^2$ and $g \in \SL_2(\mathbb{R})$, then
+  \begin{equation*}
+    \mu \left( \Lambda \cap A \neq \emptyset \right) =
+    \mu \left( \Lambda \cap g A \neq \emptyset \right).
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  Use that the measure is invariant under the $\SL_2(\mathbb{R})$-action.
+\end{proof}
+Now we just need to find a clever $\SL_2(\mathbb{R})$ element:
+\begin{lemma}\label{lemma:cnrbhy1cvg}
+  For $g =
+  \begin{pmatrix}
+    T^{-1/2}    &  \\
+                & T^{1/2} \\
+  \end{pmatrix}$, we get that $g  I_{r, T}^+$ is a certain triangle $I_r^+$ with sides of length $e^{- r}$.
+\end{lemma}
+So now we don't have any $T$-dependence anymore.  It also tells us that
+\begin{equation}\label{eq:cnrbhy0p4f}
+  F(r) = 1 - \mu \left( \Lambda \cap I_r^+ \neq \emptyset \right).
+\end{equation}
+
+\begin{lemma}\label{lemma:cnrbhy04e7}
+  If we replace $\Lambda$ with its primitive subset $\Lambda^\ast$ in \eqref{eq:cnrbhy0p4f}, then the probability doesn't change.
+\end{lemma}
+\begin{proof}
+  Tiny two-line argument.
+\end{proof}
+
+The Siegel transform of $f : \mathbb{R}^2 \rightarrow \mathbb{R}$ is the function $\hat{f} : \mathcal{L}_2 \rightarrow \mathbb{R}$ given by
+\begin{equation*}
+  \hat{f}(\Lambda) = \sum_{v \in \Lambda^\ast} f(v).
+\end{equation*}
+The Siegel formula gives
+\begin{equation*}
+  \int \hat{f} \, d \mu = \frac{1}{\zeta(2)} \int f \, d \mathrm{Leb}.
+\end{equation*}
+If we have this, then we just pick $f$ to be the characteristic function of $I_r^+$, because then its Siegel transform becomes
+\begin{equation*}
+  \hat{f}(\Lambda) = \sum_{v \in \Lambda^\ast} \mathbf{1}_{I_r^+}(v).
+\end{equation*}
+We note in passing that the area of the triangle is at most $1/2$, since each side length $e^{- r}$ is less than $1$ in view of our assumption $r > 0$.  Thus the number of relevant lattice points is at most one, and we can rewrite the above as
+\begin{equation*}
+  \mathbf{1}_{\Lambda : \Lambda \cap I_r^+ \neq \emptyset}.
+\end{equation*}
+We have
+\begin{multline*}
+  \mu \left( \Lambda \cap I_r^+ \neq \emptyset \right) = \int \mathbf{1}_{(\Lambda \cap I_r^+ \neq \emptyset) } \, d \mu
+  = \int \hat{f} \, d \mu
+  \\
+  = \frac{1}{\zeta(2)}
+  \int \mathbf{1}_{I_r^+} \, d \mathrm{Leb}
+  =
+  \frac{6}{\pi^2} \frac{1}{2} e^{- 2 r} = \frac{3}{\pi^2} e^{- 2 r}.
+\end{multline*}
+
+How about the rest of the theorem?  Well, decreasing $r$ makes the triangle bigger, so you can have more points.  You add to the above characteristic function (of having one hit) twice the characteristic function of having two points.
+
+\section{Valentin Blomer, \emph{Converse theorems}}
+
+We'll start with a cusp form $f : \mathbb{H} \rightarrow \mathbb{C}$, satisfying some transformation behavior with respect to $\mathrm{SL}_2(\mathbb{Z})$.  It comes with a Fourier expansion
+\begin{equation}\label{eq:cnrbw4dnun}
+  f(z) = \sum a_f(n) e^{2 \pi i n z}.
+\end{equation}
+It is common to consider with this cusp form simultaneously the associated $L$-function
+\begin{equation*}
+  L(s, f) = \sum_{n = 1}^\infty \frac{a_f(n)}{ n^s}.
+\end{equation*}
+Its $L$-function is also a generating series with the same coefficients, but somehow with different weight functions.  If $f$ comes from an automorphic form, then the $L$-function has a functional equation, which is a reflection of the fact that $f$ itself has so many functional equations under $\mathrm{SL}_2(\mathbb{Z})$.
+
+A converse theorem is the converse of this: given an $L$-function with a functional equation, does it come from an automorphic form?  Equivalently, if $L(s, f)$ satisfies a functional equation, must the series \eqref{eq:cnrbw4dnun} be modular?  More generally, what properties of the sequence $a_f(n)$ are needed for \eqref{eq:cnrbw4dnun} to be modular?
+
+The first converse theorem is due ot Hecke (1936).  It says that if you have an $L$-function
+\begin{equation*}
+  L(s, f) = \sum \frac{a(n)}{ n^s}
+\end{equation*}
+that has a functional equation with conductor $N = 1$ (and the right $\gamma$-factors, and some regularity conditions), then the corresponding Fourier series \eqref{eq:cnrbw4dnun} is a modular form (or even a cusp form, if there is no pole) for $\mathrm{SL}_2(\mathbb{Z})$.
+
+At first sight, this is maybe unexpected, because being a cusp form requires infinitely many functional equations, one for each group element in $\mathrm{SL}_2(\mathbb{Z})$, whereas for the $L$-function, you have only one.  But if you think about this for a moment, this is almost immediate.  The key observation is that $\mathrm{SL}_2(\mathbb{Z})$ is generated by two elements:
+\begin{equation*}
+  \mathrm{SL}_2(\mathbb{Z}) = \left\langle
+    \begin{pmatrix}
+      1      & 1 \\
+             & 1 \\
+    \end{pmatrix},
+    \begin{pmatrix}
+      & -1 \\
+      1 &  \\
+    \end{pmatrix}\right\rangle.
+\end{equation*}
+Modularity with respect to the first generator holds for any series, so you only have to check it for the second, which corresponds to the functional equation.  But this argument does not generalize to congruence subgroups.
+
+The mathematical community had to weight $30$ years to see the general version of this, due to Weil (1967), in a paper written in German on the occasion of Hecke's birthday.  This general version is not so hard to prove; somehow the key fact is that you have to come up with the right theorem.  You have to consider the functional equation not just for $f$, but also all its twists by Dirichlet characters $\chi :(\mathbb{Z} / q \mathbb{Z})^\ast \rightarrow \mathbb{C}^\times$:
+\begin{equation*}
+  L(s, f \times \chi) = \sum \frac{a(n) \chi(n)}{ n^s}.
+\end{equation*}
+If these have the correct functional equation for all (or sufficiently many) Dirichlet characters, then $f$ is a cusp form for a congruence subgroup.
+
+There has been a lot of research to make this a little sharper and find criteria for precisely which twists you actually need, but we don't want to talk about this.
+
+\begin{remark}
+  These twists by Dirichlet characters can be replaced by twists with additive characters
+  \begin{equation*}
+    \mathbb{Z} / q \mathbb{Z} \rightarrow \mathbb{C}
+  \end{equation*}
+  \begin{equation*}
+    n \mapsto e^{2 \pi i n \tfrac{a}{q}}.
+  \end{equation*}
+  There is not a big difference between them, since one can pass from one to the other via Gauss sums, without losing information.  Why are we saying this?  Well, the functional equation of these \emph{twisted} $L$-functions, when you think of the twist as a twist by an \emph{additive} character, is what is called \emph{Voronoi summation}.  The slogan is that a functional equation of the form
+  \begin{equation*}
+    \sum a(n) e^{2 \pi i n \tfrac{a}{q}} \rightsquigarrow \sum a(n) e^{- 2 \pi i n \tfrac{\bar{a}}{q}}
+  \end{equation*}
+  is called a Voronoi summation formula, and modularity is thus equivalent to all Voronoi summation formulas.
+\end{remark}
+
+Why do we care?  One motivation is that this approach can perhaps be used to prove instances of functoriality.  What is functoriality?  It's a big part of the Langlands program.  The basic idea is that if I give you a modular form, there are certain ways to produce new modular forms out of old modular forms.  This is like in linear algebra, where you have ways to create new vector spaces out of old ones.  The idea is that something similar should hold for modular forms.  Maybe you have some control over the $L$-functions for the modular forms that you're trying to produce.  Converse theorems would then be useful for using that control to establish modularity.  This is a huge theory that we'll illustrate with a simple example:
+\begin{example}
+  Suppose we're given an automorphic form $f$ on $\GL_2$, with its standard $L$-function.  You can create out of this a new $L$-function, called the symmetric square
+  \begin{equation*}
+    L(s, f) = \sum \frac{a_f(n)}{ n^s} \rightsquigarrow
+    L(s, \sym^2 f) \approx \sum \frac{a_f(n^2)}{ n^s}.
+  \end{equation*}
+  Suppose you can show that this has a functional equation of the expected type and nice properties.  Can you conclude from this that the automorphic form having the indicated numbers $a_f(n^2)$ as Fourier coefficients is an automorphic form on $\GL_3$?  The answer is ``yes''.  Typically these instances of functoriality are most easily described on the level of $L$-functions, so it would be nice to have a way to go from the $L$-function back to the automorphic form.  A converse theorem can be useful to prove automorphicity or modularity in such instances.
+\end{example}
+
+Functoriality is widely open.  There have been many ideas for how to attack it in certain situations.  From the perspective of analytic number theory, one of the most attractive ideas goes back to Langlands and has the fancy name ``beyond endoscopy''.  (It's called this because for a long time, people tried using endoscopic with some success, but couldn't prove anything; Langlands had the vision that there was perhaps something ``beyond'' endoscopy.)  The idea of functoriality is that you want to produce new automorphic forms, called \emph{functorial lifts}, out of old automorphic forms.  These should be characterized by poles of certain $L$-functions.  So if you're given a big back of $\mathrm{GL}_3$ $L$-functions and want to see which are lifts from other groups and pick one of them, you should be able to see this when you study a certain $L$-function.  The latter should either have a pole or not have a pole, from which you can read off whether it is or is not such a lift.  Let's give the easiest possible example:
+\begin{example}
+  Take a quadratic number field $K / \mathbb{Q}$, and a Hecke character $\chi$.  By taking a theta series (``automorphic induction''), you get a cusp form $\mathrm{AI}(\chi)$ on $\mathrm{GL}_2$.  How can you check when a cusp form comes from a theta series in this way?  They are characterized by the following fact: $L(s, \sym^2(\mathrm{AI}(\chi)))$ has a pole at $s = 1$.  This is the simplest example.  Now, how can you use poles to characterize lifts?  If any $L$-function has a pole at $s =1$, this means the coefficients all point in the same direction, without cancellation.  So what you can do is take your cusp form $f$, take its symmetric square, and just add up the coefficients for $n \leq X$, normalize the sum, and take the limit:
+  \begin{equation*}
+    \lim_{X \rightarrow \infty} \frac{1}{X} \sum_{n \leq X} a_f(n^2).
+  \end{equation*}
+  This should be roughly the indicator function on lifts: roughly $1$ or $0$ according as there is or is not a pole.  In order to establish the characterization, you can average this over all $f$, which should be the same as averaging the same thing over all lifts.  You can compute both averages explicitly using some sort of trace formula (for all cusp forms, and only for lifts).  You can compare the two averages by comparing two trace formulas; in the end, you should get the same result.  This establishes the characterization ``on average''.  By introducing weights, we can then recover the characterization for individual lifts.  This has been worked out in detail in Venkatesh's thesis.
+\end{example}
+
+You can use a small variation of this idea to prove converse theorems.  Remember what we want to show: we want to show that if some sequence $b(n)$ satisfies all Voronoi summation formulae, then we can deduce modularity.  How can we see that a sequence $b(n)$ is modular?  If this $b(n)$ happens to be some modular form $f$ that we know already, then there is no cancellation in the sum
+\begin{equation*}
+  \frac{1}{X} \sum_{n \leq X} b(n) a_f(n).
+\end{equation*}
+If it is not a modular form, then it shouldn't resonate with any such $a_f(n)$, and there should be lots of cancellation and we should get zero.  Thus, averaging over $f$, we should get an expression that detects when $b(n)$ describes a lift.  By interchanging summation and using a trace formula, we can see that
+\begin{equation*}
+  \sum_f \frac{1}{X} \sum_{n \leq X} b(n) a_f(n)
+  \approx
+  \frac{1}{X}
+  \sum_{n \leq X} b(n)
+  \sum_c S(n, 1, c),
+\end{equation*}
+where the Kloosterman sum is defined by
+\begin{equation}\label{eq:cnrbw6p2zj}
+  S(n, 1, c) = \sum_{d \pmod{c}} e^{2 \pi i \frac{n d + \bar{d}}{c}}.
+\end{equation}
+By opening this last definition and interchanging summation again, we are faced with the sums $\sum_{n \leq X} b(n) e^{2 \pi i n d/c}$, to which we can apply the assumed Voronoi summation formula.  That's the idea behind the argument.
+
+This argument is fairly global, but has some important local inputs.  You need the following inversion formula.  Take a test function $h$, and integrate it against a Bessel kernel:
+\begin{equation*}
+  \int
+  \left( \int h(t) \frac{J_{2 i t}(x)}{ \cosh(\pi t)}
+    t \, d t \right)
+  \frac{J_{2 i s}(x)}{\cosh(\pi s)}
+  \, \frac{d x}{x}
+  = h(s).
+\end{equation*}
+This is called the Sears--Titchmarsh transform.
+
+Let's now discuss the case of $\mathrm{GL}_3$.  Converse theorems in that setting are well known.  They concern the question: given a sequence of numbers, when can we conclude that they are Hecke eigenvalues for a $\mathrm{GL}_3$ form?  The first converse theorem goes back to Piatetski-Shapiro (1979).  Goldfeld--Thillainetesan (2003) and Miller--Schmid (2006) gave other proofs.  The theorem says that the functional equation of $L(s, f \times \chi)$ for all Dirichlet characters $\chi$ (or equivalently, all Voronoi summation formulae) imply modularity on $\mathrm{GL}_3$.
+
+\begin{remark}
+  You would hope this continues indefinitely on $\mathrm{GL}_n$, but unfortunately that's not the case -- more is needed than just character twists when $n \geq 4$.  Piatetski-Shapiro and Cogdell showed that we can get by $\GL(m)$ twists for all $m \leq n - 2$; the conjecture is that it suffices to take $m \leq \tfrac{n}{2}$.
+\end{remark}
+
+We present a further proof of the same theorem for $\mathrm{GL}_3$:
+\begin{theorem}[Blomer--Leung]
+  Suppose $b(n)$ satisfies all Voronoi summation formulas.  Then $b(n)$ is $\mathrm{SL}_3(\mathbb{Z})$-modular.
+\end{theorem}
+\begin{proof}[Sketch of proof]
+  It's similar to what we described for $\mathrm{GL}_2$, but more complicated.  We take our sequence, and want to see whether it resonates in the expression
+  \begin{equation*}
+    \sum_f \frac{1}{X} \sum_{n \leq X} b(n) a_f(n).
+  \end{equation*}
+  We interchange summation and use some $\mathrm{GL}_3$ trace formula.  This gives rise to $\mathrm{GL}_3$ Kloosterman sums.  These are again exponential sums, although more complicated than \eqref{eq:cnrbw6p2zj}.  You can then apply the Voronoi summation, which gives more exponential sums.  These have some special shape that can be transformed in a certain way that is called \emph{reciprocity}.  They are then in a new shape, and you can apply the Voronoi summation formula again.  Then you can evaluate what you want.
+\end{proof}
+
+\begin{remark}
+  We emphasized that we need some local input for this.  The local input for $\mathrm{GL}_2$ was the Sears--Titchmarsh transform: you need to show that the Kuznetsov kernel, integrated against twice the Voronoi kernel and the reciprocity kernel, are inverses of each other.  This would take several blackboards to write down, so we won't; let's just say that it needs a $\mathrm{GL}_3$ integral inversion formula.
+\end{remark}
+
+\begin{remark}
+  Here's the speculative part.  The Voronoi formula is associated with
+  \begin{equation*}
+    \begin{pmatrix}
+      1      & \ast_1 & \ast_3 \\
+             & 1 & \ast_2 \\
+             &  & 1 \\
+    \end{pmatrix}.
+  \end{equation*}
+  We think the indicated asterisks correspond to the Voronoi, reciprocity and Voronoi applications.  Maybe the integral kernels are associated to some analysis on the Heisenberg group.  Again, this is completely speculative.
+\end{remark}
+
+\begin{remark}
+  The non-archimedean part consists of many sums.  $\mathrm{GL}_3$ Voronoi summation is not so clean -- there are many sums, eventually involving up to $30$ summation variables.  A lot of this has actually been carried out with Mathematica.
+\end{remark}
+
+\begin{remark}
+  This leads us to the question: what happens with $\mathrm{GL}_4$?  You'll realize that this fails immediately.  Why?  Well, you could try the same thing, but the moment you apply Voronoi to the exponential sums, you get something that is essentially self-dual, so you can't go further.  We could have guessed this in advance, because we know that Voronoi formula alone don't do the job -- you also need $\mathrm{GL}_2$ twists.
+\end{remark}
+
+\section{Maiken Gravgaard, \emph{Quantitative Khintchine on the parabola}}
+
+(work in progress with Simon Kristensen)
+
+\subsection{Setup}
+
+For $n \in \mathbb{N}$ and $\psi : \mathbb{N} \rightarrow(0, \infty)$, define the set of $\psi$-approximable points
+\begin{equation*}
+  S_n(\psi) := \left\{ x \in[0, 1]^n :
+    \lVert q x \rVert \leq \psi(q)
+    \text{ for infinitely many } q \in \mathbb{N}\right\}.
+\end{equation*}
+Here
+\begin{equation*}
+  \lVert \alpha \rVert := \min_{p \in \mathbb{Z}^n} \lvert q x - p \rvert.
+\end{equation*}
+\begin{example}
+  We have
+  \begin{equation*}
+    S_n \left( q \mapsto \frac{1}{q^n} \right) =[0, 1]^n.
+  \end{equation*}
+\end{example}
+\begin{theorem}[Khintchine, 1924, 1926]
+  The Lebesgue measure of the set of $\psi$-approximable points is described as follows:
+  \begin{equation*}
+    \lambda_n(S_n(\psi)) =
+    \begin{cases}
+      0 &  \text{ if } \sum \psi(q)^n < \infty, \\
+      \text{full}        & \text{ if } \psi:\text{monotonic, } \sum \psi(q)^n = \infty.
+    \end{cases}
+  \end{equation*}
+\end{theorem}
+We note that the convergence case is the easy case -- it's just Borel--Cantelli's first lemma.  The divergence case is the harder case.
+
+\begin{theorem}[Beresnevich--Yarey, 2023]
+  For $n \geq 2$, $\psi$ monotonic such that $\sum_q \psi(q)^n < \infty$, if we take a submanifold $\mathcal{M} \subseteq \mathbb{R}^n$ that is non-degenerate (i.e., ``a bit curvy'', not just flat and contained in some lower dimension) of degree $d$, then the set of $\psi$-approximable points in the manifold has $d$-Hausdorff measure zero:
+  \begin{equation*}
+    \mathcal{H}^d \left( S_n(\psi) \cap \mathcal{M} \right) = 0.
+  \end{equation*}
+\end{theorem}
+We can ask ourselves: is the monotonicity assumption on $\psi$ necessary, or not?  The answer is ``not always''.
+\begin{theorem}[Huang, 2019]
+  If we take $\mathcal{M} = \left\{(x, x^2) : x \in[0, 1] \right\}$, then we can take $\psi$ to be any function such that $\sum_q \psi(q)^2 < \infty$.  Then $\mathcal{H}^1(S_2(\psi) \cap \mathcal{M}) = 0$.
+\end{theorem}
+Note that this is not unreasonable to expect in view of Khintchine's theorem; this is called ``strong Khintchine'' because we don't assume assume monotonicity.
+
+\begin{corollary}
+  For $\psi$ as above and almost all $x \in[0, 1]$, there exists $\kappa(x) > 0$ such that
+  \begin{equation*}
+    \max \left\{ \lVert q x \rVert, \lVert q x^2 \rVert \right\} > \kappa(x) \psi(q) \text{ for all } q \in \mathbb{N}.
+  \end{equation*}
+\end{corollary}
+
+\subsection{Quantitative Khintchine problem}
+
+Take $\psi$ with $\sum \psi(q)^2 < \infty$.  For any $0 < \delta < 1$, find $\kappa = \kappa(\delta, \psi)$ such that
+\begin{equation*}
+  \mathcal{H}^1 \left( \{x \in[0, 1] : \max \{\lVert q x \rVert, \lVert q x^2 \rVert\}\} > \kappa \psi(q) \text{ for all } q \in \mathbb{N} \right) \geq 1 - \delta.
+\end{equation*}
+
+(Datta 2023.)
+
+How to do this?  It's kind of the method Datta used, and also the method I'm using.  Basically, at each step in the proof, you make all constants explicit, and then you're done.
+
+Look at
+\begin{multline*}
+  \mathcal{H}^1 \left( \{x \in[0, 1] : \exists q \in \mathbb{N} \text{ s.t. } \lVert q x \rVert \leq \kappa \psi(q),
+    \,
+    \lVert q x^2 \rVert \leq \kappa \psi(q)\} \right)
+  \\
+  \leq \mathcal{H}^1 \left( \cup_{q = 1}^\infty \cup_{
+      \substack{
+        a \leq q  \\
+        \lVert a^2 / 2 \rVert \leq 3 \kappa \psi(q)        
+      }
+    }
+    \left[ \frac{a}{q} - \kappa \frac{\psi(q)}{q},
+      \frac{a}{q} + \kappa \frac{\psi(q)}{q}\right]\right) \\
+  \leq 2 \kappa \sum_{q = 1}^\infty \frac{\psi(q)}{q} \sum_{
+    \substack{
+      a \leq q  \\
+      \lVert a^2 / q \rVert \leq 3 \kappa \psi(q)      
+    }
+  } 1.
+\end{multline*}
+This last sum counts rational points with denominator $q$ that are close to the parabola.
+
+Huang: for $r^2 \mid q$, $\eps > 0$,
+\begin{equation*}
+  \sum_{
+    \substack{
+      a \leq q  \\
+      \lVert a^2 / q \rVert \leq 1      
+    }
+  } 1
+  \ll_\eps \eta q + r^{1 + \eps} + \eta^{1/2} q^{11/16 + \eps}.
+\end{equation*}
+This last step requires the Burgess bound for short character sums.  This is the last thing we need to make explicit, and is why it remains work in progress.  Let's say something quick about this.  Take $\psi$, a primitive character modulo $q$, and take $N, M \in \mathbb{N}$, and and $\eps > 0$.  Then
+\begin{equation*}
+  \sum_{n = M + 1}^{M + N} \chi(n) \ll_\eps \sqrt{N} q^{3/16 + \eps}.
+\end{equation*}
+There's this version due to Jain--Sharma, Khade, Liu (2021): if our character is primitive, then for
+\begin{equation}\label{eq:cnrbxdflam}
+  q \geq e^{e^{9.594}},
+\end{equation}
+\begin{equation*}
+  \left| \sum_{n = M + 1}^{M + N} \chi(n) \right| \leq \sqrt{N} q^{3/16} \left( \dotsb \right),
+\end{equation*}
+where the omitted part involves $\log \log$'s, etc.  The bound \eqref{eq:cnrbxdflam} is not so useful for computations, but we can make the asymptotic growth of the estimate worse, say $\sqrt{N} q^{\frac{m - 1}{4 m}}$, but with a weaker lower bound for $q$.
+
+\section{Johann Franke, \emph{Asymptotic expansions for partitions}}
+
+Number theory means counting!  Natural to counting interesting objects.
+\begin{itemize}
+\item Isomorphism classes of objects with specific properties (gropus, quadratic forms, etc.)
+\item Number of prime factors of a natural number (cryptography, RH)
+\item Number of solutions of equations (Weil conjectures, BSD)
+\item Combinatorics (e.g., permutations, partitions).
+\end{itemize}
+
+Let $n$ be a positive integer.  We consider sequences $\lambda_1 \geq \lambda_2 \geq \dotsb \geq \lambda_r$ of positive integeres such that $\lambda_1 + \dotsb + \lambda_r = n$.  We call such a tuple $\lambda =(\lambda_1, \dotsc, \lambda_r)$ a \emph{partition} of $n$.  The total number of partitions is denoted $p(n)$.  For example, $p(4) = 5$.  We adopt the convention $p(0) = 1$.
+
+To calculate the number $p(n)$, we need to determine the number of solutions in $\mathbb{N}_0^n$ of the Diophantine equation
+\begin{equation*}
+  X_1 + 2 X_2 + \dotsb + n X_n = 0.
+\end{equation*}
+This is a challenging combinatorial problem.  Numerical observations show the rapid growth of $p(n)$.
+\begin{question}
+  Can we describe this growth in a simple way?
+\end{question}
+
+We use Euler's identity:
+\begin{equation*}
+  \sum_{n \geq 0} p(n) q^n = \prod_{n \geq 1} \frac{1}{1 - q^n}
+  = \frac{q^{1/24}}{ \eta(z)},
+\end{equation*}
+where $q = e^{2 \pi i z}$ and $\eta(z)$ is the Dedekind eta function.  The right hand side is thus essentially a weakly holomorphic modular form of weight $-1/2$ in $z$.
+
+\begin{question}
+  When and, if so, how can we derive exact formulas or at least the asymptotic growth behavior of a sequence $a(n)$ from its power series $\sum_{n \geq 0} a(n) q^n$.
+\end{question}
+
+\textbf{First answers}.  ``When'' is not clearly determinable (at most, sufficient criteria exist).  However, in the case of ``how'', there is an ``obvious'' methodology: the \emph{circle method}!
+
+The idea of the circle method is to use the analytical properties of the function $F(q) := \sum_{n \geq 0} a(n) q^n$ generated bya  sequence $a(n)$ to gain information about $a(n)$.  Cauchy's integral formula
+\begin{equation*}
+  a(n) = \oint_{\lvert q \rvert = r_n} \frac{F(q)}{q^{n + 1}} \, \frac{d q}{2 \pi i},
+\end{equation*}
+with $0 < r_n < 1$.  Alternatively, with the variable substitution $q := e^{2 \pi i(x + i y)}$ ($y > 0$),
+\begin{equation*}
+  a(n) = e^{2 \pi n y_n} \int_0^1 F(e^{x + i y_n}) e^{- 2 \pi i n x} \, d x.
+\end{equation*}
+Remarks:
+\begin{itemize}
+\item The RHS depends essentially only on $F$!
+\item The free choice of $y_n > 0$ helps in potentially precisely estimating the integral.  (Take $y_n \rightarrow 0$ as $n \rightarrow \infty$.)
+\item The growth behavior of $F(q)$ as $\lvert q \rvert \rightarrow 1^-$ is decisive for the growth of $a(n)$.
+\end{itemize}
+The idea now is to split the integral into two parts by dividing the circle into two arcs: the \emph{major arcs} $\mathfrak{M}$ and the \emph{minor arcs} $\mathfrak{m}$:
+\begin{equation*}
+  a(n) =
+  \oint_{\lvert q \rvert = r_n} \frac{F(q)}{q^{n + 1}} \, \frac{d q}{2 \pi i}
+  =
+  \oint_{\mathfrak{M}} \frac{F(q)}{q^{n + 1}} \, \frac{d q}{2 \pi i}
+  + \oint_{\mathfrak{m}} \frac{F(q)}{q^{n + 1}} \, \frac{d q}{2 \pi i},
+\end{equation*}
+where $\mathfrak{M} \cup \mathfrak{m} = \partial B_{r_n}(0)$.  The ideal case is when $F$ is provably large and controllable on the major arcs and negligible on the minor arcs, giving rise respectively to main and error terms.
+
+[Picture of disc model of hyperbolic plane showing a function where we can see how the pole at $q = 1$ lies on the right.]
+
+With this method, Hardy and Ramanujan were able to prove the following:
+\begin{theorem}[Hardy--Ramanujan 1917]\label{theorem:cnrbxgr03s}
+  For $n \rightarrow \infty$, we have
+  \begin{equation*}
+    p(n) \sim \frac{1}{4 \sqrt{3} n}
+    e^{\pi \sqrt{2 n /3}}.
+  \end{equation*}  
+\end{theorem}
+Their result connects partitions with fundamental constants.
+
+\begin{remark}
+  Rademacher improved Theorem \ref{theorem:cnrbxgr03s} in 1937 with the theory of modular forms to provide an exact formula.
+\end{remark}
+
+\textbf{Goal}: generalize the result of Hardy and Ramanujan to the largest possible family of sequences $a(n)$, using the circle method.  We call such a sequence of ``partition type'' if the following holds:
+\begin{enumerate}[(i)]
+\item\label{enumerate:cnrbxgyeoc} There exists an induced sequence of integer exponents $f(n)$ such that there is a product identity
+  \begin{equation*}
+    F(q) := \sum_{n \geq 0} a(n) q^n = \prod_{n \geq 1}
+    \frac{1}{(1 - q^n)^{f(n)}}.
+  \end{equation*}
+\item\label{enumerate:cnrbxgyhfl} The exponents $f(n)$ grow at most polynomially, and in particular, subexponentially, i.e., $F$ is holomorphic on the entire unit circle.
+\item\label{enumerate:cnrbxgx9oa} The exponents must satisfy $f(n) \geq 0$ for all $n \geq 0$.
+\end{enumerate}
+
+\begin{example}
+  \begin{enumerate}
+  \item The partition function is \emph{naturally of partition type}, taking $f = 1$.
+  \item The so-called \emph{plane partition function } $\mathrm{pp}(n)$ is of partition type (take $f(n) = n$).
+  \item The \emph{shifted Ramanujan} $\tau$ \emph{function} $\tau(n + 1)$ is \emph{not} of partition type:
+    \begin{equation*}
+      \sum_{n \geq 0} \tau(n + 1) q^n =
+      \prod_{n \geq 1}(1 - q^n)^{24},
+    \end{equation*}
+    but $f \equiv - 24 < 0$, violating the nonnegativity assumption \eqref{enumerate:cnrbxgx9oa}.
+  \end{enumerate}
+\end{example}
+How to approach functions of partition type?  \textbf{Main idea}: consider the exponents in our product, and utilize, if available, ``good analytical proeprties'' of the Dirichlet series $L_f(s) := \sum_{n \geq 1} \frac{f(n)}{ n^s}$.  (In the classical partition function, with $f \equiv 1$, we get the Riemann zeta function.)  We then aim to get information about $a(n)$ from information about $L_f$.  This was already applied in the classical article by Meinardus (1954).
+
+\textbf{Problems}:
+\begin{itemize}
+\item Meinardus requires technical analytical assumptions about the function $\sum_{n \geq 1} f(n) q^n$, which makes it difficult to apply in practice.
+\item Primarily produces a main term, so no optimization of the error term is possible.
+\end{itemize}
+\textbf{Goal}: remove technical assumptions and replace them with much simpler conditions, without significantly weakening the theorem (de Brujin and Tenenbaum, 2020).
+
+We complete the Dirichlet series, giving
+\begin{equation*}
+  L_f^\ast(s) := \Gamma(s) \zeta(s + 1) L_f(s).
+\end{equation*}
+We impose some conditions:
+\begin{enumerate}
+\item All poles of $L_f$ are real, which means in practice that for each prime, $f(n) \neq 0$ for sufficiently many $n \not \equiv 0 \pmod{p}$.
+\item Continuation and good pole distribution, e.g., no non-real poles, and all simple except possibly at $s = 0$ where we allow a double pole.
+\item Nice growth behavior on vertical strips (majorized by $e^{a \lvert t \rvert}$ with $a < \pi/2$, uniformly on vertical strips).
+\end{enumerate}
+\begin{theorem}[Main theorem]
+  Let $p_f $ be of parittion type, with $\sum_{n \geq 0} p_f(n) q^n = \prod_{n \geq 1}(1 - q^n)^{- f(n)}$.  Assume the above conditions.  Then we get an asymptotic formula, explicitly calculated in terms of residues of $L_f^\ast$ at poles:
+  \begin{equation*}
+    p_f(n) = \frac{C}{ n^b} \exp \left( A_1 n^{\frac{\alpha}{ \alpha + 1}} + \sum_{j = 2}^M A_j n^{a_j} \right)
+    \left( 1 + \sum_{j = 2}^N \frac{B_j}{ n^{\beta_j}} + \O_{L, R}(^{- \min \left\{ \frac{2 L - \alpha}{2(\alpha + 1)}, \frac{R}{\alpha + 1} \right\}}) \right).
+  \end{equation*}
+\end{theorem}
+
+We briefly indicate some applications: to partitions (including plane partitions and partitions into $k$-th powers), applications in algebra to various Lie algebras and representation theory, generalizing to other possible groups (coming from Witten zeta functions), some involvement of multivariable zeta functions of Matsumoto, applications to symmetric group theory concerning the counts of commuting $\ell$-tuples in $S_n$ using some classical formula of Bryan--Fulman, etc.
+
+% [applause]
+
+Q. why no apparent oscillation in the main theorem, cf.\ Mahler?  A: that's a different problem.
+
+Q. what's the connection to partitions?  A. $p_f(n)$ counts weighted partitions.
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
