@@ -6,6 +6,10 @@
 \maketitle
 \tableofcontents
 
+\begin{abstract}
+  We record a detailed exposition of the proof of Haseo Ki's $L^4$-norm bound for Maass forms.
+\end{abstract}
+
 \section{Notation and setup}\label{sec:cqx50ayzoa}
 Let $t$ traverse a sequence of positive real numbers, tending off to $\infty$.  In what follows, we adopt the convention that everything is allowed by default to depend upon $t$ unless we declare it to be fixed (or, synonymously, write ``fix $\dotsc$'').  Moreover, all assertions are understood as holding for $t$ sufficiently large.  We adopt the asymptotic notation: if $|A| \leq C |B|$ for some fixed $C$, then we write
 \begin{equation*}
@@ -88,7 +92,7 @@ In these cases, the necessary savings are achieved by integrating by parts once 
 
 
 \section{Parseval}\label{sec:cqx50az21s}
-We will prove Theorem \ref{theorem:main} by decomposing $W_t$ into at most $\prec 1$ pieces $W$ and showing that $\mathcal{N}(W) \prec 1$ for each piece.  The basis for the piecewise estimates will be the following application of Parseval and Cauchy--Schwarz.
+We will prove Theorem \ref{theorem:main} by decomposing $W_t$ into at most $\prec 1$ pieces $W$ and showing that $\mathcal{N}(W) \prec 1$ for each piece.  The basis for the piecewise estimates will be the following application of Parseval.
 \begin{lemma}\label{lemma:unfolding}
   We have
   \begin{equation*}
@@ -114,7 +118,12 @@ We will prove Theorem \ref{theorem:main} by decomposing $W_t$ into at most $\pre
       W (n _4 y)}
     \, \frac{d y}{ y ^2 }.
   \end{equation*}
-  We majorize each $\lambda(n_j)$ in absolute value and apply Cauchy--Schwarz, giving
+  We majorize each $\lambda(n_j)$ in absolute value and apply AM-GM:
+  \begin{equation*}
+    \left|     \frac{\lambda (n _1) \dotsb \lambda (n _4 )}{\sqrt{n _1 \dotsb n _4 }} \right|
+    \leq \frac{1}{4} \sum_{i = 1}^4 \frac{\left| \lambda(n_i) \right|^4}{n_i^2}.
+  \end{equation*}
+  Since the magnitude of the remaining integral is invariant under a transitive group of permutations of the $n_j$, we may reduce to considering the contribution to this last sum from $i = 1$, giving
   \begin{equation*}
     \mathcal{N}(W) \prec
     \sum _{n_1 + n_2 = n_3 + n_4}
@@ -123,7 +132,7 @@ We will prove Theorem \ref{theorem:main} by decomposing $W_t$ into at most $\pre
       \int _{y = y _0 } ^\infty W (n _1 y ) W (n _2 y) \overline{W (n _3 y) W (n _4 y)} \, \frac{d y}{y^2}
     \right\rvert.
   \end{equation*}
-  We have used here that the previous expression is invariant under a transitive group of permutations of the $n_j$.  We conclude by performing the change of variables $y \rightarrow y / n_1$.
+  We conclude by performing the change of variables $y \rightarrow y / n_1$.
 \end{proof}
 
 
