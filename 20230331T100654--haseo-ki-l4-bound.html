@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2023-03-31" />
+  <title>Notes on Haseo Ki’s L^4-norm bound</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+    <div class="my-links-container">
+2025-01-29 18:26:33
+      <a href="20230331T100654--haseo-ki-l4-bound.tex" class="my-link">tex</a>
+      <a href="20230331T100654--haseo-ki-l4-bound.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20230331T100654--haseo-ki-l4-bound.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+<header id="title-block-header">
+<h1 class="title">Notes on Haseo Ki’s <span
+class="math inline">\(L^4\)</span>-norm bound</h1>
+<p class="date">31 Mar 2023</p>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>We record a detailed exposition of the proof of Haseo Ki’s <span
+class="math inline">\(L^4\)</span>-norm bound for Maass forms.</p>
+</div>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#sec:cqx50ayzoa" id="toc-sec:cqx50ayzoa">Notation and
+setup</a></li>
+<li><a href="#sec:cqx50az0ci" id="toc-sec:cqx50az0ci">Statement of
+result</a></li>
+<li><a href="#sec:cqx50az21s" id="toc-sec:cqx50az21s">Parseval</a></li>
+<li><a href="#sec:cqx50az3z1" id="toc-sec:cqx50az3z1">Estimating via
+size and support</a></li>
+<li><a href="#sec:cqx50az4ip" id="toc-sec:cqx50az4ip">Bessel
+asymptotics</a></li>
+<li><a href="#sec:cqx50az4v6" id="toc-sec:cqx50az4v6">Dyadic
+decomposition</a></li>
+<li><a href="#sec:appl-crude-bounds"
+id="toc-sec:appl-crude-bounds">Application of crude bounds</a></li>
+<li><a href="#sec:cqx50az5wn"
+id="toc-sec:cqx50az5wn">Smoothening</a></li>
+<li><a href="#sec:cqx50az6mj" id="toc-sec:cqx50az6mj">The diagonal
+contribution</a></li>
+<li><a href="#sec:discarding-remainder-terms"
+id="toc-sec:discarding-remainder-terms">Discarding the remainder
+terms</a></li>
+<li><a href="#sec:cqx50az7zk" id="toc-sec:cqx50az7zk">Absorption of
+nuisance factors</a></li>
+<li><a href="#sec:reduction-oscillatory-integral-estimates"
+id="toc-sec:reduction-oscillatory-integral-estimates">Reduction to
+oscillatory integral estimates</a></li>
+<li><a href="#sec:integration-parts"
+id="toc-sec:integration-parts">Integration by parts</a></li>
+<li><a href="#sec:cqx50a0chs" id="toc-sec:cqx50a0chs">Fun with square
+roots</a></li>
+<li><a href="#sec:cqx50a0dcx" id="toc-sec:cqx50a0dcx">Questions</a></li>
+</ul>
+</nav>
+<h1 id="sec:cqx50ayzoa">§1. Notation and setup</h1>
+<p>Let <span class="math inline">\(t\)</span> traverse a sequence of
+positive real numbers, tending off to <span
+class="math inline">\(\infty\)</span>. In what follows, we adopt the
+convention that everything is allowed by default to depend upon <span
+class="math inline">\(t\)</span> unless we declare it to be fixed (or,
+synonymously, write “fix <span class="math inline">\(\dotsc\)</span>”).
+Moreover, all assertions are understood as holding for <span
+class="math inline">\(t\)</span> sufficiently large. We adopt the
+asymptotic notation: if <span class="math inline">\(|A| \leq C
+|B|\)</span> for some fixed <span class="math inline">\(C\)</span>, then
+we write <span class="math display">\[A = \operatorname{O}(B), \quad A
+\ll B \quad \text{ or } \quad  B \gg A,\]</span> while if <span
+class="math inline">\(|A| \leq c |B|\)</span> for each fixed <span
+class="math inline">\(c &gt; 0\)</span>, then we write <span
+class="math display">\[A = o(B), \quad  A \lll B \quad \text{ or }  B
+\ggg A.\]</span> We adopt the following shorthand: <span
+class="math display">\[\begin{align}
+  A \simeq B
+  &amp;\iff
+    A = B + o(1),  \\
+  A \asymp B &amp;\iff A \ll B \ll A, \\
+  A \prec B &amp;\iff A \ll t^{o(1)} B.
+\end{align}\]</span></p>
+<p>We abbreviate <span class="math inline">\(e(x) := \exp(2 \pi i
+x)\)</span>.</p>
+<h1 id="sec:cqx50az0ci">§2. Statement of result</h1>
+<p>Let <span class="math inline">\(\lambda(n)\)</span> be a sequence of
+real numbers, indexed by the natural numbers <span
+class="math inline">\(\mathbb{N} = \{1, 2, \dotsc \}\)</span>, with the
+property that for each <span class="math inline">\(N \geq 1\)</span>, we
+have <span id="eqn:fourth-moment-bound-lambda" class="math display">\[\label{eqn:fourth-moment-bound-lambda}\tag{1}
+  \sum_{n \leq N} \left\lvert \lambda(n) \right\rvert^4 \prec
+N.\]</span> Fix <span class="math inline">\(y_0 &gt; 0\)</span>. For
+each measurable function <span class="math inline">\(W : (0,\infty)
+\rightarrow \mathbb{C}\)</span>, we define <span id="eqn:definition-N-of-W" class="math display">\[\label{eqn:definition-N-of-W}\tag{2}
+  \mathcal{N} (W) :=
+  \int _{y = y _0 } ^\infty
+  \int _{x \in \mathbb{R} / \mathbb{Z} }
+  \left\lvert
+    \sum _{n} \frac{\lambda(n)}{\sqrt{n}} W (n y) e (n x)
+  \right\rvert ^4    \, \frac{d y}{ y ^2 }.\]</span> This is the fourth
+power of a seminorm, and so enjoys a variant of the triangle inequality:
+<span class="math display">\[\mathcal{N} (W _1 + W _2) \ll \mathcal{N}
+(W _1 ) + \mathcal{N} (W _2 ).\]</span></p>
+<p>We denote by <span class="math inline">\(W_t\)</span> the Whittaker
+function <span class="math display">\[W_t(y) := \sqrt{y} e ^{\pi t / 2}
+K _{i t} (y),\]</span> which enjoys the <span
+class="math inline">\(L^2\)</span>-normalization property <span
+class="math display">\[\int _0 ^\infty \lvert W_t(y) \rvert ^2 \,
+\frac{d y}{y} \asymp 1.\]</span> The arguments of <a href="#ref-ki20234" class="citation"
+data-cites="ki20234">(Ki 2023, Theorem 2)</a> establish the
+following:</p>
+<div id="theorem:main" class="theorem">
+<p><strong>Theorem 1</strong>. <em>We have <span
+class="math inline">\(\mathcal{N}(W_t) \prec 1\)</span>.</em></p>
+</div>
+<div id="example:cqx50a0rbu" class="example">
+<p><strong>Example 2</strong>. Let <span
+class="math inline">\(\varphi\)</span> be a Hecke–Maass cusp form for
+<span class="math inline">\({\mathop{\mathrm{SL}}}_2(\mathbb{Z})\)</span>
+of eigenvalue <span class="math inline">\(1/4 + t^2\)</span>. Let <span
+class="math inline">\(\lambda(n)\)</span> denote its normalized Hecke
+eigenvalues. It is known that <a href="#eqn:fourth-moment-bound-lambda"
+data-reference-type="eqref"
+data-reference="eqn:fourth-moment-bound-lambda">\((1)\)</a>
+holds (see <a href="#ref-MR3102912" class="citation" data-cites="MR3102912">(Ghosh,
+Reznikov, and Sarnak 2013, Lemma 3.6)</a>). We may normalize <span
+class="math inline">\(\varphi\)</span> so that its Fourier expansion
+reads <span class="math display">\[\varphi(z) = \sum _{0 \neq n \in
+\mathbb{Z} }
+    \frac{\lambda(|n|)}{|n|^{1/2}}
+    \mathop{\mathrm{sgn}}(n)^{a} W (2 \pi |n| y) e (n x)\]</span> for
+some <span class="math inline">\(a \in \{0,1\}\)</span>. It is known
+(see <a href="#ref-MR1067982" class="citation" data-cites="MR1067982">(Iwaniec
+1990)</a>, <a href="#ref-HL94" class="citation" data-cites="HL94">(Hoffstein and
+Lockhart 1994)</a>) that <span class="math display">\[\lVert
+\varphi  \rVert ^2 _{L^2} \asymp L(\mathop{\mathrm{ad}}\varphi, 1) =
+t^{o(1)}.\]</span> Theorem <a href="#theorem:main"
+data-reference-type="ref" data-reference="theorem:main">1</a> implies,
+by integrating over a Siegel domain and considering separately the
+contributions of positive and negative <span
+class="math inline">\(n\)</span>, that <span
+class="math display">\[\lVert \varphi  \rVert _{L^4} \prec
+1.\]</span></p>
+</div>
+<p>The idea of the proof of Theorem <a href="#theorem:main"
+data-reference-type="ref" data-reference="theorem:main">1</a> is as
+follows. We smoothly localize <span
+class="math inline">\(W_t(y)\)</span> into several regions, according to
+the size <span class="math inline">\(Y\)</span> of <span
+class="math inline">\(t\)</span>, the size <span
+class="math inline">\(U\)</span> of <span class="math inline">\(y -
+t\)</span>, and the sign of <span class="math inline">\(y - t\)</span>.
+In particular, we focus on regions described by the conditions <span
+class="math display">\[y \asymp Y, \quad y - t \asymp U.\]</span> We
+apply Parseval’s identity to the <span
+class="math inline">\(x\)</span>-integral in the definition of <span
+class="math inline">\(\mathcal{N}(W)\)</span>. This introduces a sum
+over <span class="math inline">\(n_1 + n_2 = n_3 + n_4\)</span> of <span
+class="math inline">\(\lambda(n_1) \lambda (n _2 )  \lambda (n _3 )
+\lambda (n _4 )\)</span> weighted by an integral over <span
+class="math inline">\(y\)</span> of a four-fold product of localized
+copies of <span class="math inline">\(W_t\)</span>. In many cases, a
+satisfactory estimate will follow already from the size and support
+properties of the integrand. Such crude arguments suffice away from the
+following ranges:</p>
+<ol type="i">
+<li><p><span class="math inline">\(t ^{2/3}  \lll Y \lll t\)</span> and
+<span class="math inline">\(U \asymp t\)</span>.</p></li>
+<li><p><span class="math inline">\(Y \asymp t\)</span> and <span
+class="math inline">\(t ^{1/2} \lll U \ll t\)</span>, with <span
+class="math inline">\(W_t\)</span> localized on <span
+class="math inline">\(y &lt; t\)</span>.</p></li>
+</ol>
+<p>In these cases, the necessary savings are achieved by integrating by
+parts once in the integral over <span class="math inline">\(y\)</span>.
+The partial integration is a bit intricate because it involves the
+quadratic part of the phase.</p>
+<h1 id="sec:cqx50az21s">§3. Parseval</h1>
+<p>We will prove Theorem <a href="#theorem:main"
+data-reference-type="ref" data-reference="theorem:main">1</a> by
+decomposing <span class="math inline">\(W_t\)</span> into at most <span
+class="math inline">\(\prec 1\)</span> pieces <span
+class="math inline">\(W\)</span> and showing that <span
+class="math inline">\(\mathcal{N}(W) \prec 1\)</span> for each piece.
+The basis for the piecewise estimates will be the following application
+of Parseval.</p>
+<div id="lemma:unfolding" class="lemma">
+<p><strong>Lemma 3</strong>. We have <span
+class="math display">\[\mathcal{N}(W) \prec
+    \sum _{n_1 + n_2 = n_3 + n_4}
+    \frac{\left\lvert \lambda(n_1) \right\rvert^4}{n_1} \left\lvert
+I(\mathfrak{n}) \right\rvert,\]</span> where <span id="equation:definition-of-I-of-n" class="math display">\[\label{equation:definition-of-I-of-n}\tag{3}
+    I(\mathfrak{n}) :=
+    \int _{y = n_1 y _0 } ^\infty W (y ) W (\tfrac{n_2}{n _1} y)
+\overline{W (\tfrac{n _3 }{ n _1 } y) W (\tfrac{n _4}{n_1} y)} \,
+\frac{d y}{y^2}.\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> By Parseval, we have <span
+class="math display">\[\mathcal{N}(W) = \sum _{n _1 + n _2 = n _3 + n _4
+}
+    \frac{\lambda (n _1) \dotsb \lambda (n _4 )}{\sqrt{n _1 \dotsb n _4
+}}
+    \int _{y = y _0 } ^\infty
+    W (n _1 y)
+    W (n _2 y)
+    \overline{W (n _3 y)
+      W (n _4 y)}
+    \, \frac{d y}{ y ^2 }.\]</span> We majorize each term in absolute
+value and apply AM-GM: <span
+class="math display">\[\left|     \frac{\lambda (n _1) \dotsb \lambda (n
+_4 )}{\sqrt{n _1 \dotsb n _4 }} \right|
+    \leq \frac{1}{4} \sum_{i = 1}^4 \frac{\left| \lambda(n_i)
+\right|^4}{n_i^2}.\]</span> This gives <span
+class="math display">\[\mathcal{N}(W) \prec
+    \sum _{n_1 + n_2 = n_3 + n_4}
+    \frac{\left\lvert \lambda(n_1) \right\rvert^4}{n_1^2}
+    \left\lvert
+      \int _{y = y _0 } ^\infty W (n _1 y ) W (n _2 y) \overline{W (n _3
+y) W (n _4 y)} \, \frac{d y}{y^2}
+    \right\rvert,\]</span> using the symmetry of the integrand under
+permutation of the <span class="math inline">\(n_j\)</span>. We conclude
+by performing the change of variables <span class="math inline">\(y
+\rightarrow y / n_1\)</span>. ◻</p>
+</span></div>
+<h1 id="sec:cqx50az3z1">§4. Estimating via size and support</h1>
+<p>We next record a crude estimate, taking into account the size and
+support properties of <span class="math inline">\(W\)</span> but
+forgoing any cancellation in the integrals <a
+href="#equation:definition-of-I-of-n" data-reference-type="eqref"
+data-reference="equation:definition-of-I-of-n">\((3)\)</a>.</p>
+<div id="lemma:crude-bound" class="lemma">
+<p><strong>Lemma 4</strong>. Suppose that <span class="math inline">\(W
+\in C_c(\mathbb{R})\)</span> is supported on the interval <span
+class="math inline">\([Y_1, Y_2]\)</span>, where <span
+class="math inline">\(0 &lt; Y_1 &lt; Y_2\)</span>. Assume that <span id="eqn:Y2-Y1-separated" class="math display">\[\label{eqn:Y2-Y1-separated}\tag{4}
+    Y_2 - Y_1 \gg 1\]</span> and <span id="eqn:Y1-Y2-same-size" class="math display">\[\label{eqn:Y1-Y2-same-size}\tag{5}
+    Y_1 \asymp Y_2.\]</span> Then <span
+class="math display">\[\mathcal{N}(W) \prec
+    \lVert W \rVert_{\infty}^4 \frac{(Y_2 - Y_1)^3
+}{Y_1^2}.\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> The support condition for <span
+class="math inline">\(W\)</span> gives <span
+class="math display">\[\lvert I(\mathbf{n}) \rvert \leq \lVert W
+\rVert_{\infty}^4
+    \int _{y = Y_1} ^{Y_2}  \, \frac{d y}{y^2}
+    =  \lVert W \rVert_{\infty}^4 \frac{Y_2 - Y_1}{Y_1 Y_2}.\]</span>
+The integrand in the definition of <span
+class="math inline">\(I(\mathbf{n})\)</span> vanishes identically
+unless</p>
+<ul>
+<li><p><span class="math inline">\(n_1 y_0 &lt; Y_2\)</span>,
+and</p></li>
+<li><p>for each <span class="math inline">\(j=2,3,4\)</span>, the
+natural number <span class="math inline">\(n_j\)</span> lies in the
+interval <span class="math inline">\(J_{n_1} := [n_1 Y_1/Y_2, n_1
+Y_2/Y_1]\)</span>.</p></li>
+</ul>
+<p>Since <span class="math inline">\(n_4\)</span> is determined by <span
+class="math inline">\((n_1,n_2,n_3)\)</span>, we deduce from Lemma <a
+href="#lemma:unfolding" data-reference-type="ref"
+data-reference="lemma:unfolding">3</a> that <span id="eqn:estimate-N-W-in-proof-of-lemma-via-support-and-vanishing-conditions" class="math display">\[\label{eqn:estimate-N-W-in-proof-of-lemma-via-support-and-vanishing-conditions}\tag{6}
+    \mathcal{N}(W)
+    \ll
+    \lVert W \rVert _\infty ^4
+    \frac{Y_2 - Y_1}{ Y_1 Y_2}
+    \mathcal{S},\]</span> where <span class="math display">\[\mathcal{S}
+:= \sum _{n_1 \leq Y_2 / y_0} \frac{\left\lvert
+\lambda(n_1)  \right\rvert^4}{n_1}
+    |\mathbb{N} \cap J_{n_1}|^2.\]</span> The number of integers in an
+interval is at most one plus the length of that interval, thus <span
+class="math display">\[|\mathbb{N} \cap J_{n_1}|
+    \leq 1 + n_1 \left( \frac{Y_2}{Y_1} - \frac{Y_1}{Y_2}
+\right).\]</span> Using our assumptions <a href="#eqn:Y2-Y1-separated"
+data-reference-type="eqref"
+data-reference="eqn:Y2-Y1-separated">\((4)\)</a> and <a
+href="#eqn:Y1-Y2-same-size" data-reference-type="eqref"
+data-reference="eqn:Y1-Y2-same-size">\((5)\)</a>, as well
+as the upper bound <span class="math inline">\(n_1 \ll Y_2\)</span>, we
+deduce that <span class="math display">\[\lvert \mathbb{N} \cap J _{n
+_1} \rvert \ll Y_2 - Y_1.\]</span> Invoking now our fourth moment
+hypothesis <a href="#eqn:fourth-moment-bound-lambda"
+data-reference-type="eqref"
+data-reference="eqn:fourth-moment-bound-lambda">\((1)\)</a>
+to estimate the sum over <span class="math inline">\(n_1\)</span>, we
+obtain <span class="math display">\[\mathcal{S} \prec (Y_2 -
+Y_1)^2.\]</span> Inserting this into the earlier estimate <a
+href="#eqn:estimate-N-W-in-proof-of-lemma-via-support-and-vanishing-conditions"
+data-reference-type="eqref"
+data-reference="eqn:estimate-N-W-in-proof-of-lemma-via-support-and-vanishing-conditions">\((6)\)</a>
+yields the required bound. ◻</p>
+</span></div>
+<h1 id="sec:cqx50az4ip">§5. Bessel asymptotics</h1>
+<p>We now recall, following <a href="#ref-MR3102912" class="citation"
+data-cites="MR3102912">(Ghosh, Reznikov, and Sarnak 2013, p
+1527-1528)</a>, the shape of <span
+class="math inline">\(W_t\)</span>.</p>
+<p>For <span class="math inline">\(0 &lt; \xi &lt; \infty\)</span>, we
+define <span class="math inline">\(H(\xi)\)</span> by the formula <span
+class="math display">\[H(\xi) =
+  \begin{cases}
+    \operatorname{arccosh}(1/ \xi)   - \sqrt{1 - \xi ^2 }  &amp;  \text{
+if } 0 &lt; \xi \leq 1, \\
+    \sqrt{\xi ^2 - 1} -
+\operatorname{arcsec}(\xi)                                               &amp;
+\text{ if } \xi &gt; 1.
+  \end{cases}\]</span> It defines a continuous, nonnegative function,
+vanishing only at <span class="math inline">\(\xi = 1\)</span>, with the
+following properties: <span id="equation:H-near-critical" class="math display">\[\label{equation:H-near-critical}\tag{7}
+  \text{$H(1 + \xi) \asymp |\xi|^{3/2}$ if $\xi \lll 1$},\]</span> <span id="equation:H-in-bulk" class="math display">\[\label{equation:H-in-bulk}\tag{8}
+  \text{$H(\xi) \gg 1$ if $\xi - 1 \asymp 1$,}\]</span> <span id="eqn:growth-of-H-at-infinity" class="math display">\[\label{eqn:growth-of-H-at-infinity}\tag{9}
+  \text{$H(\xi) \gg \xi$ if $\xi \ggg 1$.}\]</span></p>
+<p>The Whittaker function <span class="math inline">\(W_t\)</span>
+satisfies the following estimates.</p>
+<div id="lemma:whittaker-function-estimates" class="lemma">
+<p><strong>Lemma 5</strong>. Let <span class="math inline">\(y &gt;
+0\)</span>. Write <span class="math inline">\(u := y - t\)</span>, so
+that <span class="math inline">\(y = t + u\)</span> with <span
+class="math inline">\(-t &lt; u &lt; \infty\)</span>. Then</p>
+<ol>
+<li><p>If <span class="math inline">\(u &gt; 0\)</span> and <span
+class="math inline">\(u \ggg t ^{1/3}\)</span>, then <span id="eqn:bessel-asymptotics-oscillatory" class="math display">\[\label{eqn:bessel-asymptotics-oscillatory}\tag{10}
+      W _t (y) =  \frac{\sqrt{2 \pi y}  }{ \lvert t^2 - y^2 \rvert
+^{1/4}  }
+      \sin \left( \frac{\pi }{4} + t H \left(\frac{y}{t} \right) \right)
+      \left( 1 + \operatorname{O}\left( \frac{1}{t H
+\left(\tfrac{y}{t}\right)} \right) \right).\]</span></p></li>
+<li><p>If <span class="math inline">\(u &lt; 0\)</span> and <span
+class="math inline">\(u \ggg t ^{1/3}\)</span>, then <span
+class="math display">\[W _t (y) =  \frac{\sqrt{2 \pi y}  }{ \lvert t^2 -
+y^2 \rvert ^{1/4}  }
+      \exp \left( - t H \left( \frac{y}{t} \right) \right)
+      \left( 1 + \operatorname{O}\left( \frac{1}{t H
+\left(\tfrac{y}{t}\right)} \right) \right).\]</span></p></li>
+<li><p>In general, we have the upper bound <span
+class="math display">\[W_t(y) \ll
+      \begin{cases}
+        \frac{\sqrt{y}}{ \lvert t^2 - y^2 \rvert ^{1/4} }      &amp;
+\text{ if } 0 &gt; u \ggg t ^{1/3}, \\
+        \frac{\sqrt{y}}{ \lvert t^2 - y^2 \rvert ^{1/4} } \exp \left( -
+t H \left( \frac{y}{t} \right)
+\right)                                                                &amp;
+\text{ if } 0 &lt; u \ggg t ^{1/3}, \\
+        \sqrt{y} t ^{- 1/3} \asymp t
+^{1/6}                                                                &amp;
+\text{ if } u \ll t ^{1/3}.
+      \end{cases}\]</span></p></li>
+</ol>
+</div>
+<p>There are essentially four cases to consider concerning the position
+of <span class="math inline">\(y\)</span> relative to <span
+class="math inline">\(t\)</span>, where we again write <span
+class="math inline">\(y = t + u\)</span>:</p>
+<ol type="i">
+<li><p><span class="math inline">\(0 &lt; y &lt; t\)</span> with <span
+class="math inline">\(u \asymp t\)</span>.</p></li>
+<li><p><span class="math inline">\(0 &lt; y &lt; t\)</span> with <span
+class="math inline">\(t ^{1/3} \lll u \lll t\)</span></p></li>
+<li><p><span class="math inline">\(y = t + \operatorname{O}(t ^{1/3}
+)\)</span>.</p></li>
+<li><p><span class="math inline">\(y &gt; t\)</span> with <span
+class="math inline">\(t ^{1/3} \lll u\)</span>.</p></li>
+</ol>
+<p>In these ranges, the basic upper bound for <span
+class="math inline">\(W_t(y)\)</span> explicates as follows: <span
+class="math display">\[W _t (y) \ll
+  \begin{cases}
+    t ^{- 1/2} y ^{1/2}  &amp;  \\
+    t ^{1/4} u ^{- 1/4}         &amp;  \\
+    t ^{1/6}                        &amp;  \\
+    t ^{1/4} u ^{- 1/4} \exp (- t H
+(\tfrac{y}{t})).                         &amp;
+  \end{cases}\]</span></p>
+<h1 id="sec:cqx50az4v6">§6. Dyadic decomposition</h1>
+<p>We fix an even function <span class="math inline">\(V_1 \in
+C_c^\infty(\mathbb{R}^\times)\)</span> so that for all <span
+class="math inline">\(y \in \mathbb{R}^\times\)</span>, we have <span
+class="math display">\[\sum _{Y \in \exp(\mathbb{Z})}
+V_1\left(\frac{y}{Y}\right) = 1.\]</span> We begin by decomposing <span
+class="math display">\[W_t = \sum _{Y \in \exp(\mathbb{Z})}
+W_t^Y,\]</span> where <span class="math display">\[W_t^Y(y) :=
+V_1\left(\frac{y}{Y}\right) W_t(y).\]</span> If <span
+class="math inline">\(Y \lll 1\)</span>, then <span
+class="math inline">\(n y_0  \geq y_0&gt; Y\)</span> for all natural
+numbers <span class="math inline">\(n\)</span>, and so <span
+class="math inline">\(\mathcal{N}(W_t^Y) = 0\)</span>. We see also by
+crude application of the Bessel function asymptotics (see especially <a
+href="#eqn:growth-of-H-at-infinity" data-reference-type="eqref"
+data-reference="eqn:growth-of-H-at-infinity">\((9)\)</a>)
+that if <span class="math inline">\(Y \ggg t\)</span>, then <span
+class="math inline">\(\mathcal{N}(W_t^Y) \ll e^{-t} Y^{-100}\)</span>,
+say. Our task thereby reduces to verifying that for each <span
+class="math inline">\(Y\)</span> in the range <span id="eqn:Y-between-1-and-t" class="math display">\[\label{eqn:Y-between-1-and-t}\tag{11}
+  1 \ll Y \ll t,\]</span> we have <span
+class="math inline">\(\mathcal{N}(W_t^Y) \prec 1\)</span>.</p>
+<p>Supposing now that <span class="math inline">\(Y \asymp t\)</span>,
+we subdivide further. Fix an even function <span
+class="math inline">\(V_0 \in C_c^\infty(\mathbb{R})\)</span> taking the
+value <span class="math inline">\(1\)</span> in a neighborhood of the
+origin. Define <span class="math inline">\(V_{\pm} \in
+C^\infty(\mathbb{R})\)</span> by <span class="math display">\[V_+(x) :=
+1_{x &gt; 0} - V_0(x), \quad V_-(x) := 1_{x&lt;0} - V_0(x).\]</span>
+Then <span class="math inline">\(1 = V_0 + V_+ + V_-\)</span>. We have
+<span class="math display">\[W_t^{Y} =
+  W_t^{Y,0}
+  +
+  \sum _{\pm}
+  \sum _{U \in \exp(\mathbb{Z})}
+  W_t^{Y,\pm,U},\]</span> where <span
+class="math display">\[W_t^{Y,0}(y) := V_0\left(\frac{y - t}{t ^{1/3}
+}\right)  W_t^Y(y)\]</span> and <span
+class="math display">\[W_t^{Y,\pm,U}(y) :=
+  V_{\pm} \left(\frac{y - t}{t ^{1/3} }\right)
+  V_1 \left( \frac{y - t}{U} \right) W_t^Y(y).\]</span> We observe that
+<span class="math inline">\(W_t^{Y,\pm, U} = 0\)</span> unless <span id="eqn:U-between-t-third-and-t" class="math display">\[\label{eqn:U-between-t-third-and-t}\tag{12}
+  t ^{1/3} \ll U \ll t.\]</span> The number of relevant <span
+class="math inline">\(Y\)</span> or <span
+class="math inline">\(T\)</span> is <span class="math inline">\(\prec
+1\)</span>, so we reduce to establishing the following.</p>
+<div id="proposition:reduction-after-dyadic-decopm" class="proposition">
+<p><strong>Proposition 6</strong>. <em>We have the following.</em></p>
+<ol type="i">
+<li><p><em>Assuming <a href="#eqn:Y-between-1-and-t"
+data-reference-type="eqref"
+data-reference="eqn:Y-between-1-and-t">\((11)\)</a>, we
+have <span class="math inline">\(\mathcal{N} (W _t ^Y ) \prec
+1\)</span>.</em></p></li>
+<li><p><em>Assuming <span class="math inline">\(Y \asymp t\)</span>, we
+have <span class="math inline">\(\mathcal{N} (W _t ^{Y, 0}) \prec
+1\)</span>.</em></p></li>
+<li><p><em>Assuming <span class="math inline">\(Y \asymp t\)</span> and
+<a href="#eqn:U-between-t-third-and-t" data-reference-type="eqref"
+data-reference="eqn:U-between-t-third-and-t">\((12)\)</a>,
+we have <span class="math inline">\(\mathcal{N} (W _{t} ^{Y, \pm, U})
+\prec 1\)</span>.</em></p></li>
+</ol>
+</div>
+<h1 id="sec:appl-crude-bounds">§7. Application of crude bounds</h1>
+<p>Here we apply Lemma <a href="#lemma:crude-bound"
+data-reference-type="ref" data-reference="lemma:crude-bound">4</a> to
+the various cases. This tells us the bounds for <span
+class="math inline">\(\mathcal{N}(W_t)\)</span> that follow from the
+stated <em>upper bounds</em> for <span
+class="math inline">\(W_t\)</span>, without taking into account any
+oscillation coming from the <span class="math inline">\(\sin\)</span>
+factor.</p>
+<ol type="i">
+<li><p>For <span class="math inline">\(Y \lll t\)</span>, we have <span
+class="math display">\[\lVert W_t^{Y} \rVert_{\infty} \ll t ^{- 1/2} Y
+^{1/2}.\]</span> The support is contained in <span
+class="math inline">\([Y_1,Y_2]\)</span> with <span
+class="math inline">\(Y_1 \asymp Y_2 \asymp Y\)</span> and <span
+class="math inline">\(Y_1 - Y_2 \asymp Y\)</span>, so we obtain <span id="eqn:crude-bound-W-t-Y" class="math display">\[\label{eqn:crude-bound-W-t-Y}\tag{13}
+    \mathcal{N} (W _t ^Y ) \prec (t ^{- 1/2} Y ^{1/2} )^4
+\frac{Y^3}{Y^2} = \frac{Y ^3 }{t^2}.\]</span> This gives an acceptable
+estimate for <span class="math inline">\(Y \prec t
+^{2/3}\)</span>.</p></li>
+<li><p><span id="itm:ref-haseo-l4:1" label="itm:ref-haseo-l4:1"></span>
+For <span class="math inline">\(Y \asymp t\)</span> and <span
+class="math inline">\(t ^{1/3} \lll U \ll t\)</span>, we have <span
+class="math display">\[\lVert W _t ^{Y, -, U} \rVert_{\infty} \ll t
+^{1/4} U ^{-1/4}.\]</span> The support is contained in <span
+class="math inline">\([Y_1,Y_2]\)</span> with <span
+class="math inline">\(Y_1 \asymp Y_2 \asymp t\)</span> and <span
+class="math inline">\(Y_1 - Y_2 \asymp U\)</span>, hence <span id="eqn:crude-W-t-Y-minus-U" class="math display">\[\label{eqn:crude-W-t-Y-minus-U}\tag{14}
+    \mathcal{N} (W _t ^{Y, -, U}) \prec (t ^{1/4}  U  ^{- 1/4})^4
+\frac{U ^3 }{t ^2}
+    =
+    \frac{U^2}{t}.\]</span> This is adequate for <span
+class="math inline">\(U \prec t ^{1/2}\)</span>.</p></li>
+<li><p>For <span class="math inline">\(Y \asymp t\)</span>, we have
+<span class="math display">\[\lVert W_t^{Y,0} \rVert _{\infty} \ll t
+^{1/6}.\]</span> The support is contained in <span
+class="math inline">\([Y_1,Y_2]\)</span> with <span
+class="math inline">\(Y _1 \asymp Y _2 \asymp t\)</span> and <span
+class="math inline">\(Y _1 - Y _2 \asymp t ^{1/3}\)</span>, hence <span
+class="math display">\[\mathcal{N} (W _t ^{Y, 0}) \prec (t ^{1/6}) ^4
+\frac{(t ^{1/3} ) ^3 }{t ^2 }
+    = t ^{- 1/3}.\]</span> This more than acceptable.</p>
+<p>The same argument gives a more-than-satisfactory estimate for <span
+class="math inline">\(\mathcal{N} (W _t ^{Y, \pm, U})\)</span> in the
+“boundary” range <span class="math inline">\(U \asymp t ^{1/3}\)</span>
+(or indeed, in a somewhat larger range).</p></li>
+<li><p>For <span class="math inline">\(Y \asymp t\)</span> and <span
+class="math inline">\(t ^{1/3} \lll U \ll t\)</span>, we have <span
+class="math display">\[\lVert W _t ^{Y, +, U} \rVert_{\infty} \ll t
+^{1/4} U ^{-1/4} \exp (- c t H (1 + \tfrac{U}{t}))\]</span> for some
+fixed <span class="math inline">\(c &gt; 0\)</span> (depending upon the
+choice of <span class="math inline">\(V_1\)</span>). The support is as
+in item <a href="#itm:ref-haseo-l4:1" data-reference-type="eqref"
+data-reference="itm:ref-haseo-l4:1">\((ii)\)</a> above, so
+we obtain <span class="math display">\[\mathcal{N} (W _t ^{Y, +, U})
+\prec\frac{U^2}{t} \exp (- c t H (1 + \tfrac{U}{t})).\]</span> This is
+adequate, without taking into account the exponential factor, for <span
+class="math inline">\(U \prec t ^{1/2}\)</span>. In the complementary
+range <span class="math inline">\(U \succ t ^{1/2}\)</span>, we have
+<span class="math inline">\(U / t \succ t ^{-1/2}\)</span>, hence (by <a
+href="#equation:H-near-critical" data-reference-type="eqref"
+data-reference="equation:H-near-critical">\((7)\)</a>
+and <a href="#eqn:growth-of-H-at-infinity" data-reference-type="eqref"
+data-reference="eqn:growth-of-H-at-infinity">\((9)\)</a>)
+<span class="math inline">\(H (1 + U/t) \succ (t^{-1/2})^{3/2} = t ^{-
+3/4}\)</span>; in particular, <span class="math display">\[t H (1 +
+\tfrac{U}{t}) &gt; t^{1/5},\]</span> say, which leads to the more than
+adequate bound <span class="math inline">\(\mathcal{N}(W_t^{Y,+,U}) \leq
+\exp(- t^{1/10})\)</span>, say.</p></li>
+</ol>
+<p>The proof of Proposition <a
+href="#proposition:reduction-after-dyadic-decopm"
+data-reference-type="ref"
+data-reference="proposition:reduction-after-dyadic-decopm">6</a> thereby
+reduces to that of the following.</p>
+<div id="proposition:reduction-to-critical-dyadic-ranges"
+class="proposition">
+<p><strong>Proposition 7</strong>. <em>We have the following.</em></p>
+<ol type="i">
+<li><p><em>For <span class="math inline">\(t ^{2/3} \lll Y \lll
+t\)</span>, we have <span class="math inline">\(\mathcal{N} (W _{t}
+^{Y}) \prec 1\)</span>.</em></p></li>
+<li><p><em>For <span class="math inline">\(Y \asymp t\)</span> and <span
+class="math inline">\(t ^{1/2} \lll U \ll t\)</span>, we have <span
+class="math inline">\(\mathcal{N} (W _{t} ^{Y, -, U}) \prec
+1\)</span>.</em></p></li>
+</ol>
+</div>
+<h1 id="sec:cqx50az5wn">§8. Smoothening</h1>
+<p>It will be convenient to “smoothen” the definition of <span
+class="math inline">\(\mathcal{N}(W)\)</span> a bit, as follows. Retain
+the setting of Proposition <a
+href="#proposition:reduction-to-critical-dyadic-ranges"
+data-reference-type="ref"
+data-reference="proposition:reduction-to-critical-dyadic-ranges">7</a>.
+Recall from <a href="#eqn:definition-N-of-W" data-reference-type="eqref"
+data-reference="eqn:definition-N-of-W">\((2)\)</a> that
+<span class="math inline">\(\mathcal{N}(W)\)</span> is defined by an
+integral over <span class="math inline">\(y \geq y_0\)</span>. On the
+other hand, <span class="math inline">\(W(y)\)</span> is supported on
+<span class="math inline">\(y \asymp Y\)</span>. Let us fix <span
+class="math inline">\(0 &lt; c &lt; C\)</span> so that <span
+class="math inline">\(W(y)\)</span> vanishes for <span
+class="math inline">\(y \notin [c Y, C Y ]\)</span>. The product <span
+class="math inline">\(\lambda(n) W(n y)\)</span> then vanishes for <span
+class="math inline">\(n \geq C Y\)</span>. For this reason, modifying
+<span class="math inline">\(\lambda(n)\)</span> by zeroing it out for
+<span class="math inline">\(n &gt; C Y\)</span> has no effect on <span
+class="math inline">\(\mathcal{N}(W)\)</span>, and no effect on our sole
+hypothesis <a href="#eqn:fourth-moment-bound-lambda"
+data-reference-type="eqref"
+data-reference="eqn:fourth-moment-bound-lambda">\((1)\)</a>
+concerning <span class="math inline">\(\lambda\)</span>. Having modified
+<span class="math inline">\(\lambda(n)\)</span> in this way, we now have
+<span class="math inline">\(\lambda(n) W(n y) \neq 0\)</span> only if
+<span class="math inline">\(n \leq C Y\)</span> and <span
+class="math inline">\(n y \geq c Y\)</span>, which forces <span
+class="math inline">\(y \geq c/C\)</span>. On the other hand, <span
+class="math inline">\(\mathcal{N}(W)\)</span> only increases if we
+decrease the fixed quantity <span class="math inline">\(y_0 &gt;
+0\)</span>. Let us decrease that quantity, if necessary, so that <span
+class="math inline">\(y_0 \leq c/C\)</span>. Having done so, we see that
+the integration constraints in the definitions of <span
+class="math inline">\(\mathcal{N}(W)\)</span> and <span
+class="math inline">\(I(\mathbf{n})\)</span> (see <a
+href="#equation:definition-of-I-of-n" data-reference-type="eqref"
+data-reference="equation:definition-of-I-of-n">\((3)\)</a>)
+are now redundant – we might as well integrate over all <span
+class="math inline">\(y &gt; 0\)</span>. In particular, <span
+class="math display">\[I(\mathbf{n}) = \int _{y = 0 } ^\infty W (y ) W
+(\tfrac{n_2}{n _1} y) \overline{W (\tfrac{n _3 }{ n _1 } y) W (\tfrac{n
+_4}{n_1} y)} \, \frac{d y}{y^2}.\]</span> This “smoothening” has the
+effect of eliminating certain boundary terms in the arguments to follow.
+(The arguments would work anyway, but the details are slightly
+simplified by having smoothened first.)</p>
+<h1 id="sec:cqx50az6mj">§9. The diagonal contribution</h1>
+<p>Recall that <span class="math inline">\(\mathbf{n}\)</span> has
+denoted a quadruple of natural numbers satisfying <span
+class="math inline">\(n _1 + n _2 = n _3 + n _4\)</span>. Because a pair
+of natural numbers is determined up to reordering by its sum and
+product, we have <span class="math display">\[(n_1 n_2 = n_3 n_4) \iff (
+\{n_1, n_2\} = \{n_3, n_4\}).\]</span> These conditions describe a
+“diagonal” case in which there is clearly no hope to obtain cancellation
+from the integral defining <span
+class="math inline">\(I(\mathbf{n})\)</span>. We pause to estimate that
+diagonal contribution:</p>
+<div class="lemma">
+<p><strong>Lemma 8</strong>. Suppose that <span class="math inline">\(W
+\in C_c(\mathbb{R})\)</span> and <span
+class="math inline">\([Y_1,Y_2]\)</span> satisfy the conditions of Lemma
+<a href="#lemma:crude-bound" data-reference-type="ref"
+data-reference="lemma:crude-bound">4</a>. Then the diagonal contribution
+<span class="math display">\[\mathcal{N}_{\mathop{\mathrm{diag}}}(W) :=
+\sum _{n_1, n_2 \in \mathbb{N}}
+    \frac{\left\lvert \lambda (n _1 ) \right\rvert ^4 }{ n _1 }
+\left\lvert I (n _1, n _2, n _1, n _2 ) \right\rvert\]</span> satisfies
+<span class="math display">\[\mathcal{N}_{\mathop{\mathrm{diag}}}(W)
+    \prec \lVert W \rVert_{\infty}^4 \frac{(Y _2 - Y _1 ) ^2 }{Y_1
+^2}.\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> The proof is the same as that of Lemma <a
+href="#lemma:crude-bound" data-reference-type="ref"
+data-reference="lemma:crude-bound">4</a>, except that we no longer need
+to square the factor <span class="math inline">\(\lvert \mathbb{N} \cap
+J _{n_1} \rvert\)</span>. We thereby improve the earlier estimate by a
+factor of <span class="math inline">\(Y_2 - Y_1\)</span>. ◻</p>
+</span></div>
+<p>Return to the setting of Proposition <a
+href="#proposition:reduction-to-critical-dyadic-ranges"
+data-reference-type="ref"
+data-reference="proposition:reduction-to-critical-dyadic-ranges">7</a>,
+and take <span class="math inline">\(W = W_t^Y\)</span> or <span
+class="math inline">\(W_t^{Y,-,U}\)</span>. We obtain an estimate for
+the diagonal contribution to <span
+class="math inline">\(\mathcal{N}(W)\)</span> that improves upon the
+crude estimates obtained in §<a href="#sec:appl-crude-bounds"
+data-reference-type="ref" data-reference="sec:appl-crude-bounds">7</a>
+by the factor <span class="math inline">\(Y_2 - Y_1\)</span>, which is
+roughly <span class="math inline">\(Y\)</span> in first case and <span
+class="math inline">\(U\)</span> in the second. Dividing <a
+href="#eqn:crude-bound-W-t-Y" data-reference-type="eqref"
+data-reference="eqn:crude-bound-W-t-Y">\((13)\)</a> by
+<span class="math inline">\(Y\)</span> and <a
+href="#eqn:crude-W-t-Y-minus-U" data-reference-type="eqref"
+data-reference="eqn:crude-W-t-Y-minus-U">\((14)\)</a>
+by <span class="math inline">\(U\)</span>, we obtain <span
+class="math display">\[\mathcal{N}_{\mathop{\mathrm{diag}}} (W_t^Y)
+\prec \frac{Y^2}{t^2}, \qquad
+  \mathcal{N}_{\mathop{\mathrm{diag}}} (W_t^{Y,-,U}) \prec
+\frac{U}{t}.\]</span> In either case, we obtain the adequate estimate
+<span class="math inline">\(\mathcal{N}_{\mathop{\mathrm{diag}}}(W)
+\prec 1\)</span>.</p>
+<p>It remains only to establish the analogue of Proposition <a
+href="#proposition:reduction-to-key-parts-of-W"
+data-reference-type="ref"
+data-reference="proposition:reduction-to-key-parts-of-W">9</a> for the
+“off-diagonal” contribution to <span
+class="math inline">\(\mathcal{N}(W)\)</span>, coming from when <span
+class="math inline">\(n_1 n_2 \neq n_3 n_4\)</span>: <span id="eqn:definition-N-off" class="math display">\[\label{eqn:definition-N-off}\tag{15}
+  \mathcal{N}_{\mathrm{off}}(W) := \sum _{
+    \substack{
+      n_1 + n_2 = n_3 + n_4  \\
+      n_1 n_2 \neq n_3 n_4      
+    }
+  }
+  \frac{\left\lvert \lambda (n _1 ) \right\rvert ^4 }{ n _1 }
+\left\lvert I(\mathbf{n}) \right\rvert.\]</span></p>
+<h1 id="sec:discarding-remainder-terms">§10. Discarding the remainder
+terms</h1>
+<p>Retain the hypotheses of Proposition <a
+href="#proposition:reduction-to-critical-dyadic-ranges"
+data-reference-type="ref"
+data-reference="proposition:reduction-to-critical-dyadic-ranges">7</a>.
+The proof will exploit oscillation coming from the <span
+class="math inline">\(\sin\)</span> factor in the Bessel asymptotics.
+Let us write those asymptotics as follows: <span
+class="math display">\[W _t ^Y = W _{t,\sharp}^Y + W
+_{t,\flat}^Y,\]</span> <span class="math display">\[W _t ^{Y, -, U} = W
+_{t, \sharp } ^{Y, -, U} + W _{t, \flat } ^{Y, -, U},\]</span> where the
+subscript <span class="math inline">\(\sharp\)</span> (resp. <span
+class="math inline">\(\flat\)</span>) denotes the contribution from the
+main (resp. remainder) terms in <a
+href="#eqn:bessel-asymptotics-oscillatory" data-reference-type="eqref"
+data-reference="eqn:bessel-asymptotics-oscillatory">\((10)\)</a>.
+We will estimate the contribution of the remainder terms as in §<a
+href="#sec:appl-crude-bounds" data-reference-type="ref"
+data-reference="sec:appl-crude-bounds">7</a>. The estimate for <span
+class="math inline">\(\mathcal{N}(W_{t,\flat}^{\ast})\)</span> achieved
+in this way is obtained by multiplying the bound derived earlier for
+<span class="math inline">\(\mathcal{N} (W _{t} ^\ast )\)</span> by the
+fourth power of the supremum of the absolute value of the factor <span
+class="math display">\[\frac{1}{t H (\tfrac{y}{t})} =   \frac{1}{t H (1
++ \tfrac{u}{t})}\]</span> taken over all <span class="math inline">\(y =
+t + u\)</span> in the support of <span
+class="math inline">\(W_{t,\flat}^*\)</span>.</p>
+<ol type="i">
+<li><p>For <span class="math inline">\(Y \in
+\mathop{\mathrm{supp}}(W_{t,\flat}^{Y})\)</span>, we have <span
+class="math inline">\(y \lll t\)</span>, hence <span
+class="math inline">\(u &lt; 0\)</span> and <span
+class="math inline">\(u \asymp t\)</span>, hence <span
+class="math inline">\(u/t &lt; 0\)</span> and <span
+class="math inline">\(u/t \asymp 1\)</span>, hence (by <a
+href="#equation:H-in-bulk" data-reference-type="eqref"
+data-reference="equation:H-in-bulk">\((8)\)</a>) <span
+class="math inline">\(H (y/t) \gg 1\)</span>, hence <span
+class="math display">\[\frac{1}{t H (\tfrac{y}{t})} \ll
+\frac{1}{t}.\]</span> Thus, multiplying the bound in <a
+href="#eqn:crude-bound-W-t-Y" data-reference-type="eqref"
+data-reference="eqn:crude-bound-W-t-Y">\((13)\)</a> by
+<span class="math inline">\(t ^{- 4}\)</span>, we obtain <span
+class="math display">\[\mathcal{N} (W _{t, \flat} ^{Y} ) \prec  \frac{Y
+^3 }{t^6}.\]</span> This is more than acceptable. The same bound holds
+for <span class="math inline">\(\mathcal{N}
+_{\mathrm{off}}\)</span>.</p></li>
+<li><p>For <span class="math inline">\(Y \in \mathop{\mathrm{supp}}(W
+_{t, \flat} ^{Y, -, U})\)</span>, we have <span class="math inline">\(y
+\asymp t\)</span> and <span class="math inline">\(u &lt;0\)</span> and
+<span class="math inline">\(u \asymp U\)</span>, hence <span
+class="math inline">\(u/t &lt; 0\)</span> and <span
+class="math inline">\(u/t \asymp U/t\)</span>. We consider separately
+two cases.</p>
+<ol type="a">
+<li><p><span class="math inline">\(U \asymp t\)</span>. In this case,
+<span class="math inline">\(u/t \asymp 1\)</span>, hence <span
+class="math inline">\(H (y/t) \asymp 1\)</span>, hence <span
+class="math display">\[\frac{1}{t H (\tfrac{y}{t})} \asymp
+\frac{1}{t}.\]</span> Thus, multiplying the bound in <a
+href="#eqn:crude-W-t-Y-minus-U" data-reference-type="eqref"
+data-reference="eqn:crude-W-t-Y-minus-U">\((14)\)</a>
+by <span class="math inline">\(t ^{- 4}\)</span>, we obtain <span
+class="math display">\[\mathcal{N} (W _{t, \flat} ^{Y,-,U} )
+\prec  \frac{U^2 }{t^5}.\]</span> This is more than acceptable.</p></li>
+<li><p><span class="math inline">\(t ^{1/2} \prec U \lll t\)</span>. In
+this case, <span class="math inline">\(u/t \lll 1\)</span>, hence (by <a
+href="#equation:H-near-critical" data-reference-type="eqref"
+data-reference="equation:H-near-critical">\((7)\)</a>)
+<span class="math inline">\(H(y/t) \asymp |u/t|^{3/2}\)</span>, and so
+<span class="math display">\[\frac{1}{t H (\tfrac{y}{t})} \asymp \frac{t
+^{1/2} }{U ^{3/2} }.\]</span> Thus, multiplying the bound in <a
+href="#eqn:crude-W-t-Y-minus-U" data-reference-type="eqref"
+data-reference="eqn:crude-W-t-Y-minus-U">\((14)\)</a>
+by <span class="math inline">\(t ^2 / U^6\)</span>, we obtain <span
+class="math display">\[\mathcal{N} (W _{t, \flat} ^{Y,-,U} )
+\prec  \frac{t }{U^4}.\]</span> This is acceptable in view of the
+condition <span class="math inline">\(U \succ t ^{1/2}\)</span>. The
+same bound holds for <span class="math inline">\(\mathcal{N}
+_{\mathrm{off}}\)</span>.</p></li>
+</ol></li>
+</ol>
+<p>We have reduced to establishing the analogue of Proposition <a
+href="#proposition:reduction-to-critical-dyadic-ranges"
+data-reference-type="ref"
+data-reference="proposition:reduction-to-critical-dyadic-ranges">7</a>
+but for <span
+class="math inline">\(\mathcal{N}_{\mathrm{off}}(W_{t,\sharp}^{*})\)</span>
+rather than <span
+class="math inline">\(\mathcal{N}(W_{t}^{*})\)</span>.</p>
+<h1 id="sec:cqx50az7zk">§11. Absorption of nuisance factors</h1>
+<p>By definition, <span class="math display">\[\begin{align}
+  W _{t, \sharp}^Y(y) &amp;= V_1\left(\frac{y}{Y}\right) \frac{\sqrt{2
+\pi y}  }{ \lvert t^2 - y^2 \rvert ^{1/4}  }
+                        \sin \left( \frac{\pi }{4} + t H \left(
+\frac{y}{t} \right) \right), \\
+  W _{t, \sharp}^{Y,-,U}(y) &amp;= V_1\left(\frac{y}{Y}\right)  V_{-}
+\left(\frac{y - t}{t ^{1/3} }\right)
+  V_1 \left( \frac{y - t}{U} \right) \frac{\sqrt{2 \pi y}  }{ \lvert t^2
+- y^2 \rvert ^{1/4}  }
+                              \sin \left( \frac{\pi }{4} + t H \left(
+\frac{y}{t} \right) \right).
+\end{align}\]</span> It will be convenient to write the <span
+class="math inline">\(\sin\)</span> as a sum of exponentials. The other
+factors present a cosmetic nuisance, so let’s discard them, as follows.
+On the support of <span class="math inline">\(W_{t,\sharp}^Y\)</span>
+(resp. <span class="math inline">\(W_{t,\sharp}^{Y,-,U}\)</span>), we
+have <span class="math display">\[\text{$t^2 - y^2 \asymp t Y$ (resp.
+$t^2 - y^2 \asymp t U$)}.\]</span> More precisely, we can absorb the
+factor <span class="math inline">\(|t^2 - y^2|^{-1/4}\)</span> into the
+weight function in a way that does not significantly increase the sizes
+of the weight functions or their derivatives. We retain the factor <span
+class="math inline">\(y^{1/2}\)</span>, whose fourth power will cancel
+against the denominator of the factor <span class="math inline">\(d y /
+y^2\)</span> against which we integrate in the definition of <span
+class="math inline">\(I(\mathbf{n})\)</span>. Finally, since <span
+class="math inline">\(U \ggg t ^{1/3}\)</span> and since <span
+class="math inline">\(V_-(x) = 1\)</span> for <span
+class="math inline">\(x &lt; 0\)</span> with <span
+class="math inline">\(x \ggg 1\)</span>, we have <span
+class="math display">\[V_- \left( \frac{y-t}{t ^{1/3} } \right) = 1
+\text{ whenever } y &lt; t \text{ and } V_1 \left( \frac{y - t}{U}
+\right) \neq 0.\]</span> If <span class="math inline">\(W = c
+W_0\)</span>, then <span class="math inline">\(\mathcal{N}(W) = |c|^4
+\mathcal{N}(W_0)\)</span>, so the estimate <span
+class="math inline">\(\mathcal{N}(W) \prec 1\)</span> is equivalent to
+<span class="math inline">\(\mathcal{N}(W_0) \prec |c|^{-4}\)</span>.
+Applying this observation with <span class="math inline">\(c = (t
+Y)^{-1/4}\)</span> (resp. <span class="math inline">\(c = (t
+U)^{-1/4}\)</span>), we thereby reduce the proof of the analogue of
+Proposition <a href="#proposition:reduction-to-critical-dyadic-ranges"
+data-reference-type="ref"
+data-reference="proposition:reduction-to-critical-dyadic-ranges">7</a>
+for <span class="math inline">\(W_{t,\sharp}^{*}\)</span> to that of the
+following:</p>
+<div id="proposition:reduction-to-key-parts-of-W" class="proposition">
+<p><strong>Proposition 9</strong>. <em>We have the following.</em></p>
+<ol type="i">
+<li><p><em>Let <span class="math inline">\(t ^{1/3} \prec Y \lll
+t\)</span>. Let <span class="math inline">\(V\)</span> be a nonnegative
+function belonging to some fixed bounded subset of <span
+class="math inline">\(C_c^\infty(\mathbb{R}^\times_+)\)</span>. Define
+<span class="math display">\[W(y) := y^{1/2} V \left( \frac{y}{Y}
+\right) \exp \left( i t H \left( \frac{y}{t} \right) \right).\]</span>
+Then <span class="math display">\[\mathcal{N}_{\mathrm{off}} (W)
+\prec  t Y.\]</span></em></p></li>
+<li><p><em>Let <span class="math inline">\(t ^{1/2} \prec U \ll
+t\)</span>. Let <span class="math inline">\(V_1, V_2\)</span> be
+nonnegative functions belonging to some fixed bounded subset of <span
+class="math inline">\(C_c^\infty(\mathbb{R}^\times_+)\)</span>. Define
+<span class="math display">\[W(y) :=
+      y^{1/2}
+      V_1 \left( \frac{y}{t} \right)
+      V_2 \left( \frac{t - y}{U} \right)
+      \exp \left( i t H \left( \frac{y}{t} \right) \right).\]</span>
+Then <span class="math display">\[\mathcal{N}_{\mathrm{off}} (W) \prec t
+U.\]</span></em></p></li>
+</ol>
+</div>
+<h1 id="sec:reduction-oscillatory-integral-estimates">§12. Reduction to
+oscillatory integral estimates</h1>
+<p>Here we state bounds for (mild generalizations of) the integrals
+<span class="math inline">\(I(\mathbf{n})\)</span> that take into
+account the oscillation of the integrand, and explain why such bounds
+suffice.</p>
+<div id="proposition:oscillatory-estimates-for-I-of-n"
+class="proposition">
+<p><strong>Proposition 10</strong>. <em>Retain the setting of
+Proposition <a href="#proposition:reduction-to-key-parts-of-W"
+data-reference-type="ref"
+data-reference="proposition:reduction-to-key-parts-of-W">9</a>. Let
+<span class="math inline">\(x_1, x_2, x_3, x_4\)</span> be positive real
+numbers. Define the <span class="math inline">\(4\)</span>-tuple of
+signs <span class="math display">\[(\eta_1, \eta_2, \eta_3, \eta_4) :=
+(1, 1, -1, -1).\]</span> Define <span class="math display">\[f^Y (y) :=
+    \prod_{j} V \left( \frac{x_j y}{Y} \right),
+    \quad
+    \quad
+    f^U(y) :=
+    \prod_j V _1 \left( \frac{x _j y}{t} \right) V _2 \left( \frac{t - x
+_j y}{U} \right)\]</span> and write <span class="math inline">\(f =
+f^Y\)</span> or <span class="math inline">\(f = f^U\)</span> according
+as we are in the first or second case of Proposition <a
+href="#proposition:reduction-to-key-parts-of-W"
+data-reference-type="ref"
+data-reference="proposition:reduction-to-key-parts-of-W">9</a>. Define
+the phase <span class="math display">\[\Phi(y) := t \sum_{j} \eta_j  H
+\left( \frac{x_j y}{t} \right).\]</span> Assume that <span id="eqn:x1x2-not-x3x4" class="math display">\[\label{eqn:x1x2-not-x3x4}\tag{16}
+    x_1 \asymp 1, \quad x_1 + x_2 = x_3 + x_4 \quad \text{and} \quad x_1
+x_2 \neq x_3 x_4.\]</span> Then <span class="math display">\[\int f e
+^{i \Phi } \ll \frac{t}{Y} \frac{1}{ x _1 x _2 - x _3 x _4 } \quad
+\text{ if }  f = f ^Y,\]</span> <span class="math display">\[\int f e
+^{i \Phi } \ll \left( \frac{U}{t} \right) ^{3/2} \frac{1}{ x _1 x _2 - x
+_3 x _4 } \quad \text{ if }  f = f ^U.\]</span></em></p>
+</div>
+<p>We now explain how Proposition <a
+href="#proposition:oscillatory-estimates-for-I-of-n"
+data-reference-type="ref"
+data-reference="proposition:oscillatory-estimates-for-I-of-n">10</a>
+implies Proposition <a href="#proposition:reduction-to-key-parts-of-W"
+data-reference-type="ref"
+data-reference="proposition:reduction-to-key-parts-of-W">9</a>. We
+specialize to <span class="math display">\[x_1 := 1, \quad x_j =
+\frac{n_j}{n_1} \text{ for } j=2,3,4,\]</span> so that <span
+class="math display">\[I(\mathbf{n}) = \int f(y) e ^{i \Phi(y) } \, d
+y.\]</span> We estimate <span
+class="math inline">\(\mathcal{N}_{\mathrm{off}}(W)\)</span> by plugging
+Proposition <a href="#proposition:oscillatory-estimates-for-I-of-n"
+data-reference-type="ref"
+data-reference="proposition:oscillatory-estimates-for-I-of-n">10</a>
+into the definition <a href="#eqn:definition-N-off"
+data-reference-type="eqref"
+data-reference="eqn:definition-N-off">\((15)\)</a>. We
+consider the two cases separately:</p>
+<ol type="i">
+<li><p>In the case <span class="math inline">\(f = f^Y\)</span>, we
+obtain <span class="math display">\[\mathcal{N} _{\mathrm{off}} (W) \ll
+  \frac{t}{Y}
+  \sum _{
+    \substack{
+      n _1, n _2, n _3, n _4 \ll Y  \\
+      n _1 + n _2 = n _3  +  n_4  \\
+      n _1 n _2 \neq n _3 n _4
+    }
+  }
+  \frac{\left\lvert \lambda (n _1 ) \right\rvert ^4 }{n_1 (x_1 x_2 - x_3
+x_4) }.\]</span> We have <span class="math display">\[\frac{1}{ n _1  (x
+_1 x _2 - x _3 x _4 )}
+  =
+  \frac{n_1}{ n _1 n _2 - n _3 n _4 }\]</span> and, in view of the
+identity <span class="math inline">\(n_1 + n_2 = n_3 + n_4\)</span>,
+<span class="math display">\[\begin{align}
+  n _1 n _2 - n _3  n _4 &amp;=
+                           n_1 (n_3 + n_4 - n_1) \\
+                         &amp;=
+                           - (n _1 - n _3 ) (n _1 - n _4 ),
+\end{align}\]</span> thus <span class="math display">\[\mathcal{N}
+_{\mathrm{off}} (W) \ll
+  t
+  \sum _{n _1 \ll Y} \left\lvert \lambda(n_1) \right\rvert^4
+  \sum _{
+    \substack{
+      n_3, n_4 \ll Y  \\
+      n_3, n_4 \neq n_1      
+    }
+  }
+  \frac{1}{|(n_1 - n_3)(n_1 - n_4)|} \prec t Y,\]</span> as
+required.</p></li>
+<li><p>In the case <span class="math inline">\(f = f^U\)</span>, the
+same arguments as above, applied with <span class="math inline">\(Y =
+t\)</span>, give <span class="math display">\[\mathcal{N}
+_{\mathrm{off}} (W) \prec \left( \frac{U}{t} \right) ^{3/2} t^2 \prec U
+t,\]</span> using in the final step that <span class="math inline">\(U
+\ll t\)</span>.</p></li>
+</ol>
+<div id="remark:cqx50a2ssj" class="remark">
+<p><strong>Remark 11</strong>. In the treatment of <span
+class="math inline">\(f^U\)</span>, we could have done a bit better,
+taking into account that <span
+class="math inline">\(I(\mathbf{n})\)</span> vanishes identically unless
+<span class="math inline">\(n_3, n_4 \in  n _1 (1 +
+\operatorname{O}(U/t))\)</span>, but it is apparently unnecessary to do
+so. In particular, we see that the “hardest” case is that of <span
+class="math inline">\(f^Y\)</span> for <span
+class="math inline">\(t^{1-\delta} \ll Y \ll t\)</span>.</p>
+</div>
+<h1 id="sec:integration-parts">§13. Integration by parts</h1>
+<p>It remains only to prove Proposition <a
+href="#proposition:oscillatory-estimates-for-I-of-n"
+data-reference-type="ref"
+data-reference="proposition:oscillatory-estimates-for-I-of-n">10</a>. We
+begin with a general “integration by parts” lemma (compare with <a href="#ref-MR2061214"
+class="citation" data-cites="MR2061214">(Iwaniec and Kowalski 2004,
+Lemma 8.9)</a>).</p>
+<div id="lemma:integration-by-parts" class="lemma">
+<p><strong>Lemma 12</strong>. Let <span class="math inline">\(f \in
+C_c^\infty(\mathbb{R})\)</span> and <span class="math inline">\(\Phi \in
+C^\infty(\mathbb{R})\)</span>. Assume that</p>
+<ol type="i">
+<li><p><span class="math inline">\(f\)</span> is nonnegative,</p></li>
+<li><p><span class="math inline">\(\Phi\)</span> is real-valued,
+and</p></li>
+<li><p>there is an interval <span class="math inline">\(E\)</span>
+containing the support of <span class="math inline">\(f\)</span> such
+that <span class="math inline">\(\Phi &#39;(x) \neq 0\)</span> and <span
+class="math inline">\(\Phi &#39;&#39;(x) \neq 0\)</span> for all <span
+class="math inline">\(x \in E\)</span>.</p></li>
+</ol>
+<p>Then <span class="math display">\[\left\lvert \int f e ^{i\Phi }
+\right\rvert \leq 2 \int \left\lvert \frac{f&#39;}{ \Phi &#39;}
+\right\rvert.\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> To improve the cosmetics of the proof, we replace
+<span class="math inline">\(\Phi\)</span> with <span
+class="math inline">\(i \Phi\)</span>, so that it is now
+imaginary-valued. Set <span class="math display">\[\begin{align}
+    I &amp;:=  \int f e ^{\Phi }, \\
+    I_1 &amp;:= \int \frac{f &#39; }{ \Phi &#39; } e ^{\Phi }, \\
+    I_2 &amp;:= \int \frac{f &#39;}{ \Phi &#39;}.
+  
+\end{align}\]</span> It is enough to show that <span
+class="math display">\[\lvert I + I_1 \rvert \leq \lvert I_2
+\rvert.\]</span> To see this, we begin by differentiating: <span
+class="math display">\[\left( \frac{f e ^\Phi }{ \Phi &#39; }
+\right)&#39;
+    =
+    \frac{\Phi &#39; (f &#39; e ^\Phi + f \Phi &#39; e ^{\Phi }) - f e
+^\Phi \Phi &#39;&#39;}{ (\Phi &#39;)^2}
+    =
+    \left(     f
+      +
+      \frac{f&#39; }{ \Phi &#39;}
+      -
+      \frac{f \Phi &#39;&#39;}{ (\Phi &#39;)^2}
+    \right) e ^\Phi.\]</span> By integration by parts, it follows that
+<span class="math display">\[I + I_1 = I&#39; := \int \frac{f \Phi
+&#39;&#39; }{ (\Phi &#39;) ^2 } e ^{\Phi }.\]</span> Since <span
+class="math inline">\(f\)</span> is nonnegative and both <span
+class="math inline">\(\Phi &#39;\)</span> and <span
+class="math inline">\(\Phi &#39;&#39;\)</span> are nonvanishing on an
+interval containing the support of <span
+class="math inline">\(f\)</span>, we see that the ratio <span
+class="math inline">\(f \Phi &#39;&#39; / (\Phi &#39;)^2\)</span> is
+either everywhere nonnegative or everywhere nonpositive. Thus <span
+class="math display">\[|I&#39;| \leq |I&#39;&#39;|, \quad I&#39;&#39; :=
+\int \frac{f \Phi &#39;&#39; }{ (\Phi &#39;) ^2 }.\]</span> On the other
+hand, <span class="math display">\[\left( \frac{f}{ \Phi &#39;} \right)
+&#39; = \frac{\Phi &#39; f &#39; - f \Phi &#39;&#39;}{ (\Phi
+&#39;)^2},\]</span> hence <span class="math display">\[I&#39;&#39; =
+I_2.\]</span> ◻</p>
+</span></div>
+<p>To apply Lemma <a href="#lemma:integration-by-parts"
+data-reference-type="ref"
+data-reference="lemma:integration-by-parts">12</a> to the situation of
+interest, we will do the following:</p>
+<ol type="a">
+<li><p>Estimate the <span class="math inline">\(L^1\)</span>-norm of the
+derivative of <span class="math inline">\(f\)</span> from above by <span
+class="math inline">\(\operatorname{O}(1)\)</span>.</p></li>
+<li><p>Verify that the second derivative of <span
+class="math inline">\(\Phi\)</span> does not vanish on some interval
+containing the support of <span
+class="math inline">\(f\)</span>.</p></li>
+<li><p>Estimate the derivative of <span
+class="math inline">\(\Phi\)</span> from below, on some interval
+containing the support of <span class="math inline">\(f\)</span>, by the
+inverse of the right hand side of the respective upper bound stated in
+Proposition <a href="#proposition:oscillatory-estimates-for-I-of-n"
+data-reference-type="ref"
+data-reference="proposition:oscillatory-estimates-for-I-of-n">10</a></p></li>
+</ol>
+<p>We start with the first of these tasks.</p>
+<div id="lemma:estimate-L1-norm-f-prime" class="lemma">
+<p><strong>Lemma 13</strong>. Let <span class="math inline">\(f\)</span>
+be as in either case of Proposition <a
+href="#proposition:reduction-to-key-parts-of-W"
+data-reference-type="ref"
+data-reference="proposition:reduction-to-key-parts-of-W">9</a>. Then
+<span class="math inline">\(\lVert f &#39; \rVert_{L^1(\mathbb{R})} \ll
+1\)</span>.</p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> We consider each case:</p>
+<ol type="i">
+<li><p>Suppose <span class="math inline">\(f = f^Y\)</span>. Then <span
+class="math display">\[f &#39;(y) = \sum_{k} \frac{x_k}{Y} V&#39; \left(
+\frac{x _k y}{Y} \right) \prod_{j \neq k} V \left( \frac{x _j y}{Y}
+\right).\]</span> Recall our assumption that <span
+class="math inline">\(x_1 \asymp 1\)</span>. We see that <span
+class="math inline">\(f&#39;(y)\)</span> vanishes unless <span
+class="math inline">\(y \asymp Y\)</span> and each <span
+class="math inline">\(x_k \asymp 1\)</span>, in which case <span
+class="math inline">\(f&#39;(y) \ll 1/Y\)</span>. The volume of the
+support is <span class="math inline">\(\ll Y\)</span>, so the claim
+follows.</p></li>
+<li><p>Suppose <span class="math inline">\(f = f^U\)</span>. Then <span
+class="math display">\[\begin{align}
+      f &#39; (y) &amp;=
+                \sum_{k} \frac{x_k}{t} V_1&#39; \left( \frac{x _k y}{t}
+\right) V_2 \left( \frac{t - x _k y}{U } \right)
+                \prod_{j \neq k} V _1 \left( \frac{x _j y}{t} \right) V
+_2 \left( \frac{t - x _j y }{U} \right) \\
+              &amp;-
+                \sum_{k} \frac{x_k}{U} V_1 \left( \frac{x _k y}{t}
+\right) V_2&#39; \left( \frac{t - x _k y}{U } \right)
+                \prod_{j \neq k} V _1 \left( \frac{x _j y}{t} \right) V
+_2 \left( \frac{t - x _j y }{U} \right).
+    
+\end{align}\]</span> We have <span class="math inline">\(f&#39;(y) =
+0\)</span> unless <span class="math inline">\(y \asymp t\)</span>, <span
+class="math inline">\(y - t \asymp U\)</span> and each <span
+class="math inline">\(x_k \asymp 1\)</span>, in which case <span
+class="math inline">\(f&#39;(y) \ll 1/U\)</span>. The volume of the
+support is <span class="math inline">\(\ll U\)</span>, so the claim
+follows.</p></li>
+</ol>
+<p> ◻</p>
+</span></div>
+<p>We note that for <span class="math inline">\(j = 1,2,3,4\)</span>,
+<span id="eqn:f-Y-support" class="math display">\[\label{eqn:f-Y-support}\tag{17}
+  f^Y(y) \neq 0 \implies x_j y \asymp Y \lll t, \quad t- x_j y \asymp
+t,\]</span> <span id="eqn:f-U-support" class="math display">\[\label{eqn:f-U-support}\tag{18}
+  f^U(y) \neq 0 \implies x_j y \asymp t, \quad t - x_j y \asymp U \ll t,
+\quad t &gt; x_j y.\]</span> In view of Lemmas <a
+href="#lemma:integration-by-parts" data-reference-type="ref"
+data-reference="lemma:integration-by-parts">12</a> and <a
+href="#lemma:estimate-L1-norm-f-prime" data-reference-type="ref"
+data-reference="lemma:estimate-L1-norm-f-prime">13</a>, the proof of
+Proposition <a href="#proposition:oscillatory-estimates-for-I-of-n"
+data-reference-type="ref"
+data-reference="proposition:oscillatory-estimates-for-I-of-n">10</a>
+reduces to the following:</p>
+<div id="proposition:cqx50a22sj" class="proposition">
+<p><strong>Proposition 14</strong>. <em>Retain the setting of
+Proposition <a href="#proposition:oscillatory-estimates-for-I-of-n"
+data-reference-type="ref"
+data-reference="proposition:oscillatory-estimates-for-I-of-n">10</a>.</em></p>
+<ol type="i">
+<li><p><em>For <span class="math inline">\(y\)</span> as in <a
+href="#eqn:f-Y-support" data-reference-type="eqref"
+data-reference="eqn:f-Y-support">\((17)\)</a>, we have the
+second derivative sign inequality <span id="eqn:second-derivative-sign-calculation" class="math display">\[\label{eqn:second-derivative-sign-calculation}\tag{19}
+      \frac{\Phi &#39;&#39;(y)}{x_1 x_2 - x_3 x_4} &lt; 0\]</span> and
+the first derivative lower bound <span id="eqn:Phi-prime-lower-bound-Y" class="math display">\[\label{eqn:Phi-prime-lower-bound-Y}\tag{20}
+      \frac{\Phi &#39;(y)}{x_1 x_2 - x_3 x_4} \gg
+\frac{Y}{t}.\]</span></em></p></li>
+<li><p><em>For <span class="math inline">\(y\)</span> as in <a
+href="#eqn:f-U-support" data-reference-type="eqref"
+data-reference="eqn:f-U-support">\((18)\)</a>, we have the
+second derivative sign inequality <a
+href="#eqn:second-derivative-sign-calculation"
+data-reference-type="eqref"
+data-reference="eqn:second-derivative-sign-calculation">\((19)\)</a>
+and the first derivative lower bound <span id="eqn:Phi-prime-lower-bound-U" class="math display">\[\label{eqn:Phi-prime-lower-bound-U}\tag{21}
+      \frac{\Phi &#39;(y)}{ x_1 x_2 - x_3 x_4} \gg \left( \frac{t}{U}
+\right) ^{3/2}.\]</span></em></p></li>
+</ol>
+</div>
+<p>To verify the above, we first calculate <span
+class="math inline">\(\Phi &#39;\)</span> explicitly. To describe the
+result of that calculation, we introduce some notation. Set <span
+class="math display">\[z_j := \frac{x _j y }{t }.\]</span> We pause to
+note that in the respective cases <a href="#eqn:f-Y-support"
+data-reference-type="eqref"
+data-reference="eqn:f-Y-support">\((17)\)</a> and <a
+href="#eqn:f-U-support" data-reference-type="eqref"
+data-reference="eqn:f-U-support">\((18)\)</a>, we have <span
+class="math display">\[z_j \asymp Y/t \lll 1,\]</span> <span
+class="math display">\[z_j \asymp 1, \quad z_j - 1 \asymp U/t.\]</span>
+Moreover, in either case, we have <span class="math inline">\(z_j \in
+(0,1)\)</span>. We set<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> <span class="math display">\[h_j :=
+\sqrt{1 - z_j ^2 } \in (0,1).\]</span></p>
+<div id="lemma:formula-derivative-Phi" class="lemma">
+<p><strong>Lemma 15</strong>. We have <span class="math display">\[\Phi
+&#39; (y) = - \frac{t}{y} \sum _j \eta _j h_j\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> By the chain rule, we have <span
+class="math display">\[\begin{align}
+    y \Phi &#39;(y) &amp;= \sum _j \eta _j x _j y H&#39; \left( \frac{x
+_j y}{t} \right).
+    \\
+                &amp;= t \sum _j \eta _j z_j H&#39; \left( z_j \right).
+  
+\end{align}\]</span> For <span class="math inline">\(x \in
+(0,1)\)</span>, we may check (carefully) that <span
+class="math display">\[- x H &#39; (x) = \sqrt{1 - x ^{2}}.\]</span> The
+claimed identity follows. ◻</p>
+</span></div>
+<p>We have <span class="math display">\[\begin{align}
+  \frac{-\Phi &#39;(y)}{x_1 x_2 - x_3 x_4} &amp;= \frac{t }{y}
+\frac{\sum _j \eta _j h _j }{x_1 x_2 - x_3 x_4} \\
+                                       &amp;= \frac{y}{t} \frac{\sum _j
+\eta _j h _j }{ z _1 z _2 - z _3 z _4 }.
+\end{align}\]</span> Using that <span class="math inline">\(\frac{d}{d
+x } (1 - x ^2 )^{1/2} = - x (1 - x^2)^{-1/2}\)</span>, we see that <span
+class="math inline">\(\Phi &#39;&#39;(y)\)</span> is a positive constant
+multiple of <span class="math display">\[\sum  _j \eta _j
+h_j^{-1}\]</span> In view of our assumption <span
+class="math inline">\(x_1 \asymp 1\)</span> (see <a
+href="#eqn:x1x2-not-x3x4" data-reference-type="eqref"
+data-reference="eqn:x1x2-not-x3x4">\((16)\)</a>), we have
+<span class="math inline">\(y \asymp Y\)</span> on the support of <span
+class="math inline">\(f\)</span>. The required assertions <a
+href="#eqn:second-derivative-sign-calculation"
+data-reference-type="eqref"
+data-reference="eqn:second-derivative-sign-calculation">\((19)\)</a>,
+<a href="#eqn:Phi-prime-lower-bound-Y" data-reference-type="eqref"
+data-reference="eqn:Phi-prime-lower-bound-Y">\((20)\)</a>
+and <a href="#eqn:Phi-prime-lower-bound-U" data-reference-type="eqref"
+data-reference="eqn:Phi-prime-lower-bound-U">\((21)\)</a>
+concerning <span class="math inline">\(\Phi &#39;\)</span> and <span
+class="math inline">\(\Phi &#39;&#39;\)</span> thereby reduce to the
+following, whose proof is all that remains:</p>
+<div id="proposition:zj" class="proposition">
+<p><strong>Proposition 16</strong>. <em>Let <span
+class="math inline">\(z_1,z_2,z_3,z_4 \in (0,1)\)</span> such that <span
+class="math display">\[z_1 + z_2 = z_3 + z_4, \quad z_1 z_2 \neq z_3
+z_4.\]</span> Define <span class="math inline">\(h_j := \sqrt{1 - z_j^2}
+\in (0,1)\)</span>. Recall that <span
+class="math inline">\((\eta_1,\eta_2,\eta_3,\eta_4) =
+(1,1,-1,-1)\)</span>.</em></p>
+<ol type="i">
+<li><p><em>We have <span id="eqn:eta-sign" class="math display">\[\label{eqn:eta-sign}\tag{22}
+      \frac{\sum _j \eta _j / h _j }{ z _1 z _2 - z_3 z_4 } &lt;
+0.\]</span></em></p></li>
+<li><p><em>Suppose that each <span class="math inline">\(z_j \lll
+1\)</span>. Then <span id="eqn:eta-lower-1" class="math display">\[\label{eqn:eta-lower-1}\tag{23}
+      \frac{\sum _j \eta _j h _j }{ z _1 z _2  - z _3 z _4 } \gg
+1.\]</span></em></p></li>
+<li><p><em>Suppose that each <span class="math inline">\(z_j \asymp
+1\)</span> and <span class="math inline">\(z_j - 1 \asymp Z\)</span> for
+some <span class="math inline">\(Z \ll 1\)</span>. Then <span id="eqn:eta-lower-2" class="math display">\[\label{eqn:eta-lower-2}\tag{24}
+      \frac{\sum _j \eta _j h _j }{ z _1 z _2  - z _3 z _4 } \gg
+1/Z^{3/2}.\]</span></em></p></li>
+</ol>
+</div>
+<h1 id="sec:cqx50a0chs">§14. Fun with square roots</h1>
+<p>We retain the setting of Proposition <a href="#proposition:zj"
+data-reference-type="ref" data-reference="proposition:zj">16</a> and
+verify its assertions one by one.</p>
+<p>We first establish <a href="#eqn:eta-sign"
+data-reference-type="eqref"
+data-reference="eqn:eta-sign">\((22)\)</a>. Clearing denominators,
+we have <span class="math display">\[\sum _j \eta _j  / h _j
+  = \frac{(h_2 h_3 h_4 + h_1 h_3 h_4) - (h_1 h_2 h_4 + h_1 h_2 h_3)}{
+h_1 h_2 h_3 h_4}.\]</span> Since each <span class="math inline">\(h_j
+&gt; 0\)</span>, our task reduces to verifying that <span
+class="math display">\[\frac{a}{z_1 z_2 - z_3 z_4} &lt; 0,
+  \quad a := (h_2 h_3 h_4 + h_1 h_3 h_4)^2 - (h_1 h_2 h_4 + h_1 h_2
+h_3)^2.\]</span> This inequality is a consequence of the following
+lemma.</p>
+<div id="lemma:cqx50a3bu6" class="lemma">
+<p><strong>Lemma 17</strong>. Set <span
+class="math display">\[\begin{align}
+  b &amp;:= 2 (1 - (z _1 z _2 ) ^2) + (z _1 z _2 + z _3 z _4 ) (2 - (z
+_1^2 +  z _2^2 ) ) &gt; 0, \\
+  c &amp;:= 2  h _1 h _2 h _3 h _4 (2 + z _3 z _4 + z _1 z _2) &gt; 0,
+\\
+  e :&amp;= h_3 h_4 + h_1 h_2 &gt; 0.
+\end{align}\]</span> Then <span class="math display">\[\frac{a}{z _3 z
+_4 - z _1 z _2 } = b + \frac{c}{e} &gt; 0.\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> This is noted in <a href="#ref-ki20234" class="citation"
+data-cites="ki20234">(Ki 2023)</a>. It may be confirmed by the
+following SAGE code:</p>
+<pre><code>h = [var(&quot;h&quot; + str(j)) for j in (0..4)]
+x = [var(&quot;x&quot; + str(j)) for j in (0..4)]
+a = (h2*h3*h4 + h1*h3*h4)^2 - (h1*h2*h4 + h1*h2*h3)^2
+b = 2*(1 - (x1*x2)^2) + (x1*x2 + x3*x4)*(2 - (x1^2 + x2^2))
+c = 2*h1*h2*h3*h4*(2 + x3*x4 + x1*x2)
+d = x3*x4 - x1*x2
+e = h3*h4 + h1*h2
+# To check: a/d = b + c/e
+# Rewrite: a = b*d + c*d/e
+# Rewrite: a*e = b*d*e + c*d
+test0 = a*e - (b*d*e + c*d)
+test1 = test0.subs(h1=sqrt(1-x1^2), h2=sqrt(1-x2^2), h3=sqrt(1-x3^2), h4=sqrt(1-x4^2))
+test2 = test1.subs(x4 = x1+x2-x3).expand()
+test2</code></pre>
+<p> ◻</p>
+</span></div>
+<p>The proofs of <a href="#eqn:eta-lower-1" data-reference-type="eqref"
+data-reference="eqn:eta-lower-1">\((23)\)</a> and <a
+href="#eqn:eta-lower-2" data-reference-type="eqref"
+data-reference="eqn:eta-lower-2">\((24)\)</a> make use of the
+following algebraic identity.</p>
+<div id="lemma:algebraic-identity" class="lemma">
+<p><strong>Lemma 18</strong>. We have <span id="equation:basic-identity-for-sum-difference-h1h2h3h4" class="math display">\[\label{equation:basic-identity-for-sum-difference-h1h2h3h4}\tag{25}
+  \frac{\sum \eta_j h_j \sum h_j
+  }{
+    z _1 z _2 - z _3 z _4
+  }
+  =
+  2 + \frac{4}{ h _1 h _2 + h _3 h _4 }
+  + 2 \frac{z _1 z _2 + z _3 z _4 }{ h _1 h _2 + h _3 h
+_4}.\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof." data-folded-text="Proof. (...)">Proof.</em></a>
+<span class="proof-content"> This is a consequence of several identities noted in
+<a href="#ref-ki20234" class="citation" data-cites="ki20234">(Ki 2023)</a>. I have
+checked it using computer algebra; the following SAGE code outputs
+“<span class="math inline">\(0\)</span>”.</p>
+<pre><code>h = [var(&quot;h&quot; + str(j)) for j in (0..4)]
+x = [var(&quot;x&quot; + str(j)) for j in (0..4)]
+y = [0,1,1,-1,-1]
+a = sum(y[j]*h[j] for j in (1..4))
+b = sum(h[j] for j in (1..4))
+c = x1*x2 - x3*x4
+d = x1*x2 + x3*x4
+e = h1*h2 + h3*h4
+# To check: a*b/c = 2 + 4/e + 2*d/e.
+# Rewrite: a*b*e = 2*c*e + 4*c + 2*d*c.
+test0 = a*b*e - (2*c*e + 4*c + 2*d*c)
+test1 = test0.subs(h1=sqrt(1-x1^2), h2=sqrt(1-x2^2), h3=sqrt(1-x3^2), h4=sqrt(1-x4^2))
+test2 = test1.subs(x4 = x1+x2-x3).expand()
+test2</code></pre>
+<p> ◻</p>
+</span></div>
+<p>We note that each term on the right hand side of <a
+href="#equation:basic-identity-for-sum-difference-h1h2h3h4"
+data-reference-type="eqref"
+data-reference="equation:basic-identity-for-sum-difference-h1h2h3h4">\((25)\)</a>
+is positive. We may thus bound the left hand side from below by any term
+on the right hand side.</p>
+<p>We now verify <a href="#eqn:eta-lower-1" data-reference-type="eqref"
+data-reference="eqn:eta-lower-1">\((23)\)</a>. If each <span
+class="math inline">\(z_j \lll 1\)</span>, then each <span
+class="math inline">\(h_j \asymp 1\)</span>. Bounding the right hand
+side of <a href="#equation:basic-identity-for-sum-difference-h1h2h3h4"
+data-reference-type="eqref"
+data-reference="equation:basic-identity-for-sum-difference-h1h2h3h4">\((25)\)</a>
+from below by the first term on its right hand side gives <a
+href="#eqn:eta-lower-1" data-reference-type="eqref"
+data-reference="eqn:eta-lower-1">\((23)\)</a>.</p>
+<p>We now verify <a href="#eqn:eta-lower-2" data-reference-type="eqref"
+data-reference="eqn:eta-lower-2">\((24)\)</a>. If each <span
+class="math inline">\(z_j \asymp 1\)</span> and <span
+class="math inline">\(z_j - 1 \asymp Z\)</span> for some <span
+class="math inline">\(Z \ll 1\)</span>, then each <span
+class="math inline">\(h_j \asymp Z ^{1/2}\)</span>, hence <span
+class="math inline">\(\sum_j h_j \asymp Z^{1/2}\)</span> and <span
+class="math inline">\(h_1 h_2 + h_3 h_4 \asymp Z\)</span>. Bounding the
+right hand side of <a
+href="#equation:basic-identity-for-sum-difference-h1h2h3h4"
+data-reference-type="eqref"
+data-reference="equation:basic-identity-for-sum-difference-h1h2h3h4">\((25)\)</a>
+from below by the second term on its right hand side gives <a
+href="#eqn:eta-lower-2" data-reference-type="eqref"
+data-reference="eqn:eta-lower-2">\((24)\)</a>.</p>
+<p>The proof of Theorem <a href="#theorem:main"
+data-reference-type="ref" data-reference="theorem:main">1</a> is
+complete.</p>
+<h1 id="sec:cqx50a0dcx">§15. Questions</h1>
+<ol>
+<li><p>Reduce the “hard” ingredients required in the proof? In this
+presentation, uniform asymptotics for Bessel functions and some exact
+identities involving <span class="math inline">\(\sqrt{1 - x^2}\)</span>
+are combined to bound the integrals <span class="math display">\[\int_0
+^\infty W _t (x _1 y) W _t (x _2 y ) W _t (x _3 y) W _t (x _4 y) \,
+\frac{d y}{y^2},\]</span> or equivalently (up to normalizing factors),
+<span class="math display">\[\int_0 ^\infty K_{it} (x _1 y) K_{it} (x _2
+y ) K_{it} (x _3 y) K_{it} (x _4 y) \, d y,\]</span> for positive reals
+<span class="math inline">\(x_1, \dotsc, x_4\)</span> satisfying <span
+class="math inline">\(x_1 + x_2 = x_3 + x_4\)</span>, but maybe the
+bounds are more fundamental than the ingredients.</p></li>
+<li><p>Geometric way to think of the proof of Proposition <a
+href="#proposition:zj" data-reference-type="ref"
+data-reference="proposition:zj">16</a>, using that the points <span
+class="math inline">\((z_j, h_j)\)</span> lie in the upper-right
+quadrant of the unit circle?</p></li>
+<li><p>Compact quotients, maybe via “theta method”? cf. <a href="#ref-2012arXiv1210.1243N"
+class="citation" data-cites="2012arXiv1210.1243N">(Nelson 2015)</a>,
+<a href="#ref-nelson-variance-3" class="citation" data-cites="nelson-variance-3">(Nelson
+2019)</a>, <a href="#ref-MR4752128" class="citation" data-cites="MR4752128">(Khayutin,
+Nelson, and Steiner 2024)</a>, ...</p></li>
+<li><p>Other aspects, such as <span
+class="math inline">\(p\)</span>-adic depth.</p></li>
+</ol>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-MR3102912" class="csl-entry" role="listitem">
+Ghosh, Amit, Andre Reznikov, and Peter Sarnak. 2013. <span>“Nodal
+Domains of <span>M</span>aass Forms <span>I</span>.”</span> <em>Geom.
+Funct. Anal.</em> 23 (5): 1515–68. <a
+href="https://doi.org/10.1007/s00039-013-0237-4">https://doi.org/10.1007/s00039-013-0237-4</a>.
+</div>
+<div id="ref-HL94" class="csl-entry" role="listitem">
+Hoffstein, Jeffrey, and Paul Lockhart. 1994. <span>“Coefficients of
+<span>M</span>aass Forms and the <span>S</span>iegel Zero.”</span>
+<em>Ann. Of Math. (2)</em> 140 (1): 161–81.
+</div>
+<div id="ref-MR1067982" class="csl-entry" role="listitem">
+Iwaniec, Henryk. 1990. <span>“Small Eigenvalues of
+<span>L</span>aplacian for <span><span
+class="math inline">\(\Gamma_0(N)\)</span></span>.”</span> <em>Acta
+Arith.</em> 56 (1): 65–82.
+</div>
+<div id="ref-MR2061214" class="csl-entry" role="listitem">
+Iwaniec, Henryk, and Emmanuel Kowalski. 2004. <em>Analytic Number
+Theory</em>. Vol. 53. American Mathematical Society Colloquium
+Publications. Providence, RI: American Mathematical Society.
+</div>
+<div id="ref-MR4752128" class="csl-entry" role="listitem">
+Khayutin, Ilya, Paul D. Nelson, and Raphael S. Steiner. 2024.
+<span>“Theta Functions, Fourth Moments of Eigenforms and the Sup-Norm
+Problem <span>II</span>.”</span> <em>Forum Math. Pi</em> 12: Paper No.
+e11, 53. <a
+href="https://doi.org/10.1017/fmp.2024.9">https://doi.org/10.1017/fmp.2024.9</a>.
+</div>
+<div id="ref-ki20234" class="csl-entry" role="listitem">
+Ki, Haseo. 2023. <span>“<span><span
+class="math inline">\(L^4\)</span></span>-Norms and Sign Changes of
+Maass Forms.”</span> <em>arXiv Preprint arXiv:2302.02625</em>.
+</div>
+<div id="ref-2012arXiv1210.1243N" class="csl-entry" role="listitem">
+Nelson, Paul D. 2015. <span>“Evaluating Modular Forms on
+<span>S</span>himura Curves.”</span> <em>Math. Comp.</em> 84 (295):
+2471–2503. <a
+href="https://doi.org/10.1090/S0025-5718-2015-02943-3">https://doi.org/10.1090/S0025-5718-2015-02943-3</a>.
+</div>
+<div id="ref-nelson-variance-3" class="csl-entry" role="listitem">
+———. 2019. <span>“Quantum Variance on Quaternion Algebras,
+<span>III</span>.”</span> preprint.
+</div>
+</div>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>The present definition of <span
+class="math inline">\(h_j\)</span> differs from that in <a href="#ref-ki20234"
+class="citation" data-cites="ki20234">(Ki 2023)</a> by a factor of
+<span class="math inline">\(t\)</span>.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
