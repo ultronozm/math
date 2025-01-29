@@ -6,7 +6,7 @@
 \maketitle
 \tableofcontents
 
-\section{Notation and setup}
+\section{Notation and setup}\label{sec:cqx50ayzoa}
 Let $t$ traverse a sequence of positive real numbers, tending off to $\infty$.  In what follows, we adopt the convention that everything is allowed by default to depend upon $t$ unless we declare it to be fixed (or, synonymously, write ``fix $\dotsc$'').  Moreover, all assertions are understood as holding for $t$ sufficiently large.  We adopt the asymptotic notation: if $|A| \leq C |B|$ for some fixed $C$, then we write
 \begin{equation*}
   A = \O(B), \quad A \ll B \quad \text{ or } \quad  B \gg A,
@@ -26,7 +26,7 @@ We adopt the following shorthand:
 
 We abbreviate $e(x) := \exp(2 \pi i x)$.
 
-\section{Statement of result}
+\section{Statement of result}\label{sec:cqx50az0ci}
 Let $\lambda(n)$ be a sequence of real numbers, indexed by the natural numbers $\mathbb{N} = \{1, 2, \dotsc \}$, with the property that for each $N \geq 1$, we have
 \begin{equation}\label{eqn:fourth-moment-bound-lambda}
   \sum_{n \leq N} \left\lvert \lambda(n) \right\rvert^4 \prec N.
@@ -58,7 +58,7 @@ The arguments of \cite[Theorem 2]{ki20234} establish the following:
   We have $\mathcal{N}(W_t) \prec 1$.
 \end{theorem}
 
-\begin{example}
+\begin{example}\label{example:cqx50a0rbu}
   Let $\varphi$ be a Hecke--Maass cusp form for $\SL_2(\mathbb{Z})$ of eigenvalue $1/4 + t^2$. Let $\lambda(n)$ denote its normalized Hecke eigenvalues.  It is known  that \eqref{eqn:fourth-moment-bound-lambda} holds (see \cite[Lemma 3.6]{MR3102912}).  We may normalize $\varphi$ so that its Fourier expansion reads
   \begin{equation*}
     \varphi(z) = \sum _{0 \neq n \in \mathbb{Z} }
@@ -87,7 +87,7 @@ We apply Parseval's identity to the $x$-integral in the definition of $\mathcal{
 In these cases, the necessary savings are achieved by integrating by parts once in the integral over $y$.  The partial integration is a bit intricate because it involves the quadratic part of the phase.
 
 
-\section{Parseval}
+\section{Parseval}\label{sec:cqx50az21s}
 We will prove Theorem \ref{theorem:main} by decomposing $W_t$ into at most $\prec 1$ pieces $W$ and showing that $\mathcal{N}(W) \prec 1$ for each piece.  The basis for the piecewise estimates will be the following application of Parseval and Cauchy--Schwarz.
 \begin{lemma}\label{lemma:unfolding}
   We have
@@ -128,7 +128,7 @@ We will prove Theorem \ref{theorem:main} by decomposing $W_t$ into at most $\pre
 
 
 
-\section{Estimating via size and support}
+\section{Estimating via size and support}\label{sec:cqx50az3z1}
 We next record a crude estimate, taking into account the size and support properties of $W$ but forgoing any cancellation in the integrals \eqref{equation:definition-of-I-of-n}.
 \begin{lemma}\label{lemma:crude-bound}
   Suppose that $W \in C_c(\mathbb{R})$ is supported on the interval $[Y_1, Y_2]$, where $0 < Y_1 < Y_2$.  Assume that
@@ -186,7 +186,7 @@ We next record a crude estimate, taking into account the size and support proper
   Inserting this into the earlier estimate \eqref{eqn:estimate-N-W-in-proof-of-lemma-via-support-and-vanishing-conditions} yields the required bound.
 \end{proof}
 
-\section{Bessel asymptotics}
+\section{Bessel asymptotics}\label{sec:cqx50az4ip}
 We now recall, following \cite[p 1527-1528]{MR3102912}, the shape of $W_t$.
 
 
@@ -254,7 +254,7 @@ In these ranges, the basic upper bound for $W_t(y)$ explicates as follows:
   \end{cases}
 \end{equation*}
 
-\section{Dyadic decomposition}
+\section{Dyadic decomposition}\label{sec:cqx50az4v6}
 We fix an even function $V_1 \in C_c^\infty(\mathbb{R}^\times)$ so that for all $y \in \mathbb{R}^\times$, we have
 \begin{equation*}
   \sum _{Y \in \exp(\mathbb{Z})} V_1\left(\frac{y}{Y}\right) = 1. 
@@ -309,6 +309,7 @@ The number of relevant $Y$ or $T$ is $\prec 1$, so we reduce to establishing the
   \item Assuming $Y \asymp t$ and \eqref{eqn:U-between-t-third-and-t}, we have $\mathcal{N} (W _{t} ^{Y, \pm, U}) \prec 1$.
   \end{enumerate}
 \end{proposition}
+
 
 
 \section{Application of crude bounds}\label{sec:appl-crude-bounds}
@@ -370,7 +371,7 @@ The proof of Proposition \ref{proposition:reduction-after-dyadic-decopm} thereby
   \end{enumerate}
 \end{proposition}
 
-\section{Smoothening}
+\section{Smoothening}\label{sec:cqx50az5wn}
 It will be convenient to ``smoothen'' the definition of $\mathcal{N}(W)$ a bit, as follows.  Retain the setting of Proposition \ref{proposition:reduction-to-critical-dyadic-ranges}.  Recall from \eqref{eqn:definition-N-of-W} that $\mathcal{N}(W)$ is defined by an integral over $y \geq y_0$.  On the other hand, $W(y)$ is supported on $y \asymp Y$.  Let us fix $0 < c < C$ so that $W(y)$ vanishes for $y \notin [c Y, C Y ]$.  The product $\lambda(n) W(n y)$ then vanishes for $n \geq C Y$.  For this reason, modifying $\lambda(n)$ by zeroing it out for $n > C Y$ has no effect on $\mathcal{N}(W)$, and no effect on our sole hypothesis \eqref{eqn:fourth-moment-bound-lambda} concerning $\lambda$.  Having modified $\lambda(n)$ in this way, we now have $\lambda(n) W(n y) \neq 0$ only if $n \leq C Y$ and $n y \geq c Y$, which forces $y \geq c/C$.  On the other hand, $\mathcal{N}(W)$ only increases if we decrease the fixed quantity $y_0 > 0$.  Let us decrease that quantity, if necessary, so that $y_0 \leq c/C$.  Having done so, we see that the integration constraints in the definitions of $\mathcal{N}(W)$ and $I(\mathbf{n})$ (see \eqref{equation:definition-of-I-of-n}) are now redundant -- we might as well integrate over all $y > 0$.  In particular,
 \begin{equation*}
   I(\mathbf{n}) = \int _{y = 0 } ^\infty W (y ) W (\tfrac{n_2}{n _1} y) \overline{W (\tfrac{n _3 }{ n _1 } y) W (\tfrac{n _4}{n_1} y)} \, \frac{d y}{y^2}.
@@ -378,7 +379,7 @@ It will be convenient to ``smoothen'' the definition of $\mathcal{N}(W)$ a bit, 
 This ``smoothening'' has the effect of eliminating certain boundary terms in the arguments to follow.  (The arguments would work anyway, but the details are slightly simplified by having smoothened first.)
 
 
-\section{The diagonal contribution}
+\section{The diagonal contribution}\label{sec:cqx50az6mj}
 Recall that $\mathbf{n}$ has denoted a quadruple of natural numbers satisfying $n _1 + n _2 = n _3 + n _4$.  Because a pair of natural numbers is determined up to reordering by its sum and product, we have
 \begin{equation*}
   (n_1 n_2 = n_3 n_4) \iff ( \{n_1, n_2\} = \{n_3, n_4\}).
@@ -416,6 +417,7 @@ It remains only to establish the analogue of Proposition \ref{proposition:reduct
   }
   \frac{\left\lvert \lambda (n _1 ) \right\rvert ^4 }{ n _1 } \left\lvert I(\mathbf{n}) \right\rvert.
 \end{equation}
+
 
 
 \section{Discarding the remainder terms}\label{sec:discarding-remainder-terms}
@@ -466,7 +468,7 @@ taken over all $y = t + u$ in the support of $W_{t,\flat}^*$.
 \end{enumerate}
 We have reduced to establishing the analogue of Proposition \ref{proposition:reduction-to-critical-dyadic-ranges} but for $\mathcal{N}_{\mathrm{off}}(W_{t,\sharp}^{*})$ rather than $\mathcal{N}(W_{t}^{*})$.
 
-\section{Absorption of nuisance factors}
+\section{Absorption of nuisance factors}\label{sec:cqx50az7zk}
 By definition,
 \begin{align*}
   W _{t, \sharp}^Y(y) &= V_1\left(\frac{y}{Y}\right) \frac{\sqrt{2 \pi y}  }{ \lvert t^2 - y^2 \rvert ^{1/4}  }
@@ -509,6 +511,7 @@ If $W = c W_0$, then $\mathcal{N}(W) = |c|^4 \mathcal{N}(W_0)$, so the estimate 
   \end{equation*}
   \end{enumerate}
 \end{proposition}
+
 
 
 \section{Reduction to oscillatory integral estimates}\label{sec:reduction-oscillatory-integral-estimates}
@@ -599,9 +602,10 @@ as required.
   \end{equation*}
   using in the final step that $U \ll t$.
 \end{enumerate}
-\begin{remark}
+\begin{remark}\label{remark:cqx50a2ssj}
   In the treatment of $f^U$, we could have done a bit better, taking into account that $I(\mathbf{n})$ vanishes identically unless $n_3, n_4 \in  n _1 (1 + \O(U/t))$, but it is apparently unnecessary to do so.  In particular, we see that the ``hardest'' case is that of $f^Y$ for $t^{1-\delta} \ll Y \ll t$.
 \end{remark}
+
 
 \section{Integration by parts}\label{sec:integration-parts}
 It remains only to prove Proposition \ref{proposition:oscillatory-estimates-for-I-of-n}.  We begin with a general ``integration by parts''  lemma (compare with \cite[Lemma 8.9]{MR2061214}).
@@ -700,7 +704,7 @@ We note that for $j = 1,2,3,4$,
   f^U(y) \neq 0 \implies x_j y \asymp t, \quad t - x_j y \asymp U \ll t, \quad t > x_j y.
 \end{equation}
 In view of Lemmas \ref{lemma:integration-by-parts} and \ref{lemma:estimate-L1-norm-f-prime}, the proof of Proposition \ref{proposition:oscillatory-estimates-for-I-of-n} reduces to the following:
-\begin{proposition}
+\begin{proposition}\label{proposition:cqx50a22sj}
   Retain the setting of  Proposition \ref{proposition:oscillatory-estimates-for-I-of-n}.
   \begin{enumerate}[(i)]
   \item For $y$ as in \eqref{eqn:f-Y-support}, we have the second derivative sign inequality
@@ -784,7 +788,7 @@ In view of our assumption $x_1 \asymp 1$ (see \eqref{eqn:x1x2-not-x3x4}), we hav
 \end{proposition}
 
 
-\section{Fun with square roots}
+\section{Fun with square roots}\label{sec:cqx50a0chs}
 We retain the setting of Proposition \ref{proposition:zj} and verify its assertions one by one.
 
 We first establish \eqref{eqn:eta-sign}.  Clearing denominators, we have
@@ -798,9 +802,9 @@ Since each $h_j > 0$, our task reduces to verifying that
   \quad a := (h_2 h_3 h_4 + h_1 h_3 h_4)^2 - (h_1 h_2 h_4 + h_1 h_2 h_3)^2.
 \end{equation*}
 This inequality is a consequence of the following lemma.
-\begin{lemma}
-Set
-\begin{align*}
+\begin{lemma}\label{lemma:cqx50a3bu6}
+  Set
+  \begin{align*}
   b &:= 2 (1 - (z _1 z _2 ) ^2) + (z _1 z _2 + z _3 z _4 ) (2 - (z _1^2 +  z _2^2 ) ) > 0, \\
   c &:= 2  h _1 h _2 h _3 h _4 (2 + z _3 z _4 + z _1 z _2) > 0, \\
   e :&= h_3 h_4 + h_1 h_2 > 0.
@@ -870,7 +874,7 @@ We now verify \eqref{eqn:eta-lower-2}.  If each $z_j \asymp 1$ and $z_j - 1 \asy
 
 The proof of Theorem \ref{theorem:main} is complete.
 
-\section{Questions}
+\section{Questions}\label{sec:cqx50a0dcx}
 
 \begin{enumerate}
 \item Reduce the ``hard'' ingredients required in the proof?  In this presentation, uniform asymptotics for Bessel functions and some exact identities involving $\sqrt{1 - x^2}$ are combined to bound the integrals
@@ -886,6 +890,7 @@ The proof of Theorem \ref{theorem:main} is complete.
 \item Compact quotients, maybe via ``theta method''?  cf.\ \cite{2012arXiv1210.1243N}, \cite{nelson-variance-3}, \cite{2022arXiv220712351K}, ...
 \item Other aspects, such as $p$-adic depth.
 \end{enumerate}
+
 
 
 
