@@ -1,0 +1,893 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\begin{document}
+\title{Notes on Haseo Ki's $L^4$-norm bound}
+\date{31 Mar 2023}
+\maketitle
+\tableofcontents
+
+\section{Notation and setup}
+Let $t$ traverse a sequence of positive real numbers, tending off to $\infty$.  In what follows, we adopt the convention that everything is allowed by default to depend upon $t$ unless we declare it to be fixed (or, synonymously, write ``fix $\dotsc$'').  Moreover, all assertions are understood as holding for $t$ sufficiently large.  We adopt the asymptotic notation: if $|A| \leq C |B|$ for some fixed $C$, then we write
+\begin{equation*}
+  A = \O(B), \quad A \ll B \quad \text{ or } \quad  B \gg A,
+\end{equation*}
+while if $|A| \leq c |B|$ for each fixed $c > 0$, then we write
+\begin{equation*}
+  A = o(B), \quad  A \lll B \quad \text{ or }  B \ggg A.
+\end{equation*}
+We adopt the following shorthand:
+\begin{align*}
+  A \simeq B
+  &\iff
+    A = B + o(1),  \\
+  A \asymp B &\iff A \ll B \ll A, \\
+  A \prec B &\iff A \ll t^{o(1)} B.
+\end{align*}
+
+We abbreviate $e(x) := \exp(2 \pi i x)$.
+
+\section{Statement of result}
+Let $\lambda(n)$ be a sequence of real numbers, indexed by the natural numbers $\mathbb{N} = \{1, 2, \dotsc \}$, with the property that for each $N \geq 1$, we have
+\begin{equation}\label{eqn:fourth-moment-bound-lambda}
+  \sum_{n \leq N} \left\lvert \lambda(n) \right\rvert^4 \prec N.
+\end{equation}
+Fix $y_0 > 0$.  For each measurable function $W : (0,\infty) \rightarrow \mathbb{C}$, we define
+\begin{equation}\label{eqn:definition-N-of-W}
+  \mathcal{N} (W) :=
+  \int _{y = y _0 } ^\infty
+  \int _{x \in \mathbb{R} / \mathbb{Z} }
+  \left\lvert
+    \sum _{n} \frac{\lambda(n)}{\sqrt{n}} W (n y) e (n x)
+  \right\rvert ^4    \, \frac{d y}{ y ^2 }.
+\end{equation}
+This is the fourth power of a seminorm, and so enjoys a variant of the triangle inequality:
+\begin{equation*}
+  \mathcal{N} (W _1 + W _2) \ll \mathcal{N} (W _1 ) + \mathcal{N} (W _2 ).
+\end{equation*}
+
+We denote by $W_t$ the Whittaker function
+\begin{equation*}
+  W_t(y) := \sqrt{y} e ^{\pi t / 2} K _{i t} (y),
+\end{equation*}
+which enjoys the $L^2$-normalization property
+\begin{equation*}
+  \int _0 ^\infty \lvert W_t(y) \rvert ^2 \, \frac{d y}{y} \asymp 1.
+\end{equation*}
+The arguments of \cite[Theorem 2]{ki20234} establish the following:
+\begin{theorem}\label{theorem:main}
+  We have $\mathcal{N}(W_t) \prec 1$.
+\end{theorem}
+
+\begin{example}
+  Let $\varphi$ be a Hecke--Maass cusp form for $\SL_2(\mathbb{Z})$ of eigenvalue $1/4 + t^2$. Let $\lambda(n)$ denote its normalized Hecke eigenvalues.  It is known  that \eqref{eqn:fourth-moment-bound-lambda} holds (see \cite[Lemma 3.6]{MR3102912}).  We may normalize $\varphi$ so that its Fourier expansion reads
+  \begin{equation*}
+    \varphi(z) = \sum _{0 \neq n \in \mathbb{Z} }
+    \frac{\lambda(|n|)}{|n|^{1/2}}
+    \sgn(n)^{a} W (2 \pi |n| y) e (n x)
+  \end{equation*}
+  for some $a \in \{0,1\}$.  It is known (see \cite{MR1067982}, \cite{HL94}) that
+  \begin{equation*}
+    \lVert \varphi  \rVert ^2 _{L^2} \asymp L(\ad \varphi, 1) = t^{o(1)}.
+  \end{equation*}
+  Theorem \ref{theorem:main} implies, by integrating over a Siegel domain and considering separately the contributions of positive and negative $n$, that
+  \begin{equation*}
+    \lVert \varphi  \rVert _{L^4} \prec 1.
+  \end{equation*}
+\end{example}
+
+The idea of the proof of Theorem \ref{theorem:main} is as follows.  We smoothly localize $W_t(y)$ into several regions, according to the size $Y$ of $t$, the size $U$ of $y - t$, and the sign of $y - t$.  In particular, we focus on regions described by the conditions
+\begin{equation*}
+  y \asymp Y, \quad y - t \asymp U.
+\end{equation*}
+We apply Parseval's identity to the $x$-integral in the definition of $\mathcal{N}(W)$.  This introduces a sum over $n_1 + n_2 = n_3 + n_4$ of $\lambda(n_1) \lambda (n _2 )  \lambda (n _3 ) \lambda (n _4 )$ weighted by an integral over $y$ of a four-fold product of localized copies of $W_t$.  In many cases, a satisfactory estimate will follow already from the size and support properties of the integrand.  Such crude arguments suffice away from the following ranges:
+\begin{enumerate}[(i)]
+\item $t ^{2/3}  \lll Y \lll t$ and $U \asymp t$.
+\item $Y \asymp t$ and $t ^{1/2} \lll U \ll t$, with $W_t$ localized on $y < t$.
+\end{enumerate} 
+In these cases, the necessary savings are achieved by integrating by parts once in the integral over $y$.  The partial integration is a bit intricate because it involves the quadratic part of the phase.
+
+
+\section{Parseval}
+We will prove Theorem \ref{theorem:main} by decomposing $W_t$ into at most $\prec 1$ pieces $W$ and showing that $\mathcal{N}(W) \prec 1$ for each piece.  The basis for the piecewise estimates will be the following application of Parseval and Cauchy--Schwarz.
+\begin{lemma}\label{lemma:unfolding}
+  We have
+  \begin{equation*}
+    \mathcal{N}(W) \prec
+    \sum _{n_1 + n_2 = n_3 + n_4}
+    \frac{\left\lvert \lambda(n_1) \right\rvert^4}{n_1} \left\lvert I(\mathfrak{n}) \right\rvert,
+  \end{equation*}
+  where
+  \begin{equation}\label{equation:definition-of-I-of-n}
+    I(\mathfrak{n}) :=
+    \int _{y = n_1 y _0 } ^\infty W (y ) W (\tfrac{n_2}{n _1} y) \overline{W (\tfrac{n _3 }{ n _1 } y) W (\tfrac{n _4}{n_1} y)} \, \frac{d y}{y^2}.
+  \end{equation}
+\end{lemma}
+\begin{proof}
+  By Parseval, we have
+  \begin{equation*}
+    \mathcal{N}(W) = \sum _{n _1 + n _2 = n _3 + n _4 }
+    \frac{\lambda (n _1) \dotsb \lambda (n _4 )}{\sqrt{n _1 \dotsb n _4 }}
+    \int _{y = y _0 } ^\infty
+    W (n _1 y)
+    W (n _2 y)
+    \overline{W (n _3 y)
+      W (n _4 y)}
+    \, \frac{d y}{ y ^2 }.
+  \end{equation*}
+  We majorize each $\lambda(n_j)$ in absolute value and apply Cauchy--Schwarz, giving
+  \begin{equation*}
+    \mathcal{N}(W) \prec
+    \sum _{n_1 + n_2 = n_3 + n_4}
+    \frac{\left\lvert \lambda(n_1) \right\rvert^4}{n_1^2}
+    \left\lvert
+      \int _{y = y _0 } ^\infty W (n _1 y ) W (n _2 y) \overline{W (n _3 y) W (n _4 y)} \, \frac{d y}{y^2}
+    \right\rvert.
+  \end{equation*}
+  We have used here that the previous expression is invariant under a transitive group of permutations of the $n_j$.  We conclude by performing the change of variables $y \rightarrow y / n_1$.
+\end{proof}
+
+
+
+\section{Estimating via size and support}
+We next record a crude estimate, taking into account the size and support properties of $W$ but forgoing any cancellation in the integrals \eqref{equation:definition-of-I-of-n}.
+\begin{lemma}\label{lemma:crude-bound}
+  Suppose that $W \in C_c(\mathbb{R})$ is supported on the interval $[Y_1, Y_2]$, where $0 < Y_1 < Y_2$.  Assume that
+  \begin{equation}\label{eqn:Y2-Y1-separated}
+    Y_2 - Y_1 \gg 1
+  \end{equation}
+  and
+  \begin{equation}\label{eqn:Y1-Y2-same-size}
+    Y_1 \asymp Y_2.
+  \end{equation}
+  Then
+  \begin{equation*}
+    \mathcal{N}(W) \prec
+    \lVert W \rVert_{\infty}^4 \frac{(Y_2 - Y_1)^3 }{Y_1^2}.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  The support condition for $W$ gives
+  \begin{equation*}
+    \lvert I(\mathbf{n}) \rvert \leq \lVert W \rVert_{\infty}^4
+    \int _{y = Y_1} ^{Y_2}  \, \frac{d y}{y^2}
+    =  \lVert W \rVert_{\infty}^4 \frac{Y_2 - Y_1}{Y_1 Y_2}.
+  \end{equation*}
+  The integrand in the definition of $I(\mathbf{n})$ vanishes identically unless
+  \begin{itemize}
+  \item $n_1 y_0 < Y_2$, and
+  \item for each $j=2,3,4$, the natural number $n_j$ lies in the interval $J_{n_1} := [n_1 Y_1/Y_2, n_1 Y_2/Y_1]$.
+  \end{itemize}
+  Since $n_4$ is determined by $(n_1,n_2,n_3)$, we deduce from Lemma \ref{lemma:unfolding} that
+  \begin{equation}\label{eqn:estimate-N-W-in-proof-of-lemma-via-support-and-vanishing-conditions}
+    \mathcal{N}(W)
+    \ll
+    \lVert W \rVert _\infty ^4
+    \frac{Y_2 - Y_1}{ Y_1 Y_2}
+    \mathcal{S}, 
+  \end{equation}
+  where
+  \begin{equation*}
+    \mathcal{S} := \sum _{n_1 \leq Y_2 / y_0} \frac{\left\lvert \lambda(n_1)  \right\rvert^4}{n_1}
+    |\mathbb{N} \cap J_{n_1}|^2.
+  \end{equation*}
+  The number of integers in an interval is at most one plus the length of that interval, thus
+  \begin{equation*}
+    |\mathbb{N} \cap J_{n_1}|
+    \leq 1 + n_1 \left( \frac{Y_2}{Y_1} - \frac{Y_1}{Y_2} \right).
+  \end{equation*}
+  Using our assumptions \eqref{eqn:Y2-Y1-separated} and \eqref{eqn:Y1-Y2-same-size}, as well as the upper bound $n_1 \ll Y_2$, we deduce that
+  \begin{equation*}
+    \lvert \mathbb{N} \cap J _{n _1} \rvert \ll Y_2 - Y_1.
+  \end{equation*}
+  Invoking now our fourth moment hypothesis \eqref{eqn:fourth-moment-bound-lambda} to estimate the sum over $n_1$, we obtain
+  \begin{equation*}
+    \mathcal{S} \prec (Y_2 - Y_1)^2.
+  \end{equation*}
+  Inserting this into the earlier estimate \eqref{eqn:estimate-N-W-in-proof-of-lemma-via-support-and-vanishing-conditions} yields the required bound.
+\end{proof}
+
+\section{Bessel asymptotics}
+We now recall, following \cite[p 1527-1528]{MR3102912}, the shape of $W_t$.
+
+
+For $0 < \xi < \infty$, we define $H(\xi)$ by the formula
+\begin{equation*}
+  H(\xi) =
+  \begin{cases}
+    \Of{arccosh}{1/ \xi}   - \sqrt{1 - \xi ^2 }  &  \text{ if } 0 < \xi \leq 1, \\
+    \sqrt{\xi ^2 - 1} - \Of{arcsec}{\xi}                                               & \text{ if } \xi > 1.
+  \end{cases}
+\end{equation*}
+It defines a continuous, nonnegative function, vanishing only at $\xi = 1$, with the following properties:
+\begin{equation}\label{equation:H-near-critical}
+  \text{$H(1 + \xi) \asymp |\xi|^{3/2}$ if $\xi \lll 1$},
+\end{equation}
+\begin{equation}\label{equation:H-in-bulk}
+  \text{$H(\xi) \gg 1$ if $\xi - 1 \asymp 1$,}
+\end{equation}
+\begin{equation}\label{eqn:growth-of-H-at-infinity}
+  \text{$H(\xi) \gg \xi$ if $\xi \ggg 1$.}
+\end{equation}
+
+The Whittaker function $W_t$ satisfies the following estimates.
+\begin{lemma}\label{lemma:whittaker-function-estimates}
+   Let $y > 0$.  Write $u := y - t$, so that $y = t + u$ with $-t < u < \infty$.  Then
+   \begin{enumerate}
+   \item If $u > 0$ and $u \ggg t ^{1/3}$, then
+    \begin{equation}\label{eqn:bessel-asymptotics-oscillatory}
+      W _t (y) =  \frac{\sqrt{2 \pi y}  }{ \lvert t^2 - y^2 \rvert ^{1/4}  }
+      \sin \left( \frac{\pi }{4} + t H \left(\frac{y}{t} \right) \right)
+      \left( 1 + \O \left( \frac{1}{t H \left(\tfrac{y}{t}\right)} \right) \right).
+    \end{equation}
+  \item If $u < 0$ and $u \ggg t ^{1/3}$, then
+    \begin{equation*}
+      W _t (y) =  \frac{\sqrt{2 \pi y}  }{ \lvert t^2 - y^2 \rvert ^{1/4}  }
+      \exp \left( - t H \left( \frac{y}{t} \right) \right)
+      \left( 1 + \O \left( \frac{1}{t H \left(\tfrac{y}{t}\right)} \right) \right).
+    \end{equation*}
+  \item In general, we have the upper bound
+    \begin{equation*}
+      W_t(y) \ll
+      \begin{cases}
+        \frac{\sqrt{y}}{ \lvert t^2 - y^2 \rvert ^{1/4} }      & \text{ if } 0 > u \ggg t ^{1/3}, \\
+        \frac{\sqrt{y}}{ \lvert t^2 - y^2 \rvert ^{1/4} } \exp \left( - t H \left( \frac{y}{t} \right) \right)                                                                & \text{ if } 0 < u \ggg t ^{1/3}, \\
+        \sqrt{y} t ^{- 1/3} \asymp t ^{1/6}                                                                & \text{ if } u \ll t ^{1/3}.
+      \end{cases}    
+    \end{equation*}  
+  \end{enumerate}
+\end{lemma}
+There are essentially four cases to consider concerning the position of $y$ relative to $t$, where we again write $y = t + u$:
+\begin{enumerate}[(i)]
+\item $0 < y < t$ with $u \asymp t$.
+\item $0 < y < t$ with $t ^{1/3} \lll u \lll t$
+\item $y = t + \O (t ^{1/3} )$.
+\item $y > t$ with $t ^{1/3} \lll u$.
+\end{enumerate}
+In these ranges, the basic upper bound for $W_t(y)$ explicates as follows:
+\begin{equation*}
+  W _t (y) \ll
+  \begin{cases}
+    t ^{- 1/2} y ^{1/2}  &  \\
+    t ^{1/4} u ^{- 1/4}         &  \\
+    t ^{1/6}                        &  \\
+    t ^{1/4} u ^{- 1/4} \exp (- t H (\tfrac{y}{t})).                         &
+  \end{cases}
+\end{equation*}
+
+\section{Dyadic decomposition}
+We fix an even function $V_1 \in C_c^\infty(\mathbb{R}^\times)$ so that for all $y \in \mathbb{R}^\times$, we have
+\begin{equation*}
+  \sum _{Y \in \exp(\mathbb{Z})} V_1\left(\frac{y}{Y}\right) = 1. 
+\end{equation*}
+We begin by decomposing
+\begin{equation*}
+  W_t = \sum _{Y \in \exp(\mathbb{Z})} W_t^Y,
+\end{equation*}
+where
+\begin{equation*}
+  W_t^Y(y) := V_1\left(\frac{y}{Y}\right) W_t(y).
+\end{equation*}
+If $Y \lll 1$, then $n y_0  \geq y_0> Y$ for all natural numbers $n$, and so $\mathcal{N}(W_t^Y) = 0$.  We see also by crude application of the Bessel function asymptotics (see especially \eqref{eqn:growth-of-H-at-infinity}) that if $Y \ggg t$, then $\mathcal{N}(W_t^Y) \ll e^{-t} Y^{-100}$, say.  Our task thereby reduces to verifying that for each $Y$ in the range
+\begin{equation}\label{eqn:Y-between-1-and-t}
+  1 \ll Y \ll t,
+\end{equation}
+we have $\mathcal{N}(W_t^Y) \prec 1$.
+
+Supposing now that $Y \asymp t$, we subdivide further.  Fix an even function $V_0 \in C_c^\infty(\mathbb{R})$ taking the value $1$ in a neighborhood of the origin.  Define $V_{\pm} \in C^\infty(\mathbb{R})$ by
+\begin{equation*}
+  V_+(x) := 1_{x > 0} - V_0(x), \quad V_-(x) := 1_{x<0} - V_0(x).
+\end{equation*}
+Then $1 = V_0 + V_+ + V_-$.  We have
+\begin{equation*}
+  W_t^{Y} =
+  W_t^{Y,0}
+  +
+  \sum _{\pm}
+  \sum _{U \in \exp(\mathbb{Z})}
+  W_t^{Y,\pm,U},
+\end{equation*}
+where
+\begin{equation*}
+  W_t^{Y,0}(y) := V_0\left(\frac{y - t}{t ^{1/3} }\right)  W_t^Y(y)
+\end{equation*}
+and
+\begin{equation*}
+  W_t^{Y,\pm,U}(y) :=
+  V_{\pm} \left(\frac{y - t}{t ^{1/3} }\right)
+  V_1 \left( \frac{y - t}{U} \right) W_t^Y(y).
+\end{equation*}
+We observe that $W_t^{Y,\pm, U} = 0$ unless
+\begin{equation}\label{eqn:U-between-t-third-and-t}
+  t ^{1/3} \ll U \ll t.
+\end{equation}
+The number of relevant $Y$ or $T$ is $\prec 1$, so we reduce to establishing the following.
+\begin{proposition}\label{proposition:reduction-after-dyadic-decopm}
+  We have the following.
+  \begin{enumerate}[(i)]
+  \item Assuming \eqref{eqn:Y-between-1-and-t}, we have $\mathcal{N} (W _t ^Y ) \prec 1$.
+  \item Assuming $Y \asymp t$, we have $\mathcal{N} (W _t ^{Y, 0}) \prec 1$.
+  \item Assuming $Y \asymp t$ and \eqref{eqn:U-between-t-third-and-t}, we have $\mathcal{N} (W _{t} ^{Y, \pm, U}) \prec 1$.
+  \end{enumerate}
+\end{proposition}
+
+
+\section{Application of crude bounds}\label{sec:appl-crude-bounds}
+Here we apply Lemma \ref{lemma:crude-bound} to the various cases.  This tells us the bounds for $\mathcal{N}(W_t)$ that follow from the stated \emph{upper bounds} for $W_t$, without taking into account any oscillation coming from the $\sin$ factor.
+\begin{enumerate}[(i)]
+\item For $Y \lll t$, we have
+  \begin{equation*}
+    \lVert W_t^{Y} \rVert_{\infty} \ll t ^{- 1/2} Y ^{1/2}.
+  \end{equation*}
+  The support is contained in $[Y_1,Y_2]$ with $Y_1 \asymp Y_2 \asymp Y$ and $Y_1 - Y_2 \asymp Y$, so we obtain
+  \begin{equation}\label{eqn:crude-bound-W-t-Y}
+    \mathcal{N} (W _t ^Y ) \prec (t ^{- 1/2} Y ^{1/2} )^4 \frac{Y^3}{Y^2} = \frac{Y ^3 }{t^2}.    
+  \end{equation}
+  This gives an acceptable estimate for $Y \prec t ^{2/3}$.
+\item \label{itm:ref-haseo-l4:1} For $Y \asymp t$ and $t ^{1/3} \lll U \ll t$, we have
+  \begin{equation*}
+    \lVert W _t ^{Y, -, U} \rVert_{\infty} \ll t ^{1/4} U ^{-1/4}.
+  \end{equation*}
+  The support is contained in $[Y_1,Y_2]$ with $Y_1 \asymp Y_2 \asymp t$ and $Y_1 - Y_2 \asymp U$, hence
+  \begin{equation}\label{eqn:crude-W-t-Y-minus-U}
+    \mathcal{N} (W _t ^{Y, -, U}) \prec (t ^{1/4}  U  ^{- 1/4})^4 \frac{U ^3 }{t ^2}
+    =
+    \frac{U^2}{t}.
+  \end{equation}
+  This is adequate for $U \prec t ^{1/2} $.
+\item For $Y \asymp t$, we have
+  \begin{equation*}
+    \lVert W_t^{Y,0} \rVert _{\infty} \ll t ^{1/6}.
+  \end{equation*}
+  The support is contained in $[Y_1,Y_2]$ with $Y _1 \asymp Y _2 \asymp t$ and $Y _1 - Y _2 \asymp t ^{1/3}$, hence
+  \begin{equation*}
+    \mathcal{N} (W _t ^{Y, 0}) \prec (t ^{1/6}) ^4 \frac{(t ^{1/3} ) ^3 }{t ^2 }
+    = t ^{- 1/3}.    
+  \end{equation*}
+  This more than acceptable.
+
+  The same argument gives a more-than-satisfactory estimate for $\mathcal{N} (W _t ^{Y, \pm, U})$ in the ``boundary'' range $U \asymp t ^{1/3}$ (or indeed, in a somewhat larger range).
+\item For $Y \asymp t$ and $t ^{1/3} \lll U \ll t$, we have
+  \begin{equation*}
+    \lVert W _t ^{Y, +, U} \rVert_{\infty} \ll t ^{1/4} U ^{-1/4} \exp (- c t H (1 + \tfrac{U}{t}))
+  \end{equation*}
+  for some fixed $c > 0$ (depending upon the choice of $V_1$).  The support is as in item \eqref{itm:ref-haseo-l4:1} above, so we obtain
+  \begin{equation*}
+    \mathcal{N} (W _t ^{Y, +, U}) \prec\frac{U^2}{t} \exp (- c t H (1 + \tfrac{U}{t})).
+  \end{equation*}
+  This is adequate, without taking into account the exponential factor, for $U \prec t ^{1/2}$.  In the complementary range $U \succ t ^{1/2}$, we have $U / t \succ t ^{-1/2}$, hence (by \eqref{equation:H-near-critical} and \eqref{eqn:growth-of-H-at-infinity}) $H (1 + U/t) \succ (t^{-1/2})^{3/2} = t ^{- 3/4}$; in particular,
+  \begin{equation*}
+    t H (1 + \tfrac{U}{t}) > t^{1/5},
+  \end{equation*}
+  say, which leads to the more than adequate bound $\mathcal{N}(W_t^{Y,+,U}) \leq \exp(- t^{1/10})$, say.
+\end{enumerate}
+The proof of Proposition \ref{proposition:reduction-after-dyadic-decopm} thereby reduces to that of the following.
+
+\begin{proposition}\label{proposition:reduction-to-critical-dyadic-ranges}
+  We have the following.
+  \begin{enumerate}[(i)]
+  \item For $t ^{2/3} \lll Y \lll t$, we have $\mathcal{N} (W _{t} ^{Y}) \prec 1$.
+  \item For $Y \asymp t$ and $t ^{1/2} \lll U \ll t$, we have $\mathcal{N} (W _{t} ^{Y, -, U}) \prec 1$.
+  \end{enumerate}
+\end{proposition}
+
+\section{Smoothening}
+It will be convenient to ``smoothen'' the definition of $\mathcal{N}(W)$ a bit, as follows.  Retain the setting of Proposition \ref{proposition:reduction-to-critical-dyadic-ranges}.  Recall from \eqref{eqn:definition-N-of-W} that $\mathcal{N}(W)$ is defined by an integral over $y \geq y_0$.  On the other hand, $W(y)$ is supported on $y \asymp Y$.  Let us fix $0 < c < C$ so that $W(y)$ vanishes for $y \notin [c Y, C Y ]$.  The product $\lambda(n) W(n y)$ then vanishes for $n \geq C Y$.  For this reason, modifying $\lambda(n)$ by zeroing it out for $n > C Y$ has no effect on $\mathcal{N}(W)$, and no effect on our sole hypothesis \eqref{eqn:fourth-moment-bound-lambda} concerning $\lambda$.  Having modified $\lambda(n)$ in this way, we now have $\lambda(n) W(n y) \neq 0$ only if $n \leq C Y$ and $n y \geq c Y$, which forces $y \geq c/C$.  On the other hand, $\mathcal{N}(W)$ only increases if we decrease the fixed quantity $y_0 > 0$.  Let us decrease that quantity, if necessary, so that $y_0 \leq c/C$.  Having done so, we see that the integration constraints in the definitions of $\mathcal{N}(W)$ and $I(\mathbf{n})$ (see \eqref{equation:definition-of-I-of-n}) are now redundant -- we might as well integrate over all $y > 0$.  In particular,
+\begin{equation*}
+  I(\mathbf{n}) = \int _{y = 0 } ^\infty W (y ) W (\tfrac{n_2}{n _1} y) \overline{W (\tfrac{n _3 }{ n _1 } y) W (\tfrac{n _4}{n_1} y)} \, \frac{d y}{y^2}.
+\end{equation*}
+This ``smoothening'' has the effect of eliminating certain boundary terms in the arguments to follow.  (The arguments would work anyway, but the details are slightly simplified by having smoothened first.)
+
+
+\section{The diagonal contribution}
+Recall that $\mathbf{n}$ has denoted a quadruple of natural numbers satisfying $n _1 + n _2 = n _3 + n _4$.  Because a pair of natural numbers is determined up to reordering by its sum and product, we have
+\begin{equation*}
+  (n_1 n_2 = n_3 n_4) \iff ( \{n_1, n_2\} = \{n_3, n_4\}).
+\end{equation*}
+These conditions describe a ``diagonal'' case in which there is clearly no hope to obtain cancellation from the integral defining $I(\mathbf{n})$.  We pause to estimate that diagonal contribution:
+\begin{lemma}
+  Suppose that $W \in C_c(\mathbb{R})$ and $[Y_1,Y_2]$ satisfy the conditions of Lemma \ref{lemma:crude-bound}.  Then the diagonal contribution
+  \begin{equation*}
+    \mathcal{N}_{\diag}(W) := \sum _{n_1, n_2 \in \mathbb{N}}
+    \frac{\left\lvert \lambda (n _1 ) \right\rvert ^4 }{ n _1 } \left\lvert I (n _1, n _2, n _1, n _2 ) \right\rvert
+  \end{equation*}
+  satisfies
+  \begin{equation*}
+    \mathcal{N}_{\diag}(W)
+    \prec \lVert W \rVert_{\infty}^4 \frac{(Y _2 - Y _1 ) ^2 }{Y_1 ^2}.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  The proof is the same as that of Lemma \ref{lemma:crude-bound}, except that we no longer need to square the factor $\lvert \mathbb{N} \cap J _{n_1} \rvert$.  We thereby improve the earlier estimate by a factor of $Y_2 - Y_1$.
+\end{proof}
+Return to the setting of Proposition \ref{proposition:reduction-to-critical-dyadic-ranges}, and take $W = W_t^Y$ or $W_t^{Y,-,U}$.  We obtain an estimate for the diagonal contribution to $\mathcal{N}(W)$ that improves upon the crude estimates obtained in \S\ref{sec:appl-crude-bounds} by the factor $Y_2 - Y_1$, which is roughly $Y$ in first case and $U$ in the second.  Dividing \eqref{eqn:crude-bound-W-t-Y} by $Y$ and \eqref{eqn:crude-W-t-Y-minus-U} by $U$, we obtain
+\begin{equation*}
+  \mathcal{N}_{\diag} (W_t^Y) \prec \frac{Y^2}{t^2}, \qquad
+  \mathcal{N}_{\diag} (W_t^{Y,-,U}) \prec \frac{U}{t}.
+\end{equation*}
+In either case, we obtain the adequate estimate $\mathcal{N}_{\diag}(W) \prec 1$.
+
+It remains only to establish the analogue of Proposition \ref{proposition:reduction-to-key-parts-of-W} for the ``off-diagonal'' contribution to $\mathcal{N}(W)$, coming from when $n_1 n_2 \neq n_3 n_4$:
+\begin{equation}\label{eqn:definition-N-off}
+  \mathcal{N}_{\mathrm{off}}(W) := \sum _{
+    \substack{
+      n_1 + n_2 = n_3 + n_4  \\
+      n_1 n_2 \neq n_3 n_4      
+    }
+  }
+  \frac{\left\lvert \lambda (n _1 ) \right\rvert ^4 }{ n _1 } \left\lvert I(\mathbf{n}) \right\rvert.
+\end{equation}
+
+
+\section{Discarding the remainder terms}\label{sec:discarding-remainder-terms}
+Retain the hypotheses of Proposition \ref{proposition:reduction-to-critical-dyadic-ranges}.  The proof will exploit oscillation coming from the $\sin$ factor in the Bessel asymptotics.  Let us write those asymptotics as follows:
+\begin{equation*}
+  W _t ^Y = W _{t,\sharp}^Y + W _{t,\flat}^Y,
+\end{equation*}
+\begin{equation*}
+  W _t ^{Y, -, U} = W _{t, \sharp } ^{Y, -, U} + W _{t, \flat } ^{Y, -, U},
+\end{equation*}
+where the subscript $\sharp$ (resp. $\flat$) denotes the contribution from the main (resp. remainder) terms in \eqref{eqn:bessel-asymptotics-oscillatory}.  We will estimate the contribution of the remainder terms as in \S\ref{sec:appl-crude-bounds}.  The estimate for $\mathcal{N}(W_{t,\flat}^{\ast})$ achieved in this way is obtained by multiplying the bound derived earlier for $\mathcal{N} (W _{t} ^\ast )$ by the fourth power of the supremum of the absolute value of the factor
+\begin{equation*}
+  \frac{1}{t H (\tfrac{y}{t})} =   \frac{1}{t H (1 + \tfrac{u}{t})}
+\end{equation*}
+taken over all $y = t + u$ in the support of $W_{t,\flat}^*$.
+
+\begin{enumerate}[(i)]
+\item For $Y \in \supp(W_{t,\flat}^{Y})$, we have $y \lll t$, hence $u < 0$ and $u \asymp t$, hence $u/t < 0$ and $u/t \asymp 1$, hence (by \eqref{equation:H-in-bulk}) $H (y/t) \gg 1$, hence
+  \begin{equation*}
+    \frac{1}{t H (\tfrac{y}{t})} \ll \frac{1}{t}.
+  \end{equation*}
+  Thus, multiplying the bound in \eqref{eqn:crude-bound-W-t-Y} by $t ^{- 4}$, we obtain
+  \begin{equation*}
+    \mathcal{N} (W _{t, \flat} ^{Y} ) \prec  \frac{Y ^3 }{t^6}.
+  \end{equation*}
+  This is more than acceptable.  The same bound holds for $\mathcal{N} _{\mathrm{off}}$.
+\item For $Y \in \supp (W _{t, \flat} ^{Y, -, U})$, we have $y \asymp t$ and $u <0$ and $u \asymp U$, hence $u/t < 0$ and $u/t \asymp U/t$.  We consider separately two cases.
+  \begin{enumerate}[(a)]
+  \item $U \asymp t$.  In this case, $u/t \asymp 1$, hence $H (y/t) \asymp 1$, hence
+    \begin{equation*}
+      \frac{1}{t H (\tfrac{y}{t})} \asymp \frac{1}{t}.
+    \end{equation*}
+    Thus, multiplying the bound in \eqref{eqn:crude-W-t-Y-minus-U} by $t ^{- 4}$, we obtain
+    \begin{equation*}
+      \mathcal{N} (W _{t, \flat} ^{Y,-,U} ) \prec  \frac{U^2 }{t^5}.
+    \end{equation*}
+    This is more than acceptable.
+  \item $t ^{1/2} \prec U \lll t$.  In this case, $u/t \lll 1$, hence (by \eqref{equation:H-near-critical}) $H(y/t) \asymp |u/t|^{3/2}$, and so
+    \begin{equation*}
+      \frac{1}{t H (\tfrac{y}{t})} \asymp \frac{t ^{1/2} }{U ^{3/2} }.
+    \end{equation*}
+    Thus, multiplying the bound in \eqref{eqn:crude-W-t-Y-minus-U} by $t ^2 / U^6$, we obtain
+    \begin{equation*}
+      \mathcal{N} (W _{t, \flat} ^{Y,-,U} ) \prec  \frac{t }{U^4}.
+    \end{equation*}
+    This is acceptable in view of the condition $U \succ t ^{1/2}$.    The same bound holds for $\mathcal{N} _{\mathrm{off}}$.
+  \end{enumerate}
+\end{enumerate}
+We have reduced to establishing the analogue of Proposition \ref{proposition:reduction-to-critical-dyadic-ranges} but for $\mathcal{N}_{\mathrm{off}}(W_{t,\sharp}^{*})$ rather than $\mathcal{N}(W_{t}^{*})$.
+
+\section{Absorption of nuisance factors}
+By definition,
+\begin{align*}
+  W _{t, \sharp}^Y(y) &= V_1\left(\frac{y}{Y}\right) \frac{\sqrt{2 \pi y}  }{ \lvert t^2 - y^2 \rvert ^{1/4}  }
+                        \sin \left( \frac{\pi }{4} + t H \left( \frac{y}{t} \right) \right), \\
+  W _{t, \sharp}^{Y,-,U}(y) &= V_1\left(\frac{y}{Y}\right)  V_{-} \left(\frac{y - t}{t ^{1/3} }\right)
+  V_1 \left( \frac{y - t}{U} \right) \frac{\sqrt{2 \pi y}  }{ \lvert t^2 - y^2 \rvert ^{1/4}  }
+                              \sin \left( \frac{\pi }{4} + t H \left( \frac{y}{t} \right) \right).
+\end{align*}
+It will be convenient to write the $\sin$ as a sum of exponentials.  The other factors present a cosmetic nuisance, so let's discard them, as follows.  On the support of $W_{t,\sharp}^Y$ (resp.  $W_{t,\sharp}^{Y,-,U}$), we have
+\begin{equation*}
+  \text{$t^2 - y^2 \asymp t Y$ (resp. $t^2 - y^2 \asymp t U$)}.
+\end{equation*}
+More precisely, we can absorb the factor $|t^2 - y^2|^{-1/4}$ into the weight function in a way that does not significantly increase the sizes of the weight functions or their derivatives.  We retain the factor $y^{1/2}$, whose fourth power will cancel against the denominator of the factor $d y / y^2$ against which we integrate in the definition of $I(\mathbf{n})$.  Finally, since $U \ggg t ^{1/3}$ and since $V_-(x) = 1$ for $x < 0$ with $x \ggg 1$, we have
+\begin{equation*}
+  V_- \left( \frac{y-t}{t ^{1/3} } \right) = 1 \text{ whenever } y < t \text{ and } V_1 \left( \frac{y - t}{U} \right) \neq 0.
+\end{equation*}
+If $W = c W_0$, then $\mathcal{N}(W) = |c|^4 \mathcal{N}(W_0)$, so the estimate $\mathcal{N}(W) \prec 1$ is equivalent to $\mathcal{N}(W_0) \prec |c|^{-4}$.  Applying this observation with $c = (t Y)^{-1/4}$ (resp. $c = (t U)^{-1/4}$), we thereby reduce the proof of the analogue of Proposition \ref{proposition:reduction-to-critical-dyadic-ranges} for $W_{t,\sharp}^{*}$ to that of the following:
+\begin{proposition}\label{proposition:reduction-to-key-parts-of-W}
+  We have the following.
+  \begin{enumerate}[(i)]
+  \item Let $t ^{1/3} \prec Y \lll t$.  Let $V$ be a nonnegative function belonging to some fixed bounded subset of $C_c^\infty(\mathbb{R}^\times_+)$.  Define
+    \begin{equation*}
+      W(y) := y^{1/2} V \left( \frac{y}{Y} \right) \exp \left( i t H \left( \frac{y}{t} \right) \right).
+    \end{equation*}
+    Then
+    \begin{equation*}
+      \mathcal{N}_{\mathrm{off}} (W) \prec  t Y.
+    \end{equation*}
+    \item Let $t ^{1/2} \prec U \ll t$.  Let $V_1, V_2$ be nonnegative functions belonging to some fixed bounded subset of $C_c^\infty(\mathbb{R}^\times_+)$.  Define
+    \begin{equation*}
+      W(y) :=
+      y^{1/2}
+      V_1 \left( \frac{y}{t} \right)
+      V_2 \left( \frac{t - y}{U} \right)
+      \exp \left( i t H \left( \frac{y}{t} \right) \right).
+    \end{equation*}
+  Then
+  \begin{equation*}
+    \mathcal{N}_{\mathrm{off}} (W) \prec t U.
+  \end{equation*}
+  \end{enumerate}
+\end{proposition}
+
+
+\section{Reduction to oscillatory integral estimates}\label{sec:reduction-oscillatory-integral-estimates}
+Here we state bounds for (mild generalizations of) the integrals $I(\mathbf{n})$ that take into account the oscillation of the integrand, and explain why such bounds suffice.
+\begin{proposition}\label{proposition:oscillatory-estimates-for-I-of-n}
+  Retain the setting of Proposition \ref{proposition:reduction-to-key-parts-of-W}.  Let $x_1, x_2, x_3, x_4$ be positive real numbers.  Define the $4$-tuple of signs
+  \begin{equation*}
+    (\eta_1, \eta_2, \eta_3, \eta_4) := (1, 1, -1, -1).
+  \end{equation*}
+  Define
+  \begin{equation*}
+    f^Y (y) :=
+    \prod_{j} V \left( \frac{x_j y}{Y} \right),
+    \quad
+    \quad
+    f^U(y) :=
+    \prod_j V _1 \left( \frac{x _j y}{t} \right) V _2 \left( \frac{t - x _j y}{U} \right)
+  \end{equation*}
+  and write $f = f^Y$ or $f = f^U$ according as we are in the first or second case of Proposition \ref{proposition:reduction-to-key-parts-of-W}.  Define the phase
+  \begin{equation*}
+    \Phi(y) := t \sum_{j} \eta_j  H \left( \frac{x_j y}{t} \right).
+  \end{equation*}
+  Assume that
+  \begin{equation}\label{eqn:x1x2-not-x3x4}
+    x_1 \asymp 1, \quad x_1 + x_2 = x_3 + x_4 \quad \text{and} \quad x_1 x_2 \neq x_3 x_4.
+  \end{equation}
+  Then
+  \begin{equation*}
+    \int f e ^{i \Phi } \ll \frac{t}{Y} \frac{1}{ x _1 x _2 - x _3 x _4 } \quad \text{ if }  f = f ^Y,
+  \end{equation*}
+  \begin{equation*}
+    \int f e ^{i \Phi } \ll \left( \frac{U}{t} \right) ^{3/2} \frac{1}{ x _1 x _2 - x _3 x _4 } \quad \text{ if }  f = f ^U.
+  \end{equation*}
+\end{proposition}
+We now explain how Proposition \ref{proposition:oscillatory-estimates-for-I-of-n} implies Proposition \ref{proposition:reduction-to-key-parts-of-W}.  We specialize to
+\begin{equation*}
+  x_1 := 1, \quad x_j = \frac{n_j}{n_1} \text{ for } j=2,3,4,
+\end{equation*}
+so that
+\begin{equation*}
+  I(\mathbf{n}) = \int f(y) e ^{i \Phi(y) } \, d y.
+\end{equation*}
+We estimate $\mathcal{N}_{\mathrm{off}}(W)$ by plugging Proposition \ref{proposition:oscillatory-estimates-for-I-of-n} into the definition \eqref{eqn:definition-N-off}.  We consider the two cases separately:
+\begin{enumerate}[(i)]
+\item In the case $f = f^Y$, we obtain
+  \begin{equation*}
+  \mathcal{N} _{\mathrm{off}} (W) \ll
+  \frac{t}{Y}
+  \sum _{
+    \substack{
+      n _1, n _2, n _3, n _4 \ll Y  \\
+      n _1 + n _2 = n _3  +  n_4  \\
+      n _1 n _2 \neq n _3 n _4 
+    }
+  }
+  \frac{\left\lvert \lambda (n _1 ) \right\rvert ^4 }{n_1 (x_1 x_2 - x_3 x_4) }.
+\end{equation*}
+We have
+\begin{equation*}
+  \frac{1}{ n _1  (x _1 x _2 - x _3 x _4 )}
+  =
+  \frac{n_1}{ n _1 n _2 - n _3 n _4 }
+\end{equation*}
+and, in view of the identity $n_1 + n_2 = n_3 + n_4$,
+\begin{align*}
+  n _1 n _2 - n _3  n _4 &=
+                           n_1 (n_3 + n_4 - n_1) \\
+                         &=
+                           - (n _1 - n _3 ) (n _1 - n _4 ),
+\end{align*}
+thus
+\begin{equation*}
+  \mathcal{N} _{\mathrm{off}} (W) \ll
+  t
+  \sum _{n _1 \ll Y} \left\lvert \lambda(n_1) \right\rvert^4
+  \sum _{
+    \substack{
+      n_3, n_4 \ll Y  \\
+      n_3, n_4 \neq n_1      
+    }
+  }
+  \frac{1}{|(n_1 - n_3)(n_1 - n_4)|} \prec t Y,
+\end{equation*}
+as required.
+\item In the case $f = f^U$, the same arguments as above, applied with $Y = t$, give
+  \begin{equation*}
+    \mathcal{N} _{\mathrm{off}} (W) \prec \left( \frac{U}{t} \right) ^{3/2} t^2 \prec U t,
+  \end{equation*}
+  using in the final step that $U \ll t$.
+\end{enumerate}
+\begin{remark}
+  In the treatment of $f^U$, we could have done a bit better, taking into account that $I(\mathbf{n})$ vanishes identically unless $n_3, n_4 \in  n _1 (1 + \O(U/t))$, but it is apparently unnecessary to do so.  In particular, we see that the ``hardest'' case is that of $f^Y$ for $t^{1-\delta} \ll Y \ll t$.
+\end{remark}
+
+\section{Integration by parts}\label{sec:integration-parts}
+It remains only to prove Proposition \ref{proposition:oscillatory-estimates-for-I-of-n}.  We begin with a general ``integration by parts''  lemma (compare with \cite[Lemma 8.9]{MR2061214}).
+\begin{lemma}\label{lemma:integration-by-parts}
+  Let $f \in C_c^\infty(\mathbb{R})$ and $\Phi \in C^\infty(\mathbb{R})$.  Assume that
+  \begin{enumerate}[(i)]
+  \item $f$ is nonnegative, 
+  \item $\Phi$ is real-valued, and
+  \item there is an interval $E$ containing the support of $f$ such that $\Phi '(x) \neq 0$ and $\Phi ''(x) \neq 0$ for all $x \in E$.
+  \end{enumerate}
+  Then
+  \begin{equation*}
+    \left\lvert \int f e ^{i\Phi } \right\rvert \leq 2 \int \left\lvert \frac{f'}{ \Phi '} \right\rvert.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  To improve the cosmetics of the proof, we replace $\Phi$ with $i \Phi$, so that it is now imaginary-valued.  Set
+  \begin{align*}
+    I &:=  \int f e ^{\Phi }, \\
+    I_1 &:= \int \frac{f ' }{ \Phi ' } e ^{\Phi }, \\
+    I_2 &:= \int \frac{f '}{ \Phi '}.
+  \end{align*}
+  It is enough to show that
+  \begin{equation*}
+    \lvert I + I_1 \rvert \leq \lvert I_2 \rvert.
+  \end{equation*}
+  To see this, we begin by differentiating:
+  \begin{equation*}
+    \left( \frac{f e ^\Phi }{ \Phi ' } \right)'
+    =
+    \frac{\Phi ' (f ' e ^\Phi + f \Phi ' e ^{\Phi }) - f e ^\Phi \Phi ''}{ (\Phi ')^2}
+    =
+    \left(     f
+      +
+      \frac{f' }{ \Phi '}
+      - 
+      \frac{f \Phi ''}{ (\Phi ')^2}
+    \right) e ^\Phi.
+  \end{equation*}
+  By integration by parts, it follows that
+  \begin{equation*}
+    I + I_1 = I' := \int \frac{f \Phi '' }{ (\Phi ') ^2 } e ^{\Phi }. 
+  \end{equation*}
+  Since $f$ is nonnegative and both $\Phi '$ and $\Phi ''$ are nonvanishing on an interval containing the support of $f$, we see that the ratio $f \Phi '' / (\Phi ')^2$ is either everywhere nonnegative or everywhere nonpositive.  Thus
+  \begin{equation*}
+    |I'| \leq |I''|, \quad I'' := \int \frac{f \Phi '' }{ (\Phi ') ^2 }. 
+  \end{equation*}
+  On the other hand,
+  \begin{equation*}
+    \left( \frac{f}{ \Phi '} \right) ' = \frac{\Phi ' f ' - f \Phi ''}{ (\Phi ')^2},
+  \end{equation*}
+  hence
+  \begin{equation*}
+    I'' = I_2.
+  \end{equation*}
+\end{proof}
+
+
+To apply Lemma \ref{lemma:integration-by-parts} to the situation of interest, we will do the following:
+\begin{enumerate}[(a)]
+\item Estimate the $L^1$-norm of the derivative of $f$ from above by $\O(1)$.
+\item Verify that the second derivative of $\Phi$ does not vanish on some interval containing the support of $f$.
+\item Estimate the derivative of $\Phi$ from below, on some interval containing the support of $f$, by the inverse of the right hand side of the respective upper bound stated in Proposition \ref{proposition:oscillatory-estimates-for-I-of-n}
+\end{enumerate}
+
+We start with the first of these tasks.
+\begin{lemma}\label{lemma:estimate-L1-norm-f-prime}
+  Let $f$ be as in either case of Proposition \ref{proposition:reduction-to-key-parts-of-W}.  Then $\lVert f ' \rVert_{L^1(\mathbb{R})} \ll 1$.
+\end{lemma}
+\begin{proof}
+  We consider each case:
+  \begin{enumerate}[(i)]
+  \item Suppose $f = f^Y$.  Then
+    \begin{equation*}
+      f '(y) = \sum_{k} \frac{x_k}{Y} V' \left( \frac{x _k y}{Y} \right) \prod_{j \neq k} V \left( \frac{x _j y}{Y} \right).
+    \end{equation*}
+    Recall our assumption that $x_1 \asymp 1$.  We see that $f'(y)$ vanishes unless $y \asymp Y$ and each $x_k \asymp 1$, in which case $f'(y) \ll 1/Y$.  The volume of the support is $\ll Y$, so the claim follows.
+  \item Suppose $f = f^U$.  Then
+    \begin{align*}
+      f ' (y) &=
+                \sum_{k} \frac{x_k}{t} V_1' \left( \frac{x _k y}{t} \right) V_2 \left( \frac{t - x _k y}{U } \right)
+                \prod_{j \neq k} V _1 \left( \frac{x _j y}{t} \right) V _2 \left( \frac{t - x _j y }{U} \right) \\
+              &-
+                \sum_{k} \frac{x_k}{U} V_1 \left( \frac{x _k y}{t} \right) V_2' \left( \frac{t - x _k y}{U } \right)
+                \prod_{j \neq k} V _1 \left( \frac{x _j y}{t} \right) V _2 \left( \frac{t - x _j y }{U} \right).
+    \end{align*}
+    We have $f'(y) = 0$ unless $y \asymp t$, $y - t \asymp U$ and each $x_k \asymp 1$, in which case $f'(y) \ll 1/U$.  The volume of the support is $\ll U$, so the claim follows.
+  \end{enumerate}
+\end{proof}
+
+We note that for $j = 1,2,3,4$,
+\begin{equation}\label{eqn:f-Y-support}
+  f^Y(y) \neq 0 \implies x_j y \asymp Y \lll t, \quad t- x_j y \asymp t,
+\end{equation}
+\begin{equation}\label{eqn:f-U-support}
+  f^U(y) \neq 0 \implies x_j y \asymp t, \quad t - x_j y \asymp U \ll t, \quad t > x_j y.
+\end{equation}
+In view of Lemmas \ref{lemma:integration-by-parts} and \ref{lemma:estimate-L1-norm-f-prime}, the proof of Proposition \ref{proposition:oscillatory-estimates-for-I-of-n} reduces to the following:
+\begin{proposition}
+  Retain the setting of  Proposition \ref{proposition:oscillatory-estimates-for-I-of-n}.
+  \begin{enumerate}[(i)]
+  \item For $y$ as in \eqref{eqn:f-Y-support}, we have the second derivative sign inequality
+    \begin{equation}\label{eqn:second-derivative-sign-calculation}
+      \frac{\Phi ''(y)}{x_1 x_2 - x_3 x_4} < 0
+    \end{equation}
+    and the first derivative lower bound
+    \begin{equation}\label{eqn:Phi-prime-lower-bound-Y}
+      \frac{\Phi '(y)}{x_1 x_2 - x_3 x_4} \gg \frac{Y}{t}.
+    \end{equation}
+  \item For $y$ as in \eqref{eqn:f-U-support}, we have the second derivative sign inequality \eqref{eqn:second-derivative-sign-calculation} and the first derivative lower bound
+    \begin{equation}\label{eqn:Phi-prime-lower-bound-U}
+      \frac{\Phi '(y)}{ x_1 x_2 - x_3 x_4} \gg \left( \frac{t}{U} \right) ^{3/2}.
+    \end{equation}  
+  \end{enumerate}
+\end{proposition}
+To verify the above, we first calculate $\Phi '$ explicitly.  To describe the result of that calculation, we introduce some notation.  Set
+\begin{equation*}
+  z_j := \frac{x _j y }{t }.
+\end{equation*}
+We pause to note that in the respective cases \eqref{eqn:f-Y-support} and \eqref{eqn:f-U-support}, we have
+\begin{equation*}
+  z_j \asymp Y/t \lll 1,
+\end{equation*}
+\begin{equation*}
+  z_j \asymp 1, \quad z_j - 1 \asymp U/t.
+\end{equation*}
+Moreover, in either case, we have $z_j \in (0,1)$.  We set\footnote{The present definition of $h_j$ differs from that in \cite{ki20234} by a factor of $t$.}
+\begin{equation*}
+  h_j := \sqrt{1 - z_j ^2 } \in (0,1).
+\end{equation*}
+\begin{lemma}\label{lemma:formula-derivative-Phi}
+  We have
+  \begin{equation*}
+    \Phi ' (y) = - \frac{t}{y} \sum _j \eta _j h_j
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  By the chain rule, we have
+  \begin{align*}
+    y \Phi '(y) &= \sum _j \eta _j x _j y H' \left( \frac{x _j y}{t} \right).
+    \\
+                &= t \sum _j \eta _j z_j H' \left( z_j \right).
+  \end{align*}
+  For $x \in (0,1)$, we may check (carefully) that
+  \begin{equation*}
+    - x H ' (x) = \sqrt{1 - x ^{2}}.
+  \end{equation*}
+  The claimed identity follows.
+\end{proof}
+We have
+\begin{align*}
+  \frac{-\Phi '(y)}{x_1 x_2 - x_3 x_4} &= \frac{t }{y} \frac{\sum _j \eta _j h _j }{x_1 x_2 - x_3 x_4} \\
+                                       &= \frac{y}{t} \frac{\sum _j \eta _j h _j }{ z _1 z _2 - z _3 z _4 }.
+\end{align*}
+Using that $\frac{d}{d x } (1 - x ^2 )^{1/2} = - x (1 - x^2)^{-1/2}$, we see that $\Phi ''(y)$ is a positive constant multiple of
+\begin{equation*}
+  \sum  _j \eta _j h_j^{-1}
+\end{equation*}
+In view of our assumption $x_1 \asymp 1$ (see \eqref{eqn:x1x2-not-x3x4}), we have $y \asymp Y$ on the support of $f$.  The required assertions \eqref{eqn:second-derivative-sign-calculation}, \eqref{eqn:Phi-prime-lower-bound-Y} and \eqref{eqn:Phi-prime-lower-bound-U} concerning $\Phi '$ and $\Phi ''$ thereby reduce to the following, whose proof is all that remains:
+\begin{proposition}\label{proposition:zj}
+  Let $z_1,z_2,z_3,z_4 \in (0,1)$ such that
+  \begin{equation*}
+    z_1 + z_2 = z_3 + z_4, \quad z_1 z_2 \neq z_3 z_4.
+  \end{equation*}  
+  Define $h_j := \sqrt{1 - z_j^2} \in (0,1)$.  Recall that $(\eta_1,\eta_2,\eta_3,\eta_4) = (1,1,-1,-1)$.
+  \begin{enumerate}[(i)]
+  \item We have
+    \begin{equation}\label{eqn:eta-sign}
+      \frac{\sum _j \eta _j / h _j }{ z _1 z _2 - z_3 z_4 } < 0.
+    \end{equation}
+  \item Suppose that each $z_j \lll 1$.  Then
+    \begin{equation}\label{eqn:eta-lower-1}
+      \frac{\sum _j \eta _j h _j }{ z _1 z _2  - z _3 z _4 } \gg 1.
+    \end{equation}
+  \item Suppose that each $z_j \asymp 1$ and $z_j - 1 \asymp Z$ for some $Z \ll 1$.  Then
+    \begin{equation}\label{eqn:eta-lower-2}
+      \frac{\sum _j \eta _j h _j }{ z _1 z _2  - z _3 z _4 } \gg 1/Z^{3/2}.
+    \end{equation}
+  \end{enumerate}
+\end{proposition}
+
+
+\section{Fun with square roots}
+We retain the setting of Proposition \ref{proposition:zj} and verify its assertions one by one.
+
+We first establish \eqref{eqn:eta-sign}.  Clearing denominators, we have
+\begin{equation*}
+  \sum _j \eta _j  / h _j
+  = \frac{(h_2 h_3 h_4 + h_1 h_3 h_4) - (h_1 h_2 h_4 + h_1 h_2 h_3)}{ h_1 h_2 h_3 h_4}.
+\end{equation*}
+Since each $h_j > 0$, our task reduces to verifying that
+\begin{equation*}
+  \frac{a}{z_1 z_2 - z_3 z_4} < 0,
+  \quad a := (h_2 h_3 h_4 + h_1 h_3 h_4)^2 - (h_1 h_2 h_4 + h_1 h_2 h_3)^2.
+\end{equation*}
+This inequality is a consequence of the following lemma.
+\begin{lemma}
+Set
+\begin{align*}
+  b &:= 2 (1 - (z _1 z _2 ) ^2) + (z _1 z _2 + z _3 z _4 ) (2 - (z _1^2 +  z _2^2 ) ) > 0, \\
+  c &:= 2  h _1 h _2 h _3 h _4 (2 + z _3 z _4 + z _1 z _2) > 0, \\
+  e :&= h_3 h_4 + h_1 h_2 > 0.
+\end{align*}
+Then
+\begin{equation*}
+  \frac{a}{z _3 z _4 - z _1 z _2 } = b + \frac{c}{e} > 0.
+\end{equation*}
+\end{lemma}
+\begin{proof}
+  This is noted in \cite{ki20234}.  It may be confirmed by the following SAGE code:
+\begin{verbatim}
+h = [var("h" + str(j)) for j in (0..4)]
+x = [var("x" + str(j)) for j in (0..4)]
+a = (h2*h3*h4 + h1*h3*h4)^2 - (h1*h2*h4 + h1*h2*h3)^2
+b = 2*(1 - (x1*x2)^2) + (x1*x2 + x3*x4)*(2 - (x1^2 + x2^2))
+c = 2*h1*h2*h3*h4*(2 + x3*x4 + x1*x2)
+d = x3*x4 - x1*x2
+e = h3*h4 + h1*h2
+# To check: a/d = b + c/e
+# Rewrite: a = b*d + c*d/e
+# Rewrite: a*e = b*d*e + c*d
+test0 = a*e - (b*d*e + c*d)
+test1 = test0.subs(h1=sqrt(1-x1^2), h2=sqrt(1-x2^2), h3=sqrt(1-x3^2), h4=sqrt(1-x4^2))
+test2 = test1.subs(x4 = x1+x2-x3).expand()
+test2
+\end{verbatim}
+\end{proof}
+
+The proofs of \eqref{eqn:eta-lower-1} and \eqref{eqn:eta-lower-2} make use of the following algebraic identity.
+\begin{lemma}\label{lemma:algebraic-identity}
+  We have
+  \begin{equation}\label{equation:basic-identity-for-sum-difference-h1h2h3h4}
+  \frac{\sum \eta_j h_j \sum h_j
+  }{
+    z _1 z _2 - z _3 z _4 
+  }
+  =
+  2 + \frac{4}{ h _1 h _2 + h _3 h _4 }
+  + 2 \frac{z _1 z _2 + z _3 z _4 }{ h _1 h _2 + h _3 h _4}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+  This is a consequence of several identities noted in \cite{ki20234}.  I have checked it using computer algebra; the following SAGE code outputs ``$0$''.
+\begin{verbatim}
+h = [var("h" + str(j)) for j in (0..4)]
+x = [var("x" + str(j)) for j in (0..4)]
+y = [0,1,1,-1,-1]
+a = sum(y[j]*h[j] for j in (1..4))
+b = sum(h[j] for j in (1..4))
+c = x1*x2 - x3*x4
+d = x1*x2 + x3*x4
+e = h1*h2 + h3*h4
+# To check: a*b/c = 2 + 4/e + 2*d/e.
+# Rewrite: a*b*e = 2*c*e + 4*c + 2*d*c.
+test0 = a*b*e - (2*c*e + 4*c + 2*d*c)
+test1 = test0.subs(h1=sqrt(1-x1^2), h2=sqrt(1-x2^2), h3=sqrt(1-x3^2), h4=sqrt(1-x4^2))
+test2 = test1.subs(x4 = x1+x2-x3).expand()
+test2
+\end{verbatim}
+\end{proof}
+We note that each term on the right hand side of \eqref{equation:basic-identity-for-sum-difference-h1h2h3h4} is positive.  We may thus bound the left hand side from below by any term on the right hand side.
+
+We now verify \eqref{eqn:eta-lower-1}.  If each $z_j \lll 1$, then each $h_j \asymp 1$.  Bounding the right hand side of \eqref{equation:basic-identity-for-sum-difference-h1h2h3h4} from below by the first term on its right hand side gives \eqref{eqn:eta-lower-1}.
+
+We now verify \eqref{eqn:eta-lower-2}.  If each $z_j \asymp 1$ and $z_j - 1 \asymp Z$ for some $Z \ll 1$, then each $h_j \asymp Z ^{1/2}$, hence $\sum_j h_j \asymp Z^{1/2}$ and $h_1 h_2 + h_3 h_4 \asymp Z$.  Bounding the right hand side of \eqref{equation:basic-identity-for-sum-difference-h1h2h3h4} from below by the second term on its right hand side gives \eqref{eqn:eta-lower-2}.
+
+The proof of Theorem \ref{theorem:main} is complete.
+
+\section{Questions}
+
+\begin{enumerate}
+\item Reduce the ``hard'' ingredients required in the proof?  In this presentation, uniform asymptotics for Bessel functions and some exact identities involving $\sqrt{1 - x^2}$ are combined to bound the integrals
+  \begin{equation*}
+    \int_0 ^\infty W _t (x _1 y) W _t (x _2 y ) W _t (x _3 y) W _t (x _4 y) \, \frac{d y}{y^2},
+  \end{equation*}
+  or equivalently (up to normalizing factors),
+  \begin{equation*}
+    \int_0 ^\infty K_{it} (x _1 y) K_{it} (x _2 y ) K_{it} (x _3 y) K_{it} (x _4 y) \, d y,
+  \end{equation*}
+  for positive reals $x_1, \dotsc, x_4$ satisfying $x_1 + x_2 = x_3 + x_4$, but maybe the bounds are more fundamental than the ingredients.
+\item Geometric way to think of the proof of Proposition \ref{proposition:zj}, using that the points $(z_j, h_j)$ lie in the upper-right quadrant of the unit circle?
+\item Compact quotients, maybe via ``theta method''?  cf.\ \cite{2012arXiv1210.1243N}, \cite{nelson-variance-3}, \cite{2022arXiv220712351K}, ...
+\item Other aspects, such as $p$-adic depth.
+\end{enumerate}
+
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
