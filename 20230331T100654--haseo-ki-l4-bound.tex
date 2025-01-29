@@ -118,21 +118,21 @@ We will prove Theorem \ref{theorem:main} by decomposing $W_t$ into at most $\pre
       W (n _4 y)}
     \, \frac{d y}{ y ^2 }.
   \end{equation*}
-  We majorize each $\lambda(n_j)$ in absolute value and apply AM-GM:
+  We majorize each term in absolute value and apply AM-GM:
   \begin{equation*}
     \left|     \frac{\lambda (n _1) \dotsb \lambda (n _4 )}{\sqrt{n _1 \dotsb n _4 }} \right|
     \leq \frac{1}{4} \sum_{i = 1}^4 \frac{\left| \lambda(n_i) \right|^4}{n_i^2}.
   \end{equation*}
-  Since the magnitude of the remaining integral is invariant under a transitive group of permutations of the $n_j$, we may reduce to considering the contribution to this last sum from $i = 1$, giving
+  This gives
   \begin{equation*}
     \mathcal{N}(W) \prec
     \sum _{n_1 + n_2 = n_3 + n_4}
     \frac{\left\lvert \lambda(n_1) \right\rvert^4}{n_1^2}
     \left\lvert
       \int _{y = y _0 } ^\infty W (n _1 y ) W (n _2 y) \overline{W (n _3 y) W (n _4 y)} \, \frac{d y}{y^2}
-    \right\rvert.
+    \right\rvert,
   \end{equation*}
-  We conclude by performing the change of variables $y \rightarrow y / n_1$.
+  using the symmetry of the integrand under permutation of the $n_j$.  We conclude by performing the change of variables $y \rightarrow y / n_1$.
 \end{proof}
 
 
@@ -203,8 +203,8 @@ For $0 < \xi < \infty$, we define $H(\xi)$ by the formula
 \begin{equation*}
   H(\xi) =
   \begin{cases}
-    \Of{arccosh}{1/ \xi}   - \sqrt{1 - \xi ^2 }  &  \text{ if } 0 < \xi \leq 1, \\
-    \sqrt{\xi ^2 - 1} - \Of{arcsec}{\xi}                                               & \text{ if } \xi > 1.
+    \operatorname{arccosh}(1/ \xi)   - \sqrt{1 - \xi ^2 }  &  \text{ if } 0 < \xi \leq 1, \\
+    \sqrt{\xi ^2 - 1} - \operatorname{arcsec}(\xi)                                               & \text{ if } \xi > 1.
   \end{cases}
 \end{equation*}
 It defines a continuous, nonnegative function, vanishing only at $\xi = 1$, with the following properties:
@@ -896,7 +896,7 @@ The proof of Theorem \ref{theorem:main} is complete.
   \end{equation*}
   for positive reals $x_1, \dotsc, x_4$ satisfying $x_1 + x_2 = x_3 + x_4$, but maybe the bounds are more fundamental than the ingredients.
 \item Geometric way to think of the proof of Proposition \ref{proposition:zj}, using that the points $(z_j, h_j)$ lie in the upper-right quadrant of the unit circle?
-\item Compact quotients, maybe via ``theta method''?  cf.\ \cite{2012arXiv1210.1243N}, \cite{nelson-variance-3}, \cite{2022arXiv220712351K}, ...
+\item Compact quotients, maybe via ``theta method''?  cf.\ \cite{2012arXiv1210.1243N}, \cite{nelson-variance-3}, \cite{MR4752128}, ...
 \item Other aspects, such as $p$-adic depth.
 \end{enumerate}
 
