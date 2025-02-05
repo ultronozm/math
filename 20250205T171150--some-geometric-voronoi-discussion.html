@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Thinking about Voronoi summation geometrically for {\mathop{\mathrm{GL}}}_2</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+    <div class="my-links-container">
+2025-02-05 17:14:08
+      <a href="20250205T171150--some-geometric-voronoi-discussion.tex" class="my-link">tex</a>
+      <a href="20250205T171150--some-geometric-voronoi-discussion.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20250205T171150--some-geometric-voronoi-discussion.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+<header id="title-block-header">
+<h1 class="title">Thinking about Voronoi summation geometrically for
+<span class="math inline">\({\mathop{\mathrm{GL}}}_2\)</span></h1>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>Some informal notes from a discussion with a colleague about how to
+think about Voronoi summation in terms of modularity. There’s overlap
+with existing written treatments, e.g., <a
+href="https://people.math.osu.edu/cogdell.1/voronoi-www.pdf"
+class="uri">https://people.math.osu.edu/cogdell.1/voronoi-www.pdf</a>,
+<a href="#ref-KMV02" class="citation" data-cites="KMV02">(Kowalski, Michel, and
+VanderKam 2002, Appendix A)</a>. These are live notes that
+accompanied a discussion, and are not intended to be a polished
+treatment.</p>
+</div>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#notation" id="toc-notation">Notation</a></li>
+<li><a href="#fourier-expansions-of-automorphic-functions"
+id="toc-fourier-expansions-of-automorphic-functions">Fourier expansions
+of automorphic functions</a></li>
+<li><a href="#modularity" id="toc-modularity">Modularity</a></li>
+<li><a href="#case-studies" id="toc-case-studies">Case studies</a>
+<ul>
+<li><a href="#varying-archimedean-frequency"
+id="toc-varying-archimedean-frequency">Varying archimedean
+frequency</a></li>
+<li><a href="#varying-non-archimedean-frequency"
+id="toc-varying-non-archimedean-frequency">Varying non-archimedean
+frequency</a></li>
+</ul></li>
+<li><a
+href="#varying-archimedean-frequency-but-using-dirichlet-approximation"
+id="toc-varying-archimedean-frequency-but-using-dirichlet-approximation">Varying
+archimedean frequency, but using Dirichlet approximation</a></li>
+</ul>
+</nav>
+<h1 id="notation">Notation</h1>
+<p>We work with <span class="math display">\[G :=
+{\mathop{\mathrm{PGL}}}_2(\mathbb{R}), \quad \Gamma :=
+{\mathop{\mathrm{PGL}}}_2(\mathbb{Z}),\]</span> <span
+class="math display">\[n(x) :=
+  \begin{pmatrix}
+    1    &amp; x \\
+    0 &amp; 1 \\
+  \end{pmatrix} \in N :=
+  \begin{pmatrix}
+    1    &amp; \ast \\
+    0         &amp; 1 \\
+  \end{pmatrix} \leq G,\]</span> <span class="math display">\[a(y) :=
+  \begin{pmatrix}
+    y &amp; 0 \\
+    0 &amp; 1 \\
+  \end{pmatrix}.\]</span></p>
+<h1 id="fourier-expansions-of-automorphic-functions">Fourier expansions
+of automorphic functions</h1>
+<p>A nice enough function <span class="math inline">\(f : \mathbb{R} /
+\mathbb{Z} \rightarrow \mathbb{C}\)</span> has a Fourier expansion <span
+class="math inline">\(f(x) = \sum_n e(n x) \hat{f}(n)\)</span>, with
+Fourier coefficients <span class="math inline">\(\hat{f}(n) =
+\int_{\mathbb{R} / \mathbb{Z}} f(x) e(-n x) \, d x\)</span>.</p>
+<p>Given an automorphic function <span class="math display">\[\varphi :
+{\mathop{\mathrm{PGL}}}_2(\mathbb{Z}) \backslash
+{\mathop{\mathrm{PGL}}}_2(\mathbb{R}) \rightarrow \mathbb{C},\]</span> we
+may view the function <span class="math inline">\(\varphi(\bullet g) :
+N(\mathbb{Z}) \backslash N(\mathbb{R}) \rightarrow \mathbb{C}\)</span>
+as an a function on <span class="math inline">\(\mathbb{R} /
+\mathbb{Z}\)</span>, so it admits a Fourier expansion: <span
+class="math display">\[\varphi(n(x) g)
+  =
+  \sum_{n \in \mathbb{Z}}
+  e(n x)
+  W_{\varphi, n}(x),\]</span> where <span
+class="math display">\[W_{\varphi, n}(x) :=
+  \int_{\mathbb{R} / \mathbb{Z}}
+  \varphi(n(u) g) e(- n u) \, d u.\]</span> If <span
+class="math inline">\(\varphi\)</span> is a Hecke eigenform, then we can
+write <span id="eq:cqy4x9qh1q" class="math display">\[\label{eq:cqy4x9qh1q}\tag{1}
+  W_{\varphi, n}(g) = \frac{\lambda(n)}{\lvert n \rvert^{1/2}}
+W_{\varphi, 1}(a(n) g),\]</span> where <span
+class="math inline">\(\lambda(n)\)</span> is the Hecke eigenvalue. Thus
+<span id="eq:cqy4x9r574" class="math display">\[\label{eq:cqy4x9r574}\tag{2}
+  \varphi(g) = \sum_{n \in \mathbb{Z}_{\neq 0}} \frac{\lambda(n)}{\lvert
+n \rvert^{1/2}}
+  W_\varphi(a(n) g).\]</span></p>
+<div id="example:cqy4x9qvf5" class="example">
+<p><strong>Example 1</strong>. Classical holomorphic modular form <span
+class="math inline">\(f\)</span> of weight <span
+class="math inline">\(k\)</span>. <span class="math display">\[f(x + i
+y) = \sum_{n \geq 1} a_n e(n z), \quad e(z) := e^{2 \pi i z}.\]</span>
+<span class="math display">\[y^{k/2} f(x + i y) = \sum_{n \geq 1} a_n
+n^{- k/2} W_k(n y) e(n x),
+    \quad
+    W_k(y) := y^{k /2} e^{- 2 \pi y},\]</span> <span
+class="math display">\[a_n n^{- k/2} = \frac{\lambda (n)}{\lvert n
+\rvert^{1/2}}.\]</span> If we define <span class="math inline">\(\varphi
+: {\mathop{\mathrm{PGL}}}_2(\mathbb{Z}) \backslash
+{\mathop{\mathrm{PGL}}}_2(\mathbb{R}) \rightarrow \mathbb{C}\)</span> by
+<span class="math inline">\(\varphi(g) := f|_k g(i)\)</span>, where in
+general <span class="math display">\[f |_k g(z) :=
+    \frac{(\det g)^{k/2}}{(c z + d)^k} f\left( \frac{a z + b}{c z + d}
+\right),
+    \qquad g
+    =
+    \begin{pmatrix}
+      a      &amp; b \\
+      c &amp; d \\
+    \end{pmatrix},\]</span> then, since <span class="math inline">\(n(x)
+a(y) \cdot i = x + i y\)</span>, we have <span
+class="math display">\[y^{k / 2} f(x + i y) = \varphi(n(x)
+a(y)),\]</span> <span class="math display">\[W_k(y) = W_{\varphi,
+1}(a(y)).\]</span></p>
+</div>
+<div id="remark:cqy4x9qmpf" class="remark">
+<p><strong>Remark 2</strong>. The idea of the proof of <a
+href="#eq:cqy4x9qh1q" data-reference-type="eqref"
+data-reference="eq:cqy4x9qh1q">\((1)\)</a> is that by
+“uniqueness of Whittaker functionals”, we know that the two quantities
+<span class="math inline">\(W_{\varphi, n}\)</span> and <span
+class="math inline">\(W_{\varphi, 1}(a(n) \bullet)\)</span> are
+proportional. On the other hand, by studying how Hecke operators affect
+Fourier (or Whittaker) expansions, we see that the former is <span
+class="math inline">\(\frac{\lambda(n)}{\lvert n \rvert^{1/2}}\)</span>
+times the latter. If the latter were to vanish identically, then it
+would follow that the former vanishes identically, and so <span
+class="math inline">\(\varphi\)</span> would vanish. Therefore the
+latter does not vanish identically, and we get the desired relation. For
+the case of <a href="#eq:cqy4x9r574" data-reference-type="eqref"
+data-reference="eq:cqy4x9r574">\((2)\)</a> relevant for Example
+<a href="#example:cqy4x9qvf5" data-reference-type="ref"
+data-reference="example:cqy4x9qvf5">1</a>, see <a href="#ref-MR0344216" class="citation"
+data-cites="MR0344216">(Serre 1973, chap. VII, §5.4, Thm 7)</a>.</p>
+</div>
+<h1 id="modularity">Modularity</h1>
+<p>We restrict now to the case that <span
+class="math inline">\(\varphi\)</span> lies inside some irreducible
+subrepresentation <span class="math inline">\(\pi\)</span> of the space
+of cusp forms on <span class="math inline">\(\Gamma \backslash
+G\)</span>, consisting of Hecke eigenfunctions with eigenvalues <span
+class="math inline">\(\lambda(n)\)</span>. Thus <span
+class="math inline">\(\lambda(n)\)</span> depends only upon <span
+class="math inline">\(\pi\)</span>, not the choice of <span
+class="math inline">\(\varphi \in \pi\)</span>.</p>
+<p>The theory of the Kirillov model says that for any function <span
+class="math inline">\(h\)</span> on <span
+class="math inline">\(\mathbb{R}^\times\)</span>, there is a unique
+<span class="math inline">\(\varphi \in \pi\)</span> so that <span
+class="math display">\[W_\varphi(a(\bullet)) := [ y \mapsto
+W_\varphi(a(y))] = h.\]</span> This is useful, because we then can write
+<span class="math display">\[\varphi(1) = \sum_{n \neq 0}
+\frac{\lambda(n)}{\lvert n \rvert^{1/2}} W_\varphi(a(n)).\]</span> On
+the other hand, <span class="math inline">\(\varphi\)</span> is
+invariant under <span class="math inline">\(\Gamma\)</span>, so for any
+<span class="math inline">\(\gamma \in \Gamma\)</span> (e.g., <span
+class="math inline">\(\gamma = \left(
+  \begin{smallmatrix}
+    0&amp;1\\
+    -1&amp;0 \\
+  \end{smallmatrix}
+\right)\)</span>), we may write <span class="math inline">\(\varphi(1) =
+\varphi(\gamma)\)</span>, hence <span class="math display">\[\sum_{n
+\neq 0} \frac{\lambda(n)}{\lvert n \rvert^{1/2}} W_\varphi(a(n))
+  =
+  \sum_{n \neq 0} \frac{\lambda(n)}{\lvert n \rvert^{1/2}}
+W_\varphi(a(n) \gamma).\]</span></p>
+<div class="remark">
+<p><strong>Remark 3</strong>. Assuming <span
+class="math inline">\(\pi\)</span> is tempered, any Whittaker function
+enjoys the decay estimates <span
+class="math display">\[W_{\varphi}(a(y)) \ll_{\varphi} \min(y^{1/2 +
+\varepsilon}, e^{- 2 \pi y}).\]</span></p>
+</div>
+<p>Then the problem arises: given a function <span
+class="math inline">\(h : \mathbb{R}^\times \rightarrow
+\mathbb{C}\)</span>, having chosen <span
+class="math inline">\(\varphi\)</span> so that <span
+class="math inline">\(W_{\varphi}(a(\bullet)) = h\)</span>, can we
+understand the new function <span class="math display">\[h_{\gamma} :=
+W_{\varphi}(a(\bullet) \gamma)?\]</span> This is typically understood
+using the local functional equation and/or Bessel transform.</p>
+<p>A very convenient case is when we start with some fixed <span
+class="math inline">\(\varphi\)</span>, and just use that for all <span
+class="math inline">\(g \in G\)</span> and <span
+class="math inline">\(\gamma \in \Gamma\)</span>, we have <span
+class="math inline">\(\varphi(\gamma g) = \varphi(g)\)</span>, hence
+<span id="eq:cqy4ycubws" class="math display">\[\label{eq:cqy4ycubws}\tag{3}
+  \sum_{n \neq 0} \frac{\lambda(n)}{\lvert n \rvert^{1/2}}
+W_\varphi(a(n) g)
+  =
+  \sum_{n \neq 0} \frac{\lambda(n)}{\lvert n \rvert^{1/2}}
+W_\varphi(a(n) \gamma g).\]</span> We can just pretend at first
+approximation that <span class="math inline">\(W_{\varphi}(a(\bullet)
+k)\)</span> looks like some fixed bump function for all <span
+class="math inline">\(k\)</span> in some fixed compact subset of <span
+class="math inline">\(G\)</span>. It’s useful to recall that any element
+of <span class="math inline">\(G\)</span> can be written using the
+Cartan decomposition as <span class="math inline">\(k_1 a(y)
+k_2\)</span>, or using the Iwasawa decomposition as <span
+class="math inline">\(n(x) a(y) k\)</span>.</p>
+<h1 id="case-studies">Case studies</h1>
+<p>Here we give some examples of how to apply <a href="#eq:cqy4ycubws"
+data-reference-type="eqref"
+data-reference="eq:cqy4ycubws">\((3)\)</a>. We’ll focus on cases
+where <span class="math inline">\(\varphi\)</span> is <em>fixed</em>.
+This case is the relevant one if one would like to try (as we did in our
+internal seminar) understanding papers like <a href="#ref-MR4032289" class="citation"
+data-cites="MR4032289">(Aggarwal 2020)</a> from a geometric
+perspective; that’s the motivation for this whole discussion.</p>
+<h2 id="varying-archimedean-frequency">Varying archimedean
+frequency</h2>
+<p>Let’s say we’re given <span class="math inline">\(h \in
+C_c^\infty(\mathbb{R}^\times)\)</span> and we want to understand what
+the following sums look like: <span id="eq:cnq418zud9" class="math display">\[\label{eq:cnq418zud9}\tag{4}
+  \sum_{n \neq 0}
+  \frac{\lambda(n)}{\lvert n \rvert^{1/2}}
+  h(n / Y)
+  e(\xi n).\]</span> To do so, we choose <span
+class="math inline">\(\varphi\)</span> so that <span
+class="math inline">\(W_{\varphi}(a(\bullet)) = h\)</span>. Then we
+observe that the above sum is exactly <span
+class="math display">\[\varphi(n(\xi) a(1/Y)).\]</span> Note that the
+image of the argument of <span class="math inline">\(\varphi\)</span> in
+<span class="math inline">\(\mathbb{H}\)</span> is <span
+class="math inline">\(\xi + i /Y\)</span>.</p>
+<p>One simple thing one can do is take <span class="math inline">\(\xi =
+0\)</span> and use this to see that we get massive decay when <span
+class="math inline">\(Y \rightarrow \infty\)</span>. How to see that?
+Well, the point in question, <span class="math inline">\(i /Y\)</span>,
+is tending to zero. So we should apply some element <span
+class="math inline">\(\gamma \in \Gamma\)</span> that maps <span
+class="math inline">\(0\)</span> to <span
+class="math inline">\(\infty\)</span>. We can take <span
+class="math display">\[\gamma =
+  \begin{pmatrix}
+    0    &amp; 1 \\
+    1 &amp; 0 \\
+  \end{pmatrix}.\]</span> Then we get <span
+class="math display">\[\varphi(a(1/Y))
+  =
+  \varphi(\gamma a(1/Y))
+  =   \varphi(a(Y) \gamma).\]</span> By passing to Fourier expansions,
+we deduce that <span class="math display">\[\sum_{n \neq 0}
+  \frac{\lambda(n)}{\lvert n \rvert^{1/2}}
+  h(n / Y)
+  =
+  \sum_{n \neq 0}
+  \frac{\lambda(n)}{\lvert n \rvert^{1/2}}
+  W_\varphi(a(nY) \gamma ).\]</span> Since <span
+class="math inline">\(\gamma\)</span> lies in some fixed compact
+collection, we can think of <span
+class="math inline">\(W_{\varphi}(a(\bullet) \gamma)\)</span> as roughly
+a fixed bump function (more precisely, it decays like <span
+class="math inline">\(y^{1/2}\)</span> near zero and exponentially near
+<span class="math inline">\(\infty\)</span>, but whatever). In
+particular, the above sum is essentially restricted to <span
+class="math inline">\(n Y \ll 1\)</span>. But if <span
+class="math inline">\(Y \rightarrow \infty\)</span> and <span
+class="math inline">\(n\)</span> is a nonzero integer, then this last
+condition is never satisfied, and so the right hand side is vanishingly
+small.</p>
+<h2 id="varying-non-archimedean-frequency">Varying non-archimedean
+frequency</h2>
+<p>Another basic interesting example: for a natural number <span
+class="math inline">\(q\)</span>, suppose we want to understand <a
+href="#eq:cnq418zud9" data-reference-type="eqref"
+data-reference="eq:cnq418zud9">\((4)\)</a> in the special case
+that <span class="math inline">\(\xi = a/q\)</span>, where <span
+class="math inline">\(a\)</span> is an integer coprime to <span
+class="math inline">\(q\)</span>. That is to say, we care about <span
+class="math display">\[\sum_{n \neq 0}
+  \frac{\lambda(n)}{\lvert n \rvert^{1/2}}
+  h(n / Y)
+  e_q(a n),\]</span> where <span class="math inline">\(e_q : \mathbb{Z}
+/ q \mathbb{Z} \rightarrow \mathbb{C}^\times\)</span>, <span
+class="math inline">\(e_q(x) := e(x / q)\)</span>. Welp, with the same
+choice of <span class="math inline">\(\varphi\)</span> as above, the
+above sum is <span class="math display">\[\varphi(n(a/q)
+a(1/Y)).\]</span> The image in <span
+class="math inline">\(\mathbb{H}\)</span> is <span
+class="math inline">\(a/q + i /Y\)</span>.</p>
+<p>Suppose we’re in the regime where <span
+class="math inline">\(Y\)</span> is quite large (we can figure out later
+exactly how large we need it to be). Then the argument of <span
+class="math inline">\(\varphi\)</span> is tending to the cusp <span
+class="math inline">\(a/q\)</span>. We should choose <span
+class="math inline">\(\gamma\)</span> that maps this cusp to <span
+class="math inline">\(\infty\)</span>. We can take <span
+class="math display">\[\gamma =
+  \begin{pmatrix}
+    -\bar{a}    &amp; \ast \\
+    q &amp; -a \\
+  \end{pmatrix} \in {\mathop{\mathrm{SL}}}_2(\mathbb{Z}).\]</span> Then,
+we try using that <span class="math display">\[\varphi(n(a/q) a(1/Y)) =
+\varphi(\gamma n(a/q) a(1/Y)).\]</span> This begs the question of
+understanding <span class="math display">\[\gamma n(a/q)
+a(1/Y).\]</span> Welp, if we have <span class="math display">\[\gamma
+\left( \frac{a}{q} + \frac{i}{Y} \right) = x&#39; + i y &#39;,\]</span>
+then we know that <span class="math display">\[\gamma n(a/q) a(1/Y) =
+n(x&#39;) a(y&#39;) k\]</span> for some <span class="math inline">\(k
+\in \mathop{\mathrm{SO}}(2)\)</span>.</p>
+<p>We might try factoring <span class="math display">\[\gamma =
+  n(-\bar{a}/q)
+  \begin{pmatrix}
+    0    &amp; -1/q \\
+    q &amp; 0 \\
+  \end{pmatrix}
+  n(-a/q),\]</span> then <span class="math display">\[\gamma n(a/q)
+a(1/Y)
+  =
+  n(- \bar{a}/q)
+  \begin{pmatrix}
+    0    &amp; -1/q \\
+    q/Y &amp; 0 \\
+  \end{pmatrix}
+  = n(- \bar{a}/q) a(Y/q^2) w,\]</span> where <span
+class="math display">\[w :=
+  \begin{pmatrix}
+    0    &amp; -1 \\
+    1 &amp; 0 \\
+  \end{pmatrix}.\]</span> This tells us that <span
+class="math display">\[\sum_{n \neq 0}
+  \frac{\lambda(n)}{\lvert n \rvert^{1/2}}
+  h(n / Y)
+  e_q(a n)
+  =
+  \sum_{n \neq 0}
+  \frac{\lambda(n)}{\lvert n \rvert^{1/2}}
+  e_q(-\bar{a} n)
+  W_{\varphi}(a(n Y / q^2) w).\]</span> The right hand side is
+essentially restricted to <span class="math inline">\(n / (q^2/Y) \ll
+1\)</span>. So, for example:</p>
+<ul>
+<li><p>If <span class="math inline">\(Y \ggg q^2\)</span>, then the dual
+sum (the RHS of the above) is of length <span class="math inline">\(q^2
+/ Y \lll 1\)</span>, so it is negligible.</p></li>
+<li><p>If <span class="math inline">\(Y \approx q\)</span>, then the
+original sum and the dual sum are both of length roughly <span
+class="math inline">\(q\)</span>, so we “gain nothing” (at least as far
+as trivial bounds are concerned) by dualizing (i.e., applying the above
+formula).</p></li>
+</ul>
+<h1
+id="varying-archimedean-frequency-but-using-dirichlet-approximation">Varying
+archimedean frequency, but using Dirichlet approximation</h1>
+<p>A third example along such lines, and maybe the most relevant: take a
+general <span class="math inline">\(\xi\)</span> as in <a
+href="#eq:cnq418zud9" data-reference-type="eqref"
+data-reference="eq:cnq418zud9">\((4)\)</a>, but let’s do
+Dirichlet approximation on it first to approximate it by some rational
+<span class="math inline">\(a / q\)</span>. We should get, for some
+<span class="math inline">\(q \leq Q\)</span>, that <span
+class="math display">\[\lvert \xi - a/q \rvert \leq \frac{1}{q
+Q}.\]</span> Write <span class="math inline">\(\xi = a/q +
+\delta\)</span>, where <span class="math inline">\(\lvert \delta \rvert
+\leq 1 / (q Q)\)</span>. The sum of interest may then be written <span
+class="math display">\[\varphi(n(a/q) n(\delta)a(1/Y))
+  =  \varphi(n(a/q) a(1/Y))
+  = ( n(Y \delta) \varphi )(n(a/q) a(1/Y)).\]</span> (Here we are using
+the notation <span class="math inline">\((g \varphi)(h) := \varphi(h
+g)\)</span>.)</p>
+<p>Now we apply the above analysis, but with <span
+class="math inline">\(\varphi\)</span> replaced by its right translate
+<span class="math inline">\(n(Y \delta) \varphi\)</span>. This gives
+that the sum of interest is <span class="math display">\[\sum_{n \neq 0}
+  \frac{\lambda(n)}{\lvert n \rvert^{1/2}}
+  e_q(-\bar{a} n)
+  W_{\varphi}(a(n Y / q^2) w n(Y \delta)).\]</span> We are led to the
+problem of understanding the above argument. If it happens that <span
+class="math inline">\(Y \delta \ll 1\)</span>, then there is no change
+from before. We know that <span class="math inline">\(\delta \ll 1/ q
+Q\)</span>, so this happens if <span class="math inline">\(Y \ll q
+Q\)</span>.</p>
+<p><span class="math display">\[w =
+  \begin{pmatrix}
+    0    &amp; 1 \\
+    -1 &amp; 0 \\
+  \end{pmatrix},\]</span> <span class="math display">\[w n(- 1/x) = n(x)
+a(x^2) w n(x) w.\]</span> This is useful in the limit as <span
+class="math inline">\(x \rightarrow 0\)</span>.</p>
+<p><span class="math display">\[W_{\varphi} (a(y) w)
+  =
+  \int_{t \in \mathbb{R}^\times}
+  W_\varphi(a(t)) J(t y) \,d^\times t.\]</span></p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-MR4032289" class="csl-entry" role="listitem">
+Aggarwal, Keshav. 2020. <span>“Weyl Bound for <span><span
+class="math inline">\(\rm GL(2)\)</span></span> in <span><span
+class="math inline">\(t\)</span></span>-Aspect via a Simple Delta
+Method.”</span> <em>J. Number Theory</em> 208: 72–100. <a
+href="https://doi.org/10.1016/j.jnt.2019.07.018">https://doi.org/10.1016/j.jnt.2019.07.018</a>.
+</div>
+<div id="ref-KMV02" class="csl-entry" role="listitem">
+Kowalski, E., P. Michel, and J. VanderKam. 2002.
+<span>“Rankin-<span>S</span>elberg <span><span
+class="math inline">\(L\)</span></span>-Functions in the Level
+Aspect.”</span> <em>Duke Math. J.</em> 114 (1): 123–91.
+</div>
+<div id="ref-MR0344216" class="csl-entry" role="listitem">
+Serre, J.-P. 1973. <em>A Course in Arithmetic</em>. New York:
+Springer-Verlag.
+</div>
+</div>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>

@@ -82,6 +82,10 @@
     img {
       max-width: 100%;
     }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
     h1, h2, h3, h4, h5, h6 {
       margin-top: 1.4em;
     }
@@ -185,8 +189,11 @@
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
     ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
       width: 0.8em;
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
@@ -195,6 +202,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -211,17 +219,14 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
   type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
     <div class="my-links-container">
-2023-05-23 10:48:36
+2025-02-05 17:13:51
       <a href="20230522T174726__shrinking-archimedean-families-second-moment-gl2.tex" class="my-link">tex</a>
       <a href="20230522T174726__shrinking-archimedean-families-second-moment-gl2.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20230522T174726__shrinking-archimedean-families-second-moment-gl2.tex" class="my-link">history</a>
@@ -257,7 +262,7 @@ id="toc-sec:20230522180034">Matrices</a></li>
 <h1 id="sec:20230522180023">§1. Overview</h1>
 <p>We consider <span class="math inline">\(\pi\)</span> on <span
 class="math inline">\({\mathop{\mathrm{PGL}}}_2(\mathbb{Z}) \backslash
-{\mathop{\mathrm{PGL}}}_2(\mathbb{Q})\)</span> and try to estimate <span
+{\mathop{\mathrm{PGL}}}_2(\mathbb{R})\)</span> and try to estimate <span
 class="math display">\[\sum_{C(\pi) \leq Q} \left\lvert L (\pi,
 \tfrac{1}{2} + i T ) \right\rvert^2.\]</span> Here <span
 class="math inline">\(Q\)</span> and <span
@@ -274,6 +279,11 @@ class="math inline">\(Q \ggg T\)</span>. We would like to obtain an
 essentially sharp upper bound for some <span class="math inline">\(Q
 \lll T\)</span>, ideally <span class="math inline">\(Q \ll
 T^{1-\delta}\)</span>. This seems hard.</p>
+<p>Note that the range <span class="math inline">\(Q \asymp T\)</span>
+is critical: a sharp bound for the moment in this range recovers the
+convexity bound for the individual <span
+class="math inline">\(L\)</span>-values, while a sharp bound in any
+shorter range would give a subconvex bound.</p>
 <h1 id="sec:20230522180025">§2. Test functions</h1>
 <p>Let’s set things up. We take a test function <span
 class="math inline">\(f_0\)</span> to be a normalized smoothened
@@ -301,12 +311,12 @@ class="math inline">\(C(\pi) \leq Q\)</span>. In the Kirillov model,
 <span class="math inline">\(W_0\)</span> could be taken to look like a
 smooth bump supported near <span class="math inline">\(1\)</span>: <span
 class="math display">\[W_0(y) \approx 1_{y \asymp
-Y}^{\text{smooth}}.\]</span> We then defined <span
+1}^{\text{smooth}}.\]</span> We then defined <span
 class="math inline">\(f\)</span> to be the conjugate of <span
 class="math inline">\(f_0\)</span> by <span
 class="math inline">\(n(T)\)</span>. On the spectral side, the
 contribution from <span class="math inline">\(\pi\)</span> will be <span
-class="math display">\[\left\lvert L(\pi, \tfrac{1}{2} + i t)
+class="math display">\[\left\lvert L(\pi, \tfrac{1}{2} + i T)
 \right\rvert^2
   \sum _{W_0 \in \mathcal{B}(\pi)}
   \left\lvert
@@ -722,7 +732,7 @@ class="math inline">\(1/T\)</span> of the time.</p></li>
 class="math inline">\(1 / Q\)</span>. We need to do a bit better than
 that. Seems tough!</p>
 <div id="refs" class="references csl-bib-body hanging-indent"
-role="list">
+data-entry-spacing="0" role="list">
 <div id="ref-JN19a" class="csl-entry" role="listitem">
 Jana, Subhajit, and Paul D. Nelson. 2019. <span>“<span
 class="nocase">Analytic newvectors for <span
