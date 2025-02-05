@@ -1,0 +1,327 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\begin{document}
+
+\title{Thinking about Voronoi summation geometrically for $\GL_2$}
+
+\begin{abstract}
+  Some informal notes from a discussion with a colleague about how to think about Voronoi summation in terms of modularity.  There's overlap with existing written treatments, e.g., \url{https://people.math.osu.edu/cogdell.1/voronoi-www.pdf}, \cite[Appendix A]{KMV02}.  These are live notes that accompanied a discussion, and are not intended to be a polished treatment.
+\end{abstract}
+
+\section{Notation}
+We work with
+\begin{equation*}
+  G := \PGL_2(\mathbb{R}), \quad \Gamma := \PGL_2(\mathbb{Z}),
+\end{equation*}
+\begin{equation*}
+  n(x) :=
+  \begin{pmatrix}
+    1    & x \\
+    0 & 1 \\
+  \end{pmatrix} \in N :=
+  \begin{pmatrix}
+    1    & \ast \\
+    0         & 1 \\
+  \end{pmatrix} \leq G,
+\end{equation*}
+\begin{equation*}
+  a(y) :=
+  \begin{pmatrix}
+    y & 0 \\
+    0 & 1 \\
+  \end{pmatrix}.
+\end{equation*}
+
+\section{Fourier expansions of automorphic functions}
+A nice enough function $f : \mathbb{R} / \mathbb{Z} \rightarrow \mathbb{C}$ has a Fourier expansion $f(x) = \sum_n e(n x) \hat{f}(n)$, with Fourier coefficients $\hat{f}(n) = \int_{\mathbb{R} / \mathbb{Z}} f(x) e(-n x) \, d x$.
+
+Given an automorphic function
+\begin{equation*}
+  \varphi : \PGL_2(\mathbb{Z}) \backslash \PGL_2(\mathbb{R}) \rightarrow \mathbb{C},
+\end{equation*}
+we may view the function $\varphi(\bullet g) : N(\mathbb{Z}) \backslash N(\mathbb{R}) \rightarrow \mathbb{C}$ as an a function on $\mathbb{R} / \mathbb{Z}$, so it admits a Fourier expansion:
+\begin{equation*}
+  \varphi(n(x) g)
+  =
+  \sum_{n \in \mathbb{Z}}
+  e(n x)
+  W_{\varphi, n}(x),
+\end{equation*}
+where
+\begin{equation*}
+  W_{\varphi, n}(x) := 
+  \int_{\mathbb{R} / \mathbb{Z}}
+  \varphi(n(u) g) e(- n u) \, d u.    
+\end{equation*}
+If $\varphi$ is a Hecke eigenform, then we can write
+\begin{equation}\label{eq:cqy4x9qh1q}
+  W_{\varphi, n}(g) = \frac{\lambda(n)}{\lvert n \rvert^{1/2}} W_{\varphi, 1}(a(n) g),
+\end{equation}
+where $\lambda(n)$ is the Hecke eigenvalue.  Thus
+\begin{equation}\label{eq:cqy4x9r574}
+  \varphi(g) = \sum_{n \in \mathbb{Z}_{\neq 0}} \frac{\lambda(n)}{\lvert n \rvert^{1/2}}
+  W_\varphi(a(n) g).
+\end{equation}
+
+
+\begin{example}\label{example:cqy4x9qvf5}
+  Classical holomorphic modular form $f$ of weight $k$.
+  \begin{equation*}
+    f(x + i y) = \sum_{n \geq 1} a_n e(n z), \quad e(z) := e^{2 \pi i z}.
+  \end{equation*}
+  \begin{equation*}
+    y^{k/2} f(x + i y) = \sum_{n \geq 1} a_n n^{- k/2} W_k(n y) e(n x),
+    \quad
+    W_k(y) := y^{k /2} e^{- 2 \pi y},
+  \end{equation*}
+  \begin{equation*}
+    a_n n^{- k/2} = \frac{\lambda (n)}{\lvert n \rvert^{1/2}}.    
+  \end{equation*}
+  If we define $\varphi : \PGL_2(\mathbb{Z}) \backslash \PGL_2(\mathbb{R}) \rightarrow \mathbb{C}$ by $\varphi(g) := f|_k g(i)$, where in general
+  \begin{equation*}
+    f |_k g(z) :=
+    \frac{(\det g)^{k/2}}{(c z + d)^k} f\left( \frac{a z + b}{c z + d} \right),
+    \qquad g
+    =
+    \begin{pmatrix}
+      a      & b \\
+      c & d \\
+    \end{pmatrix},
+  \end{equation*}
+  then, since $n(x) a(y) \cdot i = x + i y$, we have
+  \begin{equation*}
+    y^{k / 2} f(x + i y) = \varphi(n(x) a(y)),
+  \end{equation*}
+  \begin{equation*}
+    W_k(y) = W_{\varphi, 1}(a(y)).
+  \end{equation*}
+\end{example}
+
+\begin{remark}\label{remark:cqy4x9qmpf}
+  The idea of the proof of \eqref{eq:cqy4x9qh1q} is that by ``uniqueness of Whittaker functionals'', we know that the two quantities $W_{\varphi, n}$ and $W_{\varphi, 1}(a(n) \bullet)$ are proportional.  On the other hand, by studying how Hecke operators affect Fourier (or Whittaker) expansions, we see that the former is $\frac{\lambda(n)}{\lvert n \rvert^{1/2}}$ times the latter.  If the latter were to vanish identically, then it would follow that the former vanishes identically, and so $\varphi$ would vanish.  Therefore the latter does not vanish identically, and we get the desired relation.  For the case of \eqref{eq:cqy4x9r574} relevant for Example \ref{example:cqy4x9qvf5}, see \cite[Chapter VII, \S5.4, Thm 7]{MR0344216}.
+\end{remark}
+
+\section{Modularity}
+
+
+We restrict now to the case that $\varphi$ lies inside some irreducible subrepresentation $\pi$ of the space of cusp forms on $\Gamma \backslash G$, consisting of Hecke eigenfunctions with eigenvalues $\lambda(n)$.  Thus $\lambda(n)$ depends only upon $\pi$, not the choice of $\varphi \in \pi$.
+
+The theory of the Kirillov model says that for any function $h$ on $\mathbb{R}^\times$, there is a unique $\varphi \in \pi$ so that
+\begin{equation*}
+  W_\varphi(a(\bullet)) := [ y \mapsto W_\varphi(a(y))] = h.
+\end{equation*}
+This is useful, because we then can write
+\begin{equation*}
+  \varphi(1) = \sum_{n \neq 0} \frac{\lambda(n)}{\lvert n \rvert^{1/2}} W_\varphi(a(n)).
+\end{equation*}
+On the other hand, $\varphi$ is invariant under $\Gamma$, so for any $\gamma \in \Gamma$ (e.g., $\gamma = \left(
+  \begin{smallmatrix}
+    0&1\\
+    -1&0 \\
+  \end{smallmatrix}
+\right)$), we may write $\varphi(1) = \varphi(\gamma)$, hence
+\begin{equation*}
+  \sum_{n \neq 0} \frac{\lambda(n)}{\lvert n \rvert^{1/2}} W_\varphi(a(n))
+  =
+  \sum_{n \neq 0} \frac{\lambda(n)}{\lvert n \rvert^{1/2}} W_\varphi(a(n) \gamma).
+\end{equation*}
+
+\begin{remark}
+  Assuming $\pi$ is tempered, any Whittaker function enjoys the decay estimates
+  \begin{equation*}
+    W_{\varphi}(a(y)) \ll_{\varphi} \min(y^{1/2 + \eps}, e^{- 2 \pi y}).
+  \end{equation*}
+\end{remark}
+
+Then the problem arises: given a function $h : \mathbb{R}^\times \rightarrow \mathbb{C}$, having chosen $\varphi$ so that $W_{\varphi}(a(\bullet)) = h$, can we understand the new function
+\begin{equation*}
+  h_{\gamma} := W_{\varphi}(a(\bullet) \gamma)?
+\end{equation*}
+This is typically understood using the local functional equation and/or Bessel transform.
+
+A very convenient case is when we start with some fixed $\varphi$, and just use that for all $g \in G$ and $\gamma \in \Gamma$, we have $\varphi(\gamma g) = \varphi(g)$, hence
+\begin{equation}\label{eq:cqy4ycubws}
+  \sum_{n \neq 0} \frac{\lambda(n)}{\lvert n \rvert^{1/2}} W_\varphi(a(n) g)
+  =
+  \sum_{n \neq 0} \frac{\lambda(n)}{\lvert n \rvert^{1/2}} W_\varphi(a(n) \gamma g).
+\end{equation}
+We can just pretend at first approximation that $W_{\varphi}(a(\bullet) k)$ looks like some fixed bump function for all $k$ in some fixed compact subset of $G$.  It's useful to recall that any element of $G$ can be written using the Cartan decomposition as $k_1 a(y) k_2$, or using the Iwasawa decomposition as $n(x) a(y) k$.
+
+\section{Case studies}
+
+Here we give some examples of how to apply \eqref{eq:cqy4ycubws}.  We'll focus on cases where $\varphi$ is \emph{fixed}.  This case is the relevant one if one would like to try (as we did in our internal seminar) understanding papers like \cite{MR4032289} from a geometric perspective; that's the motivation for this whole discussion. 
+
+\subsection{Varying archimedean frequency}
+
+Let's say we're given $h \in C_c^\infty(\mathbb{R}^\times)$ and we want to understand what the following sums look like:
+\begin{equation}\label{eq:cnq418zud9}
+  \sum_{n \neq 0}
+  \frac{\lambda(n)}{\lvert n \rvert^{1/2}}
+  h(n / Y)
+  e(\xi n).
+\end{equation}
+To do so, we choose $\varphi$ so that $W_{\varphi}(a(\bullet)) = h$.  Then we observe that the above sum is exactly
+\begin{equation*}
+  \varphi(n(\xi) a(1/Y)).
+\end{equation*}
+Note that the image of the argument of $\varphi$ in $\mathbb{H}$ is $\xi + i /Y$.
+
+One simple thing one can do is take $\xi = 0$ and use this to see that we get massive decay when $Y \rightarrow \infty$.  How to see that?  Well, the point in question, $i /Y$, is tending to zero.  So we should apply some element $\gamma \in \Gamma$ that maps $0$ to $\infty$.  We can take
+\begin{equation*}
+  \gamma =
+  \begin{pmatrix}
+    0    & 1 \\
+    1 & 0 \\
+  \end{pmatrix}.
+\end{equation*}
+Then we get
+\begin{equation*}
+  \varphi(a(1/Y))
+  =
+  \varphi(\gamma a(1/Y))
+  =   \varphi(a(Y) \gamma).
+\end{equation*}
+By passing to Fourier expansions, we deduce that
+\begin{equation*}
+  \sum_{n \neq 0}
+  \frac{\lambda(n)}{\lvert n \rvert^{1/2}}
+  h(n / Y)
+  =
+  \sum_{n \neq 0}
+  \frac{\lambda(n)}{\lvert n \rvert^{1/2}}
+  W_\varphi(a(nY) \gamma ).
+\end{equation*}
+Since $\gamma$ lies in some fixed compact collection, we can think of $W_{\varphi}(a(\bullet) \gamma)$ as roughly a fixed bump function (more precisely, it decays like $y^{1/2}$ near zero and exponentially near $\infty$, but whatever).  In particular, the above sum is essentially restricted to $n Y \ll 1$.  But if $Y \rightarrow \infty$ and $n$ is a nonzero integer, then this last condition is never satisfied, and so the right hand side is vanishingly small.
+
+\subsection{Varying non-archimedean frequency}
+
+Another basic interesting example: for a natural number $q$, suppose we want to understand \eqref{eq:cnq418zud9} in the special case that $\xi = a/q$, where $a$ is an integer coprime to $q$.  That is to say, we care about
+\begin{equation*}
+  \sum_{n \neq 0}
+  \frac{\lambda(n)}{\lvert n \rvert^{1/2}}
+  h(n / Y)
+  e_q(a n),
+\end{equation*}
+where $e_q : \mathbb{Z} / q \mathbb{Z} \rightarrow \mathbb{C}^\times$, $e_q(x) := e(x / q)$.  Welp, with the same choice of $\varphi$ as above, the above sum is
+\begin{equation*}
+  \varphi(n(a/q) a(1/Y)).
+\end{equation*}
+The image in $\mathbb{H}$ is $a/q + i /Y$.
+
+Suppose we're in the regime where $Y$ is quite large (we can figure out later exactly how large we need it to be).  Then the argument of $\varphi$ is tending to the cusp $a/q$.  We should choose $\gamma$ that maps this cusp to $\infty$.  We can take
+\begin{equation*}
+  \gamma =
+  \begin{pmatrix}
+    -\bar{a}    & \ast \\
+    q & -a \\
+  \end{pmatrix} \in \SL_2(\mathbb{Z}).
+\end{equation*}
+Then, we try using that
+\begin{equation*}
+  \varphi(n(a/q) a(1/Y)) = \varphi(\gamma n(a/q) a(1/Y)).
+\end{equation*}
+This begs the question of understanding
+\begin{equation*}
+  \gamma n(a/q) a(1/Y).
+\end{equation*}
+Welp, if we have
+\begin{equation*}
+  \gamma \left( \frac{a}{q} + \frac{i}{Y} \right) = x' + i y ',
+\end{equation*}
+then we know that
+\begin{equation*}
+  \gamma n(a/q) a(1/Y) = n(x') a(y') k
+\end{equation*}
+for some $k \in \SO(2)$.
+
+We might try factoring
+\begin{equation*}
+  \gamma =
+  n(-\bar{a}/q)
+  \begin{pmatrix}
+    0    & -1/q \\
+    q & 0 \\
+  \end{pmatrix}
+  n(-a/q),
+\end{equation*}
+then
+\begin{equation*}
+  \gamma n(a/q) a(1/Y)
+  =
+  n(- \bar{a}/q)
+  \begin{pmatrix}
+    0    & -1/q \\
+    q/Y & 0 \\
+  \end{pmatrix}
+  = n(- \bar{a}/q) a(Y/q^2) w,
+\end{equation*}
+where
+\begin{equation*}
+  w :=
+  \begin{pmatrix}
+    0    & -1 \\
+    1 & 0 \\
+  \end{pmatrix}.
+\end{equation*}
+This tells us that
+\begin{equation*}
+  \sum_{n \neq 0}
+  \frac{\lambda(n)}{\lvert n \rvert^{1/2}}
+  h(n / Y)
+  e_q(a n)
+  =
+  \sum_{n \neq 0}
+  \frac{\lambda(n)}{\lvert n \rvert^{1/2}}
+  e_q(-\bar{a} n)
+  W_{\varphi}(a(n Y / q^2) w).
+\end{equation*}
+The right hand side is essentially restricted to $n / (q^2/Y) \ll 1$.  So, for example:
+\begin{itemize}
+\item If $Y \ggg q^2$, then the dual sum (the RHS of the above) is of length $q^2 / Y \lll 1$, so it is negligible.
+\item If $Y \approx q$, then the original sum and the dual sum are both of length roughly $q$, so we ``gain nothing'' (at least as far as trivial bounds are concerned) by dualizing (i.e., applying the above formula).
+\end{itemize}
+
+\section{Varying archimedean frequency, but using Dirichlet approximation}
+
+A third example along such lines, and maybe the most relevant: take a general $\xi$ as in \eqref{eq:cnq418zud9}, but let's do Dirichlet approximation on it first to approximate it by some rational $a / q$.  We should get, for some $q \leq Q$, that
+\begin{equation*}
+  \lvert \xi - a/q \rvert \leq \frac{1}{q Q}.
+\end{equation*}
+Write $\xi = a/q + \delta$, where $\lvert \delta \rvert \leq 1 / (q Q)$.  The sum of interest may then be written
+\begin{equation*}
+  \varphi(n(a/q) n(\delta)a(1/Y))
+  =  \varphi(n(a/q) a(1/Y))
+  = ( n(Y \delta) \varphi )(n(a/q) a(1/Y)).
+\end{equation*}
+(Here we are using the notation $(g \varphi)(h) := \varphi(h g)$.)
+
+Now we apply the above analysis, but with $\varphi$ replaced by its right translate $n(Y \delta) \varphi$.  This gives that the sum of interest is
+\begin{equation*}
+  \sum_{n \neq 0}
+  \frac{\lambda(n)}{\lvert n \rvert^{1/2}}
+  e_q(-\bar{a} n)
+  W_{\varphi}(a(n Y / q^2) w n(Y \delta)).
+\end{equation*}
+We are led to the problem of understanding the above argument.  If it happens that $Y \delta \ll 1$, then there is no change from before.  We know that $\delta \ll 1/ q Q$, so this happens if $Y \ll q Q$.
+
+\begin{equation*}
+  w =
+  \begin{pmatrix}
+    0    & 1 \\
+    -1 & 0 \\
+  \end{pmatrix},
+\end{equation*}
+\begin{equation*}
+  w n(- 1/x) = n(x) a(x^2) w n(x) w.
+\end{equation*}
+This is useful in the limit as $x \rightarrow 0$.
+
+\begin{equation*}
+  W_{\varphi} (a(y) w)
+  =
+  \int_{t \in \mathbb{R}^\times}
+  W_\varphi(a(t)) J(t y) \,d^\times t.
+\end{equation*}
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
