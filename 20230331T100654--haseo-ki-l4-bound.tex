@@ -79,7 +79,7 @@ The arguments of \cite[Theorem 2]{ki20234} establish the following:
   \end{equation*}
 \end{example}
 
-The idea of the proof of Theorem \ref{theorem:main} is as follows.  We smoothly localize $W_t(y)$ into several regions, according to the size $Y$ of $t$, the size $U$ of $y - t$, and the sign of $y - t$.  In particular, we focus on regions described by the conditions
+The idea of the proof of Theorem \ref{theorem:main} is as follows.  We smoothly localize $W_t(y)$ into several regions, according to the size $Y$ of $y$, the size $U$ of $y - t$, and the sign of $y - t$.  In particular, we focus on regions described by the conditions
 \begin{equation*}
   y \asymp Y, \quad y - t \asymp U.
 \end{equation*}
@@ -222,13 +222,13 @@ The Whittaker function $W_t$ satisfies the following estimates.
 \begin{lemma}\label{lemma:whittaker-function-estimates}
    Let $y > 0$.  Write $u := y - t$, so that $y = t + u$ with $-t < u < \infty$.  Then
    \begin{enumerate}
-   \item If $u > 0$ and $u \ggg t ^{1/3}$, then
-    \begin{equation}\label{eqn:bessel-asymptotics-oscillatory}
+   \item If $u < 0$ and $u \ggg t ^{1/3}$, then
+     \begin{equation}\label{eqn:bessel-asymptotics-oscillatory}
       W _t (y) =  \frac{\sqrt{2 \pi y}  }{ \lvert t^2 - y^2 \rvert ^{1/4}  }
       \sin \left( \frac{\pi }{4} + t H \left(\frac{y}{t} \right) \right)
       \left( 1 + \O \left( \frac{1}{t H \left(\tfrac{y}{t}\right)} \right) \right).
     \end{equation}
-  \item If $u < 0$ and $u \ggg t ^{1/3}$, then
+  \item If $u > 0$ and $u \ggg t ^{1/3}$, then
     \begin{equation*}
       W _t (y) =  \frac{\sqrt{2 \pi y}  }{ \lvert t^2 - y^2 \rvert ^{1/4}  }
       \exp \left( - t H \left( \frac{y}{t} \right) \right)
@@ -386,7 +386,6 @@ It will be convenient to ``smoothen'' the definition of $\mathcal{N}(W)$ a bit, 
   I(\mathbf{n}) = \int _{y = 0 } ^\infty W (y ) W (\tfrac{n_2}{n _1} y) \overline{W (\tfrac{n _3 }{ n _1 } y) W (\tfrac{n _4}{n_1} y)} \, \frac{d y}{y^2}.
 \end{equation*}
 This ``smoothening'' has the effect of eliminating certain boundary terms in the arguments to follow.  (The arguments would work anyway, but the details are slightly simplified by having smoothened first.)
-
 
 \section{The diagonal contribution}\label{sec:cqx50az6mj}
 Recall that $\mathbf{n}$ has denoted a quadruple of natural numbers satisfying $n _1 + n _2 = n _3 + n _4$.  Because a pair of natural numbers is determined up to reordering by its sum and product, we have
