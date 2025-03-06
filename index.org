@@ -1,4 +1,4 @@
-#+TITLE: my cool m4th notes
+#+TITLE: some math notes
 #+AUTHOR: Paul D. Nelson
 #+EMAIL: ultrono@gmail.com
 
@@ -94,9 +94,3 @@ $(document).ready(function() {
 - [[tex-html:20230522T190340__pgl2-spectral-aspect-subconvexity_expository]]
 - [[tex-html:20230522T150333__microlocal-localized-vectors]]
 
-
-* Course notes
-- Testing display math: $(x+y)$.
-- lskdjfladsjfklsj
-
-  
