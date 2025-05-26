@@ -24,7 +24,7 @@ Let $G$ be a compact connected Lie group.  Let $\pi$ be an irreducible unitary (
 
 For convenience, let us now fix a maximal torus and ordering, so that we may speak of the highest weight $\lambda$ of $\pi$ and the line of highest weight vectors.  Coherent states are then the $G$-translates of unit vectors in that line.  We fix a highest weight unit vector $v_\lambda \in \pi$.
 
-We equip $G$ with its probability Haar $d g$.
+We equip $G$ with its probability Haar measure $d g$.
 
 \begin{theorem}\label{theorem:cngsx0yg7y}
   Let $q \in \mathbb{Z}_{\geq 2}$.  For a unit vector $v \in \pi$, set
@@ -43,7 +43,7 @@ We equip $G$ with its probability Haar $d g$.
 
 We turn to the proof of Theorem \ref{theorem:cngsx0yg7y}.
 
-Let $\Pi$ be an irreducible unitary representation of $G$ with highest weight $q \lambda$.  Then $\Pi$ embeds as a subrepresentation of $\pi^{\otimes q}$, with multiplicity one.  We identify $\Pi$ with a subrepresentation of $\pi^{\otimes q}$:
+Let $\Pi$ be an irreducible unitary representation of $G$ with highest weight $q \lambda$.  Then $\Pi$ embeds as a subrepresentation of $\pi^{\otimes q}$, with multiplicity one.  We thus make the identification
 \begin{equation*}
   \Pi \subseteq  \pi^{\otimes q}. 
 \end{equation*}
@@ -68,7 +68,7 @@ To complete the proof of Theorem \ref{theorem:cngsx0yg7y}, we reduce to establis
 \begin{equation}\label{eq:cngsx4hl1k}
   v:\text{coherent} \iff v^{\otimes q} \in \Pi.
 \end{equation}
-The forward implication follows from the fact that $v_{\lambda}^{\otimes q} \in \Pi$.  It remains only to establish the converse.
+The forward implication follows from the fact that $v_{\lambda}^{\otimes q}$ is of weight $q \lambda$, hence lies in $\Pi$.  It remains only to establish the converse.
 
 To that end, we introduce the Casimir operator $\Omega$ for $G$, given by $\sum_{x \in \mathcal{B}(\mathfrak{g})} x^2$ for an orthonormal basis $\mathcal{B}(\mathfrak{g})$ of $\mathfrak{g} := \Lie(G)$ taken with respect to a $G$-invariant inner product.  This operator lies in the center of the universal enveloping algebra, hence acts on any given irreducible representation as multiplication by some scalar.
 
@@ -104,15 +104,25 @@ To that end, we introduce the Casimir operator $\Omega$ for $G$, given by $\sum_
     \Omega v^{\otimes 2} &= \Omega v \otimes v + 2 \sum_{x \in \mathcal{B}(\mathfrak{g})} x v \otimes x v+ v \otimes \Omega v  \\
                          &= 2 \Omega_\pi v \otimes v + 2 \sum_{x \in \mathcal{B}(\mathfrak{g})} x v \otimes x v.
   \end{align*}
-  When $q = 3$, we obtain instead
+
+  In general, in computing $x^{2}v^{\otimes q} $ we get $ q $ terms that up to reordering are of the form
   \begin{equation*}
-    \Omega v^{\otimes 3} = 3 \Omega_\pi v^{\otimes 3} + 2 \sum_{x \in \mathcal{B}} \left(
-      x v \otimes x v \otimes v
-      + x v \otimes v \otimes x v
-      + v \otimes x v \otimes x v
-    \right).
+    (x^{2}v)\otimes v^{\otimes (q-1)},
   \end{equation*}
-  We get a similar expression in general, which, after pairing with $v^{\otimes q}$, gives the claimed formula \eqref{eq:cngsx5j54m}.
+  corresponding to the $ q $ instances where the both the operators act on the same index. The remaining $ q^{2}-q $ terms have the operators acting on distinct indices, and thus up to reordering are of the form
+  \begin{equation*}
+    (x v)^{\otimes 2}\otimes v^{\otimes (q-2)} .
+  \end{equation*}
+  Given that the inner product is preserved by simultaneous reordering of the tensor products, we get
+
+  \begin{align*}
+    \label{eq:1}
+    \langle x^{2}v^{\otimes q}, v^{\otimes q}\rangle&=
+                              q \langle (x^{2}v)\otimes v^{\otimes (q-1)} , v^{\otimes q}\rangle
+                              + q\cdot (q-1) \langle(x v)^{\otimes 2}\otimes v^{\otimes (q-2)},v^{\otimes q}\rangle\\
+                            &= q \langle x^{2}v,v\rangle+q\cdot (q-1) \langle x v,v\rangle^{2}.
+  \end{align*}
+  After summing over $ \mathcal{B}(\mathfrak{g}) $, this gives the claimed formula \eqref{eq:cngsx5j54m}.
 
   We conclude via appeal to the following lemma.
 \end{proof}
