@@ -205,7 +205,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-04 11:34:10
+2025-08-04 13:33:22
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -720,15 +720,14 @@ so that we don’t need to worry about the contribution of <span
 class="math inline">\(\alpha = 0\)</span>) <span
 class="math display">\[\int_{\mathbb{A}_k^\times} \chi(x) \lvert x
 \rvert^s \phi(x) \, d x.\]</span> If <span class="math inline">\(\phi =
-\prod \phi_v\)</span>, then these factor further as <span
-class="math display">\[\prod \int_{k_v^\times} \chi_v(x) \lvert x
-\rvert_v^s \phi_v(x) \, d x.\]</span> One can show that the local
-integrals at non-archimedean places are rational functions, form the
-greatest common divisor of their denominators, and this turns out to be
-the way you can define the local <span
-class="math inline">\(L\)</span>-function. This is Tate’s thesis. We
-haven’t yet really made any reference to multiplicity one. This shows up
-when you try to generalize to other settings.</p>
+\prod \phi_v\)</span>, then these factor further as <span id="eq:cq6r32qpe5" class="math display">\[\label{eq:cq6r32qpe5}\tag{3}
+  \prod \int_{k_v^\times} \chi_v(x) \lvert x \rvert_v^s \phi_v(x) \, d
+x.\]</span> One can show that the local integrals at non-archimedean
+places are rational functions, form the greatest common divisor of their
+denominators, and this turns out to be the way you can define the local
+<span class="math inline">\(L\)</span>-function. This is Tate’s thesis.
+We haven’t yet really made any reference to multiplicity one. This shows
+up when you try to generalize to other settings.</p>
 <p>We may think of <span
 class="math inline">\(\mathbb{A}_k^\times\)</span> as <span
 class="math inline">\(\mathrm{GL}_1(\mathbb{A}_k)\)</span>. Let’s now
@@ -801,6 +800,117 @@ we’ve discussed. In the afternoon talk, we’ll very quickly describe a
 few other automorphic <span class="math inline">\(L\)</span>-function
 settings where we see multiplicity one, and then start to move to the
 Euler system side of things.</p>
+<p><strong>Afternoon talk</strong>.</p>
+<p>Factoring the integral is only one step towards understanding the
+<span class="math inline">\(L\)</span>-functions. The next thing one
+needs to do is to compute these local integrals. This of course seems
+more tractable than working globally, which is the point. For instance,
+in the Iwasawa–Tate setting, when all of the data is unramified (meaning
+<span class="math inline">\(\chi_v\)</span> is an unramified character
+and <span class="math inline">\(\phi_v\)</span> is the characteristic
+function of the ring of integers), then the local factor in <a
+href="#eq:cq6r32qpe5" data-reference-type="eqref"
+data-reference="eq:cq6r32qpe5">\((3)\)</a> is easy to compute,
+and gives a local zeta function. This is more complicated in the
+Godement–Jacquet setting, but still doable. Then in the ramified
+situations, there is the question of how to choose good vectors so that
+one gets the <span class="math inline">\(L\)</span>-function on the
+nose. This is useful for many of the applications that the speaker makes
+of these kinds of functions. In some settings it’s still much of an art
+and there are lots of interesting questions.</p>
+<p>Let’s turn to Rankin–Selberg convolutions. We’ll begin classically,
+say with holomorphic modular eigenforms <span
+class="math inline">\(f\)</span> and <span
+class="math inline">\(g\)</span> of weights <span
+class="math inline">\(k_f \geq k_g\)</span>, say of level <span
+class="math inline">\(1\)</span>, i.e., on <span
+class="math inline">\(\mathrm{SL}_2(\mathbb{Z})\)</span>. Write <span
+class="math display">\[f = \sum a_n q^n, \qquad g = \sum b_n
+q^n.\]</span> We’ll consider the Dirichlet series <span id="eq:cq6r32z05j" class="math display">\[\label{eq:cq6r32z05j}\tag{4}
+  \sum_n \overline{a_n} b_n n^{- s}.\]</span> The integral
+representation is <span id="eq:cq6r32zyac" class="math display">\[\label{eq:cq6r32zyac}\tag{5}
+  \int_{\mathrm{SL}_2(\mathbb{Z}) \backslash \mathbb{H}}
+\overline{f(\tau)} g(\tau)
+  E_k(\tau, s)
+  y^{k_f}
+  \, d \mathop{\mathrm{vol}}(\tau),\]</span> where <span
+class="math inline">\(k := k_f - k_g\)</span> and <span id="eq:cq6r320zyb" class="math display">\[\label{eq:cq6r320zyb}\tag{6}
+  E_k(\tau, s)
+  := \sum_{\gamma \in
+    \begin{pmatrix}
+      \ast      &amp; \ast \\
+      0             &amp; \ast \\
+    \end{pmatrix} \backslash \mathrm{SL}_2(\mathbb{Z})}
+  j(\gamma, \tau)^{- k} \lvert y(\gamma(\tau)) \rvert^k.\]</span> The
+way you get from <a href="#eq:cq6r32zyac" data-reference-type="eqref"
+data-reference="eq:cq6r32zyac">\((5)\)</a> to <a
+href="#eq:cq6r32z05j" data-reference-type="eqref"
+data-reference="eq:cq6r32z05j">\((4)\)</a> is to unfold the sum
+in <a href="#eq:cq6r320zyb" data-reference-type="eqref"
+data-reference="eq:cq6r320zyb">\((6)\)</a> with the integral in
+<a href="#eq:cq6r32zyac" data-reference-type="eqref"
+data-reference="eq:cq6r32zyac">\((5)\)</a>, which yields an
+integral over <span class="math inline">\(\begin{pmatrix}
+  \ast  &amp; \ast \\
+  0     &amp; \ast \\
+\end{pmatrix} \backslash \mathbb{H}\)</span>. This is a nice exercise if
+you haven’t done it.</p>
+<p>What does this have to do with multiplicity one? Maybe we try to set
+this up a bit more automorphically. Let <span
+class="math inline">\(\pi_1\)</span> and <span
+class="math inline">\(\pi_2\)</span> be cuspidal automorphic
+representations of <span
+class="math inline">\(\mathrm{GL}_2(\mathbb{A}_k)\)</span>. Let <span
+class="math inline">\(\chi_1, \chi_2\)</span> be Hecke characters <span
+class="math inline">\(\chi_i : k^\times \backslash \mathbb{A}_k^\times
+\rightarrow \mathbb{C}\)</span> such that <span
+class="math inline">\(\chi_1 \chi_2 =(\chi_{\pi_1}
+\chi_{\pi_2})^{-1}\)</span>. Let <span class="math inline">\(I_s(\chi_1,
+\chi_2)\)</span> denote the space of functions <span
+class="math inline">\(f : \mathrm{GL}_2(\mathbb{A}) \rightarrow
+\mathbb{C}\)</span> that are smooth (meaning the usual thing at
+archimedean places and “fixed by an open subgroup” at finite places) and
+“<span class="math inline">\(K\)</span>-finite” and satisfying <span
+class="math display">\[f_s \left(
+    \begin{pmatrix}
+      a &amp; b \\
+      0 &amp; d \\
+    \end{pmatrix} g \right) =
+  \chi_1(a) \chi_2(d)
+  \left\lvert \frac{a}{d} \right\rvert^{s + \frac{1}{2}}
+  f_s(g).\]</span> We then define an Eisenstein series by averaging:
+<span class="math display">\[E(f_s, g) := \sum_{\gamma \in B(\mathbb{Q})
+\backslash \mathrm{GL}_2(\mathbb{Q})} f_s(\gamma g).\]</span> The
+Rankin–Selberg integral is now just the integral <span
+class="math display">\[\int_{[\mathrm{GL}_2]} \varphi_1(g) \varphi_2(g)
+E(f_s, g) \, d g.\]</span> We can unfold this to obtain <span
+class="math display">\[\int_{Z(\mathbb{A})B(\mathbb{Q}) \backslash
+\mathrm{GL}_2(\mathbb{A})} \varphi_1(g) \varphi_2(g) f_s(g) \, d
+g.\]</span> Let’s replace <span class="math inline">\(\varphi_i\)</span>
+by its Whittaker expansion <span class="math display">\[\varphi_1(g) =
+\sum_{a \in k^\times} W_{\psi} \left(
+    \begin{pmatrix}
+      a      &amp;  \\
+       &amp; 1 \\
+    \end{pmatrix} g \right).\]</span> Then, unfolding a bit further, we
+arrive at <span class="math display">\[\int_{Z(\mathbb{A}) N(\mathbb{A})
+\backslash \mathrm{GL}_2(\mathbb{A})} W_{\psi}(g) \varphi_2(g) f_s(g) \,
+d g
+  =
+  \int_{Z(\mathbb{A}) N(\mathbb{A}) \backslash
+\mathrm{GL}_2(\mathbb{A})}
+  W_\psi(g) W_{\psi} &#39;(g) f_s(g) \, d g,\]</span> where <span
+class="math inline">\(W_{\psi}&#39;\)</span> is the Whittaker function
+for <span class="math inline">\(\varphi_2\)</span> with respect to the
+conjugate character. This last integrand is a product of local
+functions, so the integral factors, assuming that all vectors in our
+representations are pure tensors.</p>
+<p>Where’s the multiplicity one? It’s hidden, because, just like in the
+case of <span class="math inline">\(\mathrm{GL}_1\)</span> characters,
+we have taken for one of our automorphic forms something particularly
+special, namely an Eisenstein series. The picture that might be better
+is, to give something slightly more complicated, there’s something
+called the triple product integral.</p>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
   toggle.addEventListener("click", function(e) {
