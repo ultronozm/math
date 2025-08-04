@@ -205,7 +205,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-04 10:55:39
+2025-08-04 11:34:10
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -618,9 +618,189 @@ Gross–Zagier, ...). What we’ll focus on in these lectures is the role
 that multiplicity one plays in seeing these <span
 class="math inline">\(L\)</span>-functions and in producing these Euler
 systems. We’ll see that they essentially play the same role, which is
-further evidence for what people say, to the effect that “Euler systems
+further evidence for what people say, to the effect that Euler systems
 are some sort of algebraic incarnation of <span
 class="math inline">\(L\)</span>-functions.</p>
+<p>What do we mean by “multiplicity one”? One frequently encounters this
+term in the theory of automorphic forms, in various guises:</p>
+<ol>
+<li><p><span id="enumerate:cq6r3ndbhy"
+label="enumerate:cq6r3ndbhy"></span> Uniqueness of a representation in
+some space of functions, e.g.:</p>
+<ol type="a">
+<li><p><span id="enumerate:cq6r3m96yd"
+label="enumerate:cq6r3m96yd"></span> A cuspidal automorphic
+representation of <span class="math inline">\(\mathrm{GL}_2\)</span>
+shows up with multiplicity one <span
+class="math inline">\(L^2(\mathrm{GL}_2(k) \backslash
+\mathrm{GL}_2(\mathbb{A}_k))\)</span>.</p></li>
+<li><p><span id="enumerate:cq6r3m98gf"
+label="enumerate:cq6r3m98gf"></span> Uniqueness of (local) Whittaker
+models for <span class="math inline">\(\mathrm{GL}_2\)</span>.</p></li>
+</ol></li>
+<li><p><span id="enumerate:cq6r3ndama"
+label="enumerate:cq6r3ndama"></span> Uniqueness of some (invariant)
+linear functional: for <span class="math inline">\(H \leq G\)</span> and
+<span class="math inline">\(\pi\)</span> a representation of <span
+class="math inline">\(G\)</span>, <span class="math display">\[\dim
+{\mathop{\mathrm{Hom}}}_H(\pi, \mathbb{C}) \leq 1.\]</span> Or, for <span
+class="math inline">\(\sigma\)</span> a representation of <span
+class="math inline">\(H\)</span>, as the assertion that <span
+class="math inline">\(\dim {\mathop{\mathrm{Hom}}}_H(\pi, \sigma) \leq
+1\)</span>.</p></li>
+</ol>
+<p>The first examples can be understood in terms of the latter. The
+latter will be a useful framework for us.</p>
+<p>Let’s now turn to integral representations and give some examples.
+The first integral representation we see is that of the Riemann zeta
+function. Let <span id="eq:cq6r3qe33m" class="math display">\[\label{eq:cq6r3qe33m}\tag{1}
+  \psi(t) = \sum_{n = 1}^\infty e^{- \pi n^2 t}.\]</span> Then for <span
+class="math inline">\(\Re s\)</span> sufficiently large, <span id="eq:cq6r3p0tmc" class="math display">\[\label{eq:cq6r3p0tmc}\tag{2}
+  \int_0^\infty \psi(t) t^{\frac{1}{2} s - 1} \, d t
+  = \pi^{- s/2} \Gamma(\tfrac{s}{2}) \zeta(s).\]</span> We see this by
+bringing the summation outside the integral. This gives a Mellin
+transform.</p>
+<p>What’s the automorphic side of this? If we look at, for <span
+class="math inline">\(\tau = x + i y\)</span>, <span
+class="math display">\[\theta(\tau) = \sum_{n \in \mathbb{Z}} e^{- 2 \pi
+i n^2 \tau}.\]</span> This is an automorphic form, and we have <span
+class="math display">\[(\tfrac{1}{2}(\theta(i y) - 1)) = \psi(2
+y),\]</span> so <a href="#eq:cq6r3p0tmc" data-reference-type="eqref"
+data-reference="eq:cq6r3p0tmc">\((2)\)</a> is an integral
+representation for the Riemann zeta function coming from the symmetric
+space for a torus embedded inside <span
+class="math inline">\(\mathrm{GL}_2\)</span>. One has similar integral
+representations for the Dirichlet <span
+class="math inline">\(L\)</span>-functions. (No multiplicity one that we
+can see thus far.)</p>
+<p>This gets souped up in the work of Hecke and Iwasawa–Tate, which
+inspired how automorphic <span
+class="math inline">\(L\)</span>-functions have been studied
+subsequently. Let’s recall how that goes. Let <span
+class="math inline">\(k\)</span> be a number field. We have the adeles
+<span class="math inline">\(\mathbb{A}_k\)</span> and the ideles <span
+class="math inline">\(\mathbb{A}_k^\times\)</span>. We have a Hecke
+character <span class="math display">\[\chi : k^\times \backslash
+\mathbb{A}_k^\times \rightarrow \mathbb{C}^\times,\]</span> which
+factors as a product <span class="math inline">\(\chi = \prod
+\chi_v\)</span> of characters <span class="math inline">\(\chi_v :
+k_v^\times \rightarrow \mathbb{C}^\times\)</span> indexed by the places
+<span class="math inline">\(v\)</span> of <span
+class="math inline">\(k\)</span>. (This is of course very useful, but is
+specific for <span class="math inline">\(\mathrm{GL}_1\)</span>, and so
+obscures some of the more general features.) Let <span
+class="math inline">\(\phi \in \mathcal{S}(\mathbb{A})\)</span> be a
+Schwartz function, which could also be a product <span
+class="math inline">\(\phi = \prod \phi_v\)</span> of local Schwartz
+functions <span class="math inline">\(\phi_v \in
+\mathcal{S}(k_v)\)</span>. We recall that this means that</p>
+<ul>
+<li><p>when <span class="math inline">\(v\)</span> is finite, <span
+class="math inline">\(\phi_v\)</span> is smooth and compactly-supported,
+and</p></li>
+<li><p>when <span class="math inline">\(v\)</span> is archimedean, all
+derivatives decay faster than any polynomial, e.g., <span
+class="math inline">\(e^{- \pi t^2}\)</span>.</p></li>
+</ul>
+<p>Furthermore, <span class="math inline">\(\phi_v =
+1_{\mathcal{O}_{k_v}}\)</span> for almost all finite <span
+class="math inline">\(v\)</span>. We then form <span
+class="math display">\[\theta(x) = \sum_{\alpha \in k} \phi(\alpha
+x).\]</span> (It’s a good exercise to see how to specialize this to
+obtain something like <a href="#eq:cq6r3qe33m"
+data-reference-type="eqref"
+data-reference="eq:cq6r3qe33m">\((1)\)</a>.) We then form the
+integral <span class="math display">\[\int_{k^\times \backslash
+\mathbb{A}_k^\times} \chi(x) \lvert x \rvert^s \theta(x) \,d^\times
+x.\]</span> These integrals converge absolutely for <span
+class="math inline">\(\Re s\)</span> sufficiently large and unfold in
+the usual way, giving (at least for <span
+class="math inline">\(\chi\)</span> not a power of the absolute value,
+so that we don’t need to worry about the contribution of <span
+class="math inline">\(\alpha = 0\)</span>) <span
+class="math display">\[\int_{\mathbb{A}_k^\times} \chi(x) \lvert x
+\rvert^s \phi(x) \, d x.\]</span> If <span class="math inline">\(\phi =
+\prod \phi_v\)</span>, then these factor further as <span
+class="math display">\[\prod \int_{k_v^\times} \chi_v(x) \lvert x
+\rvert_v^s \phi_v(x) \, d x.\]</span> One can show that the local
+integrals at non-archimedean places are rational functions, form the
+greatest common divisor of their denominators, and this turns out to be
+the way you can define the local <span
+class="math inline">\(L\)</span>-function. This is Tate’s thesis. We
+haven’t yet really made any reference to multiplicity one. This shows up
+when you try to generalize to other settings.</p>
+<p>We may think of <span
+class="math inline">\(\mathbb{A}_k^\times\)</span> as <span
+class="math inline">\(\mathrm{GL}_1(\mathbb{A}_k)\)</span>. Let’s now
+consider <span
+class="math inline">\(\mathrm{GL}_n(\mathbb{A}_k)\)</span>. We discuss
+Godement–Jacquet theory, which is a generalization of what Tate did to
+<span class="math inline">\(\mathrm{GL}_n\)</span>. Let <span
+class="math inline">\(\pi\)</span> be a cuspidal automorphic
+representation (by convention, irreducible). Abstractly, this is
+isomorphic to a restricted tensor product <span
+class="math inline">\(\otimes \pi_v\)</span> of irreducible local
+representations <span class="math inline">\(\pi_v\)</span> of <span
+class="math inline">\(\mathrm{GL}_n(k_v)\)</span>. We can thus identify
+an element <span class="math inline">\(\varphi \in \pi\)</span> with a
+sum of tensor products of vectors (although, unlike in the case of
+characters, it will not pointwise be a product of local functions). Now,
+mimicking what was done before, we take a Schwartz function <span
+class="math inline">\(\phi \in \mathcal{S}(M_n(\mathbb{A}_k))\)</span>,
+and form a theta function <span class="math display">\[\theta(x)
+  =
+  \sum_{\alpha \in M_n(k)}
+  \phi(\alpha x).\]</span> We then form <span
+class="math display">\[\int_{\mathrm{GL}_n(k) \backslash
+\mathrm{GL}_n(\mathbb{A}_k)}
+  \varphi(x) \lvert \det(x) \rvert \theta(x) \,d^\times x.\]</span> This
+unfolds to <span class="math display">\[\int_{\mathrm{GL}_n(\mathbb{A})}
+\varphi(x) \lvert \det x \rvert^s \phi(x) \, d^\times x.\]</span> But
+does it factor? Not obviously.</p>
+<p>Let’s now form <span class="math display">\[\theta(h, g) =
+\sum_{\alpha \in M_n(k)} \phi(h^{-1} x g)\]</span> and consider <span
+class="math display">\[\int_{[\mathrm{GL}_n]} \varphi(g) \lvert \det g
+\rvert^s \theta(h, g) \, d g.\]</span> This is now automorphic as a
+function of <span class="math inline">\(h\)</span>, so we can decompose
+it with respect to the automorphic spectrum. To compute the coefficients
+in that decomposition, we consider, for <span
+class="math inline">\(\tilde{\varphi}\)</span> in the contragredient (or
+dual) <span class="math inline">\(\tilde{\pi}\)</span> of <span
+class="math inline">\(\pi\)</span>, the iterated integral <span
+class="math display">\[\int_{[\mathrm{GL}_n^1]}
+  \left(  \int_{[\mathrm{GL}_n]} \varphi(g) \lvert \det g \rvert^s
+\theta(h, g) \, d g \right)
+  \tilde{\varphi}(h) \, d h,\]</span> where <span
+class="math inline">\(\mathrm{GL}_n^1\)</span> means either that we mod
+out by the center or that we restrict to <span
+class="math inline">\(\lvert \det \rvert = 1\)</span>. Then, reordering
+terms and unfolding, we obtain <span
+class="math display">\[\int_{\mathrm{GL}_n(\mathbb{A})} \phi(g) \lvert
+\det g \rvert^s
+  \left( \int_{[\mathrm{GL}_n^1]} \tilde{\varphi}(h)
+    \varphi(h g) \,d h
+  \right) \, d g.\]</span> We can understand the parenthetical inner
+integral as <span class="math display">\[\langle \tilde{\varphi}, \pi(g)
+\varphi \rangle,\]</span> where <span class="math display">\[\langle
+\varphi_1, \varphi_2 \rangle = \int_{[\mathrm{GL}_n^1]} \varphi_1(h)
+\varphi_2(h) \, d h.\]</span> This pairing defines a <span
+class="math inline">\(G\)</span>-invariant functional <span
+class="math inline">\(\langle , \rangle :  \tilde{\pi} \times \pi
+\rightarrow \mathbb{C}\)</span>, which is locally unique, hence factors
+as a product of local invariant functionals <span
+class="math inline">\(\langle , \rangle_v : \tilde{\pi}_v \times \pi_v
+\rightarrow \mathbb{C}\)</span>, thus <span
+class="math display">\[\langle , \rangle =(\ast) \prod_v \langle ,
+\rangle_v.\]</span> The leading constant <span
+class="math inline">\((\ast)\)</span> will depend upon our
+normalizations of the local and global integrals, and our normalization
+of the comparison between <span class="math inline">\(\pi\)</span> and
+<span class="math inline">\(\otimes \pi_v\)</span>.</p>
+<p>This is the first example where multiplicity one shows up in what
+we’ve discussed. In the afternoon talk, we’ll very quickly describe a
+few other automorphic <span class="math inline">\(L\)</span>-function
+settings where we see multiplicity one, and then start to move to the
+Euler system side of things.</p>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
   toggle.addEventListener("click", function(e) {
