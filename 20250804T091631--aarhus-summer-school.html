@@ -205,7 +205,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-04 09:39:49
+2025-08-04 09:45:16
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -372,8 +372,44 @@ class="math inline">\(K\)</span> such that <span class="math inline">\(v
 \mid p\)</span>.</p></li>
 <li><p>We also need some local analogues for <span
 class="math inline">\(E \supseteq \mathbb{Q}_p\)</span> a <span
-class="math inline">\(p\)</span>-adic field.</p></li>
+class="math inline">\(p\)</span>-adic field. Let <span
+class="math inline">\(\mathcal{O} = \mathcal{O}_E\)</span> denote the
+ring of integers, <span class="math inline">\(\pi = \pi_E\)</span> a
+uniformizer, and <span class="math inline">\(\mathbb{F} = \mathcal{O}_E
+/ \pi\)</span> the residue field, with <span class="math inline">\(q =
+\# \mathbb{F}\)</span>. Then <span class="math inline">\(E \supseteq
+\mathbb{Q}_q = \mathbb{Q}_p[\zeta_{q - 1}] \supseteq
+\mathbb{Q}_p\)</span>. We have <span class="math inline">\(W(\mathbb{F})
+= \mathbb{Z}_q = \mathbb{Z}_p[\zeta_{q - 1}]\)</span>.</p></li>
 </ol>
+<p>Contiuing the examples, which may serve as exercises:</p>
+<div class="example">
+<p><strong>Example 3</strong>. </p>
+<ol>
+<li><p>Let <span class="math inline">\(\zeta_t\)</span> be a primitive
+<span class="math inline">\(t\)</span>th root of <span
+class="math inline">\(1\)</span>. For <span
+class="math inline">\(k\)</span> a finite field, we have <span
+class="math inline">\(G_k \cong \hat{\mathbb{Z}} = \overline{\langle
+\mathrm{Fr}_k \rangle}\)</span>, where <span
+class="math inline">\(\mathrm{Fr}_k : \alpha \mapsto \alpha^{\lvert k
+\rvert}\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(E \supseteq \mathbb{Q}_p\)</span>
+(finite extension). Then <span class="math inline">\(G_E\)</span>
+(???–Wingberg for <span class="math inline">\(p \geq 2\)</span>). Local
+class field theory: the Artin map <span class="math inline">\(E^\times
+\rightarrow G_E^{a b}\)</span> is a continuous inclusion with dense
+image. Writing <span class="math inline">\(E^\times = \pi_E^{\mathbb{Z}}
+\times \mathcal{O}_E^\times = \pi_E^{\mathbb{Z}} \times
+\mathbb{F}^\times \times \mathcal{U}_E^1\)</span>. Since the units are
+known to be a finitely generated <span
+class="math inline">\(\mathbb{Z}_p\)</span>-module, we get as a
+corollary that <span
+class="math display">\[{\mathop{\mathrm{Hom}}}_{\mathrm{cts}}(G_E,
+\mathbb{F}_p) = H^1_{\mathrm{cts}}(G_E, \mathbb{F}_p)\]</span> is
+finite.</p></li>
+</ol>
+</div>
 <p>&lt;++&gt;</p>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
