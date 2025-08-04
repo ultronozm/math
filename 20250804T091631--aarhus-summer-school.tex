@@ -455,6 +455,38 @@ There's a similar relation in the triple product case, which we can guess using 
 
 All of these examples are special cases of the Gan--Gross--Prasad conjectures, which we'll hear more about later in the week.
 
-We'll now begin by giving one example of an Euler system.  Tomorrow, we'll explore this in greater generality and more detail.  The simplest case is that of cyclotomic units.
+We'll now begin by giving one example of an Euler system.  Tomorrow, we'll explore this in greater generality and more detail.  The simplest case is that of cyclotomic units.  Let $F$ be a number field or a local field.  Kummer theory gives an isomorphism
+\begin{equation*}
+  F^\times / F^{\times N} \rightarrow H^1(F, \mu_N),
+\end{equation*}
+as follows.  Let $\alpha \in F^\times$.  Choose an $n$th root $\alpha^{1/N}$.  The ambiguity in this choice is an element of $\mu_N$, i.e., an $n$th root of unity.  For any $\sigma \in G_F$, we can look at $\sigma(\alpha^{1/N}) / \alpha^{1/N}$.  Since the numerator and denominator are both $N$th roots of $1$, the ratio must lie in $\mu_N$.  This gives us a way of constructing elements of $H^1$ very concretely.  The classes we obtain are unramified away from $N \alpha$.
+
+Let's now restrict ourselves to the field $\mathbb{Q}[\mu_N]$.  Restrict the above map to the unit group of that field:
+\begin{equation*}
+  \mathcal{O}_{\mathbb{G}[\mu_N]}^\times \rightarrow H^1(\mathbb{Q}(\mu_N), \mu_{p^n}).
+\end{equation*}
+Taking inverse limits, we obtain, with $\mathbb{Z}_p(1) = \varprojlim\mu_{p^n}$ (where the Galois group acts via the cyclotomic character), a map
+\begin{equation*}
+  \mathcal{O}_{\mathbb{G}[\mu_N]}^\times \otimes \mathbb{Z}_p \rightarrow H^1(\mathbb{Q}(\mu_N), \mathbb{Z}_p(1)).
+\end{equation*}
+Thus, for any $(a, N) = 1$, we get, say with $\zeta_N = e^{2 \pi i / N}$,
+\begin{equation*}
+  \frac{\zeta_N^a - 1}{\zeta_N - 1} \mapsto z_N,
+\end{equation*}
+say.  If we look at the corestriction
+\begin{equation*}
+  \operatorname{cores}_{\mathbb{Q}[\mu_{N \ell}] / \mathbb{Q}[\mu_N]}(z_{N \ell}) =
+  \begin{cases}
+    z_N    
+    & \text{ if } \ell \mid N \\
+    (1 - \mathrm{Fr}_{\ell}^{-1}) z_N
+    & \text{ if } \ell \nmid N.
+  \end{cases}
+\end{equation*}
+We look at
+\begin{equation*}
+  \det \left( 1 - \mathrm{Fr}_{\ell}^{-1} X \mid \mathbb{Z}_p(1)^\ast \right) \mid X = \mathrm{Fr}_{\ell}^{-1}.
+\end{equation*}
+
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
