@@ -122,6 +122,15 @@ Constructions:
     It's a fact that $G_E^{\mathrm{tame}}$ may be expressed as the profinite completion of $\langle s t : s t s^{-1} = t^q \rangle$.
   \end{enumerate}
 \end{example}
-We finally come to \textbf{Galois representations}.  They will typically be called $\rho : G \rightarrow \mathrm{GL}_n(A)$, where $G$ is a topological group, $A$ is a topological ring, and $\rho$ is a continuous map.
+We finally come to \textbf{Galois representations}.  They will typically be called $\rho : G \rightarrow \mathrm{GL}_n(A)$, where $G$ is a topological group, $A$ is a topological ring, and $\rho$ is a continuous map.  The topology on $\mathrm{GL}_n(A)$ is the subspace topology coming from embedding inside $M_n(A) \times A$ via $g \mapsto(g, \det(g)^{-1})$, for instance.  We call $\rho$ a Galois representation if $G = G_F$ for some field $F$.  The main examples of interest for $A$ will be $\mathbb{C}$, finite fields, and $p$-adic fields, to interpolate $\mathrm{C N L}_{\mathcal{O}}$ (complete Noetherian local $\mathcal{O}$-algebras).
+
+\begin{exercise}
+  Let $G$ be profinite, and $\rho$ as above.
+  \begin{enumerate}[(a)]
+  \item If $A = \mathbb{C}$, then $\rho(G)$ is finite.
+  \item If $A = \overline{\mathcal{O}_p}$, then there is a finite extension $E \supseteq \mathbb{Q}_p$ such that $\rho(G) \subseteq \mathrm{GL}_n(E)$ up to conjugation.
+  \item If $A = E \supseteq \mathbb{Q}_p$ (finite extension), then after conjugation, we can assume that $\rho(G) \subseteq \mathrm{GL}_n(\mathcal{O})$.
+  \end{enumerate}
+\end{exercise}
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
