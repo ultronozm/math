@@ -226,7 +226,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-01-29 18:26:04
+2025-05-26 16:25:39
       <a href="20240308T172815--sugita-delbourgo-fox-coherent-state-minimization.tex" class="my-link">tex</a>
       <a href="20240308T172815--sugita-delbourgo-fox-coherent-state-minimization.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20240308T172815--sugita-delbourgo-fox-coherent-state-minimization.tex" class="my-link">history</a>
@@ -275,7 +275,7 @@ class="math inline">\(G\)</span>-translates of unit vectors in that
 line. We fix a highest weight unit vector <span
 class="math inline">\(v_\lambda \in \pi\)</span>.</p>
 <p>We equip <span class="math inline">\(G\)</span> with its probability
-Haar <span class="math inline">\(d g\)</span>.</p>
+Haar measure <span class="math inline">\(d g\)</span>.</p>
 <div id="theorem:cngsx0yg7y" class="theorem">
 <p><strong>Theorem 2</strong>. <em>Let <span class="math inline">\(q \in
 \mathbb{Z}_{\geq 2}\)</span>. For a unit vector <span
@@ -304,10 +304,8 @@ unitary representation of <span class="math inline">\(G\)</span> with
 highest weight <span class="math inline">\(q \lambda\)</span>. Then
 <span class="math inline">\(\Pi\)</span> embeds as a subrepresentation
 of <span class="math inline">\(\pi^{\otimes q}\)</span>, with
-multiplicity one. We identify <span class="math inline">\(\Pi\)</span>
-with a subrepresentation of <span class="math inline">\(\pi^{\otimes
-q}\)</span>: <span class="math display">\[\Pi \subseteq  \pi^{\otimes
-q}.\]</span></p>
+multiplicity one. We thus make the identification <span
+class="math display">\[\Pi \subseteq  \pi^{\otimes q}.\]</span></p>
 <div id="lemma:cngurf0apf" class="lemma">
 <p><strong>Lemma 4</strong>. For unit vectors <span
 class="math inline">\(v \in \pi\)</span>, the quantity <span
@@ -340,8 +338,10 @@ data-reference-type="ref" data-reference="theorem:cngsx0yg7y">2</a>, we
 reduce to establishing the following equivalence: <span id="eq:cngsx4hl1k" class="math display">\[\label{eq:cngsx4hl1k}\tag{2}
   v:\text{coherent} \iff v^{\otimes q} \in \Pi.\]</span> The forward
 implication follows from the fact that <span
-class="math inline">\(v_{\lambda}^{\otimes q} \in \Pi\)</span>. It
-remains only to establish the converse.</p>
+class="math inline">\(v_{\lambda}^{\otimes q}\)</span> is of weight
+<span class="math inline">\(q \lambda\)</span>, hence lies in <span
+class="math inline">\(\Pi\)</span>. It remains only to establish the
+converse.</p>
 <p>To that end, we introduce the Casimir operator <span
 class="math inline">\(\Omega\)</span> for <span
 class="math inline">\(G\)</span>, given by <span
@@ -389,16 +389,31 @@ class="math display">\[\begin{align}
                          &amp;= 2 \Omega_\pi v \otimes v + 2 \sum_{x \in
 \mathcal{B}(\mathfrak{g})} x v \otimes x v.
   
-\end{align}\]</span> When <span class="math inline">\(q = 3\)</span>,
-we obtain instead <span class="math display">\[\Omega v^{\otimes 3} = 3
-\Omega_\pi v^{\otimes 3} + 2 \sum_{x \in \mathcal{B}} \left(
-      x v \otimes x v \otimes v
-      + x v \otimes v \otimes x v
-      + v \otimes x v \otimes x v
-    \right).\]</span> We get a similar expression in general, which,
-after pairing with <span class="math inline">\(v^{\otimes q}\)</span>,
-gives the claimed formula <a href="#eq:cngsx5j54m"
-data-reference-type="eqref"
+\end{align}\]</span></p>
+<p>In general, in computing <span class="math inline">\(x^{2}v^{\otimes
+q}\)</span> we get <span class="math inline">\(q\)</span> terms that up
+to reordering are of the form <span
+class="math display">\[(x^{2}v)\otimes v^{\otimes (q-1)},\]</span>
+corresponding to the <span class="math inline">\(q\)</span> instances
+where the both the operators act on the same index. The remaining <span
+class="math inline">\(q^{2}-q\)</span> terms have the operators acting
+on distinct indices, and thus up to reordering are of the form <span
+class="math display">\[(x v)^{\otimes 2}\otimes v^{\otimes (q-2)}
+.\]</span> Given that the inner product is preserved by simultaneous
+reordering of the tensor products, we get</p>
+<p><span id="eq:1" class="math display">\[\begin{align}
+    \label{eq:1}\tag{}
+    \langle x^{2}v^{\otimes q}, v^{\otimes q}\rangle&amp;=
+                              q \langle (x^{2}v)\otimes v^{\otimes
+(q-1)} , v^{\otimes q}\rangle
+                              + q\cdot (q-1) \langle(x v)^{\otimes
+2}\otimes v^{\otimes (q-2)},v^{\otimes q}\rangle\\
+                            &amp;= q \langle x^{2}v,v\rangle+q\cdot
+(q-1) \langle x v,v\rangle^{2}.
+  
+\end{align}\]</span> After summing over <span
+class="math inline">\(\mathcal{B}(\mathfrak{g})\)</span>, this gives the
+claimed formula <a href="#eq:cngsx5j54m" data-reference-type="eqref"
 data-reference="eq:cngsx5j54m">\((3)\)</a>.</p>
 <p>We conclude via appeal to the following lemma. ◻</p>
 </span></div>
