@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Aarhus Automorphic Forms Summer School</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+    <div class="my-links-container">
+2025-08-04 09:39:49
+      <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
+      <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+<header id="title-block-header">
+<h1 class="title">Aarhus Automorphic Forms Summer School</h1>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>Notes in progress on lectures taking place there.</p>
+</div>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#gebhard-boeckles-lectures"
+id="toc-gebhard-boeckles-lectures">Gebhard Boeckle’s lectures</a>
+<ul>
+<li><a href="#galois-representations-and-congruences"
+id="toc-galois-representations-and-congruences">Galois representations
+and congruences</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="gebhard-boeckles-lectures">Gebhard Boeckle’s lectures</h1>
+<h2 id="galois-representations-and-congruences">Galois representations
+and congruences</h2>
+<p>We first discuss profinite groups. Let <span
+class="math inline">\(G\)</span> be a topological group.</p>
+<div class="theorem">
+<p><strong>Theorem 1</strong>. <em>The following are
+equivalent:</em></p>
+<ol type="a">
+<li><p><em><span id="enumerate:cq6r3e8dsb"
+label="enumerate:cq6r3e8dsb"></span> <span
+class="math inline">\(G\)</span> is compact, Hausdorff, and totally
+disconnected.</em></p></li>
+<li><p><em><span id="enumerate:cq6r3e8eqf"
+label="enumerate:cq6r3e8eqf"></span> <span
+class="math inline">\(G\)</span> is compact, and admits a neighborhood
+basis of the identity by open normal subgroups.</em></p></li>
+<li><p><em><span id="enumerate:cq6r3e8f6g"
+label="enumerate:cq6r3e8f6g"></span> There is a directed poset <span
+class="math inline">\(I\)</span> and an inverse system <span
+class="math inline">\((G_i)\)</span> of finite (discrete) groups such
+that <span class="math inline">\(G = \varprojlim_I
+G_i\)</span>.</em></p></li>
+</ol>
+</div>
+<p>We say that <span class="math inline">\(G\)</span> is
+<em>profinite</em> if the above conditions hold. The topology on <span
+class="math inline">\(\varprojlim G_i\)</span> is that obtained by
+regarding it as a closed subgroup of the product <span
+class="math inline">\(\prod G_i\)</span>.</p>
+<p>Constructions:</p>
+<ol type="a">
+<li><p><span id="enumerate:cq6r3e8b0y"
+label="enumerate:cq6r3e8b0y"></span> If <span
+class="math inline">\(G\)</span> is discrete, then we equip it with the
+profinite topology <span class="math inline">\(G^{\mathrm{pf}} :=
+\varprojlim G / N\)</span>, where <span class="math inline">\(N\)</span>
+runs over the finite index subgroups.</p></li>
+<li><p><span id="enumerate:cq6r3e8cou"
+label="enumerate:cq6r3e8cou"></span> If <span class="math inline">\(G =
+\varprojlim G_i\)</span> is profinite, then</p>
+<ol type="i">
+<li><p><span id="enumerate:cq6r3fehbe"
+label="enumerate:cq6r3fehbe"></span> The abelianization is given by
+<span class="math display">\[G^{a b} = G / \overline{[G, G]} =
+\varprojlim G_i^{a b},\]</span> and in particular, is
+profinite.</p></li>
+<li><p><span id="enumerate:cq6r3feivc"
+label="enumerate:cq6r3feivc"></span> For <span
+class="math inline">\(H\)</span> finite, write <span
+class="math inline">\(H_p\)</span> for its maximal <span
+class="math inline">\(p\)</span>-group quotient. Then <span
+class="math display">\[G_p = \varprojlim(G_i)_p\]</span> is a pro-<span
+class="math inline">\(p\)</span>-group (and in particular,
+profinite).</p></li>
+<li><p><span id="enumerate:cq6r3fej61"
+label="enumerate:cq6r3fej61"></span> If <span class="math inline">\(N
+\leq G\)</span> is closed and normal, then <span class="math inline">\(G
+/N\)</span> is profinite.</p></li>
+</ol></li>
+</ol>
+<div class="example">
+<p><strong>Example 2</strong>. </p>
+<ol type="a">
+<li><p><span id="enumerate:cq6r3fjkt4"
+label="enumerate:cq6r3fjkt4"></span> Let <span
+class="math inline">\(F\)</span> be a field. Set <span
+class="math inline">\(G_F := {\mathop{\mathrm{Aut}}}_F(F^{\mathrm{sep}}) =
+\mathop{\mathrm{Gal}}(F^{\mathrm{sep}} / F)\)</span> profinite. Define
+the poset <span class="math display">\[\mathcal{I}_F := \left\{ L
+\subseteq F^{\mathrm{sep}} : L \supseteq F \text{ finite Galois},
+\subseteq \right\}.\]</span> Then <span class="math display">\[G_F
+\xrightarrow{\cong} \varprojlim_{L \in \mathcal{I}_F}
+\mathop{\mathrm{Gal}}(L / F).\]</span></p></li>
+<li><p><span id="enumerate:cq6r3fm1jw"
+label="enumerate:cq6r3fm1jw"></span> Let <span
+class="math inline">\(F&#39; \subseteq F^{\mathrm{sep}}\)</span> be a
+normal extension of <span class="math inline">\(F\)</span>. Then <span
+class="math inline">\(G_{F&#39;} \leq G_F\)</span> is closed and normal.
+We may thus write <span class="math display">\[\mathop{\mathrm{Gal}}(F
+&#39; / F) \cong G_F / G_{F&#39;} = \lim_{
+        \substack{
+          L \in \mathcal{I}_F,  \\
+          L \subseteq F&#39;          
+        }
+      }
+      \mathop{\mathrm{Gal}}(L /F).\]</span></p></li>
+<li><p><span id="enumerate:cq6r3fm4tn"
+label="enumerate:cq6r3fm4tn"></span> Let <span
+class="math inline">\(\mathbb{N}\)</span> denote the natural numbers,
+ordered by divisibility. Then <span
+class="math display">\[\hat{\mathbb{Z}} = \varprojlim \mathbb{Z} / n =
+\prod_{p} \mathbb{Z}_p,\]</span> where the last step is the Chinese
+remainder theorem. We sometimes need a slight modification: <span
+class="math display">\[\hat{\mathbb{Z}}^{(p)} = \varprojlim_{p \nmid n}
+\mathbb{Z} / n = \prod_{\ell \text{ prime}, \\ \ell \neq p }
+\mathbb{Z}_{\ell}.\]</span></p></li>
+</ol>
+</div>
+<p>Let’s fix some notation:</p>
+<ol>
+<li><p><span id="enumerate:cq6r3f3t8d"
+label="enumerate:cq6r3f3t8d"></span> Let <span
+class="math inline">\(K\)</span> be a number field, <span
+class="math inline">\(\mathcal{O}_K\)</span> its ring of integers. Let
+<span class="math inline">\(\mathrm{P l}_K = \mathrm{P l}_K^\infty
+\sqcup \mathrm{P l}_K^{\mathrm{fin}}\)</span> denote the set of places
+<span class="math inline">\(v\)</span> of <span
+class="math inline">\(K\)</span>. Let <span
+class="math inline">\(v\)</span> be a finite place. We may then attach
+to it a maximal ideal <span
+class="math inline">\(\mathfrak{q}_v\)</span> of <span
+class="math inline">\(\mathcal{O}_K\)</span>, giving a bijection <span
+class="math display">\[\mathrm{P l}_K^{\mathrm{fin}} \leftrightarrow
+\operatorname{Max}(\mathcal{O}_K).\]</span> We may form the residue
+field <span class="math inline">\(k_v := \mathcal{O}_K /
+\mathfrak{q}_v\)</span>. We denote <span
+class="math inline">\(q_v\)</span> for the cardinality of <span
+class="math inline">\(k_v\)</span>. We write <span
+class="math inline">\(\operatorname{char}(v)\)</span> for the
+characteristic of <span class="math inline">\(k_v\)</span>. We denote by
+<span class="math inline">\(\mathcal{O}_v = \varprojlim \mathcal{O} /
+\mathfrak{q}_v^n\)</span>, with fraction field <span
+class="math inline">\(K_v\)</span>. Also, we have a short exact sequence
+<span class="math display">\[1 \rightarrow I_v \rightarrow G_v :=
+{\mathop{\mathrm{Gal}}}_{K_v} \rightarrow {\mathop{\mathrm{Gal}}}_{k_v}
+\rightarrow 1.\]</span> A topological generator for <span
+class="math inline">\({\mathop{\mathrm{Gal}}}_{k_v}\)</span> is given by
+<span class="math display">\[\mathrm{Fr}_v : \alpha \mapsto
+\alpha^{q_v}.\]</span> We denote by <span
+class="math inline">\(\mathrm{Frob}_v \in G_v\)</span> some lift of
+<span class="math inline">\(\mathrm{Fr}_v\)</span>.</p>
+<p>We write <span class="math inline">\(S_\infty := \mathrm{P
+l}_K^\infty\)</span> for the set of archimedean places, so that <span
+class="math inline">\(K \otimes_{\mathbb{Q}} \mathbb{R} \cong \prod_{v
+\in S_\infty} K_v\)</span>. For a rational prime <span
+class="math inline">\(p\)</span>, we write <span
+class="math inline">\(S_p\)</span> for the set of places <span
+class="math inline">\(v\)</span> of <span
+class="math inline">\(K\)</span> such that <span class="math inline">\(v
+\mid p\)</span>.</p></li>
+<li><p>We also need some local analogues for <span
+class="math inline">\(E \supseteq \mathbb{Q}_p\)</span> a <span
+class="math inline">\(p\)</span>-adic field.</p></li>
+</ol>
+<p>&lt;++&gt;</p>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
