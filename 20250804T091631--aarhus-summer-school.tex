@@ -30,7 +30,7 @@ Constructions:
   \begin{enumerate}[(i)]
   \item\label{enumerate:cq6r3fehbe} The abelianization is given by
     \begin{equation*}
-      G^{a b} = G / \overline{[G, G]} = \varprojlim G_i^{a b},
+      G^{\mathrm{ab}} = G / \overline{[G, G]} = \varprojlim G_i^{\mathrm{ab}},
     \end{equation*}
     and in particular, is profinite.
   \item\label{enumerate:cq6r3feivc} For $H$ finite, write $H_p$ for its maximal $p$-group quotient.  Then
@@ -70,38 +70,56 @@ Constructions:
     \begin{equation*}
       \hat{\mathbb{Z}}^{(p)} = \varprojlim_{p \nmid n} \mathbb{Z} / n = \prod_{\ell \text{ prime}, \\ \ell \neq p } \mathbb{Z}_{\ell}.
     \end{equation*}
-  \end{enumerate}
-\end{example}
-Let's fix some notation:
-\begin{enumerate}
-\item\label{enumerate:cq6r3f3t8d} Let $K$ be a number field, $\mathcal{O}_K$ its ring of integers.  Let $\mathrm{P l}_K = \mathrm{P l}_K^\infty \sqcup \mathrm{P l}_K^{\mathrm{fin}}$ denote the set of places $v$ of $K$.  Let $v$ be a finite place.  We may then attach to it a maximal ideal $\mathfrak{q}_v$ of $\mathcal{O}_K$, giving a bijection
-  \begin{equation*}
-    \mathrm{P l}_K^{\mathrm{fin}} \leftrightarrow \operatorname{Max}(\mathcal{O}_K).
-  \end{equation*}
-  We may form the residue field $k_v := \mathcal{O}_K / \mathfrak{q}_v$.  We denote $q_v$ for the cardinality of $k_v$.  We write $\operatorname{char}(v)$ for the characteristic of $k_v$.  We denote by $\mathcal{O}_v = \varprojlim \mathcal{O} / \mathfrak{q}_v^n$, with fraction field $K_v$.  Also, we have a short exact sequence
-  \begin{equation*}
-    1 \rightarrow I_v \rightarrow G_v := \Gal_{K_v} \rightarrow \Gal_{k_v} \rightarrow 1.
-  \end{equation*}
-  A topological generator for $\Gal_{k_v}$ is given by
-  \begin{equation*}
-    \mathrm{Fr}_v : \alpha \mapsto \alpha^{q_v}.
-  \end{equation*}
-  We denote by $\mathrm{Frob}_v \in G_v$ some lift of $\mathrm{Fr}_v$.
 
-  We write $S_\infty := \mathrm{P l}_K^\infty$ for the set of archimedean places, so that $K \otimes_{\mathbb{Q}} \mathbb{R} \cong \prod_{v \in S_\infty} K_v$.  For a rational prime $p$, we write $S_p$ for the set of places $v$ of $K$ such that $v \mid p$.
-\item We also need some local analogues for $E \supseteq \mathbb{Q}_p$ a $p$-adic field.  Let $\mathcal{O} = \mathcal{O}_E$ denote the ring of integers, $\pi = \pi_E$ a uniformizer, and $\mathbb{F} = \mathcal{O}_E / \pi$ the residue field, with $q = \# \mathbb{F}$.  Then $E \supseteq \mathbb{Q}_q = \mathbb{Q}_p[\zeta_{q - 1}] \supseteq \mathbb{Q}_p$.  We have $W(\mathbb{F}) = \mathbb{Z}_q = \mathbb{Z}_p[\zeta_{q - 1}]$.
-\end{enumerate}
+    Let's fix some notation:
+    \begin{enumerate}
+    \item\label{enumerate:cq6r3f3t8d} Let $K$ be a number field, $\mathcal{O}_K$ its ring of integers.  Let $\mathrm{P l}_K = \mathrm{P l}_K^\infty \sqcup \mathrm{P l}_K^{\mathrm{fin}}$ denote the set of places $v$ of $K$.  Let $v$ be a finite place.  We may then attach to it a maximal ideal $\mathfrak{q}_v$ of $\mathcal{O}_K$, giving a bijection
+      \begin{equation*}
+        \mathrm{P l}_K^{\mathrm{fin}} \leftrightarrow \operatorname{Max}(\mathcal{O}_K).
+      \end{equation*}
+      We may form the residue field $k_v := \mathcal{O}_K / \mathfrak{q}_v$.  We denote $q_v$ for the cardinality of $k_v$.  We write $\operatorname{char}(v)$ for the characteristic of $k_v$.  We denote by $\mathcal{O}_v = \varprojlim \mathcal{O} / \mathfrak{q}_v^n$, with fraction field $K_v$.  Also, we have a short exact sequence
+      \begin{equation*}
+        1 \rightarrow I_v \rightarrow G_v := \Gal_{K_v} \rightarrow \Gal_{k_v} \rightarrow 1.
+      \end{equation*}
+      A topological generator for $\Gal_{k_v}$ is given by
+      \begin{equation*}
+        \mathrm{Fr}_v : \alpha \mapsto \alpha^{q_v}.
+      \end{equation*}
+      We denote by $\mathrm{Frob}_v \in G_v$ some lift of $\mathrm{Fr}_v$.
 
-Contiuing the examples, which may serve as exercises:
-\begin{example}
-  \begin{enumerate}
-  \item [(d)] Let $\zeta_t$ be a primitive $t$th root of $1$.  For $k$ a finite field, we have $G_k \cong \hat{\mathbb{Z}} = \overline{\langle \mathrm{Fr}_k \rangle}$, where $\mathrm{Fr}_k : \alpha \mapsto \alpha^{\lvert k \rvert}$.
-  \item [(e)] Let $E \supseteq \mathbb{Q}_p$ (finite extension).  Then $G_E$ (???--Wingberg for $p \geq 2$).  Local class field theory: the Artin map $E^\times \rightarrow G_E^{a b}$ is a continuous inclusion with dense image.  Writing $E^\times = \pi_E^{\mathbb{Z}} \times \mathcal{O}_E^\times = \pi_E^{\mathbb{Z}} \times \mathbb{F}^\times \times \mathcal{U}_E^1$.  Since the units are known to be a finitely generated $\mathbb{Z}_p$-module, we get as a corollary that
+      We write $S_\infty := \mathrm{P l}_K^\infty$ for the set of archimedean places, so that $K \otimes_{\mathbb{Q}} \mathbb{R} \cong \prod_{v \in S_\infty} K_v$.  For a rational prime $p$, we write $S_p$ for the set of places $v$ of $K$ such that $v \mid p$.
+    \item We also need some local analogues for $E \supseteq \mathbb{Q}_p$ a $p$-adic field.  Let $\mathcal{O} = \mathcal{O}_E$ denote the ring of integers, $\pi = \pi_E$ a uniformizer, and $\mathbb{F} = \mathcal{O}_E / \pi$ the residue field, with $q = \# \mathbb{F}$.  Then $E \supseteq \mathbb{Q}_q = \mathbb{Q}_p[\zeta_{q - 1}] \supseteq \mathbb{Q}_p$.  We have $W(\mathbb{F}) = \mathbb{Z}_q = \mathbb{Z}_p[\zeta_{q - 1}]$.
+    \end{enumerate}
+
+    Contiuing the examples, which may serve as exercises:
+    
+  \item\label{enumerate:cq6r3g5d9c} Let $\zeta_t$ be a primitive $t$th root of $1$.  For $k$ a finite field, we have $G_k \cong \hat{\mathbb{Z}} = \overline{\langle \mathrm{Fr}_k \rangle}$, where $\mathrm{Fr}_k : \alpha \mapsto \alpha^{\lvert k \rvert}$.
+  \item\label{enumerate:cq6r3g5e7y} Let $E \supseteq \mathbb{Q}_p$ (finite extension).  Then $G_E$ (Jannsen--Wingberg for $p \geq 2$).  Local class field theory: the Artin map $E^\times \rightarrow G_E^{\mathrm{ab}}$ is a continuous inclusion with dense image.  Writing $E^\times = \pi_E^{\mathbb{Z}} \times \mathcal{O}_E^\times = \pi_E^{\mathbb{Z}} \times \mathbb{F}^\times \times \mathcal{U}_E^1$.  Since the units are known to be a finitely generated $\mathbb{Z}_p$-module, we get as a corollary that
     \begin{equation*}
       \Hom_{\mathrm{cts}}(G_E, \mathbb{F}_p) = H^1_{\mathrm{cts}}(G_E, \mathbb{F}_p)
     \end{equation*}
     is finite.
+  \item\label{enumerate:cq6r3g5cxb} We turn to the case of a number field $K$.  We fix an embedding $K^{\mathrm{sep}} \subseteq K_v^{\mathrm{sep}}$ for each place $v$, which gives an embedding of Galois groups $G_v \rightarrow G_K$.  For $S \subseteq \mathrm{P l}_K$ finite, we write
+    \begin{equation*}
+      K_S := \left\{ \alpha \in K^{\mathrm{sep}} : K(\alpha) \text{ is unramified outside } S \right\},
+    \end{equation*}
+    which is a normal (typically infinite) extension of $K$.  We write
+    \begin{equation*}
+      G_{K, S} := \Gal(K_S / K) = G_K / G_{K_S}
+    \end{equation*}
+    for its Galois group.  We remark that if we take $v \notin S$, then since $v$ does not ramify in $K_S$, we know that the map $G_v \rightarrow G_{K, S}$ factors via the quotient $G_v / I_v \cong G_{k_v}$, so that $\mathrm{Frob}_v \in G_{K, S}$ is independent of the choice of lift.  On the other hand, if $v \in S$, then we might ask whether the map $G_v \hookrightarrow G_{K, S}$ (see the work of Cheniever--Clozel).  The structure of $G_{K, S}$ is unknown, but global class field theory describes $G_{K, S}^{\mathrm{ab}}$.  A corollary is that
+    \begin{equation*}
+      H^{1}_{\mathrm{cts}}(G_{K, S}, \mathbb{F}_p) = \Hom_{\mathrm{cts}}(G_{K, S}, \mathbb{F}_p)
+    \end{equation*}
+    is finite whenever $S$ is finite.  (One can appeal to Hermite--Minkowski, or class field theory.)
+  \item\label{enumerate:cq6r3g5bmp} Consider the tame quotient of $G_E$, for $E \supseteq \mathbb{Q}_p$.  Given $E \supseteq \mathbb{Q}_p$, we form the tower of extensions $E^{\mathrm{tame}} / E^{\mathrm{unr}} / E$, where
+    \begin{equation*}
+      E^{\mathrm{unr}} = \cup \left\{ E(\zeta_n) : p \nmid n \right\},
+    \end{equation*}
+    \begin{equation*}
+      E^{\mathrm{tame}} = \cup \left\{ E^{\mathrm{unr}}(\sqrt[n]{\pi_E}) : p \nmid n \right\}.
+    \end{equation*}
   \end{enumerate}
-\end{example}<++>
+\end{example}
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
