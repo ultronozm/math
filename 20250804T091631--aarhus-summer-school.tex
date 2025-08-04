@@ -149,6 +149,36 @@ Let's use the notation $\mathrm{c p}_\alpha$ for the characteristic polynomial o
     \mathrm{c p}_{\rho(\Frob_v)} = \mathrm{c p}_{\rho '(\Frob_v)}.
   \end{equation*}
 \end{theorem}
-
+\begin{example}
+  \begin{enumerate}
+  \item\label{enumerate:cq6r3ki8zp} $p$-adic cyclotomic character $\chi_p^{\mathrm{cyc}} : G_{\mathbb{Q}} \rightarrow \mathbb{Z}_p^\times$.  We have
+    \begin{equation*}
+      G_{\mathbb{Q}} \circlearrowright \mu_{p^n} = \left\langle \zeta_{p^n} \right\rangle \cong \mathbb{Z} / p^n,
+    \end{equation*}
+    $(\mathbb{Z} / p^n)^\times = \Aut_{\mathbb{Z}}(\mathbb{Z} / p^n)$.
+    \textbf{Facts}:
+    \begin{itemize}
+    \item $\chi_p^{\mathrm{cyc}} \mid_{G_K}$: unramified outside $S_p \cup S_\infty$.
+    \item $\chi_p^{\mathrm{cyc}}(\Frob_v) = q_v \in \mathbb{Z}_p^\times$.
+    \end{itemize}
+  \item\label{enumerate:cq6r3ki7yl} The Tate module of an elliptic curve $\mathcal{E}_{/ K}$.  We again have $G_K \circlearrowright \mathcal{E}[p^n](\bar{K}) \cong(\mathbb{Z} / p^n)^{\oplus 2}$, which gives rise to $G_K \rightarrow \mathrm{GL}_2(\mathbb{Z} / p^n)$.  In the limit, we get
+    \begin{equation*}
+      \rho_{\mathcal{E}, p} : G_K \rightarrow \mathrm{GL}_2(\mathbb{Z}_p) \hookrightarrow \mathrm{GL}_2(\mathbb{Q}_p).
+    \end{equation*}
+    \textbf{Facts}:
+    \begin{itemize}
+    \item $\rho_{\mathcal{E},p}$ is unramified outside $S_\infty \cup S_p \cup \mathrm{Bad}$.
+    \item For $v$ outside those places, we have
+      \begin{equation*}
+        \mathrm{c p}_{\rho_{\mathcal{E}, p}}(\Frob_v) = X^2 - a_v(\mathcal{E}) X + q_v,
+      \end{equation*}
+      where
+      \begin{equation*}
+        a_v := \# \mathcal{E}(k_v).
+      \end{equation*}
+      This  shows the geometric meaning of Frobenius.
+    \end{itemize}
+  \end{enumerate}
+\end{example}
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
