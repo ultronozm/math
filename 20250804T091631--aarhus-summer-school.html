@@ -205,7 +205,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-04 13:55:10
+2025-08-04 14:07:36
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -1000,7 +1000,49 @@ earlier.</p>
 conjectures, which we’ll hear more about later in the week.</p>
 <p>We’ll now begin by giving one example of an Euler system. Tomorrow,
 we’ll explore this in greater generality and more detail. The simplest
-case is that of cyclotomic units.</p>
+case is that of cyclotomic units. Let <span
+class="math inline">\(F\)</span> be a number field or a local field.
+Kummer theory gives an isomorphism <span class="math display">\[F^\times
+/ F^{\times N} \rightarrow H^1(F, \mu_N),\]</span> as follows. Let <span
+class="math inline">\(\alpha \in F^\times\)</span>. Choose an <span
+class="math inline">\(n\)</span>th root <span
+class="math inline">\(\alpha^{1/N}\)</span>. The ambiguity in this
+choice is an element of <span class="math inline">\(\mu_N\)</span>,
+i.e., an <span class="math inline">\(n\)</span>th root of unity. For any
+<span class="math inline">\(\sigma \in G_F\)</span>, we can look at
+<span class="math inline">\(\sigma(\alpha^{1/N}) /
+\alpha^{1/N}\)</span>. Since the numerator and denominator are both
+<span class="math inline">\(N\)</span>th roots of <span
+class="math inline">\(1\)</span>, the ratio must lie in <span
+class="math inline">\(\mu_N\)</span>. This gives us a way of
+constructing elements of <span class="math inline">\(H^1\)</span> very
+concretely. The classes we obtain are unramified away from <span
+class="math inline">\(N \alpha\)</span>.</p>
+<p>Let’s now restrict ourselves to the field <span
+class="math inline">\(\mathbb{Q}[\mu_N]\)</span>. Restrict the above map
+to the unit group of that field: <span
+class="math display">\[\mathcal{O}_{\mathbb{G}[\mu_N]}^\times
+\rightarrow H^1(\mathbb{Q}(\mu_N), \mu_{p^n}).\]</span> Taking inverse
+limits, we obtain, with <span class="math inline">\(\mathbb{Z}_p(1) =
+\varprojlim\mu_{p^n}\)</span> (where the Galois group acts via the
+cyclotomic character), a map <span
+class="math display">\[\mathcal{O}_{\mathbb{G}[\mu_N]}^\times \otimes
+\mathbb{Z}_p \rightarrow H^1(\mathbb{Q}(\mu_N),
+\mathbb{Z}_p(1)).\]</span> Thus, for any <span class="math inline">\((a,
+N) = 1\)</span>, we get, say with <span class="math inline">\(\zeta_N =
+e^{2 \pi i / N}\)</span>, <span class="math display">\[\frac{\zeta_N^a -
+1}{\zeta_N - 1} \mapsto z_N,\]</span> say. If we look at the
+corestriction <span
+class="math display">\[\operatorname{cores}_{\mathbb{Q}[\mu_{N \ell}] /
+\mathbb{Q}[\mu_N]}(z_{N \ell}) =
+  \begin{cases}
+    z_N    
+    &amp; \text{ if } \ell \mid N \\
+    (1 - \mathrm{Fr}_{\ell}^{-1}) z_N
+    &amp; \text{ if } \ell \nmid N.
+  \end{cases}\]</span> We look at <span class="math display">\[\det
+\left( 1 - \mathrm{Fr}_{\ell}^{-1} X \mid \mathbb{Z}_p(1)^\ast \right)
+\mid X = \mathrm{Fr}_{\ell}^{-1}.\]</span></p>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
   toggle.addEventListener("click", function(e) {
