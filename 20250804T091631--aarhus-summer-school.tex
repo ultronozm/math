@@ -184,7 +184,27 @@ Let's use the notation $\mathrm{c p}_\alpha$ for the characteristic polynomial o
 \part{Chris Skinner's lectures}
 \textbf{Integral representations, Euler systems, and multiplicity one}.
 
-My choice of these topics is motivated by my interest in special values of $L$-functions, and in particular problems like the BSD conjecture.  We'll focus on some representation theory, that plays a role in both the analytic and the algebraic sides of these problems.
+My choice of these topics is motivated by my interest in special values of $L$-functions, and in particular problems like the BSD conjecture.  We'll focus on some representation theory, that plays a role in both the analytic and the algebraic sides of these problems.  You can possibly view this as a bridge between the talks at the start and at the end of the week.
+
+Let's start by talking about \emph{integral representations}.  It's helpful to think
+\begin{equation*}
+  \text{$L$-function} =
+  \int_{\text{symmetric space } X}
+  (\text{automorphic form}),
+\end{equation*}
+where perhaps the automorphic form starts on some larger symmetric space $Y \supseteq X$.  This is useful because it's our main tool for studying $L$-functions.
+
+The next part of my title is \emph{Euler systems}.  This is going to seem like something different.  What are Euler systems?  One starts off with a continuous action
+\begin{equation*}
+  G_k = \Gal(\bar{k} / k) \circlearrowright V,
+\end{equation*}
+where $V$ is a $\mathbb{Q}_p$-space of finite dimension (with $\mathbb{Q}_p$ acting linearly and continuously).  At least conjecturally, there's a fairly general framework for producing such $V$ from automorphic forms or representations.  This Galois representation captures something about the automorphic form that can be expressed in terms of the $L$-function.  All of these things are thus related to one another, even if they are frequently encountered separately.  Here $V$ often stabilizes in a $\mathbb{Z}_p$-submodule (lattice), which might yield a good exercise for later.  An Euler system is a collection of classes in Galois cohomology $c_F \in H^1(F, T)$, where $F / k$ are certain abelian extensions of $k$ satisfying certain compatibilities: for $F' \supseteq F$,
+\begin{equation*}
+  \operatorname{cores}_{F' / F}(c_{F '}) = ? c_F,
+\end{equation*}
+where $?$ often seems the local Euler factors of $V$ (or some $L$-function attached to $V$, depending upon the setting).
+
+Both of these settings have been useful for exploring special values of $L$-functions (Kolyvagin, Gross--Zagier, ...).  What we'll focus on in these lectures is the role that multiplicity one plays in seeing these $L$-functions and in producing these Euler systems.  We'll see that they essentially play the same role, which is further evidence for what people say, to the effect that ``Euler systems are some sort of algebraic incarnation of $L$-functions.
 
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
