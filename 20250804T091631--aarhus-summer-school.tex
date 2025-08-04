@@ -89,7 +89,19 @@ Let's fix some notation:
   We denote by $\mathrm{Frob}_v \in G_v$ some lift of $\mathrm{Fr}_v$.
 
   We write $S_\infty := \mathrm{P l}_K^\infty$ for the set of archimedean places, so that $K \otimes_{\mathbb{Q}} \mathbb{R} \cong \prod_{v \in S_\infty} K_v$.  For a rational prime $p$, we write $S_p$ for the set of places $v$ of $K$ such that $v \mid p$.
-\item We also need some local analogues for $E \supseteq \mathbb{Q}_p$ a $p$-adic field.
-\end{enumerate}<++>
+\item We also need some local analogues for $E \supseteq \mathbb{Q}_p$ a $p$-adic field.  Let $\mathcal{O} = \mathcal{O}_E$ denote the ring of integers, $\pi = \pi_E$ a uniformizer, and $\mathbb{F} = \mathcal{O}_E / \pi$ the residue field, with $q = \# \mathbb{F}$.  Then $E \supseteq \mathbb{Q}_q = \mathbb{Q}_p[\zeta_{q - 1}] \supseteq \mathbb{Q}_p$.  We have $W(\mathbb{F}) = \mathbb{Z}_q = \mathbb{Z}_p[\zeta_{q - 1}]$.
+\end{enumerate}
+
+Contiuing the examples, which may serve as exercises:
+\begin{example}
+  \begin{enumerate}
+  \item [(d)] Let $\zeta_t$ be a primitive $t$th root of $1$.  For $k$ a finite field, we have $G_k \cong \hat{\mathbb{Z}} = \overline{\langle \mathrm{Fr}_k \rangle}$, where $\mathrm{Fr}_k : \alpha \mapsto \alpha^{\lvert k \rvert}$.
+  \item [(e)] Let $E \supseteq \mathbb{Q}_p$ (finite extension).  Then $G_E$ (???--Wingberg for $p \geq 2$).  Local class field theory: the Artin map $E^\times \rightarrow G_E^{a b}$ is a continuous inclusion with dense image.  Writing $E^\times = \pi_E^{\mathbb{Z}} \times \mathcal{O}_E^\times = \pi_E^{\mathbb{Z}} \times \mathbb{F}^\times \times \mathcal{U}_E^1$.  Since the units are known to be a finitely generated $\mathbb{Z}_p$-module, we get as a corollary that
+    \begin{equation*}
+      \Hom_{\mathrm{cts}}(G_E, \mathbb{F}_p) = H^1_{\mathrm{cts}}(G_E, \mathbb{F}_p)
+    \end{equation*}
+    is finite.
+  \end{enumerate}
+\end{example}<++>
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
