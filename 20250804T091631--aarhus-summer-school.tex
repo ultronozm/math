@@ -204,7 +204,126 @@ where $V$ is a $\mathbb{Q}_p$-space of finite dimension (with $\mathbb{Q}_p$ act
 \end{equation*}
 where $?$ often seems the local Euler factors of $V$ (or some $L$-function attached to $V$, depending upon the setting).
 
-Both of these settings have been useful for exploring special values of $L$-functions (Kolyvagin, Gross--Zagier, ...).  What we'll focus on in these lectures is the role that multiplicity one plays in seeing these $L$-functions and in producing these Euler systems.  We'll see that they essentially play the same role, which is further evidence for what people say, to the effect that ``Euler systems are some sort of algebraic incarnation of $L$-functions.
+Both of these settings have been useful for exploring special values of $L$-functions (Kolyvagin, Gross--Zagier, ...).  What we'll focus on in these lectures is the role that multiplicity one plays in seeing these $L$-functions and in producing these Euler systems.  We'll see that they essentially play the same role, which is further evidence for what people say, to the effect that Euler systems are some sort of algebraic incarnation of $L$-functions.
+
+What do we mean by ``multiplicity one''?  One frequently encounters this term in the theory of automorphic forms, in various guises:
+\begin{enumerate}
+\item\label{enumerate:cq6r3ndbhy} Uniqueness of a representation in some space of functions, e.g.:
+  \begin{enumerate}[(a)]
+  \item\label{enumerate:cq6r3m96yd} A cuspidal automorphic representation of $\mathrm{GL}_2$ shows up with multiplicity one $L^2(\mathrm{GL}_2(k) \backslash \mathrm{GL}_2(\mathbb{A}_k))$.
+  \item\label{enumerate:cq6r3m98gf} Uniqueness of (local) Whittaker models for $\mathrm{GL}_2$.
+  \end{enumerate}
+\item\label{enumerate:cq6r3ndama} Uniqueness of some (invariant) linear functional: for $H \leq G$ and $\pi$ a representation of $G$,
+  \begin{equation*}
+    \dim \Hom_H(\pi, \mathbb{C}) \leq 1.
+  \end{equation*}
+  Or, for $\sigma$ a representation of $H$, as the assertion that $\dim \Hom_H(\pi, \sigma) \leq 1$.
+\end{enumerate}
+The first examples can be understood in terms of the latter.  The latter will be a useful framework for us.
+
+Let's now turn to integral representations and give some examples.  The first integral representation we see is that of the Riemann zeta function.  Let
+\begin{equation}\label{eq:cq6r3qe33m}
+  \psi(t) = \sum_{n = 1}^\infty e^{- \pi n^2 t}.
+\end{equation}
+Then for $\Re s$ sufficiently large,
+\begin{equation}\label{eq:cq6r3p0tmc}
+  \int_0^\infty \psi(t) t^{\frac{1}{2} s - 1} \, d t
+  = \pi^{- s/2} \Gamma(\tfrac{s}{2}) \zeta(s).
+\end{equation}
+We see this by bringing the summation outside the integral.  This gives a Mellin transform.
+
+What's the automorphic side of this?  If we look at, for $\tau = x + i y$,
+\begin{equation*}
+  \theta(\tau) = \sum_{n \in \mathbb{Z}} e^{- 2 \pi i n^2 \tau}.
+\end{equation*}
+This is an automorphic form, and we have
+\begin{equation*}
+  (\tfrac{1}{2}(\theta(i y) - 1)) = \psi(2 y),
+\end{equation*}
+so \eqref{eq:cq6r3p0tmc} is an integral representation for the Riemann zeta function coming from the symmetric space for a torus embedded inside $\mathrm{GL}_2$.  One has similar integral representations for the Dirichlet $L$-functions.  (No multiplicity one that we can see thus far.)
+
+This gets souped up in the work of Hecke and Iwasawa--Tate, which inspired how automorphic $L$-functions have been studied subsequently.  Let's recall how that goes.  Let $k$ be a number field.  We have the adeles $\mathbb{A}_k$ and the ideles $\mathbb{A}_k^\times$.  We have a Hecke character
+\begin{equation*}
+  \chi : k^\times \backslash \mathbb{A}_k^\times \rightarrow \mathbb{C}^\times,
+\end{equation*}
+which factors as a product $\chi = \prod \chi_v$ of characters $\chi_v : k_v^\times \rightarrow \mathbb{C}^\times$ indexed by the places $v$ of $k$.  (This is of course very useful, but is specific for $\mathrm{GL}_1$, and so obscures some of the more general features.)  Let $\phi \in \mathcal{S}(\mathbb{A})$ be a Schwartz function, which could also be a product $\phi = \prod \phi_v$ of local Schwartz functions $\phi_v \in \mathcal{S}(k_v)$.  We recall that this means that
+\begin{itemize}
+\item when $v$ is finite, $\phi_v$ is smooth and compactly-supported, and
+\item when $v$ is archimedean, all derivatives decay faster than any polynomial, e.g., $e^{- \pi t^2}$.
+\end{itemize}
+Furthermore, $\phi_v = 1_{\mathcal{O}_{k_v}}$ for almost all finite $v$.  We then form
+\begin{equation*}
+  \theta(x) = \sum_{\alpha \in k} \phi(\alpha x).
+\end{equation*}
+(It's a good exercise to see how to specialize this to obtain something like \eqref{eq:cq6r3qe33m}.)  We then form the integral
+\begin{equation*}
+  \int_{k^\times \backslash \mathbb{A}_k^\times} \chi(x) \lvert x \rvert^s \theta(x) \,d^\times x.
+\end{equation*}
+These integrals converge absolutely for $\Re s$ sufficiently large and unfold in the usual way, giving
+(at least for $\chi$ not a power of the absolute value, so that we don't need to worry about the contribution of $\alpha = 0$)
+\begin{equation*}
+  \int_{\mathbb{A}_k^\times} \chi(x) \lvert x \rvert^s \phi(x) \, d x.
+\end{equation*}
+If $\phi = \prod \phi_v$, then these factor further as
+\begin{equation*}
+  \prod \int_{k_v^\times} \chi_v(x) \lvert x \rvert_v^s \phi_v(x) \, d x.
+\end{equation*}
+One can show that the local integrals at non-archimedean places are rational functions, form the greatest common divisor of their denominators, and this turns out to be the way you can define the local $L$-function.  This is Tate's thesis.  We haven't yet really made any reference to multiplicity one.  This shows up when you try to generalize to other settings.
+
+We may think of $\mathbb{A}_k^\times$ as $\mathrm{GL}_1(\mathbb{A}_k)$.  Let's now consider $\mathrm{GL}_n(\mathbb{A}_k)$.  We discuss Godement--Jacquet theory, which is a generalization of what Tate did to $\mathrm{GL}_n$.  Let $\pi$ be a cuspidal automorphic representation (by convention, irreducible).  Abstractly, this is isomorphic to a restricted tensor product $\otimes \pi_v$ of irreducible local representations $\pi_v$ of $\mathrm{GL}_n(k_v)$.  We can thus identify an element $\varphi \in \pi$ with a sum of tensor products of vectors (although, unlike in the case of characters, it will not pointwise be a product of local functions).  Now, mimicking what was done before, we take a Schwartz function $\phi \in \mathcal{S}(M_n(\mathbb{A}_k))$, and form a theta function
+\begin{equation*}
+  \theta(x)
+  =
+  \sum_{\alpha \in M_n(k)}
+  \phi(\alpha x).
+\end{equation*}
+We then form
+\begin{equation*}
+  \int_{\mathrm{GL}_n(k) \backslash \mathrm{GL}_n(\mathbb{A}_k)}
+  \varphi(x) \lvert \det(x) \rvert \theta(x) \,d^\times x.
+\end{equation*}
+This unfolds to
+\begin{equation*}
+  \int_{\mathrm{GL}_n(\mathbb{A})} \varphi(x) \lvert \det x \rvert^s \phi(x) \, d^\times x.
+\end{equation*}
+But does it factor?  Not obviously.
+
+Let's now form
+\begin{equation*}
+  \theta(h, g) = \sum_{\alpha \in M_n(k)} \phi(h^{-1} x g)
+\end{equation*}
+and consider
+\begin{equation*}
+  \int_{[\mathrm{GL}_n]} \varphi(g) \lvert \det g \rvert^s \theta(h, g) \, d g.
+\end{equation*}
+This is now automorphic as a function of $h$, so we can decompose it with respect to the automorphic spectrum.  To compute the coefficients in that decomposition, we consider, for $\tilde{\varphi}$ in the contragredient (or dual) $\tilde{\pi}$ of $\pi$, the iterated integral
+\begin{equation*}
+  \int_{[\mathrm{GL}_n^1]}
+  \left(  \int_{[\mathrm{GL}_n]} \varphi(g) \lvert \det g \rvert^s \theta(h, g) \, d g \right)
+  \tilde{\varphi}(h) \, d h,
+\end{equation*}
+where $\mathrm{GL}_n^1$ means either that we mod out by the center or that we restrict to $\lvert \det \rvert = 1$.  Then, reordering terms and unfolding, we obtain
+\begin{equation*}
+  \int_{\mathrm{GL}_n(\mathbb{A})} \phi(g) \lvert \det g \rvert^s
+  \left( \int_{[\mathrm{GL}_n^1]} \tilde{\varphi}(h)
+    \varphi(h g) \,d h
+  \right) \, d g.
+\end{equation*}
+We can understand the parenthetical inner integral as
+\begin{equation*}
+  \langle \tilde{\varphi}, \pi(g) \varphi \rangle,
+\end{equation*}
+where
+\begin{equation*}
+  \langle \varphi_1, \varphi_2 \rangle = \int_{[\mathrm{GL}_n^1]} \varphi_1(h) \varphi_2(h) \, d h.
+\end{equation*}
+This pairing defines a $G$-invariant functional $\langle , \rangle :  \tilde{\pi} \times \pi \rightarrow \mathbb{C}$, which is locally unique, hence factors as a product of local invariant functionals $\langle , \rangle_v : \tilde{\pi}_v \times \pi_v \rightarrow \mathbb{C}$, thus
+\begin{equation*}
+  \langle , \rangle =(\ast) \prod_v \langle , \rangle_v.
+\end{equation*}
+The leading constant $(\ast)$ will depend upon our normalizations of the local and global integrals, and our normalization of the comparison between $\pi$ and $\otimes \pi_v$.
+
+This is the first example where multiplicity one shows up in what we've discussed.  In the afternoon talk, we'll very quickly describe a few other automorphic $L$-function settings where we see multiplicity one, and then start to move to the Euler system side of things.
 
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
