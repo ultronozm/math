@@ -396,9 +396,65 @@ Then, unfolding a bit further, we arrive at
   \int_{Z(\mathbb{A}) N(\mathbb{A}) \backslash \mathrm{GL}_2(\mathbb{A})} W_{\psi}(g) \varphi_2(g) f_s(g) \, d g
   =
   \int_{Z(\mathbb{A}) N(\mathbb{A}) \backslash \mathrm{GL}_2(\mathbb{A})}
-  W_\psi(g) W_{\psi} '(g) f_s(g) \, d g,
+  W_\psi(g) W_{\bar{\psi}} '(g) f_s(g) \, d g,
 \end{equation*}
 where $W_{\psi}'$ is the Whittaker function for $\varphi_2$ with respect to the conjugate character.  This last integrand is a product of local functions, so the integral factors, assuming that all vectors in our representations are pure tensors.
 
-Where's the multiplicity one?  It's hidden, because, just like in the case of $\mathrm{GL}_1$ characters, we have taken for one of our automorphic forms something particularly special, namely an Eisenstein series.  The picture that might be better is, to give something slightly more complicated, there's something called the triple product integral.\bibliography{refs}{} \bibliographystyle{plain}
+Where's the multiplicity one?  It's hidden, because, just like in the case of $\mathrm{GL}_1$ characters, we have taken for one of our automorphic forms something particularly special, namely an Eisenstein series.  The picture that might be better is, to give something slightly more complicated, there's something called the \textbf{triple product integral}.  Now we'll take $\varphi_i \in \pi_i$ for $i = 1, 2, 3$, where it'll be slightly simpler to assume that at least one is cuspidal.  Look at the function
+\begin{equation*}
+  \int_{[Z \backslash \mathrm{GL}_2]}
+  \varphi_1(g) \varphi_2(g) \varphi_3(g) \, d g.
+\end{equation*}
+This integral defines a trilinear form on the product of the three representations that is invariant by the diagonal action of $\mathrm{GL}_2(\mathbb{A})$, or equivalently, a $\mathrm{GL}_2(\mathbb{A})$-invariant functional $\Lambda$ on the tensor product $\pi_1 \otimes \pi_2 \otimes \pi_3$, i.e, an element
+\begin{equation*}
+  \Lambda \in \Hom_{\mathrm{GL}_2(\mathbb{A})}(\pi_1 \otimes \pi_2 \otimes \pi_3, \mathbb{C}).
+\end{equation*}
+This space is one-dimensional, as are its local avatars:
+\begin{equation*}
+  \dim \Hom_{\mathrm{GL}_2(k_v)}(\pi_{1, v} \otimes \pi_{2, v} \otimes \pi_{3, v}) \leq 1.
+\end{equation*}
+We can thus factor $\Lambda = \prod \Lambda_v$, where each $\Lambda_v \in \Hom_{\mathrm{GL}_2(k_v)}(\pi_{1, v} \otimes \pi_{2, v} \otimes \pi_{3, v})$.  Suppose $v$ is a place for which $\pi_{i, v}$ is unramified for each $i$.  Then we can take
+\begin{equation*}
+  \Lambda_v =
+  \int_{Z N(k_v) \backslash \mathrm{GL}_2(k_v)}
+  W_{\psi_v} W_{\overline{\psi_v}}(g) f_v(g) \, d g.
+\end{equation*}
+Here, locally, we're realizing the unramified representation $\pi_{3, v}$ as an induced representation $\pi_{3, v} = \pi_v(\chi_{1, v}, \chi_{2, v})$.  We didn't unfold to this computation; this was all local.
+
+There's one more example we'd like to emphasize: \emph{toric integrals}.  Let $K /k$ be a quadratic extension.  We can then think of $K$ as a two-dimensional $k$-space, which gives a way to identify
+\begin{equation*}
+  {\mathrm{GL}_2}{/ k} \cong \Aut_k(K) \hookleftarrow K^\times.
+\end{equation*}
+We might for simplicity that $\pi$ is a cuspidal automorphic representation of $\mathrm{GL}_2(\mathbb{A}_k)$, and let $\varphi \in \pi$ be a cusp form.  Let $\chi : K^\times \backslash \mathbb{A}_{K}^\times \rightarrow \mathbb{C}^\times$ be a Hecke character for our extension.  Let's assume that $\chi \mid_{\mathbb{A}_k^\times} = \chi_\pi^{-1}$, i.e., the restriction is the inverse of the central character.  We are then going to think of the integral
+\begin{equation*}
+  \int_{\mathbb{A}_k^\times K^\times \backslash \mathbb{A}_K^\times} \varphi(t) \chi(t) \,d^\times t
+\end{equation*}
+as defining an element of the space $\Hom_{\mathbb{A}_k^\times}(\pi, \mathbb{C}(\chi^{-1}))$, which has dimensional $\leq 1$.  Such integrals will thus factor as prodcuts of local linear functionals.
+
+Some of these can be computed quickly in terms of integrals we already know.  Suppose $\pi_v$ is unramified and $v$ splits in $K /k$.  Then
+\begin{equation*}
+  K_v^\times = k_v^\times \times k_v^\times \cong \left\{
+    \begin{pmatrix}
+      a      &  \\
+             & b \\
+    \end{pmatrix} \right\} \subseteq \mathrm{GL}_2(k).
+\end{equation*}
+We may thus identify $\chi_v$ with a pair of characters $(\chi_{1, v}, \chi_{2, v})$.  We can define the local functional
+\begin{equation*}
+  \int_{k_v^\times} W_\psi
+  \begin{pmatrix}
+    t    &  \\
+         & 1 \\
+  \end{pmatrix} \chi_{1, v}(t) \,d^\times t,
+\end{equation*}
+which defines an element of $\Hom_{K_v^\times}(\pi_v, \mathbb{C}(\chi_v^{-1}))$.  For unramified data, this evaluates to $L(\pi_v, \chi_{1, v})$.  It turns out that (Waldspurger's formula)
+\begin{equation*}
+  \left\lvert \int \varphi(t) \chi(t) \,d^\times y \right\rvert^2 \sim L(\mathrm{B C}_{K/k}(\pi) \otimes \chi, \tfrac{1}{2}).
+\end{equation*}
+There's a similar relation in the triple product case, which we can guess using the Rankin--Selberg unfolding that we saw earlier.
+
+All of these examples are special cases of the Gan--Gross--Prasad conjectures, which we'll hear more about later in the week.
+
+We'll now begin by giving one example of an Euler system.  Tomorrow, we'll explore this in greater generality and more detail.  The simplest case is that of cyclotomic units.
+\bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
