@@ -205,7 +205,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-04 09:45:16
+2025-08-04 09:59:04
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -273,8 +273,8 @@ label="enumerate:cq6r3e8cou"></span> If <span class="math inline">\(G =
 <ol type="i">
 <li><p><span id="enumerate:cq6r3fehbe"
 label="enumerate:cq6r3fehbe"></span> The abelianization is given by
-<span class="math display">\[G^{a b} = G / \overline{[G, G]} =
-\varprojlim G_i^{a b},\]</span> and in particular, is
+<span class="math display">\[G^{\mathrm{ab}} = G / \overline{[G, G]} =
+\varprojlim G_i^{\mathrm{ab}},\]</span> and in particular, is
 profinite.</p></li>
 <li><p><span id="enumerate:cq6r3feivc"
 label="enumerate:cq6r3feivc"></span> For <span
@@ -325,9 +325,7 @@ class="math display">\[\hat{\mathbb{Z}} = \varprojlim \mathbb{Z} / n =
 remainder theorem. We sometimes need a slight modification: <span
 class="math display">\[\hat{\mathbb{Z}}^{(p)} = \varprojlim_{p \nmid n}
 \mathbb{Z} / n = \prod_{\ell \text{ prime}, \\ \ell \neq p }
-\mathbb{Z}_{\ell}.\]</span></p></li>
-</ol>
-</div>
+\mathbb{Z}_{\ell}.\]</span></p>
 <p>Let’s fix some notation:</p>
 <ol>
 <li><p><span id="enumerate:cq6r3f3t8d"
@@ -382,35 +380,86 @@ uniformizer, and <span class="math inline">\(\mathbb{F} = \mathcal{O}_E
 \mathbb{Q}_p\)</span>. We have <span class="math inline">\(W(\mathbb{F})
 = \mathbb{Z}_q = \mathbb{Z}_p[\zeta_{q - 1}]\)</span>.</p></li>
 </ol>
-<p>Contiuing the examples, which may serve as exercises:</p>
-<div class="example">
-<p><strong>Example 3</strong>. </p>
-<ol>
-<li><p>Let <span class="math inline">\(\zeta_t\)</span> be a primitive
-<span class="math inline">\(t\)</span>th root of <span
+<p>Contiuing the examples, which may serve as exercises:</p></li>
+<li><p><span id="enumerate:cq6r3g5d9c"
+label="enumerate:cq6r3g5d9c"></span> Let <span
+class="math inline">\(\zeta_t\)</span> be a primitive <span
+class="math inline">\(t\)</span>th root of <span
 class="math inline">\(1\)</span>. For <span
 class="math inline">\(k\)</span> a finite field, we have <span
 class="math inline">\(G_k \cong \hat{\mathbb{Z}} = \overline{\langle
 \mathrm{Fr}_k \rangle}\)</span>, where <span
 class="math inline">\(\mathrm{Fr}_k : \alpha \mapsto \alpha^{\lvert k
 \rvert}\)</span>.</p></li>
-<li><p>Let <span class="math inline">\(E \supseteq \mathbb{Q}_p\)</span>
-(finite extension). Then <span class="math inline">\(G_E\)</span>
-(???–Wingberg for <span class="math inline">\(p \geq 2\)</span>). Local
-class field theory: the Artin map <span class="math inline">\(E^\times
-\rightarrow G_E^{a b}\)</span> is a continuous inclusion with dense
-image. Writing <span class="math inline">\(E^\times = \pi_E^{\mathbb{Z}}
-\times \mathcal{O}_E^\times = \pi_E^{\mathbb{Z}} \times
-\mathbb{F}^\times \times \mathcal{U}_E^1\)</span>. Since the units are
-known to be a finitely generated <span
+<li><p><span id="enumerate:cq6r3g5e7y"
+label="enumerate:cq6r3g5e7y"></span> Let <span class="math inline">\(E
+\supseteq \mathbb{Q}_p\)</span> (finite extension). Then <span
+class="math inline">\(G_E\)</span> (Jannsen–Wingberg for <span
+class="math inline">\(p \geq 2\)</span>). Local class field theory: the
+Artin map <span class="math inline">\(E^\times \rightarrow
+G_E^{\mathrm{ab}}\)</span> is a continuous inclusion with dense image.
+Writing <span class="math inline">\(E^\times = \pi_E^{\mathbb{Z}} \times
+\mathcal{O}_E^\times = \pi_E^{\mathbb{Z}} \times \mathbb{F}^\times
+\times \mathcal{U}_E^1\)</span>. Since the units are known to be a
+finitely generated <span
 class="math inline">\(\mathbb{Z}_p\)</span>-module, we get as a
 corollary that <span
 class="math display">\[{\mathop{\mathrm{Hom}}}_{\mathrm{cts}}(G_E,
 \mathbb{F}_p) = H^1_{\mathrm{cts}}(G_E, \mathbb{F}_p)\]</span> is
 finite.</p></li>
+<li><p><span id="enumerate:cq6r3g5cxb"
+label="enumerate:cq6r3g5cxb"></span> We turn to the case of a number
+field <span class="math inline">\(K\)</span>. We fix an embedding <span
+class="math inline">\(K^{\mathrm{sep}} \subseteq
+K_v^{\mathrm{sep}}\)</span> for each place <span
+class="math inline">\(v\)</span>, which gives an embedding of Galois
+groups <span class="math inline">\(G_v \rightarrow G_K\)</span>. For
+<span class="math inline">\(S \subseteq \mathrm{P l}_K\)</span> finite,
+we write <span class="math display">\[K_S := \left\{ \alpha \in
+K^{\mathrm{sep}} : K(\alpha) \text{ is unramified outside } S
+\right\},\]</span> which is a normal (typically infinite) extension of
+<span class="math inline">\(K\)</span>. We write <span
+class="math display">\[G_{K, S} := \mathop{\mathrm{Gal}}(K_S / K) = G_K
+/ G_{K_S}\]</span> for its Galois group. We remark that if we take <span
+class="math inline">\(v \notin S\)</span>, then since <span
+class="math inline">\(v\)</span> does not ramify in <span
+class="math inline">\(K_S\)</span>, we know that the map <span
+class="math inline">\(G_v \rightarrow G_{K, S}\)</span> factors via the
+quotient <span class="math inline">\(G_v / I_v \cong G_{k_v}\)</span>,
+so that <span class="math inline">\(\mathrm{Frob}_v \in G_{K,
+S}\)</span> is independent of the choice of lift. On the other hand, if
+<span class="math inline">\(v \in S\)</span>, then we might ask whether
+the map <span class="math inline">\(G_v \hookrightarrow G_{K,
+S}\)</span> (see the work of Cheniever–Clozel). The structure of <span
+class="math inline">\(G_{K, S}\)</span> is unknown, but global class
+field theory describes <span class="math inline">\(G_{K,
+S}^{\mathrm{ab}}\)</span>. A corollary is that <span
+class="math display">\[H^{1}_{\mathrm{cts}}(G_{K, S}, \mathbb{F}_p) =
+{\mathop{\mathrm{Hom}}}_{\mathrm{cts}}(G_{K, S}, \mathbb{F}_p)\]</span> is
+finite whenever <span class="math inline">\(S\)</span> is finite. (One
+can appeal to Hermite–Minkowski, or class field theory.)</p></li>
+<li><p><span id="enumerate:cq6r3g5bmp"
+label="enumerate:cq6r3g5bmp"></span> Consider the tame quotient of <span
+class="math inline">\(G_E\)</span>, for <span class="math inline">\(E
+\supseteq \mathbb{Q}_p\)</span>. Given <span class="math inline">\(E
+\supseteq \mathbb{Q}_p\)</span>, we form the tower of extensions <span
+class="math inline">\(E^{\mathrm{tame}} / E^{\mathrm{unr}} / E\)</span>,
+where <span class="math display">\[E^{\mathrm{unr}} = \cup \left\{
+E(\zeta_n) : p \nmid n \right\},\]</span> <span
+class="math display">\[E^{\mathrm{tame}} = \cup \left\{
+E^{\mathrm{unr}}(\sqrt[n]{\pi_E}) : p \nmid n \right\}.\]</span> It’s a
+fact that <span class="math inline">\(G_E^{\mathrm{tame}}\)</span> may
+be expressed as the profinite completion of <span
+class="math inline">\(\langle s t : s t s^{-1} = t^q
+\rangle\)</span>.</p></li>
 </ol>
 </div>
-<p>&lt;++&gt;</p>
+<p>We finally come to <strong>Galois representations</strong>. They will
+typically be called <span class="math inline">\(\rho : G \rightarrow
+\mathrm{GL}_n(A)\)</span>, where <span class="math inline">\(G\)</span>
+is a topological group, <span class="math inline">\(A\)</span> is a
+topological ring, and <span class="math inline">\(\rho\)</span> is a
+continuous map.</p>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
   toggle.addEventListener("click", function(e) {
