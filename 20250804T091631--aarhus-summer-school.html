@@ -205,7 +205,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-04 09:59:04
+2025-08-04 10:02:57
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -459,7 +459,38 @@ typically be called <span class="math inline">\(\rho : G \rightarrow
 \mathrm{GL}_n(A)\)</span>, where <span class="math inline">\(G\)</span>
 is a topological group, <span class="math inline">\(A\)</span> is a
 topological ring, and <span class="math inline">\(\rho\)</span> is a
-continuous map.</p>
+continuous map. The topology on <span
+class="math inline">\(\mathrm{GL}_n(A)\)</span> is the subspace topology
+coming from embedding inside <span class="math inline">\(M_n(A) \times
+A\)</span> via <span class="math inline">\(g \mapsto(g,
+\det(g)^{-1})\)</span>, for instance. We call <span
+class="math inline">\(\rho\)</span> a Galois representation if <span
+class="math inline">\(G = G_F\)</span> for some field <span
+class="math inline">\(F\)</span>. The main examples of interest for
+<span class="math inline">\(A\)</span> will be <span
+class="math inline">\(\mathbb{C}\)</span>, finite fields, and <span
+class="math inline">\(p\)</span>-adic fields, to interpolate <span
+class="math inline">\(\mathrm{C N L}_{\mathcal{O}}\)</span> (complete
+Noetherian local <span
+class="math inline">\(\mathcal{O}\)</span>-algebras).</p>
+<div class="exercise">
+<p><strong>Exercise 1</strong>. Let <span
+class="math inline">\(G\)</span> be profinite, and <span
+class="math inline">\(\rho\)</span> as above.</p>
+<ol type="a">
+<li><p>If <span class="math inline">\(A = \mathbb{C}\)</span>, then
+<span class="math inline">\(\rho(G)\)</span> is finite.</p></li>
+<li><p>If <span class="math inline">\(A =
+\overline{\mathcal{O}_p}\)</span>, then there is a finite extension
+<span class="math inline">\(E \supseteq \mathbb{Q}_p\)</span> such that
+<span class="math inline">\(\rho(G) \subseteq \mathrm{GL}_n(E)\)</span>
+up to conjugation.</p></li>
+<li><p>If <span class="math inline">\(A = E \supseteq
+\mathbb{Q}_p\)</span> (finite extension), then after conjugation, we can
+assume that <span class="math inline">\(\rho(G) \subseteq
+\mathrm{GL}_n(\mathcal{O})\)</span>.</p></li>
+</ol>
+</div>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
   toggle.addEventListener("click", function(e) {
