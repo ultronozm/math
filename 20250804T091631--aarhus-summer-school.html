@@ -205,7 +205,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-04 13:33:22
+2025-08-04 13:55:10
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -899,7 +899,7 @@ d g
   =
   \int_{Z(\mathbb{A}) N(\mathbb{A}) \backslash
 \mathrm{GL}_2(\mathbb{A})}
-  W_\psi(g) W_{\psi} &#39;(g) f_s(g) \, d g,\]</span> where <span
+  W_\psi(g) W_{\bar{\psi}} &#39;(g) f_s(g) \, d g,\]</span> where <span
 class="math inline">\(W_{\psi}&#39;\)</span> is the Whittaker function
 for <span class="math inline">\(\varphi_2\)</span> with respect to the
 conjugate character. This last integrand is a product of local
@@ -910,7 +910,97 @@ case of <span class="math inline">\(\mathrm{GL}_1\)</span> characters,
 we have taken for one of our automorphic forms something particularly
 special, namely an Eisenstein series. The picture that might be better
 is, to give something slightly more complicated, there’s something
-called the triple product integral.</p>
+called the <strong>triple product integral</strong>. Now we’ll take
+<span class="math inline">\(\varphi_i \in \pi_i\)</span> for <span
+class="math inline">\(i = 1, 2, 3\)</span>, where it’ll be slightly
+simpler to assume that at least one is cuspidal. Look at the function
+<span class="math display">\[\int_{[Z \backslash \mathrm{GL}_2]}
+  \varphi_1(g) \varphi_2(g) \varphi_3(g) \, d g.\]</span> This integral
+defines a trilinear form on the product of the three representations
+that is invariant by the diagonal action of <span
+class="math inline">\(\mathrm{GL}_2(\mathbb{A})\)</span>, or
+equivalently, a <span
+class="math inline">\(\mathrm{GL}_2(\mathbb{A})\)</span>-invariant
+functional <span class="math inline">\(\Lambda\)</span> on the tensor
+product <span class="math inline">\(\pi_1 \otimes \pi_2 \otimes
+\pi_3\)</span>, i.e, an element <span class="math display">\[\Lambda \in
+{\mathop{\mathrm{Hom}}}_{\mathrm{GL}_2(\mathbb{A})}(\pi_1 \otimes \pi_2
+\otimes \pi_3, \mathbb{C}).\]</span> This space is one-dimensional, as
+are its local avatars: <span class="math display">\[\dim
+{\mathop{\mathrm{Hom}}}_{\mathrm{GL}_2(k_v)}(\pi_{1, v} \otimes \pi_{2, v}
+\otimes \pi_{3, v}) \leq 1.\]</span> We can thus factor <span
+class="math inline">\(\Lambda = \prod \Lambda_v\)</span>, where each
+<span class="math inline">\(\Lambda_v \in
+{\mathop{\mathrm{Hom}}}_{\mathrm{GL}_2(k_v)}(\pi_{1, v} \otimes \pi_{2, v}
+\otimes \pi_{3, v})\)</span>. Suppose <span
+class="math inline">\(v\)</span> is a place for which <span
+class="math inline">\(\pi_{i, v}\)</span> is unramified for each <span
+class="math inline">\(i\)</span>. Then we can take <span
+class="math display">\[\Lambda_v =
+  \int_{Z N(k_v) \backslash \mathrm{GL}_2(k_v)}
+  W_{\psi_v} W_{\overline{\psi_v}}(g) f_v(g) \, d g.\]</span> Here,
+locally, we’re realizing the unramified representation <span
+class="math inline">\(\pi_{3, v}\)</span> as an induced representation
+<span class="math inline">\(\pi_{3, v} = \pi_v(\chi_{1, v}, \chi_{2,
+v})\)</span>. We didn’t unfold to this computation; this was all
+local.</p>
+<p>There’s one more example we’d like to emphasize: <em>toric
+integrals</em>. Let <span class="math inline">\(K /k\)</span> be a
+quadratic extension. We can then think of <span
+class="math inline">\(K\)</span> as a two-dimensional <span
+class="math inline">\(k\)</span>-space, which gives a way to identify
+<span class="math display">\[{\mathrm{GL}_2}{/ k} \cong
+{\mathop{\mathrm{Aut}}}_k(K) \hookleftarrow K^\times.\]</span> We might
+for simplicity that <span class="math inline">\(\pi\)</span> is a
+cuspidal automorphic representation of <span
+class="math inline">\(\mathrm{GL}_2(\mathbb{A}_k)\)</span>, and let
+<span class="math inline">\(\varphi \in \pi\)</span> be a cusp form. Let
+<span class="math inline">\(\chi : K^\times \backslash
+\mathbb{A}_{K}^\times \rightarrow \mathbb{C}^\times\)</span> be a Hecke
+character for our extension. Let’s assume that <span
+class="math inline">\(\chi \mid_{\mathbb{A}_k^\times} =
+\chi_\pi^{-1}\)</span>, i.e., the restriction is the inverse of the
+central character. We are then going to think of the integral <span
+class="math display">\[\int_{\mathbb{A}_k^\times K^\times \backslash
+\mathbb{A}_K^\times} \varphi(t) \chi(t) \,d^\times t\]</span> as
+defining an element of the space <span
+class="math inline">\({\mathop{\mathrm{Hom}}}_{\mathbb{A}_k^\times}(\pi,
+\mathbb{C}(\chi^{-1}))\)</span>, which has dimensional <span
+class="math inline">\(\leq 1\)</span>. Such integrals will thus factor
+as prodcuts of local linear functionals.</p>
+<p>Some of these can be computed quickly in terms of integrals we
+already know. Suppose <span class="math inline">\(\pi_v\)</span> is
+unramified and <span class="math inline">\(v\)</span> splits in <span
+class="math inline">\(K /k\)</span>. Then <span
+class="math display">\[K_v^\times = k_v^\times \times k_v^\times \cong
+\left\{
+    \begin{pmatrix}
+      a      &amp;  \\
+             &amp; b \\
+    \end{pmatrix} \right\} \subseteq \mathrm{GL}_2(k).\]</span> We may
+thus identify <span class="math inline">\(\chi_v\)</span> with a pair of
+characters <span class="math inline">\((\chi_{1, v}, \chi_{2,
+v})\)</span>. We can define the local functional <span
+class="math display">\[\int_{k_v^\times} W_\psi
+  \begin{pmatrix}
+    t    &amp;  \\
+         &amp; 1 \\
+  \end{pmatrix} \chi_{1, v}(t) \,d^\times t,\]</span> which defines an
+element of <span
+class="math inline">\({\mathop{\mathrm{Hom}}}_{K_v^\times}(\pi_v,
+\mathbb{C}(\chi_v^{-1}))\)</span>. For unramified data, this evaluates
+to <span class="math inline">\(L(\pi_v, \chi_{1, v})\)</span>. It turns
+out that (Waldspurger’s formula) <span
+class="math display">\[\left\lvert \int \varphi(t) \chi(t) \,d^\times y
+\right\rvert^2 \sim L(\mathrm{B C}_{K/k}(\pi) \otimes \chi,
+\tfrac{1}{2}).\]</span> There’s a similar relation in the triple product
+case, which we can guess using the Rankin–Selberg unfolding that we saw
+earlier.</p>
+<p>All of these examples are special cases of the Gan–Gross–Prasad
+conjectures, which we’ll hear more about later in the week.</p>
+<p>We’ll now begin by giving one example of an Euler system. Tomorrow,
+we’ll explore this in greater generality and more detail. The simplest
+case is that of cyclotomic units.</p>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
   toggle.addEventListener("click", function(e) {
