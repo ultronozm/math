@@ -205,7 +205,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-04 10:45:27
+2025-08-04 10:55:39
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -576,7 +576,51 @@ one</strong>.</p>
 values of <span class="math inline">\(L\)</span>-functions, and in
 particular problems like the BSD conjecture. We’ll focus on some
 representation theory, that plays a role in both the analytic and the
-algebraic sides of these problems.</p>
+algebraic sides of these problems. You can possibly view this as a
+bridge between the talks at the start and at the end of the week.</p>
+<p>Let’s start by talking about <em>integral representations</em>. It’s
+helpful to think <span class="math display">\[\text{$L$-function} =
+  \int_{\text{symmetric space } X}
+  (\text{automorphic form}),\]</span> where perhaps the automorphic form
+starts on some larger symmetric space <span class="math inline">\(Y
+\supseteq X\)</span>. This is useful because it’s our main tool for
+studying <span class="math inline">\(L\)</span>-functions.</p>
+<p>The next part of my title is <em>Euler systems</em>. This is going to
+seem like something different. What are Euler systems? One starts off
+with a continuous action <span class="math display">\[G_k =
+\mathop{\mathrm{Gal}}(\bar{k} / k) \circlearrowright V,\]</span> where
+<span class="math inline">\(V\)</span> is a <span
+class="math inline">\(\mathbb{Q}_p\)</span>-space of finite dimension
+(with <span class="math inline">\(\mathbb{Q}_p\)</span> acting linearly
+and continuously). At least conjecturally, there’s a fairly general
+framework for producing such <span class="math inline">\(V\)</span> from
+automorphic forms or representations. This Galois representation
+captures something about the automorphic form that can be expressed in
+terms of the <span class="math inline">\(L\)</span>-function. All of
+these things are thus related to one another, even if they are
+frequently encountered separately. Here <span
+class="math inline">\(V\)</span> often stabilizes in a <span
+class="math inline">\(\mathbb{Z}_p\)</span>-submodule (lattice), which
+might yield a good exercise for later. An Euler system is a collection
+of classes in Galois cohomology <span class="math inline">\(c_F \in
+H^1(F, T)\)</span>, where <span class="math inline">\(F / k\)</span> are
+certain abelian extensions of <span class="math inline">\(k\)</span>
+satisfying certain compatibilities: for <span
+class="math inline">\(F&#39; \supseteq F\)</span>, <span
+class="math display">\[\operatorname{cores}_{F&#39; / F}(c_{F &#39;}) =
+? c_F,\]</span> where <span class="math inline">\(?\)</span> often seems
+the local Euler factors of <span class="math inline">\(V\)</span> (or
+some <span class="math inline">\(L\)</span>-function attached to <span
+class="math inline">\(V\)</span>, depending upon the setting).</p>
+<p>Both of these settings have been useful for exploring special values
+of <span class="math inline">\(L\)</span>-functions (Kolyvagin,
+Gross–Zagier, ...). What we’ll focus on in these lectures is the role
+that multiplicity one plays in seeing these <span
+class="math inline">\(L\)</span>-functions and in producing these Euler
+systems. We’ll see that they essentially play the same role, which is
+further evidence for what people say, to the effect that “Euler systems
+are some sort of algebraic incarnation of <span
+class="math inline">\(L\)</span>-functions.</p>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
   toggle.addEventListener("click", function(e) {
