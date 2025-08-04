@@ -129,8 +129,26 @@ We finally come to \textbf{Galois representations}.  They will typically be call
   \begin{enumerate}[(a)]
   \item If $A = \mathbb{C}$, then $\rho(G)$ is finite.
   \item If $A = \overline{\mathcal{O}_p}$, then there is a finite extension $E \supseteq \mathbb{Q}_p$ such that $\rho(G) \subseteq \mathrm{GL}_n(E)$ up to conjugation.
-  \item If $A = E \supseteq \mathbb{Q}_p$ (finite extension), then after conjugation, we can assume that $\rho(G) \subseteq \mathrm{GL}_n(\mathcal{O})$.
+  \item\label{enumerate:cq6r3j15cy} If $A = E \supseteq \mathbb{Q}_p$ (finite extension), then after conjugation, we can assume that $\rho(G) \subseteq \mathrm{GL}_n(\mathcal{O})$.
   \end{enumerate}
 \end{exercise}
+In case \eqref{enumerate:cq6r3j15cy}, we have a $G$-stable lattice $\Lambda \cong \mathcal{O}^n \subseteq E^n$.  We can apply reduction $\mathcal{O} \rightarrow \mathbb{F}$.  This gives a reduction
+\begin{equation*}
+  \overline{\rho}_\Lambda : G \rightarrow \mathrm{GL}_n(\mathbb{F}).
+\end{equation*}
+Let's use the notation $\mathrm{c p}_\alpha$ for the characteristic polynomial of $\alpha \in M_n(A)$.
+\begin{theorem}
+  \begin{enumerate}[(a)]
+  \item Given a representation $r : G \rightarrow \mathrm{GL}_n(\mathbb{F})$.  Then there exists a semisimple representation $r^{\mathrm{ss}} : G \rightarrow \mathrm{GL}_n(\mathbb{F})$ such that $\mathrm{c p}_r = \mathrm{c p}_{r^{\mathrm{ss}}}$ (Brauer--Hesbitt), where $r^{\mathrm{ss}}$ is unique up to isomorphism.
+  \item We have $\mathrm{c p}_{\rho} \in \mathcal{O}[X]$ and $\mathrm{c p}_{\bar{\rho}_\Lambda} \in \mathbb{F}[X]$, independent of $\Lambda$.
+  \end{enumerate}
+\end{theorem}
+\begin{theorem}
+  For $\rho, \rho ' : G_{K, S} \rightarrow \mathrm{GL}_n(E)$ semisimple, we have that $\rho \sim \rho '$ (conjugate) if and only if  for all $v \in \mathrm{P l}_K^{\mathrm{fin}} \setminus S$, we have
+  \begin{equation*}
+    \mathrm{c p}_{\rho(\Frob_v)} = \mathrm{c p}_{\rho '(\Frob_v)}.
+  \end{equation*}
+\end{theorem}
+
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
