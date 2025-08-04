@@ -1,0 +1,95 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\begin{document}
+
+\title{Aarhus Automorphic Forms Summer School}
+
+\begin{abstract}
+  Notes in progress on lectures taking place there.
+\end{abstract}
+
+\section{Gebhard Boeckle's lectures}
+\subsection{Galois representations and congruences}
+
+We first discuss profinite groups.  Let $G$ be a topological group.
+
+\begin{theorem}
+  The following are equivalent:
+  \begin{enumerate}[(a)]
+  \item\label{enumerate:cq6r3e8dsb} $G$ is compact, Hausdorff, and totally disconnected.
+  \item\label{enumerate:cq6r3e8eqf} $G$ is compact, and admits a neighborhood basis of the identity by open normal subgroups.
+  \item\label{enumerate:cq6r3e8f6g} There is a directed poset $I$ and an inverse system $(G_i)$ of finite (discrete) groups such that $G = \varprojlim_I G_i$.
+  \end{enumerate}
+\end{theorem}
+We say that $G$ is \emph{profinite} if the above conditions hold.  The topology on $\varprojlim G_i$ is that obtained by regarding it as a closed subgroup of the product $\prod G_i$.
+
+Constructions:
+\begin{enumerate}[(a)]
+\item\label{enumerate:cq6r3e8b0y} If $G$ is discrete, then we equip it with the profinite topology $G^{\mathrm{pf}} := \varprojlim G / N$, where $N$ runs over the finite index subgroups.
+\item\label{enumerate:cq6r3e8cou} If $G = \varprojlim G_i$ is profinite, then
+  \begin{enumerate}[(i)]
+  \item\label{enumerate:cq6r3fehbe} The abelianization is given by
+    \begin{equation*}
+      G^{a b} = G / \overline{[G, G]} = \varprojlim G_i^{a b},
+    \end{equation*}
+    and in particular, is profinite.
+  \item\label{enumerate:cq6r3feivc} For $H$ finite, write $H_p$ for its maximal $p$-group quotient.  Then
+    \begin{equation*}
+      G_p = \varprojlim(G_i)_p
+    \end{equation*}
+    is a pro-$p$-group (and in particular, profinite).
+  \item\label{enumerate:cq6r3fej61} If $N \leq G$ is closed and normal, then $G /N$ is profinite.
+  \end{enumerate}
+\end{enumerate}
+
+\begin{example}
+  \begin{enumerate}[(a)]
+  \item\label{enumerate:cq6r3fjkt4} Let $F$ be a field.  Set $G_F := \Aut_F(F^{\mathrm{sep}}) = \Gal(F^{\mathrm{sep}} / F)$ profinite.  Define the poset
+    \begin{equation*}
+      \mathcal{I}_F := \left\{ L \subseteq F^{\mathrm{sep}} : L \supseteq F \text{ finite Galois}, \subseteq \right\}.      
+    \end{equation*}
+    Then
+    \begin{equation*}
+      G_F \xrightarrow{\cong} \varprojlim_{L \in \mathcal{I}_F} \Gal(L / F).
+    \end{equation*}
+  \item\label{enumerate:cq6r3fm1jw} Let $F' \subseteq F^{\mathrm{sep}}$ be a normal extension of $F$.  Then $G_{F'} \leq G_F$ is closed and normal.  We may thus write
+    \begin{equation*}
+      \Gal(F ' / F) \cong G_F / G_{F'} = \lim_{
+        \substack{
+          L \in \mathcal{I}_F,  \\
+          L \subseteq F'          
+        }
+      }
+      \Gal(L /F).
+    \end{equation*}
+  \item\label{enumerate:cq6r3fm4tn} Let $\mathbb{N}$ denote the natural numbers, ordered by divisibility.  Then
+    \begin{equation*}
+      \hat{\mathbb{Z}} = \varprojlim \mathbb{Z} / n = \prod_{p} \mathbb{Z}_p,
+    \end{equation*}
+    where the last step is the Chinese remainder theorem.  We sometimes need a slight modification:
+    \begin{equation*}
+      \hat{\mathbb{Z}}^{(p)} = \varprojlim_{p \nmid n} \mathbb{Z} / n = \prod_{\ell \text{ prime}, \\ \ell \neq p } \mathbb{Z}_{\ell}.
+    \end{equation*}
+  \end{enumerate}
+\end{example}
+Let's fix some notation:
+\begin{enumerate}
+\item\label{enumerate:cq6r3f3t8d} Let $K$ be a number field, $\mathcal{O}_K$ its ring of integers.  Let $\mathrm{P l}_K = \mathrm{P l}_K^\infty \sqcup \mathrm{P l}_K^{\mathrm{fin}}$ denote the set of places $v$ of $K$.  Let $v$ be a finite place.  We may then attach to it a maximal ideal $\mathfrak{q}_v$ of $\mathcal{O}_K$, giving a bijection
+  \begin{equation*}
+    \mathrm{P l}_K^{\mathrm{fin}} \leftrightarrow \operatorname{Max}(\mathcal{O}_K).
+  \end{equation*}
+  We may form the residue field $k_v := \mathcal{O}_K / \mathfrak{q}_v$.  We denote $q_v$ for the cardinality of $k_v$.  We write $\operatorname{char}(v)$ for the characteristic of $k_v$.  We denote by $\mathcal{O}_v = \varprojlim \mathcal{O} / \mathfrak{q}_v^n$, with fraction field $K_v$.  Also, we have a short exact sequence
+  \begin{equation*}
+    1 \rightarrow I_v \rightarrow G_v := \Gal_{K_v} \rightarrow \Gal_{k_v} \rightarrow 1.
+  \end{equation*}
+  A topological generator for $\Gal_{k_v}$ is given by
+  \begin{equation*}
+    \mathrm{Fr}_v : \alpha \mapsto \alpha^{q_v}.
+  \end{equation*}
+  We denote by $\mathrm{Frob}_v \in G_v$ some lift of $\mathrm{Fr}_v$.
+
+  We write $S_\infty := \mathrm{P l}_K^\infty$ for the set of archimedean places, so that $K \otimes_{\mathbb{Q}} \mathbb{R} \cong \prod_{v \in S_\infty} K_v$.  For a rational prime $p$, we write $S_p$ for the set of places $v$ of $K$ such that $v \mid p$.
+\item We also need some local analogues for $E \supseteq \mathbb{Q}_p$ a $p$-adic field.
+\end{enumerate}<++>
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
