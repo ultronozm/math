@@ -265,9 +265,9 @@ These integrals converge absolutely for $\Re s$ sufficiently large and unfold in
   \int_{\mathbb{A}_k^\times} \chi(x) \lvert x \rvert^s \phi(x) \, d x.
 \end{equation*}
 If $\phi = \prod \phi_v$, then these factor further as
-\begin{equation*}
+\begin{equation}\label{eq:cq6r32qpe5}
   \prod \int_{k_v^\times} \chi_v(x) \lvert x \rvert_v^s \phi_v(x) \, d x.
-\end{equation*}
+\end{equation}
 One can show that the local integrals at non-archimedean places are rational functions, form the greatest common divisor of their denominators, and this turns out to be the way you can define the local $L$-function.  This is Tate's thesis.  We haven't yet really made any reference to multiplicity one.  This shows up when you try to generalize to other settings.
 
 We may think of $\mathbb{A}_k^\times$ as $\mathrm{GL}_1(\mathbb{A}_k)$.  Let's now consider $\mathrm{GL}_n(\mathbb{A}_k)$.  We discuss Godement--Jacquet theory, which is a generalization of what Tate did to $\mathrm{GL}_n$.  Let $\pi$ be a cuspidal automorphic representation (by convention, irreducible).  Abstractly, this is isomorphic to a restricted tensor product $\otimes \pi_v$ of irreducible local representations $\pi_v$ of $\mathrm{GL}_n(k_v)$.  We can thus identify an element $\varphi \in \pi$ with a sum of tensor products of vectors (although, unlike in the case of characters, it will not pointwise be a product of local functions).  Now, mimicking what was done before, we take a Schwartz function $\phi \in \mathcal{S}(M_n(\mathbb{A}_k))$, and form a theta function
@@ -325,5 +325,80 @@ The leading constant $(\ast)$ will depend upon our normalizations of the local a
 
 This is the first example where multiplicity one shows up in what we've discussed.  In the afternoon talk, we'll very quickly describe a few other automorphic $L$-function settings where we see multiplicity one, and then start to move to the Euler system side of things.
 
-\bibliography{refs}{} \bibliographystyle{plain}
+\textbf{Afternoon talk}.
+
+Factoring the integral is only one step towards understanding the $L$-functions.  The next thing one needs to do is to compute these local integrals.  This of course seems more tractable than working globally, which is the point.  For instance, in the Iwasawa--Tate setting, when all of the data is unramified (meaning $\chi_v$ is an unramified character and $\phi_v$ is the characteristic function of the ring of integers), then the local factor in \eqref{eq:cq6r32qpe5} is easy to compute, and gives a local zeta function.  This is more complicated in the Godement--Jacquet setting, but still doable.  Then in the ramified situations, there is the question of how to choose good vectors so that one gets the $L$-function on the nose.  This is useful for many of the applications that the speaker makes of these kinds of functions.  In some settings it's still much of an art and there are lots of interesting questions.
+
+Let's turn to Rankin--Selberg convolutions.  We'll begin classically, say with holomorphic modular eigenforms $f$ and $g$ of weights $k_f \geq k_g$, say of level $1$, i.e., on $\mathrm{SL}_2(\mathbb{Z})$.  Write
+\begin{equation*}
+  f = \sum a_n q^n, \qquad g = \sum b_n q^n.
+\end{equation*}
+We'll consider the Dirichlet series
+\begin{equation}\label{eq:cq6r32z05j}
+  \sum_n \overline{a_n} b_n n^{- s}.
+\end{equation}
+The integral representation is
+\begin{equation}\label{eq:cq6r32zyac}
+  \int_{\mathrm{SL}_2(\mathbb{Z}) \backslash \mathbb{H}} \overline{f(\tau)} g(\tau)
+  E_k(\tau, s)
+  y^{k_f}
+  \, d \vol(\tau),
+\end{equation}
+where $k := k_f - k_g$ and
+\begin{equation}\label{eq:cq6r320zyb}
+  E_k(\tau, s)
+  := \sum_{\gamma \in
+    \begin{pmatrix}
+      \ast      & \ast \\
+      0             & \ast \\
+    \end{pmatrix} \backslash \mathrm{SL}_2(\mathbb{Z})}
+  j(\gamma, \tau)^{- k} \lvert y(\gamma(\tau)) \rvert^k.
+\end{equation}
+The way you get from \eqref{eq:cq6r32zyac} to \eqref{eq:cq6r32z05j} is to unfold the sum in \eqref{eq:cq6r320zyb} with the integral in \eqref{eq:cq6r32zyac}, which yields an integral over $
+\begin{pmatrix}
+  \ast  & \ast \\
+  0     & \ast \\
+\end{pmatrix} \backslash \mathbb{H}$.  This is a nice exercise if you haven't done it.
+
+What does this have to do with multiplicity one?  Maybe we try to set this up a bit more automorphically.  Let $\pi_1$ and $\pi_2$ be cuspidal automorphic representations of $\mathrm{GL}_2(\mathbb{A}_k)$.  Let $\chi_1, \chi_2$ be Hecke characters $\chi_i : k^\times \backslash \mathbb{A}_k^\times \rightarrow \mathbb{C}$ such that $\chi_1 \chi_2 =(\chi_{\pi_1} \chi_{\pi_2})^{-1}$.  Let $I_s(\chi_1, \chi_2)$ denote the space of functions $f : \mathrm{GL}_2(\mathbb{A}) \rightarrow \mathbb{C}$ that are smooth (meaning the usual thing at archimedean places and ``fixed by an open subgroup'' at finite places) and ``$K$-finite'' and satisfying
+\begin{equation*}
+  f_s \left(
+    \begin{pmatrix}
+      a & b \\
+      0 & d \\
+    \end{pmatrix} g \right) =
+  \chi_1(a) \chi_2(d)
+  \left\lvert \frac{a}{d} \right\rvert^{s + \frac{1}{2}}
+  f_s(g).
+\end{equation*}
+We then define an Eisenstein series by averaging:
+\begin{equation*}
+  E(f_s, g) := \sum_{\gamma \in B(\mathbb{Q}) \backslash \mathrm{GL}_2(\mathbb{Q})} f_s(\gamma g).
+\end{equation*}
+The Rankin--Selberg integral is now just the integral
+\begin{equation*}
+  \int_{[\mathrm{GL}_2]} \varphi_1(g) \varphi_2(g) E(f_s, g) \, d g.
+\end{equation*}
+We can unfold this to obtain
+\begin{equation*}
+  \int_{Z(\mathbb{A})B(\mathbb{Q}) \backslash \mathrm{GL}_2(\mathbb{A})} \varphi_1(g) \varphi_2(g) f_s(g) \, d g.
+\end{equation*}
+Let's replace $\varphi_i$ by its Whittaker expansion
+\begin{equation*}
+  \varphi_1(g) = \sum_{a \in k^\times} W_{\psi} \left(
+    \begin{pmatrix}
+      a      &  \\
+       & 1 \\
+    \end{pmatrix} g \right).
+\end{equation*}
+Then, unfolding a bit further, we arrive at
+\begin{equation*}
+  \int_{Z(\mathbb{A}) N(\mathbb{A}) \backslash \mathrm{GL}_2(\mathbb{A})} W_{\psi}(g) \varphi_2(g) f_s(g) \, d g
+  =
+  \int_{Z(\mathbb{A}) N(\mathbb{A}) \backslash \mathrm{GL}_2(\mathbb{A})}
+  W_\psi(g) W_{\psi} '(g) f_s(g) \, d g,
+\end{equation*}
+where $W_{\psi}'$ is the Whittaker function for $\varphi_2$ with respect to the conjugate character.  This last integrand is a product of local functions, so the integral factors, assuming that all vectors in our representations are pure tensors.
+
+Where's the multiplicity one?  It's hidden, because, just like in the case of $\mathrm{GL}_1$ characters, we have taken for one of our automorphic forms something particularly special, namely an Eisenstein series.  The picture that might be better is, to give something slightly more complicated, there's something called the triple product integral.\bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
