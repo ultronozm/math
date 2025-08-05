@@ -205,7 +205,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-04 14:07:36
+2025-08-05 09:36:07
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -891,7 +891,7 @@ by its Whittaker expansion <span class="math display">\[\varphi_1(g) =
 \sum_{a \in k^\times} W_{\psi} \left(
     \begin{pmatrix}
       a      &amp;  \\
-       &amp; 1 \\
+             &amp; 1 \\
     \end{pmatrix} g \right).\]</span> Then, unfolding a bit further, we
 arrive at <span class="math display">\[\int_{Z(\mathbb{A}) N(\mathbb{A})
 \backslash \mathrm{GL}_2(\mathbb{A})} W_{\psi}(g) \varphi_2(g) f_s(g) \,
@@ -976,7 +976,8 @@ class="math display">\[K_v^\times = k_v^\times \times k_v^\times \cong
 \left\{
     \begin{pmatrix}
       a      &amp;  \\
-             &amp; b \\
+                                                                              &amp;
+b \\
     \end{pmatrix} \right\} \subseteq \mathrm{GL}_2(k).\]</span> We may
 thus identify <span class="math inline">\(\chi_v\)</span> with a pair of
 characters <span class="math inline">\((\chi_{1, v}, \chi_{2,
@@ -984,7 +985,8 @@ v})\)</span>. We can define the local functional <span
 class="math display">\[\int_{k_v^\times} W_\psi
   \begin{pmatrix}
     t    &amp;  \\
-         &amp; 1 \\
+                                                                      &amp;
+1 \\
   \end{pmatrix} \chi_{1, v}(t) \,d^\times t,\]</span> which defines an
 element of <span
 class="math inline">\({\mathop{\mathrm{Hom}}}_{K_v^\times}(\pi_v,
@@ -996,6 +998,17 @@ class="math display">\[\left\lvert \int \varphi(t) \chi(t) \,d^\times y
 \tfrac{1}{2}).\]</span> There’s a similar relation in the triple product
 case, which we can guess using the Rankin–Selberg unfolding that we saw
 earlier.</p>
+<div class="remark">
+<p><strong>Remark 6</strong>. This doesn’t make sense for general
+arguments other than <span class="math inline">\(s =
+\tfrac{1}{2}\)</span>, except in some form when <span
+class="math inline">\(\varphi\)</span> is an Eisenstein series (“formula
+of Damerell”). One needs to be able to vary <span
+class="math inline">\(\varphi\)</span> (or <span
+class="math inline">\(\chi\)</span>) in a family, preserving the central
+character compatibility condition.</p>
+</div>
+<p>&lt;++&gt;</p>
 <p>All of these examples are special cases of the Gan–Gross–Prasad
 conjectures, which we’ll hear more about later in the week.</p>
 <p>We’ll now begin by giving one example of an Euler system. Tomorrow,
@@ -1021,15 +1034,15 @@ class="math inline">\(N \alpha\)</span>.</p>
 <p>Let’s now restrict ourselves to the field <span
 class="math inline">\(\mathbb{Q}[\mu_N]\)</span>. Restrict the above map
 to the unit group of that field: <span
-class="math display">\[\mathcal{O}_{\mathbb{G}[\mu_N]}^\times
+class="math display">\[\mathcal{O}_{\mathbb{Q}[\mu_N]}^\times
 \rightarrow H^1(\mathbb{Q}(\mu_N), \mu_{p^n}).\]</span> Taking inverse
 limits, we obtain, with <span class="math inline">\(\mathbb{Z}_p(1) =
 \varprojlim\mu_{p^n}\)</span> (where the Galois group acts via the
 cyclotomic character), a map <span
-class="math display">\[\mathcal{O}_{\mathbb{G}[\mu_N]}^\times \otimes
+class="math display">\[\mathcal{O}_{\mathbb{Q}[\mu_N]}^\times \otimes
 \mathbb{Z}_p \rightarrow H^1(\mathbb{Q}(\mu_N),
 \mathbb{Z}_p(1)).\]</span> Thus, for any <span class="math inline">\((a,
-N) = 1\)</span>, we get, say with <span class="math inline">\(\zeta_N =
+N) = 1\)</span>, we get , say with <span class="math inline">\(\zeta_N =
 e^{2 \pi i / N}\)</span>, <span class="math display">\[\frac{\zeta_N^a -
 1}{\zeta_N - 1} \mapsto z_N,\]</span> say. If we look at the
 corestriction <span
@@ -1039,10 +1052,204 @@ class="math display">\[\operatorname{cores}_{\mathbb{Q}[\mu_{N \ell}] /
     z_N    
     &amp; \text{ if } \ell \mid N \\
     (1 - \mathrm{Fr}_{\ell}^{-1}) z_N
-    &amp; \text{ if } \ell \nmid N.
+                                                                                     &amp;
+\text{ if } \ell \nmid N.
   \end{cases}\]</span> We look at <span class="math display">\[\det
 \left( 1 - \mathrm{Fr}_{\ell}^{-1} X \mid \mathbb{Z}_p(1)^\ast \right)
 \mid X = \mathrm{Fr}_{\ell}^{-1}.\]</span></p>
+<p>Some idea for checking this: <span class="math inline">\((\mathbb{Z}
+/ \ell \mathbb{Z})^\times \subset(\mathbb{Z} / \ell N \mathbb{Z})^\times
+\cong \mathop{\mathrm{Gal}}(\mathbb{Q}(\mu_{N \ell}) / \mathbb{Q}
+)\)</span>, where the last map sends <span class="math inline">\(a
+\mapsto \sigma_\alpha(\zeta_{N \ell}) = \zeta_{N \ell}^a\)</span>.</p>
+<div class="remark">
+<p><strong>Remark 7</strong>. Given <span
+class="math inline">\(f\)</span> a holomorphic modular form, say of
+weight <span class="math inline">\(2\)</span>, we have <span
+class="math inline">\(\omega_f = f(\tau) \, d \tau \in H^0(X,
+\Omega_X^1) \subseteq H^1(X, \mathbb{C})\)</span>. Then <span
+class="math inline">\(\lVert f \rVert^2 = \int_X\omega_f \wedge
+\overline{\omega_f}\)</span>.</p>
+<p>Similarly, for <span class="math inline">\(X \hookrightarrow X \times
+X \times X\)</span>, we get some particular values of the Rankin–Selberg
+convolution by looking at <span class="math inline">\(\int_X
+\overline{\omega_f} \wedge \omega_g \wedge \omega_{E_k}\)</span>. Then
+from the rational structure on cohomology, one can get something like
+rational structure on the <span
+class="math inline">\(L\)</span>-values.</p>
+</div>
+<div class="remark">
+<p><strong>Remark 8</strong>. Let’s talk about the corestriction map in
+this setting. Abstractly, it’s a map <span
+class="math display">\[H^1(\mathbb{Q}[\mu_{N \ell}], \mathbb{Z}_p(1))
+\rightarrow H^1(\mathbb{Q}[\mu_N], \mathbb{Z}_p(1)).\]</span> How are we
+going to understand this? We could of course write it down at the level
+of cocycles, or something. But what’s it’s really doing is that if we
+restrict back, i.e., compose with the restriction map <span id="eq:cq6r4knx6r" class="math display">\[\label{eq:cq6r4knx6r}\tag{7}
+    H^1(\mathbb{Q}[\mu_N], \mathbb{Z}_p(1)) \rightarrow
+H^1(\mathbb{Q}[\mu_{N \ell}], \mathbb{Z}_p(1)),\]</span> then the
+composition is just the trace map, given by <span
+class="math display">\[\sum_{\sigma \in
+\mathop{\mathrm{Gal}}(\mathbb{Q}[\mu_{N \ell}] / \mathbb{Q}[\mu_N])}
+\sigma.\]</span> The restriction map <a href="#eq:cq6r4knx6r"
+data-reference-type="eqref"
+data-reference="eq:cq6r4knx6r">\((7)\)</a> is actually an
+injection because there are no Galois invariants of <span
+class="math inline">\(\mathbb{Z}_p(1)\)</span>.</p>
+<p>Also, we have the Kummer map <span
+class="math display">\[\mathbb{Q}[\mu_{N \ell}]^\times
+\xrightarrow{\mathrm{Kummer}} H^1(\mathbb{Q}[\mu_{N \ell}],
+\mathbb{Z}_p(1)).\]</span> And this construction is Galois-invariant. We
+have the trace map <span class="math inline">\(\alpha \mapsto
+\prod_\sigma \sigma(\alpha)\)</span> from <span
+class="math inline">\(\mathbb{Q}[\mu_{N \ell}]^\times \rightarrow
+\mathbb{Q}[\mu_N]^\times\)</span>. We claim that this induces the
+corestriction map via the Kummer map. This remains the case when we
+tensor with <span class="math inline">\(\mathbb{Z}_p\)</span>.</p>
+<p>So when we’re dealing with corestriction, what we really want to
+understand is what is the norm of the particular <span
+class="math inline">\(\alpha\)</span> that we’re working with.</p>
+<p>All of this is fairly formal applied to a specific setting. The
+Kummer map is also a connecting map in a long exact sequence of Galois
+cohomology, associated to <span class="math display">\[0 \rightarrow
+\mu_{p^n} \rightarrow \bar{F}^\times \xrightarrow{\alpha \mapsto
+\alpha^{p^n}} \bar{F}^\times \rightarrow 0.\]</span> From the formal
+stuff, we have an arithmetic question. We take <span
+class="math display">\[\alpha = \frac{\zeta_{N \ell}^a - 1}{\zeta_{N
+\ell} - 1},\]</span> and we want to know, what is the norm of this
+element? Look at <span
+class="math display">\[\operatorname{norm}_{\mathbb{Q}(\mu_{N \ell}) /
+\mathbb{Q}(\mu_N)}(\alpha).\]</span> We have <span
+class="math display">\[\mathop{\mathrm{Gal}}(\mathbb{Q}(\mu_{N \ell}) /
+\mathbb{Q}(\mu_N))
+    \subseteq \mathop{\mathrm{Gal}}(\mathbb{Q}(\mu_{N \ell}) /
+\mathbb{Q})
+    \cong(\mathbb{Z} / N \ell)^\times,\]</span> The subgroup here will
+be identified with congruence classes <span
+class="math inline">\(b\)</span> satisfying <span
+class="math inline">\(b \equiv 1 \pmod{N}\)</span>. The last isomorphism
+is given by <span class="math inline">\(\sigma_c \mapsto c\)</span>,
+where <span class="math inline">\(\sigma_c(\zeta_{N \ell}) = \zeta_{N
+\ell}^c\)</span>. Now, suppose for instance that <span
+class="math inline">\(\ell \nmid N\)</span>. Then <span
+class="math inline">\(\zeta_{N \ell}^{b \ell} = \zeta_N^b =
+\zeta_N\)</span>. As <span class="math inline">\(b \in(\mathbb{Z} / N
+\ell )^\times\)</span> runs over <span class="math inline">\(\ell -
+1\)</span> residue classes modulo <span class="math inline">\(\equiv 1
+\pmod{N}\)</span>, then <span class="math inline">\(\zeta_{N
+\ell}^b\)</span> runs over <span class="math inline">\(\ell\)</span>th
+roots of <span class="math inline">\(\zeta_N\)</span>, but excluding
+<span class="math inline">\(\zeta_N^{\ell^{-1}}\)</span>. A short
+calculation then gives the claim corestriction formula. In the other
+case where <span class="math inline">\(\ell \mid N\)</span>, <span
+class="math inline">\(b\)</span> runs over <span
+class="math inline">\(\ell\)</span> classes, and we get the other
+answer.</p>
+</div>
+<p>We’re going to continue our discussion of Euler systems. We turn to
+the example given by Heegner points. Let <span class="math inline">\(K /
+\mathbb{Q}\)</span> be an imaginary quadratic field, with ring of
+integers <span class="math inline">\(\mathcal{O}_K\)</span>. Let <span
+class="math inline">\(N\)</span> be a positive integer such that all
+primes <span class="math inline">\(\ell \mid N\)</span> split in <span
+class="math inline">\(K /\mathbb{Q}\)</span>. We take <span
+class="math display">\[X_0(N) = \Gamma_0(N) \backslash[\mathfrak{h}
+\sqcup \mathbb{P}^1(\mathbb{Q})],\]</span> and write <span
+class="math inline">\(\tau \in \mathfrak{h}\)</span>. This classifies
+elliptic curves together with an isogeny of order <span
+class="math inline">\(N\)</span>, e.g., <span class="math display">\[E
+:= \mathbb{C} / \mathbb{Z} \oplus \mathbb{Z} \tau \rightarrow E&#39;
+:=  \mathbb{C} / \tfrac{1}{N}(\mathbb{Z} + N \tau \mathbb{Z}) \cong
+\mathbb{C} / \mathbb{Z} + N \tau \mathbb{Z},\]</span> whose kernel is
+<span class="math inline">\(\tfrac{1}{N} \mathbb{Z} /
+\mathbb{Z}\)</span>.</p>
+<p>We’re going to produce some points on <span
+class="math inline">\(X_0(N)\)</span>. Let <span
+class="math inline">\(c\)</span> be positive integer. We can have an
+order <span class="math display">\[\mathcal{O}_c := \mathbb{Z} + c
+\mathcal{O}_K \subseteq \mathcal{O}_K.\]</span> This gives us a lattice
+inside the complex numbers (having chosen a complex embedding of <span
+class="math inline">\(K\)</span>). We can then form the quotient <span
+class="math inline">\(\mathbb{C} / \mathcal{O}_c\)</span>. To produce a
+lattice that is slightly larger, we will use that each <span
+class="math inline">\(\ell \mid N\)</span> splits to <em>choose</em> an
+ideal <span class="math inline">\(\mathfrak{n} \subseteq
+\mathcal{O}_K\)</span> such that <span
+class="math inline">\(\mathcal{O}_K / \mathfrak{n} \cong \mathbb{Z} / N
+\mathbb{Z}\)</span>. We then obtain an isogeny of elliptic curves <span
+class="math display">\[\left[ \mathbb{C} / \mathcal{O}_c \rightarrow
+\mathbb{C} / \mathfrak{n}^{-1} \mathcal{O}_c \right] \in
+X_0(N)(K[c]),\]</span> where <span class="math inline">\(K[c]\)</span>
+denotes the <em>ring class field</em> of <span
+class="math inline">\(K\)</span> of conductor <span
+class="math inline">\(c\)</span>. To explain what this means, we
+introduce some notation. For a module <span
+class="math inline">\(M\)</span>, write <span
+class="math inline">\(\hat{M} := M \otimes \hat{\mathbb{Z}}\)</span>,
+where <span class="math inline">\(\hat{\mathbb{Z}} = \prod_{\ell}
+\mathbb{Z}_{\ell}\)</span>. (For instance, if <span
+class="math inline">\(M\)</span> is a <span
+class="math inline">\(\mathbb{Q}\)</span>-module, then we may also write
+<span class="math inline">\(\hat{M}\)</span> as <span
+class="math inline">\(M \otimes_{\mathbb{Q}} \mathbb{A}_f\)</span>.)
+Class field theory tells us that <span
+class="math display">\[\mathop{\mathrm{Pic}}(\mathcal{O}_c) = K^\times
+\backslash \hat{K}^\times / \hat{\mathcal{O}}_c^\times
+\xrightarrow{\mathrm{rec}} \mathop{\mathrm{Gal}}(K[c] / K),\]</span>
+<span class="math display">\[\mapsto \sigma_{\mathfrak{b}}.\]</span>
+More generally, for any fractional ideal <span
+class="math inline">\(\mathfrak{a}\)</span> of <span
+class="math inline">\(\mathcal{O}_c\)</span>, we get a point <span
+class="math display">\[x_{c}(\mathfrak{a}) := \left[ \mathbb{C} /
+\mathfrak{a} \rightarrow \mathbb{C} / \mathfrak{n}^{-1} \mathfrak{a}
+\right] \in X_0(N)(K[c]).\]</span> The action of <span
+class="math inline">\(\mathop{\mathrm{Gal}}(K[c] / K)\)</span> on <span
+class="math inline">\(X_0(N)(K[c])\)</span> on these points is described
+by the relation <span class="math display">\[\sigma_{\mathfrak{b}}
+x_c(\mathfrak{a}) = x_c(\mathfrak{b}^{-1} \mathfrak{a}).\]</span> This
+is the content of CM theory.</p>
+<p>Now we’re going to look at the divisors <span
+class="math display">\[y_c(\mathfrak{a}) := x_c(\mathfrak{a}) -
+\infty\]</span> obtained by subtracting off the cusp at infinity, which
+is defined over <span class="math inline">\(\mathbb{Q}\)</span>. This
+difference defines an element of the Jacobian <span
+class="math inline">\(J_0(N) := \mathop{\mathrm{Jac}}(X_0(N))\)</span>,
+defined over <span class="math inline">\(K[c]\)</span>. The Jacobian is
+an abelian variety. For abelian varieties, there is a construction very
+similar to Kummer theory that gives us an analogue of the Kummer map
+defined yesterday, <span class="math display">\[J_0(N)(K[c]) \rightarrow
+H^1(K[c], J_0(N)[p^m]),\]</span> where <span
+class="math inline">\(J_0(N)[p^m]\)</span> is the <span
+class="math inline">\(p^m\)</span>-torsion subgroup of the Jacobian. The
+map is defined as follows. Given <span class="math inline">\(y \in
+J_0(N)(K[c])\)</span>, let us choose <span class="math inline">\(y
+&#39;\)</span> so that <span class="math inline">\(p^m y&#39; =
+y\)</span>. We send this to the class of the cocycle <span
+class="math inline">\(\sigma \mapsto \sigma(y&#39;) - y&#39;\)</span>.
+Applying this map to <span
+class="math inline">\(y_c(\mathfrak{a})\)</span> gives us a cohomology
+class <span class="math display">\[z_c(\mathfrak{a}) \in H^1(K[c],
+J_0(N)[p^m]).\]</span> In the special case where <span
+class="math inline">\(\mathfrak{a} = \mathcal{O}_c\)</span>, we drop it
+from the notation and write simply <span
+class="math inline">\(z_c\)</span>.</p>
+<p>Suppose now that <span class="math inline">\(\ell \nmid c D_K
+N\)</span>. Then we’re going to look at what happens when we take the
+point <span class="math inline">\(z_{c \ell}\)</span> (attached as above
+to the order <span class="math inline">\(\mathcal{O}_{c \ell}\)</span>)
+and form the norm <span class="math display">\[\sum_{\sigma \in
+\mathop{\mathrm{Gal}}(K[c \ell] / K[c])} \sigma z_{c \ell}.\]</span> We
+can write this as the sum <span
+class="math display">\[\sum_{\mathfrak{b} \in
+\ker(\mathop{\mathrm{Pic}}\mathcal{O}_{c \ell} \rightarrow
+\mathop{\mathrm{Pic}}\mathcal{O}_c)} \sigma_{\mathfrak{b}} z_{c
+\ell}.\]</span> We can in turn rewrite <span
+class="math inline">\(\sigma_{\mathfrak{b}} z_{c \ell}\)</span> as <span
+class="math inline">\(\sum_{\mathfrak{b}} y_{c \ell}(\mathfrak{b}^{-1})
+- \infty\)</span>, summing over the same <span
+class="math inline">\(\mathfrak{b}\)</span> as before. Now, how many
+<span class="math inline">\(\mathfrak{b}\)</span>’s are there, and what
+is this sum?</p>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
   toggle.addEventListener("click", function(e) {
