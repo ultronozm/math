@@ -357,25 +357,183 @@ We can do something about the conjugation.
 \begin{equation*}
   \Gamma_n(A) := \ker \left( \mathrm{GL}_n(A) \rightarrow \mathrm{GL}_n(\mathbb{F}) \right).
 \end{equation*}
-We define
+We define the \emph{lifting} and \emph{deformation} functors
 \begin{equation*}
   D_{\bar{\rho}}^{\square}, \, D_{\bar{\rho}} : \mathrm{C N L}_{\mathcal{O}} \rightarrow \mathrm{Set},
 \end{equation*}
 \begin{equation*}
   (A, \mathfrak{m}_A) \mapsto \left\{ \rho_A : G \rightarrow \mathrm{GL}_n(A) \mid \rho_A \equiv \bar{\rho} \mod{\mathfrak{m}_A} \right\}
 \end{equation*}
-(``lifting functor'' or ``framed deformation functor''), and where for $D_{\bar{\rho}}$, we take things modulo $\Gamma_n(A)$-conjugacy.
+(``lifting functor'' or ``framed deformation functor''), and where for $D_{\bar{\rho}}$, we take things modulo $\Gamma_n(A)$-conjugacy (i.e., ``deformations are lifts modulo conjugacy'').
 
 \begin{theorem}
   Suppose $\Phi_\rho$ holds, i.e., $\# \Hom(G, \mathbb{F}_p) < \infty$.  Then:
   \begin{enumerate}[(a)]
   \item $D_{\bar{\rho}}$ always has a ``hull''.
   \item If $\End_G(\bar{\rho}) = \mathbb{F}$, then $D_{\bar{\rho}}$ is representable (uses Schlessinger).  This gives rise to $R_{\bar{\rho}}$.
-  \item\label{enumerate:cq6skams6j} (Always) $D_{\bar{\rho}}^{\square}$ is representable (Kisin, Magid--Lubokliy).  Gives rise to $R_{\bar{\rho}}^{\square}$.
+  \item\label{enumerate:cq6skams6j} (Always) $D_{\bar{\rho}}^{\square}$ is representable (Kisin, Magid--Lubotzki).  Gives rise to $R_{\bar{\rho}}^{\square}$.
   \end{enumerate}
 \end{theorem}
 
-Here \eqref{enumerate:cq6skams6j} is an exercise you can do.\part{Chris Skinner's lectures}
+Here \eqref{enumerate:cq6skams6j} is an exercise you can do.
+
+\begin{example}
+  Take $n = 1$.  Le $\bar{\rho} : G \rightarrow \mathrm{GL}_1(\mathbb{F}) = \mathbb{F}^\times$.  \textbf{Fact} (Teichmüller lift): there exists $\hat{\rho} : G \rightarrow \mathrm{GL}_1(W(\mathbb{F}))$, a lift of $\bar{\rho}$ such that $\hat{\rho}(G) \xrightarrow{\mathrm{red}} \bar{\rho}(G)$.
+\end{example}
+\begin{exercise}
+  Suppose that $\Hom_{\mathrm{cts}}(G^{\mathrm{ab}}, \mathbb{F})$ is finite.  Then the universal deformation ring $R_{\bar{\rho}}$ (which for $n = 1$ is the same as the universal lifting ring $R_{\bar{\rho}}^{\square}$)  is isomorphic to
+  \begin{equation*}
+    \mathcal{O} \llbracket(G^{\mathrm{ab}})_p \rrbracket = \varprojlim
+    \mathcal{O} \left[(G^{\mathrm{a b}})_p \right].    
+  \end{equation*}
+  The universal lifting is
+  \begin{equation*}
+    \hat{\rho} \otimes \left( G \rightarrow(G^{\mathrm{a b}})_p
+      \hookrightarrow
+      \mathcal{O} \llbracket(G^{\mathrm{a b}})_p \rrbracket^\times.
+    \right)
+  \end{equation*}
+\end{exercise}
+Special cases:
+\begin{enumerate}[(i)]
+\item\label{enumerate:cq6skmixcf} $G = G_F$, $F \supseteq \mathbb{Q}_p$ finite extension, then by local class field theory,
+  \begin{equation*}
+    (G^{\mathrm{a b}})_p \cong \mu_{p^\infty}(F) \times \mathbb{Z}^{1 +[F : \mathbb{Q}_p]}.
+  \end{equation*}
+\item\label{enumerate:cq6skmix6w} $G = G_{K, S}$, $S \supseteq S_{\mathfrak{p}}$ finite, then global class field theory gives
+  \begin{equation*}
+    (G^{\mathrm{a b}})_p \cong \frac{A_{K, S}}{\text{finite $p$-group}}
+    \times \mathbb{Z}_p^{r_2 + \delta},
+  \end{equation*}
+  where $r_2$ denotes the number of complex places and $\delta = \delta_{K, p}$ is the \emph{Leopoldt defect}, which the Leopoldt conjecture says is zero.
+\end{enumerate}
+
+We turn to cohomology.  For $\bar{\rho} : G \rightarrow \mathrm{GL}_n(\mathbb{F})$, define
+\begin{equation*}
+  \ad_{\bar{\rho}} = M_{n \times n}(\mathbb{F})
+\end{equation*}
+with the ``adjoint action'': for $g \in A$ and $\alpha \in M_{n \times n}$, we take
+\begin{equation*}
+  g \cdot \alpha := \bar{\rho}(g) \cdot \alpha \cdot \bar{\rho}(g)^{-1}.
+\end{equation*}
+(We remark that $\ad_{\bar{\rho}} \cong \bar{\rho} \otimes \bar{\rho}^\vee$.)
+\begin{proposition}
+  \begin{enumerate}[(a)]
+  \item We have $T_{D_\rho^{\square}} = D_{\bar{\rho}}^{\square}(\mathbb{F}[\eps]) \xleftarrow{\cong} Z^1(G, \ad_{\bar{\rho}})$, where the map sends a cocycle $c : G \rightarrow \ad_{\bar{\rho}}$ to
+    \begin{equation*}
+      \rho_c : g \mapsto(1 + \eps c(g)) \bar{\rho}(g).
+    \end{equation*}
+  \item The above map induces an isomorphism $H^1(G, \ad \bar{\rho}) \xrightarrow{\cong} T_{D_{\bar{\rho}}}$.
+  \item We have $\dim B^1(G, \ad_{\bar{\rho}}) = h^2 - h^0(G, \ad_{\bar{\rho}})$.  (We use the notation $h^i := \dim H^i$ and $z^i = \dim Z^i$.)
+  \end{enumerate}
+\end{proposition}
+\begin{corollary}
+  For $r = h^1(G, \ad_{\bar{\rho}})$, $r^{\square} = z^1(G, \ad_{\bar{\rho}})$, we have surjections
+  \begin{equation*}
+    \mathcal{O} \llbracket X_1, \dotsc, X_r \rrbracket \rightarrow R_{\bar{\rho}}
+  \end{equation*}
+  and
+  \begin{equation*}
+    \mathcal{O} \llbracket X_1, \dotsc, X_{r^{\square}} \rrbracket \rightarrow R_{\bar{\rho}}^{\square},
+  \end{equation*}
+  and $r$, $r^{\square}$ are optimal.
+\end{corollary}
+What's the relevance of $H^2$?  Let $\varphi : A^1 \rightarrow A$ be a small extension, and let $I := \ker(\varphi)$.
+\begin{question}
+  Is the map $D_{\bar{\rho}}(A') \rightarrow D_{\bar{\rho}}(A)$ surjective?
+\end{question}
+Let $\rho_A : G \rightarrow \mathrm{GL}_n(A)$ be as in the right hand side.
+\begin{fact}
+  There exists a set-theoretic lift $\rho ' : G \rightarrow \mathrm{GL}_n(A')$ of $\rho_A$ (i.e., $\varphi \circ \rho ' = \rho_A$).
+\end{fact}
+\begin{definition}
+  Set
+  \begin{equation*}
+    c_{\rho '} : G \times G \rightarrow \ad_{\bar{\rho}} \otimes_{\mathbb{F}} I,
+  \end{equation*}
+  \begin{equation*}
+    (g, h) \mapsto(\rho '(g, h) \cdot \rho '(h)^{-1} \cdot \rho '(g)^{-1}),
+  \end{equation*}
+  where this last quantity lies in $1 + M_{n \times n}(I)$.  We note that $(\ad_{\bar{\rho}} \otimes_{\mathbb{F}} I) \cong M_{n \times n}(I)$.  To get back, subtract $1$.
+\end{definition}
+\begin{proposition}
+  \begin{enumerate}[(a)]
+  \item\label{enumerate:cq6sknji3b} $c_{\rho '} \in Z^2(G, \ad_{\bar{\rho}} \otimes I)$, $\mathrm{Obs}(\rho_A, \varphi) =[ c_{\rho '} ] \in H^2(G, \ad_{\bar{\rho}} \otimes I)$ is independent of $\rho '$!
+  \item\label{enumerate:cq6sknjiey} We have $\mathrm{Obs}(\rho_A, \varphi) = 0$ if and only if there exists $\rho_{A'} \in D_{\bar{\rho}}(A')$ lifting $\rho$.
+  \end{enumerate}
+\end{proposition}
+We give a proof of \eqref{enumerate:cq6sknjiey}.  If $c_{\rho '} = \partial^2 f$ for some $f : G \rightarrow \ad_{\bar{\rho}} \otimes I$, then you can check that if you take your $\rho '$ and multiply it on the left with $1 + f$, we get an element $(1 + f) \rho ' : G \rightarrow \mathrm{GL}_n(A')$ that is a lift of $\rho_A$ (to $D_{\bar{\rho}}^{\square}(A')$).
+
+Mazur observed that you can do something with this obstruction theory: you can prove something more about these projections on the top line here.  But you have a very coarse control over the kernel ideal $I$ of the surjection.
+\begin{theorem}
+  Consider $\mathcal{R}  = \mathcal{O} \llbracket  X_1, \dotsc, X_r \rrbracket$ projecting via something called $\pi$ to $R_{\bar{\rho}}$ ($r = h'(G, \ad_{\bar{\rho}} 1)$), with kernel $J$.  Then
+  \begin{equation*}
+    \mathcal{R} / \mathfrak{m}_{\mathcal{R}} J \rightarrow R_{\bar{\rho}}
+  \end{equation*}
+  is small with kernel $J / \mathfrak{m}_{\mathcal{R}} J$, and
+  \begin{equation*}
+    \mathrm{o b} : \Hom(J / \mathfrak{m}_R J, \mathbb{F}) \cong H^2(G, \ad_{\bar{\rho}}),
+  \end{equation*}
+  \begin{equation*}
+    \psi \mapsto(1 \otimes \psi) \operatorname{o b s} \left( \rho_{\bar{\rho}}^{\mathrm{univ}}, \pi \right)
+  \end{equation*}
+  is injective!
+\end{theorem}
+
+\begin{corollary}
+  With $r, r^{\square}$ from above and $s = h^2(G, \ad_{\bar{\rho}})$ have presentations $R_{\bar{\rho}} := \llbracket x_1, \dotsc, x_{r^{\square}} \rrbracket /(f_1, \dotsc, f_s)$.
+\end{corollary}
+\begin{definition}[ad hoc]
+  The \emph{expected cohomological dimension} is
+  \begin{equation*}
+    \operatorname{e c d} \operatorname{i m}(\bar{\rho}) = z^1(G, \ad_{\bar{\rho}}) - h^2(G, \ad_{\bar{\rho}}) = h^2 - \sum_{i = 0}^2(-1)^{i} h^i(G, \ad \bar{\rho}). 
+  \end{equation*}
+\end{definition}
+\begin{proposition}
+  If
+  \begin{equation}\label{eq:cq6skreori}
+    \dim_{\mathrm{\operatorname{s}}} R \frac{\square}{\rho} / \pi \leq \mathrm{ec dim(\bar{\rho})},
+  \end{equation}
+  then $R_{\bar{\rho}}^{\square}$ is $0$-flat, of relative dimension $\operatorname{e c dim}(\bar{\rho})$ over $\mathcal{O}$, and a complete intersection.
+\end{proposition}
+\begin{example}
+  \begin{enumerate}[(a)]
+  \item $G = G_F$, where $F \supseteq \mathbb{Q}_{\ell}$ is finite and $\ell \neq p$.  Then \eqref{eq:cq6skreori} holds.  $\mathrm{e c dim} = 4^2$.
+  \item $G = G_F$, $F \supseteq \mathbb{Q}_p$.  Then \eqref{eq:cq6skreori} holds and each $\operatorname{ec dim} = n^2(1 +[F : \mathbb{Q}_p])$.
+  \item If $G = G_{K, S}$, then we have many examples for \eqref{eq:cq6skreori} if $k$ is not totally real, $k$ is totaly odd, and $\bar{\rho}$ is totally odd, and $n \geq 2$.  (Have to be careful.  Use that $S \supseteq S_\infty \cup S_p sup \dotsb$)
+  \item We have
+    \begin{equation*}
+      \dim_{\mathrm{Krull}} R_{\bar{\rho}}^n / \pi \leq \operatorname{ecdim}(\bar{\rho})
+    \end{equation*}
+    for $G = G_{K, S}$, with $G$ and $G_{K, S}$, if and only if $\delta = 0$.
+  \end{enumerate}
+\end{example}
+\begin{remark}
+  To avoid the reliance on $\delta = 0$ (often) by fixing a lift $\mu : G \rightarrow \mathcal{O}^\times$.
+\end{remark}
+
+\emph{Mazur's vision}: for $v \in S$, define ``geometric'' subfunctors $D_v^{\square} \subseteq D_{\bar{\rho} / G_{K, v}}^{\square}$ and the pullback in $(\underline{S} =(\bar{\rho}, S,(D_v^0)_{v \in S}))$ to get a diagram involving, for $G = G_{k , S}$,
+\begin{equation*}
+  D_{\bar{\rho}}^{\square} \rightarrow \sqcup_{v \in S} D_{\bar{\rho} \mid G_v}^{\square}
+\end{equation*}
+and
+\begin{equation*}
+  D_{\underline{S}}^{\square} \rightarrow \sqcup_{v \in S} D_v^{\square}.
+\end{equation*}
+
+Removing frames at right point, we get a
+\begin{equation*}
+  R_{\mathcal{I}} \twoheadleftarrow R_{\bar{\rho}}.
+\end{equation*}
+
+\begin{question}
+  Can we choose $\mathcal{I}$ in such a way that some natural map
+  \begin{equation*}
+    R_{\rho} \rightarrow \mathbb{T}_k(N, \eps, \mathcal{O})_{\mathfrak{m}_{\bar{\rho}}}
+  \end{equation*}
+  is an isomorphism?
+\end{question}
+\part{Chris Skinner's lectures}
 \textbf{Integral representations, Euler systems, and multiplicity one}.
 
 My choice of these topics is motivated by my interest in special values of $L$-functions, and in particular problems like the BSD conjecture.  We'll focus on some representation theory, that plays a role in both the analytic and the algebraic sides of these problems.  You can possibly view this as a bridge between the talks at the start and at the end of the week.
