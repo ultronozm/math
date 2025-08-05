@@ -205,7 +205,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-05 09:45:47
+2025-08-05 10:08:20
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -1205,9 +1205,9 @@ class="math display">\[x_{c}(\mathfrak{a}) := \left[ \mathbb{C} /
 \right] \in X_0(N)(K[c]).\]</span> The action of <span
 class="math inline">\(\mathop{\mathrm{Gal}}(K[c] / K)\)</span> on <span
 class="math inline">\(X_0(N)(K[c])\)</span> on these points is described
-by the relation <span class="math display">\[\sigma_{\mathfrak{b}}
-x_c(\mathfrak{a}) = x_c(\mathfrak{b}^{-1} \mathfrak{a}).\]</span> This
-is the content of CM theory.</p>
+by the relation <span id="eq:cq6sjz7g2n" class="math display">\[\label{eq:cq6sjz7g2n}\tag{8}
+  \sigma_{\mathfrak{b}} x_c(\mathfrak{a}) = x_c(\mathfrak{b}^{-1}
+\mathfrak{a}).\]</span> This is the content of CM theory.</p>
 <p>Now we’re going to look at the divisors <span
 class="math display">\[y_c(\mathfrak{a}) := x_c(\mathfrak{a}) -
 \infty\]</span> obtained by subtracting off the cusp at infinity, which
@@ -1293,7 +1293,122 @@ Swinnerton-Dyer conjecture. This was a spectacular application by
 Kolyvagin that got people interested in Euler systems.</p>
 <p>You can also run Kolyvagin’s argument in another way. You can look at
 the primes <span class="math inline">\(\ell\)</span> that are
-<em>split</em> in <span class="math inline">\(K\)</span>.</p>
+<em>split</em> in <span class="math inline">\(K\)</span>, say <span
+class="math inline">\(\ell = \lambda \bar{\lambda}\)</span>. Then <span
+class="math display">\[\frac{(\mathcal{O}_K \otimes
+\mathbb{Z}_{\ell})^\times}{((\mathbb{Z} + \ell \mathcal{O}_K) \otimes
+\mathbb{Z}_{\ell})^\times}
+  =
+  \frac{\mathcal{O}_\lambda^\times \times
+\mathcal{O}_{\bar{\lambda}}^\times}{\{(a, b) : a \equiv
+b(\ell)\}},\]</span> where the numerator is really <span
+class="math inline">\(\mathbb{Z}_{\ell}^\times \times
+\mathbb{Z}_{\ell}^\times\)</span>. Arguing as above, we’re no longer
+summing over all the lattices, but instead we miss two of them: <span
+class="math inline">\(\lambda \mathcal{O}_c\)</span> and <span
+class="math inline">\(\bar{\lambda} \mathcal{O}_c\)</span>. One obtains
+<span class="math display">\[\sum_{\mathfrak{b}} (y_{c
+\ell}(\mathfrak{b}^{-1}) - \infty )
+  =
+  T_{\ell}(y_c - \infty)
+  - (\mathrm{Fr}_\lambda^{-1} + \mathrm{Fr}_{\bar{\lambda}}^{-1})(y_c -
+\infty).\]</span> (The inverses come from <a href="#eq:cq6sjz7g2n"
+data-reference-type="eqref"
+data-reference="eq:cq6sjz7g2n">\((8)\)</a>.)</p>
+<p>Work of the speaker and Jetchev and Wan used the split primes to do
+something like what Kolyvagin did.</p>
+<p>Let <span class="math inline">\(\mathfrak{c} = \lambda_1 \dotsb
+\lambda_r\)</span> be a squarefree product of ideals <span
+class="math inline">\(\lambda_i \nmid N D_K\)</span> of degree <span
+class="math inline">\(1\)</span> in <span
+class="math inline">\(K\)</span>, with <span
+class="math inline">\(\lambda_i =\overline{\lambda_i}\)</span>. Let
+<span class="math inline">\(c\)</span> be the integer such that <span
+class="math inline">\((c) = \mathfrak{c} \cap \mathbb{Z}\)</span>. Let
+<span class="math inline">\(z(\mathfrak{c})\)</span> be basically the
+class that we were just analyzing, but let’s modify it slightly: <span id="eq:cq6sj3hg5b" class="math display">\[\label{eq:cq6sj3hg5b}\tag{9}
+  z(\mathfrak{c}) := \prod_{i = 1}^r \left( - \mathrm{Fr}_{\lambda_i}
+\right) z_c \in H^1(K[c], T_p J_0(N)),\]</span> where <span
+class="math inline">\(T_p J_0(N) = \varprojlim J_0(N)[p^m]\)</span>. We
+obtain now, for <span class="math inline">\(\lambda \mid
+\ell\)</span>,</p>
+<p><span id="eq:cq6sj0iiz3" class="math display">\[\label{eq:cq6sj0iiz3}\tag{10}
+  \operatorname{cores}_{K[c \ell] / K[c]} z(\mathfrak{c} \lambda) =
+\left( \mathrm{Fr}_\lambda^{- 2} - T_{\ell} \mathrm{Fr}_\lambda^{-1} + 1
+\right) z(\mathfrak{c}).\]</span> Let’s think about this last expression
+in terms of the Hecke polynomial <span class="math inline">\(X^2 -
+T_{\ell} X + \ell\)</span>. You can see that if we evaluate this at
+<span class="math inline">\(\lambda^{-1}\)</span>, we almost get the
+quantity appearing on the right hand side of <a href="#eq:cq6sj0iiz3"
+data-reference-type="eqref"
+data-reference="eq:cq6sj0iiz3">\((10)\)</a>: <span
+class="math display">\[(X^2 - T_{\ell} X + \ell) \mid_{X =
+\mathrm{Fr}_\lambda^{-1}}.\]</span> They are congruent modulo <span
+class="math inline">\(\ell - 1\)</span>, which is <span
+class="math inline">\(N(\lambda) - 1\)</span>. When working with Euler
+systems, it’s acceptable to work with congruences modulo <span
+class="math inline">\(\ell - 1\)</span>. There’s a general way to
+massage those classes so that they give the relations on the nose, but
+there’s no need to do so. Later, we’ll pose a question that will suggest
+that this comparison is a feature of some integral representation
+theory, once we see where these norm relations come from in those terms.
+In any event, once you have these relations, you can take these objects
+and run Kolyvagin’s argument and reprove Kolyvagin’s theorem.</p>
+<p>We next want to explain how to set up the construction of the
+Kolyvagin system in such a way that some representation theory naturally
+shows up, with this Galois relation <a href="#eq:cq6sj0iiz3"
+data-reference-type="eqref"
+data-reference="eq:cq6sj0iiz3">\((10)\)</a> showing up as
+something like a Hecke module, which in turn is closely related to
+representation theory. The argument we’re going to give generalizes
+quite significantly, for instance, it produces an Euler system in the
+sense of these split primes for the diagonal cycles coming from the
+arithmetic Gan–Gross–Prasad settings, and one can generalize Kolyvagin’s
+statement to a rank one statement about Selmer groups for certain
+Rankin–Selberg convolutions of <span class="math inline">\(\mathrm{GL}_n
+\times\mathrm{GL}_{n + 1}\)</span>. With Euler systems, we’re trying to
+bound the orders of Selmer groups of elliptic curves, something like
+<span class="math inline">\(H^1_f(\mathbb{Q}, E[p^N])\)</span>, where
+the subscript <span class="math inline">\(f\)</span> denotes some sort
+of Block–Kato condition coming from the geometry of the elliptic curve.
+One way to bound a Selmer group like this is to use global duality to
+give classes in the arithmetic dual, i.e., <span
+class="math inline">\(H_f^1(\mathbb{Q}, E[p^N]^\ast )\)</span>, where
+<span id="eq:cq6sj3fh1h" class="math display">\[\label{eq:cq6sj3fh1h}\tag{11}
+  E[p^N]^\ast = \mathop{\mathrm{Hom}}(E[p^N], \mathbb{Q}_p /
+\mathbb{Z}_p(1)).\]</span> Here one wants to allow ramification at good
+primes <span class="math inline">\(\ell\)</span>, chosen to capture the
+orders of classes that we want to control. One can then reduce to
+looking at <span id="eq:cq6sj3eqsx" class="math display">\[\label{eq:cq6sj3eqsx}\tag{12}
+  H^1_{\mathrm{ur}}(\mathbb{Q}_{\ell}, E[p^N]).\]</span> The local
+duality relates this to <span class="math inline">\(H^1(I_{\ell},
+E[p^N]^\ast)^{G_{\mathbb{Q}_{\ell}}}\)</span>. So if we can produce a
+class in the latter that is highly ramified (of large order), then we
+can force the class in <a href="#eq:cq6sj3eqsx"
+data-reference-type="eqref"
+data-reference="eq:cq6sj3eqsx">\((12)\)</a> to have small order.
+That, in a nutshell, is how Selmer groups are bounded. The whole trick
+is to produce ramified classes in <a href="#eq:cq6sj3fh1h"
+data-reference-type="eqref"
+data-reference="eq:cq6sj3fh1h">\((11)\)</a> that you can measure
+the size of in some way. Now, producing things that are provably
+ramified is a hard problem. There are few cases where we can do this.
+It’s much easier to check that something is unramified (think of the
+criterion of Néron–Ogg–Shafarevich or something like that). What
+Kolyvagin’s argument does is, he says well, let’s start off with classes
+<a href="#eq:cq6sj3hg5b" data-reference-type="eqref"
+data-reference="eq:cq6sj3hg5b">\((9)\)</a> that are over
+ramified extensions. If they are truly over that ramified extension and
+not, say, defined over some extension with less ramification, then
+Kolyvagin can use that to produce ramified classes, and it is exactly
+these relations <a href="#eq:cq6sj0iiz3" data-reference-type="eqref"
+data-reference="eq:cq6sj0iiz3">\((10)\)</a> that allow him to
+understand how ramified these classes actually are. These norm relations
+are thus crucial for producing ramified classes with controlled or
+measurable ramification. That’s sort of the algebra background for why
+one is interested in Euler systems.</p>
+<p>Tomorrow, we’ll describe a more representation-theoretic picture that
+produces these Kolyvagin classes.</p>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
   toggle.addEventListener("click", function(e) {
