@@ -205,7 +205,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-05 10:49:30
+2025-08-05 11:27:17
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -665,8 +665,9 @@ class="math inline">\({\mathop{\mathrm{Hom}}}_{\mathcal{O}}(\mathbb{T}_{\mathcal
 \mathcal{O})\)</span>, where we choose <span
 class="math inline">\(E\)</span> large enough with <span
 class="math inline">\(\mathbb{C} \supseteq \bar{\mathbb{Q}} \subseteq
-\bar{\mathbb{Q}}_p \supseteq E \supseteq
-\mathcal{O}\)</span>.</em></p></li>
+\bar{\mathbb{Q}}_p \supseteq E \supseteq \mathcal{O}\)</span>, where
+<span class="math inline">\(\mathcal{O}\)</span> always denotes the ring
+of integers of <span class="math inline">\(E\)</span>.</em></p></li>
 </ul>
 <p><em>We also have a bijection between</em></p>
 <ul>
@@ -691,10 +692,239 @@ congruent to <span class="math inline">\(\bar{\rho}\)</span>.</em></p>
 </div>
 <div class="theorem">
 <p><strong>Theorem 10</strong> (Carayol, Serre). <em>Assume that <span
-class="math inline">\(\bar{\rho}\)</span> is absolutely
-irreducible.</em></p>
+class="math inline">\(\bar{\rho}\)</span> is absolutely irreducible.
+Then there exists a continuous representation <span id="eq:cq6sj6h73f" class="math display">\[\label{eq:cq6sj6h73f}\tag{1}
+    \rho_{\bar{\rho}}^{\mathrm{mod}} : G_{\mathbb{Q}, N \cup \{p,
+\infty\}} \rightarrow \mathrm{GL}_2 \left((\mathbb{T}_0
+&#39;)_{\mathfrak{m}_{\bar{\rho}}} \right)\]</span> “built” from the
+<span class="math inline">\(\rho_f\)</span>, for <span
+class="math inline">\(f \in S_k(N, \bar{\mathbb{Z}}_p)\)</span>, with
+<span class="math inline">\(\rho_f \equiv \bar{\rho}\)</span> modulo
+<span
+class="math inline">\(\mathfrak{m}_{\bar{\mathbb{Z}}_p}\)</span>.</em></p>
 </div>
-<p>&lt;++&gt;</p>
+<p>(One can write down a characteristic polynomial, similar to the
+above.) Maybe one should also say that <span id="eq:cq6sj6d3yn" class="math display">\[\label{eq:cq6sj6d3yn}\tag{2}
+  \left( \mathbb{T} &#39;_{\mathcal{O}}
+\right)_{\mathfrak{m}_{\bar{\rho}}} \subseteq \prod_{f, \rho_f \equiv
+\bar{\rho}} \mathcal{O},\]</span> where the left hand side is generated
+by all the <span class="math display">\[\left\{
+\mathop{\mathrm{trace}}\rho_f({\mathop{\mathrm{Frob}}}_{\ell}) : \rho_f
+\equiv \bar{\rho}, \ell \nmid N p \right\}.\]</span> Now, is the
+inclusion <a href="#eq:cq6sj6d3yn" data-reference-type="eqref"
+data-reference="eq:cq6sj6d3yn">\((2)\)</a> strict? If you take
+twice the same form, then you get twice the same value.</p>
+<p><strong>Vision of Mazur</strong>? Can <span
+class="math inline">\(\rho_{\bar{\rho}}^{\mathrm{mod}}\)</span> be
+characterized purely in terms of “Galois” theory, maybe at least once
+<span class="math inline">\(\bar{\rho}\)</span> is given? You need to
+start somewhere. Start with the mod <span
+class="math inline">\(p\)</span> representation. Then there’s a sort of
+<span class="math inline">\(p\)</span>-adic representation <a
+href="#eq:cq6sj6h73f" data-reference-type="eqref"
+data-reference="eq:cq6sj6h73f">\((1)\)</a> that you get here,
+which sees all forms congruent to <span
+class="math inline">\(\bar{\rho}\)</span>. Can you see this sort of
+thing from a purely Galois-theoretic perspective? This might have been
+the starting point for the study of deformations of Galois
+representations. Mazur maybe had one example in mind: Hida had just
+written down his Hida families, which are much bigger than things of
+fixed weight and level.</p>
+<p>Let’s now turn to <em>deformation functors</em>. In many ways, what
+we’re doing now at the beginning is very formal, and maybe in the next
+lecture it gets a bit more Galois-theoretic. Let <span
+class="math inline">\(G\)</span> be a profinite group – think of some
+global Galois group. Let <span class="math inline">\(E \supseteq
+\mathcal{O} \rightarrow \mathbb{F}\)</span> be a local field, with
+uniformizer <span class="math inline">\(\pi\)</span> and residue field
+cardinality <span class="math inline">\(q\)</span>. In what natural
+category do these <span
+class="math inline">\(\mathcal{O}\)</span>-algebras <span
+class="math inline">\(\mathbb{T}_{\mathcal{O}}&#39;\)</span> live?</p>
+<div class="definition">
+<p><strong>Definition 11</strong>. <span class="math inline">\(\mathrm{C
+N L }_{\mathcal{O}}\)</span> is the category of complete noetherian
+<span class="math inline">\(\mathcal{O}\)</span>-algebras <span
+class="math inline">\((A, \mathfrak{m}_{A})\)</span> with residue field
+<span class="math inline">\(\mathbb{F}\)</span> and with local
+homomorphisms.</p>
+</div>
+<p>Typical rings: <span class="math inline">\(\mathcal{O} \llbracket
+X_1, \dotsc, X_r\rrbracket / I\)</span>. Some structure theorem tells
+you that this is all you can get. There is a finite subcategory <span
+class="math display">\[\mathrm{Ar}_{\mathcal{O}} \subseteq \mathrm{C N
+L}_{\mathcal{O}}\]</span> consisting of Artin objects.</p>
+<div class="question">
+<p><strong>Question 12</strong>. For <span
+class="math inline">\(\bar{\rho} : G \rightarrow
+\mathrm{GL}_n(\mathbb{F})\)</span>, when is the functor <span
+class="math display">\[D_{\bar{\rho}} : \mathrm{C N L}_{\mathcal{O}}
+\rightarrow \mathrm{Set}\]</span> <span class="math display">\[(A,
+\mathfrak{m}_A) \mapsto \left\{ \rho_A : G \rightarrow \mathrm{GL}_n(A)
+\mid \rho \mod{ \mathfrak{m}_A } \equiv \bar{\rho}\right\} /
+\sim\]</span> representable by <span
+class="math inline">\(R_{\bar{\rho}} \in \mathrm{C N
+L}_{\mathcal{O}}\)</span>?</p>
+</div>
+<p>To fill in some terminology:</p>
+<div class="definition">
+<p><strong>Definition 13</strong>. </p>
+<ol type="a">
+<li><p>For <span class="math inline">\(A \in \mathrm{C N
+L}_{\mathcal{O}}\)</span>, set <span class="math display">\[F_A :=
+{\mathop{\mathrm{Hom}}}_{\mathrm{C N L}_{\mathcal{O}}}(A, \bullet) :
+\mathrm{C N L}_{\mathcal{O}} \rightarrow \mathrm{Set}.\]</span></p></li>
+<li><p>Say that a functor <span class="math inline">\(F : \mathrm{C N
+L}_{\mathcal{O}} \rightarrow \mathrm{Set}\)</span> is</p>
+<ol type="i">
+<li><p><em>representable</em> if there exists <span
+class="math inline">\(A \in \mathrm{C N L }_{\mathcal{O}}\)</span> such
+that <span class="math inline">\(F \cong F_A\)</span>, and</p></li>
+<li><p><em>continuous</em> if for all <span class="math inline">\((A,
+\mathfrak{m}_A) \in \mathrm{C N L}_{\mathcal{O}}\)</span>, the map <span
+class="math inline">\(F(A) \rightarrow \lim_{n} F(A /
+\mathfrak{m}_A^n)\)</span> is an isomorphism.</p></li>
+</ol></li>
+</ol>
+</div>
+<div class="exercise">
+<p><strong>Exercise 2</strong>. </p>
+<ol type="a">
+<li><p>The fiber product of the diagram <span
+class="math inline">\(\Delta\)</span> given by <span
+class="math display">\[\begin{CD}
+        @. B \\
+        @. @V{\psi}VV \\
+        A @&gt;{\varphi}&gt;&gt; C
+      \end{CD}\]</span> inside <span class="math inline">\(\mathrm{A
+r}_{\mathcal{O}}\)</span> is <span class="math display">\[\left\{(a, b)
+\in A \times B \mid \varphi(a) \equiv \psi(b)
+\right\}.\]</span></p></li>
+<li><p><span class="math inline">\(\mathrm{C N L}_{\mathcal{O}}\)</span>
+"has no fiber products".</p></li>
+</ol>
+</div>
+<div class="exercise">
+<p><strong>Exercise 3</strong>. Suppose <span class="math inline">\(F =
+F_A\)</span> for <span class="math inline">\(A \in \mathrm{C N
+L}_{\mathcal{O}}\)</span>. Then</p>
+<ol type="a">
+<li><p><span class="math inline">\(F(\mathbb{F}) = \{\ast\}\)</span>,
+and <span class="math inline">\(F\)</span> is continuous.</p></li>
+<li><p>The Mayer–Vietoris property (MV) holds for <span
+class="math inline">\(F\)</span>, i.e., for all diagrams <span
+class="math inline">\(\Delta\)</span>, the induced map <span
+class="math inline">\((\ast)_\Delta\)</span> is bijective, where <span
+class="math display">\[(\ast)_\Delta : F(A \times_{C} B) \rightarrow
+F(A) \times_{F(C)} F(B),\]</span> where on the right hand side, we take
+the fiber product in <span
+class="math inline">\(\mathrm{Set}\)</span>.</p></li>
+</ol>
+</div>
+<div class="notation">
+<p><strong>Notation 14</strong>. </p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{F}[\varepsilon] :=
+\mathbb{F}[X] /(X^2)\)</span>.</p></li>
+<li><p>Call <span class="math inline">\(\varphi : A \twoheadrightarrow A
+&#39;\)</span> in <span
+class="math inline">\(\mathrm{CNL}_{\mathcal{O}}\)</span> <em>small</em>
+if <span class="math inline">\(\mathfrak{m}_{A&#39;}
+\cdot(\ker(\varphi)) = 0\)</span>. (e.g., <span
+class="math inline">\(\mathbb{F}[\varepsilon] \rightarrow
+\mathbb{F}\)</span>)</p></li>
+<li><p>For <span class="math inline">\(F : \mathrm{C N L}_{\mathcal{O}}
+\rightarrow \mathrm{Set}\)</span>, define the <span
+class="math inline">\(T_F := F(\mathbb{F}[\varepsilon])\)</span>, the
+<em>tangent space</em> of <span
+class="math inline">\(F\)</span>.</p></li>
+</ul>
+</div>
+<p>You can translate this back into rings. Here are some more
+exercises:</p>
+<div class="exercise">
+<p><strong>Exercise 4</strong>. If the functor <span
+class="math inline">\(F\)</span> satisfies</p>
+<ul>
+<li><p><span class="math inline">\(F(\mathbb{F}) = \{\ast\}\)</span>,
+and</p></li>
+<li><p><span class="math inline">\((\ast)_{T_F} :
+F(\mathbb{F}[\varepsilon] \times_{\mathbb{F}} \mathbb{F}[\varepsilon])
+\rightarrow T_F \times T_F\)</span> is bijective,</p></li>
+</ul>
+<p>then <span class="math inline">\(T_F\)</span> is an <span
+class="math inline">\(\mathbb{F}\)</span>-vector space.</p>
+</div>
+<div class="example">
+<p><strong>Example 15</strong>. For <span class="math inline">\(F =
+F_A\)</span>, we have <span class="math display">\[T_F =
+{\mathop{\mathrm{Hom}}}_{\mathrm{C N L}_{\mathcal{O}}}(A,
+\mathbb{F}[\varepsilon]) = {\mathop{\mathrm{Hom}}}_{\mathbb{F} } \left(
+\mathfrak{m}_A /(\mathfrak{m}_{A}^2 , \pi), \mathbb{F} \right) =:
+T_A.\]</span></p>
+</div>
+<div class="exercise">
+<p><strong>Exercise 5</strong>. For <span class="math inline">\(\varphi
+: A \rightarrow B\)</span> in <span class="math inline">\(\mathrm{C N
+L}_{\mathcal{O}}\)</span>, the map <span
+class="math inline">\(\varphi\)</span> is surjective if and only if
+<span class="math inline">\(T_\varphi : T_B \rightarrow T_A\)</span> is
+injective.</p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 16</strong> (Grothendieck). <em>Suppose <span
+class="math inline">\(F : \mathrm{C N L}_{\mathcal{O}} \rightarrow
+\mathrm{Set}\)</span> is continuous, satisfies <span
+class="math inline">\(F(\mathbb{F}) = \{\ast\}\)</span>, the MV-property
+holds, and <span class="math inline">\(\dim_{\mathbb{F}} T_F &lt;
+\infty\)</span>. Then <span class="math inline">\(F\)</span> is
+representable.</em></p>
+</div>
+<div class="remark">
+<p><strong>Remark 17</strong>. For this last theorem, there are
+simplifications by Schlessinger, <em>Functors of Artin rings</em>.
+Schlessinger realized that these axioms of Grothendieck may be hard to
+verify in concrete situations, so he gave a simple (but somewhat long)
+list of axioms to verify. See Mazur ’87, and Gouvêa’s survey.</p>
+</div>
+<p>Let’s now turn to <em>Galois deformations functors</em>. We have our
+usual <span class="math display">\[\bar{\rho} : G \rightarrow
+\mathrm{GL}_n(\mathbb{F}).\]</span> We can do something about the
+conjugation.</p>
+<p><span class="math display">\[\Gamma_n(A) := \ker \left(
+\mathrm{GL}_n(A) \rightarrow \mathrm{GL}_n(\mathbb{F}) \right).\]</span>
+We define <span class="math display">\[D_{\bar{\rho}}^{\square}, \,
+D_{\bar{\rho}} : \mathrm{C N L}_{\mathcal{O}} \rightarrow
+\mathrm{Set},\]</span> <span class="math display">\[(A, \mathfrak{m}_A)
+\mapsto \left\{ \rho_A : G \rightarrow \mathrm{GL}_n(A) \mid \rho_A
+\equiv \bar{\rho} \mod{\mathfrak{m}_A} \right\}\]</span> (“lifting
+functor” or “framed deformation functor”), and where for <span
+class="math inline">\(D_{\bar{\rho}}\)</span>, we take things modulo
+<span class="math inline">\(\Gamma_n(A)\)</span>-conjugacy.</p>
+<div class="theorem">
+<p><strong>Theorem 18</strong>. <em>Suppose <span
+class="math inline">\(\Phi_\rho\)</span> holds, i.e., <span
+class="math inline">\(\# \mathop{\mathrm{Hom}}(G, \mathbb{F}_p) &lt;
+\infty\)</span>. Then:</em></p>
+<ol type="a">
+<li><p><em><span class="math inline">\(D_{\bar{\rho}}\)</span> always
+has a “hull”.</em></p></li>
+<li><p><em>If <span
+class="math inline">\({\mathop{\mathrm{End}}}_G(\bar{\rho}) =
+\mathbb{F}\)</span>, then <span
+class="math inline">\(D_{\bar{\rho}}\)</span> is representable (uses
+Schlessinger). This gives rise to <span
+class="math inline">\(R_{\bar{\rho}}\)</span>.</em></p></li>
+<li><p><em><span id="enumerate:cq6skams6j"
+label="enumerate:cq6skams6j"></span> (Always) <span
+class="math inline">\(D_{\bar{\rho}}^{\square}\)</span> is representable
+(Kisin, Magid–Lubokliy). Gives rise to <span
+class="math inline">\(R_{\bar{\rho}}^{\square}\)</span>.</em></p></li>
+</ol>
+</div>
+<p>Here <a href="#enumerate:cq6skams6j" data-reference-type="eqref"
+data-reference="enumerate:cq6skams6j">\((c)\)</a> is an
+exercise you can do.</p>
 <h1 id="chris-skinners-lectures">Chris Skinner’s lectures</h1>
 <p><strong>Integral representations, Euler systems, and multiplicity
 one</strong>.</p>
@@ -779,9 +1009,9 @@ class="math inline">\(\dim {\mathop{\mathrm{Hom}}}_H(\pi, \sigma) \leq
 latter will be a useful framework for us.</p>
 <p>Let’s now turn to integral representations and give some examples.
 The first integral representation we see is that of the Riemann zeta
-function. Let <span id="eq:cq6r3qe33m" class="math display">\[\label{eq:cq6r3qe33m}\tag{1}
+function. Let <span id="eq:cq6r3qe33m" class="math display">\[\label{eq:cq6r3qe33m}\tag{3}
   \psi(t) = \sum_{n = 1}^\infty e^{- \pi n^2 t}.\]</span> Then for <span
-class="math inline">\(\Re s\)</span> sufficiently large, <span id="eq:cq6r3p0tmc" class="math display">\[\label{eq:cq6r3p0tmc}\tag{2}
+class="math inline">\(\Re s\)</span> sufficiently large, <span id="eq:cq6r3p0tmc" class="math display">\[\label{eq:cq6r3p0tmc}\tag{4}
   \int_0^\infty \psi(t) t^{\frac{1}{2} s - 1} \, d t
   = \pi^{- s/2} \Gamma(\tfrac{s}{2}) \zeta(s).\]</span> We see this by
 bringing the summation outside the integral. This gives a Mellin
@@ -792,7 +1022,7 @@ class="math display">\[\theta(\tau) = \sum_{n \in \mathbb{Z}} e^{- 2 \pi
 i n^2 \tau}.\]</span> This is an automorphic form, and we have <span
 class="math display">\[(\tfrac{1}{2}(\theta(i y) - 1)) = \psi(2
 y),\]</span> so <a href="#eq:cq6r3p0tmc" data-reference-type="eqref"
-data-reference="eq:cq6r3p0tmc">\((2)\)</a> is an integral
+data-reference="eq:cq6r3p0tmc">\((4)\)</a> is an integral
 representation for the Riemann zeta function coming from the symmetric
 space for a torus embedded inside <span
 class="math inline">\(\mathrm{GL}_2\)</span>. One has similar integral
@@ -835,7 +1065,7 @@ class="math display">\[\theta(x) = \sum_{\alpha \in k} \phi(\alpha
 x).\]</span> (It’s a good exercise to see how to specialize this to
 obtain something like <a href="#eq:cq6r3qe33m"
 data-reference-type="eqref"
-data-reference="eq:cq6r3qe33m">\((1)\)</a>.) We then form the
+data-reference="eq:cq6r3qe33m">\((3)\)</a>.) We then form the
 integral <span class="math display">\[\int_{k^\times \backslash
 \mathbb{A}_k^\times} \chi(x) \lvert x \rvert^s \theta(x) \,d^\times
 x.\]</span> These integrals converge absolutely for <span
@@ -846,7 +1076,7 @@ so that we don’t need to worry about the contribution of <span
 class="math inline">\(\alpha = 0\)</span>) <span
 class="math display">\[\int_{\mathbb{A}_k^\times} \chi(x) \lvert x
 \rvert^s \phi(x) \, d x.\]</span> If <span class="math inline">\(\phi =
-\prod \phi_v\)</span>, then these factor further as <span id="eq:cq6r32qpe5" class="math display">\[\label{eq:cq6r32qpe5}\tag{3}
+\prod \phi_v\)</span>, then these factor further as <span id="eq:cq6r32qpe5" class="math display">\[\label{eq:cq6r32qpe5}\tag{5}
   \prod \int_{k_v^\times} \chi_v(x) \lvert x \rvert_v^s \phi_v(x) \, d
 x.\]</span> One can show that the local integrals at non-archimedean
 places are rational functions, form the greatest common divisor of their
@@ -936,7 +1166,7 @@ in the Iwasawa–Tate setting, when all of the data is unramified (meaning
 and <span class="math inline">\(\phi_v\)</span> is the characteristic
 function of the ring of integers), then the local factor in <a
 href="#eq:cq6r32qpe5" data-reference-type="eqref"
-data-reference="eq:cq6r32qpe5">\((3)\)</a> is easy to compute,
+data-reference="eq:cq6r32qpe5">\((5)\)</a> is easy to compute,
 and gives a local zeta function. This is more complicated in the
 Godement–Jacquet setting, but still doable. Then in the ramified
 situations, there is the question of how to choose good vectors so that
@@ -952,15 +1182,15 @@ class="math inline">\(k_f \geq k_g\)</span>, say of level <span
 class="math inline">\(1\)</span>, i.e., on <span
 class="math inline">\(\mathrm{SL}_2(\mathbb{Z})\)</span>. Write <span
 class="math display">\[f = \sum a_n q^n, \qquad g = \sum b_n
-q^n.\]</span> We’ll consider the Dirichlet series <span id="eq:cq6r32z05j" class="math display">\[\label{eq:cq6r32z05j}\tag{4}
+q^n.\]</span> We’ll consider the Dirichlet series <span id="eq:cq6r32z05j" class="math display">\[\label{eq:cq6r32z05j}\tag{6}
   \sum_n \overline{a_n} b_n n^{- s}.\]</span> The integral
-representation is <span id="eq:cq6r32zyac" class="math display">\[\label{eq:cq6r32zyac}\tag{5}
+representation is <span id="eq:cq6r32zyac" class="math display">\[\label{eq:cq6r32zyac}\tag{7}
   \int_{\mathrm{SL}_2(\mathbb{Z}) \backslash \mathbb{H}}
 \overline{f(\tau)} g(\tau)
   E_k(\tau, s)
   y^{k_f}
   \, d \mathop{\mathrm{vol}}(\tau),\]</span> where <span
-class="math inline">\(k := k_f - k_g\)</span> and <span id="eq:cq6r320zyb" class="math display">\[\label{eq:cq6r320zyb}\tag{6}
+class="math inline">\(k := k_f - k_g\)</span> and <span id="eq:cq6r320zyb" class="math display">\[\label{eq:cq6r320zyb}\tag{8}
   E_k(\tau, s)
   := \sum_{\gamma \in
     \begin{pmatrix}
@@ -969,13 +1199,13 @@ class="math inline">\(k := k_f - k_g\)</span> and <span id="eq:cq6r320zyb" class
     \end{pmatrix} \backslash \mathrm{SL}_2(\mathbb{Z})}
   j(\gamma, \tau)^{- k} \lvert y(\gamma(\tau)) \rvert^k.\]</span> The
 way you get from <a href="#eq:cq6r32zyac" data-reference-type="eqref"
-data-reference="eq:cq6r32zyac">\((5)\)</a> to <a
+data-reference="eq:cq6r32zyac">\((7)\)</a> to <a
 href="#eq:cq6r32z05j" data-reference-type="eqref"
-data-reference="eq:cq6r32z05j">\((4)\)</a> is to unfold the sum
+data-reference="eq:cq6r32z05j">\((6)\)</a> is to unfold the sum
 in <a href="#eq:cq6r320zyb" data-reference-type="eqref"
-data-reference="eq:cq6r320zyb">\((6)\)</a> with the integral in
+data-reference="eq:cq6r320zyb">\((8)\)</a> with the integral in
 <a href="#eq:cq6r32zyac" data-reference-type="eqref"
-data-reference="eq:cq6r32zyac">\((5)\)</a>, which yields an
+data-reference="eq:cq6r32zyac">\((7)\)</a>, which yields an
 integral over <span class="math inline">\(\begin{pmatrix}
   \ast  &amp; \ast \\
   0     &amp; \ast \\
@@ -1125,7 +1355,7 @@ class="math display">\[\left\lvert \int \varphi(t) \chi(t) \,d^\times y
 case, which we can guess using the Rankin–Selberg unfolding that we saw
 earlier.</p>
 <div class="remark">
-<p><strong>Remark 11</strong>. This doesn’t make sense for general
+<p><strong>Remark 19</strong>. This doesn’t make sense for general
 arguments other than <span class="math inline">\(s =
 \tfrac{1}{2}\)</span>, except in some form when <span
 class="math inline">\(\varphi\)</span> is an Eisenstein series (“formula
@@ -1189,7 +1419,7 @@ class="math display">\[\operatorname{cores}_{\mathbb{Q}[\mu_{N \ell}] /
 )\)</span>, where the last map sends <span class="math inline">\(a
 \mapsto \sigma_\alpha(\zeta_{N \ell}) = \zeta_{N \ell}^a\)</span>.</p>
 <div class="remark">
-<p><strong>Remark 12</strong>. Given <span
+<p><strong>Remark 20</strong>. Given <span
 class="math inline">\(f\)</span> a holomorphic modular form, say of
 weight <span class="math inline">\(2\)</span>, we have <span
 class="math inline">\(\omega_f = f(\tau) \, d \tau \in H^0(X,
@@ -1205,13 +1435,13 @@ rational structure on the <span
 class="math inline">\(L\)</span>-values.</p>
 </div>
 <div class="remark">
-<p><strong>Remark 13</strong>. Let’s talk about the corestriction map in
+<p><strong>Remark 21</strong>. Let’s talk about the corestriction map in
 this setting. Abstractly, it’s a map <span
 class="math display">\[H^1(\mathbb{Q}[\mu_{N \ell}], \mathbb{Z}_p(1))
 \rightarrow H^1(\mathbb{Q}[\mu_N], \mathbb{Z}_p(1)).\]</span> How are we
 going to understand this? We could of course write it down at the level
 of cocycles, or something. But what’s it’s really doing is that if we
-restrict back, i.e., compose with the restriction map <span id="eq:cq6r4knx6r" class="math display">\[\label{eq:cq6r4knx6r}\tag{7}
+restrict back, i.e., compose with the restriction map <span id="eq:cq6r4knx6r" class="math display">\[\label{eq:cq6r4knx6r}\tag{9}
     H^1(\mathbb{Q}[\mu_N], \mathbb{Z}_p(1)) \rightarrow
 H^1(\mathbb{Q}[\mu_{N \ell}], \mathbb{Z}_p(1)),\]</span> then the
 composition is just the trace map, given by <span
@@ -1219,7 +1449,7 @@ class="math display">\[\sum_{\sigma \in
 \mathop{\mathrm{Gal}}(\mathbb{Q}[\mu_{N \ell}] / \mathbb{Q}[\mu_N])}
 \sigma.\]</span> The restriction map <a href="#eq:cq6r4knx6r"
 data-reference-type="eqref"
-data-reference="eq:cq6r4knx6r">\((7)\)</a> is actually an
+data-reference="eq:cq6r4knx6r">\((9)\)</a> is actually an
 injection because there are no Galois invariants of <span
 class="math inline">\(\mathbb{Z}_p(1)\)</span>.</p>
 <p>Also, we have the Kummer map <span
@@ -1331,7 +1561,7 @@ class="math display">\[x_{c}(\mathfrak{a}) := \left[ \mathbb{C} /
 \right] \in X_0(N)(K[c]).\]</span> The action of <span
 class="math inline">\(\mathop{\mathrm{Gal}}(K[c] / K)\)</span> on <span
 class="math inline">\(X_0(N)(K[c])\)</span> on these points is described
-by the relation <span id="eq:cq6sjz7g2n" class="math display">\[\label{eq:cq6sjz7g2n}\tag{8}
+by the relation <span id="eq:cq6sjz7g2n" class="math display">\[\label{eq:cq6sjz7g2n}\tag{10}
   \sigma_{\mathfrak{b}} x_c(\mathfrak{a}) = x_c(\mathfrak{b}^{-1}
 \mathfrak{a}).\]</span> This is the content of CM theory.</p>
 <p>Now we’re going to look at the divisors <span
@@ -1440,7 +1670,7 @@ class="math inline">\(\bar{\lambda} \mathcal{O}_c\)</span>. One obtains
   - (\mathrm{Fr}_\lambda^{-1} + \mathrm{Fr}_{\bar{\lambda}}^{-1})(y_c -
 \infty).\]</span> (The inverses come from <a href="#eq:cq6sjz7g2n"
 data-reference-type="eqref"
-data-reference="eq:cq6sjz7g2n">\((8)\)</a>.)</p>
+data-reference="eq:cq6sjz7g2n">\((10)\)</a>.)</p>
 <p>Work of the speaker and Jetchev and Wan used the split primes to do
 something like what Kolyvagin did.</p>
 <p>Let <span class="math inline">\(\mathfrak{c} = \lambda_1 \dotsb
@@ -1452,13 +1682,13 @@ class="math inline">\(\lambda_i =\overline{\lambda_i}\)</span>. Let
 <span class="math inline">\(c\)</span> be the integer such that <span
 class="math inline">\((c) = \mathfrak{c} \cap \mathbb{Z}\)</span>. Let
 <span class="math inline">\(z(\mathfrak{c})\)</span> be basically the
-class that we were just analyzing, but let’s modify it slightly: <span id="eq:cq6sj3hg5b" class="math display">\[\label{eq:cq6sj3hg5b}\tag{9}
+class that we were just analyzing, but let’s modify it slightly: <span id="eq:cq6sj3hg5b" class="math display">\[\label{eq:cq6sj3hg5b}\tag{11}
   z(\mathfrak{c}) := \prod_{i = 1}^r \left( - \mathrm{Fr}_{\lambda_i}
 \right) z_c \in H^1(K[c], T_p J_0(N)),\]</span> where <span
 class="math inline">\(T_p J_0(N) = \varprojlim J_0(N)[p^m]\)</span>. We
 obtain now, for <span class="math inline">\(\lambda \mid
 \ell\)</span>,</p>
-<p><span id="eq:cq6sj0iiz3" class="math display">\[\label{eq:cq6sj0iiz3}\tag{10}
+<p><span id="eq:cq6sj0iiz3" class="math display">\[\label{eq:cq6sj0iiz3}\tag{12}
   \operatorname{cores}_{K[c \ell] / K[c]} z(\mathfrak{c} \lambda) =
 \left( \mathrm{Fr}_\lambda^{- 2} - T_{\ell} \mathrm{Fr}_\lambda^{-1} + 1
 \right) z(\mathfrak{c}).\]</span> Let’s think about this last expression
@@ -1467,7 +1697,7 @@ T_{\ell} X + \ell\)</span>. You can see that if we evaluate this at
 <span class="math inline">\(\lambda^{-1}\)</span>, we almost get the
 quantity appearing on the right hand side of <a href="#eq:cq6sj0iiz3"
 data-reference-type="eqref"
-data-reference="eq:cq6sj0iiz3">\((10)\)</a>: <span
+data-reference="eq:cq6sj0iiz3">\((12)\)</a>: <span
 class="math display">\[(X^2 - T_{\ell} X + \ell) \mid_{X =
 \mathrm{Fr}_\lambda^{-1}}.\]</span> They are congruent modulo <span
 class="math inline">\(\ell - 1\)</span>, which is <span
@@ -1484,7 +1714,7 @@ and run Kolyvagin’s argument and reprove Kolyvagin’s theorem.</p>
 Kolyvagin system in such a way that some representation theory naturally
 shows up, with this Galois relation <a href="#eq:cq6sj0iiz3"
 data-reference-type="eqref"
-data-reference="eq:cq6sj0iiz3">\((10)\)</a> showing up as
+data-reference="eq:cq6sj0iiz3">\((12)\)</a> showing up as
 something like a Hecke module, which in turn is closely related to
 representation theory. The argument we’re going to give generalizes
 quite significantly, for instance, it produces an Euler system in the
@@ -1500,35 +1730,35 @@ of Block–Kato condition coming from the geometry of the elliptic curve.
 One way to bound a Selmer group like this is to use global duality to
 give classes in the arithmetic dual, i.e., <span
 class="math inline">\(H_f^1(\mathbb{Q}, E[p^N]^\ast )\)</span>, where
-<span id="eq:cq6sj3fh1h" class="math display">\[\label{eq:cq6sj3fh1h}\tag{11}
+<span id="eq:cq6sj3fh1h" class="math display">\[\label{eq:cq6sj3fh1h}\tag{13}
   E[p^N]^\ast = \mathop{\mathrm{Hom}}(E[p^N], \mathbb{Q}_p /
 \mathbb{Z}_p(1)).\]</span> Here one wants to allow ramification at good
 primes <span class="math inline">\(\ell\)</span>, chosen to capture the
 orders of classes that we want to control. One can then reduce to
-looking at <span id="eq:cq6sj3eqsx" class="math display">\[\label{eq:cq6sj3eqsx}\tag{12}
+looking at <span id="eq:cq6sj3eqsx" class="math display">\[\label{eq:cq6sj3eqsx}\tag{14}
   H^1_{\mathrm{ur}}(\mathbb{Q}_{\ell}, E[p^N]).\]</span> The local
 duality relates this to <span class="math inline">\(H^1(I_{\ell},
 E[p^N]^\ast)^{G_{\mathbb{Q}_{\ell}}}\)</span>. So if we can produce a
 class in the latter that is highly ramified (of large order), then we
 can force the class in <a href="#eq:cq6sj3eqsx"
 data-reference-type="eqref"
-data-reference="eq:cq6sj3eqsx">\((12)\)</a> to have small order.
+data-reference="eq:cq6sj3eqsx">\((14)\)</a> to have small order.
 That, in a nutshell, is how Selmer groups are bounded. The whole trick
 is to produce ramified classes in <a href="#eq:cq6sj3fh1h"
 data-reference-type="eqref"
-data-reference="eq:cq6sj3fh1h">\((11)\)</a> that you can measure
+data-reference="eq:cq6sj3fh1h">\((13)\)</a> that you can measure
 the size of in some way. Now, producing things that are provably
 ramified is a hard problem. There are few cases where we can do this.
 It’s much easier to check that something is unramified (think of the
 criterion of Néron–Ogg–Shafarevich or something like that). What
 Kolyvagin’s argument does is, he says well, let’s start off with classes
 <a href="#eq:cq6sj3hg5b" data-reference-type="eqref"
-data-reference="eq:cq6sj3hg5b">\((9)\)</a> that are over
+data-reference="eq:cq6sj3hg5b">\((11)\)</a> that are over
 ramified extensions. If they are truly over that ramified extension and
 not, say, defined over some extension with less ramification, then
 Kolyvagin can use that to produce ramified classes, and it is exactly
 these relations <a href="#eq:cq6sj0iiz3" data-reference-type="eqref"
-data-reference="eq:cq6sj0iiz3">\((10)\)</a> that allow him to
+data-reference="eq:cq6sj0iiz3">\((12)\)</a> that allow him to
 understand how ramified these classes actually are. These norm relations
 are thus crucial for producing ramified classes with controlled or
 measurable ramification. That’s sort of the algebra background for why
