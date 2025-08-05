@@ -575,9 +575,9 @@ More generally, for any fractional ideal $\mathfrak{a}$ of $\mathcal{O}_c$, we g
   x_{c}(\mathfrak{a}) := \left[ \mathbb{C} / \mathfrak{a} \rightarrow \mathbb{C} / \mathfrak{n}^{-1} \mathfrak{a} \right] \in X_0(N)(K[c]).
 \end{equation*}
 The action of $\Gal(K[c] / K)$ on $X_0(N)(K[c])$ on these points is described by the relation
-\begin{equation*}
+\begin{equation}\label{eq:cq6sjz7g2n}
   \sigma_{\mathfrak{b}} x_c(\mathfrak{a}) = x_c(\mathfrak{b}^{-1} \mathfrak{a}).
-\end{equation*}
+\end{equation}
 This is the content of CM theory.
 
 Now we're going to look at the divisors
@@ -624,7 +624,52 @@ Kolyvagin used these relations as follows.
 \end{equation*}
 where $E$ is an elliptic curve of conductor $N$ with a modular parametrization $\phi_N : X_0(N) \rightarrow E$ sending $\infty$ to $0$.  Using relations, Kolyvagin could show that if the point is not torsion, then the rank of the elliptic curve is $1$.  Around the same time, Gross--Zagier showed that the Néron--Tate height of this point is nonzero if and only if $L$-function for $E/K$ vanishes exactly to order one.  This gave some of the first theoretical evidence for the Birch and Swinnerton-Dyer conjecture.  This was a spectacular application by Kolyvagin that got people interested in Euler systems.
 
-You can also run Kolyvagin's argument in another way.  You can look at the primes $\ell$ that are \emph{split} in $K$.
+You can also run Kolyvagin's argument in another way.  You can look at the primes $\ell$ that are \emph{split} in $K$, say $\ell = \lambda \bar{\lambda}$.  Then
+\begin{equation*}
+  \frac{(\mathcal{O}_K \otimes \mathbb{Z}_{\ell})^\times}{((\mathbb{Z} + \ell \mathcal{O}_K) \otimes \mathbb{Z}_{\ell})^\times}
+  =
+  \frac{\mathcal{O}_\lambda^\times \times \mathcal{O}_{\bar{\lambda}}^\times}{\{(a, b) : a \equiv b(\ell)\}},
+\end{equation*}
+where the numerator is really $\mathbb{Z}_{\ell}^\times \times \mathbb{Z}_{\ell}^\times$.  Arguing as above, we're no longer summing over all the lattices, but instead we miss two of them: $\lambda \mathcal{O}_c$ and $\bar{\lambda} \mathcal{O}_c$.  One obtains
+\begin{equation*}
+  \sum_{\mathfrak{b}} (y_{c \ell}(\mathfrak{b}^{-1}) - \infty )
+  =
+  T_{\ell}(y_c - \infty)
+  - (\mathrm{Fr}_\lambda^{-1} + \mathrm{Fr}_{\bar{\lambda}}^{-1})(y_c - \infty).
+\end{equation*}
+(The inverses come from \eqref{eq:cq6sjz7g2n}.)
+
+Work of the speaker and Jetchev and Wan used the split primes to do something like what Kolyvagin did.
+
+Let $\mathfrak{c} = \lambda_1 \dotsb \lambda_r$ be a squarefree product of ideals $\lambda_i \nmid N D_K$ of degree $1$ in $K$, with $\lambda_i =\overline{\lambda_i}$.  Let $c$ be the integer such that $(c) = \mathfrak{c} \cap \mathbb{Z}$.  Let $z(\mathfrak{c})$ be basically the class that we were just analyzing, but let's modify it slightly:
+\begin{equation}\label{eq:cq6sj3hg5b}
+  z(\mathfrak{c}) := \prod_{i = 1}^r \left( - \mathrm{Fr}_{\lambda_i} \right) z_c \in H^1(K[c], T_p J_0(N)),
+\end{equation}
+where $T_p J_0(N) = \varprojlim J_0(N)[p^m]$.  We obtain now, for $\lambda \mid \ell$,
+
+\begin{equation}\label{eq:cq6sj0iiz3}
+  \operatorname{cores}_{K[c \ell] / K[c]} z(\mathfrak{c} \lambda) = \left( \mathrm{Fr}_\lambda^{- 2} - T_{\ell} \mathrm{Fr}_\lambda^{-1} + 1 \right) z(\mathfrak{c}).
+\end{equation}
+Let's think about this last expression in terms of the Hecke polynomial $X^2 - T_{\ell} X + \ell$.  You can see that if we evaluate this at $\lambda^{-1}$, we almost get the quantity appearing on the right hand side of \eqref{eq:cq6sj0iiz3}:
+\begin{equation*}
+  (X^2 - T_{\ell} X + \ell) \mid_{X = \mathrm{Fr}_\lambda^{-1}}.
+\end{equation*}
+They are congruent modulo $\ell - 1$, which is $N(\lambda) - 1$.  When working with Euler systems, it's acceptable to work with congruences modulo $\ell - 1$.  There's a general way to massage those classes so that they give the relations on the nose, but there's no need to do so.  Later, we'll pose a question that will suggest that this comparison is a feature of some integral representation theory, once we see where these norm relations come from in those terms.  In any event, once you have these relations, you can take these objects and run Kolyvagin's argument and reprove Kolyvagin's theorem.
+
+We next want to explain how to set up the construction of the Kolyvagin system in such a way that some representation theory naturally shows up, with this Galois relation \eqref{eq:cq6sj0iiz3} showing up as something like a Hecke module, which in turn is closely related to representation theory.  The argument we're going to give generalizes quite significantly, for instance, it produces an Euler system in the sense of these split primes for the diagonal cycles coming from the arithmetic Gan--Gross--Prasad settings, and one can generalize Kolyvagin's statement to a rank one statement about Selmer groups for certain Rankin--Selberg convolutions of $\mathrm{GL}_n \times\mathrm{GL}_{n + 1}$.  With Euler systems, we're trying to bound the orders of Selmer groups of elliptic curves, something like $H^1_f(\mathbb{Q}, E[p^N])$, where the subscript $f$ denotes some sort of Block--Kato condition coming from the geometry of the elliptic curve.  One way to bound a Selmer group like this is to use global duality to give classes in the arithmetic dual, i.e., $H_f^1(\mathbb{Q}, E[p^N]^\ast )$, where
+\begin{equation}\label{eq:cq6sj3fh1h}
+  E[p^N]^\ast = \Hom(E[p^N], \mathbb{Q}_p / \mathbb{Z}_p(1)).
+\end{equation}
+Here one wants to allow ramification at good primes $\ell$, chosen to capture the orders of classes that we want to control.  One can then reduce to looking at
+\begin{equation}\label{eq:cq6sj3eqsx}
+  H^1_{\mathrm{ur}}(\mathbb{Q}_{\ell}, E[p^N]).
+\end{equation}
+The local duality relates this to $H^1(I_{\ell}, E[p^N]^\ast)^{G_{\mathbb{Q}_{\ell}}}$.  So if we can produce a class in the latter that is highly ramified (of large order), then we can force the class in \eqref{eq:cq6sj3eqsx} to have small order.  That, in a nutshell, is how Selmer groups are bounded.  The whole trick is to produce ramified classes in \eqref{eq:cq6sj3fh1h} that you can measure the size of in some way.  Now, producing things that are provably ramified is a hard problem.  There are few cases where we can do this.  It's much easier to check that something is unramified (think of the criterion of Néron--Ogg--Shafarevich or something like that).  What Kolyvagin's argument does is, he says well, let's start off with classes \eqref{eq:cq6sj3hg5b} that are over ramified extensions.  If they are truly over that ramified extension and not, say, defined over some extension with less ramification, then Kolyvagin can use that to produce ramified classes, and it is exactly these relations \eqref{eq:cq6sj0iiz3} that allow him to understand how ramified these classes actually are.  These norm relations are thus crucial for producing ramified classes with controlled or measurable ramification.  That's sort of the algebra background for why one is interested in Euler systems.
+
+Tomorrow, we'll describe a more representation-theoretic picture that produces these Kolyvagin classes.
+
+
+
 
 
 
