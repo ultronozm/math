@@ -388,7 +388,7 @@ Let's replace $\varphi_i$ by its Whittaker expansion
   \varphi_1(g) = \sum_{a \in k^\times} W_{\psi} \left(
     \begin{pmatrix}
       a      &  \\
-       & 1 \\
+             & 1 \\
     \end{pmatrix} g \right).
 \end{equation*}
 Then, unfolding a bit further, we arrive at
@@ -436,7 +436,7 @@ Some of these can be computed quickly in terms of integrals we already know.  Su
   K_v^\times = k_v^\times \times k_v^\times \cong \left\{
     \begin{pmatrix}
       a      &  \\
-             & b \\
+                                                                              & b \\
     \end{pmatrix} \right\} \subseteq \mathrm{GL}_2(k).
 \end{equation*}
 We may thus identify $\chi_v$ with a pair of characters $(\chi_{1, v}, \chi_{2, v})$.  We can define the local functional
@@ -444,7 +444,7 @@ We may thus identify $\chi_v$ with a pair of characters $(\chi_{1, v}, \chi_{2, 
   \int_{k_v^\times} W_\psi
   \begin{pmatrix}
     t    &  \\
-         & 1 \\
+                                                                      & 1 \\
   \end{pmatrix} \chi_{1, v}(t) \,d^\times t,
 \end{equation*}
 which defines an element of $\Hom_{K_v^\times}(\pi_v, \mathbb{C}(\chi_v^{-1}))$.  For unramified data, this evaluates to $L(\pi_v, \chi_{1, v})$.  It turns out that (Waldspurger's formula)
@@ -452,6 +452,10 @@ which defines an element of $\Hom_{K_v^\times}(\pi_v, \mathbb{C}(\chi_v^{-1}))$.
   \left\lvert \int \varphi(t) \chi(t) \,d^\times y \right\rvert^2 \sim L(\mathrm{B C}_{K/k}(\pi) \otimes \chi, \tfrac{1}{2}).
 \end{equation*}
 There's a similar relation in the triple product case, which we can guess using the Rankin--Selberg unfolding that we saw earlier.
+
+\begin{remark}
+  This doesn't make sense for general arguments other than $s = \tfrac{1}{2}$, except in some form when $\varphi$ is an Eisenstein series (``formula of Damerell'').  One needs to be able to vary $\varphi$ (or $\chi$) in a family, preserving the central character compatibility condition.
+\end{remark}<++>
 
 All of these examples are special cases of the Gan--Gross--Prasad conjectures, which we'll hear more about later in the week.
 
@@ -463,13 +467,13 @@ as follows.  Let $\alpha \in F^\times$.  Choose an $n$th root $\alpha^{1/N}$.  T
 
 Let's now restrict ourselves to the field $\mathbb{Q}[\mu_N]$.  Restrict the above map to the unit group of that field:
 \begin{equation*}
-  \mathcal{O}_{\mathbb{G}[\mu_N]}^\times \rightarrow H^1(\mathbb{Q}(\mu_N), \mu_{p^n}).
+  \mathcal{O}_{\mathbb{Q}[\mu_N]}^\times \rightarrow H^1(\mathbb{Q}(\mu_N), \mu_{p^n}).
 \end{equation*}
 Taking inverse limits, we obtain, with $\mathbb{Z}_p(1) = \varprojlim\mu_{p^n}$ (where the Galois group acts via the cyclotomic character), a map
 \begin{equation*}
-  \mathcal{O}_{\mathbb{G}[\mu_N]}^\times \otimes \mathbb{Z}_p \rightarrow H^1(\mathbb{Q}(\mu_N), \mathbb{Z}_p(1)).
+  \mathcal{O}_{\mathbb{Q}[\mu_N]}^\times \otimes \mathbb{Z}_p \rightarrow H^1(\mathbb{Q}(\mu_N), \mathbb{Z}_p(1)).
 \end{equation*}
-Thus, for any $(a, N) = 1$, we get, say with $\zeta_N = e^{2 \pi i / N}$,
+Thus, for any $(a, N) = 1$, we get , say with $\zeta_N = e^{2 \pi i / N}$,
 \begin{equation*}
   \frac{\zeta_N^a - 1}{\zeta_N - 1} \mapsto z_N,
 \end{equation*}
@@ -480,13 +484,126 @@ say.  If we look at the corestriction
     z_N    
     & \text{ if } \ell \mid N \\
     (1 - \mathrm{Fr}_{\ell}^{-1}) z_N
-    & \text{ if } \ell \nmid N.
+                                                                                     & \text{ if } \ell \nmid N.
   \end{cases}
 \end{equation*}
 We look at
 \begin{equation*}
   \det \left( 1 - \mathrm{Fr}_{\ell}^{-1} X \mid \mathbb{Z}_p(1)^\ast \right) \mid X = \mathrm{Fr}_{\ell}^{-1}.
 \end{equation*}
+
+
+Some idea for checking this: $(\mathbb{Z} / \ell \mathbb{Z})^\times \subset(\mathbb{Z} / \ell N \mathbb{Z})^\times \cong \Gal(\mathbb{Q}(\mu_{N \ell}) / \mathbb{Q} )$, where the last map sends $a \mapsto \sigma_\alpha(\zeta_{N \ell}) = \zeta_{N \ell}^a$.
+
+\begin{remark}
+  Given $f$ a holomorphic modular form, say of weight $2$, we have $\omega_f = f(\tau) \, d \tau \in H^0(X, \Omega_X^1) \subseteq H^1(X, \mathbb{C})$.  Then $\lVert f \rVert^2 = \int_X\omega_f \wedge \overline{\omega_f}$.
+
+  Similarly, for $X \hookrightarrow X \times X \times X$, we get some particular values of the Rankin--Selberg convolution by looking at $\int_X \overline{\omega_f} \wedge \omega_g \wedge \omega_{E_k}$.  Then from the rational structure on cohomology, one can get something like rational structure on the $L$-values.
+\end{remark}
+
+\begin{remark}
+  Let's talk about the corestriction map in this setting.  Abstractly, it's a map
+  \begin{equation*}
+    H^1(\mathbb{Q}[\mu_{N \ell}], \mathbb{Z}_p(1)) \rightarrow H^1(\mathbb{Q}[\mu_N], \mathbb{Z}_p(1)).
+  \end{equation*}
+  How are we going to understand this?  We could of course write it down at the level of cocycles, or something.  But what's it's really doing is that if we restrict back, i.e., compose with the restriction map
+  \begin{equation}\label{eq:cq6r4knx6r}
+    H^1(\mathbb{Q}[\mu_N], \mathbb{Z}_p(1)) \rightarrow H^1(\mathbb{Q}[\mu_{N \ell}], \mathbb{Z}_p(1)),
+  \end{equation}
+  then the composition is just the trace map, given by
+  \begin{equation*}
+    \sum_{\sigma \in \Gal(\mathbb{Q}[\mu_{N \ell}] / \mathbb{Q}[\mu_N])} \sigma.
+  \end{equation*}
+  The restriction map \eqref{eq:cq6r4knx6r} is actually an injection because there are no Galois invariants of $\mathbb{Z}_p(1)$.
+
+  Also, we have the Kummer map
+  \begin{equation*}
+    \mathbb{Q}[\mu_{N \ell}]^\times \xrightarrow{\mathrm{Kummer}} H^1(\mathbb{Q}[\mu_{N \ell}], \mathbb{Z}_p(1)).
+  \end{equation*}
+  And this construction is Galois-invariant.  We have the trace map $\alpha \mapsto \prod_\sigma \sigma(\alpha)$ from $\mathbb{Q}[\mu_{N \ell}]^\times \rightarrow \mathbb{Q}[\mu_N]^\times$.  We claim that this induces the corestriction map via the Kummer map.  This remains the case when we tensor with $\mathbb{Z}_p$.
+
+  So when we're dealing with corestriction, what we really want to understand is what is the norm of the particular $\alpha$ that we're working with.
+
+  All of this is fairly formal applied to a specific setting.  The Kummer map is also a connecting map in a long exact sequence of Galois cohomology, associated to
+  \begin{equation*}
+    0 \rightarrow \mu_{p^n} \rightarrow \bar{F}^\times \xrightarrow{\alpha \mapsto \alpha^{p^n}} \bar{F}^\times \rightarrow 0.
+  \end{equation*}
+  From the formal stuff, we have an arithmetic question.  We take
+  \begin{equation*}
+    \alpha = \frac{\zeta_{N \ell}^a - 1}{\zeta_{N \ell} - 1},
+  \end{equation*}
+  and we want to know, what is the norm of this element?  Look at
+  \begin{equation*}
+    \operatorname{norm}_{\mathbb{Q}(\mu_{N \ell}) / \mathbb{Q}(\mu_N)}(\alpha).
+  \end{equation*}
+  We have
+  \begin{equation*}
+    \Gal(\mathbb{Q}(\mu_{N \ell}) / \mathbb{Q}(\mu_N))
+    \subseteq \Gal(\mathbb{Q}(\mu_{N \ell}) / \mathbb{Q})
+    \cong(\mathbb{Z} / N \ell)^\times,
+  \end{equation*}
+  The subgroup here will be identified with congruence classes $b$ satisfying $b \equiv 1 \pmod{N}$.  The last isomorphism is given by $\sigma_c \mapsto c$, where $\sigma_c(\zeta_{N \ell}) = \zeta_{N \ell}^c$.  Now, suppose for instance that $\ell \nmid N$.  Then $\zeta_{N \ell}^{b \ell} = \zeta_N^b = \zeta_N$.  As $b \in(\mathbb{Z} / N \ell )^\times$ runs over $\ell - 1$ residue classes modulo $\equiv 1 \pmod{N}$, then $\zeta_{N \ell}^b$ runs over $\ell$th roots of $\zeta_N$, but excluding $\zeta_N^{\ell^{-1}}$.  A short calculation then gives the claim corestriction formula.  In the other case where $\ell \mid N$, $b$ runs over $\ell$ classes, and we get the other answer.
+\end{remark}
+
+We're going to continue our discussion of Euler systems.  We turn to the example given by Heegner points.  Let $K / \mathbb{Q}$ be an imaginary quadratic field, with ring of integers $\mathcal{O}_K$.  Let $N$ be a positive integer such that all primes $\ell \mid N$ split in $K /\mathbb{Q}$.  We take
+\begin{equation*}
+  X_0(N) = \Gamma_0(N) \backslash[\mathfrak{h} \sqcup \mathbb{P}^1(\mathbb{Q})],
+\end{equation*}
+and write $\tau \in \mathfrak{h}$.  This classifies elliptic curves together with an isogeny of order $N$, e.g.,
+\begin{equation*}
+  E := \mathbb{C} / \mathbb{Z} \oplus \mathbb{Z} \tau \rightarrow E' :=  \mathbb{C} / \tfrac{1}{N}(\mathbb{Z} + N \tau \mathbb{Z}) \cong \mathbb{C} / \mathbb{Z} + N \tau \mathbb{Z},
+\end{equation*}
+whose kernel is $\tfrac{1}{N} \mathbb{Z} / \mathbb{Z}$.
+
+We're going to produce some points on $X_0(N)$.  Let $c$ be positive integer.  We can have an order
+\begin{equation*}
+  \mathcal{O}_c := \mathbb{Z} + c \mathcal{O}_K \subseteq \mathcal{O}_K.
+\end{equation*}
+This gives us a lattice inside the complex numbers (having chosen a complex embedding of $K$).  We can then form the quotient $\mathbb{C} / \mathcal{O}_c$.  To produce a lattice that is slightly larger, we will use that each $\ell \mid N$ splits to \emph{choose} an ideal $\mathfrak{n} \subseteq \mathcal{O}_K$ such that $\mathcal{O}_K / \mathfrak{n} \cong \mathbb{Z} / N \mathbb{Z}$.  We then obtain an isogeny of elliptic curves
+\begin{equation*}
+  \left[ \mathbb{C} / \mathcal{O}_c \rightarrow \mathbb{C} / \mathfrak{n}^{-1} \mathcal{O}_c \right] \in X_0(N)(K[c]),
+\end{equation*}
+where $K[c]$ denotes the \emph{ring class field} of $K$ of conductor $c$.  To explain what this means, we introduce some notation.  For a module $M$, write $\hat{M} := M \otimes \hat{\mathbb{Z}}$, where $\hat{\mathbb{Z}} = \prod_{\ell} \mathbb{Z}_{\ell}$.  (For instance, if $M$ is a $\mathbb{Q}$-module, then we may also write $\hat{M}$ as $M \otimes_{\mathbb{Q}} \mathbb{A}_f$.)  Class field theory tells us that
+\begin{equation*}
+  \Pic(\mathcal{O}_c) = K^\times \backslash \hat{K}^\times / \hat{\mathcal{O}}_c^\times \xrightarrow{\mathrm{rec}} \Gal(K[c] / K),
+\end{equation*}
+\begin{equation*}
+  [\mathfrak{b}] \mapsto \sigma_{\mathfrak{b}}.
+\end{equation*}
+More generally, for any fractional ideal $\mathfrak{a}$ of $\mathcal{O}_c$, we get a point
+\begin{equation*}
+  x_{c}(\mathfrak{a}) := \left[ \mathbb{C} / \mathfrak{a} \rightarrow \mathbb{C} / \mathfrak{n}^{-1} \mathfrak{a} \right] \in X_0(N)(K[c]).
+\end{equation*}
+The action of $\Gal(K[c] / K)$ on $X_0(N)(K[c])$ on these points is described by the relation
+\begin{equation*}
+  \sigma_{\mathfrak{b}} x_c(\mathfrak{a}) = x_c(\mathfrak{b}^{-1} \mathfrak{a}).
+\end{equation*}
+This is the content of CM theory.
+
+Now we're going to look at the divisors
+\begin{equation*}
+  y_c(\mathfrak{a}) := x_c(\mathfrak{a}) - \infty
+\end{equation*}
+obtained by subtracting off the cusp at infinity, which is defined over $\mathbb{Q}$.  This difference defines an element of the Jacobian $J_0(N) := \Jac(X_0(N))$, defined over $K[c]$.  The Jacobian is an abelian variety.  For abelian varieties, there is a construction very similar to Kummer theory that gives us an analogue of the Kummer map defined yesterday,
+\begin{equation*}
+  J_0(N)(K[c]) \rightarrow H^1(K[c], J_0(N)[p^m]),
+\end{equation*}
+where $J_0(N)[p^m]$ is the $p^m$-torsion subgroup of the Jacobian.  The map is defined as follows.  Given $y \in J_0(N)(K[c])$, let us choose $y '$ so that $p^m y' = y$.  We send this to the class of the cocycle $\sigma \mapsto \sigma(y') - y'$.  Applying this map to  $y_c(\mathfrak{a})$ gives us a cohomology class
+\begin{equation*}
+  z_c(\mathfrak{a}) \in H^1(K[c], J_0(N)[p^m]).
+\end{equation*}
+In the special case where $\mathfrak{a} = \mathcal{O}_c$, we drop it from the notation and write simply $z_c$.
+
+Suppose now that $\ell \nmid c D_K N$.  Then we're going to look at what happens when we take the point $z_{c \ell}$ (attached as above to the order $\mathcal{O}_{c \ell}$) and form the norm
+\begin{equation*}
+  \sum_{\sigma \in \Gal(K[c \ell] / K[c])} \sigma z_{c \ell}.
+\end{equation*}
+We can write this as the sum
+\begin{equation*}
+  \sum_{\mathfrak{b} \in \ker(\Pic \mathcal{O}_{c \ell} \rightarrow \Pic \mathcal{O}_c)} \sigma_{\mathfrak{b}} z_{c \ell}.
+\end{equation*}
+We can in turn rewrite $\sigma_{\mathfrak{b}} z_{c \ell}$ as $\sum_{\mathfrak{b}} y_{c \ell}(\mathfrak{b}^{-1}) - \infty$, summing over the same $\mathfrak{b}$ as before.  Now, how many $\mathfrak{b}$'s are there, and what is this sum?
+
 
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
