@@ -205,7 +205,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-05 09:36:07
+2025-08-05 09:45:47
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -1250,6 +1250,50 @@ class="math inline">\(\sum_{\mathfrak{b}} y_{c \ell}(\mathfrak{b}^{-1})
 class="math inline">\(\mathfrak{b}\)</span> as before. Now, how many
 <span class="math inline">\(\mathfrak{b}\)</span>’s are there, and what
 is this sum?</p>
+<p>Suppose that <span class="math inline">\(\ell\)</span> is inert in
+<span class="math inline">\(K\)</span>. Comparing what happens with
+<span class="math inline">\(c\)</span> and <span class="math inline">\(c
+\ell\)</span>, we get <span class="math display">\[\frac{(\mathcal{O}_K
+\otimes \mathbb{Z}_{\ell})^\times}{((\mathbb{Z} + \ell \mathcal{O}_K)
+\otimes \mathbb{Z}_{\ell})^\times},\]</span> which is cyclic of order
+<span class="math inline">\(\ell + 1\)</span>. Now, <span
+class="math inline">\(\mathfrak{b}\)</span> lying in the kernel of the
+above map means that <span class="math inline">\(\mathfrak{b}
+\mathcal{O}_c\)</span> is a principal ideal, say <span
+class="math inline">\(\beta \mathcal{O}_c\)</span> with <span
+class="math inline">\(\beta \in K^\times\)</span>. If we look at <span
+class="math inline">\(\beta \mathfrak{b}^{-1} \mathcal{O}_c\)</span>,
+then we see that inside <span
+class="math inline">\(\mathcal{O}_c\)</span>, it has index <span
+class="math inline">\(\ell\)</span>. As <span
+class="math inline">\(\mathfrak{b}\)</span> varies, this exhausts all
+lattices of index <span class="math inline">\(\ell\)</span>. By
+definition of the Hecke operator <span
+class="math inline">\(T_{\ell}\)</span>, we see that <span
+class="math display">\[\sum_{\mathfrak{b}} \left( y_{c
+\ell}(\mathfrak{b}^{-1}) - \infty \right) = T_{\ell}(y_c -
+\infty).\]</span> Under the Kummer map, this tells us that <span
+class="math display">\[\operatorname{cor}_{K[c \ell] / K[c]} z_{c \ell}
+  = T_{\ell} z_c.\]</span></p>
+<p>Kolyvagin used these relations as follows. <span
+class="math display">\[y_K = {\mathop{\mathrm{trace}}}_{K[1] / K} y_1 \in
+J_0(N)(K) \xrightarrow{\phi_E} E(K),\]</span> where <span
+class="math inline">\(E\)</span> is an elliptic curve of conductor <span
+class="math inline">\(N\)</span> with a modular parametrization <span
+class="math inline">\(\phi_N : X_0(N) \rightarrow E\)</span> sending
+<span class="math inline">\(\infty\)</span> to <span
+class="math inline">\(0\)</span>. Using relations, Kolyvagin could show
+that if the point is not torsion, then the rank of the elliptic curve is
+<span class="math inline">\(1\)</span>. Around the same time,
+Gross–Zagier showed that the Néron–Tate height of this point is nonzero
+if and only if <span class="math inline">\(L\)</span>-function for <span
+class="math inline">\(E/K\)</span> vanishes exactly to order one. This
+gave some of the first theoretical evidence for the Birch and
+Swinnerton-Dyer conjecture. This was a spectacular application by
+Kolyvagin that got people interested in Euler systems.</p>
+<p>You can also run Kolyvagin’s argument in another way. You can look at
+the primes <span class="math inline">\(\ell\)</span> that are
+<em>split</em> in <span class="math inline">\(K\)</span>.</p>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
   toggle.addEventListener("click", function(e) {
