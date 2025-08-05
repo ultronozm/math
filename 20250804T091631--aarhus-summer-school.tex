@@ -223,7 +223,7 @@ We pass to the same Hecke algebra.  Let $\mathbb{T}_A '$ denote the subalgebra o
   \begin{itemize}
   \item $\mathbb{T} '$-Hecke eigensystems of forms in $S_k(N)$.
   \item $\Hom_{\mathbb{C}}(\mathbb{T}_{\mathbb{C}}', \mathbb{C})$.
-  \item $\Hom_{\mathcal{O}}(\mathbb{T}_{\mathcal{O}}', \mathcal{O})$, where we choose $E$ large enough with $\mathbb{C} \supseteq \bar{\mathbb{Q}} \subseteq \bar{\mathbb{Q}}_p \supseteq E \supseteq \mathcal{O}$.
+  \item $\Hom_{\mathcal{O}}(\mathbb{T}_{\mathcal{O}}', \mathcal{O})$, where we choose $E$ large enough with $\mathbb{C} \supseteq \bar{\mathbb{Q}} \subseteq \bar{\mathbb{Q}}_p \supseteq E \supseteq \mathcal{O}$, where $\mathcal{O}$ always denotes the ring of integers of $E$.
   \end{itemize}
   We also have a bijection between
   \begin{itemize}
@@ -297,7 +297,7 @@ To fill in some terminology:
         @. B \\
         @. @V{\psi}VV \\
         A @>{\varphi}>> C
-      \end{D}
+      \end{CD}
     \end{equation*}
     inside $\mathrm{A r}_{\mathcal{O}}$ is
     \begin{equation*}
@@ -345,9 +345,37 @@ You can translate this back into rings.  Here are some more exercises:
 \begin{theorem}[Grothendieck]
   Suppose $F : \mathrm{C N L}_{\mathcal{O}} \rightarrow \mathrm{Set}$ is continuous, satisfies $F(\mathbb{F}) = \{\ast\}$, the MV-property holds, and $\dim_{\mathbb{F}} T_F < \infty$.  Then $F$ is representable.
 \end{theorem}
+\begin{remark}
+  For this last theorem, there are simplifications by Schlessinger, \emph{Functors of Artin rings}.  Schlessinger realized that these axioms of Grothendieck may be hard to verify in concrete situations, so he gave a simple (but somewhat long) list of axioms to verify.  See Mazur '87, and Gouvêa's survey.
+\end{remark}
+Let's now turn to \emph{Galois deformations functors}.  We have our usual
+\begin{equation*}
+  \bar{\rho} : G \rightarrow \mathrm{GL}_n(\mathbb{F}).
+\end{equation*}
+We can do something about the conjugation.
 
+\begin{equation*}
+  \Gamma_n(A) := \ker \left( \mathrm{GL}_n(A) \rightarrow \mathrm{GL}_n(\mathbb{F}) \right).
+\end{equation*}
+We define
+\begin{equation*}
+  D_{\bar{\rho}}^{\square}, \, D_{\bar{\rho}} : \mathrm{C N L}_{\mathcal{O}} \rightarrow \mathrm{Set},
+\end{equation*}
+\begin{equation*}
+  (A, \mathfrak{m}_A) \mapsto \left\{ \rho_A : G \rightarrow \mathrm{GL}_n(A) \mid \rho_A \equiv \bar{\rho} \mod{\mathfrak{m}_A} \right\}
+\end{equation*}
+(``lifting functor'' or ``framed deformation functor''), and where for $D_{\bar{\rho}}$, we take things modulo $\Gamma_n(A)$-conjugacy.
 
-\part{Chris Skinner's lectures}
+\begin{theorem}
+  Suppose $\Phi_\rho$ holds, i.e., $\# \Hom(G, \mathbb{F}_p) < \infty$.  Then:
+  \begin{enumerate}[(a)]
+  \item $D_{\bar{\rho}}$ always has a ``hull''.
+  \item If $\End_G(\bar{\rho}) = \mathbb{F}$, then $D_{\bar{\rho}}$ is representable (uses Schlessinger).  This gives rise to $R_{\bar{\rho}}$.
+  \item\label{enumerate:cq6skams6j} (Always) $D_{\bar{\rho}}^{\square}$ is representable (Kisin, Magid--Lubokliy).  Gives rise to $R_{\bar{\rho}}^{\square}$.
+  \end{enumerate}
+\end{theorem}
+
+Here \eqref{enumerate:cq6skams6j} is an exercise you can do.\part{Chris Skinner's lectures}
 \textbf{Integral representations, Euler systems, and multiplicity one}.
 
 My choice of these topics is motivated by my interest in special values of $L$-functions, and in particular problems like the BSD conjecture.  We'll focus on some representation theory, that plays a role in both the analytic and the algebraic sides of these problems.  You can possibly view this as a bridge between the talks at the start and at the end of the week.
