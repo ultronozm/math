@@ -604,6 +604,30 @@ We can write this as the sum
 \end{equation*}
 We can in turn rewrite $\sigma_{\mathfrak{b}} z_{c \ell}$ as $\sum_{\mathfrak{b}} y_{c \ell}(\mathfrak{b}^{-1}) - \infty$, summing over the same $\mathfrak{b}$ as before.  Now, how many $\mathfrak{b}$'s are there, and what is this sum?
 
+Suppose that $\ell$ is inert in $K$.  Comparing what happens with $c$ and $c \ell$, we get
+\begin{equation*}
+  \frac{(\mathcal{O}_K \otimes \mathbb{Z}_{\ell})^\times}{((\mathbb{Z} + \ell \mathcal{O}_K) \otimes \mathbb{Z}_{\ell})^\times},
+\end{equation*}
+which is cyclic of order $\ell + 1$.  Now, $\mathfrak{b}$ lying in the kernel of the above map means that $\mathfrak{b} \mathcal{O}_c$ is a principal ideal, say $\beta \mathcal{O}_c$ with $\beta \in K^\times$.  If we look at $\beta \mathfrak{b}^{-1} \mathcal{O}_c$, then we see that inside $\mathcal{O}_c$, it has index $\ell$.  As $\mathfrak{b}$ varies, this exhausts all lattices of index $\ell$.  By definition of the Hecke operator $T_{\ell}$, we see that
+\begin{equation*}
+  \sum_{\mathfrak{b}} \left( y_{c \ell}(\mathfrak{b}^{-1}) - \infty \right) = T_{\ell}(y_c - \infty).
+\end{equation*}
+Under the Kummer map, this tells us that
+\begin{equation*}
+  \operatorname{cor}_{K[c \ell] / K[c]} z_{c \ell}
+  = T_{\ell} z_c.  
+\end{equation*}
+
+Kolyvagin used these relations as follows.
+\begin{equation*}
+  y_K = \trace_{K[1] / K} y_1 \in J_0(N)(K) \xrightarrow{\phi_E} E(K),
+\end{equation*}
+where $E$ is an elliptic curve of conductor $N$ with a modular parametrization $\phi_N : X_0(N) \rightarrow E$ sending $\infty$ to $0$.  Using relations, Kolyvagin could show that if the point is not torsion, then the rank of the elliptic curve is $1$.  Around the same time, Gross--Zagier showed that the Néron--Tate height of this point is nonzero if and only if $L$-function for $E/K$ vanishes exactly to order one.  This gave some of the first theoretical evidence for the Birch and Swinnerton-Dyer conjecture.  This was a spectacular application by Kolyvagin that got people interested in Euler systems.
+
+You can also run Kolyvagin's argument in another way.  You can look at the primes $\ell$ that are \emph{split} in $K$.
+
+
+
 
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
