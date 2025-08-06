@@ -533,6 +533,189 @@ Removing frames at right point, we get a
   \end{equation*}
   is an isomorphism?
 \end{question}
+
+We turn now to \emph{local deformation problems}.  How to get a more geometric side of deformation rings?  Fix
+\begin{equation*}
+  \bar{\rho} : G_{K, S} \rightarrow \mathrm{GL}_n(\mathbb{F}).
+\end{equation*}
+Write $\bar{\rho}_v := \bar{\rho} \mid_{G_v}$.  Fix a character $\mu : G_{K, S} \rightarrow \mathcal{O}^\times$ lifting $\det \bar{\rho}$.  Our next aim is to identify interesting special loci in
+\begin{equation*}
+  X_{\bar{\rho}_v}^{\square} := \Spec(R_{\bar{\rho}_v}^{\square}).
+\end{equation*}
+\begin{definition}[Thorne, who gave a compact description]
+  A \emph{local deformation problem} is a subfunctor $D_v \subseteq D_{\bar{\rho}_v}^{\square, \mu_v}$ (possibly with fixed determinant, i.e., $\det(\rho) = \mu$ -- that's what the superscripted $\mu_v$ means) such that
+  \begin{enumerate}
+  \item\label{enumerate:cq6s0pdihm} $D_v \cong F_{R_v}$ for a quotient $R_v$ of $R_{\bar{\rho}_v}^{\square, \mu}$.
+  \item\label{enumerate:cq6s0pgpcr} For all $A \in \mathrm{CNL}_{\mathcal{O}}$ and $g \in \Gamma_n(A)$,
+    \begin{equation*}
+      \rho \in D_v(A) \implies g \rho g^{-1} \in D_v(A).
+    \end{equation*}
+  \end{enumerate}
+\end{definition}
+\begin{remark}
+  $\Gamma_n(R_{\bar{\rho}_v^{\square}})$ acts by conjugation on $D_{\bar{\rho}_v}^{\square}(R_{\bar{\rho}_v}^{\square})$, and hence (by universality of $R_{\bar{\rho}_v}^{\square}$), it acts on $R_{\bar{\rho}_v}^{\square}$.
+\end{remark}
+\begin{proposition}[BLGHT, Potential Automorphy 2, Lemma 3.2]
+  Let $R_v$ be a quotient $R_{\bar{\rho}_v}^{\square, \mu} \xrightarrow{\alpha_v} R_v$ such that
+  \begin{enumerate}[(a)]
+  \item\label{enumerate:cq6s0pxwwm} $\ker(\alpha_v)$ is invariant under $\Gamma_n(R_{\bar{\rho}_v}^{\square})$, and
+  \item\label{enumerate:cq6s0pxv8b} $R_v$ is reduced and not isomorphic to $\mathbb{F}$.
+  \end{enumerate}
+  Then $F_{R_v} \subseteq D_{\bar{\rho}_v}^{\square}$ is a local deformation problem.
+\end{proposition}
+\textbf{Construction of the} $R_v's$? \textbf{(Kisin)}: Let $X_v \subseteq X_{\bar{\rho}_v}^{\square}(\bar{\mathbb{Q}}_p)$ be $\Gamma_n(\bar{\mathbb{Q}}_p)$-invariant.  Each $x \in X_{\bar{\rho}_v}^{\square}(\bar{\mathbb{Q}}_p)$ gives a map
+\begin{equation*}
+  \rho_x : G_v \rightarrow \mathrm{GL}_n(\bar{\mathbb{Q}}_p),
+\end{equation*}
+and also
+\begin{equation*}
+  \alpha_x : R_{\bar{\rho}_v}^{\square} \rightarrow \bar{\mathbb{Q}}_p.
+\end{equation*}
+Then
+\begin{equation*}
+  J := \cap_{x \in X_v} \ker(\alpha_x)
+\end{equation*}
+is $\Gamma_n(R_{\bar{\rho}_v}^{\square})$-invariant.  (Need to check whether condition \eqref{enumerate:cq6s0pxv8b} above holds to get the local deformation problem, but at least there is a good starting point for something.)  You can define some
+\begin{equation*}
+  R_{X_v} := R_{\bar{\rho}_v}^{\square} / I.
+\end{equation*}
+Then $\Spec R_{X_v}$ ``is'' the schematic closure of $X_v$ in $X_{\bar{\rho}_v}^{\square}$.
+
+For a classification of the $\rho : G_v \rightarrow \GL(V)$ with $V \simeq \bar{\mathbb{Q}}_p^n$, with $v \neq \infty$ and $\ell = \operatorname{char}(v) \neq p$, use the \textbf{Grothendieck monodromy theorem}.  Choose a surjection
+\begin{equation*}
+  t_p : I_v \rightarrow I_v^{\mathrm{tame}} \simeq \hat{\mathbb{Z}}^{(\ell)} \xrightarrow{\text{surj}} \mathbb{Z}_p.
+\end{equation*}
+\begin{enumerate}[(a)]
+\item\label{enumerate:cq6s0sm0js} There is a unique $N = N_\rho \in \operatorname{End}_{\bar{\mathbb{Q}}_p}(V)$ and an open subgroup $I \subseteq I_v$ so that
+  \begin{equation*}
+    \rho \mid_I = \exp \left(
+      t_p(\bullet) N
+    \right) \mid_I.
+  \end{equation*}
+\item\label{enumerate:cq6s0sm7x5} For $N$ from \eqref{enumerate:cq6s0sm0js},
+  \begin{equation*}
+    r = r_\rho : I_v \rightarrow \mathrm{GL}(V),
+  \end{equation*}
+  \begin{equation*}
+    g \mapsto \rho(g) \exp(- t_p(\bullet) N)
+  \end{equation*}
+  is a continuous representation with finite image.  Call
+  \begin{equation*}
+    \tau =(r, N) = \mathrm{W D}(\rho)
+  \end{equation*}
+  the (inertial) Galois type  of $\rho$.
+\end{enumerate}
+Let
+\begin{equation*}
+  X_\tau := \left\{ x \in X_{\bar{\rho}_v}^{\square}(\bar{\mathbb{Q}}_p) \mid \mathrm{WD}(\rho) \simeq \tau \right\}.
+\end{equation*}
+Note that
+\begin{equation*}
+  \# \left\{ \tau \mid \tau \text{ arises from } X_{\bar{\rho}_v}^{\square}(\bar{\mathbb{Q}}_p) \right\}_{/ \cong} 
+  < \infty.
+\end{equation*}
+Define
+\begin{equation*}
+  R_{\bar{\rho}_v}^{\square, \tau} := R_{X_\tau} \twoheadleftarrow R_{\bar{\rho}_v}^{\square}.
+\end{equation*}
+\begin{theorem}[Sholton, Proposition 3.6]
+  \begin{enumerate}[(a)]
+  \item\label{enumerate:cq6s0szq5l} $R_{\bar{\rho}_v}^{\square, \tau}$ defines a local deformation problem at $v$.
+  \item\label{enumerate:cq6s0szrtp} $\Spec(R_{\bar{\rho}_v}^{\square, \tau})$ is a union of irreducible components of $X_{\bar{\rho}_v}^{\square}$, and equidimensional ($n^2$).
+  \item\label{enumerate:cq6s0s13y6} $R_{\bar{\rho}_v}^{\square, \tau}[\tfrac{1}{p}]$ is reduced, contains a dense set of (generic) smooth points.
+  \end{enumerate}
+\end{theorem}
+\textbf{Warning} (depending upon how much you are interested in singularities of schemes, or not): $R_{\bar{\rho}_v}^{\square}$ is a complete intersection, but the components $R_{\bar{\rho}_v}^{\square, \tau}$ can apparently have much worse singularieties -- they need not even be Cohen--Macaulay.
+
+Let's say a bit about the case $v \mid p$, where things get a bit vaguer.  Now take $K_v \supseteq \mathbb{Q}_p$ finite, and consider the set of all representations
+\begin{equation}\label{eq:cq6s0s7n4f}
+  \left\{ \rho : G_v \rightarrow \mathrm{GL}_n(\bar{\mathbb{Q}}_p) \right\}.
+\end{equation}
+By $p$-adic Hodge theory, this contains the following set of representations that are ``geometric'' in some sense:
+\begin{equation}\label{eq:cq6s0s8j3o}
+  \left\{ \rho : G_v \rightarrow \mathrm{GL}_n(\bar{\mathbb{Q}}_p) \mid \rho \text{ is potentially semistable}\right\}.
+\end{equation}
+Fontaine attaches invariants to these $\rho$'s.  One thing he attaches is a Galois type
+\begin{equation*}
+  \operatorname{WD}(\rho) =(r_\rho, N_\rho),
+\end{equation*}
+although in a very different way than before: in this case, where $K_v$ is a $p$-adic field, the pro-$p$-part of the inertia is not this harmless $\mathbb{Z}_p$, but is instead a huge group that can be complicated, so one really needs to use $p$-adic Hodge theory to get something here.  Here, as before, $N_\rho$ is a nilpotent operator and $r_\rho : I_v \rightarrow \mathrm{GL}_n(\bar{\mathbb{Q}}_p)$ is a finite-dimensional representation.  Fontaine also attaches a set of Hodge--Tate weights
+\begin{equation*}
+  \nu = \underline{\mathrm{H T}}(\rho) = \left\{ \mathrm{H T}_{\iota} \right\}_{\iota : K_v \rightarrow \bar{\mathbb{Q}}_p}.
+\end{equation*}
+We attach some
+\begin{equation*}
+  X_{\tau, \nu} = \left\{ \rho : G_v \rightarrow \mathrm{GL}_n(\bar{\mathbb{Q}}_p) \text{ potentially semistable } \mid
+    \operatorname{W D}(\rho) \simeq \tau,
+    \,
+    \underline{\operatorname{H T}}(\rho) = \nu
+  \right\}.
+\end{equation*}
+Kisin then attaches potentially semistable deformation rings $R_{\bar{\rho}_v}^{\square, \tau, \nu}$.
+\begin{remark}
+  If $n = 2$ and $K = \mathbb{Q}$, and if you somehow have $\mathrm{H T}$-weights $\nu =(k = 1, 0)$, $k$ ``small'', ($k \geq 2$),
+  $\tau = (\mathrm{triv}, 0)$ (giving rise to $\rho$ crystalline), then
+  \begin{equation*}
+    R_{\bar{\rho}_p}^{\square, \nu, \tau} \simeq \mathcal{O} [[ X_1, \dotsc, X_5]].
+  \end{equation*}
+  (Alternative: use ordinary deformation rings.)
+\end{remark}
+
+\textbf{Global deformation rings}.  Fix $f \in S_k(N, \eps, \mathbb{F})$, take $E$ sufficiently large.  We get
+\begin{equation*}
+  \bar{\rho} : G_{\mathbb{Q}, N p \infty} \rightarrow \mathrm{GL}_2(\mathbb{F}).
+\end{equation*}
+We found
+\begin{equation*}
+  \mathfrak{m}_{\bar{\rho}} \leq \mathbb{T}_{\mathfrak{o}} \rightsquigarrow \rho_{\bar{\rho}}^{\mathrm{mod}} : G_{\mathbb{Q}, N p \infty}
+  \rightarrow \mathrm{GL}_2 \left((\mathbb{T}_{\mathcal{O}})_{\mathfrak{m}_p} \right).
+\end{equation*}
+Now, for the ramified primes $\ell \mid N p$, local Langlands gives a list $T_{\ell}$ of Galois types that arise from (forms parametrized by) $(\mathbb{T}'_{\mathcal{O}})_{\mathfrak{m}_{\bar{\rho}}}$.  At $p$, you also get $\mathrm{H T}$-weights $(k - 1, 0)$ (papers of Faltings and of Saito).  From this dta, you now get a local deformation problem
+\begin{equation*}
+  D_{\ell} = D_{\bar{\rho}_{\ell}}^{\square, T_{\ell}} \subseteq D_{\bar{\rho}_{\ell}}^{\square}
+  \quad \text{and} \quad
+  D_{\bar{\rho}_p}^{\square, T_p, \nu}.
+\end{equation*}
+You form the pullback functor for a list
+\begin{equation*}
+  \underline{S} =(\bar{\rho}, N, S,(D_{\ell})_{\ell \mid N p}),
+\end{equation*}
+where $S$ is the divisor of $N p \infty$. (Let's suppose $p > 2$.)  Get a restriction from global to local:
+\begin{equation*}
+  D_{\bar{\rho}}^{\square, \mu}
+  \xrightarrow{\res}
+  \prod_{\ell \mid N p}
+  D_{\bar{\rho}_{\ell}}^{\square, \mu}.
+\end{equation*}
+
+\begin{equation*}
+  \begin{CD}         
+    D_{\bar{\rho}}^{\square, \mu} @> \res>> \prod_{\ell \mid N p}
+    D_{\bar{\rho}_{\ell}}^{\square, \mu}\\
+    @AAA  @AAA \\
+    D_{\underline{S}}    @>>> \prod_{\ell \mid N p} D_{\ell}\\
+  \end{CD}
+\end{equation*}
+which gives rise to $R_{\underline{S}}$ as a quotient of $R_{\bar{\rho}}^{\square, \mu}$, with
+\begin{equation*}
+  \rho_{\underline{S}}^{\mathrm{univ}} : G_{\mathbb{Q}, N p \infty} \rightarrow \mathrm{GL}_2(R_{\underline{S}}).
+\end{equation*}
+Universality of $R_{\underline{S}}$ (using local Langlands and $p$-adic Hodge theory) gives a surjection
+\begin{equation}\label{eq:cq6s0uhkx2}
+  \alpha : R_{\underline{S}} \rightarrow(\mathbb{T}_{\mathcal{O}})_{\mathfrak{m}_{\bar{\rho}}},
+\end{equation}
+\emph{assuming} that $\bar{\rho}$ is absolutely irreducible.
+\begin{conjecture}
+  $\alpha$ is an isomorphism under suitable hypothesis.
+\end{conjecture}
+The hope is that one can find a Galois-theoretic representation that completely describes this thing coming from automorphic representations.  This was all first put into some definite form by Wiles and Taylor--Wiles in their proof of Fermat's last theorem.  Their work gave the first great supply of such isomorphisms.  Then there was Breuil--Conrad--Diamond--Taylor, proving Taniyama--Shimura--Weil conjecture.  Then there was Clozel--Harris--Taylor, and Khare--Winterberger proving the Serre conjecture.  One thing about why this thing could be important, and why it was important in many of these cases.  What helps you sometimes is that being modular is ``contagious''.  What is often relatively easy, maybe if the representation (a $p$-adic Galois representation) comes from the ring on the left hand side of \eqref{eq:cq6s0uhkx2}, and now if you have the full isomorphism \eqref{eq:cq6s0uhkx2}, then you know it also comes form the right hand side.  But in practice, this isomoprhism doesn't tell you modularity of one just form in the class giving rise to the right hand side, but all of them.  That's all.
+
+
+
+
+
+
+
 \part{Chris Skinner's lectures}
 \textbf{Integral representations, Euler systems, and multiplicity one}.
 
