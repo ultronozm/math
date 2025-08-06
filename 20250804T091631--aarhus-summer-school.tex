@@ -1093,18 +1093,181 @@ We might as well take
 In that case, $x_c =[\tau_0, g_c]$ for a particular choice of $g_c$.
 
 This is the classical picture of Heegner points.  We're going to change the picture just a little bit.  Think
-\begin{equation*}
-  K^\times \rightarrow G = \frac{\mathrm{GL}_2 \times K^\times}{\mathbb{Q}^\times}.
-\end{equation*}
+\begin{equation}\label{eq:cq6s0mlq0m}
+  H := \mathbb{Q}^\times \backslash K^\times \rightarrow G := \frac{\mathrm{GL}_2 \times K^\times}{\mathbb{Q}^\times}.
+\end{equation}
 (The right hand side may be thought of as $\mathrm{GU}(1, 1)$, if you'd like.)  We get
 \begin{equation*}
   X_{U_0(N)} \rightarrow
   \mathrm{S h}_G(U) := G(\mathbb{Q}) \backslash G(\mathbb{A}) / K_\infty U, \quad U := U_0(N) \times V.
 \end{equation*}
+We also get
+\begin{equation*}
+  \mathrm{S h}_H(V) := \hat{\mathbb{Q}}^\times K^\times \backslash \hat{K}^\times / V.
+\end{equation*}<++>
 There is a map
 \begin{equation*}
-  \mathrm{S h}_G(U) \rightarrow \hat{\mathbb{Q}}^\times K^\times \backslash \hat{K}^\times / V.
+  \mathrm{S h}_G(U) \rightarrow \mathrm{Sh}_H(V).
 \end{equation*}
+In the interest of time, we're going to cut to the chase here.  Look at compactly supported functions on $H(\mathbb{A}_f) \backslash G(\mathbb{A}_f)$, valued in $\mathbb{Z}_p$.  We'll produce elements in the Shimura variety of $G$ (over $K$) valued in $\mathbb{Z}_p(1)$:
+\begin{equation}\label{eq:cq6s0i3k4v}
+  C_c(H(\mathbb{A}_f) \backslash G(\mathbb{A}_f), \mathbb{Z}_p)
+  \rightarrow H^2_{\mathrm{ct}}(\mathrm{S h}_{G /K}, \mathbb{Z}_p(1))
+\end{equation}
+\begin{equation*}
+  \mathbf{1}(g U) \mapsto U_H = \hat{H}^\times g U g^{-1}.
+\end{equation*}
+Now we have
+\begin{equation*}
+  \mathrm{Sh}_H(U_H) \xrightarrow{\mathrm{cyc}}
+  H^2(\mathrm{Sh}_G(g U g^{-1}), \mathbb{Z}_p(1)) \xrightarrow{g}
+  H^2(\mathrm{Sh}_G(U), \mathbb{Z}_p(1)).
+\end{equation*}
+These maps are $G(\mathbb{A}_f)$-equivariant, or ``Hecke equivariant''.
+
+\begin{exercise}
+  Recover the Heegner point Euler system that we wrote down before by taking the right open compact and the right elements $g_c$, with $V$ coming from $\mathcal{O}_c$.
+\end{exercise}
+The point is that through this process, the Galois action has been subsumed into some kind of group action.  What's really going on in some ways is that the Shimura varieties for these unitary groups are just some copies of modular curves, where the number of copies is just the class group of some ring class extension.  Once you have this picture, the Euler system should just be the image of a bunch of elements on the left hand side of \eqref{eq:cq6s0i3k4v}, and you just have to choose the elements:
+\begin{equation*}
+  \text{Euler system} = \text{ image of elements in } C_c((H \backslash G)(\mathbb{A}_f) / \mathbb{Z}_p).
+\end{equation*}
+This can factor.  Suppose $c = \ell_1 \dotsb \ell_r$ is ap roduct of primes.  We might then take
+\begin{equation*}
+  \varphi_c = \varphi_S \otimes \bigotimes_{\ell_i} \varphi_{\ell_i} \otimes \bigotimes_{
+    \substack{
+      \ell \neq \ell_i  \\
+      \ell \notin S      
+    }
+  }
+  \varphi_{\ell}^0 \in \Bigl(C_c(X(\mathbb{Z}_S), \mathbb{Z}_p) \otimes C_c(X(\mathbb{A}_f^S), \mathbb{Z}_p)\Bigr)^{U_c},
+\end{equation*}
+where $U_c := U_0(N) \times \hat{\mathcal{O}}_c^\times$, the $\varphi_{\ell_i}$ are chosen well and $\varphi_{\ell}^0 := \mathbf{1}(G(\mathbb{Z}_{\ell}))$ is the unramified choice.  By choosing $\varphi_S$ appropriately, we can even arrange that we're in the homologically trivial classes, hence giving rise to
+\begin{equation*}
+  z_c = \mathrm{cyc}(\varphi_c)
+\end{equation*}
+in Galois cohomology; this is easy to arrange by just choosing the right section for $\varphi_S$, which amounts to acting by a Hecke operator of degree zero or something like that.  The norm relations are all about the $\varphi_{\ell_i}$.  We have
+\begin{equation*}
+  \mathrm{cor}_{K[c \ell] / K[c]} z_{c \ell} =
+  \operatorname{cyc}
+  \left(
+    \sum_{
+      t \in (\mathcal{O}_c \otimes \mathbb{Z}_{\ell} )^\times /(\hat{\mathcal{O}}_{c \ell} \otimes \mathbb{Z}_{\ell})^\times
+    }
+    (1, t) \varphi_{c \ell}
+  \right)
+  \in C_c(X(\mathbb{A}_f), \mathbb{Z}_p)^{U_c}.
+\end{equation*}
+Suppose $\ell \nmid c$.  Then we have
+\begin{equation*}
+  \varphi_{\ell}^0 = \mathbf{1}(X(\mathbb{Z}_{\ell}))
+\end{equation*}
+and
+\begin{equation*}
+  \varphi_{\ell} ' := \trace \varphi_{\ell} = \sum_t \varphi_{\ell}(x(1, t)).
+\end{equation*}
+What we're interested in is, how to compare these two?  Both of the above define elements of
+\begin{equation*}
+  C_c(H \backslash G(\mathbb{Q}_{\ell}), \mathbb{Z}_p)^{G(\mathbb{Z}_\ell)}
+  =
+  C_c(H \backslash G(\mathbb{Q}_{\ell}) / G(\mathbb{Z}_\ell), \mathbb{Z}_p).
+\end{equation*}
+This space is cyclic for the action of the Hecke algebra (at least after tensoring by $\mathbb{Q}_p$)
+\begin{equation*}
+  \mathcal{H}(G \git G(\mathbb{Z}_{\ell}), \mathbb{Q}_p)
+\end{equation*}
+generated with respect to that action by the $\varphi_{\ell}^0$.  So we can write
+\begin{equation*}
+  \varphi_{\ell} ' = P_{\ell} \ast \varphi_{\ell}^0.
+\end{equation*}
+In the remaining minutes, let's say something about how that calculation might go.
+
+Let $\pi$ and $\chi$ be unramified representations of $\mathrm{GL}_2(\mathbb{Q}_{\ell})$ and $K_{\ell}^\times$, respectively, with $\chi_\pi \chi \mid_{\mathbb{Q}_{\ell}^\times} = 1$.  This pair defines a representation of the group $G$ as in \eqref{eq:cq6s0mlq0m}.  Take a spherical vector $\theta \in \pi$.  Maybe we realize $\pi$ in the Whittaker model.  Let's also assume that $\ell$ splits.  The sort of functional we're looking at is
+\begin{equation*}
+  \int_{(g, t_0) \in H \backslash G(\mathbb{Q}_{\ell})}
+  \int_{t \in \mathbb{Q}_{\ell}^\times \backslash K_{\ell}^\times}
+  \theta(t g)
+  \chi(t t_0)
+  \varphi(g, t_0)
+  \,d^\times t
+  = \Lambda(\varphi).
+\end{equation*}
+Taking
+\begin{equation*}
+  \varphi = \varphi_{\ell} ' = P_{\ell} \ast \varphi_{\ell}^0,
+\end{equation*}
+we obtain
+\begin{equation*}
+  \Lambda(\varphi_{\ell} ') = \xi_{(\pi, \chi)}(P_{\ell}) \cdot \Lambda(\varphi_{\ell}^0),
+\end{equation*}
+where
+\begin{equation*}
+  \Lambda(\varphi_{\ell}^0) = \int_{\mathbb{Q}_{\ell}^\times \backslash K_{\ell}^\times} \theta(t) \chi(t) \,d^\times t.
+\end{equation*}
+We might want to arrange that $1 = \Lambda(\varphi_{\ell} ')$.  Since $\Lambda(\varphi_{\ell}^0)$ is the $L$-factor, this motivates taking $\xi(P_{\ell})$ to be the Hecke polynomial of which the $L$-factor is the inverse.  Here we're assuming that $\ell$ splits in $K / \mathbb{Q}$.
+
+Locally, we can think
+\begin{equation*}
+  K_{\ell}^\times = \mathcal{O}_{\ell}^\times \times \mathcal{O}_{\ell}^\times \hookrightarrow \mathrm{GL}_2(\mathbb{Q}_{\ell}),
+\end{equation*}
+where the inclusion is the diagonal embedding.  We can take
+\begin{equation*}
+  g_{\ell} =
+  \begin{pmatrix}
+    1 & \frac{1}{\ell} \\
+    0 & 1 \\
+  \end{pmatrix}.
+\end{equation*}
+Then
+\begin{equation*}
+  \varphi_{\ell} '
+  = \sum
+  _{a \in(\mathbb{Z} / \ell)^\times}
+  \varphi_{\ell}^0 \left(
+    \begin{pmatrix}
+    1      & \frac{a}{\ell} \\
+    0             & 1 \\
+    \end{pmatrix} \right).
+\end{equation*}
+You end up with something that's not quite what you want, but is \emph{congruent} to what you want modulo $\ell - 1$.  Anyway, the norm relation from before falls out.
+
+You can do this more generally for $H \subset G$ defining Shimura varieties.  One can is to take
+\begin{equation*}
+  G = G\bigl(\U(n, 1) \times \U(n - 1, 1) \times \U(1)\bigr),
+\end{equation*}
+which contains
+\begin{equation*}
+  H = G \bigl( \U(n - 1, 1) \times \U(1) \bigr).
+\end{equation*}
+(This belongs to the ``GGP'' setting.)  We have a corresponding map of Shimura varieties
+\begin{equation*}
+  \mathrm{Sh}_H \rightarrow \mathrm{Sh}_G
+\end{equation*}
+of dimensions $n - 1$ and $n + n - 1 = 2 n - 1$, so the codimension is $n$, and we get a cycle class map
+\begin{equation*}
+  H^0(\mathrm{Sh}_H) \xrightarrow{\mathrm{cyc}} H^{2 n}(\mathrm{Sh}_G, n).
+\end{equation*}
+This leads to
+\begin{equation*}
+  H^1(\text{ring class fields}, H^{2 n - 1}(\mathrm{Sh}_{\U(n - 1, 1) \times \U(n, 1)})).
+\end{equation*}
+See the work of the speaker and Xinwen Wan.
+
+\begin{remark}
+  We consider
+  \begin{equation*}
+    C_c(X(\mathbb{Q}_{\ell}), \mathbb{Z}_p)^{G(\mathbb{Z}_{\ell})}
+    \supseteq \trace C_c(X(\mathbb{Q}_{\ell}), \mathbb{Z}_p)^{G_{\ell}(\mathbb{Z}_{\ell})},
+  \end{equation*}
+  for some subgroup $G_{\ell}(\mathbb{Z}_{\ell}) \subseteq G(\mathbb{Z}_{\ell})$.  What is the right hand side?  Contains
+  \begin{equation*}
+    \left( P_{\ell} ,(\ell - 1) C_c(\dotsb)^{G(\mathbb{Z}_{\ell})} \right).
+  \end{equation*}
+\end{remark}
+\begin{remark}
+  See paper of David Loeffler regarding the ramified primes
+\end{remark}
+
 
 
 
