@@ -205,7 +205,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-06 09:34:33
+2025-08-06 10:17:00
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -2112,17 +2112,195 @@ class="math display">\[U = U_0(N) = \mathrm{GL}_2(\hat{\mathbb{Z}}) \cap
 <p>In that case, <span class="math inline">\(x_c =[\tau_0, g_c]\)</span>
 for a particular choice of <span class="math inline">\(g_c\)</span>.</p>
 <p>This is the classical picture of Heegner points. We’re going to
-change the picture just a little bit. Think <span
-class="math display">\[K^\times \rightarrow G = \frac{\mathrm{GL}_2
-\times K^\times}{\mathbb{Q}^\times}.\]</span> (The right hand side may
-be thought of as <span class="math inline">\(\mathrm{GU}(1, 1)\)</span>,
-if you’d like.) We get <span class="math display">\[X_{U_0(N)}
-\rightarrow
+change the picture just a little bit. Think <span id="eq:cq6s0mlq0m" class="math display">\[\label{eq:cq6s0mlq0m}\tag{17}
+  H := \mathbb{Q}^\times \backslash K^\times \rightarrow G :=
+\frac{\mathrm{GL}_2 \times K^\times}{\mathbb{Q}^\times}.\]</span> (The
+right hand side may be thought of as <span
+class="math inline">\(\mathrm{GU}(1, 1)\)</span>, if you’d like.) We get
+<span class="math display">\[X_{U_0(N)} \rightarrow
   \mathrm{S h}_G(U) := G(\mathbb{Q}) \backslash G(\mathbb{A}) / K_\infty
-U, \quad U := U_0(N) \times V.\]</span> There is a map <span
-class="math display">\[\mathrm{S h}_G(U) \rightarrow
-\hat{\mathbb{Q}}^\times K^\times \backslash \hat{K}^\times /
-V.\]</span></p>
+U, \quad U := U_0(N) \times V.\]</span> We also get <span
+class="math display">\[\mathrm{S h}_H(V) := \hat{\mathbb{Q}}^\times
+K^\times \backslash \hat{K}^\times / V.\]</span>&lt;++&gt; There is a
+map <span class="math display">\[\mathrm{S h}_G(U) \rightarrow
+\mathrm{Sh}_H(V).\]</span> In the interest of time, we’re going to cut
+to the chase here. Look at compactly supported functions on <span
+class="math inline">\(H(\mathbb{A}_f) \backslash
+G(\mathbb{A}_f)\)</span>, valued in <span
+class="math inline">\(\mathbb{Z}_p\)</span>. We’ll produce elements in
+the Shimura variety of <span class="math inline">\(G\)</span> (over
+<span class="math inline">\(K\)</span>) valued in <span
+class="math inline">\(\mathbb{Z}_p(1)\)</span>: <span id="eq:cq6s0i3k4v" class="math display">\[\label{eq:cq6s0i3k4v}\tag{18}
+  C_c(H(\mathbb{A}_f) \backslash G(\mathbb{A}_f), \mathbb{Z}_p)
+  \rightarrow H^2_{\mathrm{ct}}(\mathrm{S h}_{G /K},
+\mathbb{Z}_p(1))\]</span> <span class="math display">\[\mathbf{1}(g U)
+\mapsto U_H = \hat{H}^\times g U g^{-1}.\]</span> Now we have <span
+class="math display">\[\mathrm{Sh}_H(U_H) \xrightarrow{\mathrm{cyc}}
+  H^2(\mathrm{Sh}_G(g U g^{-1}), \mathbb{Z}_p(1)) \xrightarrow{g}
+  H^2(\mathrm{Sh}_G(U), \mathbb{Z}_p(1)).\]</span> These maps are <span
+class="math inline">\(G(\mathbb{A}_f)\)</span>-equivariant, or “Hecke
+equivariant”.</p>
+<div class="exercise">
+<p><strong>Exercise 7</strong>. Recover the Heegner point Euler system
+that we wrote down before by taking the right open compact and the right
+elements <span class="math inline">\(g_c\)</span>, with <span
+class="math inline">\(V\)</span> coming from <span
+class="math inline">\(\mathcal{O}_c\)</span>.</p>
+</div>
+<p>The point is that through this process, the Galois action has been
+subsumed into some kind of group action. What’s really going on in some
+ways is that the Shimura varieties for these unitary groups are just
+some copies of modular curves, where the number of copies is just the
+class group of some ring class extension. Once you have this picture,
+the Euler system should just be the image of a bunch of elements on the
+left hand side of <a href="#eq:cq6s0i3k4v" data-reference-type="eqref"
+data-reference="eq:cq6s0i3k4v">\((18)\)</a>, and you just have to
+choose the elements: <span class="math display">\[\text{Euler system} =
+\text{ image of elements in } C_c((H \backslash G)(\mathbb{A}_f) /
+\mathbb{Z}_p).\]</span> This can factor. Suppose <span
+class="math inline">\(c = \ell_1 \dotsb \ell_r\)</span> is ap roduct of
+primes. We might then take <span class="math display">\[\varphi_c =
+\varphi_S \otimes \bigotimes_{\ell_i} \varphi_{\ell_i} \otimes
+\bigotimes_{
+    \substack{
+      \ell \neq \ell_i  \\
+      \ell \notin S      
+    }
+  }
+  \varphi_{\ell}^0 \in \Bigl(C_c(X(\mathbb{Z}_S), \mathbb{Z}_p) \otimes
+C_c(X(\mathbb{A}_f^S), \mathbb{Z}_p)\Bigr)^{U_c},\]</span> where <span
+class="math inline">\(U_c := U_0(N) \times
+\hat{\mathcal{O}}_c^\times\)</span>, the <span
+class="math inline">\(\varphi_{\ell_i}\)</span> are chosen well and
+<span class="math inline">\(\varphi_{\ell}^0 :=
+\mathbf{1}(G(\mathbb{Z}_{\ell}))\)</span> is the unramified choice. By
+choosing <span class="math inline">\(\varphi_S\)</span> appropriately,
+we can even arrange that we’re in the homologically trivial classes,
+hence giving rise to <span class="math display">\[z_c =
+\mathrm{cyc}(\varphi_c)\]</span> in Galois cohomology; this is easy to
+arrange by just choosing the right section for <span
+class="math inline">\(\varphi_S\)</span>, which amounts to acting by a
+Hecke operator of degree zero or something like that. The norm relations
+are all about the <span class="math inline">\(\varphi_{\ell_i}\)</span>.
+We have <span class="math display">\[\mathrm{cor}_{K[c \ell] / K[c]}
+z_{c \ell} =
+  \operatorname{cyc}
+  \left(
+    \sum_{
+      t \in (\mathcal{O}_c \otimes \mathbb{Z}_{\ell} )^\times
+/(\hat{\mathcal{O}}_{c \ell} \otimes \mathbb{Z}_{\ell})^\times
+    }
+    (1, t) \varphi_{c \ell}
+  \right)
+  \in C_c(X(\mathbb{A}_f), \mathbb{Z}_p)^{U_c}.\]</span> Suppose <span
+class="math inline">\(\ell \nmid c\)</span>. Then we have <span
+class="math display">\[\varphi_{\ell}^0 =
+\mathbf{1}(X(\mathbb{Z}_{\ell}))\]</span> and <span
+class="math display">\[\varphi_{\ell} &#39; :=
+\mathop{\mathrm{trace}}\varphi_{\ell} = \sum_t \varphi_{\ell}(x(1,
+t)).\]</span> What we’re interested in is, how to compare these two?
+Both of the above define elements of <span class="math display">\[C_c(H
+\backslash G(\mathbb{Q}_{\ell}), \mathbb{Z}_p)^{G(\mathbb{Z}_\ell)}
+  =
+  C_c(H \backslash G(\mathbb{Q}_{\ell}) / G(\mathbb{Z}_\ell),
+\mathbb{Z}_p).\]</span> This space is cyclic for the action of the Hecke
+algebra (at least after tensoring by <span
+class="math inline">\(\mathbb{Q}_p\)</span>) <span
+class="math display">\[\mathcal{H}(G /\!\!/G(\mathbb{Z}_{\ell}),
+\mathbb{Q}_p)\]</span> generated with respect to that action by the
+<span class="math inline">\(\varphi_{\ell}^0\)</span>. So we can write
+<span class="math display">\[\varphi_{\ell} &#39; = P_{\ell} \ast
+\varphi_{\ell}^0.\]</span> In the remaining minutes, let’s say something
+about how that calculation might go.</p>
+<p>Let <span class="math inline">\(\pi\)</span> and <span
+class="math inline">\(\chi\)</span> be unramified representations of
+<span class="math inline">\(\mathrm{GL}_2(\mathbb{Q}_{\ell})\)</span>
+and <span class="math inline">\(K_{\ell}^\times\)</span>, respectively,
+with <span class="math inline">\(\chi_\pi \chi
+\mid_{\mathbb{Q}_{\ell}^\times} = 1\)</span>. This pair defines a
+representation of the group <span class="math inline">\(G\)</span> as in
+<a href="#eq:cq6s0mlq0m" data-reference-type="eqref"
+data-reference="eq:cq6s0mlq0m">\((17)\)</a>. Take a spherical
+vector <span class="math inline">\(\theta \in \pi\)</span>. Maybe we
+realize <span class="math inline">\(\pi\)</span> in the Whittaker model.
+Let’s also assume that <span class="math inline">\(\ell\)</span> splits.
+The sort of functional we’re looking at is <span
+class="math display">\[\int_{(g, t_0) \in H \backslash
+G(\mathbb{Q}_{\ell})}
+  \int_{t \in \mathbb{Q}_{\ell}^\times \backslash K_{\ell}^\times}
+  \theta(t g)
+  \chi(t t_0)
+  \varphi(g, t_0)
+  \,d^\times t
+  = \Lambda(\varphi).\]</span> Taking <span
+class="math display">\[\varphi = \varphi_{\ell} &#39; = P_{\ell} \ast
+\varphi_{\ell}^0,\]</span> we obtain <span
+class="math display">\[\Lambda(\varphi_{\ell} &#39;) = \xi_{(\pi,
+\chi)}(P_{\ell}) \cdot \Lambda(\varphi_{\ell}^0),\]</span> where <span
+class="math display">\[\Lambda(\varphi_{\ell}^0) =
+\int_{\mathbb{Q}_{\ell}^\times \backslash K_{\ell}^\times} \theta(t)
+\chi(t) \,d^\times t.\]</span> We might want to arrange that <span
+class="math inline">\(1 = \Lambda(\varphi_{\ell} &#39;)\)</span>. Since
+<span class="math inline">\(\Lambda(\varphi_{\ell}^0)\)</span> is the
+<span class="math inline">\(L\)</span>-factor, this motivates taking
+<span class="math inline">\(\xi(P_{\ell})\)</span> to be the Hecke
+polynomial of which the <span class="math inline">\(L\)</span>-factor is
+the inverse. Here we’re assuming that <span
+class="math inline">\(\ell\)</span> splits in <span
+class="math inline">\(K / \mathbb{Q}\)</span>.</p>
+<p>Locally, we can think <span class="math display">\[K_{\ell}^\times =
+\mathcal{O}_{\ell}^\times \times \mathcal{O}_{\ell}^\times
+\hookrightarrow \mathrm{GL}_2(\mathbb{Q}_{\ell}),\]</span> where the
+inclusion is the diagonal embedding. We can take <span
+class="math display">\[g_{\ell} =
+  \begin{pmatrix}
+    1 &amp; \frac{1}{\ell} \\
+    0 &amp; 1 \\
+  \end{pmatrix}.\]</span> Then <span
+class="math display">\[\varphi_{\ell} &#39;
+  = \sum
+  _{a \in(\mathbb{Z} / \ell)^\times}
+  \varphi_{\ell}^0 \left(
+    \begin{pmatrix}
+    1      &amp; \frac{a}{\ell} \\
+    0             &amp; 1 \\
+    \end{pmatrix} \right).\]</span> You end up with something that’s not
+quite what you want, but is <em>congruent</em> to what you want modulo
+<span class="math inline">\(\ell - 1\)</span>. Anyway, the norm relation
+from before falls out.</p>
+<p>You can do this more generally for <span class="math inline">\(H
+\subset G\)</span> defining Shimura varieties. One can is to take <span
+class="math display">\[G = G\bigl(\mathop{\mathrm{U}}(n, 1) \times
+\mathop{\mathrm{U}}(n - 1, 1) \times
+\mathop{\mathrm{U}}(1)\bigr),\]</span> which contains <span
+class="math display">\[H = G \bigl( \mathop{\mathrm{U}}(n - 1, 1) \times
+\mathop{\mathrm{U}}(1) \bigr).\]</span> (This belongs to the “GGP”
+setting.) We have a corresponding map of Shimura varieties <span
+class="math display">\[\mathrm{Sh}_H \rightarrow \mathrm{Sh}_G\]</span>
+of dimensions <span class="math inline">\(n - 1\)</span> and <span
+class="math inline">\(n + n - 1 = 2 n - 1\)</span>, so the codimension
+is <span class="math inline">\(n\)</span>, and we get a cycle class map
+<span class="math display">\[H^0(\mathrm{Sh}_H)
+\xrightarrow{\mathrm{cyc}} H^{2 n}(\mathrm{Sh}_G, n).\]</span> This
+leads to <span class="math display">\[H^1(\text{ring class fields}, H^{2
+n - 1}(\mathrm{Sh}_{\mathop{\mathrm{U}}(n - 1, 1) \times
+\mathop{\mathrm{U}}(n, 1)})).\]</span> See the work of the speaker and
+Xinwen Wan.</p>
+<div class="remark">
+<p><strong>Remark 36</strong>. We consider <span
+class="math display">\[C_c(X(\mathbb{Q}_{\ell}),
+\mathbb{Z}_p)^{G(\mathbb{Z}_{\ell})}
+    \supseteq \mathop{\mathrm{trace}}C_c(X(\mathbb{Q}_{\ell}),
+\mathbb{Z}_p)^{G_{\ell}(\mathbb{Z}_{\ell})},\]</span> for some subgroup
+<span class="math inline">\(G_{\ell}(\mathbb{Z}_{\ell}) \subseteq
+G(\mathbb{Z}_{\ell})\)</span>. What is the right hand side? Contains
+<span class="math display">\[\left( P_{\ell} ,(\ell - 1)
+C_c(\dotsb)^{G(\mathbb{Z}_{\ell})} \right).\]</span></p>
+</div>
+<div class="remark">
+<p><strong>Remark 37</strong>. See paper of David Loeffler regarding the
+ramified primes</p>
+</div>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
   toggle.addEventListener("click", function(e) {
