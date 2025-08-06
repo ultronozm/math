@@ -139,7 +139,7 @@ In case \eqref{enumerate:cq6r3j15cy}, we have a $G$-stable lattice $\Lambda \con
 Let's use the notation $\mathrm{c p}_\alpha$ for the characteristic polynomial of $\alpha \in M_n(A)$.
 \begin{theorem}
   \begin{enumerate}[(a)]
-  \item Given a representation $r : G \rightarrow \mathrm{GL}_n(\mathbb{F})$.  Then there exists a semisimple representation $r^{\mathrm{ss}} : G \rightarrow \mathrm{GL}_n(\mathbb{F})$ such that $\mathrm{c p}_r = \mathrm{c p}_{r^{\mathrm{ss}}}$ (Brauer--Hesbitt), where $r^{\mathrm{ss}}$ is unique up to isomorphism.
+  \item Given a representation $r : G \rightarrow \mathrm{GL}_n(\mathbb{F})$.  Then there exists a semisimple representation $r^{\mathrm{ss}} : G \rightarrow \mathrm{GL}_n(\mathbb{F})$ such that $\mathrm{c p}_r = \mathrm{c p}_{r^{\mathrm{ss}}}$ (Brauer--Nesbitt), where $r^{\mathrm{ss}}$ is unique up to isomorphism.
   \item We have $\mathrm{c p}_{\rho} \in \mathcal{O}[X]$ and $\mathrm{c p}_{\bar{\rho}_\Lambda} \in \mathbb{F}[X]$, independent of $\Lambda$.
   \end{enumerate}
 \end{theorem}
@@ -176,7 +176,7 @@ Let's use the notation $\mathrm{c p}_\alpha$ for the characteristic polynomial o
       \begin{equation*}
         a_v := \# \mathcal{E}(k_v).
       \end{equation*}
-      This  shows the geometric meaning of Frobenius.
+      This shows the geometric meaning of Frobenius.
     \end{itemize}
   \item\label{enumerate:cq6sj47m05} Let $f = q + \sum_{n \geq 2} a_n q^n$ be the $q$-expansion of a cuspidal Hecke eigenform $f \in S_k(N, \eps)$, $k \geq 1$, $\eps :(\mathbb{Z} / N)^\times \rightarrow \mathbb{C}^\times$.
     \begin{theorem}
@@ -207,7 +207,7 @@ Now, we want to study congruences.  To do this, we first go from
 \end{fact}
 For any ring $A$, we have
 \begin{equation*}
-  \underline{S}_{A} = S_k(N, \mathbb{Z}) \otimes_{\mathbb{Z}} A \circlearrowright \mathbb{T}_A = \mathbb{T}(N, A).
+  \underline{S}_{A} = S_k(N, \mathbb{Z}) \otimes_{\mathbb{Z}} A \circlearrowleft \mathbb{T}_A = \mathbb{T}(N, A).
 \end{equation*}
 
 \begin{definition}
@@ -259,7 +259,7 @@ Let's now turn to \emph{deformation functors}.  In many ways, what we're doing n
 \begin{definition}
   $\mathrm{C N L }_{\mathcal{O}}$ is the category of complete noetherian $\mathcal{O}$-algebras $(A, \mathfrak{m}_{A})$ with residue field $\mathbb{F}$ and with local homomorphisms.
 \end{definition}
-Typical rings: $\mathcal{O} \llbracket X_1, \dotsc, X_r\rrbracket / I$.  Some structure theorem tells you that this is all you can get.  There is a finite subcategory
+Typical rings: $\mathcal{O} [[ X_1, \dotsc, X_r\rrbracket / I$.  Some structure theorem tells you that this is all you can get.  There is a finite subcategory
 \begin{equation*}
   \mathrm{Ar}_{\mathcal{O}} \subseteq \mathrm{C N L}_{\mathcal{O}}
 \end{equation*}
@@ -383,14 +383,14 @@ Here \eqref{enumerate:cq6skams6j} is an exercise you can do.
 \begin{exercise}
   Suppose that $\Hom_{\mathrm{cts}}(G^{\mathrm{ab}}, \mathbb{F})$ is finite.  Then the universal deformation ring $R_{\bar{\rho}}$ (which for $n = 1$ is the same as the universal lifting ring $R_{\bar{\rho}}^{\square}$)  is isomorphic to
   \begin{equation*}
-    \mathcal{O} \llbracket(G^{\mathrm{ab}})_p \rrbracket = \varprojlim
+    \mathcal{O} [[(G^{\mathrm{ab}})_p \rrbracket = \varprojlim
     \mathcal{O} \left[(G^{\mathrm{a b}})_p \right].    
   \end{equation*}
   The universal lifting is
   \begin{equation*}
     \hat{\rho} \otimes \left( G \rightarrow(G^{\mathrm{a b}})_p
       \hookrightarrow
-      \mathcal{O} \llbracket(G^{\mathrm{a b}})_p \rrbracket^\times.
+      \mathcal{O} [[(G^{\mathrm{a b}})_p \rrbracket^\times.
     \right)
   \end{equation*}
 \end{exercise}
@@ -430,11 +430,11 @@ with the ``adjoint action'': for $g \in A$ and $\alpha \in M_{n \times n}$, we t
 \begin{corollary}
   For $r = h^1(G, \ad_{\bar{\rho}})$, $r^{\square} = z^1(G, \ad_{\bar{\rho}})$, we have surjections
   \begin{equation*}
-    \mathcal{O} \llbracket X_1, \dotsc, X_r \rrbracket \rightarrow R_{\bar{\rho}}
+    \mathcal{O} [[ X_1, \dotsc, X_r \rrbracket \rightarrow R_{\bar{\rho}}
   \end{equation*}
   and
   \begin{equation*}
-    \mathcal{O} \llbracket X_1, \dotsc, X_{r^{\square}} \rrbracket \rightarrow R_{\bar{\rho}}^{\square},
+    \mathcal{O} [[ X_1, \dotsc, X_{r^{\square}} \rrbracket \rightarrow R_{\bar{\rho}}^{\square},
   \end{equation*}
   and $r$, $r^{\square}$ are optimal.
 \end{corollary}
@@ -466,7 +466,7 @@ We give a proof of \eqref{enumerate:cq6sknjiey}.  If $c_{\rho '} = \partial^2 f$
 
 Mazur observed that you can do something with this obstruction theory: you can prove something more about these projections on the top line here.  But you have a very coarse control over the kernel ideal $I$ of the surjection.
 \begin{theorem}
-  Consider $\mathcal{R}  = \mathcal{O} \llbracket  X_1, \dotsc, X_r \rrbracket$ projecting via something called $\pi$ to $R_{\bar{\rho}}$ ($r = h'(G, \ad_{\bar{\rho}} 1)$), with kernel $J$.  Then
+  Consider $\mathcal{R}  = \mathcal{O} [[  X_1, \dotsc, X_r \rrbracket$ projecting via something called $\pi$ to $R_{\bar{\rho}}$ ($r = h'(G, \ad_{\bar{\rho}} 1)$), with kernel $J$.  Then
   \begin{equation*}
     \mathcal{R} / \mathfrak{m}_{\mathcal{R}} J \rightarrow R_{\bar{\rho}}
   \end{equation*}
@@ -481,7 +481,7 @@ Mazur observed that you can do something with this obstruction theory: you can p
 \end{theorem}
 
 \begin{corollary}
-  With $r, r^{\square}$ from above and $s = h^2(G, \ad_{\bar{\rho}})$ have presentations $R_{\bar{\rho}} := \llbracket x_1, \dotsc, x_{r^{\square}} \rrbracket /(f_1, \dotsc, f_s)$.
+  With $r, r^{\square}$ from above and $s = h^2(G, \ad_{\bar{\rho}})$ have presentations $R_{\bar{\rho}} := \mathcal{O} [[ x_1, \dotsc, x_{r^{\square}} ]] /(f_1, \dotsc, f_s)$.
 \end{corollary}
 \begin{definition}[ad hoc]
   The \emph{expected cohomological dimension} is
@@ -632,7 +632,7 @@ We may think of $\mathbb{A}_k^\times$ as $\mathrm{GL}_1(\mathbb{A}_k)$.  Let's n
 We then form
 \begin{equation*}
   \int_{\mathrm{GL}_n(k) \backslash \mathrm{GL}_n(\mathbb{A}_k)}
-  \varphi(x) \lvert \det(x) \rvert \theta(x) \,d^\times x.
+  \varphi(x) \lvert \det(x) \rvert^s \theta(x) \,d^\times x.
 \end{equation*}
 This unfolds to
 \begin{equation*}
@@ -642,7 +642,7 @@ But does it factor?  Not obviously.
 
 Let's now form
 \begin{equation*}
-  \theta(h, g) = \sum_{\alpha \in M_n(k)} \phi(h^{-1} x g)
+  \theta(h, g) = \sum_{\alpha \in M_n(k)} \phi(h^{-1} \alpha g)
 \end{equation*}
 and consider
 \begin{equation*}
@@ -807,7 +807,7 @@ There's a similar relation in the triple product case, which we can guess using 
 
 \begin{remark}
   This doesn't make sense for general arguments other than $s = \tfrac{1}{2}$, except in some form when $\varphi$ is an Eisenstein series (``formula of Damerell'').  One needs to be able to vary $\varphi$ (or $\chi$) in a family, preserving the central character compatibility condition.
-\end{remark}<++>
+\end{remark}
 
 All of these examples are special cases of the Gan--Gross--Prasad conjectures, which we'll hear more about later in the week.
 
@@ -1018,7 +1018,95 @@ Here one wants to allow ramification at good primes $\ell$, chosen to capture th
 \end{equation}
 The local duality relates this to $H^1(I_{\ell}, E[p^N]^\ast)^{G_{\mathbb{Q}_{\ell}}}$.  So if we can produce a class in the latter that is highly ramified (of large order), then we can force the class in \eqref{eq:cq6sj3eqsx} to have small order.  That, in a nutshell, is how Selmer groups are bounded.  The whole trick is to produce ramified classes in \eqref{eq:cq6sj3fh1h} that you can measure the size of in some way.  Now, producing things that are provably ramified is a hard problem.  There are few cases where we can do this.  It's much easier to check that something is unramified (think of the criterion of Néron--Ogg--Shafarevich or something like that).  What Kolyvagin's argument does is, he says well, let's start off with classes \eqref{eq:cq6sj3hg5b} that are over ramified extensions.  If they are truly over that ramified extension and not, say, defined over some extension with less ramification, then Kolyvagin can use that to produce ramified classes, and it is exactly these relations \eqref{eq:cq6sj0iiz3} that allow him to understand how ramified these classes actually are.  These norm relations are thus crucial for producing ramified classes with controlled or measurable ramification.  That's sort of the algebra background for why one is interested in Euler systems.
 
-Tomorrow, we'll describe a more representation-theoretic picture that produces these Kolyvagin classes.
+We'll now describe a more representation-theoretic picture that produces these Kolyvagin classes.  Recall the situation.  We have the modular curve $X_0(N)$ and the Heegner point $x_c \in X_0(N)(K[c])$, corresponding to an isogeny $[\mathbb{C} / \mathcal{O}_c \rightarrow \mathbb{C} / \mathfrak{n} \mathcal{O}_c]$.  The modular curve is a curve defined over $\mathbb{Q}$, so we can think of this point as defining a map
+\begin{equation*}
+  \Spec K[c] \rightarrow X_0(N).
+\end{equation*}
+We can base our curve to a curve over $K[c]$, yielding the following map of varieties over $K [c]$:
+\begin{equation*}
+  \Spec K[c] \xrightarrow{x_c} X_0(N) \times \Spec K[c].
+\end{equation*}
+The left hand side has dimension $0$, while the right hand side has dimension $1$.  There is thus a cycle class map
+\begin{equation*}
+  H^0(\Spec K[c])
+  \xrightarrow{\mathrm{cyc}}
+  H^{2}(X_0(N) / \Spec K[c], \mathbb{Z}_p(1)).
+\end{equation*}
+(In general, the exponent is $2 d$, where $d$ is the codimension.)
+
+This is a single point.  What we did before was to take the difference between two points,
+\begin{equation}\label{eq:cq6s0hup34}
+  \operatorname{cyc}(x_c) - \operatorname{cyc}(\infty) \in
+  H^2(X_0(N) \times \Spec K[c], \mathbb{Z}_p(1))_0,
+\end{equation}
+but it's now homologically trivial in the sense that if we pass to the algebraic closure, i.e., we consider the degree map
+\begin{equation*}
+  H^2(X_0(N) \times \Spec K[c], \mathbb{Z}_p(1))_0
+  \xrightarrow{\deg}
+  H^2(X_0(N) \times \Spec \bar{K}[c], \mathbb{Z}_p(1))_0
+  \cong \mathbb{Z}_p
+\end{equation*}
+which the difference \eqref{eq:cq6s0hup34} lies in the kernel of, then we obtain the element
+\begin{equation*}
+  y_c \in
+  H^1(K[c], H^1(X_0(N) / \bar{K}, \mathbb{Z}_p(1)))
+  =H^1(K[c], T_p J_0(N)).
+\end{equation*}
+
+Now, we don't want to keep tracking the field of definition, so let's think of $x_c$ as a map over $K$.  Starting with
+\begin{equation*}
+  \Spec K[c](\bar{K})
+  = \left\{ \sigma : K[c] \hookrightarrow \bar{K} \right\} \simeq \Gal(K[c] / K)
+  = K^\times \backslash \hat{K}^\times / \hat{\mathcal{O}}_c^\times,
+\end{equation*}
+we can think of
+\begin{equation*}
+  H^0(K^\times \backslash \hat{K}^\times / \hat{\mathcal{O}}_c^\times)
+  \xrightarrow{\mathrm{cyc}}
+  H^2(X_0(N) \times K^\times \backslash \hat{K}^\times / \hat{\mathcal{O}}_c^\times,
+  \mathbb{Z}_p(1)).
+\end{equation*}
+There is an action of $\Gal(K[c] / K)$ on $X_0(N) \times K^\times \backslash \hat{K}^\times / \hat{\mathcal{O}}_c^\times$ that we may reinterpret as multiplication by $\hat{K}^\times$.
+
+Now, let's take an embedding $K \hookrightarrow M_2(\mathbb{Q})$ such that $\mathcal{O}_K = K \cap M_2(\mathbb{Z})$.  This induces $K^\times \hookrightarrow \mathrm{GL}_2(\mathbb{Q})$.  We fix $\tau_0 \in \mathfrak{h}$ such that $\Stab_{\mathrm{GL}_2^+(\mathbb{Q})}(\tau) = K^\times$.  For a compact open subgroup $U$ of $\mathrm{GL}_2(\mathbb{A}_f)$, we set
+\begin{equation*}
+  X_U := \mathrm{GL}_2(\mathbb{Q}) \backslash[\mathfrak{h}^{\pm, \ast} \times \mathrm{GL}_2(\mathbb{A}_f) / U],
+\end{equation*}
+where $\ast$ means ``add the cusps'' so as to obtain a compactification.    The above contains the set of ``CM points''
+\begin{equation*}
+  \left\{[\tau_0, g] : g \in \mathrm{GL}_2(\mathbb{A}_f) \right\},
+\end{equation*}
+which comes with with an action of $\hat{K}^\times$ via the reciprocity map $\hat{K}^\times \xrightarrow{\mathrm{rec}} G_K^{\mathrm{ab}}$ defined by
+\begin{equation*}
+  \operatorname{rec}(\alpha)[\tau_0, g]
+  =[\tau_0, \alpha g].
+\end{equation*}
+We might as well take
+\begin{equation*}
+  U = U_0(N) = \mathrm{GL}_2(\hat{\mathbb{Z}}) \cap
+  \begin{pmatrix}
+    \ast    & \ast \\
+    N \ast            &  \ast \\
+  \end{pmatrix}.
+\end{equation*}
+
+In that case, $x_c =[\tau_0, g_c]$ for a particular choice of $g_c$.
+
+This is the classical picture of Heegner points.  We're going to change the picture just a little bit.  Think
+\begin{equation*}
+  K^\times \rightarrow G = \frac{\mathrm{GL}_2 \times K^\times}{\mathbb{Q}^\times}.
+\end{equation*}
+(The right hand side may be thought of as $\mathrm{GU}(1, 1)$, if you'd like.)  We get
+\begin{equation*}
+  X_{U_0(N)} \rightarrow
+  \mathrm{S h}_G(U) := G(\mathbb{Q}) \backslash G(\mathbb{A}) / K_\infty U, \quad U := U_0(N) \times V.
+\end{equation*}
+There is a map
+\begin{equation*}
+  \mathrm{S h}_G(U) \rightarrow \hat{\mathbb{Q}}^\times K^\times \backslash \hat{K}^\times / V.
+\end{equation*}
+
+
 
 
 
