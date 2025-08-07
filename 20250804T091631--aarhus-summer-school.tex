@@ -1735,8 +1735,102 @@ Let's start with some easy special cases, before moving to the general case.
   \begin{equation*}
     \mathcal{P}_\Delta(\phi) := \int_{[H]} \mathcal{P}_\iota(\phi)(h) \Theta_{\rho_H}(h) \, d h.
   \end{equation*}
-  
-\end{enumerate}<++>
+  Here $\mathcal{P}_\iota$ is the Fourier coefficient of $\phi$ associated to $\iota$, defined as follows.  We first recall that $\iota : \mathrm{SL}_2 \rightarrow G$.  In particular, we can let $L := \mathrm{Cent}_G(\operatorname{image}(\iota(T_{\mathrm{SL}_2})))$, with $T_{\mathrm{SL}_2} \leq \mathrm{SL}_2$ the diagonal maximal torus consisting of elements of the form $\diag(t, t^{-1})$.  Then $L$ is a Levi subgroup of $G$.  We also know, since $H$ commutes with the image of $\iota$, that $H$ is a subgroup of $L$.  Now let $U := \exp(\mathfrak{u})$, where $\mathfrak{u}$ is the positive weight space for $\Ad(\iota(\diag(t, t^{-1})))$.  We also define $\bar{U} := \exp(\bar{\mathfrak{u}})$, with $\mathfrak{u}$ the negative weight space.
+  \begin{example}
+    Take $G = \mathrm{GL}_{2 n}$ and $\iota : \mathrm{SL}_2 \rightarrow \mathrm{GL}_{2 n}$ given by
+    \begin{equation*}
+      \begin{pmatrix}
+        t      &  \\
+               & t^{-1} \\
+      \end{pmatrix}
+      \mapsto
+      \begin{pmatrix}
+        t I_n      &  \\
+                   & t^{-1} I_n \\
+      \end{pmatrix},
+    \end{equation*}
+    \begin{equation*}
+      \begin{pmatrix}
+        1 & 1 \\
+          & 1 \\
+      \end{pmatrix}
+      \mapsto
+      \begin{pmatrix}
+        I_n      &  I_n \\
+                 & I_n \\
+      \end{pmatrix},
+    \end{equation*}
+    \begin{equation*}
+      \begin{pmatrix}
+        1      &  \\
+        1 & 1 \\
+      \end{pmatrix}
+      \mapsto
+      \begin{pmatrix}
+        I_n      &  \\
+        I_n &  I_n \\
+      \end{pmatrix}.
+    \end{equation*}
+    Then
+    \begin{equation*}
+      L = \left\{
+        \begin{pmatrix}
+          a          &  \\
+                     & b \\
+        \end{pmatrix} : a, b \in \mathrm{GL}_n \right\},
+      \quad
+      U = \left\{
+        \begin{pmatrix}
+          I_n          & \ast \\
+                       & I_n \\
+        \end{pmatrix} \right\},
+      \quad
+      \bar{U} = \left\{
+        \begin{pmatrix}
+          I_n          &  \\
+          \ast          & I_n \\
+        \end{pmatrix} \right\}.
+    \end{equation*}
+  \end{example}
+
+  If $\iota$ is even (i.e., all the weights of $\Ad(\iota(\diag(t, t^{-1})))$ are even), then the Fourier coefficient is given by a very easy formula:
+  \begin{equation*}
+    \mathcal{P}_\iota(\phi)(h) := \int_{[U]} \phi(u h) \xi(u)^{-1} \, d u,
+  \end{equation*}
+  where $\xi :[U] \rightarrow \mathbb{C}^\times$ is a character defined, for $x \in \mathfrak{u}(\mathbb{A})$, by
+  \begin{equation*}
+    \xi(\exp(x)) := \psi \bigl( \langle x, \iota \left(
+      \begin{smallmatrix}
+        0&0\\
+        1&0 \\
+      \end{smallmatrix}
+    \right) \rangle \bigr),
+  \end{equation*}
+  where $\psi : K \backslash \mathbb{A} \rightarrow \mathbb{C}^\times$ is some fixed character.
+  \begin{example}
+    In the above example,
+    \begin{equation*}
+      \xi
+      \begin{pmatrix}
+        I_n    & x \\
+                                                                                        & I_n \\
+      \end{pmatrix}
+      = \psi \left( \left\langle
+          \begin{pmatrix}
+            0        & x \\
+            0 & 0 \\
+          \end{pmatrix},
+          \begin{pmatrix}
+            0        & 0 \\
+            1 & 0 \\
+          \end{pmatrix} \right\rangle \right)
+      = \psi(\trace(x)).
+    \end{equation*}
+  \end{example}
+  \begin{exercise}
+    Let $G := \mathrm{GL}_n$ and $\iota : \mathrm{SL}_2 \rightarrow \mathrm{GL}_n$ be $\rho_{\sym}^{n - 1}$.  Then write down the Fourier coefficient $\mathcal{P}_\iota(\phi)$.
+  \end{exercise}
+\end{enumerate}
 
 
 \bibliography{refs}{} \bibliographystyle{plain}
