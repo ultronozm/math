@@ -8,12 +8,12 @@
   Notes in progress on lectures taking place there.
 \end{abstract}
 
-\section{Gebhard Boeckle's lectures}
-\subsection{Galois representations and congruences}
+\section{Gebhard Boeckle's lectures}\label{sec:cq6tho1n9f}
+\textbf{Galois representations and congruences}.
 
 We first discuss profinite groups.  Let $G$ be a topological group.
 
-\begin{theorem}
+\begin{theorem}\label{theorem:cq6thpngt0}
   The following are equivalent:
   \begin{enumerate}[(a)]
   \item\label{enumerate:cq6r3e8dsb} $G$ is compact, Hausdorff, and totally disconnected.
@@ -42,7 +42,7 @@ Constructions:
   \end{enumerate}
 \end{enumerate}
 
-\begin{example}
+\begin{example}\label{example:cq6thpnfb9}
   \begin{enumerate}[(a)]
   \item\label{enumerate:cq6r3fjkt4} Let $F$ be a field.  Set $G_F := \Aut_F(F^{\mathrm{sep}}) = \Gal(F^{\mathrm{sep}} / F)$ profinite.  Define the poset
     \begin{equation*}
@@ -124,7 +124,7 @@ Constructions:
 \end{example}
 We finally come to \textbf{Galois representations}.  They will typically be called $\rho : G \rightarrow \mathrm{GL}_n(A)$, where $G$ is a topological group, $A$ is a topological ring, and $\rho$ is a continuous map.  The topology on $\mathrm{GL}_n(A)$ is the subspace topology coming from embedding inside $M_n(A) \times A$ via $g \mapsto(g, \det(g)^{-1})$, for instance.  We call $\rho$ a Galois representation if $G = G_F$ for some field $F$.  The main examples of interest for $A$ will be $\mathbb{C}$, finite fields, and $p$-adic fields, to interpolate $\mathrm{C N L}_{\mathcal{O}}$ (complete Noetherian local $\mathcal{O}$-algebras).
 
-\begin{exercise}
+\begin{exercise}\label{exercise:cq6thpnece}
   Let $G$ be profinite, and $\rho$ as above.
   \begin{enumerate}[(a)]
   \item If $A = \mathbb{C}$, then $\rho(G)$ is finite.
@@ -137,19 +137,19 @@ In case \eqref{enumerate:cq6r3j15cy}, we have a $G$-stable lattice $\Lambda \con
   \overline{\rho}_\Lambda : G \rightarrow \mathrm{GL}_n(\mathbb{F}).
 \end{equation*}
 Let's use the notation $\mathrm{c p}_\alpha$ for the characteristic polynomial of $\alpha \in M_n(A)$.
-\begin{theorem}
+\begin{theorem}\label{theorem:cq6thpnb2h}
   \begin{enumerate}[(a)]
   \item Given a representation $r : G \rightarrow \mathrm{GL}_n(\mathbb{F})$.  Then there exists a semisimple representation $r^{\mathrm{ss}} : G \rightarrow \mathrm{GL}_n(\mathbb{F})$ such that $\mathrm{c p}_r = \mathrm{c p}_{r^{\mathrm{ss}}}$ (Brauer--Nesbitt), where $r^{\mathrm{ss}}$ is unique up to isomorphism.
   \item We have $\mathrm{c p}_{\rho} \in \mathcal{O}[X]$ and $\mathrm{c p}_{\bar{\rho}_\Lambda} \in \mathbb{F}[X]$, independent of $\Lambda$.
   \end{enumerate}
 \end{theorem}
-\begin{theorem}
+\begin{theorem}\label{theorem:cq6thpnc4r}
   For $\rho, \rho ' : G_{K, S} \rightarrow \mathrm{GL}_n(E)$ semisimple, we have that $\rho \sim \rho '$ (conjugate) if and only if  for all $v \in \mathrm{P l}_K^{\mathrm{fin}} \setminus S$, we have
   \begin{equation*}
     \mathrm{c p}_{\rho(\Frob_v)} = \mathrm{c p}_{\rho '(\Frob_v)}.
   \end{equation*}
 \end{theorem}
-\begin{example}
+\begin{example}\label{example:cq6thpna68}
   \begin{enumerate}
   \item\label{enumerate:cq6r3ki8zp} $p$-adic cyclotomic character $\chi_p^{\mathrm{cyc}} : G_{\mathbb{Q}} \rightarrow \mathbb{Z}_p^\times$.  We have
     \begin{equation*}
@@ -202,7 +202,7 @@ Now, we want to study congruences.  To do this, we first go from
 \item Fourier coefficients, that live over the integers.
 \end{itemize}
 (For simplicity, assume that nebentypus is trivial: $\eps = 1$.)  Let $S_k(N, \mathbb{Z})$ denote the set of all $f = \sum_{n \geq 1} a_n q^n$ such that $a_n \in \mathbb{Z}$ for all $n$.
-\begin{fact}
+\begin{fact}\label{fact:cq6thpm98m}
   $S_k(N, \mathbb{Z})$ is a $\mathbb{Z}$-module of rank equal to $\dim_{\mathbb{C}} S_k(N)$.
 \end{fact}
 For any ring $A$, we have
@@ -210,7 +210,7 @@ For any ring $A$, we have
   \underline{S}_{A} = S_k(N, \mathbb{Z}) \otimes_{\mathbb{Z}} A \circlearrowleft \mathbb{T}_A = \mathbb{T}(N, A).
 \end{equation*}
 
-\begin{definition}
+\begin{definition}\label{definition:cq6thpm876}
   For Hecke eigenforms $f = \sum a_n q^n$ and $g = b_n q^n \in S_k(N, \bar{\mathbb{Z}}_p)$, we say that $f \equiv g \pmod{p}$ if the following equivalent conditions hold:
   \begin{itemize}
   \item for all primes $\ell \nmid N p$, we have $a_{\ell} \equiv b_{\ell} \pmod{\mathfrak{m}_{\overline{\mathbb{Z}_p}}}$.
@@ -236,7 +236,7 @@ We pass to the same Hecke algebra.  Let $\mathbb{T}_A '$ denote the subalgebra o
   \end{equation*}
   then this is the relevant Hecke algebra for understanding the forms congruent to $\bar{\rho}$.
 \end{fact}
-\begin{theorem}[Carayol, Serre]
+\begin{theorem}[Carayol, Serre]\label{theorem:cq6thpm721}
   Assume that $\bar{\rho}$ is absolutely irreducible.  Then there exists a continuous representation
   \begin{equation}\label{eq:cq6sj6h73f}
     \rho_{\bar{\rho}}^{\mathrm{mod}} : G_{\mathbb{Q}, N \cup \{p, \infty\}} \rightarrow \mathrm{GL}_2 \left((\mathbb{T}_0 ')_{\mathfrak{m}_{\bar{\rho}}} \right)
@@ -256,7 +256,7 @@ Now, is the inclusion \eqref{eq:cq6sj6d3yn} strict?  If you take twice the same 
 \textbf{Vision of Mazur}?  Can $\rho_{\bar{\rho}}^{\mathrm{mod}}$ be characterized purely in terms of ``Galois'' theory, maybe at least once $\bar{\rho}$ is given?  You need to start somewhere.  Start with the mod $p$ representation.  Then there's a sort of $p$-adic representation \eqref{eq:cq6sj6h73f} that you get here, which sees all forms congruent to $\bar{\rho}$.  Can you see this sort of thing from a purely Galois-theoretic perspective?  This might have been the starting point for the study of deformations of Galois representations.  Mazur maybe had one example in mind: Hida had just written down his Hida families, which are much bigger than things of fixed weight and level.
 
 Let's now turn to \emph{deformation functors}.  In many ways, what we're doing now at the beginning is very formal, and maybe in the next lecture it gets a bit more Galois-theoretic.  Let $G$ be a profinite group -- think of some global Galois group.  Let $E \supseteq \mathcal{O} \rightarrow \mathbb{F}$ be a local field, with uniformizer $\pi$ and residue field cardinality $q$.  In what natural category do these $\mathcal{O}$-algebras $\mathbb{T}_{\mathcal{O}}'$ live?
-\begin{definition}
+\begin{definition}\label{definition:cq6thpm6f8}
   $\mathrm{C N L }_{\mathcal{O}}$ is the category of complete noetherian $\mathcal{O}$-algebras $(A, \mathfrak{m}_{A})$ with residue field $\mathbb{F}$ and with local homomorphisms.
 \end{definition}
 Typical rings: $\mathcal{O} [[ X_1, \dotsc, X_r\rrbracket / I$.  Some structure theorem tells you that this is all you can get.  There is a finite subcategory
@@ -265,7 +265,7 @@ Typical rings: $\mathcal{O} [[ X_1, \dotsc, X_r\rrbracket / I$.  Some structure 
 \end{equation*}
 consisting of Artin objects.
 
-\begin{question}
+\begin{question}\label{question:cq6thpm42q}
   For $\bar{\rho} : G \rightarrow \mathrm{GL}_n(\mathbb{F})$, when is the functor
   \begin{equation*}
     D_{\bar{\rho}} : \mathrm{C N L}_{\mathcal{O}} \rightarrow \mathrm{Set}
@@ -276,7 +276,7 @@ consisting of Artin objects.
   representable by $R_{\bar{\rho}} \in \mathrm{C N L}_{\mathcal{O}}$?
 \end{question}
 To fill in some terminology:
-\begin{definition}
+\begin{definition}\label{definition:cq6thpm4aq}
   \begin{enumerate}[(a)]
   \item For $A \in \mathrm{C N L}_{\mathcal{O}}$, set
     \begin{equation*}
@@ -289,7 +289,7 @@ To fill in some terminology:
     \end{enumerate}
   \end{enumerate}
 \end{definition}
-\begin{exercise}
+\begin{exercise}\label{exercise:cq6thpm3gt}
   \begin{enumerate}[(a)]
   \item The fiber product of the diagram $\Delta$ given by
     \begin{equation*}
@@ -306,7 +306,7 @@ To fill in some terminology:
   \item $\mathrm{C N L}_{\mathcal{O}}$ "has no fiber products".
   \end{enumerate}
 \end{exercise}
-\begin{exercise}
+\begin{exercise}\label{exercise:cq6thpm2ek}
   Suppose $F = F_A$ for $A \in \mathrm{C N L}_{\mathcal{O}}$.  Then
   \begin{enumerate}[(a)]
   \item $F(\mathbb{F}) = \{\ast\}$, and $F$ is continuous.
@@ -319,13 +319,13 @@ To fill in some terminology:
 \end{exercise}
 \begin{notation}
   \begin{itemize}
-  \item $\mathbb{F}[\eps] := \mathbb{F}[X] /(X^2)$.
+  \item\label{itemize:cq6thpmzgo} $\mathbb{F}[\eps] := \mathbb{F}[X] /(X^2)$.
   \item Call $\varphi : A \twoheadrightarrow A '$ in $\mathrm{CNL}_{\mathcal{O}}$ \emph{small} if $\mathfrak{m}_{A'} \cdot(\ker(\varphi)) = 0$.  (e.g., $\mathbb{F}[\eps] \rightarrow \mathbb{F}$)
   \item For $F : \mathrm{C N L}_{\mathcal{O}} \rightarrow \mathrm{Set}$, define the $T_F := F(\mathbb{F}[\eps])$, the \emph{tangent space} of $F$.
   \end{itemize}
 \end{notation}
 You can translate this back into rings.  Here are some more exercises:
-\begin{exercise}
+\begin{exercise}\label{exercise:cq6thpm07x}
   If the functor $F$ satisfies
   \begin{itemize}
   \item $F(\mathbb{F}) = \{\ast\}$, and
@@ -333,19 +333,19 @@ You can translate this back into rings.  Here are some more exercises:
   \end{itemize}
   then $T_F$ is an $\mathbb{F}$-vector space.
 \end{exercise}
-\begin{example}
+\begin{example}\label{example:cq6thpmybt}
   For $F = F_A$, we have
   \begin{equation*}
     T_F = \Hom_{\mathrm{C N L}_{\mathcal{O}}}(A, \mathbb{F}[\eps]) = \Hom_{\mathbb{F} } \left( \mathfrak{m}_A /(\mathfrak{m}_{A}^2 , \pi), \mathbb{F} \right) =: T_A.
   \end{equation*}
 \end{example}
-\begin{exercise}
+\begin{exercise}\label{exercise:cq6thpmxcy}
   For $\varphi : A \rightarrow B$ in $\mathrm{C N L}_{\mathcal{O}}$, the map $\varphi$ is surjective if and only if $T_\varphi : T_B \rightarrow T_A$ is injective.
 \end{exercise}
-\begin{theorem}[Grothendieck]
+\begin{theorem}[Grothendieck]\label{theorem:cq6thper60}
   Suppose $F : \mathrm{C N L}_{\mathcal{O}} \rightarrow \mathrm{Set}$ is continuous, satisfies $F(\mathbb{F}) = \{\ast\}$, the MV-property holds, and $\dim_{\mathbb{F}} T_F < \infty$.  Then $F$ is representable.
 \end{theorem}
-\begin{remark}
+\begin{remark}\label{remark:cq6thpengd}
   For this last theorem, there are simplifications by Schlessinger, \emph{Functors of Artin rings}.  Schlessinger realized that these axioms of Grothendieck may be hard to verify in concrete situations, so he gave a simple (but somewhat long) list of axioms to verify.  See Mazur '87, and Gouvêa's survey.
 \end{remark}
 Let's now turn to \emph{Galois deformations functors}.  We have our usual
@@ -366,7 +366,7 @@ We define the \emph{lifting} and \emph{deformation} functors
 \end{equation*}
 (``lifting functor'' or ``framed deformation functor''), and where for $D_{\bar{\rho}}$, we take things modulo $\Gamma_n(A)$-conjugacy (i.e., ``deformations are lifts modulo conjugacy'').
 
-\begin{theorem}
+\begin{theorem}\label{theorem:cq6thpeky4}
   Suppose $\Phi_\rho$ holds, i.e., $\# \Hom(G, \mathbb{F}_p) < \infty$.  Then:
   \begin{enumerate}[(a)]
   \item $D_{\bar{\rho}}$ always has a ``hull''.
@@ -377,10 +377,10 @@ We define the \emph{lifting} and \emph{deformation} functors
 
 Here \eqref{enumerate:cq6skams6j} is an exercise you can do.
 
-\begin{example}
+\begin{example}\label{example:cq6thpeiz4}
   Take $n = 1$.  Le $\bar{\rho} : G \rightarrow \mathrm{GL}_1(\mathbb{F}) = \mathbb{F}^\times$.  \textbf{Fact} (Teichmüller lift): there exists $\hat{\rho} : G \rightarrow \mathrm{GL}_1(W(\mathbb{F}))$, a lift of $\bar{\rho}$ such that $\hat{\rho}(G) \xrightarrow{\mathrm{red}} \bar{\rho}(G)$.
 \end{example}
-\begin{exercise}
+\begin{exercise}\label{exercise:cq6thpehqo}
   Suppose that $\Hom_{\mathrm{cts}}(G^{\mathrm{ab}}, \mathbb{F})$ is finite.  Then the universal deformation ring $R_{\bar{\rho}}$ (which for $n = 1$ is the same as the universal lifting ring $R_{\bar{\rho}}^{\square}$)  is isomorphic to
   \begin{equation*}
     \mathcal{O} [[(G^{\mathrm{ab}})_p \rrbracket = \varprojlim
@@ -417,7 +417,7 @@ with the ``adjoint action'': for $g \in A$ and $\alpha \in M_{n \times n}$, we t
   g \cdot \alpha := \bar{\rho}(g) \cdot \alpha \cdot \bar{\rho}(g)^{-1}.
 \end{equation*}
 (We remark that $\ad_{\bar{\rho}} \cong \bar{\rho} \otimes \bar{\rho}^\vee$.)
-\begin{proposition}
+\begin{proposition}\label{proposition:cq6thpeed2}
   \begin{enumerate}[(a)]
   \item We have $T_{D_\rho^{\square}} = D_{\bar{\rho}}^{\square}(\mathbb{F}[\eps]) \xleftarrow{\cong} Z^1(G, \ad_{\bar{\rho}})$, where the map sends a cocycle $c : G \rightarrow \ad_{\bar{\rho}}$ to
     \begin{equation*}
@@ -427,7 +427,7 @@ with the ``adjoint action'': for $g \in A$ and $\alpha \in M_{n \times n}$, we t
   \item We have $\dim B^1(G, \ad_{\bar{\rho}}) = h^2 - h^0(G, \ad_{\bar{\rho}})$.  (We use the notation $h^i := \dim H^i$ and $z^i = \dim Z^i$.)
   \end{enumerate}
 \end{proposition}
-\begin{corollary}
+\begin{corollary}\label{corollary:cq6thpefo9}
   For $r = h^1(G, \ad_{\bar{\rho}})$, $r^{\square} = z^1(G, \ad_{\bar{\rho}})$, we have surjections
   \begin{equation*}
     \mathcal{O} [[ X_1, \dotsc, X_r \rrbracket \rightarrow R_{\bar{\rho}}
@@ -439,14 +439,14 @@ with the ``adjoint action'': for $g \in A$ and $\alpha \in M_{n \times n}$, we t
   and $r$, $r^{\square}$ are optimal.
 \end{corollary}
 What's the relevance of $H^2$?  Let $\varphi : A^1 \rightarrow A$ be a small extension, and let $I := \ker(\varphi)$.
-\begin{question}
+\begin{question}\label{question:cq6thpebye}
   Is the map $D_{\bar{\rho}}(A') \rightarrow D_{\bar{\rho}}(A)$ surjective?
 \end{question}
 Let $\rho_A : G \rightarrow \mathrm{GL}_n(A)$ be as in the right hand side.
-\begin{fact}
+\begin{fact}\label{fact:cq6thpec2o}
   There exists a set-theoretic lift $\rho ' : G \rightarrow \mathrm{GL}_n(A')$ of $\rho_A$ (i.e., $\varphi \circ \rho ' = \rho_A$).
 \end{fact}
-\begin{definition}
+\begin{definition}\label{definition:cq6thpeaqx}
   Set
   \begin{equation*}
     c_{\rho '} : G \times G \rightarrow \ad_{\bar{\rho}} \otimes_{\mathbb{F}} I,
@@ -456,7 +456,7 @@ Let $\rho_A : G \rightarrow \mathrm{GL}_n(A)$ be as in the right hand side.
   \end{equation*}
   where this last quantity lies in $1 + M_{n \times n}(I)$.  We note that $(\ad_{\bar{\rho}} \otimes_{\mathbb{F}} I) \cong M_{n \times n}(I)$.  To get back, subtract $1$.
 \end{definition}
-\begin{proposition}
+\begin{proposition}\label{proposition:cq6thpd7zv}
   \begin{enumerate}[(a)]
   \item\label{enumerate:cq6sknji3b} $c_{\rho '} \in Z^2(G, \ad_{\bar{\rho}} \otimes I)$, $\mathrm{Obs}(\rho_A, \varphi) =[ c_{\rho '} ] \in H^2(G, \ad_{\bar{\rho}} \otimes I)$ is independent of $\rho '$!
   \item\label{enumerate:cq6sknjiey} We have $\mathrm{Obs}(\rho_A, \varphi) = 0$ if and only if there exists $\rho_{A'} \in D_{\bar{\rho}}(A')$ lifting $\rho$.
@@ -465,7 +465,7 @@ Let $\rho_A : G \rightarrow \mathrm{GL}_n(A)$ be as in the right hand side.
 We give a proof of \eqref{enumerate:cq6sknjiey}.  If $c_{\rho '} = \partial^2 f$ for some $f : G \rightarrow \ad_{\bar{\rho}} \otimes I$, then you can check that if you take your $\rho '$ and multiply it on the left with $1 + f$, we get an element $(1 + f) \rho ' : G \rightarrow \mathrm{GL}_n(A')$ that is a lift of $\rho_A$ (to $D_{\bar{\rho}}^{\square}(A')$).
 
 Mazur observed that you can do something with this obstruction theory: you can prove something more about these projections on the top line here.  But you have a very coarse control over the kernel ideal $I$ of the surjection.
-\begin{theorem}
+\begin{theorem}\label{theorem:cq6thpd9ja}
   Consider $\mathcal{R}  = \mathcal{O} [[  X_1, \dotsc, X_r \rrbracket$ projecting via something called $\pi$ to $R_{\bar{\rho}}$ ($r = h'(G, \ad_{\bar{\rho}} 1)$), with kernel $J$.  Then
   \begin{equation*}
     \mathcal{R} / \mathfrak{m}_{\mathcal{R}} J \rightarrow R_{\bar{\rho}}
@@ -480,23 +480,23 @@ Mazur observed that you can do something with this obstruction theory: you can p
   is injective!
 \end{theorem}
 
-\begin{corollary}
+\begin{corollary}\label{corollary:cq6thpd6nv}
   With $r, r^{\square}$ from above and $s = h^2(G, \ad_{\bar{\rho}})$ have presentations $R_{\bar{\rho}} := \mathcal{O} [[ x_1, \dotsc, x_{r^{\square}} ]] /(f_1, \dotsc, f_s)$.
 \end{corollary}
-\begin{definition}[ad hoc]
+\begin{definition}[ad hoc]\label{definition:cq6thpd4m6}
   The \emph{expected cohomological dimension} is
   \begin{equation*}
     \operatorname{e c d} \operatorname{i m}(\bar{\rho}) = z^1(G, \ad_{\bar{\rho}}) - h^2(G, \ad_{\bar{\rho}}) = h^2 - \sum_{i = 0}^2(-1)^{i} h^i(G, \ad \bar{\rho}). 
   \end{equation*}
 \end{definition}
-\begin{proposition}
+\begin{proposition}\label{proposition:cq6thpd5k9}
   If
   \begin{equation}\label{eq:cq6skreori}
     \dim_{\mathrm{\operatorname{s}}} R \frac{\square}{\rho} / \pi \leq \mathrm{ec dim(\bar{\rho})},
   \end{equation}
   then $R_{\bar{\rho}}^{\square}$ is $0$-flat, of relative dimension $\operatorname{e c dim}(\bar{\rho})$ over $\mathcal{O}$, and a complete intersection.
 \end{proposition}
-\begin{example}
+\begin{example}\label{example:cq6thpd1g4}
   \begin{enumerate}[(a)]
   \item $G = G_F$, where $F \supseteq \mathbb{Q}_{\ell}$ is finite and $\ell \neq p$.  Then \eqref{eq:cq6skreori} holds.  $\mathrm{e c dim} = 4^2$.
   \item $G = G_F$, $F \supseteq \mathbb{Q}_p$.  Then \eqref{eq:cq6skreori} holds and each $\operatorname{ec dim} = n^2(1 +[F : \mathbb{Q}_p])$.
@@ -508,7 +508,7 @@ Mazur observed that you can do something with this obstruction theory: you can p
     for $G = G_{K, S}$, with $G$ and $G_{K, S}$, if and only if $\delta = 0$.
   \end{enumerate}
 \end{example}
-\begin{remark}
+\begin{remark}\label{remark:cq6thpd214}
   To avoid the reliance on $\delta = 0$ (often) by fixing a lift $\mu : G \rightarrow \mathcal{O}^\times$.
 \end{remark}
 
@@ -526,7 +526,7 @@ Removing frames at right point, we get a
   R_{\mathcal{I}} \twoheadleftarrow R_{\bar{\rho}}.
 \end{equation*}
 
-\begin{question}
+\begin{question}\label{question:cq6thpc16r}
   Can we choose $\mathcal{I}$ in such a way that some natural map
   \begin{equation*}
     R_{\rho} \rightarrow \mathbb{T}_k(N, \eps, \mathcal{O})_{\mathfrak{m}_{\bar{\rho}}}
@@ -542,7 +542,7 @@ Write $\bar{\rho}_v := \bar{\rho} \mid_{G_v}$.  Fix a character $\mu : G_{K, S} 
 \begin{equation*}
   X_{\bar{\rho}_v}^{\square} := \Spec(R_{\bar{\rho}_v}^{\square}).
 \end{equation*}
-\begin{definition}[Thorne, who gave a compact description]
+\begin{definition}[Thorne, who gave a compact description]\label{definition:cq6thpcze8}
   A \emph{local deformation problem} is a subfunctor $D_v \subseteq D_{\bar{\rho}_v}^{\square, \mu_v}$ (possibly with fixed determinant, i.e., $\det(\rho) = \mu$ -- that's what the superscripted $\mu_v$ means) such that
   \begin{enumerate}
   \item\label{enumerate:cq6s0pdihm} $D_v \cong F_{R_v}$ for a quotient $R_v$ of $R_{\bar{\rho}_v}^{\square, \mu}$.
@@ -555,7 +555,7 @@ Write $\bar{\rho}_v := \bar{\rho} \mid_{G_v}$.  Fix a character $\mu : G_{K, S} 
 \begin{remark}
   $\Gamma_n(R_{\bar{\rho}_v^{\square}})$ acts by conjugation on $D_{\bar{\rho}_v}^{\square}(R_{\bar{\rho}_v}^{\square})$, and hence (by universality of $R_{\bar{\rho}_v}^{\square}$), it acts on $R_{\bar{\rho}_v}^{\square}$.
 \end{remark}
-\begin{proposition}[BLGHT, Potential Automorphy 2, Lemma 3.2]
+\begin{proposition}[BLGHT, Potential Automorphy 2, Lemma 3.2]\label{proposition:cq6thpcxtk}
   Let $R_v$ be a quotient $R_{\bar{\rho}_v}^{\square, \mu} \xrightarrow{\alpha_v} R_v$ such that
   \begin{enumerate}[(a)]
   \item\label{enumerate:cq6s0pxwwm} $\ker(\alpha_v)$ is invariant under $\Gamma_n(R_{\bar{\rho}_v}^{\square})$, and
@@ -618,7 +618,7 @@ Define
 \begin{equation*}
   R_{\bar{\rho}_v}^{\square, \tau} := R_{X_\tau} \twoheadleftarrow R_{\bar{\rho}_v}^{\square}.
 \end{equation*}
-\begin{theorem}[Sholton, Proposition 3.6]
+\begin{theorem}[Sholton, Proposition 3.6]\label{theorem:cq6thpcsuh}
   \begin{enumerate}[(a)]
   \item\label{enumerate:cq6s0szq5l} $R_{\bar{\rho}_v}^{\square, \tau}$ defines a local deformation problem at $v$.
   \item\label{enumerate:cq6s0szrtp} $\Spec(R_{\bar{\rho}_v}^{\square, \tau})$ is a union of irreducible components of $X_{\bar{\rho}_v}^{\square}$, and equidimensional ($n^2$).
@@ -652,7 +652,7 @@ We attach some
   \right\}.
 \end{equation*}
 Kisin then attaches potentially semistable deformation rings $R_{\bar{\rho}_v}^{\square, \tau, \nu}$.
-\begin{remark}
+\begin{remark}\label{remark:cq6thpcqah}
   If $n = 2$ and $K = \mathbb{Q}$, and if you somehow have $\mathrm{H T}$-weights $\nu =(k = 1, 0)$, $k$ ``small'', ($k \geq 2$),
   $\tau = (\mathrm{triv}, 0)$ (giving rise to $\rho$ crystalline), then
   \begin{equation*}
@@ -705,7 +705,7 @@ Universality of $R_{\underline{S}}$ (using local Langlands and $p$-adic Hodge th
   \alpha : R_{\underline{S}} \rightarrow(\mathbb{T}_{\mathcal{O}})_{\mathfrak{m}_{\bar{\rho}}},
 \end{equation}
 \emph{assuming} that $\bar{\rho}$ is absolutely irreducible.
-\begin{conjecture}
+\begin{conjecture}\label{conjecture:cq6thpclm1}
   $\alpha$ is an isomorphism under suitable hypothesis.
 \end{conjecture}
 The hope is that one can find a Galois-theoretic representation that completely describes this thing coming from automorphic representations.  This was all first put into some definite form by Wiles and Taylor--Wiles in their proof of Fermat's last theorem.  Their work gave the first great supply of such isomorphisms.  Then there was Breuil--Conrad--Diamond--Taylor, proving Taniyama--Shimura--Weil conjecture.  Then there was Clozel--Harris--Taylor, and Khare--Winterberger proving the Serre conjecture.  One thing about why this thing could be important, and why it was important in many of these cases.  What helps you sometimes is that being modular is ``contagious''.  What is often relatively easy, maybe if the representation (a $p$-adic Galois representation) comes from the ring on the left hand side of \eqref{eq:cq6s0uhkx2}, and now if you have the full isomorphism \eqref{eq:cq6s0uhkx2}, then you know it also comes form the right hand side.  But in practice, this isomoprhism doesn't tell you modularity of one just form in the class giving rise to the right hand side, but all of them.  That's all.
@@ -716,7 +716,7 @@ The hope is that one can find a Galois-theoretic representation that completely 
 
 
 
-\section{Chris Skinner's lectures}
+\section{Chris Skinner's lectures}\label{sec:cq6tho1vem}
 \textbf{Integral representations, Euler systems, and multiplicity one}.
 
 My choice of these topics is motivated by my interest in special values of $L$-functions, and in particular problems like the BSD conjecture.  We'll focus on some representation theory, that plays a role in both the analytic and the algebraic sides of these problems.  You can possibly view this as a bridge between the talks at the start and at the end of the week.
@@ -988,7 +988,7 @@ which defines an element of $\Hom_{K_v^\times}(\pi_v, \mathbb{C}(\chi_v^{-1}))$.
 \end{equation*}
 There's a similar relation in the triple product case, which we can guess using the Rankin--Selberg unfolding that we saw earlier.
 
-\begin{remark}
+\begin{remark}\label{remark:cq6thpb6e1}
   This doesn't make sense for general arguments other than $s = \tfrac{1}{2}$, except in some form when $\varphi$ is an Eisenstein series (``formula of Damerell'').  One needs to be able to vary $\varphi$ (or $\chi$) in a family, preserving the central character compatibility condition.
 \end{remark}
 
@@ -1030,13 +1030,13 @@ We look at
 
 Some idea for checking this: $(\mathbb{Z} / \ell \mathbb{Z})^\times \subset(\mathbb{Z} / \ell N \mathbb{Z})^\times \cong \Gal(\mathbb{Q}(\mu_{N \ell}) / \mathbb{Q} )$, where the last map sends $a \mapsto \sigma_\alpha(\zeta_{N \ell}) = \zeta_{N \ell}^a$.
 
-\begin{remark}
+\begin{remark}\label{remark:cq6thpb27e}
   Given $f$ a holomorphic modular form, say of weight $2$, we have $\omega_f = f(\tau) \, d \tau \in H^0(X, \Omega_X^1) \subseteq H^1(X, \mathbb{C})$.  Then $\lVert f \rVert^2 = \int_X\omega_f \wedge \overline{\omega_f}$.
 
   Similarly, for $X \hookrightarrow X \times X \times X$, we get some particular values of the Rankin--Selberg convolution by looking at $\int_X \overline{\omega_f} \wedge \omega_g \wedge \omega_{E_k}$.  Then from the rational structure on cohomology, one can get something like rational structure on the $L$-values.
 \end{remark}
 
-\begin{remark}
+\begin{remark}\label{remark:cq6thpb14c}
   Let's talk about the corestriction map in this setting.  Abstractly, it's a map
   \begin{equation*}
     H^1(\mathbb{Q}[\mu_{N \ell}], \mathbb{Z}_p(1)) \rightarrow H^1(\mathbb{Q}[\mu_N], \mathbb{Z}_p(1)).
@@ -1308,7 +1308,7 @@ Now we have
 \end{equation*}
 These maps are $G(\mathbb{A}_f)$-equivariant, or ``Hecke equivariant''.
 
-\begin{exercise}
+\begin{exercise}\label{exercise:cq6tho7823}
   Recover the Heegner point Euler system that we wrote down before by taking the right open compact and the right elements $g_c$, with $V$ coming from $\mathcal{O}_c$.
 \end{exercise}
 The point is that through this process, the Galois action has been subsumed into some kind of group action.  What's really going on in some ways is that the Shimura varieties for these unitary groups are just some copies of modular curves, where the number of copies is just the class group of some ring class extension.  Once you have this picture, the Euler system should just be the image of a bunch of elements on the left hand side of \eqref{eq:cq6s0i3k4v}, and you just have to choose the elements:
@@ -1436,7 +1436,7 @@ This leads to
 \end{equation*}
 See the work of the speaker and Xinwen Wan.
 
-\begin{remark}
+\begin{remark}\label{remark:cq6tho73c6}
   We consider
   \begin{equation*}
     C_c(X(\mathbb{Q}_{\ell}), \mathbb{Z}_p)^{G(\mathbb{Z}_{\ell})}
@@ -1447,13 +1447,13 @@ See the work of the speaker and Xinwen Wan.
     \left( P_{\ell} ,(\ell - 1) C_c(\dotsb)^{G(\mathbb{Z}_{\ell})} \right).
   \end{equation*}
 \end{remark}
-\begin{remark}
+\begin{remark}\label{remark:cq6tho71jb}
   See paper of David Loeffler regarding the ramified primes
 \end{remark}
 
 
-\section{Jayce Getz's lectures}
-\subsection{Langlands $L$-functions and converse theorem}
+\section{Jayce Getz's lectures}\label{sec:cq6tho1wyu}
+\subsection{Langlands $L$-functions and converse theorem}\label{sec:cq6tho1xqr}
 
 Let $F$ be a number field, $\mathbb{A}_F$ the ring of adeles, and $G$ a split reductive group over $F$.  Let $A_G$ denote the neutral component in the real topology of the greatest $\mathbb{Q}$-split torus in $\Res_{F / \mathbb{Q}} Z_G$.  (For example, $A_{\GL_r} = \mathbb{R}_{> 0} I_r$.)
 
@@ -1480,7 +1480,7 @@ Let $\psi : F \backslash \mathbb{A}_F \rightarrow \mathbb{C}^\times$ be a nontri
     L(s, \pi_v, \rho)
   }.
 \end{equation*}
-\begin{conjecture}[Langlands]
+\begin{conjecture}[Langlands]\label{conjecture:cq6tho7y7k}
   $L(s, \pi, \rho)$ admits a meromorphic continuation to $\mathbb{C}$, is bounded in vertical strips, and satisfies a functional equation
   \begin{equation*}
     L(s, \pi, \rho) = \eps(s, \pi, \rho, \psi) L(1 - s, \pi^\vee, \rho).
@@ -1505,7 +1505,7 @@ Then the conjecture is known, and you can prove it in three different ways that 
 At first glance, none of these methods will work to address the general conjecture, but we'll see that there is a sort of modification of the first two that might be applicable.
 
 Now, what's the converse theorem?
-\begin{theorem}[Cogdell--Piatetski-Shapiro; Hecke, Weil]
+\begin{theorem}[Cogdell--Piatetski-Shapiro; Hecke, Weil]\label{theorem:cq6tho7vvs}
   Let $\sigma$ be an admissible irreducible representation of $\mathrm{GL}_n(\mathbb{A}_F)$.  (In order to get this sort of thing, you have to choose a bunch of local data and outside finitely many places you declare that it is unramified.)  Assume that
   \begin{itemize}
   \item the central character $\omega_\sigma$ is $Z_{\mathrm{GL}_n(F)}$-invariant,
@@ -1520,7 +1520,7 @@ This gives some overplay of the interplay between $L$-functions and automorphic 
 
 Now let's talk about a particular case.
 
-\subsection{Rankin--Selberg products and triple products}
+\subsection{Rankin--Selberg products and triple products}\label{sec:cq6tho1yti}
 
 Let $\underline{r} =(r_1, r_2, r_3)$.  Set $\mathrm{GL}_{\underline{r}} :=\mathrm{GL}_{r_1} \times\mathrm{GL}_{r_2} \times\mathrm{GL}_{r_3}$.  We have an $L$-map that we call the Rankin--Selberg product (taking complex points, say)
 \begin{equation}\label{eq:cq6tg2afra}
@@ -1530,7 +1530,7 @@ Let $\underline{r} =(r_1, r_2, r_3)$.  Set $\mathrm{GL}_{\underline{r}} :=\mathr
   \otimes^3 : {}^L\mathrm{GL}_{\underline{r}} \rightarrow\mathrm{GL}_{r_1 r_2 r_3}.
 \end{equation}
 We'll think of these as hypothetical Langlands transfers.
-\begin{theorem}[Chevalley]
+\begin{theorem}[Chevalley]\label{theorem:cq6tho7t2z}
   Given any faithful representation $\rho : H \rightarrow \mathrm{GL}_n$ (say with $H$ reductive), any other representation is a subrepresentation of $\rho^{\otimes m} \otimes \rho^{\vee \otimes n}$ for some $m$ and $n$.
 \end{theorem}
 Now, ${}^L G$ is not a reductive group, but ignore that fact for a moment.  Say we're given an $L$-map
@@ -1539,7 +1539,7 @@ Now, ${}^L G$ is not a reductive group, but ignore that fact for a moment.  Say 
 \end{equation}
 Suppose we know the Rankin--Selberg transfer \eqref{eq:cq6tg2afra} as well as transfer for \eqref{eq:cq6tg2amid}.  Then, \emph{any} transfer from $G$ to $\GL(V)$ is a ``subtransfer'' of some $\rho^{\otimes m} \otimes \rho^{\vee \otimes n}$.
 
-\begin{question}[Not an exercise]
+\begin{question}[Not an exercise]\label{question:cq6tho7sd5}
   Given functorial transfers $\rho^{\otimes m} \otimes \rho^{\vee \otimes n}$, how to pick out the transfers associated to subrepresentations?
 \end{question}
 
@@ -1547,14 +1547,14 @@ By analogy to representation theory, some of the basic ways to construct new rep
 
 The importance of triple product $L$-functions (attached to \eqref{eq:cq6tg2hl5x}) is that if they are nice, then, using the converse theorem, we get that Rankin--Selberg transfers exist.  This is the motivation for what we're about to do.
 
-\subsection{Poisson summation conjecture}
+\subsection{Poisson summation conjecture}\label{sec:cq6tho1zlh}
 
 In the exercises, we'll see the Godement--Jacquet Poisson summation formula for $M_{n \times n}$, which leads to the functional equation and analytic continuation of the standard $L$-functions $L(s, \pi)$.  Bravmern--Kazhdan suggest replacing $M_{n \times n}$ by a certain $M_{\rho}$, and try to run the argument to study $L(s, \pi, \rho)$.  This proposal was refined by Ngô.  Sakellaridis suggested working with some spherical
 varieties.  Need a little more flexibility.
 
 We'll start with the geometric setup.
 
-\subsubsection{}
+\subsubsection{Global setting}\label{sec:cq6tho17py}
 
 Let $F$ be a number field, let $R$ be an $F$-algebra, and let $G_{/F}$ be a reductive group.  Assume given an action
 \begin{equation*}
@@ -1562,18 +1562,18 @@ Let $F$ be a number field, let $R$ be an $F$-algebra, and let $G_{/F}$ be a redu
 \end{equation*}
 on an affine $G$-scheme $X$.  Assume that there is a unique open orbit $X^{\circ} \subseteq X$.  Let $Z_G^+$ denote the greatest split torus in $Z_G$ (e.g., for $G = \mathrm{GL}_n$, $Z_G^+ = \mathbb{G}_m$).  Fix an isomorphism $\mathbb{G}_m^n \xrightarrow{\cong} Z_G^+$.  Assume that the pullback $\mathcal{R} : X \times \mathbb{G}_m^n \rightarrow X$ extends to $\mathcal{R} : X \times \mathbb{G}_a^n \rightarrow X$.
 
-\begin{example}
+\begin{example}\label{example:cq6tho7qex}
   $X = \mathbb{G}_a$ (which we don't write as $\mathbb{A}^1$, because that denotes the adeles).  Then the map $X \times \mathbb{G}_m \rightarrow X$ given by $(t, a) \mapsto t a$ extends to $\mathbb{G}_a \supset \mathbb{G}_m$ (at $0$, but not at $\infty$).
 \end{example}
 
 Assume that there exists an automorphic $\iota : G \rightarrow G$ such that $\iota(z) = z^{-1}$ for $z \in Z_G^+(\mathbb{R})$.
 
-\begin{example}
+\begin{example}\label{example:cq6tho7ox2}
   Take $X$ to be a vector space, $G =\mathrm{GL}_{X}$, $\iota(g) = g^{- \transpose}$, and $X(R) := \{x \in R^n \mid Q(x) = 0\}$, where $Q$ is an anisotropic quadratic form.  Or take $G = \GO_Q$, and $\iota(g) = \operatorname{simil}(g^{-1}) g$.
 \end{example}
 
 We need a generalization.  In integral representations, you often need some sort of Whittaker or Fourier coefficients to integrate against.  The reason is that if you don't have it, then when you integrate against cusp forms, you get zero.  If we don't have this in the cases of interest, then we end up getting zero.  There's a geometric way of phrasing this:
-\begin{definition}
+\begin{definition}\label{definition:cq6tho7nvw}
   Suppose given a $\mathbb{G}_a^n$-torsor $p : V^{\circ} \rightarrow X^{\circ}$ equipped with a $\mathbb{G}_a^n \rtimes G$-action.  Assume that $p$ is $\mathbb{G}_a^n \rtimes G$-equivariant.  Consider the map
   \begin{equation*}
     V^{\circ}(R) \times R^n \times G(R) \rightarrow V^{\circ}(R) \times R^n,
@@ -1590,13 +1590,13 @@ We need a generalization.  In integral representations, you often need some sort
   An \emph{affine} $\Psi$\emph{-bundle} is a pair $(p : V^{\circ} \rightarrow X^{\circ}, \Psi)$ as above.
 \end{definition}
 Given $w \in V^{\circ}(R)$, set $x := p(w)$.  We obtain $R^n \xrightarrow{\cong} V_x^0(R)$, $z \mapsto w z$.  For $g \in G_\lambda(R)$, there is a unique $z_w(g) \in R^n$ such that $w z_w(g) = w g$.  Then $\Psi_w(g) = \Psi(w, z_w(g))$.
-\begin{lemma}
+\begin{lemma}\label{lemma:cq6tho7lzu}
   $\Psi_w : G_x \rightarrow \mathbb{G}_a$ is a character, depending only upon $x$.
 \end{lemma}
 
 This is the geometry that underlies the Poisson summation conjecture.  In the remaining time today, we'll start doing some of the harmonic analysis.  We'll enrich the geometry by introducing some function spaces on the $F$-points of everything.  We'll start that process now and continue it in the next lecture.
 
-\subsubsection{Local harmonic analysis}
+\subsubsection{Local harmonic analysis}\label{sec:cq6tho3bu5}
 
 Start with some global character $\psi : F \backslash \mathbb{A}_F \rightarrow \mathbb{C}^\times$.  Let $v$ be a place of $F$.  Define $F = F_v$, $\psi = \psi_v$.  Thus, we'll work locally and omit $v$ from notation.  We ask for a Schwartz space sitting as follows:
 \begin{equation*}
@@ -1627,7 +1627,7 @@ while
   W_\psi^\varphi(1).
 \end{equation*}
 Actually, it's better, and we do it in the paper (see the course references (TODO: add link here)), and you need it.  We twist by half-densities: $\eps_\psi \otimes \lvert \Lambda \rvert^{1/2} = \mathcal{L}_\psi$.  These are canonical -- no choice of measure.  They are helpful for normalization.  On the other hand, you can't evaluate at points.  But you can work around this.  Using these makes the formulation of the theory much simpler.  Another benefit is that with half-densities, Schwartz spaces behave well under restriction.  Maybe the reason behind this might be an exercise:
-\begin{exercise}
+\begin{exercise}\label{exercise:cq6tho3tag}
   $L^2(X^{\circ}(F), \lvert \Lambda \rvert^{1/2})$ is a unitary $G(F)$-representation.
 \end{exercise}
 
@@ -1638,7 +1638,7 @@ Actually, it's better, and we do it in the paper (see the course references (TOD
 
 
 
-\section{Chen Wan's lectures}
+\section{Chen Wan's lectures}\label{sec:cq6tho3cpy}
 
 We'll focus on the \emph{period} aspect of the relative Langlands duality of Ben-Zvi--Sakellaridis--Venkatesh.  Recall from Chris's talk that we saw something about integral representations of $L$-functions, which involves integrating automorphic forms $\phi$ on some larger space $Y$ over some smaller space $X$.  In nice cases, such integrals represent $L$-functions:
 \begin{equation}\label{eq:cq6tg8d3hf}
@@ -1681,7 +1681,7 @@ The foundation of the Langlands program is based on the duality between these re
 
 The \emph{Langlands conjecture} says roughly that automorphic representations of $G(\mathbb{A})$ should correspond to Langlands parameters $\phi : L_K \rightarrow \hat{G}(\mathbb{C})$ valued in the dual group, and similalry with $G$ and $\hat{G}$ swapped.
 
-\begin{definition}
+\begin{definition}\label{definition:cq6tho3qgh}
   A \emph{BZSV quadruple} for $G$ is $\Delta =(G, H, \iota, \rho_H)$, where
   \begin{enumerate}
   \item\label{enumerate:cq6tg8um5h} $H \subset G$ is a split connected reductive subgroup,
@@ -1839,7 +1839,7 @@ Let's start with some easy special cases, before moving to the general case.
   So, in the integral $\mathcal{P}_\Delta(\phi)$, there are possibly two different choices of Schwartz functions: one in the theta kernel in \eqref{eq:cq6thc4107}, and another in the theta kernel in \eqref{eq:cq6thc48wh}.  But in some special cases ($\iota$ trivial or even), we don't need these.
 \end{enumerate}
 
-\begin{example}
+\begin{example}\label{example:cq6tho3o9b}
   Take $\Delta =(G, H, \iota, \rho_H)$, where
   \begin{equation*}
     G =\mathrm{GL}_{2 n},
@@ -1894,7 +1894,7 @@ Let's start with some easy special cases, before moving to the general case.
   which is relevant for the \emph{Shalika model}.
 \end{example}
 
-\begin{exercise}
+\begin{exercise}\label{exercise:cq6tho3oca}
   For $G = \mathrm{GL}_6$, find $\Delta$ for which $\mathcal{P}_\Delta(\phi)$ is given by
   \begin{equation*}
     \int_{[\mathrm{GL}_2]} \int_{[\Mat_{2 \times 2}^3]} \phi
@@ -1914,9 +1914,109 @@ Let's start with some easy special cases, before moving to the general case.
   \end{equation*}
 \end{exercise}
 
-\begin{example}
+\begin{example}\label{example:cq6tho3m7k}
   $\iota : \mathrm{SL}_2 \rightarrow \mathrm{GL}_3$ given by $h \mapsto \diag(h, 1)$ is \emph{not} even, because we get odd weight spaces for $\diag(t, t^{-1}, 1)$ acting via the adjoint representation for $\mathrm{GL}_3$.
 \end{example}<++>
+
+\section{Raphael Beuzart-Plessis's lectures}\label{sec:cq6tho1cgx}
+\textbf{Introduction to Relative Trace Formulas (RTF)}
+
+\subsection{RTF in general}\label{sec:cq6tho1blx}
+
+Let $K$ be a global field.  Let $G$ be a connected reductive group over $K$.  Let $A(G)$ denote the space of automorphic forms on the automorphic quotient $[G] := G(K) \backslash G(\mathbb{A}_K)$.
+
+\subsubsection{Periods}\label{sec:cq6tho1auw}
+
+Let $H \subset G$ be an algebraic group.  Let $\chi :[H] \rightarrow \mathbb{C}^\times$ be a character.  By the $(H, \chi)$-period, we mean the functional
+\begin{equation*}
+  \mathcal{P}_{H, \chi} : A(G) \rightarrow \mathbb{C}
+\end{equation*}
+\begin{equation*}
+  \varphi \mapsto \int_{[H]} \varphi(h) \chi(h) \, d h.
+\end{equation*}
+\begin{remark}\label{remark:cq6tho091q}
+  The integral often diverges.  We'll explain in some examples how one might regularize them.  It's usually convergent if the automorphic form $\varphi$ is cuspidal.  (Usually, but not always -- there might be issues with the center, or if one takes $H$ to be the Borel subgroup of $G = \mathrm{GL}_2$, then it never converges.)
+\end{remark}
+
+\begin{remark}\label{remark:cq6tho3lbh}
+  We can replace $\chi$ by some ``small'' automorphic representation of $H$ (e.g., ``degenerate'' Eisenstein series).
+\end{remark}
+
+\textbf{Emprical fact}: $\mathcal{P}_{H, \chi}$ is often related to $L$-functions and functoriality.
+
+\begin{example}\label{example:cq6tho6g4r}
+  \begin{enumerate}[(a)]
+  \item (Hecke) $G = \mathrm{GL}_2 \supset \left(
+      \begin{smallmatrix}
+        \ast&\\
+         &1 \\
+      \end{smallmatrix}
+    \right) := \mathbb{G}_m$.  For $\varphi \in \pi \subset \mathcal{A}_{\mathrm{cusp}}(G)$,
+    \begin{equation*}
+      \mathcal{P}_{H, \lvert . \rvert^s}(\varphi) \sim L(\tfrac{1}{2} + s, \pi).
+    \end{equation*}
+  \item (Rankin--Selberg) $G = \mathrm{GL}_2 \times \mathrm{GL}_2 \supset H = \mathrm{GL}_2^{\mathrm{diag}}$, $\int_{[H/Z]} \varphi_1(h) \varphi_2(h) E(h, f, s) \, d h \sim L(s, \pi_1 \times \pi_2)$, where $\varphi_i \in \pi_i \subset A_{\mathrm{cusp}}(\mathrm{GL}_2)$ and $E$ is a suitable Eisenstein series.
+  \item (Harder--Langlands--Rapoport) Let $L/K$ be a quadratic extension, $G =\mathrm{GL}_{2, L}$, $H =\mathrm{GL}_{2, K}$.  Take $\pi \subset A_{\mathrm{cusp}}(\mathrm{GL}_{2, K})$ and $\chi : \mathbb{A}_K^\times / K^\times \rightarrow \mathbb{C}^\times$ such that $\omega_\pi = \chi^{-1} \circ N_{L/K}$.  Then the following are equivalent:
+    \begin{itemize}
+    \item There exists $\varphi \in \pi$ with $\mathcal{P}_{H, \chi}(\varphi) \neq 0$.
+    \item There exists $\sigma \subset A_{\mathrm{cusp}}(\mathrm{GL}_{2, K})$ such that $\pi$ is the base change $\sigma_L$ and $\omega_\sigma = \chi^{-1}$.
+    \end{itemize}
+  \item (Jacquet--Shalika)
+    Take
+    \begin{equation*}
+      G :=\mathrm{GL}_{2 n} \supseteq H = \left\{
+        \begin{pmatrix}
+          g &  \\
+            & g \\
+        \end{pmatrix}
+        \begin{pmatrix}
+          1          & X \\
+                     & 1 \\
+        \end{pmatrix} \mid g \in \mathrm{GL}_n, \, X \in \Mat_n \right\}.
+    \end{equation*}
+    Let
+    \begin{equation*}
+      \chi :[H] \rightarrow \mathbb{C}^\times,
+    \end{equation*}
+    \begin{equation*}
+      \begin{pmatrix}
+        g        &  \\
+                 & g \\
+      \end{pmatrix}
+      \begin{pmatrix}
+        1        & X \\
+                 & 1 \\
+      \end{pmatrix}
+      \mapsto \psi(\trace(X)).
+    \end{equation*}
+    For $\pi \subset A_{\mathrm{cusp}}(\mathrm{GL}_{2 n} / Z)$, the following are equivalent:
+    \begin{itemize}
+    \item $\mathcal{P}_{H, \chi} \mid_\pi$ is not identically zero.
+    \item $\pi$ is a functorial lift from $\SO_{2 n + 1}$.
+    \end{itemize}
+  \end{enumerate}
+\end{example}
+
+\subsubsection{Theta series}
+
+Take $X := H \backslash G$.  Define $\Theta^X : C_c^\infty(X(\mathbb{A})) \rightarrow C^\infty([G])$ by
+\begin{equation*}
+  f \mapsto \Theta_f^X(g) := \sum_{x \in X(K)} f(x g).
+\end{equation*}
+For $\varphi \in A(G)$, define
+\begin{equation*}
+  \mathcal{P}_X(\varphi, f) := \int_{[G]}
+  \varphi(g) \Theta_f^X(g) \, d g.
+\end{equation*}
+Provided that $f$ is supported inside $H(\mathbb{A}) \backslash G(\mathbb{A})$ (in general, a proper subset of $X(\mathbb{A})$, with the obstruction measured by Galois cohomology), we have
+\begin{equation*}
+  \mathcal{P}_X(\varphi, f) = \int_{H(\mathbb{A}) \backslash G(\mathbb{A})}
+  \mathcal{P}_H(R(x) \varphi) f(x) \, d x.
+\end{equation*}
+
+
+
+
 
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
