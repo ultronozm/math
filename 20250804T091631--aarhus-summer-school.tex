@@ -2098,7 +2098,7 @@ where
 \end{equation*}
 Here $(H_1 \times H_2)_\gamma$ is the stabilizer with respect to the action $\gamma \cdot(h_1, h_2) = h_1^{-1} \gamma h_2$.
 
-\begin{remark}
+\begin{remark}\label{remark:cq6thubzrk}
   Two sources of divergence on the geometric side:
   \begin{itemize}
   \item the volumes can be infinite, and
@@ -2111,7 +2111,7 @@ Here $(H_1 \times H_2)_\gamma$ is the stabilizer with respect to the action $\ga
   where $\mathrm{Orb}_\gamma(f_v)$ is a local orbital integral.
 \end{remark}
 
-\subsubsection{RTF and theta series}
+\subsubsection{RTF and theta series}\label{sec:cq6thubysx}
 
 Assume for simplicity that $\chi_1 = \chi_2 = 1$.
 
@@ -2136,7 +2136,45 @@ More generally, for $X \circlearrowleft G$, we can consider the distributions
 \begin{equation*}
   \mathrm{RTF}_{\mathfrak{X}/G}(f) := \int_{[G]} \Theta^X_f \quad \text{ for } f \in C_c^\infty(X(\mathbb{A})).
 \end{equation*}
+You can write, in a similar way, a geometric expansion of this in terms of $G(K)$ on $X(K)$.  Let's try to make sense of the convergence.  These $\Theta_f^X$ are not arbitrary functions -- they have a very special behavior.  Here's a fact that we'll write in vague terms, and then give one example.
+\begin{fact}\label{fact:cq6thubvi6}
+  $\Theta^X_f$ is ``asymptotically finite'', i.e., is asymptotic to eigenfunctions with respect to the action of some tori (where we pluralize ``torus'' because the precise one depends upon in which direction you are tending to infinity).  Informally, by declaring the integrals of such asymptotics to be zero, you can define regularized integrals.  Provided that<++> the asymptotics are nontrivial, there is a canonical way to regularize $\mathrm{RTF}_{X / G}$.
+\end{fact}
 
+\begin{example}\label{example:cq6thubuij}
+  Take $G = \mathbb{G}_m$.  Let $\chi_0, \chi_\infty :[\mathbb{G}_m] \rightarrow \mathbb{C}^\times$.  Define $\mathcal{F}_{\chi_0, \chi_\infty}([\mathbb{G}_m])$ to be the set of all $f \in C^\infty([\mathbb{G}_m])$ such that there are $c_0 = c_0(f)$ and $c_\infty = c_\infty(f) \in \mathbb{C}$ such that
+  \begin{equation*}
+    \left\lvert f(t) - c_\infty \chi_\infty(t) \right\rvert \ll_N \lvert t \rvert^{- N}
+    \quad \text{ for } \lvert t \rvert \geq 1,
+  \end{equation*}
+  \begin{equation*}
+    \left\lvert f(t) - c_\infty \chi_\infty(t) \right\rvert \ll_N \lvert t \rvert^{N} \qquad \text{ for } \lvert t \rvert \leq 1.
+  \end{equation*}
+  We have a short exact sequence of $\mathbb{A}^\times$-representations
+  \begin{equation*}
+    0 \rightarrow \mathcal{S}([\mathbb{G}_m]) \rightarrow \mathcal{F}_{\chi_0, \chi_\infty} \rightarrow \mathbb{C}_{\chi_0} \oplus \mathbb{C}_{\chi_\infty} \rightarrow 0,
+  \end{equation*}
+  where $\mathcal{S}([\mathbb{G}_m])$ consists in particular of functions that are rapidly decaying.  The map is given by $f \mapsto(c_0(f), c_\infty(f))$.
+  \begin{enumerate}[(a)]
+  \item\label{enumerate:cq6tht3m44} If $\chi_0 \neq 1 \neq \chi_\infty$, then there is a unique functional
+    \begin{equation*}
+      \int_{[\mathbb{G}_m]}^{\mathrm{reg}} : \mathcal{F}_{\chi_0, \chi_\infty} \rightarrow \mathbb{C}
+    \end{equation*}
+    that is $\mathbb{A}^\times$-invariant and such that
+    \begin{equation*}
+      \int_{[\mathbb{G}_m]}^{\mathrm{reg}} f = \int_{[\mathbb{G}_m]} f(t) \, d t
+      \quad \text{ for } f \in \mathcal{S}([\mathbb{G}_m]).
+    \end{equation*}
+  \item\label{enumerate:cq6tht3n8y} Take $X_1 = \mathbb{G}_a \circlearrowleft \mathbb{G}_m$.  Then, for all $f \in C_c^\infty(\mathbb{A})$, we have $\Theta_f^{X_1} \in \mathcal{F}_{\lvert . \rvert^{-1}, 1}$.
+  \item\label{enumerate:cq6tht4jar} Define $X_2 = \mathbb{G}_a^2 \circlearrowleft \mathbb{G}_m$ by $t \cdot(x, y) :=(t x, t^{-1} y)$.  Then, for all $f \in C_c^\infty(\mathbb{A}^2)$, we have $\Theta_f^{X_2} := \mathcal{F}_{\lvert . \rvert^{-1}, \lvert . \rvert}$.
+  \item\label{enumerate:cq6tht7mp9} Take $\mathbb{G}_m = A = \left(
+      \begin{smallmatrix}
+        \ast&\\
+         &1 \\
+      \end{smallmatrix}
+    \right) \subset \mathrm{PGL}_2$, then for all $f \in C_c^\infty(X_3(\mathbb{A}))$, we have $\Theta_f^{X_3} \in \mathcal{F}_{\lvert . \rvert^{-1}, \lvert . \rvert}$.
+  \end{enumerate}
+\end{example}
 
 
 
