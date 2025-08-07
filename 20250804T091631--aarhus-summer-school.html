@@ -205,7 +205,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-07 11:18:02
+2025-08-07 11:35:16
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -3181,13 +3181,14 @@ class="math inline">\(\varphi \in \mathcal{S}(Y(\mathbb{A}))\)</span>,
 </ol></li>
 <li><p><span id="enumerate:cq6thb84py"
 label="enumerate:cq6thb84py"></span> In the fully general case, we
-define <span class="math display">\[\mathcal{P}_\Delta(\phi) :=
-\int_{[H]} \mathcal{P}_\iota(\phi)(h) \Theta_{\rho_H}(h) \, d
-h.\]</span> Here <span class="math inline">\(\mathcal{P}_\iota\)</span>
-is the Fourier coefficient of <span class="math inline">\(\phi\)</span>
-associated to <span class="math inline">\(\iota\)</span>, defined as
-follows. We first recall that <span class="math inline">\(\iota :
-\mathrm{SL}_2 \rightarrow G\)</span>. In particular, we can let <span
+define <span id="eq:cq6thc4107" class="math display">\[\label{eq:cq6thc4107}\tag{26}
+    \mathcal{P}_\Delta(\phi) := \int_{[H]} \mathcal{P}_\iota(\phi)(h)
+\Theta_{\rho_H}(h) \, d h.\]</span> Here <span
+class="math inline">\(\mathcal{P}_\iota\)</span> is the Fourier
+coefficient of <span class="math inline">\(\phi\)</span> associated to
+<span class="math inline">\(\iota\)</span>, defined as follows. We first
+recall that <span class="math inline">\(\iota : \mathrm{SL}_2
+\rightarrow G\)</span>. In particular, we can let <span
 class="math inline">\(L :=
 \mathrm{Cent}_G(\operatorname{image}(\iota(T_{\mathrm{SL}_2})))\)</span>,
 with <span class="math inline">\(T_{\mathrm{SL}_2} \leq
@@ -3260,13 +3261,13 @@ class="math display">\[\begin{pmatrix}
 weights of <span
 class="math inline">\(\mathop{\mathrm{Ad}}(\iota(\mathop{\mathrm{diag}}(t,
 t^{-1})))\)</span> are even), then the Fourier coefficient is given by a
-very easy formula: <span
-class="math display">\[\mathcal{P}_\iota(\phi)(h) := \int_{[U]} \phi(u
-h) \xi(u)^{-1} \, d u,\]</span> where <span class="math inline">\(\xi
-:[U] \rightarrow \mathbb{C}^\times\)</span> is a character defined, for
-<span class="math inline">\(x \in \mathfrak{u}(\mathbb{A})\)</span>, by
-<span class="math display">\[\xi(\exp(x)) := \psi \bigl( \langle x,
-\iota \left(
+very easy formula: <span id="eq:cq6thc26pn" class="math display">\[\label{eq:cq6thc26pn}\tag{27}
+    \mathcal{P}_\iota(\phi)(h) := \int_{[U]} \phi(u h) \xi(u)^{-1} \, d
+u,\]</span> where <span class="math inline">\(\xi :[U] \rightarrow
+\mathbb{C}^\times\)</span> is a character defined, for <span
+class="math inline">\(x \in \mathfrak{u}(\mathbb{A})\)</span>, by <span
+class="math display">\[\xi(\exp(x)) := \psi \bigl( \langle x, \iota
+\left(
       \begin{smallmatrix}
         0&amp;0\\
         1&amp;0 \\
@@ -3300,8 +3301,113 @@ I_n \\
 class="math inline">\(\rho_{\mathop{\mathrm{sym}}}^{n - 1}\)</span>.
 Then write down the Fourier coefficient <span
 class="math inline">\(\mathcal{P}_\iota(\phi)\)</span>.</p>
-</div></li>
+</div>
+<p>If <span class="math inline">\(\iota\)</span> is <em>not</em> even,
+then we have a Weil representation <span
+class="math inline">\(\Omega_\iota\)</span> of <span
+class="math inline">\(U(\mathbb{A})\)</span> on <span
+class="math inline">\(\mathcal{S}(Z(\mathbb{A}))\)</span>, where <span
+class="math inline">\(Z\)</span> is a maximal isotropic subspace of the
+weight <span class="math inline">\(1\)</span> space of <span
+class="math inline">\(\mathop{\mathrm{Ad}}(\iota(\mathop{\mathrm{diag}}(t,
+t^{-1})))\)</span>. Then we build another theta kernal <span
+class="math inline">\(\Theta_\iota(u) := \sum_{x \in Z(K)}
+\Omega_\iota(u) \varphi(x)\)</span>, where <span
+class="math inline">\(\varphi \in \mathcal{S}(Z(\mathbb{A}))\)</span>.
+The period integral (depending upon <span
+class="math inline">\(\varphi\)</span>) is then given by integrating not
+just against a character as in <a href="#eq:cq6thc26pn"
+data-reference-type="eqref"
+data-reference="eq:cq6thc26pn">\((27)\)</a>, but against the
+theta function: <span id="eq:cq6thc48wh" class="math display">\[\label{eq:cq6thc48wh}\tag{28}
+    \mathcal{P}_\iota(\phi) := \int_{[U]} \phi(u) \Theta_{\iota}(u) \, d
+u.\]</span></p>
+<p>So, in the integral <span
+class="math inline">\(\mathcal{P}_\Delta(\phi)\)</span>, there are
+possibly two different choices of Schwartz functions: one in the theta
+kernel in <a href="#eq:cq6thc4107" data-reference-type="eqref"
+data-reference="eq:cq6thc4107">\((26)\)</a>, and another in the
+theta kernel in <a href="#eq:cq6thc48wh" data-reference-type="eqref"
+data-reference="eq:cq6thc48wh">\((28)\)</a>. But in some special
+cases (<span class="math inline">\(\iota\)</span> trivial or even), we
+don’t need these.</p></li>
 </ol>
+<div class="example">
+<p><strong>Example 55</strong>. Take <span class="math inline">\(\Delta
+=(G, H, \iota, \rho_H)\)</span>, where <span class="math display">\[G
+=\mathrm{GL}_{2 n},\]</span> <span class="math display">\[H =
+\mathrm{GL}_n = \left\{
+      \begin{pmatrix}
+        h        &amp;  \\
+                 &amp; h \\
+      \end{pmatrix} \mid h \in \mathrm{GL}_n \right\},\]</span> <span
+class="math inline">\(\rho_H = 0\)</span> and <span
+class="math display">\[\iota :
+    \begin{pmatrix}
+      t      &amp;  \\
+             &amp; t^{-1} \\
+    \end{pmatrix}
+    \mapsto
+    \begin{pmatrix}
+      t I_n &amp;  \\
+            &amp; t^{-1} I_n \\
+    \end{pmatrix},
+    \quad
+    \begin{pmatrix}
+      1 &amp; 1 \\
+        &amp; 1 \\
+    \end{pmatrix}
+    \mapsto
+    \begin{pmatrix}
+      I_n      &amp; I_n \\
+               &amp; I_n \\
+    \end{pmatrix}.\]</span> Then <span
+class="math display">\[\mathcal{P}_\Delta(\phi) =
+    \int_{[\mathrm{GL}_n] / \mathrm{GL}_1(\mathbb{A})}
+    \int_{[{\mathop{\mathrm{Mat}}}_{n \times n}]} \phi \left(
+      \begin{pmatrix}
+        I_n      &amp; x \\
+                 &amp; I_n \\
+      \end{pmatrix}
+      \begin{pmatrix}
+        h &amp;  \\
+          &amp; h \\
+      \end{pmatrix}      
+    \right)
+    \psi(\mathop{\mathrm{trace}}(x))^{-1} \, d x
+    \, d h,\]</span> which is relevant for the <em>Shalika
+model</em>.</p>
+</div>
+<div class="exercise">
+<p><strong>Exercise 10</strong>. For <span class="math inline">\(G =
+\mathrm{GL}_6\)</span>, find <span class="math inline">\(\Delta\)</span>
+for which <span class="math inline">\(\mathcal{P}_\Delta(\phi)\)</span>
+is given by <span class="math display">\[\int_{[\mathrm{GL}_2]}
+\int_{[{\mathop{\mathrm{Mat}}}_{2 \times 2}^3]} \phi
+    \left(
+      \begin{pmatrix}
+        I_2      &amp; X &amp; Z \\
+                 &amp; I_2 &amp; Y \\
+                 &amp;  &amp; I_2 \\
+      \end{pmatrix}
+      \begin{pmatrix}
+        h      &amp;  &amp;  \\
+               &amp; h &amp;  \\
+               &amp;  &amp; h \\
+      \end{pmatrix}\right)
+    \psi(\mathop{\mathrm{trace}}(X + Y))^{-1}
+    \, d X \, d Y \, d Z \, d h.\]</span></p>
+</div>
+<div class="example">
+<p><strong>Example 56</strong>. <span class="math inline">\(\iota :
+\mathrm{SL}_2 \rightarrow \mathrm{GL}_3\)</span> given by <span
+class="math inline">\(h \mapsto \mathop{\mathrm{diag}}(h, 1)\)</span> is
+<em>not</em> even, because we get odd weight spaces for <span
+class="math inline">\(\mathop{\mathrm{diag}}(t, t^{-1}, 1)\)</span>
+acting via the adjoint representation for <span
+class="math inline">\(\mathrm{GL}_3\)</span>.</p>
+</div>
+<p>&lt;++&gt;</p>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
   toggle.addEventListener("click", function(e) {
