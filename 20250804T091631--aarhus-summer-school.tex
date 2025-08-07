@@ -716,7 +716,7 @@ The hope is that one can find a Galois-theoretic representation that completely 
 
 
 
-\part{Chris Skinner's lectures}
+\section{Chris Skinner's lectures}
 \textbf{Integral representations, Euler systems, and multiplicity one}.
 
 My choice of these topics is motivated by my interest in special values of $L$-functions, and in particular problems like the BSD conjecture.  We'll focus on some representation theory, that plays a role in both the analytic and the algebraic sides of these problems.  You can possibly view this as a bridge between the talks at the start and at the end of the week.
@@ -1450,6 +1450,187 @@ See the work of the speaker and Xinwen Wan.
 \begin{remark}
   See paper of David Loeffler regarding the ramified primes
 \end{remark}
+
+
+\section{Jayce Getz's lectures}
+\subsection{Langlands $L$-functions and converse theorem}
+
+Let $F$ be a number field, $\mathbb{A}_F$ the ring of adeles, and $G$ a split reductive group over $F$.  Let $A_G$ denote the neutral component in the real topology of the greatest $\mathbb{Q}$-split torus in $\Res_{F / \mathbb{Q}} Z_G$.  (For example, $A_{\GL_r} = \mathbb{R}_{> 0} I_r$.)
+
+
+\textbf{Goal}: given an $L$-map $\rho : {}^L G \rightarrow \mathrm{GL}_n(\mathbb{C})$, construct a transfer of automorphic representations of $G(\mathbb{A}_F)$ to $\mathrm{GL}_n(\mathbb{A}_F)$.
+
+Given an automorphic representationd $\pi$ of $G(\mathbb{A}_F)$, we can form the Langlands $L$-function
+\begin{equation*}
+  L(s, \pi, \rho) := \prod_v L(s, \pi_v, \rho).
+\end{equation*}
+If $\pi$ is unramified at $v$, then
+\begin{equation*}
+  L(s, \pi_v, \rho) = \frac{1}{\det(1 - \rho(c(\pi_v)) q_v^{- s})},
+\end{equation*}
+where $c(\pi_v) \in{}^L G$ is the Langlands class of $\pi_v$.
+
+Let $\psi : F \backslash \mathbb{A}_F \rightarrow \mathbb{C}^\times$ be a nontrivial character.  Then we obtain $\eps$-factors $\eps(s, \pi_v, \rho, \psi_v)$, defined via local Langlands and the known definition in the case of $\mathrm{GL}_n$.  There is also the $\gamma$-factor
+\begin{equation*}
+  \gamma(s, \pi_v, \rho, \psi_v) :=
+  \frac{
+    \eps(s, \pi_v, \rho, \psi_v)
+    L(1 - s, \pi_v^\vee, \rho)
+  }{
+    L(s, \pi_v, \rho)
+  }.
+\end{equation*}
+\begin{conjecture}[Langlands]
+  $L(s, \pi, \rho)$ admits a meromorphic continuation to $\mathbb{C}$, is bounded in vertical strips, and satisfies a functional equation
+  \begin{equation*}
+    L(s, \pi, \rho) = \eps(s, \pi, \rho, \psi) L(1 - s, \pi^\vee, \rho).
+  \end{equation*}
+\end{conjecture}
+If $L(s, \pi, \rho)$ satisfies the conjecture, then we say that it is \emph{nice}.
+
+One case where we know this in complete generality is the case of the standard representation
+\begin{equation*}
+  \rho := \rho_{\mathrm{st}} = \mathrm{triv} \times \mathrm{Id} :{}^L \mathrm{GL}_n = \Gal_F \times \mathrm{GL}_n(\mathbb{C}) \rightarrow \mathrm{GL}_n(\mathbb{C}),
+\end{equation*}
+in which case we write simply
+\begin{equation*}
+  L(s, \pi) := L(s, \pi, \rho_{\mathrm{st}}).
+\end{equation*}
+Then the conjecture is known, and you can prove it in three different ways that are largely distinct:
+\begin{itemize}
+\item Godement--Jacquet (which preceded the general formulation of this conjecture).
+\item The Rankin--Selberg method.
+\item The Langlands--Shahidi method.
+\end{itemize}
+At first glance, none of these methods will work to address the general conjecture, but we'll see that there is a sort of modification of the first two that might be applicable.
+
+Now, what's the converse theorem?
+\begin{theorem}[Cogdell--Piatetski-Shapiro; Hecke, Weil]
+  Let $\sigma$ be an admissible irreducible representation of $\mathrm{GL}_n(\mathbb{A}_F)$.  (In order to get this sort of thing, you have to choose a bunch of local data and outside finitely many places you declare that it is unramified.)  Assume that
+  \begin{itemize}
+  \item the central character $\omega_\sigma$ is $Z_{\mathrm{GL}_n(F)}$-invariant,
+  \item $\sigma_v$ is generic for all $v$, and
+  \item $L(s, \sigma)$ converges for $\Re s$ sufficiently large.
+  \end{itemize}
+  Let $S$ be a finite set of finite primes.  Assume that $L(s, \sigma \times \sigma ')$ is nice and holomorphic for all cuspidal automorphic representations $\sigma '$ of $\mathrm{GL}_m(\mathbb{A}_F)$ unramified at $S$, with $1 \leq m \leq n - 2$ (for $n \geq 2$; for $n = 2$, just take $m = 1$).  Then there exists an automorphic representation $\pi '$ of $\mathrm{GL}_n(\mathbb{A}_F)$ that is nearly equivalent to $\sigma$ in the sense that $\sigma_v \cong \pi_v '$ for all $s \notin S$.
+\end{theorem}
+To see the relevance of this, take $\pi$ on $G(\mathbb{A}_F)$, and take $\sigma = \rho(\pi)$, giving an admissible representation for almost all places (assuming the local Langlands correspondence).
+
+This gives some overplay of the interplay between $L$-functions and automorphic representations and exactly how the two are interrlated via functoriality.  This sort of thing is in the background when you read things on the Braverman--Kazhdan program, Beyond Endoscopy, etc.
+
+Now let's talk about a particular case.
+
+\subsection{Rankin--Selberg products and triple products}
+
+Let $\underline{r} =(r_1, r_2, r_3)$.  Set $\mathrm{GL}_{\underline{r}} :=\mathrm{GL}_{r_1} \times\mathrm{GL}_{r_2} \times\mathrm{GL}_{r_3}$.  We have an $L$-map that we call the Rankin--Selberg product (taking complex points, say)
+\begin{equation}\label{eq:cq6tg2afra}
+  \otimes^2 : {}^L(\mathrm{GL}_{r_1} \times\mathrm{GL}_{r_2}) \rightarrow\mathrm{GL}_{r_1 r_2},
+\end{equation}
+\begin{equation}\label{eq:cq6tg2hl5x}
+  \otimes^3 : {}^L\mathrm{GL}_{\underline{r}} \rightarrow\mathrm{GL}_{r_1 r_2 r_3}.
+\end{equation}
+We'll think of these as hypothetical Langlands transfers.
+\begin{theorem}[Chevalley]
+  Given any faithful representation $\rho : H \rightarrow \mathrm{GL}_n$ (say with $H$ reductive), any other representation is a subrepresentation of $\rho^{\otimes m} \otimes \rho^{\vee \otimes n}$ for some $m$ and $n$.
+\end{theorem}
+Now, ${}^L G$ is not a reductive group, but ignore that fact for a moment.  Say we're given an $L$-map
+\begin{equation}\label{eq:cq6tg2amid}
+  \rho :{}^L G \rightarrow \mathrm{GL}_n.
+\end{equation}
+Suppose we know the Rankin--Selberg transfer \eqref{eq:cq6tg2afra} as well as transfer for \eqref{eq:cq6tg2amid}.  Then, \emph{any} transfer from $G$ to $\GL(V)$ is a ``subtransfer'' of some $\rho^{\otimes m} \otimes \rho^{\vee \otimes n}$.
+
+\begin{question}[Not an exercise]
+  Given functorial transfers $\rho^{\otimes m} \otimes \rho^{\vee \otimes n}$, how to pick out the transfers associated to subrepresentations?
+\end{question}
+
+By analogy to representation theory, some of the basic ways to construct new representations from old ones is to take direct sums, induced representations and tensor products.  In the automorphic world, we know how to do the first two (isobaric sum and Eisenstein series), but not the third.
+
+The importance of triple product $L$-functions (attached to \eqref{eq:cq6tg2hl5x}) is that if they are nice, then, using the converse theorem, we get that Rankin--Selberg transfers exist.  This is the motivation for what we're about to do.
+
+\subsection{Poisson summation conjecture}
+
+In the exercises, we'll see the Godement--Jacquet Poisson summation formula for $M_{n \times n}$, which leads to the functional equation and analytic continuation of the standard $L$-functions $L(s, \pi)$.  Bravmern--Kazhdan suggest replacing $M_{n \times n}$ by a certain $M_{\rho}$, and try to run the argument to study $L(s, \pi, \rho)$.  This proposal was refined by Ngô.  Sakellaridis suggested working with some spherical
+varieties.  Need a little more flexibility.
+
+We'll start with the geometric setup.
+
+\subsubsection{}
+
+Let $F$ be a number field, let $R$ be an $F$-algebra, and let $G_{/F}$ be a reductive group.  Assume given an action
+\begin{equation*}
+  \mathcal{R} : X \times G \rightarrow X
+\end{equation*}
+on an affine $G$-scheme $X$.  Assume that there is a unique open orbit $X^{\circ} \subseteq X$.  Let $Z_G^+$ denote the greatest split torus in $Z_G$ (e.g., for $G = \mathrm{GL}_n$, $Z_G^+ = \mathbb{G}_m$).  Fix an isomorphism $\mathbb{G}_m^n \xrightarrow{\cong} Z_G^+$.  Assume that the pullback $\mathcal{R} : X \times \mathbb{G}_m^n \rightarrow X$ extends to $\mathcal{R} : X \times \mathbb{G}_a^n \rightarrow X$.
+
+\begin{example}
+  $X = \mathbb{G}_a$ (which we don't write as $\mathbb{A}^1$, because that denotes the adeles).  Then the map $X \times \mathbb{G}_m \rightarrow X$ given by $(t, a) \mapsto t a$ extends to $\mathbb{G}_a \supset \mathbb{G}_m$ (at $0$, but not at $\infty$).
+\end{example}
+
+Assume that there exists an automorphic $\iota : G \rightarrow G$ such that $\iota(z) = z^{-1}$ for $z \in Z_G^+(\mathbb{R})$.
+
+\begin{example}
+  Take $X$ to be a vector space, $G =\mathrm{GL}_{X}$, $\iota(g) = g^{- \transpose}$, and $X(R) := \{x \in R^n \mid Q(x) = 0\}$, where $Q$ is an anisotropic quadratic form.  Or take $G = \GO_Q$, and $\iota(g) = \operatorname{simil}(g^{-1}) g$.
+\end{example}
+
+We need a generalization.  In integral representations, you often need some sort of Whittaker or Fourier coefficients to integrate against.  The reason is that if you don't have it, then when you integrate against cusp forms, you get zero.  If we don't have this in the cases of interest, then we end up getting zero.  There's a geometric way of phrasing this:
+\begin{definition}
+  Suppose given a $\mathbb{G}_a^n$-torsor $p : V^{\circ} \rightarrow X^{\circ}$ equipped with a $\mathbb{G}_a^n \rtimes G$-action.  Assume that $p$ is $\mathbb{G}_a^n \rtimes G$-equivariant.  Consider the map
+  \begin{equation*}
+    V^{\circ}(R) \times R^n \times G(R) \rightarrow V^{\circ}(R) \times R^n,
+  \end{equation*}
+  \begin{equation*}
+    (v, z, g) \mapsto(v g,(0 \times g)^{-1} z(0 \times g)).
+  \end{equation*}
+  Assume given $\Psi : V^{\circ} \times \mathbb{G}_a^n \rightarrow \mathbb{G}_a$ such that
+  \begin{enumerate}
+  \item [$\Psi 1$] $\Psi$ factors through $p \times \mathrm{id} : V^{\circ} \times \mathbb{G}_a^n \rightarrow X^{\circ} \times \mathbb{G}_a^n$.
+  \item [$\Psi 2$] $\Psi$ is $G$-invariant.
+  \item [$\Psi 3$] For each $w \in V^{\circ}(R)$, the map $\Psi(w, \bullet) : \mathbb{G}_{a, R}^n \rightarrow \mathbb{G}_{a, R}$ is a group homomorphism.
+  \end{enumerate}
+  An \emph{affine} $\Psi$\emph{-bundle} is a pair $(p : V^{\circ} \rightarrow X^{\circ}, \Psi)$ as above.
+\end{definition}
+Given $w \in V^{\circ}(R)$, set $x := p(w)$.  We obtain $R^n \xrightarrow{\cong} V_x^0(R)$, $z \mapsto w z$.  For $g \in G_\lambda(R)$, there is a unique $z_w(g) \in R^n$ such that $w z_w(g) = w g$.  Then $\Psi_w(g) = \Psi(w, z_w(g))$.
+\begin{lemma}
+  $\Psi_w : G_x \rightarrow \mathbb{G}_a$ is a character, depending only upon $x$.
+\end{lemma}
+
+This is the geometry that underlies the Poisson summation conjecture.  In the remaining time today, we'll start doing some of the harmonic analysis.  We'll enrich the geometry by introducing some function spaces on the $F$-points of everything.  We'll start that process now and continue it in the next lecture.
+
+\subsubsection{Local harmonic analysis}
+
+Start with some global character $\psi : F \backslash \mathbb{A}_F \rightarrow \mathbb{C}^\times$.  Let $v$ be a place of $F$.  Define $F = F_v$, $\psi = \psi_v$.  Thus, we'll work locally and omit $v$ from notation.  We ask for a Schwartz space sitting as follows:
+\begin{equation*}
+  C_c^\infty(X^{\circ}(F)) \subseteq \mathcal{S}(X(F)) \subseteq C^\infty(X^{\circ}(F)) \cap L^2(X^{\circ}(F)).
+\end{equation*}
+(This assumes that we have an invariant measure to define $L^2$.  It's better in some sense to work instead with half-densities.)  We want the Schwartz space to be stable under $G(F)$.  One can do a bit more: one can form an $\eps_\psi$-hermitian bundle over $X^{\circ}(F)$, using the affine $\Psi$-bundle just mentioned.  The sections are
+\begin{equation*}
+  \left\{ f \in C^\infty(V^{\circ}(F)) \mid \mathcal{R}(a \times I) f(w) = \psi(\Psi(w, a) f(w)) \right\}.
+\end{equation*}
+The motivation is that if you don't incorporate such sections rather than just functions, then you'll get zero when you try to integrate against cusp forms.  Consider for instance a cusp form $\varphi$ on $\mathrm{GL}_2(\mathbb{A}_F)$.  Then
+\begin{equation*}
+  \int_{[\mathbb{G}_a]} \varphi
+  \begin{pmatrix}
+    1 & x \\
+    0 & 1 \\
+  \end{pmatrix} \, d x= 0,
+\end{equation*}
+while
+\begin{equation*}
+  \int_{[\mathbb{G}_a]} \varphi
+  \begin{pmatrix}
+    1 & x \\
+    0 & 1 \\
+  \end{pmatrix}
+  \psi(x) \, d x
+  \, d x
+  =
+  W_\psi^\varphi(1).
+\end{equation*}
+Actually, it's better, and we do it in the paper (see the course references (TODO: add link here)), and you need it.  We twist by half-densities: $\eps_\psi \otimes \lvert \Lambda \rvert^{1/2} = \mathcal{L}_\psi$.  These are canonical -- no choice of measure.  They are helpful for normalization.  On the other hand, you can't evaluate at points.  But you can work around this.  Using these makes the formulation of the theory much simpler.  Another benefit is that with half-densities, Schwartz spaces behave well under restriction.  Maybe the reason behind this might be an exercise:
+\begin{exercise}
+  $L^2(X^{\circ}(F), \lvert \Lambda \rvert^{1/2})$ is a unitary $G(F)$-representation.
+\end{exercise}
+
 
 
 
