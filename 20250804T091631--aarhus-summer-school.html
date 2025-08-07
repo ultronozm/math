@@ -205,7 +205,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-07 13:32:24
+2025-08-07 13:54:19
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -248,7 +248,12 @@ Beuzart-Plessis’s lectures</a>
 <li><a href="#sec:cq6tho1blx" id="toc-sec:cq6tho1blx">RTF in general</a>
 <ul>
 <li><a href="#sec:cq6tho1auw" id="toc-sec:cq6tho1auw">Periods</a></li>
-<li><a href="#theta-series" id="toc-theta-series">Theta series</a></li>
+<li><a href="#sec:cq6thpxagu" id="toc-sec:cq6thpxagu">Theta
+series</a></li>
+<li><a href="#sec:cq6thp1yjb" id="toc-sec:cq6thp1yjb">RTF
+formally</a></li>
+<li><a href="#rtf-and-theta-series" id="toc-rtf-and-theta-series">RTF
+and theta series</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -719,7 +724,7 @@ congruent to <span class="math inline">\(\bar{\rho}\)</span>.</em></p>
 <div id="theorem:cq6thpm721" class="theorem">
 <p><strong>Theorem 10</strong> (Carayol, Serre). <em>Assume that <span
 class="math inline">\(\bar{\rho}\)</span> is absolutely irreducible.
-Then there exists a continuous representation <span id="eq:cq6sj6h73f" class="math display">\[\label{eq:cq6sj6h73f}\tag{1}
+Then there exists a continuous representation <span id="eq:cq6sj6h73f" class="math display">\[\label{eq:cq6sj6h73f}\tag{1.1}
     \rho_{\bar{\rho}}^{\mathrm{mod}} : G_{\mathbb{Q}, N \cup \{p,
 \infty\}} \rightarrow \mathrm{GL}_2 \left((\mathbb{T}_0
 &#39;)_{\mathfrak{m}_{\bar{\rho}}} \right)\]</span> “built” from the
@@ -730,7 +735,7 @@ class="math inline">\(f \in S_k(N, \bar{\mathbb{Z}}_p)\)</span>, with
 class="math inline">\(\mathfrak{m}_{\bar{\mathbb{Z}}_p}\)</span>.</em></p>
 </div>
 <p>(One can write down a characteristic polynomial, similar to the
-above.) Maybe one should also say that <span id="eq:cq6sj6d3yn" class="math display">\[\label{eq:cq6sj6d3yn}\tag{2}
+above.) Maybe one should also say that <span id="eq:cq6sj6d3yn" class="math display">\[\label{eq:cq6sj6d3yn}\tag{1.2}
   \left( \mathbb{T} &#39;_{\mathcal{O}}
 \right)_{\mathfrak{m}_{\bar{\rho}}} \subseteq \prod_{f, \rho_f \equiv
 \bar{\rho}} \mathcal{O},\]</span> where the left hand side is generated
@@ -738,7 +743,7 @@ by all the <span class="math display">\[\left\{
 \mathop{\mathrm{trace}}\rho_f({\mathop{\mathrm{Frob}}}_{\ell}) : \rho_f
 \equiv \bar{\rho}, \ell \nmid N p \right\}.\]</span> Now, is the
 inclusion <a href="#eq:cq6sj6d3yn" data-reference-type="eqref"
-data-reference="eq:cq6sj6d3yn">\((2)\)</a> strict? If you take
+data-reference="eq:cq6sj6d3yn">\((1.2)\)</a> strict? If you take
 twice the same form, then you get twice the same value.</p>
 <p><strong>Vision of Mazur</strong>? Can <span
 class="math inline">\(\rho_{\bar{\rho}}^{\mathrm{mod}}\)</span> be
@@ -748,7 +753,7 @@ start somewhere. Start with the mod <span
 class="math inline">\(p\)</span> representation. Then there’s a sort of
 <span class="math inline">\(p\)</span>-adic representation <a
 href="#eq:cq6sj6h73f" data-reference-type="eqref"
-data-reference="eq:cq6sj6h73f">\((1)\)</a> that you get here,
+data-reference="eq:cq6sj6h73f">\((1.1)\)</a> that you get here,
 which sees all forms congruent to <span
 class="math inline">\(\bar{\rho}\)</span>. Can you see this sort of
 thing from a purely Galois-theoretic perspective? This might have been
@@ -1145,7 +1150,7 @@ m}(\bar{\rho}) = z^1(G, {\mathop{\mathrm{ad}}}_{\bar{\rho}}) - h^2(G,
 \mathop{\mathrm{ad}}\bar{\rho}).\]</span></p>
 </div>
 <div id="proposition:cq6thpd5k9" class="proposition">
-<p><strong>Proposition 29</strong>. <em>If <span id="eq:cq6skreori" class="math display">\[\label{eq:cq6skreori}\tag{3}
+<p><strong>Proposition 29</strong>. <em>If <span id="eq:cq6skreori" class="math display">\[\label{eq:cq6skreori}\tag{1.3}
     \dim_{\mathrm{\operatorname{s}}} R \frac{\square}{\rho} / \pi \leq
 \mathrm{ec dim(\bar{\rho})},\]</span> then <span
 class="math inline">\(R_{\bar{\rho}}^{\square}\)</span> is <span
@@ -1161,18 +1166,18 @@ intersection.</em></p>
 class="math inline">\(F \supseteq \mathbb{Q}_{\ell}\)</span> is finite
 and <span class="math inline">\(\ell \neq p\)</span>. Then <a
 href="#eq:cq6skreori" data-reference-type="eqref"
-data-reference="eq:cq6skreori">\((3)\)</a> holds. <span
+data-reference="eq:cq6skreori">\((1.3)\)</a> holds. <span
 class="math inline">\(\mathrm{e c dim} = 4^2\)</span>.</p></li>
 <li><p><span class="math inline">\(G = G_F\)</span>, <span
 class="math inline">\(F \supseteq \mathbb{Q}_p\)</span>. Then <a
 href="#eq:cq6skreori" data-reference-type="eqref"
-data-reference="eq:cq6skreori">\((3)\)</a> holds and each <span
+data-reference="eq:cq6skreori">\((1.3)\)</a> holds and each <span
 class="math inline">\(\operatorname{ec dim} = n^2(1 +[F :
 \mathbb{Q}_p])\)</span>.</p></li>
 <li><p>If <span class="math inline">\(G = G_{K, S}\)</span>, then we
 have many examples for <a href="#eq:cq6skreori"
 data-reference-type="eqref"
-data-reference="eq:cq6skreori">\((3)\)</a> if <span
+data-reference="eq:cq6skreori">\((1.3)\)</a> if <span
 class="math inline">\(k\)</span> is not totally real, <span
 class="math inline">\(k\)</span> is totaly odd, and <span
 class="math inline">\(\bar{\rho}\)</span> is totally odd, and <span
@@ -1368,11 +1373,11 @@ Cohen–Macaulay.</p>
 <p>Let’s say a bit about the case <span class="math inline">\(v \mid
 p\)</span>, where things get a bit vaguer. Now take <span
 class="math inline">\(K_v \supseteq \mathbb{Q}_p\)</span> finite, and
-consider the set of all representations <span id="eq:cq6s0s7n4f" class="math display">\[\label{eq:cq6s0s7n4f}\tag{4}
+consider the set of all representations <span id="eq:cq6s0s7n4f" class="math display">\[\label{eq:cq6s0s7n4f}\tag{1.4}
   \left\{ \rho : G_v \rightarrow \mathrm{GL}_n(\bar{\mathbb{Q}}_p)
 \right\}.\]</span> By <span class="math inline">\(p\)</span>-adic Hodge
 theory, this contains the following set of representations that are
-“geometric” in some sense: <span id="eq:cq6s0s8j3o" class="math display">\[\label{eq:cq6s0s8j3o}\tag{5}
+“geometric” in some sense: <span id="eq:cq6s0s8j3o" class="math display">\[\label{eq:cq6s0s8j3o}\tag{1.5}
   \left\{ \rho : G_v \rightarrow \mathrm{GL}_n(\bar{\mathbb{Q}}_p) \mid
 \rho \text{ is potentially semistable}\right\}.\]</span> Fontaine
 attaches invariants to these <span
@@ -1460,7 +1465,7 @@ G_{\mathbb{Q}, N p \infty} \rightarrow
 \mathrm{GL}_2(R_{\underline{S}}).\]</span> Universality of <span
 class="math inline">\(R_{\underline{S}}\)</span> (using local Langlands
 and <span class="math inline">\(p\)</span>-adic Hodge theory) gives a
-surjection <span id="eq:cq6s0uhkx2" class="math display">\[\label{eq:cq6s0uhkx2}\tag{6}
+surjection <span id="eq:cq6s0uhkx2" class="math display">\[\label{eq:cq6s0uhkx2}\tag{1.6}
   \alpha : R_{\underline{S}}
 \rightarrow(\mathbb{T}_{\mathcal{O}})_{\mathfrak{m}_{\bar{\rho}}},\]</span>
 <em>assuming</em> that <span class="math inline">\(\bar{\rho}\)</span>
@@ -1483,10 +1488,10 @@ that being modular is “contagious”. What is often relatively easy, maybe
 if the representation (a <span class="math inline">\(p\)</span>-adic
 Galois representation) comes from the ring on the left hand side of <a
 href="#eq:cq6s0uhkx2" data-reference-type="eqref"
-data-reference="eq:cq6s0uhkx2">\((6)\)</a>, and now if you have
+data-reference="eq:cq6s0uhkx2">\((1.6)\)</a>, and now if you have
 the full isomorphism <a href="#eq:cq6s0uhkx2"
 data-reference-type="eqref"
-data-reference="eq:cq6s0uhkx2">\((6)\)</a>, then you know it
+data-reference="eq:cq6s0uhkx2">\((1.6)\)</a>, then you know it
 also comes form the right hand side. But in practice, this isomoprhism
 doesn’t tell you modularity of one just form in the class giving rise to
 the right hand side, but all of them. That’s all.</p>
@@ -1574,9 +1579,9 @@ class="math inline">\(\dim {\mathop{\mathrm{Hom}}}_H(\pi, \sigma) \leq
 latter will be a useful framework for us.</p>
 <p>Let’s now turn to integral representations and give some examples.
 The first integral representation we see is that of the Riemann zeta
-function. Let <span id="eq:cq6r3qe33m" class="math display">\[\label{eq:cq6r3qe33m}\tag{7}
+function. Let <span id="eq:cq6r3qe33m" class="math display">\[\label{eq:cq6r3qe33m}\tag{2.1}
   \psi(t) = \sum_{n = 1}^\infty e^{- \pi n^2 t}.\]</span> Then for <span
-class="math inline">\(\Re s\)</span> sufficiently large, <span id="eq:cq6r3p0tmc" class="math display">\[\label{eq:cq6r3p0tmc}\tag{8}
+class="math inline">\(\Re s\)</span> sufficiently large, <span id="eq:cq6r3p0tmc" class="math display">\[\label{eq:cq6r3p0tmc}\tag{2.2}
   \int_0^\infty \psi(t) t^{\frac{1}{2} s - 1} \, d t
   = \pi^{- s/2} \Gamma(\tfrac{s}{2}) \zeta(s).\]</span> We see this by
 bringing the summation outside the integral. This gives a Mellin
@@ -1587,7 +1592,7 @@ class="math display">\[\theta(\tau) = \sum_{n \in \mathbb{Z}} e^{- 2 \pi
 i n^2 \tau}.\]</span> This is an automorphic form, and we have <span
 class="math display">\[(\tfrac{1}{2}(\theta(i y) - 1)) = \psi(2
 y),\]</span> so <a href="#eq:cq6r3p0tmc" data-reference-type="eqref"
-data-reference="eq:cq6r3p0tmc">\((8)\)</a> is an integral
+data-reference="eq:cq6r3p0tmc">\((2.2)\)</a> is an integral
 representation for the Riemann zeta function coming from the symmetric
 space for a torus embedded inside <span
 class="math inline">\(\mathrm{GL}_2\)</span>. One has similar integral
@@ -1630,7 +1635,7 @@ class="math display">\[\theta(x) = \sum_{\alpha \in k} \phi(\alpha
 x).\]</span> (It’s a good exercise to see how to specialize this to
 obtain something like <a href="#eq:cq6r3qe33m"
 data-reference-type="eqref"
-data-reference="eq:cq6r3qe33m">\((7)\)</a>.) We then form the
+data-reference="eq:cq6r3qe33m">\((2.1)\)</a>.) We then form the
 integral <span class="math display">\[\int_{k^\times \backslash
 \mathbb{A}_k^\times} \chi(x) \lvert x \rvert^s \theta(x) \,d^\times
 x.\]</span> These integrals converge absolutely for <span
@@ -1641,7 +1646,7 @@ so that we don’t need to worry about the contribution of <span
 class="math inline">\(\alpha = 0\)</span>) <span
 class="math display">\[\int_{\mathbb{A}_k^\times} \chi(x) \lvert x
 \rvert^s \phi(x) \, d x.\]</span> If <span class="math inline">\(\phi =
-\prod \phi_v\)</span>, then these factor further as <span id="eq:cq6r32qpe5" class="math display">\[\label{eq:cq6r32qpe5}\tag{9}
+\prod \phi_v\)</span>, then these factor further as <span id="eq:cq6r32qpe5" class="math display">\[\label{eq:cq6r32qpe5}\tag{2.3}
   \prod \int_{k_v^\times} \chi_v(x) \lvert x \rvert_v^s \phi_v(x) \, d
 x.\]</span> One can show that the local integrals at non-archimedean
 places are rational functions, form the greatest common divisor of their
@@ -1732,7 +1737,7 @@ in the Iwasawa–Tate setting, when all of the data is unramified (meaning
 and <span class="math inline">\(\phi_v\)</span> is the characteristic
 function of the ring of integers), then the local factor in <a
 href="#eq:cq6r32qpe5" data-reference-type="eqref"
-data-reference="eq:cq6r32qpe5">\((9)\)</a> is easy to compute,
+data-reference="eq:cq6r32qpe5">\((2.3)\)</a> is easy to compute,
 and gives a local zeta function. This is more complicated in the
 Godement–Jacquet setting, but still doable. Then in the ramified
 situations, there is the question of how to choose good vectors so that
@@ -1748,15 +1753,15 @@ class="math inline">\(k_f \geq k_g\)</span>, say of level <span
 class="math inline">\(1\)</span>, i.e., on <span
 class="math inline">\(\mathrm{SL}_2(\mathbb{Z})\)</span>. Write <span
 class="math display">\[f = \sum a_n q^n, \qquad g = \sum b_n
-q^n.\]</span> We’ll consider the Dirichlet series <span id="eq:cq6r32z05j" class="math display">\[\label{eq:cq6r32z05j}\tag{10}
+q^n.\]</span> We’ll consider the Dirichlet series <span id="eq:cq6r32z05j" class="math display">\[\label{eq:cq6r32z05j}\tag{2.4}
   \sum_n \overline{a_n} b_n n^{- s}.\]</span> The integral
-representation is <span id="eq:cq6r32zyac" class="math display">\[\label{eq:cq6r32zyac}\tag{11}
+representation is <span id="eq:cq6r32zyac" class="math display">\[\label{eq:cq6r32zyac}\tag{2.5}
   \int_{\mathrm{SL}_2(\mathbb{Z}) \backslash \mathbb{H}}
 \overline{f(\tau)} g(\tau)
   E_k(\tau, s)
   y^{k_f}
   \, d \mathop{\mathrm{vol}}(\tau),\]</span> where <span
-class="math inline">\(k := k_f - k_g\)</span> and <span id="eq:cq6r320zyb" class="math display">\[\label{eq:cq6r320zyb}\tag{12}
+class="math inline">\(k := k_f - k_g\)</span> and <span id="eq:cq6r320zyb" class="math display">\[\label{eq:cq6r320zyb}\tag{2.6}
   E_k(\tau, s)
   := \sum_{\gamma \in
     \begin{pmatrix}
@@ -1765,13 +1770,13 @@ class="math inline">\(k := k_f - k_g\)</span> and <span id="eq:cq6r320zyb" class
     \end{pmatrix} \backslash \mathrm{SL}_2(\mathbb{Z})}
   j(\gamma, \tau)^{- k} \lvert y(\gamma(\tau)) \rvert^k.\]</span> The
 way you get from <a href="#eq:cq6r32zyac" data-reference-type="eqref"
-data-reference="eq:cq6r32zyac">\((11)\)</a> to <a
+data-reference="eq:cq6r32zyac">\((2.5)\)</a> to <a
 href="#eq:cq6r32z05j" data-reference-type="eqref"
-data-reference="eq:cq6r32z05j">\((10)\)</a> is to unfold the sum
+data-reference="eq:cq6r32z05j">\((2.4)\)</a> is to unfold the sum
 in <a href="#eq:cq6r320zyb" data-reference-type="eqref"
-data-reference="eq:cq6r320zyb">\((12)\)</a> with the integral in
+data-reference="eq:cq6r320zyb">\((2.6)\)</a> with the integral in
 <a href="#eq:cq6r32zyac" data-reference-type="eqref"
-data-reference="eq:cq6r32zyac">\((11)\)</a>, which yields an
+data-reference="eq:cq6r32zyac">\((2.5)\)</a>, which yields an
 integral over <span class="math inline">\(\begin{pmatrix}
   \ast  &amp; \ast \\
   0     &amp; \ast \\
@@ -2006,7 +2011,7 @@ class="math display">\[H^1(\mathbb{Q}[\mu_{N \ell}], \mathbb{Z}_p(1))
 \rightarrow H^1(\mathbb{Q}[\mu_N], \mathbb{Z}_p(1)).\]</span> How are we
 going to understand this? We could of course write it down at the level
 of cocycles, or something. But what’s it’s really doing is that if we
-restrict back, i.e., compose with the restriction map <span id="eq:cq6r4knx6r" class="math display">\[\label{eq:cq6r4knx6r}\tag{13}
+restrict back, i.e., compose with the restriction map <span id="eq:cq6r4knx6r" class="math display">\[\label{eq:cq6r4knx6r}\tag{2.7}
     H^1(\mathbb{Q}[\mu_N], \mathbb{Z}_p(1)) \rightarrow
 H^1(\mathbb{Q}[\mu_{N \ell}], \mathbb{Z}_p(1)),\]</span> then the
 composition is just the trace map, given by <span
@@ -2014,7 +2019,7 @@ class="math display">\[\sum_{\sigma \in
 \mathop{\mathrm{Gal}}(\mathbb{Q}[\mu_{N \ell}] / \mathbb{Q}[\mu_N])}
 \sigma.\]</span> The restriction map <a href="#eq:cq6r4knx6r"
 data-reference-type="eqref"
-data-reference="eq:cq6r4knx6r">\((13)\)</a> is actually an
+data-reference="eq:cq6r4knx6r">\((2.7)\)</a> is actually an
 injection because there are no Galois invariants of <span
 class="math inline">\(\mathbb{Z}_p(1)\)</span>.</p>
 <p>Also, we have the Kummer map <span
@@ -2126,7 +2131,7 @@ class="math display">\[x_{c}(\mathfrak{a}) := \left[ \mathbb{C} /
 \right] \in X_0(N)(K[c]).\]</span> The action of <span
 class="math inline">\(\mathop{\mathrm{Gal}}(K[c] / K)\)</span> on <span
 class="math inline">\(X_0(N)(K[c])\)</span> on these points is described
-by the relation <span id="eq:cq6sjz7g2n" class="math display">\[\label{eq:cq6sjz7g2n}\tag{14}
+by the relation <span id="eq:cq6sjz7g2n" class="math display">\[\label{eq:cq6sjz7g2n}\tag{2.8}
   \sigma_{\mathfrak{b}} x_c(\mathfrak{a}) = x_c(\mathfrak{b}^{-1}
 \mathfrak{a}).\]</span> This is the content of CM theory.</p>
 <p>Now we’re going to look at the divisors <span
@@ -2235,7 +2240,7 @@ class="math inline">\(\bar{\lambda} \mathcal{O}_c\)</span>. One obtains
   - (\mathrm{Fr}_\lambda^{-1} + \mathrm{Fr}_{\bar{\lambda}}^{-1})(y_c -
 \infty).\]</span> (The inverses come from <a href="#eq:cq6sjz7g2n"
 data-reference-type="eqref"
-data-reference="eq:cq6sjz7g2n">\((14)\)</a>.)</p>
+data-reference="eq:cq6sjz7g2n">\((2.8)\)</a>.)</p>
 <p>Work of the speaker and Jetchev and Wan used the split primes to do
 something like what Kolyvagin did.</p>
 <p>Let <span class="math inline">\(\mathfrak{c} = \lambda_1 \dotsb
@@ -2247,13 +2252,13 @@ class="math inline">\(\lambda_i =\overline{\lambda_i}\)</span>. Let
 <span class="math inline">\(c\)</span> be the integer such that <span
 class="math inline">\((c) = \mathfrak{c} \cap \mathbb{Z}\)</span>. Let
 <span class="math inline">\(z(\mathfrak{c})\)</span> be basically the
-class that we were just analyzing, but let’s modify it slightly: <span id="eq:cq6sj3hg5b" class="math display">\[\label{eq:cq6sj3hg5b}\tag{15}
+class that we were just analyzing, but let’s modify it slightly: <span id="eq:cq6sj3hg5b" class="math display">\[\label{eq:cq6sj3hg5b}\tag{2.9}
   z(\mathfrak{c}) := \prod_{i = 1}^r \left( - \mathrm{Fr}_{\lambda_i}
 \right) z_c \in H^1(K[c], T_p J_0(N)),\]</span> where <span
 class="math inline">\(T_p J_0(N) = \varprojlim J_0(N)[p^m]\)</span>. We
 obtain now, for <span class="math inline">\(\lambda \mid
 \ell\)</span>,</p>
-<p><span id="eq:cq6sj0iiz3" class="math display">\[\label{eq:cq6sj0iiz3}\tag{16}
+<p><span id="eq:cq6sj0iiz3" class="math display">\[\label{eq:cq6sj0iiz3}\tag{2.10}
   \operatorname{cores}_{K[c \ell] / K[c]} z(\mathfrak{c} \lambda) =
 \left( \mathrm{Fr}_\lambda^{- 2} - T_{\ell} \mathrm{Fr}_\lambda^{-1} + 1
 \right) z(\mathfrak{c}).\]</span> Let’s think about this last expression
@@ -2262,7 +2267,7 @@ T_{\ell} X + \ell\)</span>. You can see that if we evaluate this at
 <span class="math inline">\(\lambda^{-1}\)</span>, we almost get the
 quantity appearing on the right hand side of <a href="#eq:cq6sj0iiz3"
 data-reference-type="eqref"
-data-reference="eq:cq6sj0iiz3">\((16)\)</a>: <span
+data-reference="eq:cq6sj0iiz3">\((2.10)\)</a>: <span
 class="math display">\[(X^2 - T_{\ell} X + \ell) \mid_{X =
 \mathrm{Fr}_\lambda^{-1}}.\]</span> They are congruent modulo <span
 class="math inline">\(\ell - 1\)</span>, which is <span
@@ -2279,7 +2284,7 @@ and run Kolyvagin’s argument and reprove Kolyvagin’s theorem.</p>
 Kolyvagin system in such a way that some representation theory naturally
 shows up, with this Galois relation <a href="#eq:cq6sj0iiz3"
 data-reference-type="eqref"
-data-reference="eq:cq6sj0iiz3">\((16)\)</a> showing up as
+data-reference="eq:cq6sj0iiz3">\((2.10)\)</a> showing up as
 something like a Hecke module, which in turn is closely related to
 representation theory. The argument we’re going to give generalizes
 quite significantly, for instance, it produces an Euler system in the
@@ -2295,35 +2300,35 @@ of Block–Kato condition coming from the geometry of the elliptic curve.
 One way to bound a Selmer group like this is to use global duality to
 give classes in the arithmetic dual, i.e., <span
 class="math inline">\(H_f^1(\mathbb{Q}, E[p^N]^\ast )\)</span>, where
-<span id="eq:cq6sj3fh1h" class="math display">\[\label{eq:cq6sj3fh1h}\tag{17}
+<span id="eq:cq6sj3fh1h" class="math display">\[\label{eq:cq6sj3fh1h}\tag{2.11}
   E[p^N]^\ast = \mathop{\mathrm{Hom}}(E[p^N], \mathbb{Q}_p /
 \mathbb{Z}_p(1)).\]</span> Here one wants to allow ramification at good
 primes <span class="math inline">\(\ell\)</span>, chosen to capture the
 orders of classes that we want to control. One can then reduce to
-looking at <span id="eq:cq6sj3eqsx" class="math display">\[\label{eq:cq6sj3eqsx}\tag{18}
+looking at <span id="eq:cq6sj3eqsx" class="math display">\[\label{eq:cq6sj3eqsx}\tag{2.12}
   H^1_{\mathrm{ur}}(\mathbb{Q}_{\ell}, E[p^N]).\]</span> The local
 duality relates this to <span class="math inline">\(H^1(I_{\ell},
 E[p^N]^\ast)^{G_{\mathbb{Q}_{\ell}}}\)</span>. So if we can produce a
 class in the latter that is highly ramified (of large order), then we
 can force the class in <a href="#eq:cq6sj3eqsx"
 data-reference-type="eqref"
-data-reference="eq:cq6sj3eqsx">\((18)\)</a> to have small order.
+data-reference="eq:cq6sj3eqsx">\((2.12)\)</a> to have small order.
 That, in a nutshell, is how Selmer groups are bounded. The whole trick
 is to produce ramified classes in <a href="#eq:cq6sj3fh1h"
 data-reference-type="eqref"
-data-reference="eq:cq6sj3fh1h">\((17)\)</a> that you can measure
+data-reference="eq:cq6sj3fh1h">\((2.11)\)</a> that you can measure
 the size of in some way. Now, producing things that are provably
 ramified is a hard problem. There are few cases where we can do this.
 It’s much easier to check that something is unramified (think of the
 criterion of Néron–Ogg–Shafarevich or something like that). What
 Kolyvagin’s argument does is, he says well, let’s start off with classes
 <a href="#eq:cq6sj3hg5b" data-reference-type="eqref"
-data-reference="eq:cq6sj3hg5b">\((15)\)</a> that are over
+data-reference="eq:cq6sj3hg5b">\((2.9)\)</a> that are over
 ramified extensions. If they are truly over that ramified extension and
 not, say, defined over some extension with less ramification, then
 Kolyvagin can use that to produce ramified classes, and it is exactly
 these relations <a href="#eq:cq6sj0iiz3" data-reference-type="eqref"
-data-reference="eq:cq6sj0iiz3">\((16)\)</a> that allow him to
+data-reference="eq:cq6sj0iiz3">\((2.10)\)</a> that allow him to
 understand how ramified these classes actually are. These norm relations
 are thus crucial for producing ramified classes with controlled or
 measurable ramification. That’s sort of the algebra background for why
@@ -2352,7 +2357,7 @@ class="math display">\[H^0(\mathop{\mathrm{Spec}}K[c])
 (In general, the exponent is <span class="math inline">\(2 d\)</span>,
 where <span class="math inline">\(d\)</span> is the codimension.)</p>
 <p>This is a single point. What we did before was to take the difference
-between two points, <span id="eq:cq6s0hup34" class="math display">\[\label{eq:cq6s0hup34}\tag{19}
+between two points, <span id="eq:cq6s0hup34" class="math display">\[\label{eq:cq6s0hup34}\tag{2.13}
   \operatorname{cyc}(x_c) - \operatorname{cyc}(\infty) \in
   H^2(X_0(N) \times \mathop{\mathrm{Spec}}K[c],
 \mathbb{Z}_p(1))_0,\]</span> but it’s now homologically trivial in the
@@ -2363,7 +2368,7 @@ degree map <span class="math display">\[H^2(X_0(N) \times
   H^2(X_0(N) \times \mathop{\mathrm{Spec}}\bar{K}[c], \mathbb{Z}_p(1))_0
   \cong \mathbb{Z}_p\]</span> which the difference <a
 href="#eq:cq6s0hup34" data-reference-type="eqref"
-data-reference="eq:cq6s0hup34">\((19)\)</a> lies in the kernel
+data-reference="eq:cq6s0hup34">\((2.13)\)</a> lies in the kernel
 of, then we obtain the element <span class="math display">\[y_c \in
   H^1(K[c], H^1(X_0(N) / \bar{K}, \mathbb{Z}_p(1)))
   =H^1(K[c], T_p J_0(N)).\]</span></p>
@@ -2415,7 +2420,7 @@ class="math display">\[U = U_0(N) = \mathrm{GL}_2(\hat{\mathbb{Z}}) \cap
 <p>In that case, <span class="math inline">\(x_c =[\tau_0, g_c]\)</span>
 for a particular choice of <span class="math inline">\(g_c\)</span>.</p>
 <p>This is the classical picture of Heegner points. We’re going to
-change the picture just a little bit. Think <span id="eq:cq6s0mlq0m" class="math display">\[\label{eq:cq6s0mlq0m}\tag{20}
+change the picture just a little bit. Think <span id="eq:cq6s0mlq0m" class="math display">\[\label{eq:cq6s0mlq0m}\tag{2.14}
   H := \mathbb{Q}^\times \backslash K^\times \rightarrow G :=
 \frac{\mathrm{GL}_2 \times K^\times}{\mathbb{Q}^\times}.\]</span> (The
 right hand side may be thought of as <span
@@ -2433,7 +2438,7 @@ G(\mathbb{A}_f)\)</span>, valued in <span
 class="math inline">\(\mathbb{Z}_p\)</span>. We’ll produce elements in
 the Shimura variety of <span class="math inline">\(G\)</span> (over
 <span class="math inline">\(K\)</span>) valued in <span
-class="math inline">\(\mathbb{Z}_p(1)\)</span>: <span id="eq:cq6s0i3k4v" class="math display">\[\label{eq:cq6s0i3k4v}\tag{21}
+class="math inline">\(\mathbb{Z}_p(1)\)</span>: <span id="eq:cq6s0i3k4v" class="math display">\[\label{eq:cq6s0i3k4v}\tag{2.15}
   C_c(H(\mathbb{A}_f) \backslash G(\mathbb{A}_f), \mathbb{Z}_p)
   \rightarrow H^2_{\mathrm{ct}}(\mathrm{S h}_{G /K},
 \mathbb{Z}_p(1))\]</span> <span class="math display">\[\mathbf{1}(g U)
@@ -2457,7 +2462,7 @@ some copies of modular curves, where the number of copies is just the
 class group of some ring class extension. Once you have this picture,
 the Euler system should just be the image of a bunch of elements on the
 left hand side of <a href="#eq:cq6s0i3k4v" data-reference-type="eqref"
-data-reference="eq:cq6s0i3k4v">\((21)\)</a>, and you just have to
+data-reference="eq:cq6s0i3k4v">\((2.15)\)</a>, and you just have to
 choose the elements: <span class="math display">\[\text{Euler system} =
 \text{ image of elements in } C_c((H \backslash G)(\mathbb{A}_f) /
 \mathbb{Z}_p).\]</span> This can factor. Suppose <span
@@ -2523,7 +2528,7 @@ with <span class="math inline">\(\chi_\pi \chi
 \mid_{\mathbb{Q}_{\ell}^\times} = 1\)</span>. This pair defines a
 representation of the group <span class="math inline">\(G\)</span> as in
 <a href="#eq:cq6s0mlq0m" data-reference-type="eqref"
-data-reference="eq:cq6s0mlq0m">\((20)\)</a>. Take a spherical
+data-reference="eq:cq6s0mlq0m">\((2.14)\)</a>. Take a spherical
 vector <span class="math inline">\(\theta \in \pi\)</span>. Maybe we
 realize <span class="math inline">\(\pi\)</span> in the Whittaker model.
 Let’s also assume that <span class="math inline">\(\ell\)</span> splits.
@@ -2731,9 +2736,9 @@ r_3)\)</span>. Set <span
 class="math inline">\(\mathrm{GL}_{\underline{r}} :=\mathrm{GL}_{r_1}
 \times\mathrm{GL}_{r_2} \times\mathrm{GL}_{r_3}\)</span>. We have an
 <span class="math inline">\(L\)</span>-map that we call the
-Rankin–Selberg product (taking complex points, say) <span id="eq:cq6tg2afra" class="math display">\[\label{eq:cq6tg2afra}\tag{22}
+Rankin–Selberg product (taking complex points, say) <span id="eq:cq6tg2afra" class="math display">\[\label{eq:cq6tg2afra}\tag{3.1}
   \otimes^2 : {}^L(\mathrm{GL}_{r_1} \times\mathrm{GL}_{r_2})
-\rightarrow\mathrm{GL}_{r_1 r_2},\]</span> <span id="eq:cq6tg2hl5x" class="math display">\[\label{eq:cq6tg2hl5x}\tag{23}
+\rightarrow\mathrm{GL}_{r_1 r_2},\]</span> <span id="eq:cq6tg2hl5x" class="math display">\[\label{eq:cq6tg2hl5x}\tag{3.2}
   \otimes^3 : {}^L\mathrm{GL}_{\underline{r}}
 \rightarrow\mathrm{GL}_{r_1 r_2 r_3}.\]</span> We’ll think of these as
 hypothetical Langlands transfers.</p>
@@ -2748,13 +2753,13 @@ class="math inline">\(n\)</span>.</em></p>
 </div>
 <p>Now, <span class="math inline">\({}^L G\)</span> is not a reductive
 group, but ignore that fact for a moment. Say we’re given an <span
-class="math inline">\(L\)</span>-map <span id="eq:cq6tg2amid" class="math display">\[\label{eq:cq6tg2amid}\tag{24}
+class="math inline">\(L\)</span>-map <span id="eq:cq6tg2amid" class="math display">\[\label{eq:cq6tg2amid}\tag{3.3}
   \rho :{}^L G \rightarrow \mathrm{GL}_n.\]</span> Suppose we know the
 Rankin–Selberg transfer <a href="#eq:cq6tg2afra"
 data-reference-type="eqref"
-data-reference="eq:cq6tg2afra">\((22)\)</a> as well as transfer
+data-reference="eq:cq6tg2afra">\((3.1)\)</a> as well as transfer
 for <a href="#eq:cq6tg2amid" data-reference-type="eqref"
-data-reference="eq:cq6tg2amid">\((24)\)</a>. Then, <em>any</em>
+data-reference="eq:cq6tg2amid">\((3.3)\)</a>. Then, <em>any</em>
 transfer from <span class="math inline">\(G\)</span> to <span
 class="math inline">\(\mathop{\mathrm{GL}}(V)\)</span> is a
 “subtransfer” of some <span class="math inline">\(\rho^{\otimes m}
@@ -2773,7 +2778,7 @@ but not the third.</p>
 <p>The importance of triple product <span
 class="math inline">\(L\)</span>-functions (attached to <a
 href="#eq:cq6tg2hl5x" data-reference-type="eqref"
-data-reference="eq:cq6tg2hl5x">\((23)\)</a>) is that if they are
+data-reference="eq:cq6tg2hl5x">\((3.2)\)</a>) is that if they are
 nice, then, using the converse theorem, we get that Rankin–Selberg
 transfers exist. This is the motivation for what we’re about to do.</p>
 <h2 id="sec:cq6tho1zlh">§3.3. Poisson summation conjecture</h2>
@@ -2953,7 +2958,7 @@ automorphic forms <span class="math inline">\(\phi\)</span> on some
 larger space <span class="math inline">\(Y\)</span> over some smaller
 space <span class="math inline">\(X\)</span>. In nice cases, such
 integrals represent <span class="math inline">\(L\)</span>-functions:
-<span id="eq:cq6tg8d3hf" class="math display">\[\label{eq:cq6tg8d3hf}\tag{25}
+<span id="eq:cq6tg8d3hf" class="math display">\[\label{eq:cq6tg8d3hf}\tag{4.1}
   \int_X (\phi, \text{ automorphic form on $Y \supseteq X$}) =
 \text{$L$-function}.\]</span> We’ve seen in previous lectures that if
 you have this sort of integral representation of <span
@@ -2974,7 +2979,7 @@ explanation of this in some cases. This is what we’ll talk about in our
 lectures.</p>
 <p>Let’s first say the rough idea. If you look at this kind of integral
 <a href="#eq:cq6tg8d3hf" data-reference-type="eqref"
-data-reference="eq:cq6tg8d3hf">\((25)\)</a>, it’s kind of an
+data-reference="eq:cq6tg8d3hf">\((4.1)\)</a>, it’s kind of an
 automorphic integral involving the quotient variety <span
 class="math inline">\(\mathcal{M} = Y / X\)</span> (whatever this
 means). Relative Langlands duality generalizes the classical Langlands
@@ -3183,7 +3188,7 @@ class="math inline">\(\varphi \in \mathcal{S}(Y(\mathbb{A}))\)</span>,
 </ol></li>
 <li><p><span id="enumerate:cq6thb84py"
 label="enumerate:cq6thb84py"></span> In the fully general case, we
-define <span id="eq:cq6thc4107" class="math display">\[\label{eq:cq6thc4107}\tag{26}
+define <span id="eq:cq6thc4107" class="math display">\[\label{eq:cq6thc4107}\tag{4.2}
     \mathcal{P}_\Delta(\phi) := \int_{[H]} \mathcal{P}_\iota(\phi)(h)
 \Theta_{\rho_H}(h) \, d h.\]</span> Here <span
 class="math inline">\(\mathcal{P}_\iota\)</span> is the Fourier
@@ -3263,7 +3268,7 @@ class="math display">\[\begin{pmatrix}
 weights of <span
 class="math inline">\(\mathop{\mathrm{Ad}}(\iota(\mathop{\mathrm{diag}}(t,
 t^{-1})))\)</span> are even), then the Fourier coefficient is given by a
-very easy formula: <span id="eq:cq6thc26pn" class="math display">\[\label{eq:cq6thc26pn}\tag{27}
+very easy formula: <span id="eq:cq6thc26pn" class="math display">\[\label{eq:cq6thc26pn}\tag{4.3}
     \mathcal{P}_\iota(\phi)(h) := \int_{[U]} \phi(u h) \xi(u)^{-1} \, d
 u,\]</span> where <span class="math inline">\(\xi :[U] \rightarrow
 \mathbb{C}^\times\)</span> is a character defined, for <span
@@ -3320,17 +3325,17 @@ The period integral (depending upon <span
 class="math inline">\(\varphi\)</span>) is then given by integrating not
 just against a character as in <a href="#eq:cq6thc26pn"
 data-reference-type="eqref"
-data-reference="eq:cq6thc26pn">\((27)\)</a>, but against the
-theta function: <span id="eq:cq6thc48wh" class="math display">\[\label{eq:cq6thc48wh}\tag{28}
+data-reference="eq:cq6thc26pn">\((4.3)\)</a>, but against the
+theta function: <span id="eq:cq6thc48wh" class="math display">\[\label{eq:cq6thc48wh}\tag{4.4}
     \mathcal{P}_\iota(\phi) := \int_{[U]} \phi(u) \Theta_{\iota}(u) \, d
 u.\]</span></p>
 <p>So, in the integral <span
 class="math inline">\(\mathcal{P}_\Delta(\phi)\)</span>, there are
 possibly two different choices of Schwartz functions: one in the theta
 kernel in <a href="#eq:cq6thc4107" data-reference-type="eqref"
-data-reference="eq:cq6thc4107">\((26)\)</a>, and another in the
+data-reference="eq:cq6thc4107">\((4.2)\)</a>, and another in the
 theta kernel in <a href="#eq:cq6thc48wh" data-reference-type="eqref"
-data-reference="eq:cq6thc48wh">\((28)\)</a>. But in some special
+data-reference="eq:cq6thc48wh">\((4.4)\)</a>. But in some special
 cases (<span class="math inline">\(\iota\)</span> trivial or even), we
 don’t need these.</p></li>
 </ol>
@@ -3519,7 +3524,7 @@ from <span class="math inline">\({\mathop{\mathrm{SO}}}_{2 n +
 </ul></li>
 </ol>
 </div>
-<h3 id="theta-series">Theta series</h3>
+<h3 id="sec:cq6thpxagu">§5.1.2. Theta series</h3>
 <p>Take <span class="math inline">\(X := H \backslash G\)</span>. Define
 <span class="math inline">\(\Theta^X : C_c^\infty(X(\mathbb{A}))
 \rightarrow C^\infty([G])\)</span> by <span class="math display">\[f
@@ -3534,7 +3539,138 @@ class="math inline">\(X(\mathbb{A})\)</span>, with the obstruction
 measured by Galois cohomology), we have <span
 class="math display">\[\mathcal{P}_X(\varphi, f) = \int_{H(\mathbb{A})
 \backslash G(\mathbb{A})}
-  \mathcal{P}_H(R(x) \varphi) f(x) \, d x.\]</span></p>
+  \mathcal{P}_H(R(x) \varphi) f(x) \, d x.\]</span> In particular,
+writing <span class="math inline">\(\Theta_{f,\pi}^X\)</span> for the
+orthogonal projection of <span
+class="math inline">\(\Theta_{f}^X\)</span> to <span
+class="math inline">\(\pi\)</span>, we see that <span
+class="math display">\[\mathcal{P}_H |_\pi \not \equiv 0
+  \quad \iff \quad
+  \Theta_{f,\pi}^X  \not \equiv 0.\]</span> This makes sense for any
+(smooth) <span class="math inline">\(G\)</span>-variety <span
+class="math inline">\(X\)</span>, not necessarily homogeneous. Put this
+way, it contains many basic examples.</p>
+<div id="example:cq6thpw9ml" class="example">
+<p><strong>Example 60</strong>. </p>
+<ol type="a">
+<li><p><span id="enumerate:cq6thpxd02"
+label="enumerate:cq6thpxd02"></span> Take <span class="math inline">\(X
+= \mathbb{G}_a \circlearrowleft \mathbb{G}_m\)</span>. Then an
+automorphic form is just a Hecke character <span
+class="math inline">\(\chi\)</span>, and by Tate, <span
+class="math display">\[\int_{[\mathrm{GL}_1]}^{\mathop{\mathrm{reg}}}
+\chi(t) \Theta_f^X(t) \, d t \sim L(\tfrac{1}{2}, \chi).\]</span> (We’ll
+talk about the regularization later.)</p></li>
+<li><p><span id="enumerate:cq6thpxe24"
+label="enumerate:cq6thpxe24"></span> Take <span class="math inline">\(X
+= {\mathop{\mathrm{Mat}}}_n \circlearrowleft G = \mathrm{GL}_n \times
+\mathrm{GL}_n\)</span>. Take two cusps forms in the <em>same</em>
+cuspidal automorphic representation, say <span
+class="math inline">\(\varphi_1, \varphi_2 \in \pi \subset
+A_{\mathrm{cusp}}(\mathrm{GL}_n)\)</span>. Then <span
+class="math display">\[\int_{[G]}^{\mathop{\mathrm{reg}}} \varphi_1(g)
+\varphi_2(g) \Theta_f^X(g) \, d g \sim L \left( \tfrac{1 - n}{2}, \pi
+\right).\]</span></p></li>
+</ol>
+</div>
+<h3 id="sec:cq6thp1yjb">§5.1.3. RTF formally</h3>
+<p>Before defining an RTF, we need to talk about an <em>automorphic
+kernel</em>. Take <span class="math inline">\(f \in
+C_c^\infty(G(\mathbb{A}))\)</span>. It acts on the space of automorphic
+forms by the right convolution <span
+class="math inline">\(R(f)\)</span>. This action is given by a kernel,
+which is like a continuous matrix, given by <span
+class="math display">\[\left( R(f) \varphi \right)(x) := \int_{[G]}
+  K_f(x, y) \varphi(y) \, d y.\]</span> The kernel has <span
+class="math inline">\(K_f(x, y)\)</span> two different expansions. One,
+which we call the <em>geometric</em> expansion, is as a sum over
+rational points over the group: <span
+class="math display">\[\sum_{\gamma \in G(K)}
+  f(x^{-1} \gamma y).\]</span> The other, which is a kind of
+<em>spectral</em> expansion, is given by <span
+class="math display">\[\sum_{
+    \substack{
+      \varphi \in A_{\mathrm{cusp}}(G)  \\
+      \text{O.N.B.}      
+    }
+  }
+  \bigl( R(f) \varphi \bigr)(x) \overline{\varphi(y)}
+  + \dotsb\]</span> where <span class="math inline">\(\dotsb\)</span>
+denotes the Eisenstein contribution.</p>
+<p>We now consider the following setting. Let <span
+class="math inline">\(H_1 \subset G \supset H_2\)</span> be two
+subgroups. Let <span class="math inline">\(\chi_i :[H_i] \rightarrow
+\mathbb{C}^\times\)</span>. Define <span
+class="math inline">\(\mathfrak{X}\)</span> to be, informally, the
+quotient <span class="math display">\[\text{``}H_1, \chi_1 \backslash G
+/ H_2, \chi_2\text{&#39;&#39;}.\]</span> More precisely:</p>
+<div id="definition:cq6thqam4a" class="definition">
+<p><strong>Definition 61</strong>. For <span class="math inline">\(f \in
+C_c^\infty(G(\mathbb{A}))\)</span>, <span
+class="math display">\[\operatorname{RTF}_{\mathfrak{X}}(f) :=
+\int_{[H_1] \times[H_2]} K_f(h_1, h_2) \chi_1(h_1) \chi_2(h_2)
+    \, d h_1 \, d h_2.\]</span></p>
+</div>
+<p>Why is this related to period integrals? Well, one way to compute the
+RTF is via the <em>spectral expansion</em> <span
+class="math display">\[\mathrm{RTF}_{\mathfrak{X}}(f) := \sum_{\varphi
+\in A_{\mathrm{cusp}}(G)}
+  \mathcal{P}_{H_1, \chi_1}(R(f) \varphi)
+  \mathcal{P}_{H_2, \chi_2}(\overline{\varphi})
+  + \dotsb.\]</span> Another is the <em>geometric expansion</em> <span
+class="math display">\[\mathrm{RTF}_{\mathfrak{X}}(f) = \sum_{\gamma \in
+H_1(K) \backslash G(K) / H_2(K)}
+  \mathop{\mathrm{vol}}\left([(H_1 \times H_2)_\gamma] \right)
+\mathrm{Orb}_\gamma(f),\]</span> where <span
+class="math display">\[\mathrm{Orb}_\gamma(f) :=
+  \int_{(H_1 \times H_2)_\gamma(\mathbb{A}) \backslash (H_1 \times
+H_2)(\mathbb{A})}
+  H(h_1^{-1} \gamma h_2)
+  \chi_1(h_1) \chi_2(h_2)
+  \, d h_1
+  \, d h_2.\]</span> Here <span class="math inline">\((H_1 \times
+H_2)_\gamma\)</span> is the stabilizer with respect to the action <span
+class="math inline">\(\gamma \cdot(h_1, h_2) = h_1^{-1} \gamma
+h_2\)</span>.</p>
+<div class="remark">
+<p><strong>Remark 62</strong>. Two sources of divergence on the
+geometric side:</p>
+<ul>
+<li><p>the volumes can be infinite, and</p></li>
+<li><p>the orbital integrals can diverge.</p></li>
+</ul>
+<p>However, one advantage of these distributions over the original ones
+is that they are factorizable, being now taken over an adelic space. At
+least formally, <span class="math display">\[\mathrm{Orb}_\gamma(f) =
+\prod_v \mathrm{Orb}_\gamma(f_v) \quad \text{ for } f = \prod
+f_v,\]</span> where <span
+class="math inline">\(\mathrm{Orb}_\gamma(f_v)\)</span> is a local
+orbital integral.</p>
+</div>
+<h3 id="rtf-and-theta-series">RTF and theta series</h3>
+<p>Assume for simplicity that <span class="math inline">\(\chi_1 =
+\chi_2 = 1\)</span>.</p>
+<p>There is one first obvious relation between RTF and theta series.
+Note that <span class="math display">\[K_f = \Theta_f^G \qquad \text{
+for } G \circlearrowleft G \times G.\]</span> Thus <span
+class="math display">\[\mathrm{RTF}_{\mathfrak{X}}(f) = \int_{[H_1
+\times H_2]} \Theta_f^G = \int_{[H_2]} \Theta_\varphi^{H_2 \backslash
+G},\]</span> where <span class="math inline">\(\varphi(x) =
+\int_{H_1(\mathbb{A})} f(h_1 x) \, d h_1\)</span>, which lies in <span
+class="math inline">\(C_c^\infty(H_1(\mathbb{A}) \backslash
+G(\mathbb{A}))\)</span>. We can also write the above as the Petersson
+norm <span class="math display">\[\left\langle \Theta^{H_1 \backslash
+G}_{\varphi_1}, \Theta_{\varphi_2}^{H_2 \backslash G}
+\right\rangle_{\mathrm{Pet}},\]</span> where for <span
+class="math inline">\(f = f_1 \ast f_2^\vee\)</span> with <span
+class="math inline">\(f_1, f_2 \in C_c^\infty(G(\mathbb{A}))\)</span>,
+we set <span class="math display">\[\varphi_i(x) :=
+\int_{H_i(\mathbb{A})} f_i(h_i x) \, d h_i.\]</span></p>
+<p>More generally, for <span class="math inline">\(X \circlearrowleft
+G\)</span>, we can consider the distributions <span
+class="math display">\[\mathrm{RTF}_{\mathfrak{X}/G}(f) := \int_{[G]}
+\Theta^X_f \quad \text{ for } f \in
+C_c^\infty(X(\mathbb{A})).\]</span></p>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
   toggle.addEventListener("click", function(e) {
