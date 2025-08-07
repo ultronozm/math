@@ -1638,7 +1638,105 @@ Actually, it's better, and we do it in the paper (see the course references (TOD
 
 
 
+\section{Chen Wan's lectures}
 
+We'll focus on the \emph{period} aspect of the relative Langlands duality of Ben-Zvi--Sakellaridis--Venkatesh.  Recall from Chris's talk that we saw something about integral representations of $L$-functions, which involves integrating automorphic forms $\phi$ on some larger space $Y$ over some smaller space $X$.  In nice cases, such integrals represent $L$-functions:
+\begin{equation}\label{eq:cq6tg8d3hf}
+  \int_X (\phi, \text{ automorphic form on $Y \supseteq X$}) = \text{$L$-function}.
+\end{equation}
+We've seen in previous lectures that if you have this sort of integral representation of $L$-functions, then you can use it to study the meromorphic continuation of $L$-functions, or their special values.  Such identities are thus very useful.
+
+The examples might seem a bit \emph{ad hoc}.  Why should we integrate automorphic forms on $Y$ over $X$, for certain pairs $(X, Y)$?  Is there some way to systematically find, for a given $L$-function, which integrals represent them?  Can we determine systematically which $L$-functions are represented by some integral?  The theory of relative Langlands duality at least gives some explanation of this in some cases.  This is what we'll talk about in our lectures.
+
+Let's first say the rough idea.  If you look at this kind of integral \eqref{eq:cq6tg8d3hf}, it's kind of an automorphic integral involving the quotient variety $\mathcal{M} = Y / X$ (whatever this means).  Relative Langlands duality generalizes the classical Langlands correspondence to varieties: one passes from $\mathcal{M}$ to some dual variety $\hat{\mathcal{M}}$, and the proposal in relative Langlands duality is that
+\begin{equation*}
+  (\text{automorphic integral on } \mathcal{M})
+  = 
+  (\text{$L$-function associated to } \hat{\mathcal{M}}).
+\end{equation*}
+Moreover, it's a duality, which means that the same holds with the roles of $\mathcal{M}$ and $\hat{\mathcal{M}}$ reversed:
+\begin{equation*}
+  (\text{automorphic integral on } \hat{\mathcal{M}})
+  = 
+  (\text{$L$-function associated to } \mathcal{M}).
+\end{equation*}
+Everything is general at this point -- later, we'll say precisely what it means.  But the idea is that at least in terms of periods integrals of automorphic forms, you have certain nice Hamiltonian spaces and dualities between them so that the integrals attached to one space are given by the $L$-functions attached to the other.
+
+Let's now set up some notation.  We'll first define the automorphic integrals associated to this data, and if there's time, the $L$-functions and the duality.  Let $K$ be a global field, and $\mathbb{A} = \mathbb{A}_K$ the ring of adeles.  Sometimes we'll also work over a local field $F$, (e.g., $\mathbb{R}, \mathbb{C}, \mathbb{Q}_p, \dotsc$).  Let $G$ be a connected reductive group defined over $K$.  (If you're not familiar with this language, you can just think of the matrix groups that you're familiar with, such as $\mathrm{GL}_n$, $\mathrm{SL}_n$, $\mathrm{PGL}_n$, $\SO_n$, $\Sp_{2 n}$.)  Throughout these lectures, we'll mostly focus on the groups that are \emph{split}, i.e., that have a maximal split torus.
+
+The foundation of the Langlands program is based on the duality between these reductive groups.  For each such group $G$, we can write down its dual group $\hat{G}$.  Reductive groups are parametrized by root data.  For each root data, you can take its dual root data, which then defines the dual group:
+\begin{tabular}{|c|c|}
+  \hline
+  $G$ & $\hat{G}$ \\
+  \hline \hline
+  $\mathrm{GL}_n$ & $\mathrm{GL}_n$ \\
+  \hline
+  $\mathrm{SL}_n$ & $\mathrm{PGL}_n$ \\
+  \hline
+  $\mathrm{SO}_{2n+1}$ & $\mathrm{Sp}_{2n}$ \\
+  \hline
+  $\mathrm{SO}_{2n}$ & $\mathrm{SO}_{2n}$ \\
+  \hline
+\end{tabular}
+
+The \emph{Langlands conjecture} says roughly that automorphic representations of $G(\mathbb{A})$ should correspond to Langlands parameters $\phi : L_K \rightarrow \hat{G}(\mathbb{C})$ valued in the dual group, and similalry with $G$ and $\hat{G}$ swapped.
+
+\begin{definition}
+  A \emph{BZSV quadruple} for $G$ is $\Delta =(G, H, \iota, \rho_H)$, where
+  \begin{enumerate}
+  \item\label{enumerate:cq6tg8um5h} $H \subset G$ is a split connected reductive subgroup,
+  \item\label{enumerate:cq6tg8uyi6} $\iota : \mathrm{SL}_2 \rightarrow G$ is a homomorphism (possibly trivial) such that $H$ commutes with $\operatorname{image}(\iota)$, so that we may extend to $\iota : H \times \mathrm{SL}_2 \rightarrow G$.
+  \item\label{enumerate:cq6tg8wpyk} $\rho_H$ is a symplectic representation of $H$, i.e., a homomorphism $H \rightarrow \mathrm{Sp}(V)$.
+  \end{enumerate}
+\end{definition}
+Define the automorphic quotient $[G] := G(K) \backslash G(\mathbb{A})$, and let $\phi :[G] \rightarrow \mathbb{C}$ be an automorphic form.  The goal today is to define the period integral $\mathcal{P}_\Delta(\phi)$ associated to a quadruple $\Delta$ as above.
+
+Let's start with some easy special cases, before moving to the general case.
+\begin{enumerate}
+\item\label{enumerate:cq6tg85st6} Suppose $\iota = 1$ (the trivial representation, $\mathbb{C}$) and $\rho_H = 0$ (the \emph{zero-dimensional} symplectic representation $\emptyset$), thus $\Delta =(G, H, 1, 0)$.  Then
+  \begin{equation*}
+    \mathcal{P}_\Delta(\phi) := \int_{[H]} \phi(h) \, d h.
+  \end{equation*}
+  (In general, this does not converge and must be understood via truncation, etc.)
+\item\label{enumerate:cq6tg85t0e} Suppose still that $\iota = 1$ is trivial, but allow $\rho_H$ to be general.  Then
+  \begin{equation*}
+    \mathcal{P}_\Delta(\phi) := \int_{[H]} \phi(h) \cdot \Theta_{\rho_H}(h) \, d h,
+  \end{equation*}
+  where $\Theta_{\rho_H}$ is a suitable theta function, whose definition depends also upon the choice of a Schwartz function:
+  \begin{enumerate}[(a)]
+  \item\label{enumerate:cq6thb0l6i} It's easiest to define in the special \emph{polarized} case that $\rho_H = \tau \oplus \tau^\vee$ for some $\tau : H \rightarrow\mathrm{GL}(W)$.  In that case, after choosing $\varphi \in \mathcal{S}(W(\mathbb{A}))$, we define
+    \begin{equation*}
+      \Theta_{\rho_H}(h) := \sum_{x \in W(F)} \varphi(\tau(h) x).
+    \end{equation*}
+    To illustrate that case, we consider a couple examples:
+    \begin{enumerate}[(i)]
+    \item\label{enumerate:cq6thb0n66} Suppose
+      \begin{equation*}
+        \Delta =(\mathrm{GL}_n \times \mathrm{GL}_n, \mathrm{GL}_n \times \mathrm{GL}_n, 1, \mathrm{std} \otimes \mathrm{std \oplus(\mathrm{std} \otimes \mathrm{std})^\vee})
+      \end{equation*}
+      Then, writing $\phi = \phi_1 \otimes \phi_2$ with each $\phi_i :[\mathrm{GL}_n] \rightarrow \mathbb{C}$, we may take $W = \Mat_{n \times n}$ above (the space of $n \times n$ matrices), and we obtain
+      \begin{equation*}
+        \mathcal{P}_\Delta(\phi) := \int_{[\mathrm{GL}_n] \times[\mathrm{GL}_n]} \phi_1(h_1) \phi_2(h_2) \sum_{x \in \Mat_{n \times n}(F)}
+        \varphi(h_1^{-1} x h_2) \, d h_1 \, d h_2.
+      \end{equation*}
+    \item\label{enumerate:cq6thb0ptu} Take $\Delta =(\mathrm{GL}_n \times \mathrm{GL}_n, \mathrm{GL}_n^{\mathrm{diag}}, 1, \mathrm{std} \oplus \mathrm{std}^\vee)$.  Then, taking $W$ to be the $n$-dimensional vector space on which $\mathrm{GL}_n$ acts by right multiplication, we obtain
+      \begin{equation*}
+        \mathcal{P}_\Delta(\phi) := \int_{[\mathrm{GL}_n]} \phi_1(h) \phi_2(h) \sum_{x \in W(K)}
+        \varphi(x h) \, d h,
+      \end{equation*}
+      which is the Rankin--Selberg integral for $\mathrm{GL}_n \times \mathrm{GL}_n$.
+    \end{enumerate}
+  \item\label{enumerate:cq6thb0m6q} In general, $\rho_H : H \rightarrow \Sp(V)$ induces the so-called Weil representation, which may be realized on $\mathcal{S}(Y(\mathbb{A}))$ for a maximal isotropic subspace $Y$ of $V$.  As you may know, the Weil representation is not on $\Sp(V)$, but on its double cover.  So you can't do it for an arbitrary symplectic representation -- need a condition called ``anomaly-free'' that allows you to resolve the ambiguity, but let's not go into the details there.  There is anyway some condition under which we can split the Weil representation over $H$, giving a well-defined representation.  The splitting is not necessarily unique, and perhaps BZSV do not currently choose a canonical splitting, but it's expected that there is some natural splitting.  Of course there is such a natural splitting in the polarized case.  In any event, one then sets, for $h \in H(\mathbb{A})$ and $\varphi \in \mathcal{S}(Y(\mathbb{A}))$,
+    \begin{equation*}
+      \Theta_{\rho_H}(h) := \sum_{x \in Y(K)} \Omega_{\rho_H}(h) \varphi(x).
+    \end{equation*}
+  \end{enumerate}
+\item\label{enumerate:cq6thb84py} In the fully general case, we define
+  \begin{equation*}
+    \mathcal{P}_\Delta(\phi) := \int_{[H]} \mathcal{P}_\iota(\phi)(h) \Theta_{\rho_H}(h) \, d h.
+  \end{equation*}
+  
+\end{enumerate}<++>
 
 
 \bibliography{refs}{} \bibliographystyle{plain}
