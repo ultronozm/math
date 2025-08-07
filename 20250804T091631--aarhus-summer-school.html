@@ -205,7 +205,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-06 11:39:17
+2025-08-07 10:09:36
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -221,14 +221,36 @@
 <nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#gebhard-boeckles-lectures"
-id="toc-gebhard-boeckles-lectures">Gebhard Boeckle’s lectures</a></li>
+id="toc-gebhard-boeckles-lectures">Gebhard Boeckle’s lectures</a>
+<ul>
+<li><a href="#galois-representations-and-congruences"
+id="toc-galois-representations-and-congruences">Galois representations
+and congruences</a></li>
+</ul></li>
 <li><a href="#chris-skinners-lectures"
 id="toc-chris-skinners-lectures">Chris Skinner’s lectures</a></li>
+<li><a href="#jayce-getzs-lectures" id="toc-jayce-getzs-lectures">Jayce
+Getz’s lectures</a>
+<ul>
+<li><a href="#langlands-l-functions-and-converse-theorem"
+id="toc-langlands-l-functions-and-converse-theorem">Langlands <span
+class="math inline">\(L\)</span>-functions and converse theorem</a></li>
+<li><a href="#rankinselberg-products-and-triple-products"
+id="toc-rankinselberg-products-and-triple-products">Rankin–Selberg
+products and triple products</a></li>
+<li><a href="#poisson-summation-conjecture"
+id="toc-poisson-summation-conjecture">Poisson summation conjecture</a>
+<ul>
+<li><a href="#section" id="toc-section"></a></li>
+<li><a href="#local-harmonic-analysis"
+id="toc-local-harmonic-analysis">Local harmonic analysis</a></li>
+</ul></li>
+</ul></li>
 </ul>
 </nav>
-<h3 id="gebhard-boeckles-lectures">Gebhard Boeckle’s lectures</h3>
-<h4 id="galois-representations-and-congruences">Galois representations
-and congruences</h4>
+<h1 id="gebhard-boeckles-lectures">Gebhard Boeckle’s lectures</h1>
+<h2 id="galois-representations-and-congruences">Galois representations
+and congruences</h2>
 <p>We first discuss profinite groups. Let <span
 class="math inline">\(G\)</span> be a topological group.</p>
 <div class="theorem">
@@ -2576,6 +2598,347 @@ C_c(\dotsb)^{G(\mathbb{Z}_{\ell})} \right).\]</span></p>
 <div class="remark">
 <p><strong>Remark 43</strong>. See paper of David Loeffler regarding the
 ramified primes</p>
+</div>
+<h1 id="jayce-getzs-lectures">Jayce Getz’s lectures</h1>
+<h2 id="langlands-l-functions-and-converse-theorem">Langlands <span
+class="math inline">\(L\)</span>-functions and converse theorem</h2>
+<p>Let <span class="math inline">\(F\)</span> be a number field, <span
+class="math inline">\(\mathbb{A}_F\)</span> the ring of adeles, and
+<span class="math inline">\(G\)</span> a split reductive group over
+<span class="math inline">\(F\)</span>. Let <span
+class="math inline">\(A_G\)</span> denote the neutral component in the
+real topology of the greatest <span
+class="math inline">\(\mathbb{Q}\)</span>-split torus in <span
+class="math inline">\({\mathop{\mathrm{Res}}}_{F / \mathbb{Q}}
+Z_G\)</span>. (For example, <span
+class="math inline">\(A_{{\mathop{\mathrm{GL}}}_r} = \mathbb{R}_{&gt; 0}
+I_r\)</span>.)</p>
+<p><strong>Goal</strong>: given an <span
+class="math inline">\(L\)</span>-map <span class="math inline">\(\rho :
+{}^L G \rightarrow \mathrm{GL}_n(\mathbb{C})\)</span>, construct a
+transfer of automorphic representations of <span
+class="math inline">\(G(\mathbb{A}_F)\)</span> to <span
+class="math inline">\(\mathrm{GL}_n(\mathbb{A}_F)\)</span>.</p>
+<p>Given an automorphic representationd <span
+class="math inline">\(\pi\)</span> of <span
+class="math inline">\(G(\mathbb{A}_F)\)</span>, we can form the
+Langlands <span class="math inline">\(L\)</span>-function <span
+class="math display">\[L(s, \pi, \rho) := \prod_v L(s, \pi_v,
+\rho).\]</span> If <span class="math inline">\(\pi\)</span> is
+unramified at <span class="math inline">\(v\)</span>, then <span
+class="math display">\[L(s, \pi_v, \rho) = \frac{1}{\det(1 -
+\rho(c(\pi_v)) q_v^{- s})},\]</span> where <span
+class="math inline">\(c(\pi_v) \in{}^L G\)</span> is the Langlands class
+of <span class="math inline">\(\pi_v\)</span>.</p>
+<p>Let <span class="math inline">\(\psi : F \backslash \mathbb{A}_F
+\rightarrow \mathbb{C}^\times\)</span> be a nontrivial character. Then
+we obtain <span class="math inline">\(\varepsilon\)</span>-factors <span
+class="math inline">\(\varepsilon(s, \pi_v, \rho, \psi_v)\)</span>,
+defined via local Langlands and the known definition in the case of
+<span class="math inline">\(\mathrm{GL}_n\)</span>. There is also the
+<span class="math inline">\(\gamma\)</span>-factor <span
+class="math display">\[\gamma(s, \pi_v, \rho, \psi_v) :=
+  \frac{
+    \varepsilon(s, \pi_v, \rho, \psi_v)
+    L(1 - s, \pi_v^\vee, \rho)
+  }{
+    L(s, \pi_v, \rho)
+  }.\]</span></p>
+<div class="conjecture">
+<p><strong>Conjecture 44</strong> (Langlands). <em><span
+class="math inline">\(L(s, \pi, \rho)\)</span> admits a meromorphic
+continuation to <span class="math inline">\(\mathbb{C}\)</span>, is
+bounded in vertical strips, and satisfies a functional equation <span
+class="math display">\[L(s, \pi, \rho) = \varepsilon(s, \pi, \rho, \psi)
+L(1 - s, \pi^\vee, \rho).\]</span></em></p>
+</div>
+<p>If <span class="math inline">\(L(s, \pi, \rho)\)</span> satisfies the
+conjecture, then we say that it is <em>nice</em>.</p>
+<p>One case where we know this in complete generality is the case of the
+standard representation <span class="math display">\[\rho :=
+\rho_{\mathrm{st}} = \mathrm{triv} \times \mathrm{Id} :{}^L
+\mathrm{GL}_n = {\mathop{\mathrm{Gal}}}_F \times \mathrm{GL}_n(\mathbb{C})
+\rightarrow \mathrm{GL}_n(\mathbb{C}),\]</span> in which case we write
+simply <span class="math display">\[L(s, \pi) := L(s, \pi,
+\rho_{\mathrm{st}}).\]</span> Then the conjecture is known, and you can
+prove it in three different ways that are largely distinct:</p>
+<ul>
+<li><p>Godement–Jacquet (which preceded the general formulation of this
+conjecture).</p></li>
+<li><p>The Rankin–Selberg method.</p></li>
+<li><p>The Langlands–Shahidi method.</p></li>
+</ul>
+<p>At first glance, none of these methods will work to address the
+general conjecture, but we’ll see that there is a sort of modification
+of the first two that might be applicable.</p>
+<p>Now, what’s the converse theorem?</p>
+<div class="theorem">
+<p><strong>Theorem 45</strong> (Cogdell–Piatetski-Shapiro; Hecke, Weil).
+<em>Let <span class="math inline">\(\sigma\)</span> be an admissible
+irreducible representation of <span
+class="math inline">\(\mathrm{GL}_n(\mathbb{A}_F)\)</span>. (In order to
+get this sort of thing, you have to choose a bunch of local data and
+outside finitely many places you declare that it is unramified.) Assume
+that</em></p>
+<ul>
+<li><p><em>the central character <span
+class="math inline">\(\omega_\sigma\)</span> is <span
+class="math inline">\(Z_{\mathrm{GL}_n(F)}\)</span>-invariant,</em></p></li>
+<li><p><em><span class="math inline">\(\sigma_v\)</span> is generic for
+all <span class="math inline">\(v\)</span>, and</em></p></li>
+<li><p><em><span class="math inline">\(L(s, \sigma)\)</span> converges
+for <span class="math inline">\(\Re s\)</span> sufficiently
+large.</em></p></li>
+</ul>
+<p><em>Let <span class="math inline">\(S\)</span> be a finite set of
+finite primes. Assume that <span class="math inline">\(L(s, \sigma
+\times \sigma &#39;)\)</span> is nice and holomorphic for all cuspidal
+automorphic representations <span class="math inline">\(\sigma
+&#39;\)</span> of <span
+class="math inline">\(\mathrm{GL}_m(\mathbb{A}_F)\)</span> unramified at
+<span class="math inline">\(S\)</span>, with <span
+class="math inline">\(1 \leq m \leq n - 2\)</span> (for <span
+class="math inline">\(n \geq 2\)</span>; for <span
+class="math inline">\(n = 2\)</span>, just take <span
+class="math inline">\(m = 1\)</span>). Then there exists an automorphic
+representation <span class="math inline">\(\pi &#39;\)</span> of <span
+class="math inline">\(\mathrm{GL}_n(\mathbb{A}_F)\)</span> that is
+nearly equivalent to <span class="math inline">\(\sigma\)</span> in the
+sense that <span class="math inline">\(\sigma_v \cong \pi_v
+&#39;\)</span> for all <span class="math inline">\(s \notin
+S\)</span>.</em></p>
+</div>
+<p>To see the relevance of this, take <span
+class="math inline">\(\pi\)</span> on <span
+class="math inline">\(G(\mathbb{A}_F)\)</span>, and take <span
+class="math inline">\(\sigma = \rho(\pi)\)</span>, giving an admissible
+representation for almost all places (assuming the local Langlands
+correspondence).</p>
+<p>This gives some overplay of the interplay between <span
+class="math inline">\(L\)</span>-functions and automorphic
+representations and exactly how the two are interrlated via
+functoriality. This sort of thing is in the background when you read
+things on the Braverman–Kazhdan program, Beyond Endoscopy, etc.</p>
+<p>Now let’s talk about a particular case.</p>
+<h2 id="rankinselberg-products-and-triple-products">Rankin–Selberg
+products and triple products</h2>
+<p>Let <span class="math inline">\(\underline{r} =(r_1, r_2,
+r_3)\)</span>. Set <span
+class="math inline">\(\mathrm{GL}_{\underline{r}} :=\mathrm{GL}_{r_1}
+\times\mathrm{GL}_{r_2} \times\mathrm{GL}_{r_3}\)</span>. We have an
+<span class="math inline">\(L\)</span>-map that we call the
+Rankin–Selberg product (taking complex points, say) <span id="eq:cq6tg2afra" class="math display">\[\label{eq:cq6tg2afra}\tag{22}
+  \otimes^2 : {}^L(\mathrm{GL}_{r_1} \times\mathrm{GL}_{r_2})
+\rightarrow\mathrm{GL}_{r_1 r_2},\]</span> <span id="eq:cq6tg2hl5x" class="math display">\[\label{eq:cq6tg2hl5x}\tag{23}
+  \otimes^3 : {}^L\mathrm{GL}_{\underline{r}}
+\rightarrow\mathrm{GL}_{r_1 r_2 r_3}.\]</span> We’ll think of these as
+hypothetical Langlands transfers.</p>
+<div class="theorem">
+<p><strong>Theorem 46</strong> (Chevalley). <em>Given any faithful
+representation <span class="math inline">\(\rho : H \rightarrow
+\mathrm{GL}_n\)</span> (say with <span class="math inline">\(H\)</span>
+reductive), any other representation is a subrepresentation of <span
+class="math inline">\(\rho^{\otimes m} \otimes \rho^{\vee \otimes
+n}\)</span> for some <span class="math inline">\(m\)</span> and <span
+class="math inline">\(n\)</span>.</em></p>
+</div>
+<p>Now, <span class="math inline">\({}^L G\)</span> is not a reductive
+group, but ignore that fact for a moment. Say we’re given an <span
+class="math inline">\(L\)</span>-map <span id="eq:cq6tg2amid" class="math display">\[\label{eq:cq6tg2amid}\tag{24}
+  \rho :{}^L G \rightarrow \mathrm{GL}_n.\]</span> Suppose we know the
+Rankin–Selberg transfer <a href="#eq:cq6tg2afra"
+data-reference-type="eqref"
+data-reference="eq:cq6tg2afra">\((22)\)</a> as well as transfer
+for <a href="#eq:cq6tg2amid" data-reference-type="eqref"
+data-reference="eq:cq6tg2amid">\((24)\)</a>. Then, <em>any</em>
+transfer from <span class="math inline">\(G\)</span> to <span
+class="math inline">\(\mathop{\mathrm{GL}}(V)\)</span> is a
+“subtransfer” of some <span class="math inline">\(\rho^{\otimes m}
+\otimes \rho^{\vee \otimes n}\)</span>.</p>
+<div class="question">
+<p><strong>Question 47</strong> (Not an exercise). Given functorial
+transfers <span class="math inline">\(\rho^{\otimes m} \otimes
+\rho^{\vee \otimes n}\)</span>, how to pick out the transfers associated
+to subrepresentations?</p>
+</div>
+<p>By analogy to representation theory, some of the basic ways to
+construct new representations from old ones is to take direct sums,
+induced representations and tensor products. In the automorphic world,
+we know how to do the first two (isobaric sum and Eisenstein series),
+but not the third.</p>
+<p>The importance of triple product <span
+class="math inline">\(L\)</span>-functions (attached to <a
+href="#eq:cq6tg2hl5x" data-reference-type="eqref"
+data-reference="eq:cq6tg2hl5x">\((23)\)</a>) is that if they are
+nice, then, using the converse theorem, we get that Rankin–Selberg
+transfers exist. This is the motivation for what we’re about to do.</p>
+<h2 id="poisson-summation-conjecture">Poisson summation conjecture</h2>
+<p>In the exercises, we’ll see the Godement–Jacquet Poisson summation
+formula for <span class="math inline">\(M_{n \times n}\)</span>, which
+leads to the functional equation and analytic continuation of the
+standard <span class="math inline">\(L\)</span>-functions <span
+class="math inline">\(L(s, \pi)\)</span>. Bravmern–Kazhdan suggest
+replacing <span class="math inline">\(M_{n \times n}\)</span> by a
+certain <span class="math inline">\(M_{\rho}\)</span>, and try to run
+the argument to study <span class="math inline">\(L(s, \pi,
+\rho)\)</span>. This proposal was refined by Ngô. Sakellaridis suggested
+working with some spherical varieties. Need a little more
+flexibility.</p>
+<p>We’ll start with the geometric setup.</p>
+<h3 id="section"></h3>
+<p>Let <span class="math inline">\(F\)</span> be a number field, let
+<span class="math inline">\(R\)</span> be an <span
+class="math inline">\(F\)</span>-algebra, and let <span
+class="math inline">\(G_{/F}\)</span> be a reductive group. Assume given
+an action <span class="math display">\[\mathcal{R} : X \times G
+\rightarrow X\]</span> on an affine <span
+class="math inline">\(G\)</span>-scheme <span
+class="math inline">\(X\)</span>. Assume that there is a unique open
+orbit <span class="math inline">\(X^{\circ} \subseteq X\)</span>. Let
+<span class="math inline">\(Z_G^+\)</span> denote the greatest split
+torus in <span class="math inline">\(Z_G\)</span> (e.g., for <span
+class="math inline">\(G = \mathrm{GL}_n\)</span>, <span
+class="math inline">\(Z_G^+ = \mathbb{G}_m\)</span>). Fix an isomorphism
+<span class="math inline">\(\mathbb{G}_m^n \xrightarrow{\cong}
+Z_G^+\)</span>. Assume that the pullback <span
+class="math inline">\(\mathcal{R} : X \times \mathbb{G}_m^n \rightarrow
+X\)</span> extends to <span class="math inline">\(\mathcal{R} : X \times
+\mathbb{G}_a^n \rightarrow X\)</span>.</p>
+<div class="example">
+<p><strong>Example 48</strong>. <span class="math inline">\(X =
+\mathbb{G}_a\)</span> (which we don’t write as <span
+class="math inline">\(\mathbb{A}^1\)</span>, because that denotes the
+adeles). Then the map <span class="math inline">\(X \times \mathbb{G}_m
+\rightarrow X\)</span> given by <span class="math inline">\((t, a)
+\mapsto t a\)</span> extends to <span class="math inline">\(\mathbb{G}_a
+\supset \mathbb{G}_m\)</span> (at <span
+class="math inline">\(0\)</span>, but not at <span
+class="math inline">\(\infty\)</span>).</p>
+</div>
+<p>Assume that there exists an automorphic <span
+class="math inline">\(\iota : G \rightarrow G\)</span> such that <span
+class="math inline">\(\iota(z) = z^{-1}\)</span> for <span
+class="math inline">\(z \in Z_G^+(\mathbb{R})\)</span>.</p>
+<div class="example">
+<p><strong>Example 49</strong>. Take <span
+class="math inline">\(X\)</span> to be a vector space, <span
+class="math inline">\(G =\mathrm{GL}_{X}\)</span>, <span
+class="math inline">\(\iota(g) = g^{- %
+  {\mathpalette\@transpose{}}%
+}\)</span>, and <span class="math inline">\(X(R) := \{x \in R^n \mid
+Q(x) = 0\}\)</span>, where <span class="math inline">\(Q\)</span> is an
+anisotropic quadratic form. Or take <span class="math inline">\(G =
+{\mathop{\mathrm{GO}}}_Q\)</span>, and <span
+class="math inline">\(\iota(g) = \operatorname{simil}(g^{-1})
+g\)</span>.</p>
+</div>
+<p>We need a generalization. In integral representations, you often need
+some sort of Whittaker or Fourier coefficients to integrate against. The
+reason is that if you don’t have it, then when you integrate against
+cusp forms, you get zero. If we don’t have this in the cases of
+interest, then we end up getting zero. There’s a geometric way of
+phrasing this:</p>
+<div class="definition">
+<p><strong>Definition 50</strong>. Suppose given a <span
+class="math inline">\(\mathbb{G}_a^n\)</span>-torsor <span
+class="math inline">\(p : V^{\circ} \rightarrow X^{\circ}\)</span>
+equipped with a <span class="math inline">\(\mathbb{G}_a^n \rtimes
+G\)</span>-action. Assume that <span class="math inline">\(p\)</span> is
+<span class="math inline">\(\mathbb{G}_a^n \rtimes
+G\)</span>-equivariant. Consider the map <span
+class="math display">\[V^{\circ}(R) \times R^n \times G(R) \rightarrow
+V^{\circ}(R) \times R^n,\]</span> <span class="math display">\[(v, z, g)
+\mapsto(v g,(0 \times g)^{-1} z(0 \times g)).\]</span> Assume given
+<span class="math inline">\(\Psi : V^{\circ} \times \mathbb{G}_a^n
+\rightarrow \mathbb{G}_a\)</span> such that</p>
+<ol>
+<li><p><span class="math inline">\(\Psi\)</span> factors through <span
+class="math inline">\(p \times \mathrm{id} : V^{\circ} \times
+\mathbb{G}_a^n \rightarrow X^{\circ} \times
+\mathbb{G}_a^n\)</span>.</p></li>
+<li><p><span class="math inline">\(\Psi\)</span> is <span
+class="math inline">\(G\)</span>-invariant.</p></li>
+<li><p>For each <span class="math inline">\(w \in V^{\circ}(R)\)</span>,
+the map <span class="math inline">\(\Psi(w, \bullet) : \mathbb{G}_{a,
+R}^n \rightarrow \mathbb{G}_{a, R}\)</span> is a group
+homomorphism.</p></li>
+</ol>
+<p>An <em>affine</em> <span
+class="math inline">\(\Psi\)</span><em>-bundle</em> is a pair <span
+class="math inline">\((p : V^{\circ} \rightarrow X^{\circ},
+\Psi)\)</span> as above.</p>
+</div>
+<p>Given <span class="math inline">\(w \in V^{\circ}(R)\)</span>, set
+<span class="math inline">\(x := p(w)\)</span>. We obtain <span
+class="math inline">\(R^n \xrightarrow{\cong} V_x^0(R)\)</span>, <span
+class="math inline">\(z \mapsto w z\)</span>. For <span
+class="math inline">\(g \in G_\lambda(R)\)</span>, there is a unique
+<span class="math inline">\(z_w(g) \in R^n\)</span> such that <span
+class="math inline">\(w z_w(g) = w g\)</span>. Then <span
+class="math inline">\(\Psi_w(g) = \Psi(w, z_w(g))\)</span>.</p>
+<div class="lemma">
+<p><strong>Lemma 51</strong>. <span class="math inline">\(\Psi_w : G_x
+\rightarrow \mathbb{G}_a\)</span> is a character, depending only upon
+<span class="math inline">\(x\)</span>.</p>
+</div>
+<p>This is the geometry that underlies the Poisson summation conjecture.
+In the remaining time today, we’ll start doing some of the harmonic
+analysis. We’ll enrich the geometry by introducing some function spaces
+on the <span class="math inline">\(F\)</span>-points of everything.
+We’ll start that process now and continue it in the next lecture.</p>
+<h3 id="local-harmonic-analysis">Local harmonic analysis</h3>
+<p>Start with some global character <span class="math inline">\(\psi : F
+\backslash \mathbb{A}_F \rightarrow \mathbb{C}^\times\)</span>. Let
+<span class="math inline">\(v\)</span> be a place of <span
+class="math inline">\(F\)</span>. Define <span class="math inline">\(F =
+F_v\)</span>, <span class="math inline">\(\psi = \psi_v\)</span>. Thus,
+we’ll work locally and omit <span class="math inline">\(v\)</span> from
+notation. We ask for a Schwartz space sitting as follows: <span
+class="math display">\[C_c^\infty(X^{\circ}(F)) \subseteq
+\mathcal{S}(X(F)) \subseteq C^\infty(X^{\circ}(F)) \cap
+L^2(X^{\circ}(F)).\]</span> (This assumes that we have an invariant
+measure to define <span class="math inline">\(L^2\)</span>. It’s better
+in some sense to work instead with half-densities.) We want the Schwartz
+space to be stable under <span class="math inline">\(G(F)\)</span>. One
+can do a bit more: one can form an <span
+class="math inline">\(\varepsilon_\psi\)</span>-hermitian bundle over
+<span class="math inline">\(X^{\circ}(F)\)</span>, using the affine
+<span class="math inline">\(\Psi\)</span>-bundle just mentioned. The
+sections are <span class="math display">\[\left\{ f \in
+C^\infty(V^{\circ}(F)) \mid \mathcal{R}(a \times I) f(w) = \psi(\Psi(w,
+a) f(w)) \right\}.\]</span> The motivation is that if you don’t
+incorporate such sections rather than just functions, then you’ll get
+zero when you try to integrate against cusp forms. Consider for instance
+a cusp form <span class="math inline">\(\varphi\)</span> on <span
+class="math inline">\(\mathrm{GL}_2(\mathbb{A}_F)\)</span>. Then <span
+class="math display">\[\int_{[\mathbb{G}_a]} \varphi
+  \begin{pmatrix}
+    1 &amp; x \\
+    0 &amp; 1 \\
+  \end{pmatrix} \, d x= 0,\]</span> while <span
+class="math display">\[\int_{[\mathbb{G}_a]} \varphi
+  \begin{pmatrix}
+    1 &amp; x \\
+    0 &amp; 1 \\
+  \end{pmatrix}
+  \psi(x) \, d x
+  \, d x
+  =
+  W_\psi^\varphi(1).\]</span> Actually, it’s better, and we do it in the
+paper (see the course references (TODO: add link here)), and you need
+it. We twist by half-densities: <span
+class="math inline">\(\varepsilon_\psi \otimes \lvert \Lambda
+\rvert^{1/2} = \mathcal{L}_\psi\)</span>. These are canonical – no
+choice of measure. They are helpful for normalization. On the other
+hand, you can’t evaluate at points. But you can work around this. Using
+these makes the formulation of the theory much simpler. Another benefit
+is that with half-densities, Schwartz spaces behave well under
+restriction. Maybe the reason behind this might be an exercise:</p>
+<div class="exercise">
+<p><strong>Exercise 8</strong>. <span
+class="math inline">\(L^2(X^{\circ}(F), \lvert \Lambda
+\rvert^{1/2})\)</span> is a unitary <span
+class="math inline">\(G(F)\)</span>-representation.</p>
 </div>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
