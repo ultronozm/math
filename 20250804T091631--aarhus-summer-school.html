@@ -205,7 +205,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-07 10:09:36
+2025-08-07 11:06:22
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -246,6 +246,8 @@ id="toc-poisson-summation-conjecture">Poisson summation conjecture</a>
 id="toc-local-harmonic-analysis">Local harmonic analysis</a></li>
 </ul></li>
 </ul></li>
+<li><a href="#chen-wans-lectures" id="toc-chen-wans-lectures">Chen Wan’s
+lectures</a></li>
 </ul>
 </nav>
 <h1 id="gebhard-boeckles-lectures">Gebhard Boeckle’s lectures</h1>
@@ -2940,6 +2942,250 @@ class="math inline">\(L^2(X^{\circ}(F), \lvert \Lambda
 \rvert^{1/2})\)</span> is a unitary <span
 class="math inline">\(G(F)\)</span>-representation.</p>
 </div>
+<h1 id="chen-wans-lectures">Chen Wan’s lectures</h1>
+<p>We’ll focus on the <em>period</em> aspect of the relative Langlands
+duality of Ben-Zvi–Sakellaridis–Venkatesh. Recall from Chris’s talk that
+we saw something about integral representations of <span
+class="math inline">\(L\)</span>-functions, which involves integrating
+automorphic forms <span class="math inline">\(\phi\)</span> on some
+larger space <span class="math inline">\(Y\)</span> over some smaller
+space <span class="math inline">\(X\)</span>. In nice cases, such
+integrals represent <span class="math inline">\(L\)</span>-functions:
+<span id="eq:cq6tg8d3hf" class="math display">\[\label{eq:cq6tg8d3hf}\tag{25}
+  \int_X (\phi, \text{ automorphic form on $Y \supseteq X$}) =
+\text{$L$-function}.\]</span> We’ve seen in previous lectures that if
+you have this sort of integral representation of <span
+class="math inline">\(L\)</span>-functions, then you can use it to study
+the meromorphic continuation of <span
+class="math inline">\(L\)</span>-functions, or their special values.
+Such identities are thus very useful.</p>
+<p>The examples might seem a bit <em>ad hoc</em>. Why should we
+integrate automorphic forms on <span class="math inline">\(Y\)</span>
+over <span class="math inline">\(X\)</span>, for certain pairs <span
+class="math inline">\((X, Y)\)</span>? Is there some way to
+systematically find, for a given <span
+class="math inline">\(L\)</span>-function, which integrals represent
+them? Can we determine systematically which <span
+class="math inline">\(L\)</span>-functions are represented by some
+integral? The theory of relative Langlands duality at least gives some
+explanation of this in some cases. This is what we’ll talk about in our
+lectures.</p>
+<p>Let’s first say the rough idea. If you look at this kind of integral
+<a href="#eq:cq6tg8d3hf" data-reference-type="eqref"
+data-reference="eq:cq6tg8d3hf">\((25)\)</a>, it’s kind of an
+automorphic integral involving the quotient variety <span
+class="math inline">\(\mathcal{M} = Y / X\)</span> (whatever this
+means). Relative Langlands duality generalizes the classical Langlands
+correspondence to varieties: one passes from <span
+class="math inline">\(\mathcal{M}\)</span> to some dual variety <span
+class="math inline">\(\hat{\mathcal{M}}\)</span>, and the proposal in
+relative Langlands duality is that <span
+class="math display">\[(\text{automorphic integral on } \mathcal{M})
+  =
+  (\text{$L$-function associated to } \hat{\mathcal{M}}).\]</span>
+Moreover, it’s a duality, which means that the same holds with the roles
+of <span class="math inline">\(\mathcal{M}\)</span> and <span
+class="math inline">\(\hat{\mathcal{M}}\)</span> reversed: <span
+class="math display">\[(\text{automorphic integral on }
+\hat{\mathcal{M}})
+  =
+  (\text{$L$-function associated to } \mathcal{M}).\]</span> Everything
+is general at this point – later, we’ll say precisely what it means. But
+the idea is that at least in terms of periods integrals of automorphic
+forms, you have certain nice Hamiltonian spaces and dualities between
+them so that the integrals attached to one space are given by the <span
+class="math inline">\(L\)</span>-functions attached to the other.</p>
+<p>Let’s now set up some notation. We’ll first define the automorphic
+integrals associated to this data, and if there’s time, the <span
+class="math inline">\(L\)</span>-functions and the duality. Let <span
+class="math inline">\(K\)</span> be a global field, and <span
+class="math inline">\(\mathbb{A} = \mathbb{A}_K\)</span> the ring of
+adeles. Sometimes we’ll also work over a local field <span
+class="math inline">\(F\)</span>, (e.g., <span
+class="math inline">\(\mathbb{R}, \mathbb{C}, \mathbb{Q}_p,
+\dotsc\)</span>). Let <span class="math inline">\(G\)</span> be a
+connected reductive group defined over <span
+class="math inline">\(K\)</span>. (If you’re not familiar with this
+language, you can just think of the matrix groups that you’re familiar
+with, such as <span class="math inline">\(\mathrm{GL}_n\)</span>, <span
+class="math inline">\(\mathrm{SL}_n\)</span>, <span
+class="math inline">\(\mathrm{PGL}_n\)</span>, <span
+class="math inline">\({\mathop{\mathrm{SO}}}_n\)</span>, <span
+class="math inline">\({\mathop{\mathrm{Sp}}}_{2 n}\)</span>.) Throughout
+these lectures, we’ll mostly focus on the groups that are
+<em>split</em>, i.e., that have a maximal split torus.</p>
+<p>The foundation of the Langlands program is based on the duality
+between these reductive groups. For each such group <span
+class="math inline">\(G\)</span>, we can write down its dual group <span
+class="math inline">\(\hat{G}\)</span>. Reductive groups are
+parametrized by root data. For each root data, you can take its dual
+root data, which then defines the dual group:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+class="math inline">\(G\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(\hat{G}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(\mathrm{GL}_n\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathrm{GL}_n\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(\mathrm{SL}_n\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathrm{PGL}_n\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(\mathrm{SO}_{2n+1}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathrm{Sp}_{2n}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(\mathrm{SO}_{2n}\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\mathrm{SO}_{2n}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The <em>Langlands conjecture</em> says roughly that automorphic
+representations of <span class="math inline">\(G(\mathbb{A})\)</span>
+should correspond to Langlands parameters <span
+class="math inline">\(\phi : L_K \rightarrow
+\hat{G}(\mathbb{C})\)</span> valued in the dual group, and similalry
+with <span class="math inline">\(G\)</span> and <span
+class="math inline">\(\hat{G}\)</span> swapped.</p>
+<div class="definition">
+<p><strong>Definition 52</strong>. A <em>BZSV quadruple</em> for <span
+class="math inline">\(G\)</span> is <span class="math inline">\(\Delta
+=(G, H, \iota, \rho_H)\)</span>, where</p>
+<ol>
+<li><p><span id="enumerate:cq6tg8um5h"
+label="enumerate:cq6tg8um5h"></span> <span class="math inline">\(H
+\subset G\)</span> is a split connected reductive subgroup,</p></li>
+<li><p><span id="enumerate:cq6tg8uyi6"
+label="enumerate:cq6tg8uyi6"></span> <span class="math inline">\(\iota :
+\mathrm{SL}_2 \rightarrow G\)</span> is a homomorphism (possibly
+trivial) such that <span class="math inline">\(H\)</span> commutes with
+<span class="math inline">\(\operatorname{image}(\iota)\)</span>, so
+that we may extend to <span class="math inline">\(\iota : H \times
+\mathrm{SL}_2 \rightarrow G\)</span>.</p></li>
+<li><p><span id="enumerate:cq6tg8wpyk"
+label="enumerate:cq6tg8wpyk"></span> <span
+class="math inline">\(\rho_H\)</span> is a symplectic representation of
+<span class="math inline">\(H\)</span>, i.e., a homomorphism <span
+class="math inline">\(H \rightarrow \mathrm{Sp}(V)\)</span>.</p></li>
+</ol>
+</div>
+<p>Define the automorphic quotient <span class="math inline">\([G] :=
+G(K) \backslash G(\mathbb{A})\)</span>, and let <span
+class="math inline">\(\phi :[G] \rightarrow \mathbb{C}\)</span> be an
+automorphic form. The goal today is to define the period integral <span
+class="math inline">\(\mathcal{P}_\Delta(\phi)\)</span> associated to a
+quadruple <span class="math inline">\(\Delta\)</span> as above.</p>
+<p>Let’s start with some easy special cases, before moving to the
+general case.</p>
+<ol>
+<li><p><span id="enumerate:cq6tg85st6"
+label="enumerate:cq6tg85st6"></span> Suppose <span
+class="math inline">\(\iota = 1\)</span> (the trivial representation,
+<span class="math inline">\(\mathbb{C}\)</span>) and <span
+class="math inline">\(\rho_H = 0\)</span> (the <em>zero-dimensional</em>
+symplectic representation <span
+class="math inline">\(\emptyset\)</span>), thus <span
+class="math inline">\(\Delta =(G, H, 1, 0)\)</span>. Then <span
+class="math display">\[\mathcal{P}_\Delta(\phi) := \int_{[H]} \phi(h) \,
+d h.\]</span> (In general, this does not converge and must be understood
+via truncation, etc.)</p></li>
+<li><p><span id="enumerate:cq6tg85t0e"
+label="enumerate:cq6tg85t0e"></span> Suppose still that <span
+class="math inline">\(\iota = 1\)</span> is trivial, but allow <span
+class="math inline">\(\rho_H\)</span> to be general. Then <span
+class="math display">\[\mathcal{P}_\Delta(\phi) := \int_{[H]} \phi(h)
+\cdot \Theta_{\rho_H}(h) \, d h,\]</span> where <span
+class="math inline">\(\Theta_{\rho_H}\)</span> is a suitable theta
+function, whose definition depends also upon the choice of a Schwartz
+function:</p>
+<ol type="a">
+<li><p><span id="enumerate:cq6thb0l6i"
+label="enumerate:cq6thb0l6i"></span> It’s easiest to define in the
+special <em>polarized</em> case that <span class="math inline">\(\rho_H
+= \tau \oplus \tau^\vee\)</span> for some <span
+class="math inline">\(\tau : H \rightarrow\mathrm{GL}(W)\)</span>. In
+that case, after choosing <span class="math inline">\(\varphi \in
+\mathcal{S}(W(\mathbb{A}))\)</span>, we define <span
+class="math display">\[\Theta_{\rho_H}(h) := \sum_{x \in W(F)}
+\varphi(\tau(h) x).\]</span> To illustrate that case, we consider a
+couple examples:</p>
+<ol type="i">
+<li><p><span id="enumerate:cq6thb0n66"
+label="enumerate:cq6thb0n66"></span> Suppose <span
+class="math display">\[\Delta =(\mathrm{GL}_n \times \mathrm{GL}_n,
+\mathrm{GL}_n \times \mathrm{GL}_n, 1, \mathrm{std} \otimes \mathrm{std
+\oplus(\mathrm{std} \otimes \mathrm{std})^\vee})\]</span> Then, writing
+<span class="math inline">\(\phi = \phi_1 \otimes \phi_2\)</span> with
+each <span class="math inline">\(\phi_i :[\mathrm{GL}_n] \rightarrow
+\mathbb{C}\)</span>, we may take <span class="math inline">\(W =
+{\mathop{\mathrm{Mat}}}_{n \times n}\)</span> above (the space of <span
+class="math inline">\(n \times n\)</span> matrices), and we obtain <span
+class="math display">\[\mathcal{P}_\Delta(\phi) := \int_{[\mathrm{GL}_n]
+\times[\mathrm{GL}_n]} \phi_1(h_1) \phi_2(h_2) \sum_{x \in
+{\mathop{\mathrm{Mat}}}_{n \times n}(F)}
+        \varphi(h_1^{-1} x h_2) \, d h_1 \, d h_2.\]</span></p></li>
+<li><p><span id="enumerate:cq6thb0ptu"
+label="enumerate:cq6thb0ptu"></span> Take <span
+class="math inline">\(\Delta =(\mathrm{GL}_n \times \mathrm{GL}_n,
+\mathrm{GL}_n^{\mathrm{diag}}, 1, \mathrm{std} \oplus
+\mathrm{std}^\vee)\)</span>. Then, taking <span
+class="math inline">\(W\)</span> to be the <span
+class="math inline">\(n\)</span>-dimensional vector space on which <span
+class="math inline">\(\mathrm{GL}_n\)</span> acts by right
+multiplication, we obtain <span
+class="math display">\[\mathcal{P}_\Delta(\phi) :=
+\int_{[\mathrm{GL}_n]} \phi_1(h) \phi_2(h) \sum_{x \in W(K)}
+        \varphi(x h) \, d h,\]</span> which is the Rankin–Selberg
+integral for <span class="math inline">\(\mathrm{GL}_n \times
+\mathrm{GL}_n\)</span>.</p></li>
+</ol></li>
+<li><p><span id="enumerate:cq6thb0m6q"
+label="enumerate:cq6thb0m6q"></span> In general, <span
+class="math inline">\(\rho_H : H \rightarrow
+\mathop{\mathrm{Sp}}(V)\)</span> induces the so-called Weil
+representation, which may be realized on <span
+class="math inline">\(\mathcal{S}(Y(\mathbb{A}))\)</span> for a maximal
+isotropic subspace <span class="math inline">\(Y\)</span> of <span
+class="math inline">\(V\)</span>. As you may know, the Weil
+representation is not on <span
+class="math inline">\(\mathop{\mathrm{Sp}}(V)\)</span>, but on its
+double cover. So you can’t do it for an arbitrary symplectic
+representation – need a condition called “anomaly-free” that allows you
+to resolve the ambiguity, but let’s not go into the details there. There
+is anyway some condition under which we can split the Weil
+representation over <span class="math inline">\(H\)</span>, giving a
+well-defined representation. The splitting is not necessarily unique,
+and perhaps BZSV do not currently choose a canonical splitting, but it’s
+expected that there is some natural splitting. Of course there is such a
+natural splitting in the polarized case. In any event, one then sets,
+for <span class="math inline">\(h \in H(\mathbb{A})\)</span> and <span
+class="math inline">\(\varphi \in \mathcal{S}(Y(\mathbb{A}))\)</span>,
+<span class="math display">\[\Theta_{\rho_H}(h) := \sum_{x \in Y(K)}
+\Omega_{\rho_H}(h) \varphi(x).\]</span></p></li>
+</ol></li>
+<li><p><span id="enumerate:cq6thb84py"
+label="enumerate:cq6thb84py"></span> In the fully general case, we
+define <span class="math display">\[\mathcal{P}_\Delta(\phi) :=
+\int_{[H]} \mathcal{P}_\iota(\phi)(h) \Theta_{\rho_H}(h) \, d
+h.\]</span></p></li>
+</ol>
+<p>&lt;++&gt;</p>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
   toggle.addEventListener("click", function(e) {
