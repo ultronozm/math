@@ -1,5 +1,8 @@
 \documentclass[reqno]{amsart} \input{common.tex}
 
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+
 \begin{document}
 
 \title{Aarhus Automorphic Forms Summer School}
@@ -1997,7 +2000,7 @@ Let $H \subset G$ be an algebraic group.  Let $\chi :[H] \rightarrow \mathbb{C}^
   \end{enumerate}
 \end{example}
 
-\subsubsection{Theta series}
+\subsubsection{Theta series}\label{sec:cq6thpxagu}
 
 Take $X := H \backslash G$.  Define $\Theta^X : C_c^\infty(X(\mathbb{A})) \rightarrow C^\infty([G])$ by
 \begin{equation*}
@@ -2012,6 +2015,126 @@ Provided that $f$ is supported inside $H(\mathbb{A}) \backslash G(\mathbb{A})$ (
 \begin{equation*}
   \mathcal{P}_X(\varphi, f) = \int_{H(\mathbb{A}) \backslash G(\mathbb{A})}
   \mathcal{P}_H(R(x) \varphi) f(x) \, d x.
+\end{equation*}
+In particular, writing $\Theta_{f,\pi}^X$ for the orthogonal projection of $\Theta_{f}^X$ to $\pi$, we see that
+\begin{equation*}
+  \mathcal{P}_H |_\pi \not \equiv 0
+  \quad \iff \quad
+  \Theta_{f,\pi}^X  \not \equiv 0.
+\end{equation*}
+This makes sense for any (smooth) $G$-variety $X$, not necessarily homogeneous.  Put this way, it contains many basic examples.
+\begin{example}\label{example:cq6thpw9ml}
+  \begin{enumerate}[(a)]
+  \item\label{enumerate:cq6thpxd02} Take $X = \mathbb{G}_a \circlearrowleft \mathbb{G}_m$.  Then an automorphic form is just a Hecke character $\chi$, and by Tate,
+    \begin{equation*}
+      \int_{[\mathrm{GL}_1]}^{\reg} \chi(t) \Theta_f^X(t) \, d t \sim L(\tfrac{1}{2}, \chi).
+    \end{equation*}
+    (We'll talk about the regularization later.)
+  \item\label{enumerate:cq6thpxe24} Take $X = \Mat_n \circlearrowleft G = \mathrm{GL}_n \times \mathrm{GL}_n$.  Take two cusps forms in the \emph{same} cuspidal automorphic representation, say $\varphi_1, \varphi_2 \in \pi \subset A_{\mathrm{cusp}}(\mathrm{GL}_n)$.  Then
+    \begin{equation*}
+      \int_{[G]}^{\reg} \varphi_1(g) \varphi_2(g) \Theta_f^X(g) \, d g \sim L \left( \tfrac{1 - n}{2}, \pi \right).
+    \end{equation*}
+  \end{enumerate}
+\end{example}
+
+\subsubsection{RTF formally}\label{sec:cq6thp1yjb}
+
+Before defining an RTF, we need to talk about an \emph{automorphic kernel}.  Take $f \in C_c^\infty(G(\mathbb{A}))$.  It acts on the space of automorphic forms by the right convolution $R(f)$.  This action is given by a kernel, which is like a continuous matrix, given by
+\begin{equation*}
+  \left( R(f) \varphi \right)(x) := \int_{[G]}
+  K_f(x, y) \varphi(y) \, d y.
+\end{equation*}
+The kernel has $K_f(x, y)$ two different expansions.  One, which we call the \emph{geometric} expansion, is as a sum over rational points over the group:
+\begin{equation*}
+  \sum_{\gamma \in G(K)}
+  f(x^{-1} \gamma y).
+\end{equation*}
+The other, which is a kind of \emph{spectral} expansion, is given by
+\begin{equation*}
+  \sum_{
+    \substack{
+      \varphi \in A_{\mathrm{cusp}}(G)  \\
+      \text{O.N.B.}      
+    }
+  }
+  \bigl( R(f) \varphi \bigr)(x) \overline{\varphi(y)}
+  + \dotsb 
+\end{equation*}
+where $\dotsb$ denotes the Eisenstein contribution.
+
+We now consider the following setting.  Let $H_1 \subset G \supset H_2$ be two subgroups.  Let $\chi_i :[H_i] \rightarrow \mathbb{C}^\times$.  Define $\mathfrak{X}$ to be, informally, the quotient
+\begin{equation*}
+  \text{``}H_1, \chi_1 \backslash G / H_2, \chi_2\text{''}.
+\end{equation*}
+More precisely:
+
+\begin{definition}\label{definition:cq6thqam4a}
+  For $f \in C_c^\infty(G(\mathbb{A}))$,
+  \begin{equation*}
+    \operatorname{RTF}_{\mathfrak{X}}(f) := \int_{[H_1] \times[H_2]} K_f(h_1, h_2) \chi_1(h_1) \chi_2(h_2)
+    \, d h_1 \, d h_2.
+  \end{equation*}
+\end{definition}
+Why is this related to period integrals?  Well, one way to compute the RTF is via the \emph{spectral expansion}
+\begin{equation*}
+  \mathrm{RTF}_{\mathfrak{X}}(f) := \sum_{\varphi \in A_{\mathrm{cusp}}(G)}
+  \mathcal{P}_{H_1, \chi_1}(R(f) \varphi)
+  \mathcal{P}_{H_2, \chi_2}(\overline{\varphi})
+  + \dotsb.
+\end{equation*}
+Another is the \emph{geometric expansion}
+\begin{equation*}
+  \mathrm{RTF}_{\mathfrak{X}}(f) = \sum_{\gamma \in H_1(K) \backslash G(K) / H_2(K)}
+  \vol \left([(H_1 \times H_2)_\gamma] \right) \mathrm{Orb}_\gamma(f),
+\end{equation*}
+where
+\begin{equation*}
+  \mathrm{Orb}_\gamma(f) := 
+  \int_{(H_1 \times H_2)_\gamma(\mathbb{A}) \backslash (H_1 \times H_2)(\mathbb{A})}
+  H(h_1^{-1} \gamma h_2)
+  \chi_1(h_1) \chi_2(h_2)
+  \, d h_1
+  \, d h_2.
+\end{equation*}
+Here $(H_1 \times H_2)_\gamma$ is the stabilizer with respect to the action $\gamma \cdot(h_1, h_2) = h_1^{-1} \gamma h_2$.
+
+\begin{remark}
+  Two sources of divergence on the geometric side:
+  \begin{itemize}
+  \item the volumes can be infinite, and
+  \item the orbital integrals can diverge.
+  \end{itemize}
+  However, one advantage of these distributions over the original ones is that they are factorizable, being now taken over an adelic space.  At least formally,
+  \begin{equation*}
+    \mathrm{Orb}_\gamma(f) = \prod_v \mathrm{Orb}_\gamma(f_v) \quad \text{ for } f = \prod f_v,
+  \end{equation*}
+  where $\mathrm{Orb}_\gamma(f_v)$ is a local orbital integral.
+\end{remark}
+
+\subsubsection{RTF and theta series}
+
+Assume for simplicity that $\chi_1 = \chi_2 = 1$.
+
+There is one first obvious relation between RTF and theta series.  Note that
+\begin{equation*}
+  K_f = \Theta_f^G \qquad \text{ for } G \circlearrowleft G \times G.
+\end{equation*}
+Thus
+\begin{equation*}
+  \mathrm{RTF}_{\mathfrak{X}}(f) = \int_{[H_1 \times H_2]} \Theta_f^G = \int_{[H_2]} \Theta_\varphi^{H_2 \backslash G},
+\end{equation*}
+where $\varphi(x) = \int_{H_1(\mathbb{A})} f(h_1 x) \, d h_1$, which lies in $C_c^\infty(H_1(\mathbb{A}) \backslash G(\mathbb{A}))$.  We can also write the above as the Petersson norm
+\begin{equation*}
+  \left\langle \Theta^{H_1 \backslash G}_{\varphi_1}, \Theta_{\varphi_2}^{H_2 \backslash G} \right\rangle_{\mathrm{Pet}},
+\end{equation*}
+where for $f = f_1 \ast f_2^\vee$ with $f_1, f_2 \in C_c^\infty(G(\mathbb{A}))$, we set
+\begin{equation*}
+  \varphi_i(x) := \int_{H_i(\mathbb{A})} f_i(h_i x) \, d h_i.
+\end{equation*}
+
+More generally, for $X \circlearrowleft G$, we can consider the distributions
+\begin{equation*}
+  \mathrm{RTF}_{\mathfrak{X}/G}(f) := \int_{[G]} \Theta^X_f \quad \text{ for } f \in C_c^\infty(X(\mathbb{A})).
 \end{equation*}
 
 
