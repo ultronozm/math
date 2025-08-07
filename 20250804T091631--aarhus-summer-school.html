@@ -205,7 +205,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-07 13:54:19
+2025-08-07 14:09:23
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -252,8 +252,8 @@ Beuzart-Plessis’s lectures</a>
 series</a></li>
 <li><a href="#sec:cq6thp1yjb" id="toc-sec:cq6thp1yjb">RTF
 formally</a></li>
-<li><a href="#rtf-and-theta-series" id="toc-rtf-and-theta-series">RTF
-and theta series</a></li>
+<li><a href="#sec:cq6thubysx" id="toc-sec:cq6thubysx">RTF and theta
+series</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -3632,7 +3632,7 @@ H_2)(\mathbb{A})}
 H_2)_\gamma\)</span> is the stabilizer with respect to the action <span
 class="math inline">\(\gamma \cdot(h_1, h_2) = h_1^{-1} \gamma
 h_2\)</span>.</p>
-<div class="remark">
+<div id="remark:cq6thubzrk" class="remark">
 <p><strong>Remark 62</strong>. Two sources of divergence on the
 geometric side:</p>
 <ul>
@@ -3647,7 +3647,7 @@ f_v,\]</span> where <span
 class="math inline">\(\mathrm{Orb}_\gamma(f_v)\)</span> is a local
 orbital integral.</p>
 </div>
-<h3 id="rtf-and-theta-series">RTF and theta series</h3>
+<h3 id="sec:cq6thubysx">§5.1.4. RTF and theta series</h3>
 <p>Assume for simplicity that <span class="math inline">\(\chi_1 =
 \chi_2 = 1\)</span>.</p>
 <p>There is one first obvious relation between RTF and theta series.
@@ -3669,8 +3669,88 @@ we set <span class="math display">\[\varphi_i(x) :=
 <p>More generally, for <span class="math inline">\(X \circlearrowleft
 G\)</span>, we can consider the distributions <span
 class="math display">\[\mathrm{RTF}_{\mathfrak{X}/G}(f) := \int_{[G]}
-\Theta^X_f \quad \text{ for } f \in
-C_c^\infty(X(\mathbb{A})).\]</span></p>
+\Theta^X_f \quad \text{ for } f \in C_c^\infty(X(\mathbb{A})).\]</span>
+You can write, in a similar way, a geometric expansion of this in terms
+of <span class="math inline">\(G(K)\)</span> on <span
+class="math inline">\(X(K)\)</span>. Let’s try to make sense of the
+convergence. These <span class="math inline">\(\Theta_f^X\)</span> are
+not arbitrary functions – they have a very special behavior. Here’s a
+fact that we’ll write in vague terms, and then give one example.</p>
+<div id="fact:cq6thubvi6" class="fact">
+<p><strong>Fact 63</strong>. <em><span
+class="math inline">\(\Theta^X_f\)</span> is “asymptotically finite”,
+i.e., is asymptotic to eigenfunctions with respect to the action of some
+tori (where we pluralize “torus” because the precise one depends upon in
+which direction you are tending to infinity). Informally, by declaring
+the integrals of such asymptotics to be zero, you can define regularized
+integrals. Provided that&lt;++&gt; the asymptotics are nontrivial, there
+is a canonical way to regularize <span
+class="math inline">\(\mathrm{RTF}_{X / G}\)</span>.</em></p>
+</div>
+<div id="example:cq6thubuij" class="example">
+<p><strong>Example 64</strong>. Take <span class="math inline">\(G =
+\mathbb{G}_m\)</span>. Let <span class="math inline">\(\chi_0,
+\chi_\infty :[\mathbb{G}_m] \rightarrow \mathbb{C}^\times\)</span>.
+Define <span class="math inline">\(\mathcal{F}_{\chi_0,
+\chi_\infty}([\mathbb{G}_m])\)</span> to be the set of all <span
+class="math inline">\(f \in C^\infty([\mathbb{G}_m])\)</span> such that
+there are <span class="math inline">\(c_0 = c_0(f)\)</span> and <span
+class="math inline">\(c_\infty = c_\infty(f) \in \mathbb{C}\)</span>
+such that <span class="math display">\[\left\lvert f(t) - c_\infty
+\chi_\infty(t) \right\rvert \ll_N \lvert t \rvert^{- N}
+    \quad \text{ for } \lvert t \rvert \geq 1,\]</span> <span
+class="math display">\[\left\lvert f(t) - c_\infty \chi_\infty(t)
+\right\rvert \ll_N \lvert t \rvert^{N} \qquad \text{ for } \lvert t
+\rvert \leq 1.\]</span> We have a short exact sequence of <span
+class="math inline">\(\mathbb{A}^\times\)</span>-representations <span
+class="math display">\[0 \rightarrow \mathcal{S}([\mathbb{G}_m])
+\rightarrow \mathcal{F}_{\chi_0, \chi_\infty} \rightarrow
+\mathbb{C}_{\chi_0} \oplus \mathbb{C}_{\chi_\infty} \rightarrow
+0,\]</span> where <span
+class="math inline">\(\mathcal{S}([\mathbb{G}_m])\)</span> consists in
+particular of functions that are rapidly decaying. The map is given by
+<span class="math inline">\(f \mapsto(c_0(f), c_\infty(f))\)</span>.</p>
+<ol type="a">
+<li><p><span id="enumerate:cq6tht3m44"
+label="enumerate:cq6tht3m44"></span> If <span
+class="math inline">\(\chi_0 \neq 1 \neq \chi_\infty\)</span>, then
+there is a unique functional <span
+class="math display">\[\int_{[\mathbb{G}_m]}^{\mathrm{reg}} :
+\mathcal{F}_{\chi_0, \chi_\infty} \rightarrow \mathbb{C}\]</span> that
+is <span class="math inline">\(\mathbb{A}^\times\)</span>-invariant and
+such that <span
+class="math display">\[\int_{[\mathbb{G}_m]}^{\mathrm{reg}} f =
+\int_{[\mathbb{G}_m]} f(t) \, d t
+      \quad \text{ for } f \in
+\mathcal{S}([\mathbb{G}_m]).\]</span></p></li>
+<li><p><span id="enumerate:cq6tht3n8y"
+label="enumerate:cq6tht3n8y"></span> Take <span
+class="math inline">\(X_1 = \mathbb{G}_a \circlearrowleft
+\mathbb{G}_m\)</span>. Then, for all <span class="math inline">\(f \in
+C_c^\infty(\mathbb{A})\)</span>, we have <span
+class="math inline">\(\Theta_f^{X_1} \in \mathcal{F}_{\lvert .
+\rvert^{-1}, 1}\)</span>.</p></li>
+<li><p><span id="enumerate:cq6tht4jar"
+label="enumerate:cq6tht4jar"></span> Define <span
+class="math inline">\(X_2 = \mathbb{G}_a^2 \circlearrowleft
+\mathbb{G}_m\)</span> by <span class="math inline">\(t \cdot(x, y) :=(t
+x, t^{-1} y)\)</span>. Then, for all <span class="math inline">\(f \in
+C_c^\infty(\mathbb{A}^2)\)</span>, we have <span
+class="math inline">\(\Theta_f^{X_2} := \mathcal{F}_{\lvert .
+\rvert^{-1}, \lvert . \rvert}\)</span>.</p></li>
+<li><p><span id="enumerate:cq6tht7mp9"
+label="enumerate:cq6tht7mp9"></span> Take <span
+class="math inline">\(\mathbb{G}_m = A = \left(
+      \begin{smallmatrix}
+        \ast&amp;\\
+         &amp;1 \\
+      \end{smallmatrix}
+    \right) \subset \mathrm{PGL}_2\)</span>, then for all <span
+class="math inline">\(f \in C_c^\infty(X_3(\mathbb{A}))\)</span>, we
+have <span class="math inline">\(\Theta_f^{X_3} \in \mathcal{F}_{\lvert
+. \rvert^{-1}, \lvert . \rvert}\)</span>.</p></li>
+</ol>
+</div>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
   toggle.addEventListener("click", function(e) {
