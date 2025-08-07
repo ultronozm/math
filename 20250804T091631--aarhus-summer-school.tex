@@ -1732,9 +1732,9 @@ Let's start with some easy special cases, before moving to the general case.
     \end{equation*}
   \end{enumerate}
 \item\label{enumerate:cq6thb84py} In the fully general case, we define
-  \begin{equation*}
+  \begin{equation}\label{eq:cq6thc4107}
     \mathcal{P}_\Delta(\phi) := \int_{[H]} \mathcal{P}_\iota(\phi)(h) \Theta_{\rho_H}(h) \, d h.
-  \end{equation*}
+  \end{equation}
   Here $\mathcal{P}_\iota$ is the Fourier coefficient of $\phi$ associated to $\iota$, defined as follows.  We first recall that $\iota : \mathrm{SL}_2 \rightarrow G$.  In particular, we can let $L := \mathrm{Cent}_G(\operatorname{image}(\iota(T_{\mathrm{SL}_2})))$, with $T_{\mathrm{SL}_2} \leq \mathrm{SL}_2$ the diagonal maximal torus consisting of elements of the form $\diag(t, t^{-1})$.  Then $L$ is a Levi subgroup of $G$.  We also know, since $H$ commutes with the image of $\iota$, that $H$ is a subgroup of $L$.  Now let $U := \exp(\mathfrak{u})$, where $\mathfrak{u}$ is the positive weight space for $\Ad(\iota(\diag(t, t^{-1})))$.  We also define $\bar{U} := \exp(\bar{\mathfrak{u}})$, with $\mathfrak{u}$ the negative weight space.
   \begin{example}
     Take $G = \mathrm{GL}_{2 n}$ and $\iota : \mathrm{SL}_2 \rightarrow \mathrm{GL}_{2 n}$ given by
@@ -1794,9 +1794,9 @@ Let's start with some easy special cases, before moving to the general case.
   \end{example}
 
   If $\iota$ is even (i.e., all the weights of $\Ad(\iota(\diag(t, t^{-1})))$ are even), then the Fourier coefficient is given by a very easy formula:
-  \begin{equation*}
+  \begin{equation}\label{eq:cq6thc26pn}
     \mathcal{P}_\iota(\phi)(h) := \int_{[U]} \phi(u h) \xi(u)^{-1} \, d u,
-  \end{equation*}
+  \end{equation}
   where $\xi :[U] \rightarrow \mathbb{C}^\times$ is a character defined, for $x \in \mathfrak{u}(\mathbb{A})$, by
   \begin{equation*}
     \xi(\exp(x)) := \psi \bigl( \langle x, \iota \left(
@@ -1830,8 +1830,93 @@ Let's start with some easy special cases, before moving to the general case.
   \begin{exercise}
     Let $G := \mathrm{GL}_n$ and $\iota : \mathrm{SL}_2 \rightarrow \mathrm{GL}_n$ be $\rho_{\sym}^{n - 1}$.  Then write down the Fourier coefficient $\mathcal{P}_\iota(\phi)$.
   \end{exercise}
+
+  If $\iota$ is \emph{not} even, then we have a Weil representation $\Omega_\iota$ of $U(\mathbb{A})$ on $\mathcal{S}(Z(\mathbb{A}))$, where $Z$ is a maximal isotropic subspace of the weight $1$ space of $\Ad(\iota(\diag(t, t^{-1})))$.  Then we build another theta kernal $\Theta_\iota(u) := \sum_{x \in Z(K)} \Omega_\iota(u) \varphi(x)$, where $\varphi \in \mathcal{S}(Z(\mathbb{A}))$.  The period integral (depending upon $\varphi$) is then given by integrating not just against a character as in \eqref{eq:cq6thc26pn}, but against the theta function:
+  \begin{equation}\label{eq:cq6thc48wh}
+    \mathcal{P}_\iota(\phi) := \int_{[U]} \phi(u) \Theta_{\iota}(u) \, d u.
+  \end{equation}
+
+  So, in the integral $\mathcal{P}_\Delta(\phi)$, there are possibly two different choices of Schwartz functions: one in the theta kernel in \eqref{eq:cq6thc4107}, and another in the theta kernel in \eqref{eq:cq6thc48wh}.  But in some special cases ($\iota$ trivial or even), we don't need these.
 \end{enumerate}
 
+\begin{example}
+  Take $\Delta =(G, H, \iota, \rho_H)$, where
+  \begin{equation*}
+    G =\mathrm{GL}_{2 n},
+  \end{equation*}
+  \begin{equation*}
+    H = \mathrm{GL}_n = \left\{
+      \begin{pmatrix}
+        h        &  \\
+                 & h \\
+      \end{pmatrix} \mid h \in \mathrm{GL}_n \right\},
+  \end{equation*}
+  $\rho_H = 0$ and
+  \begin{equation*}
+    \iota :
+    \begin{pmatrix}
+      t      &  \\
+             & t^{-1} \\
+    \end{pmatrix}
+    \mapsto
+    \begin{pmatrix}
+      t I_n &  \\
+            & t^{-1} I_n \\
+    \end{pmatrix},
+    \quad
+    \begin{pmatrix}
+      1 & 1 \\
+        & 1 \\
+    \end{pmatrix}
+    \mapsto
+    \begin{pmatrix}
+      I_n      & I_n \\
+               & I_n \\
+    \end{pmatrix}.
+  \end{equation*}
+  Then
+  \begin{equation*}
+    \mathcal{P}_\Delta(\phi) =
+    \int_{[\mathrm{GL}_n] / \mathrm{GL}_1(\mathbb{A})}
+    \int_{[\Mat_{n \times n}]} \phi \left(
+      \begin{pmatrix}
+        I_n      & x \\
+                 & I_n \\
+      \end{pmatrix}
+      \begin{pmatrix}
+        h &  \\
+          & h \\
+      \end{pmatrix}      
+    \right)
+    \psi(\trace(x))^{-1} \, d x
+    \, d h,
+  \end{equation*}
+  which is relevant for the \emph{Shalika model}.
+\end{example}
+
+\begin{exercise}
+  For $G = \mathrm{GL}_6$, find $\Delta$ for which $\mathcal{P}_\Delta(\phi)$ is given by
+  \begin{equation*}
+    \int_{[\mathrm{GL}_2]} \int_{[\Mat_{2 \times 2}^3]} \phi
+    \left(
+      \begin{pmatrix}
+        I_2      & X & Z \\
+                 & I_2 & Y \\
+                 &  & I_2 \\
+      \end{pmatrix}
+      \begin{pmatrix}
+        h      &  &  \\
+               & h &  \\
+               &  & h \\
+      \end{pmatrix}\right)
+    \psi(\trace(X + Y))^{-1}
+    \, d X \, d Y \, d Z \, d h.
+  \end{equation*}
+\end{exercise}
+
+\begin{example}
+  $\iota : \mathrm{SL}_2 \rightarrow \mathrm{GL}_3$ given by $h \mapsto \diag(h, 1)$ is \emph{not} even, because we get odd weight spaces for $\diag(t, t^{-1}, 1)$ acting via the adjoint representation for $\mathrm{GL}_3$.
+\end{example}<++>
 
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
