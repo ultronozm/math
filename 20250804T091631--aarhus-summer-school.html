@@ -205,7 +205,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-07 11:06:22
+2025-08-07 11:18:02
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -3183,9 +3183,125 @@ class="math inline">\(\varphi \in \mathcal{S}(Y(\mathbb{A}))\)</span>,
 label="enumerate:cq6thb84py"></span> In the fully general case, we
 define <span class="math display">\[\mathcal{P}_\Delta(\phi) :=
 \int_{[H]} \mathcal{P}_\iota(\phi)(h) \Theta_{\rho_H}(h) \, d
-h.\]</span></p></li>
+h.\]</span> Here <span class="math inline">\(\mathcal{P}_\iota\)</span>
+is the Fourier coefficient of <span class="math inline">\(\phi\)</span>
+associated to <span class="math inline">\(\iota\)</span>, defined as
+follows. We first recall that <span class="math inline">\(\iota :
+\mathrm{SL}_2 \rightarrow G\)</span>. In particular, we can let <span
+class="math inline">\(L :=
+\mathrm{Cent}_G(\operatorname{image}(\iota(T_{\mathrm{SL}_2})))\)</span>,
+with <span class="math inline">\(T_{\mathrm{SL}_2} \leq
+\mathrm{SL}_2\)</span> the diagonal maximal torus consisting of elements
+of the form <span class="math inline">\(\mathop{\mathrm{diag}}(t,
+t^{-1})\)</span>. Then <span class="math inline">\(L\)</span> is a Levi
+subgroup of <span class="math inline">\(G\)</span>. We also know, since
+<span class="math inline">\(H\)</span> commutes with the image of <span
+class="math inline">\(\iota\)</span>, that <span
+class="math inline">\(H\)</span> is a subgroup of <span
+class="math inline">\(L\)</span>. Now let <span class="math inline">\(U
+:= \exp(\mathfrak{u})\)</span>, where <span
+class="math inline">\(\mathfrak{u}\)</span> is the positive weight space
+for <span
+class="math inline">\(\mathop{\mathrm{Ad}}(\iota(\mathop{\mathrm{diag}}(t,
+t^{-1})))\)</span>. We also define <span class="math inline">\(\bar{U}
+:= \exp(\bar{\mathfrak{u}})\)</span>, with <span
+class="math inline">\(\mathfrak{u}\)</span> the negative weight
+space.</p>
+<div class="example">
+<p><strong>Example 53</strong>. Take <span class="math inline">\(G =
+\mathrm{GL}_{2 n}\)</span> and <span class="math inline">\(\iota :
+\mathrm{SL}_2 \rightarrow \mathrm{GL}_{2 n}\)</span> given by <span
+class="math display">\[\begin{pmatrix}
+        t      &amp;  \\
+               &amp; t^{-1} \\
+      \end{pmatrix}
+      \mapsto
+      \begin{pmatrix}
+        t I_n      &amp;  \\
+                   &amp; t^{-1} I_n \\
+      \end{pmatrix},\]</span> <span
+class="math display">\[\begin{pmatrix}
+        1 &amp; 1 \\
+          &amp; 1 \\
+      \end{pmatrix}
+      \mapsto
+      \begin{pmatrix}
+        I_n      &amp;  I_n \\
+                 &amp; I_n \\
+      \end{pmatrix},\]</span> <span
+class="math display">\[\begin{pmatrix}
+        1      &amp;  \\
+        1 &amp; 1 \\
+      \end{pmatrix}
+      \mapsto
+      \begin{pmatrix}
+        I_n      &amp;  \\
+        I_n &amp;  I_n \\
+      \end{pmatrix}.\]</span> Then <span class="math display">\[L =
+\left\{
+        \begin{pmatrix}
+          a          &amp;  \\
+                     &amp; b \\
+        \end{pmatrix} : a, b \in \mathrm{GL}_n \right\},
+      \quad
+      U = \left\{
+        \begin{pmatrix}
+          I_n          &amp; \ast \\
+                       &amp; I_n \\
+        \end{pmatrix} \right\},
+      \quad
+      \bar{U} = \left\{
+        \begin{pmatrix}
+          I_n          &amp;  \\
+          \ast          &amp; I_n \\
+        \end{pmatrix} \right\}.\]</span></p>
+</div>
+<p>If <span class="math inline">\(\iota\)</span> is even (i.e., all the
+weights of <span
+class="math inline">\(\mathop{\mathrm{Ad}}(\iota(\mathop{\mathrm{diag}}(t,
+t^{-1})))\)</span> are even), then the Fourier coefficient is given by a
+very easy formula: <span
+class="math display">\[\mathcal{P}_\iota(\phi)(h) := \int_{[U]} \phi(u
+h) \xi(u)^{-1} \, d u,\]</span> where <span class="math inline">\(\xi
+:[U] \rightarrow \mathbb{C}^\times\)</span> is a character defined, for
+<span class="math inline">\(x \in \mathfrak{u}(\mathbb{A})\)</span>, by
+<span class="math display">\[\xi(\exp(x)) := \psi \bigl( \langle x,
+\iota \left(
+      \begin{smallmatrix}
+        0&amp;0\\
+        1&amp;0 \\
+      \end{smallmatrix}
+    \right) \rangle \bigr),\]</span> where <span
+class="math inline">\(\psi : K \backslash \mathbb{A} \rightarrow
+\mathbb{C}^\times\)</span> is some fixed character.</p>
+<div class="example">
+<p><strong>Example 54</strong>. In the above example, <span
+class="math display">\[\xi
+      \begin{pmatrix}
+        I_n    &amp; x \\
+                                                                                        &amp;
+I_n \\
+      \end{pmatrix}
+      = \psi \left( \left\langle
+          \begin{pmatrix}
+            0        &amp; x \\
+            0 &amp; 0 \\
+          \end{pmatrix},
+          \begin{pmatrix}
+            0        &amp; 0 \\
+            1 &amp; 0 \\
+          \end{pmatrix} \right\rangle \right)
+      = \psi(\mathop{\mathrm{trace}}(x)).\]</span></p>
+</div>
+<div class="exercise">
+<p><strong>Exercise 9</strong>. Let <span class="math inline">\(G :=
+\mathrm{GL}_n\)</span> and <span class="math inline">\(\iota :
+\mathrm{SL}_2 \rightarrow \mathrm{GL}_n\)</span> be <span
+class="math inline">\(\rho_{\mathop{\mathrm{sym}}}^{n - 1}\)</span>.
+Then write down the Fourier coefficient <span
+class="math inline">\(\mathcal{P}_\iota(\phi)\)</span>.</p>
+</div></li>
 </ol>
-<p>&lt;++&gt;</p>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
   toggle.addEventListener("click", function(e) {
