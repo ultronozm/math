@@ -2,6 +2,7 @@
 
 \numberwithin{theorem}{section}
 \numberwithin{equation}{section}
+\numberwithin{exercise}{section}
 
 \begin{document}
 
@@ -1634,9 +1635,146 @@ Actually, it's better, and we do it in the paper (see the course references (TOD
   $L^2(X^{\circ}(F), \lvert \Lambda \rvert^{1/2})$ is a unitary $G(F)$-representation.
 \end{exercise}
 
+We continue now with harmonic analysis over a local field $F$.  Let $X \times G \rightarrow X$ be a $G$-variety, with open $G$-orbit $X^{\circ} \subset X$.  We'll ignore the half-densities ``$\mathcal{L}_\psi$'' discussed earlier.
+
+Recall that we are looking for a Schwartz space $\mathcal{S}(X(F))$ sitting as follows:
+\begin{equation*}
+  C_c^\infty(X^{\circ}(F)) \subset S(X(F)) \subset C^\infty \cap L^2(X^{\circ}(F)).
+\end{equation*}
+We moreover have the following desiderata for the Schwartz space:
+\begin{itemize}
+\item It should be stable under $G(F)$.
+\item There should be a unitary ``Fourier transform'' $\mathcal{F}_X \circlearrowright \mathcal{S}(X(F))$.
+\item We should have the compatibility $\mathcal{F}_X \circ \mathcal{R}(g) = \mathcal{R}(\iota(g)) \mathcal{F}_x$
+\end{itemize}
+We caution that elements of $\mathcal{S}(X(F))$ need not be defined on all of $X(F)$.  We want the following:
+\begin{enumerate}
+\item In the archimedean case, we want $S(X(F))$ to be a Frechét space, with the action continuous.
+\item We want elements of $S(X(F))$ to enjoy ``rapid decay at $\infty$''.  In the archimedean case, this means dominated by a Schwartz function after an affine embedding.  In the non-archimedean case, it means supported on a compact subset of $X(F)$ (not $X^{\circ}(F)$).
+\item We want the space to be local: given a $G$-equivariant embedding $X \hookrightarrow \mathbb{G}_a^n $, we want the space to be preserved under multiplication by restrictions of functions in $\mathcal{S}(F^n)$.
+\end{enumerate}
+In the unramified case, we ask that for a \emph{basic function} $b_X \in S(X(F))$ such that $X^{\circ}(\mathcal{O}_F) \subsetneq \supp b_X \subseteq X(\mathcal{O}_F)$, with $\mathcal{F}_X(b_X) = b_X$.
+
+In many cases, one can construct this.  For instance, the case of $\overline{P^{\der} \backslash G}^{\mathrm{aff}}$ was studied by Braverman--Kazhdan, refined by Getz--Liu, and further by Getz--Hsu--Leslie.
+
+\subsubsection{Poisson summation formula}
+
+Let $F$ again be a number field.  Assume that $\mathcal{S}(X(F_v))$ has been constructed for all places $v$.  We then take
+\begin{equation*}
+  \mathcal{S}(X(\mathbb{A}_F)) = \bigotimes_{v \mid \infty} \mathcal{S}(X(F_v))  \otimes \bigotimes_{v \nmid \infty} {}^{'} \mathcal{S}(X(F_v)),
+\end{equation*}
+where the restricted tensor product is with respect to the $b_{X_{F_v}}$.
+
+We set $\mathcal{F}_X := \otimes_v \mathcal{F}_{X_{F_v}}$, which acts on $\mathcal{S}(X(\mathbb{A}_F))$.  If
+\begin{equation}\label{eq:cq6txloduw}
+  f = f_{v_1} f_{v_2} f^{v_1 v_2}
+  \quad \text{ with }
+  \supp f_{v_1}  \subset X^{\circ}(F_{v_1})
+  \text{ and }
+  \supp \mathcal{F}_X(f_{v_2}) \subset X^{\circ}(F_{v_2}),
+\end{equation}
+then the Poisson summation conjecture is that is the statement that
+\begin{equation*}
+  \sum_{x \in X^{\circ}(F)} f(x) = \sum_{x \in X^{\circ}(F)} \mathcal{F}(f)(x).
+\end{equation*}
+We remark that this may not be true in general.  We expect it to be true for reductive monoids and more generally in multiplicity one situations.  One thing we'll talk about in later lectures is how one can prove new types of formulas of this type from old ones.  We'll see examples where even if you're ultimately interested in situations with multiplicity one (spherical varieties), it may be useful to pass outside that setting.
+
+Now, Poisson summation is a very useful formula in analysis, but why would someone outside representation theory care about this?  The reason is the connection to zeta integrals.  Suppose $\pi$ is cuspidal in $A_G \backslash G(\mathbb{A}_F)$, and let $\varphi \in \pi$.  Write $Z_G^+ = \mathbb{G}_m^n$.  We assume given characters
+\begin{equation*}
+  \eta_s : G(\mathbb{A}_F) \rightarrow(\mathbb{A}_F^\times)^n \xrightarrow{x \mapsto \prod \lvert x_i \rvert^{s_i}} \mathbb{C}^\times.
+\end{equation*}
+Given $f \in \mathcal{S}(X(\mathbb{A}_F))$, we form the zeta integral
+\begin{equation*}
+  Z(f, \varphi, s) = \int_{[G]}
+  \sum_{x \in X^{\circ}(F)} f(x g)
+  \varphi(g)
+  \eta_s(g) \, d g.
+\end{equation*}
+Morally, the Poisson summation conjecture implies that
+\begin{equation*}
+  Z(f, \varphi, s) = Z(\mathcal{F}_X(f), \varphi^\vee, 1 - s),
+\end{equation*}
+where $\varphi^\vee(g) = \varphi(\iota(g))$ is just defined using this automorphism that we mentioned earlier.  These sort of period integrals have appeared in almost every talk that we've seen this week.
+
+We're primarily interested in the Eulerian case, i.e., when
+\begin{equation*}
+  Z(f, \varphi, s) = \prod_v Z(f_v, \varphi_v, s)
+\end{equation*}
+
+for pure tensors $f = \otimes_v f_v$ and $\varphi = \otimes_v \varphi_v$.
+
+\subsection{The spectral argument}
+
+Known properties of $L$-functions imply cases of the Poisson summation conjecture.  (This is analogous to the fact that the functional equation of the Riemann zeta function is \emph{equivalent} to Poisson summation for $\mathbb{Z}$.)  Why would you do this, given that it seems circular?
+\begin{enumerate}
+\item It puts the local theory on firmer footing.
+\item It's a check on the Poisson summation conjecture.
+\item We can produce new Poisson summation formulae from old ones.  (If you place it in the right context, the Rankin--Selberg method is a consequence of this.  It starts by taking known properties of Eisenstein series, which can always be understood as a case of the Poisson summation conjecture, and then applies it to new $L$-functions.)
+\item ``Boundary terms lead to residue kernels.''  We won't have much time to talk about this point in these lectures, but the idea is that if you want to remove the condition \eqref{eq:cq6txloduw}, you'll get new boundary terms, which can in turn be related to residues of $L$-functions.
+\end{enumerate}
+
+\subsubsection{Plancherel decomposition}
+
+Let's talk about this spectral argument, starting locally.  A nice reference is \cite{MR1075727}.  Recall that we expect
+\begin{equation*}
+  C_c^\infty(X^{\circ}(F)) \subsetneq \mathcal{S}(X(F)) \subsetneq \mathcal{C}(X(F)) \subsetneq L^2(X(F)),
+\end{equation*}
+where $\mathcal{C}$ denotes the Harish--Chandra Schwartz space.  We may write
+\begin{equation*}
+  L^2(X^{\circ}(F)) = \int_{\widehat{G(F)}} V_\pi \, d \mu_X(\pi)
+\end{equation*}
+for some Borel measure $d \mu_X(\pi)$.  (If you're not familiar with these, they're analogous to writing $L^2(\mathbb{R}) = \int \mathbb{C} e^{i t} \, d t$.)  We assume that the support of $d \mu_X$ is contained in the tempered spectrum $T_p(G(F))$.  For each $\pi$, we have a projection map
+\begin{equation*}
+  \alpha_\pi : C_c^\infty(X^{\circ}(F)) \rightarrow V_\pi,
+\end{equation*}
+with adjoint
+\begin{equation*}
+  \beta_\pi : V_\pi^\infty \rightarrow C^\infty(X^{\circ}(F)).
+\end{equation*}
+For $f \in C_c^\infty(X^{\circ}(F))$, we have
+\begin{equation*}
+  f(x) = \int_{T_p(G(F))}
+  f_\pi(x)
+  \, d \mu_X(\pi)
+  \quad
+  \text{ when }
+  f_\pi = \beta_\pi \circ \alpha_\pi(f).
+\end{equation*}
 
 
+\subsubsection{$L$-functions}
 
+Recall that we have our torus
+\begin{equation*}
+  \begin{CD}         
+    Z_G^+    @>>> \mathbb{G}_m^n\\
+    @VVV  @VVV \\
+    \overline{Z_G^+}    @>>> \mathbb{G}_a^n. \\
+  \end{CD}
+\end{equation*}
+Recall that we asked that the action map  $X^{\circ} \times Z^+_G \rightarrow X^{\circ}$ extends to a map (no longer an action) $X \times \overline{Z_G^+} \rightarrow X$.  We can choose $d_i : G \rightarrow \mathbb{G}_m$ such that
+\begin{equation*}
+  Z_G^+ \rightarrow G \xrightarrow{\prod  d_i} \mathbb{G}_m^n
+\end{equation*}
+is an isogeny.  For $s \in \mathbb{C}^n$, set
+\begin{equation*}
+  \eta_s(g) := \prod \lvert d_i(g) \rvert^{s_i}.
+\end{equation*}
+We record \textbf{Hypothesis L}: there exists $r_i :{}^L G \rightarrow \GL_{v_i}(\mathbb{C})$, for $1 \leq i \leq n$, such that when $F$ is non-archimedean, for all $f \in C_c^\infty(X(F))$ and $\phi \in C_c^\infty(X^{\circ}(F))$e, we have
+\begin{equation*}
+  \frac{\left\langle f, \phi_\pi \otimes \eta_s \right\rangle}{\prod L(\tfrac{1}{2} + s_i, \pi, r_i)} \in \mathbb{C}[q^{\pm s_1}, \dotsc, q^{\pm s_n}].
+\end{equation*}
+See the work of Sakellaridis--Venkatesh, Ichino--Ikeda, and our paper in the list of references.  The idea is that some ``almost $L$-functions'' (they would be actual $L$-functions if the ratio were $1$ rather than some polynomial) control the boundary asymptotics.
+
+A basic example is when $X^{\circ} = \mathbb{G}_m$ and $X = \mathbb{G}_a$, where the asymptotics near zero are controlled by the local zeta factor $\zeta(s)$.
+
+There's another hypothesis that's useful: \textbf{Multiplicity one}.  This says that for tempered $\pi$ and generic $s \in \mathbb{C}^n$, we have
+\begin{equation*}
+  \dim \Hom(V_\pi \otimes \eta_s \otimes C^\infty(X^{\circ}(F)), \mathbb{C}) = 1.
+\end{equation*}
+(This was one of the motivations for Sakellaridis to focus on spherical varieties in his early papers.)
+
+Given the above, we can give our first pass at the definition of the Schwartz space.  
 
 
 
@@ -2110,6 +2248,15 @@ Here $(H_1 \times H_2)_\gamma$ is the stabilizer with respect to the action $\ga
   \end{equation*}
   where $\mathrm{Orb}_\gamma(f_v)$ is a local orbital integral.
 \end{remark}
+
+\begin{remark}\label{remark:cq6th778hd}
+  There are a few different RTF's one can see here:
+  \begin{itemize}
+  \item $G \circlearrowleft H_1 \times H_2$,
+  \item $H_1 \backslash G \circlearrowleft H_2$,
+  \item $H_1 \backslash G \times H_2 \backslash G \circlearrowleft G$.
+  \end{itemize}
+\end{remark}<++>
 
 \subsubsection{RTF and theta series}\label{sec:cq6thubysx}
 
