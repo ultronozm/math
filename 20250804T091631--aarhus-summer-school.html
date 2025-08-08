@@ -225,7 +225,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-08 09:56:43
+2025-08-08 10:07:42
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -258,16 +258,20 @@ conjecture</a>
 setting</a></li>
 <li><a href="#sec:cq6tho3bu5" id="toc-sec:cq6tho3bu5">Local harmonic
 analysis</a></li>
-<li><a href="#poisson-summation-formula"
-id="toc-poisson-summation-formula">Poisson summation formula</a></li>
+<li><a href="#sec:cq6txpqnif" id="toc-sec:cq6txpqnif">Poisson summation
+formula</a></li>
 </ul></li>
-<li><a href="#the-spectral-argument" id="toc-the-spectral-argument">The
-spectral argument</a>
+<li><a href="#sec:cq6txpqmpx" id="toc-sec:cq6txpqmpx">The spectral
+argument</a>
 <ul>
-<li><a href="#plancherel-decomposition"
-id="toc-plancherel-decomposition">Plancherel decomposition</a></li>
-<li><a href="#l-functions" id="toc-l-functions"><span
+<li><a href="#sec:cq6txpqlp7" id="toc-sec:cq6txpqlp7">Plancherel
+decomposition</a></li>
+<li><a href="#sec:cq6txpqktt" id="toc-sec:cq6txpqktt"><span
 class="math inline">\(L\)</span>-functions</a></li>
+<li><a href="#sec:cq6txpqjrw" id="toc-sec:cq6txpqjrw">Construction of a
+Schwartz space</a></li>
+<li><a href="#sec:cq6txpqe90" id="toc-sec:cq6txpqe90">The spectral
+argument</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#sec:cq6tho3cpy" id="toc-sec:cq6tho3cpy">Chen Wan’s
@@ -3033,7 +3037,7 @@ class="math inline">\(X^{\circ}(\mathcal{O}_F) \subsetneq
 <span class="math inline">\(\overline{P^{\mathop{\mathrm{der}}}
 \backslash G}^{\mathrm{aff}}\)</span> was studied by Braverman–Kazhdan,
 refined by Getz–Liu, and further by Getz–Hsu–Leslie.</p>
-<h3 id="poisson-summation-formula">Poisson summation formula</h3>
+<h3 id="sec:cq6txpqnif">§3.3.3. Poisson summation formula</h3>
 <p>Let <span class="math inline">\(F\)</span> again be a number field.
 Assume that <span class="math inline">\(\mathcal{S}(X(F_v))\)</span> has
 been constructed for all places <span class="math inline">\(v\)</span>.
@@ -3088,7 +3092,7 @@ s)\]</span></p>
 <p>for pure tensors <span class="math inline">\(f = \otimes_v
 f_v\)</span> and <span class="math inline">\(\varphi = \otimes_v
 \varphi_v\)</span>.</p>
-<h2 id="the-spectral-argument">The spectral argument</h2>
+<h2 id="sec:cq6txpqmpx">§3.4. The spectral argument</h2>
 <p>Known properties of <span class="math inline">\(L\)</span>-functions
 imply cases of the Poisson summation conjecture. (This is analogous to
 the fact that the functional equation of the Riemann zeta function is
@@ -3112,7 +3116,7 @@ data-reference="eq:cq6txloduw">\((3.4)\)</a>, you’ll get new
 boundary terms, which can in turn be related to residues of <span
 class="math inline">\(L\)</span>-functions.</p></li>
 </ol>
-<h3 id="plancherel-decomposition">Plancherel decomposition</h3>
+<h3 id="sec:cq6txpqlp7">§3.4.1. Plancherel decomposition</h3>
 <p>Let’s talk about this spectral argument, starting locally. A nice
 reference is <a href="#ref-MR1075727" class="citation" data-cites="MR1075727">(Bernstein
 1988)</a>. Recall that we expect <span
@@ -3140,7 +3144,7 @@ class="math inline">\(f \in C_c^\infty(X^{\circ}(F))\)</span>, we have
   \quad
   \text{ when }
   f_\pi = \beta_\pi \circ \alpha_\pi(f).\]</span></p>
-<h3 id="l-functions"><span
+<h3 id="sec:cq6txpqktt">§3.4.2. <span
 class="math inline">\(L\)</span>-functions</h3>
 <p>Recall that we have our torus <span
 class="math display">\[\begin{CD}         
@@ -3184,8 +3188,60 @@ class="math display">\[\dim \mathop{\mathrm{Hom}}(V_\pi \otimes \eta_s
 \otimes C^\infty(X^{\circ}(F)), \mathbb{C}) = 1.\]</span> (This was one
 of the motivations for Sakellaridis to focus on spherical varieties in
 his early papers.)</p>
+<h3 id="sec:cq6txpqjrw">§3.4.3. Construction of a Schwartz space</h3>
 <p>Given the above, we can give our first pass at the definition of the
-Schwartz space.</p>
+Schwartz space. Assume that <span class="math display">\[f(x) =
+\int_{T_p(G(F))}
+  f_\pi(x)
+  \, d \mu_X(\pi).\]</span> Assume Hypothesis <span
+class="math inline">\(L\)</span> and Multiplicity One. If <span
+class="math inline">\(F\)</span> is non-archimedean, then our first
+approximation at a definition is that <span
+class="math display">\[\mathcal{S}^{\text{naive}}(X(F))
+  =
+  \left\{ f \in \mathcal{C}(X^{\circ}(F)) \mid \pi \mapsto
+\frac{f_\pi}{\prod_i L(\frac{1}{2}, \pi, r_i)} \text{ is polynomial}
+\right\}.\]</span> (We follow the treatment of <a href="#ref-2015arXiv150601452B" class="citation"
+data-cites="2015arXiv150601452B">(Beuzart-Plessis 2015, sec. 2.6)</a>
+(TODO: fix ref).) A polynomial function on <span
+class="math inline">\((\mathbb{R} / 2 \pi i \log q)^n\)</span> is a
+function of the form <span class="math inline">\(s \mapsto p(q^{- s},
+q^{s})\)</span> for some <span class="math inline">\(p \in \mathbb{C}[x,
+y] /(x y - 1)\)</span>. Locally, <span
+class="math inline">\(T_p(G(F))\)</span> is a quotient of <span
+class="math inline">\((\mathbb{R} / 2 \pi i \log q)^n\)</span> by a
+finite group. A polynomial function on <span
+class="math inline">\(T_p(G(F))\)</span> is a function that pulls back
+to a polynomial function on <span class="math inline">\((\mathbb{R} / 2
+\pi i \log q)^n\)</span>. (You can ask me later to give an example.)
+Define the basic function to be <span class="math display">\[b_X =
+\int_{T_p(G(F))}
+  \prod_i L(\tfrac{1}{2}, \pi, r_i)
+  \cdot
+  \mathbf{1}_{X^{\circ}(\mathcal{O}_F)_\pi}
+  \, d \mu_X(\pi)\]</span> and <span
+class="math display">\[\mathcal{F}_X(f) := \int_{T_p(G(F))} \prod_i
+\gamma(\tfrac{1}{2}, \pi, r_i) \cdot f_{\pi^\vee}
+  \, d \mu_X(\pi).\]</span> Then <span
+class="math inline">\(\mathcal{F}_X\)</span> acts on <span
+class="math inline">\(\mathcal{S}^{\text{naive}}(X(F))\)</span>. (This
+should be an approximation to the Schwartz space, but too big.)</p>
+<h3 id="sec:cq6txpqe90">§3.4.4. The spectral argument</h3>
+<p>We define <span
+class="math inline">\(\mathcal{S}(X(\mathbb{A}_F))\)</span> to be a
+restricted tensor product, as before.</p>
+<div id="exercise:cq6txpqdmd" class="exercise">
+<p><strong>Exercise 9</strong>. Derive the Poisson summation formula for
+<span class="math inline">\(\mathbb{Z} \subset \mathbb{R}\)</span> from
+the functional equation of the Riemann zeta function <span
+class="math inline">\(\zeta(s)\)</span>.</p>
+</div>
+<p>Generalizing this, you can show that if <span
+class="math inline">\(L(s, \pi, r_i)\)</span> is nice for all <span
+class="math inline">\(i\)</span>, then the Poisson summation conjecture
+holds for <span class="math inline">\(X\)</span>. We’re not going to go
+through this, and in any given case there might be some difficulties to
+make this precise.</p>
 <h1 id="sec:cq6tho3cpy">§4. Chen Wan’s lectures</h1>
 <p>We’ll focus on the <em>period</em> aspect of the relative Langlands
 duality of Ben-Zvi–Sakellaridis–Venkatesh. Recall from Chris’s talk that
@@ -3539,7 +3595,7 @@ I_n \\
       = \psi(\mathop{\mathrm{trace}}(x)).\]</span></p>
 </div>
 <div class="exercise">
-<p><strong>Exercise 9</strong>. Let <span class="math inline">\(G :=
+<p><strong>Exercise 10</strong>. Let <span class="math inline">\(G :=
 \mathrm{GL}_n\)</span> and <span class="math inline">\(\iota :
 \mathrm{SL}_2 \rightarrow \mathrm{GL}_n\)</span> be <span
 class="math inline">\(\rho_{\mathop{\mathrm{sym}}}^{n - 1}\)</span>.
@@ -3623,7 +3679,7 @@ class="math display">\[\mathcal{P}_\Delta(\phi) =
 model</em>.</p>
 </div>
 <div id="exercise:cq6tho3oca" class="exercise">
-<p><strong>Exercise 10</strong>. For <span class="math inline">\(G =
+<p><strong>Exercise 11</strong>. For <span class="math inline">\(G =
 \mathrm{GL}_6\)</span>, find <span class="math inline">\(\Delta\)</span>
 for which <span class="math inline">\(\mathcal{P}_\Delta(\phi)\)</span>
 is given by <span class="math display">\[\int_{[\mathrm{GL}_2]}
@@ -4008,6 +4064,12 @@ Bernstein, Joseph N. 1988. <span>“On the Support of
 <span>P</span>lancherel Measure.”</span> <em>J. Geom. Phys.</em> 5 (4):
 663–710. <a
 href="https://doi.org/10.1016/0393-0440(88)90024-1">https://doi.org/10.1016/0393-0440(88)90024-1</a>.
+</div>
+<div id="ref-2015arXiv150601452B" class="csl-entry" role="listitem">
+Beuzart-Plessis, R. 2015. <span>“<span class="nocase">A local trace
+formula for the Gan-Gross-Prasad conjecture for unitary groups: the
+archimedean case</span>.”</span> <em>ArXiv e-Prints</em>, June. <a
+href="https://arxiv.org/abs/1506.01452">https://arxiv.org/abs/1506.01452</a>.
 </div>
 </div>
 <script>
