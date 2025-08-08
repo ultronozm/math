@@ -225,7 +225,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-08 10:40:57
+2025-08-08 11:05:28
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -3725,18 +3725,30 @@ but we omit this from our notation for simplicity.</p>
 quadruples, called <em>hyperspherical</em> and <em>anomaly-free</em>.
 Under these conditions, <em>relative Langlands duality</em> is a
 conjecture saying that there should be a duality between such quadruples
-<span class="math display">\[\Delta =(G, H, \iota, \rho_H)
-\leftrightarrow
+<span id="eq:cq6txrs6zo" class="math display">\[\label{eq:cq6txrs6zo}\tag{4.5}
+  \Delta =(G, H, \iota, \rho_H) \leftrightarrow
   \hat{\Delta} =
   (\hat{G}, \hat{H}&#39;, \hat{\iota}&#39;,
-\rho_{\hat{H}&#39;}).\]</span> There are then several conjectures that
-one can associate to this duality. In my talk, we will focus on the
-<em>period integral conjecture</em> of BZSV. If you want to summarize it
-in one line, it says that if you have one quadruple that is dual to
-another one, then the period for <span
-class="math inline">\(\Delta\)</span> should be roughly equal to the
-<span class="math inline">\(L\)</span>-function for <span
-class="math inline">\(\hat{\Delta}\)</span>, and vice-versa: <span
+\rho_{\hat{H}&#39;}).\]</span></p>
+<div id="remark:cq6txru6kw" class="remark">
+<p><strong>Remark 57</strong>. In general, for the duality, with <span
+class="math inline">\(\Delta\)</span> dual to <span
+class="math inline">\(\hat{\Delta}\)</span>, one is a quadruple for
+<span class="math inline">\(G\)</span>, while the other is a quadruple
+for <span class="math inline">\(\hat{G}\)</span>. But the other three
+data should be viewed as a whole, i.e., <span class="math inline">\((H,
+\iota, \rho_H)\)</span> is dual to <span
+class="math inline">\((\hat{H}&#39;, \hat{\iota}&#39;,
+\rho_{\hat{H}&#39;})\)</span>, but the duality is not defined at the
+level of individual entries in these tuples.</p>
+</div>
+<p>There are then several conjectures that one can associate to this
+duality. In my talk, we will focus on the <em>period integral
+conjecture</em> of BZSV. If you want to summarize it in one line, it
+says that if you have one quadruple that is dual to another one, then
+the period for <span class="math inline">\(\Delta\)</span> should be
+roughly equal to the <span class="math inline">\(L\)</span>-function for
+<span class="math inline">\(\hat{\Delta}\)</span>, and vice-versa: <span
 class="math display">\[P_{\Delta} = L_{\hat{\Delta}}, \qquad
   P_{\hat{\Delta}} = L_{\Delta}.\]</span> So far for this whole picture,
 we only did one thing, which is we defined the period. We next need to
@@ -3765,9 +3777,116 @@ class="math inline">\(k\)</span> is even, it is an orthogonal
 representation, while when <span class="math inline">\(k\)</span> is
 odd, is a symplectic representation. Since the tensor should be of
 orthogonal type, we also know that <span
-class="math inline">\(\rho_k\)</span> is of orthogonal
-(resp. symplectic) when <span class="math inline">\(k\)</span> is even
-(resp. odd).</p>
+class="math inline">\(\rho_k\)</span> is orthogonal (resp. symplectic)
+when <span class="math inline">\(k\)</span> is even (resp. odd).</p>
+<p>We can do the same thing for the dual side of <a
+href="#eq:cq6txrs6zo" data-reference-type="eqref"
+data-reference="eq:cq6txrs6zo">\((4.5)\)</a>, i.e., using <span
+class="math inline">\(\hat{\iota} &#39; : \hat{H} &#39; \times
+\mathrm{SL}_2 \rightarrow G\)</span>, we get <span
+class="math display">\[\hat{\mathfrak{g}} = \bigoplus_{k \geq 0}
+  \hat{\rho}_K \otimes {\mathop{\mathrm{Sym}}}^k,\]</span> with <span
+class="math inline">\(\hat{\rho}_K\)</span> a representation of <span
+class="math inline">\(\hat{H}&#39;\)</span>.</p>
+<p>We can now state the <em>period integral conjecture of BZSV</em>.</p>
+<ol>
+<li><p>Let <span class="math inline">\(\pi\)</span> be a discrete
+automorphic representation of <span
+class="math inline">\(G(\mathbb{A})\)</span>. Let <span
+class="math inline">\(\nu : \pi \rightarrow L^2([G])\)</span>. Then
+<span class="math inline">\(\mathcal{P}_\Delta(\phi) \neq 0\)</span> for
+some <span class="math inline">\(\phi \in
+\mathop{\mathrm{image}}(\nu)\)</span> only if the Arthur parameter of
+<span class="math inline">\(\pi\)</span> factors through <span
+class="math display">\[\hat{\iota}&#39; : \hat{H}&#39;(\mathbb{C})
+\times \mathrm{SL}_2(\mathbb{C}) \rightarrow
+\hat{G}(\mathbb{C}).\]</span> To be a bit more precise, recall that the
+Arthur parameter for <span class="math inline">\(\pi\)</span> is
+(conjecturally) a map <span class="math inline">\(\omega_\pi : L_K
+\times \mathrm{SL}_2(\mathbb{C}) \rightarrow
+\hat{G}(\mathbb{C})\)</span>, where <span
+class="math inline">\(L_K\)</span> is the conjectural Langlands group.
+The meaning of “factors through” is then that there exists an Arthur
+parameter <span class="math inline">\(\omega_\sigma : L_K \times
+\mathrm{SL}_2(\mathbb{C}) \rightarrow \hat{H}&#39;(\mathbb{C})\)</span>
+(of an automorphic representation <span
+class="math inline">\(\sigma\)</span> of <span class="math inline">\(H
+&#39;(\mathbb{A})\)</span>) such that <span
+class="math display">\[\omega_\pi = \hat{\iota} &#39; \circ
+(\omega_\sigma \times
+{\mathop{\mathrm{id}}}_{{\mathop{\mathrm{SL}}}_2}),\]</span> fitting into a
+commutative diagram <span class="math display">\[\begin{tikzcd}
+      L_K \times \mathrm{SL}_2(\mathbb{C}) \arrow[r,
+&quot;\omega_\pi&quot;] \arrow[d, &quot;\omega_\sigma&quot;&#39;,
+dashed] &amp; \hat{G}(\mathbb{C}) \\
+      \hat{H}&#39;(\mathbb{C}) \times \mathrm{SL}_2(\mathbb{C})
+\arrow[ur, &quot;\hat{\iota}&#39;&quot;&#39;] &amp;
+    \end{tikzcd}\]</span> The content of “factors through” is thus that
+<span class="math inline">\(\pi\)</span> is the Langlands functorial
+transfer of an automorphic representation <span
+class="math inline">\(\sigma\)</span> of <span class="math inline">\(H
+&#39;(\mathbb{A})\)</span>. Assume that this is the case, and assume
+that <span class="math inline">\(\sigma\)</span> is tempered (i.e., that
+<span class="math inline">\(\omega_\sigma |_{\mathrm{SL}_2(\mathbb{C})}
+\equiv 1\)</span>). Then we can choose <span
+class="math inline">\(\nu\)</span> such that <span
+class="math display">\[\left\lvert \mathcal{P}_\Delta(\phi)
+\right\rvert^2
+    \doteq
+    \frac{
+      L(\tfrac{1}{2}, \sigma, \rho_{\hat{H}&#39;})
+      \prod_{k \geq 0} L(\frac{k}{2} + 1, \sigma, \hat{\rho}_K)}{L(1,
+\sigma, \mathop{\mathrm{Ad}})^2}.\]</span> In other words, on the dual
+side, we get two things from <span
+class="math inline">\(\hat{H}&#39;\)</span> and <span
+class="math inline">\(\hat{\iota}&#39;\)</span>. It first gives you
+functoriality, i.e., the period is nonzero only if it factors through
+<span class="math inline">\(\hat{\iota}&#39;\)</span>. It also gives you
+the grading into <span class="math inline">\(k\)</span>’s and the second
+factor in the numerator. Finally, the symplectic representation gives
+you <span class="math inline">\(L\)</span>-values at <span
+class="math inline">\(1/2\)</span>.</p>
+<p>The equal sign is dotted because there are several other factors,
+e.g. volume terms, quantities depending upon the sizes of Arthur
+packets, etc.</p></li>
+<li><p>Conversely, <span
+class="math inline">\(\mathcal{P}_{\hat{\Delta}}\)</span> is “equal” to
+<span class="math inline">\(L_\Delta\)</span>.</p></li>
+</ol>
+<p>Two special cases:</p>
+<ol>
+<li><p><span class="math inline">\(\hat{\Delta} =(\hat{G}, \hat{H}&#39;,
+1, 0)\)</span>. Then the conjecture says that <span
+class="math inline">\(\mathcal{P}_\Delta(\phi)\)</span> detects the
+functoriality from <span
+class="math inline">\(H&#39;(\mathbb{A})\)</span> to <span
+class="math inline">\(G(\mathbb{A})\)</span>. For instance, suppose (as
+discussed earlier) <span class="math inline">\(\Delta =(\mathrm{GL}_{2
+n}, \mathrm{GL}_n,(2^n), 0)\)</span>, where <span
+class="math inline">\(\mathrm{GL}_n\)</span> is embedded like <span
+class="math inline">\(\mathop{\mathrm{diag}}(h, h)\)</span>, and <span
+class="math inline">\((2^n)\)</span> means we take <span
+class="math inline">\(\iota : \mathop{\mathrm{diag}}(t, t^{-1}) \mapsto
+\mathop{\mathrm{diag}}(t I_n, t^{-1} I_n)\)</span>. Then <span
+class="math inline">\(\hat{\Delta} =(\mathrm{GL}_{2 n},
+{\mathop{\mathrm{Sp}}}_{2 n}, 1, 0)\)</span>. Thus <span
+class="math inline">\(\mathcal{P}_\Delta \neq 0\)</span> only if <span
+class="math inline">\(\phi\)</span> comes from the functorial lifting
+from <span class="math inline">\({\mathop{\mathrm{SO}}}_{2 n +
+1}(\mathbb{A})\)</span> to <span class="math inline">\(\mathrm{GL}_{2
+n}(\mathbb{A})\)</span>.</p></li>
+<li><p>Let’s consider next the case where <span
+class="math inline">\(\hat{\Delta} =(\hat{G}, \hat{G}, 1,
+\hat{\rho}_{\hat{G}})\)</span>, i.e., we only have a symplectic
+representation (but no <span
+class="math inline">\(\mathrm{SL}_2\)</span> representation). Then the
+conditions simplify and what we get is that <span
+class="math display">\[\left\lvert \mathcal{P}_\Delta(\phi)
+\right\rvert^2 \doteq \frac{L(\tfrac{1}{2}, \pi,
+\hat{\rho}_{\hat{G}})}{L(1, \pi, \mathop{\mathrm{Ad}})}.\]</span> In
+other words, in this case, the period corresponds to a special value of
+<span class="math inline">\(L\)</span>-functions.</p></li>
+</ol>
 <h1 id="sec:cq6tho1cgx">§5. Raphael Beuzart-Plessis’s lectures</h1>
 <p><strong>Introduction to Relative Trace Formulas (RTF)</strong></p>
 <h2 id="sec:cq6tho1blx">§5.1. RTF in general</h2>
@@ -3786,7 +3905,7 @@ class="math inline">\((H, \chi)\)</span>-period, we mean the functional
 \mathbb{C}\]</span> <span class="math display">\[\varphi \mapsto
 \int_{[H]} \varphi(h) \chi(h) \, d h.\]</span></p>
 <div id="remark:cq6tho091q" class="remark">
-<p><strong>Remark 57</strong>. The integral often diverges. We’ll
+<p><strong>Remark 58</strong>. The integral often diverges. We’ll
 explain in some examples how one might regularize them. It’s usually
 convergent if the automorphic form <span
 class="math inline">\(\varphi\)</span> is cuspidal. (Usually, but not
@@ -3796,7 +3915,7 @@ class="math inline">\(G = \mathrm{GL}_2\)</span>, then it never
 converges.)</p>
 </div>
 <div id="remark:cq6tho3lbh" class="remark">
-<p><strong>Remark 58</strong>. We can replace <span
+<p><strong>Remark 59</strong>. We can replace <span
 class="math inline">\(\chi\)</span> by some “small” automorphic
 representation of <span class="math inline">\(H\)</span> (e.g.,
 “degenerate” Eisenstein series).</p>
@@ -3805,7 +3924,7 @@ representation of <span class="math inline">\(H\)</span> (e.g.,
 class="math inline">\(\mathcal{P}_{H, \chi}\)</span> is often related to
 <span class="math inline">\(L\)</span>-functions and functoriality.</p>
 <div id="example:cq6tho6g4r" class="example">
-<p><strong>Example 59</strong>. </p>
+<p><strong>Example 60</strong>. </p>
 <ol type="a">
 <li><p>(Hecke) <span class="math inline">\(G = \mathrm{GL}_2 \supset
 \left(
@@ -3904,7 +4023,7 @@ class="math display">\[\mathcal{P}_H |_\pi \not \equiv 0
 class="math inline">\(X\)</span>, not necessarily homogeneous. Put this
 way, it contains many basic examples.</p>
 <div id="example:cq6thpw9ml" class="example">
-<p><strong>Example 60</strong>. </p>
+<p><strong>Example 61</strong>. </p>
 <ol type="a">
 <li><p><span id="enumerate:cq6thpxd02"
 label="enumerate:cq6thpxd02"></span> Take <span class="math inline">\(X
@@ -3958,7 +4077,7 @@ class="math inline">\(\mathfrak{X}\)</span> to be, informally, the
 quotient <span class="math display">\[\text{``}H_1, \chi_1 \backslash G
 / H_2, \chi_2\text{&#39;&#39;}.\]</span> More precisely:</p>
 <div id="definition:cq6thqam4a" class="definition">
-<p><strong>Definition 61</strong>. For <span class="math inline">\(f \in
+<p><strong>Definition 62</strong>. For <span class="math inline">\(f \in
 C_c^\infty(G(\mathbb{A}))\)</span>, <span
 class="math display">\[\operatorname{RTF}_{\mathfrak{X}}(f) :=
 \int_{[H_1] \times[H_2]} K_f(h_1, h_2) \chi_1(h_1) \chi_2(h_2)
@@ -3986,7 +4105,7 @@ H_2)_\gamma\)</span> is the stabilizer with respect to the action <span
 class="math inline">\(\gamma \cdot(h_1, h_2) = h_1^{-1} \gamma
 h_2\)</span>.</p>
 <div id="remark:cq6thubzrk" class="remark">
-<p><strong>Remark 62</strong>. Two sources of divergence on the
+<p><strong>Remark 63</strong>. Two sources of divergence on the
 geometric side:</p>
 <ul>
 <li><p>the volumes can be infinite, and</p></li>
@@ -4001,7 +4120,7 @@ class="math inline">\(\mathrm{Orb}_\gamma(f_v)\)</span> is a local
 orbital integral.</p>
 </div>
 <div id="remark:cq6th778hd" class="remark">
-<p><strong>Remark 63</strong>. There are a few different RTF’s one can
+<p><strong>Remark 64</strong>. There are a few different RTF’s one can
 see here:</p>
 <ul>
 <li><p><span class="math inline">\(G \circlearrowleft H_1 \times
@@ -4043,7 +4162,7 @@ convergence. These <span class="math inline">\(\Theta_f^X\)</span> are
 not arbitrary functions – they have a very special behavior. Here’s a
 fact that we’ll write in vague terms, and then give one example.</p>
 <div id="fact:cq6thubvi6" class="fact">
-<p><strong>Fact 64</strong>. <em><span
+<p><strong>Fact 65</strong>. <em><span
 class="math inline">\(\Theta^X_f\)</span> is “asymptotically finite”,
 i.e., is asymptotic to eigenfunctions with respect to the action of some
 tori (where we pluralize “torus” because the precise one depends upon in
@@ -4054,7 +4173,7 @@ is a canonical way to regularize <span
 class="math inline">\(\mathrm{RTF}_{X / G}\)</span>.</em></p>
 </div>
 <div id="example:cq6thubuij" class="example">
-<p><strong>Example 65</strong>. Take <span class="math inline">\(G =
+<p><strong>Example 66</strong>. Take <span class="math inline">\(G =
 \mathbb{G}_m\)</span>. Let <span class="math inline">\(\chi_0,
 \chi_\infty :[\mathbb{G}_m] \rightarrow \mathbb{C}^\times\)</span>.
 Define <span class="math inline">\(\mathcal{F}_{\chi_0,
