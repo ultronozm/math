@@ -1,5 +1,8 @@
 \documentclass[reqno]{amsart} \input{common.tex}
 
+\usepackage{tikz-cd}
+
+
 \numberwithin{theorem}{section}
 \numberwithin{equation}{section}
 \numberwithin{exercise}{section}
@@ -2103,11 +2106,15 @@ Continuing, let $G$ be be a split connected reductive group over $K$.  Recall th
 We recall also that there were Schwartz functions entering into this definition, but we omit this from our notation for simplicity.
 
 There will be some conditions that one can impose on these quadruples, called \emph{hyperspherical} and \emph{anomaly-free}.  Under these conditions, \emph{relative Langlands duality} is a conjecture saying that there should be a duality between such quadruples
-\begin{equation*}
+\begin{equation}\label{eq:cq6txrs6zo}
   \Delta =(G, H, \iota, \rho_H) \leftrightarrow
   \hat{\Delta} =
   (\hat{G}, \hat{H}', \hat{\iota}', \rho_{\hat{H}'}).
-\end{equation*}
+\end{equation}
+\begin{remark}\label{remark:cq6txru6kw}
+  In general, for the duality, with $\Delta$ dual to $\hat{\Delta}$, one is a quadruple for $G$, while the other is a quadruple for $\hat{G}$.  But the other three data should be viewed as a whole, i.e., $(H, \iota, \rho_H)$ is dual to $(\hat{H}', \hat{\iota}', \rho_{\hat{H}'})$, but the duality is not defined at the level of individual entries in these tuples.
+\end{remark}
+
 There are then several conjectures that one can associate to this duality.  In my talk, we will focus on the \emph{period integral conjecture} of BZSV.  If you want to summarize it in one line, it says that if you have one quadruple that is dual to another one, then the period for $\Delta$ should be roughly equal to the $L$-function for $\hat{\Delta}$, and vice-versa:
 \begin{equation*}
   P_{\Delta} = L_{\hat{\Delta}}, \qquad
@@ -2119,7 +2126,54 @@ We'll next define define the $L$-functions.  We recall that, because the image o
 \begin{equation*}
   \mathfrak{g} = \bigoplus_{k \geq 0} \rho_k \otimes \Sym^k,
 \end{equation*}
-where the $\rho_k$ are representations of $H$.  Now the adjoint representation of $G$ on its whole Lie algebra is an orthogonal representation (because it fixes the Killing form), but if you look at the symmetric powers $\Sym^k$ of $\mathrm{SL}_2$, when $k$ is even, it is an orthogonal representation, while when $k$ is odd, is a symplectic representation.  Since the tensor should be of orthogonal type, we also know that $\rho_k$ is of orthogonal (resp.\ symplectic) when $k$ is even (resp.\ odd).
+where the $\rho_k$ are representations of $H$.  Now the adjoint representation of $G$ on its whole Lie algebra is an orthogonal representation (because it fixes the Killing form), but if you look at the symmetric powers $\Sym^k$ of $\mathrm{SL}_2$, when $k$ is even, it is an orthogonal representation, while when $k$ is odd, is a symplectic representation.  Since the tensor should be of orthogonal type, we also know that $\rho_k$ is orthogonal (resp.\ symplectic) when $k$ is even (resp.\ odd).
+
+We can do the same thing for the dual side of \eqref{eq:cq6txrs6zo}, i.e., using $\hat{\iota} ' : \hat{H} ' \times \mathrm{SL}_2 \rightarrow G$, we get
+\begin{equation*}
+  \hat{\mathfrak{g}} = \bigoplus_{k \geq 0}
+  \hat{\rho}_K \otimes \Sym^k,
+\end{equation*}
+with $\hat{\rho}_K$ a representation of $\hat{H}'$.
+
+We can now state the \emph{period integral conjecture of BZSV}.
+\begin{enumerate}
+\item Let $\pi$ be a discrete automorphic representation of $G(\mathbb{A})$.  Let $\nu : \pi \rightarrow L^2([G])$.  Then $\mathcal{P}_\Delta(\phi) \neq 0$ for some $\phi \in \image(\nu)$ only if the Arthur parameter of $\pi$ factors through
+  \begin{equation*}
+    \hat{\iota}' : \hat{H}'(\mathbb{C}) \times \mathrm{SL}_2(\mathbb{C}) \rightarrow \hat{G}(\mathbb{C}).
+  \end{equation*}
+  To be a bit more precise, recall that the Arthur parameter for $\pi$ is (conjecturally) a map $\omega_\pi : L_K \times \mathrm{SL}_2(\mathbb{C}) \rightarrow \hat{G}(\mathbb{C})$, where $L_K$ is the conjectural Langlands group.  The meaning of ``factors through'' is then that there exists an Arthur parameter $\omega_\sigma : L_K \times \mathrm{SL}_2(\mathbb{C}) \rightarrow \hat{H}'(\mathbb{C})$ (of an automorphic representation $\sigma$ of $H '(\mathbb{A})$) such that
+  \begin{equation*}
+    \omega_\pi = \hat{\iota} ' \circ (\omega_\sigma \times \id_{\SL_2}),
+  \end{equation*}
+  fitting into a commutative diagram
+  \begin{equation*}
+    \begin{tikzcd}
+      L_K \times \mathrm{SL}_2(\mathbb{C}) \arrow[r, "\omega_\pi"] \arrow[d, "\omega_\sigma"', dashed] & \hat{G}(\mathbb{C}) \\
+      \hat{H}'(\mathbb{C}) \times \mathrm{SL}_2(\mathbb{C}) \arrow[ur, "\hat{\iota}'"'] &
+    \end{tikzcd}
+  \end{equation*}
+  The content of ``factors through'' is thus that $\pi$ is the Langlands functorial transfer of an automorphic representation $\sigma$ of $H '(\mathbb{A})$.  Assume that this is the case, and assume that $\sigma$ is tempered (i.e., that $\omega_\sigma |_{\mathrm{SL}_2(\mathbb{C})} \equiv 1$).  Then we can choose $\nu$ such that
+  \begin{equation*}
+    \left\lvert \mathcal{P}_\Delta(\phi) \right\rvert^2
+    \doteq
+    \frac{
+      L(\tfrac{1}{2}, \sigma, \rho_{\hat{H}'})
+      \prod_{k \geq 0} L(\frac{k}{2} + 1, \sigma, \hat{\rho}_K)}{L(1, \sigma, \Ad)^2}.
+  \end{equation*}
+  In other words, on the dual side, we get two things from $\hat{H}'$ and $\hat{\iota}'$.  It first gives you functoriality, i.e., the period is nonzero only if it factors through $\hat{\iota}'$.  It also gives you the grading into $k$'s and the second factor in the numerator.  Finally, the symplectic representation gives you $L$-values at $1/2$.
+
+  The equal sign is dotted because there are several other factors, e.g. volume terms, quantities depending upon the sizes of Arthur packets, etc.
+\item Conversely, $\mathcal{P}_{\hat{\Delta}}$ is ``equal'' to $L_\Delta$.
+\end{enumerate}
+Two special cases:
+\begin{enumerate}
+\item $\hat{\Delta} =(\hat{G}, \hat{H}', 1, 0)$.  Then the conjecture says that $\mathcal{P}_\Delta(\phi)$ detects the functoriality from $H'(\mathbb{A})$ to $G(\mathbb{A})$.  For instance, suppose (as discussed earlier) $\Delta =(\mathrm{GL}_{2 n}, \mathrm{GL}_n,(2^n), 0)$, where $\mathrm{GL}_n$ is embedded like $\diag(h, h)$, and $(2^n)$ means we take $\iota : \diag(t, t^{-1}) \mapsto \diag(t I_n, t^{-1} I_n)$.  Then $\hat{\Delta} =(\mathrm{GL}_{2 n}, \Sp_{2 n}, 1, 0)$.  Thus $\mathcal{P}_\Delta \neq 0$ only if $\phi$ comes from the functorial lifting from $\SO_{2 n + 1}(\mathbb{A})$ to $\mathrm{GL}_{2 n}(\mathbb{A})$.
+\item Let's consider next the case where $\hat{\Delta} =(\hat{G}, \hat{G}, 1, \hat{\rho}_{\hat{G}})$, i.e., we only have a symplectic representation (but no $\mathrm{SL}_2$ representation).  Then the conditions simplify and what we get is that
+  \begin{equation*}
+    \left\lvert \mathcal{P}_\Delta(\phi) \right\rvert^2 \doteq \frac{L(\tfrac{1}{2}, \pi, \hat{\rho}_{\hat{G}})}{L(1, \pi, \Ad)}.
+  \end{equation*}
+  In other words, in this case, the period corresponds to a special value of $L$-functions.
+\end{enumerate}
 
 \section{Raphael Beuzart-Plessis's lectures}\label{sec:cq6tho1cgx}
 \textbf{Introduction to Relative Trace Formulas (RTF)}
