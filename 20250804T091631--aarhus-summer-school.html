@@ -225,7 +225,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-08 10:07:42
+2025-08-08 10:40:57
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -3201,9 +3201,9 @@ class="math display">\[\mathcal{S}^{\text{naive}}(X(F))
   =
   \left\{ f \in \mathcal{C}(X^{\circ}(F)) \mid \pi \mapsto
 \frac{f_\pi}{\prod_i L(\frac{1}{2}, \pi, r_i)} \text{ is polynomial}
-\right\}.\]</span> (We follow the treatment of <a href="#ref-2015arXiv150601452B" class="citation"
-data-cites="2015arXiv150601452B">(Beuzart-Plessis 2015, sec. 2.6)</a>
-(TODO: fix ref).) A polynomial function on <span
+\right\}.\]</span> (Our treatment is inspired by <a href="#ref-2015arXiv150601452B" class="citation"
+data-cites="2015arXiv150601452B">(Beuzart-Plessis 2015, sec.
+2.6)</a>.) A polynomial function on <span
 class="math inline">\((\mathbb{R} / 2 \pi i \log q)^n\)</span> is a
 function of the form <span class="math inline">\(s \mapsto p(q^{- s},
 q^{s})\)</span> for some <span class="math inline">\(p \in \mathbb{C}[x,
@@ -3399,12 +3399,11 @@ label="enumerate:cq6tg85st6"></span> Suppose <span
 class="math inline">\(\iota = 1\)</span> (the trivial representation,
 <span class="math inline">\(\mathbb{C}\)</span>) and <span
 class="math inline">\(\rho_H = 0\)</span> (the <em>zero-dimensional</em>
-symplectic representation <span
-class="math inline">\(\emptyset\)</span>), thus <span
-class="math inline">\(\Delta =(G, H, 1, 0)\)</span>. Then <span
-class="math display">\[\mathcal{P}_\Delta(\phi) := \int_{[H]} \phi(h) \,
-d h.\]</span> (In general, this does not converge and must be understood
-via truncation, etc.)</p></li>
+symplectic representation <span class="math inline">\(\{0\}\)</span>),
+thus <span class="math inline">\(\Delta =(G, H, 1, 0)\)</span>. Then
+<span class="math display">\[\mathcal{P}_\Delta(\phi) := \int_{[H]}
+\phi(h) \, d h.\]</span> (In general, this does not converge and must be
+understood via truncation, etc.)</p></li>
 <li><p><span id="enumerate:cq6tg85t0e"
 label="enumerate:cq6tg85t0e"></span> Suppose still that <span
 class="math inline">\(\iota = 1\)</span> is trivial, but allow <span
@@ -3707,7 +3706,68 @@ class="math inline">\(\mathop{\mathrm{diag}}(t, t^{-1}, 1)\)</span>
 acting via the adjoint representation for <span
 class="math inline">\(\mathrm{GL}_3\)</span>.</p>
 </div>
-<p>&lt;++&gt;</p>
+<p>Continuing, let <span class="math inline">\(G\)</span> be be a split
+connected reductive group over <span class="math inline">\(K\)</span>.
+Recall that a BZSV quadruple is <span class="math inline">\(\Delta =(G,
+H, \iota, \rho_H)\)</span>, where <span class="math inline">\(H \subset
+G\)</span> is a split connected reductive group, <span
+class="math inline">\(\iota : \mathrm{SL}_2 \rightarrow G\)</span> has
+image commuting with <span class="math inline">\(H\)</span>, and <span
+class="math inline">\(\rho_H : H \rightarrow
+\mathop{\mathrm{Sp}}(V)\)</span> is a symplectic representation. Then,
+given <span class="math inline">\(\phi :[G] \rightarrow
+\mathbb{C}\)</span>, we defined <span
+class="math display">\[\mathcal{P}_\Delta(\phi) := \int_{[H]}
+\mathcal{P}_\iota(\phi)(h) \Theta_{\rho_H}(h) \, d h.\]</span> We recall
+also that there were Schwartz functions entering into this definition,
+but we omit this from our notation for simplicity.</p>
+<p>There will be some conditions that one can impose on these
+quadruples, called <em>hyperspherical</em> and <em>anomaly-free</em>.
+Under these conditions, <em>relative Langlands duality</em> is a
+conjecture saying that there should be a duality between such quadruples
+<span class="math display">\[\Delta =(G, H, \iota, \rho_H)
+\leftrightarrow
+  \hat{\Delta} =
+  (\hat{G}, \hat{H}&#39;, \hat{\iota}&#39;,
+\rho_{\hat{H}&#39;}).\]</span> There are then several conjectures that
+one can associate to this duality. In my talk, we will focus on the
+<em>period integral conjecture</em> of BZSV. If you want to summarize it
+in one line, it says that if you have one quadruple that is dual to
+another one, then the period for <span
+class="math inline">\(\Delta\)</span> should be roughly equal to the
+<span class="math inline">\(L\)</span>-function for <span
+class="math inline">\(\hat{\Delta}\)</span>, and vice-versa: <span
+class="math display">\[P_{\Delta} = L_{\hat{\Delta}}, \qquad
+  P_{\hat{\Delta}} = L_{\Delta}.\]</span> So far for this whole picture,
+we only did one thing, which is we defined the period. We next need to
+define the <span class="math inline">\(L\)</span>-functions, and then
+explain which quadruples should admit such a duality. (One should not
+expect a duality for arbitrary quadruples.)</p>
+<p>We’ll next define define the <span
+class="math inline">\(L\)</span>-functions. We recall that, because the
+image of <span class="math inline">\(\iota\)</span> commutes with <span
+class="math inline">\(H\)</span>, the map <span
+class="math inline">\(\iota\)</span> extends to <span
+class="math inline">\(\iota : H \times \mathrm{SL}_2 \rightarrow
+G\)</span>. Using this homomorphism and the adjoint action, we get an
+action of <span class="math inline">\(H \times \mathrm{SL}_2\)</span> on
+<span class="math inline">\(\mathop{\mathrm{Lie}}(G)\)</span>. We may
+thus decompose <span class="math display">\[\mathfrak{g} = \bigoplus_{k
+\geq 0} \rho_k \otimes {\mathop{\mathrm{Sym}}}^k,\]</span> where the <span
+class="math inline">\(\rho_k\)</span> are representations of <span
+class="math inline">\(H\)</span>. Now the adjoint representation of
+<span class="math inline">\(G\)</span> on its whole Lie algebra is an
+orthogonal representation (because it fixes the Killing form), but if
+you look at the symmetric powers <span
+class="math inline">\({\mathop{\mathrm{Sym}}}^k\)</span> of <span
+class="math inline">\(\mathrm{SL}_2\)</span>, when <span
+class="math inline">\(k\)</span> is even, it is an orthogonal
+representation, while when <span class="math inline">\(k\)</span> is
+odd, is a symplectic representation. Since the tensor should be of
+orthogonal type, we also know that <span
+class="math inline">\(\rho_k\)</span> is of orthogonal
+(resp. symplectic) when <span class="math inline">\(k\)</span> is even
+(resp. odd).</p>
 <h1 id="sec:cq6tho1cgx">§5. Raphael Beuzart-Plessis’s lectures</h1>
 <p><strong>Introduction to Relative Trace Formulas (RTF)</strong></p>
 <h2 id="sec:cq6tho1blx">§5.1. RTF in general</h2>
