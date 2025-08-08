@@ -2167,13 +2167,46 @@ We can now state the \emph{period integral conjecture of BZSV}.
 \end{enumerate}
 Two special cases:
 \begin{enumerate}
-\item $\hat{\Delta} =(\hat{G}, \hat{H}', 1, 0)$.  Then the conjecture says that $\mathcal{P}_\Delta(\phi)$ detects the functoriality from $H'(\mathbb{A})$ to $G(\mathbb{A})$.  For instance, suppose (as discussed earlier) $\Delta =(\mathrm{GL}_{2 n}, \mathrm{GL}_n,(2^n), 0)$, where $\mathrm{GL}_n$ is embedded like $\diag(h, h)$, and $(2^n)$ means we take $\iota : \diag(t, t^{-1}) \mapsto \diag(t I_n, t^{-1} I_n)$.  Then $\hat{\Delta} =(\mathrm{GL}_{2 n}, \Sp_{2 n}, 1, 0)$.  Thus $\mathcal{P}_\Delta \neq 0$ only if $\phi$ comes from the functorial lifting from $\SO_{2 n + 1}(\mathbb{A})$ to $\mathrm{GL}_{2 n}(\mathbb{A})$.
-\item Let's consider next the case where $\hat{\Delta} =(\hat{G}, \hat{G}, 1, \hat{\rho}_{\hat{G}})$, i.e., we only have a symplectic representation (but no $\mathrm{SL}_2$ representation).  Then the conditions simplify and what we get is that
+\item\label{enumerate:cq6txwuycw} $\hat{\Delta} =(\hat{G}, \hat{H}', 1, 0)$.  Then the conjecture says that $\mathcal{P}_\Delta(\phi)$ detects the functoriality from $H'(\mathbb{A})$ to $G(\mathbb{A})$.  For instance, suppose (as discussed earlier) $\Delta =(\mathrm{GL}_{2 n}, \mathrm{GL}_n,(2^n), 0)$, where $\mathrm{GL}_n$ is embedded like $\diag(h, h)$, and $(2^n)$ means we take $\iota : \diag(t, t^{-1}) \mapsto \diag(t I_n, t^{-1} I_n)$.  Then $\hat{\Delta} =(\mathrm{GL}_{2 n}, \Sp_{2 n}, 1, 0)$.  Thus $\mathcal{P}_\Delta \neq 0$ only if $\phi$ comes from the functorial lifting from $\SO_{2 n + 1}(\mathbb{A})$ to $\mathrm{GL}_{2 n}(\mathbb{A})$.
+\item\label{enumerate:cq6txwu9pz} Let's consider next the case where $\hat{\Delta} =(\hat{G}, \hat{G}, 1, \hat{\rho}_{\hat{G}})$, i.e., we only have a symplectic representation (but no $\mathrm{SL}_2$ representation).  Then the conditions simplify and what we get is that
   \begin{equation*}
     \left\lvert \mathcal{P}_\Delta(\phi) \right\rvert^2 \doteq \frac{L(\tfrac{1}{2}, \pi, \hat{\rho}_{\hat{G}})}{L(1, \pi, \Ad)}.
   \end{equation*}
   In other words, in this case, the period corresponds to a special value of $L$-functions.
 \end{enumerate}
+The general case will be some combination of these two cases: some detection of functoriality, and some special values.
+
+\begin{exercise}\label{exercise:cq6txvu33z}
+  Check this for $\Delta =(\mathrm{GL}_n \times \mathrm{GL}_n, \mathrm{GL}_n \times \mathrm{GL}_n, 1,(\std \otimes \std)^\vee \oplus(\std \otimes \std))$ and $\hat{\Delta} =(\mathrm{GL}_n \times \mathrm{GL}_n, \mathrm{GL}_n, 1, \std \oplus \std^\vee)$, where it corresponds to the results of Godement--Jacquet and Rankin--Selberg.
+\end{exercise}
+
+This is now the rough statement of the period conjecture, but we still haven't said exactly what things are dual to each other, and which categories we're working with (i.e., which quadruples).  Let's now discuss that point.  We continue to fix our $G$ and $\hat{G}$.  The relative Langlands duality goes between \emph{smooth, anomaly-free, hyperspherical Hamiltonian spaces} $\mathcal{M} \leftrightarrow \hat{\mathcal{M}}$ for $G$ and $\hat{G}$, respectively.  Let's explain how to attach, to a quadruple $\Delta =(G, H, \iota, \rho_H)$, a $G$-Hamiltonian space $\mathcal{M}_\Delta$.  The association is easy to understand in special cases:
+\begin{enumerate}
+\item $\Delta =(G, H, 1, 0)$.  Then $\mathcal{M}_\Delta = T^\ast(G / H)$ is just the cotangent bundle.
+\item $\Delta =(G, G, 1, \rho_G)$, where $\rho_G : G \rightarrow \Sp(V)$.  Then $\mathcal{M}_\Delta = V$.
+\item Combining these two cases together, take $\Delta =(G, H, 1, \rho_H)$, where $\rho_H : H \rightarrow \Sp(V)$.  Then $\mathcal{M}_\Delta =(V \times_{\mathfrak{h}^\ast} \mathfrak{g}^\ast) \times^H G$.  Here $V \times_{\mathfrak{h}^\ast} \mathfrak{g}^\ast$ is the fiber product, where $V \rightarrow \mathfrak{h}^\ast$ is the moment map (coming from the symplectic action of $H$).  (This is sometimes called ``symplectic induction''.)
+\end{enumerate}
+In general, recall that $\iota$ gives $L = \Cent_G(\iota(\diag(t, t^{-1})))$ and $U = \exp(\mathfrak{u})$, where $\mathfrak{u}$ is the positive weight space for $\Ad(\iota(\diag(t, t^{-1})))$.  Let $\mathfrak{u}_+ \subseteq \mathfrak{u}$ denote the weight $\geq 2$ space.  Then $\mathfrak{u} / \mathfrak{u}_+$ is the weight one space.  (We remark that $\mathfrak{u} / \mathfrak{u}_+ = \{0\}$ if and only if $\iota$ is even in the terminology introduced earlier.)  The quotient $\mathfrak{u} / \mathfrak{u}_+$ is a symplectic vector space.
+\begin{equation*}
+  \mathcal{M}_\Delta = \left(
+    (V \times \mathfrak{u} / \mathfrak{u}_+)
+    \times_{(\mathfrak{h} + \mathfrak{u})^\ast}
+    \mathfrak{g}^\ast\right)
+  \times^{H U}
+  G.
+\end{equation*}
+
+We have $\mathfrak{u} / \mathfrak{u}_+ \rightarrow \mathfrak{u}^\ast$ via $x \mapsto \kappa(x) + \kappa_f$, where $\kappa : \mathfrak{u} / \mathfrak{u}_+ \rightarrow(\mathfrak{u} / \mathfrak{u}_+)^\ast$ comes from the symplectic pairing
+and the shift $\kappa_f \in \mathfrak{u}^\ast$ is given by $Y \mapsto \left\langle \iota \left(
+    \begin{smallmatrix}
+      0&0\\
+      1&0 \\
+    \end{smallmatrix}
+  \right), Y \right\rangle$.  The \emph{hyperspherical} condition involves several requirements.  Many concern avoiding the cases of covering groups, where stabilizers need not be connected.  The main requirement is \emph{coisotropy}, which says that the space $K(\mathcal{M})^G$ of $G$-invariant rational functions on $\mathcal{M}$ is commutative with respect to the Poisson bracket.
+
+There is a structure theorem of BZSV that says that every smooth hyperspherical Hamiltonian $G$-space $\mathcal{M}$ arises as $\mathcal{M}_\Delta$ for some unique BZSV quadruple $\Delta$.  Tomorrow, we'll explain how in terms of the quadruples to see the coisotropy conditions; we will also explain the ``anomaly-free'' condition.  (Note that so far we could take any subgroup $H$ in such a quadruple, which would be too powerful; the hyperspherical condition says roughly that $H$ is a spherical subgroup in the special case \eqref{enumerate:cq6txwuycw}, while in the special case \eqref{enumerate:cq6txwu9pz}, it says that the symplectic representation should be multiplicity-free in a certain sense to be discussed tomorrow.)
+
+
 
 \section{Raphael Beuzart-Plessis's lectures}\label{sec:cq6tho1cgx}
 \textbf{Introduction to Relative Trace Formulas (RTF)}
