@@ -2472,9 +2472,9 @@ You can write, in a similar way, a geometric expansion of this in terms of $G(K)
   \end{enumerate}
 \end{example}
 
-\subsection{Waldspurger theorem via Jacquet's comparison of RTF}
+\subsection{Waldspurger theorem via Jacquet's comparison of RTF}\label{sec:cq6tyal5g1}
 
-\subsubsection{Reminder on Hecke periods}
+\subsubsection{Reminder on Hecke periods}\label{sec:cq6tyal962}
 
 Set
 \begin{equation*}
@@ -2521,7 +2521,7 @@ Specialize to $s = 0$.  It turns out that all local periods are nonzero, so we o
   \text{there exists } \varphi \in \pi, \, \, \mathcal{P}_{A, \chi}(\varphi) \neq 0.
 \end{equation*}
 
-\subsubsection{Waldspurger's formula}
+\subsubsection{Waldspurger's formula}\label{sec:cq6tyama80}
 
 Let $L /K$ be a separable quadratic extension of $K$.  We can then define a torus $T := L^\times / K^\times \subset G := \Aut_K(L) / K^\times$.  We can define an automorphic character $\chi :[T] \rightarrow \mathbb{C}^\times$.  Let us remark that $[T]$ can also be written as $L^\times \backslash \mathbb{A}_L^\times / \mathbb{A}_K^\times$; thus, $\chi$ gives in particular an idele class character for $L$.  We then have all the ingredients needed to formulate a precise version of Waldspurger's formula.  It's essentially an analogue of the Hecke formula \eqref{eq:cq6tx8qioa}.  Let $\varphi \in \pi \subset A_{\mathrm{cusp}}(G)$.  Then
 \begin{equation*}
@@ -2533,7 +2533,7 @@ where $\pi_L \subset A(G_L)$ is the base change lift of $\pi$ (a particular case
 
 Now you can ask the same question: can we deduce from this formula a criterion for the nonvanishing of the central $L$-value?  The problem here is that the local periods can be identically zero!  The way to work around this problem is to work with a family of groups, called \emph{pure inner forms}.  Let's explain quickly what are these groups.
 
-\subsubsection{Quaternion algebras}
+\subsubsection{Quaternion algebras}\label{sec:cq6tyamby0}
 
 Let $k$ be an arbitrary field, with $\operatorname{char}(k) \neq 2$.  Let's take as a definition that a \emph{pure inner form} of $G := \mathrm{PGL}_2$ is a group of the form $G^B := B^\times / k^\times$, where $B$ is a quaternion algebra over $k$.
 
@@ -2555,6 +2555,8 @@ Recall that a \emph{quaternion algebra} over $k$ is an algebra $B_{/k}$ whose ba
   \right\} \\[1em]
   B \quad \longmapsto \quad N|_{B^0}
 \end{gather*}
+Moreover, $G^B \cong \SO(q)$.
+
 The classification proceeds as follows.
 \begin{itemize}
 \item If $k$ is a local field other than $\mathbb{C}$, then there are two isomorphism classes of quaternion algebras: $M_2(k) = B^+$ (called \emph{split}), and some other quaternion algebra $B^-$.
@@ -2597,7 +2599,7 @@ We next recall the \emph{Jacquet--Langlands} correspondence.
 
 That's all we wanted to say about quaternion algebras and the Jacquet--Langlands correspondence.  Let's now go back to finding a way to go from the Waldspurger formula to a criterion for the nonvanishing of the central $L$-value.
 
-\subsubsection{Non-vanishing}
+\subsubsection{Non-vanishing}\label{sec:cq6tyamcm6}
 
 Return to the previous setting.  Let $L / K$ be a quadratic extension of global fields, so that we have
 \begin{equation*}
@@ -2608,7 +2610,7 @@ as before.  Let $B$ be a quaternion algebra such that $L \subset B$.  Then we ob
   T = L^\times / K^\times \subset G^B \rightarrow B^\times / K^\times.
 \end{equation*}
 It turns out that in this situation also, there is a Waldspurger formula for the period of cusp forms on $G^B$ over $T$.  When you combine all these formulas, you can deduce the following nonvanishing result:
-\begin{theorem}[Waldspurger]
+\begin{theorem}[Waldspurger]\label{theorem:cq6tyal0fv}
   Let $\pi \subset A_{\mathrm{cusp}}(G)$.  Then the following are equivalent:
   \begin{enumerate}[(i)]
   \item $L(\tfrac{1}{2}, \pi_L \times \chi) \neq 0$.
@@ -2617,5 +2619,187 @@ It turns out that in this situation also, there is a Waldspurger formula for the
 \end{theorem}
 That's the statement.  We'll now aim to explain how Jacquet was able to reprove this using a comparison of RTF.
 
+\subsubsection{RTF approach}\label{sec:cq6tyamdej}
+
+For simplicity, we will only consider the case where $\chi = 1$ is trivial.  This simplifies in particular the base change $L$-function, which is then just $L(s, \pi_L) = L(s, \pi) L(s, \pi \times \eta)$, where
+\begin{equation*}
+  \eta : K^\times \backslash \mathbb{A}_K^\times / N_{L / K}(\mathbb{A}_L^\times) \xrightarrow{\simeq} \{\pm 1\}
+\end{equation*}
+
+is the quadratic character of the idele class group of $K$ that is associated to the extension $L / K$ by class field theory.  In particular,
+\begin{equation*}
+  L(\tfrac{1}{2}, \pi) \neq 0
+  \quad \iff \quad
+  \mathcal{P}_{A} |_\pi \not \equiv 0
+\end{equation*}
+and
+\begin{equation*}
+  L(\tfrac{1}{2}, \pi \times \eta) \neq 0
+  \quad \iff \quad
+  \mathcal{P}_{A, \eta} |_\pi \not \equiv 0.
+\end{equation*}
+Jacquet's idea: prove Waldspurger's theorem using a comparison of RTF.  On the one side, we'll have the RTF associated to
+\begin{equation}\label{eq:cq6tx983u1}
+  T \backslash G^B / T.
+\end{equation}
+We'd like to compare it to the RTF that sees these two Hecke periods, ie.. that which is associated, at least formally, to the double quotient
+\begin{equation}\label{eq:cq6tx98942}
+  A \backslash G / A, \eta.
+\end{equation}
+
+One remark before we proceed.  We have already solved yesterday all the convergence issues.  In the two relative trace formulas that we want to consider, there is a precise way to form the integral defining the RTF.  For the first case \eqref{eq:cq6tx983u1}, we are taking periods over $[T]$, which is compact, so the RTF is already convergent.  This is not the case for \eqref{eq:cq6tx98942}, but it can be regularized as in yesterday's talk.  We are now starting from something that is really defined.  We want to compare these two relative trace formulas.  We do so by trying to match the geometric expansions.  Let's describe those.
+
+\subsubsection{Geometric expansions}\label{sec:cq6tyamec3}
+
+\begin{enumerate}[(a)]
+\item
+  \begin{equation*}
+    \mathrm{RTF}_{T \backslash G^B / T}(f) = \sum_{\delta \in T(K) \backslash G^B(K) / T(K)}
+    \vol([(T \times T)_\delta]) \operatorname{Orb}_\gamma(f).
+  \end{equation*}
+  \begin{exercise}\label{exercise:cq6tyalwr3}
+    We need to parametrize the orbits.  Define
+    \begin{equation*}
+      L_B^- := L^\perp \subset B = L \oplus L_B^-.
+    \end{equation*}
+    We can define a map
+    \begin{equation*}
+      \nu : G^B \rightarrow \mathbb{P}^1 - \{1\}
+    \end{equation*}
+    \begin{equation*}
+      \delta = \delta^+ + \delta^- \mapsto - \frac{N(\delta^-)}{N(\delta^+)}.
+    \end{equation*}
+    (Check why we miss $1$!)  This induces an injection
+    \begin{equation*}
+      T(K) \backslash G^B(K) / T(K) \rightarrow \mathbb{P}^1(K) \setminus \{1\}
+    \end{equation*}
+    with image $(- N(L_B^-) \setminus \{1\}) \cup \{\infty\}$.
+  \end{exercise}
+  \begin{definition}\label{definition:cq6tyalx5j}
+    We say that  $\delta \in G^B$ is \emph{regular semisimple} if $\nu(\delta) \neq 0$ or $\infty$.
+  \end{definition}
+  We denote by
+  \begin{equation*}
+    G_{\mathrm{rs}}^B \subset G^B
+  \end{equation*}
+  the subset consisting of regular semisimple elements.
+
+  \begin{exercise}\label{exercise:cq6tyaqy0z}
+    \begin{equation*}
+      \sqcup_{
+        \substack{
+          B: \text{quat.\ alg }/ K  \\
+          L \subset B          
+        }
+      }
+      \nu(G_{\mathrm{rs}^B(K)})
+      = \mathbb{P}^1(K).
+    \end{equation*}
+  \end{exercise}
+  \begin{notation}\label{notation:1}
+    For $x \in \nu(G^B(K))$, we set
+    \begin{equation}\label{eq:cq6tyc779o}
+      \operatorname{Orb}_{\delta_x}(f) =: \O_x(f)
+    \end{equation}
+    and $\nu(\delta_x) = x$.
+
+  \end{notation}
+  \begin{exercise}\label{exercise:cq6tydnqrq}
+    Let $x \in K^\times \setminus \{1\}$.  Then
+    \begin{equation*}
+      \mu_K^{-1}(x) = A(k)
+      \underbrace
+      {
+        \begin{pmatrix}
+          1      & x \\
+          1 & 1 \\
+        \end{pmatrix}
+      }_{
+        \gamma_x
+      }
+      \quad
+      \gamma_x := .
+    \end{equation*}
+    For $x = 0$, we have
+    \begin{equation*}
+      \mu_K^{-1}(0) =
+      A(K)
+      \sqcup A(K)
+      \underbrace
+      {
+        \begin{pmatrix}
+          1        & 1 \\
+          0 & 1 \\
+        \end{pmatrix}
+      }_{
+        \gamma_0^+
+      }
+      A(K) \sqcup A(K)
+      \underbrace
+      {
+        \begin{pmatrix}
+          1        & 0 \\
+          1                 & 1 \\
+        \end{pmatrix}
+      }_{
+        \gamma_0^-
+      }
+      A(K).
+    \end{equation*}
+    For $x = \infty$, we have
+    \begin{equation*}
+      \mu_K^{-1}(\infty) = A(K) \omega \sqcup A(K) \underbrace
+      {
+        \omega \gamma_0^+ 
+      }_{
+        \gamma_\infty^+
+      }
+      A(K) \sqcup A(K) \underbrace
+      {
+        \omega \gamma_0^- 
+      }_{
+        \gamma_\infty^-
+      }
+      A(K),
+      \quad  \omega =
+      \begin{pmatrix}
+        & 1 \\
+        1 &  \\
+      \end{pmatrix}.
+    \end{equation*}
+  \end{exercise}
+\item\label{enumerate:cq6tydex7z} Now we need to regularize and work out the following:
+  \begin{equation*}
+    \mathrm{RTF}_{A \backslash G / A, \eta}(f) = \sum_{x \in \mathbb{P}^1(K) \setminus \{1\}} \mathcal{O}_x^\eta(f),
+  \end{equation*}
+  where for $x \neq 0, \infty$, we set
+  \begin{equation*}
+    \mathcal{O}_x^\eta(f) := \operatorname{Orb}_{\gamma_x}(f),
+  \end{equation*}
+  while for $x = 0, \infty$, we have
+  \begin{equation*}
+    \mathcal{O}_x^\eta(f) := \operatorname{Orb}_{\gamma_x^+}^{\reg}(f) + \operatorname{Orb}_{\gamma_x^-}^{\reg}(f).
+  \end{equation*}  
+\end{enumerate}
+
+\subsubsection{Local transfer}
+
+We briefly survey local transfer.  Let $v$ be a place of $K$.  Set $E / F := L_v / K_v$.  We have $T = E^\times / F^\times \hookrightarrow G = \mathrm{PGL}_2(F)$ and also $T \hookrightarrow G^B$.
+\begin{definition}\label{definition:cq6tydlv0l}
+  We say that $f \in C_c^\infty(G)$ and $f^B \in C_c^\infty(G^B)$ \emph{match} if $\mathcal{O}_x^\eta(f) = \mathcal{O}_x(f^B)$ for all $x \in \nu(G^B)$.
+\end{definition}
+
+First, a notation.  Other than writing that two functions match, you can just use this symbol $f \leftrightarrow f^B$.  Now, if $v$ is split in $L$, then $B$ must split, and not only must $G^B$ and $G$ be isomorphic, but there must be an isomorphism respecting $T$ and $A$, i.e.,
+\begin{equation*}
+  (G^B, T) \cong(G, A),
+\end{equation*}
+and the existence of matchings turns out to be trivial.  So let's assume that $v$ is non-split -- this is the nontrivial case.  Then you can genuinely have two quaternion algebras.
+\begin{theorem}\label{theorem:cq6tydtozy}[Jacquet]
+  \begin{enumerate}[(i)]
+  \item For all $f \in C_c^\infty(G)$, there exist $(f_+, f_-) \in C_c^\infty(G^{B_+}) \bigoplus C_c^\infty(G^{B_-})$ such that $f \leftrightarrow f_+$ and $f \leftrightarrow f_-$.
+  \item For all pairs $(f_+, f_-)$, there exists $f$ such that $f \leftrightarrow f_{\pm}$.
+  \end{enumerate}
+\end{theorem}
+We'll also need the fundamental lemma.  We'll explain that briefly next time, then say how to get the matching.
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
