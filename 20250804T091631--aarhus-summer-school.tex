@@ -1788,7 +1788,7 @@ Assume Hypothesis $L$ and Multiplicity One.  If $F$ is non-archimedean, then our
   =
   \left\{ f \in \mathcal{C}(X^{\circ}(F)) \mid \pi \mapsto \frac{f_\pi}{\prod_i L(\frac{1}{2}, \pi, r_i)} \text{ is polynomial} \right\}.
 \end{equation*}
-(We follow the treatment of \cite[\S2.6]{2015arXiv150601452B} (TODO: fix ref).)  A polynomial function on $(\mathbb{R} / 2 \pi i \log q)^n$ is a function of the form $s \mapsto p(q^{- s}, q^{s})$ for some $p \in \mathbb{C}[x, y] /(x y - 1)$.  Locally, $T_p(G(F))$ is a quotient of $(\mathbb{R} / 2 \pi i \log q)^n$ by a finite group.  A polynomial function on $T_p(G(F))$ is a function that pulls back to a polynomial function on $(\mathbb{R} / 2 \pi i \log q)^n$.  (You can ask me later to give an example.)  Define the basic function to be
+(Our treatment is inspired by \cite[\S2.6]{2015arXiv150601452B}.)  A polynomial function on $(\mathbb{R} / 2 \pi i \log q)^n$ is a function of the form $s \mapsto p(q^{- s}, q^{s})$ for some $p \in \mathbb{C}[x, y] /(x y - 1)$.  Locally, $T_p(G(F))$ is a quotient of $(\mathbb{R} / 2 \pi i \log q)^n$ by a finite group.  A polynomial function on $T_p(G(F))$ is a function that pulls back to a polynomial function on $(\mathbb{R} / 2 \pi i \log q)^n$.  (You can ask me later to give an example.)  Define the basic function to be
 \begin{equation*}
   b_X = \int_{T_p(G(F))}
   \prod_i L(\tfrac{1}{2}, \pi, r_i)
@@ -1871,7 +1871,7 @@ Define the automorphic quotient $[G] := G(K) \backslash G(\mathbb{A})$, and let 
 
 Let's start with some easy special cases, before moving to the general case.
 \begin{enumerate}
-\item\label{enumerate:cq6tg85st6} Suppose $\iota = 1$ (the trivial representation, $\mathbb{C}$) and $\rho_H = 0$ (the \emph{zero-dimensional} symplectic representation $\emptyset$), thus $\Delta =(G, H, 1, 0)$.  Then
+\item\label{enumerate:cq6tg85st6} Suppose $\iota = 1$ (the trivial representation, $\mathbb{C}$) and $\rho_H = 0$ (the \emph{zero-dimensional} symplectic representation $\{0\}$), thus $\Delta =(G, H, 1, 0)$.  Then
   \begin{equation*}
     \mathcal{P}_\Delta(\phi) := \int_{[H]} \phi(h) \, d h.
   \end{equation*}
@@ -2094,7 +2094,32 @@ Let's start with some easy special cases, before moving to the general case.
 
 \begin{example}\label{example:cq6tho3m7k}
   $\iota : \mathrm{SL}_2 \rightarrow \mathrm{GL}_3$ given by $h \mapsto \diag(h, 1)$ is \emph{not} even, because we get odd weight spaces for $\diag(t, t^{-1}, 1)$ acting via the adjoint representation for $\mathrm{GL}_3$.
-\end{example}<++>
+\end{example}
+
+Continuing, let $G$ be be a split connected reductive group over $K$.  Recall that a BZSV quadruple is $\Delta =(G, H, \iota, \rho_H)$, where $H \subset G$ is a split connected reductive group, $\iota : \mathrm{SL}_2 \rightarrow G$ has image commuting with $H$, and $\rho_H : H \rightarrow \Sp(V)$ is a symplectic representation.  Then, given $\phi :[G] \rightarrow \mathbb{C}$, we defined
+\begin{equation*}
+  \mathcal{P}_\Delta(\phi) := \int_{[H]} \mathcal{P}_\iota(\phi)(h) \Theta_{\rho_H}(h) \, d h.
+\end{equation*}
+We recall also that there were Schwartz functions entering into this definition, but we omit this from our notation for simplicity.
+
+There will be some conditions that one can impose on these quadruples, called \emph{hyperspherical} and \emph{anomaly-free}.  Under these conditions, \emph{relative Langlands duality} is a conjecture saying that there should be a duality between such quadruples
+\begin{equation*}
+  \Delta =(G, H, \iota, \rho_H) \leftrightarrow
+  \hat{\Delta} =
+  (\hat{G}, \hat{H}', \hat{\iota}', \rho_{\hat{H}'}).
+\end{equation*}
+There are then several conjectures that one can associate to this duality.  In my talk, we will focus on the \emph{period integral conjecture} of BZSV.  If you want to summarize it in one line, it says that if you have one quadruple that is dual to another one, then the period for $\Delta$ should be roughly equal to the $L$-function for $\hat{\Delta}$, and vice-versa:
+\begin{equation*}
+  P_{\Delta} = L_{\hat{\Delta}}, \qquad
+  P_{\hat{\Delta}} = L_{\Delta}.
+\end{equation*}
+So far for this whole picture, we only did one thing, which is we defined the period.  We next need to define the $L$-functions, and then explain which quadruples should admit such a duality.  (One should not expect a duality for arbitrary quadruples.)
+
+We'll next define define the $L$-functions.  We recall that, because the image of $\iota$ commutes with $H$, the map $\iota$ extends to $\iota : H \times \mathrm{SL}_2 \rightarrow G$.  Using this homomorphism and the adjoint action, we get an action of $H \times \mathrm{SL}_2$ on $\Lie(G)$.  We may thus decompose
+\begin{equation*}
+  \mathfrak{g} = \bigoplus_{k \geq 0} \rho_k \otimes \Sym^k,
+\end{equation*}
+where the $\rho_k$ are representations of $H$.  Now the adjoint representation of $G$ on its whole Lie algebra is an orthogonal representation (because it fixes the Killing form), but if you look at the symmetric powers $\Sym^k$ of $\mathrm{SL}_2$, when $k$ is even, it is an orthogonal representation, while when $k$ is odd, is a symplectic representation.  Since the tensor should be of orthogonal type, we also know that $\rho_k$ is of orthogonal (resp.\ symplectic) when $k$ is even (resp.\ odd).
 
 \section{Raphael Beuzart-Plessis's lectures}\label{sec:cq6tho1cgx}
 \textbf{Introduction to Relative Trace Formulas (RTF)}
