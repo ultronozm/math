@@ -197,7 +197,27 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
@@ -205,7 +225,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-07 14:09:23
+2025-08-08 09:56:43
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -238,6 +258,16 @@ conjecture</a>
 setting</a></li>
 <li><a href="#sec:cq6tho3bu5" id="toc-sec:cq6tho3bu5">Local harmonic
 analysis</a></li>
+<li><a href="#poisson-summation-formula"
+id="toc-poisson-summation-formula">Poisson summation formula</a></li>
+</ul></li>
+<li><a href="#the-spectral-argument" id="toc-the-spectral-argument">The
+spectral argument</a>
+<ul>
+<li><a href="#plancherel-decomposition"
+id="toc-plancherel-decomposition">Plancherel decomposition</a></li>
+<li><a href="#l-functions" id="toc-l-functions"><span
+class="math inline">\(L\)</span>-functions</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#sec:cq6tho3cpy" id="toc-sec:cq6tho3cpy">Chen Wan’s
@@ -2949,6 +2979,213 @@ class="math inline">\(L^2(X^{\circ}(F), \lvert \Lambda
 \rvert^{1/2})\)</span> is a unitary <span
 class="math inline">\(G(F)\)</span>-representation.</p>
 </div>
+<p>We continue now with harmonic analysis over a local field <span
+class="math inline">\(F\)</span>. Let <span class="math inline">\(X
+\times G \rightarrow X\)</span> be a <span
+class="math inline">\(G\)</span>-variety, with open <span
+class="math inline">\(G\)</span>-orbit <span
+class="math inline">\(X^{\circ} \subset X\)</span>. We’ll ignore the
+half-densities “<span class="math inline">\(\mathcal{L}_\psi\)</span>”
+discussed earlier.</p>
+<p>Recall that we are looking for a Schwartz space <span
+class="math inline">\(\mathcal{S}(X(F))\)</span> sitting as follows:
+<span class="math display">\[C_c^\infty(X^{\circ}(F)) \subset S(X(F))
+\subset C^\infty \cap L^2(X^{\circ}(F)).\]</span> We moreover have the
+following desiderata for the Schwartz space:</p>
+<ul>
+<li><p>It should be stable under <span
+class="math inline">\(G(F)\)</span>.</p></li>
+<li><p>There should be a unitary “Fourier transform” <span
+class="math inline">\(\mathcal{F}_X \circlearrowright
+\mathcal{S}(X(F))\)</span>.</p></li>
+<li><p>We should have the compatibility <span
+class="math inline">\(\mathcal{F}_X \circ \mathcal{R}(g) =
+\mathcal{R}(\iota(g)) \mathcal{F}_x\)</span></p></li>
+</ul>
+<p>We caution that elements of <span
+class="math inline">\(\mathcal{S}(X(F))\)</span> need not be defined on
+all of <span class="math inline">\(X(F)\)</span>. We want the
+following:</p>
+<ol>
+<li><p>In the archimedean case, we want <span
+class="math inline">\(S(X(F))\)</span> to be a Frechét space, with the
+action continuous.</p></li>
+<li><p>We want elements of <span class="math inline">\(S(X(F))\)</span>
+to enjoy “rapid decay at <span class="math inline">\(\infty\)</span>”.
+In the archimedean case, this means dominated by a Schwartz function
+after an affine embedding. In the non-archimedean case, it means
+supported on a compact subset of <span
+class="math inline">\(X(F)\)</span> (not <span
+class="math inline">\(X^{\circ}(F)\)</span>).</p></li>
+<li><p>We want the space to be local: given a <span
+class="math inline">\(G\)</span>-equivariant embedding <span
+class="math inline">\(X \hookrightarrow \mathbb{G}_a^n\)</span>, we want
+the space to be preserved under multiplication by restrictions of
+functions in <span
+class="math inline">\(\mathcal{S}(F^n)\)</span>.</p></li>
+</ol>
+<p>In the unramified case, we ask that for a <em>basic function</em>
+<span class="math inline">\(b_X \in S(X(F))\)</span> such that <span
+class="math inline">\(X^{\circ}(\mathcal{O}_F) \subsetneq
+\mathop{\mathrm{supp}}b_X \subseteq X(\mathcal{O}_F)\)</span>, with
+<span class="math inline">\(\mathcal{F}_X(b_X) = b_X\)</span>.</p>
+<p>In many cases, one can construct this. For instance, the case of
+<span class="math inline">\(\overline{P^{\mathop{\mathrm{der}}}
+\backslash G}^{\mathrm{aff}}\)</span> was studied by Braverman–Kazhdan,
+refined by Getz–Liu, and further by Getz–Hsu–Leslie.</p>
+<h3 id="poisson-summation-formula">Poisson summation formula</h3>
+<p>Let <span class="math inline">\(F\)</span> again be a number field.
+Assume that <span class="math inline">\(\mathcal{S}(X(F_v))\)</span> has
+been constructed for all places <span class="math inline">\(v\)</span>.
+We then take <span class="math display">\[\mathcal{S}(X(\mathbb{A}_F)) =
+\bigotimes_{v \mid \infty} \mathcal{S}(X(F_v))  \otimes \bigotimes_{v
+\nmid \infty} {}^{&#39;} \mathcal{S}(X(F_v)),\]</span> where the
+restricted tensor product is with respect to the <span
+class="math inline">\(b_{X_{F_v}}\)</span>.</p>
+<p>We set <span class="math inline">\(\mathcal{F}_X := \otimes_v
+\mathcal{F}_{X_{F_v}}\)</span>, which acts on <span
+class="math inline">\(\mathcal{S}(X(\mathbb{A}_F))\)</span>. If <span id="eq:cq6txloduw" class="math display">\[\label{eq:cq6txloduw}\tag{3.4}
+  f = f_{v_1} f_{v_2} f^{v_1 v_2}
+  \quad \text{ with }
+  \mathop{\mathrm{supp}}f_{v_1}  \subset X^{\circ}(F_{v_1})
+  \text{ and }
+  \mathop{\mathrm{supp}}\mathcal{F}_X(f_{v_2}) \subset
+X^{\circ}(F_{v_2}),\]</span> then the Poisson summation conjecture is
+that is the statement that <span class="math display">\[\sum_{x \in
+X^{\circ}(F)} f(x) = \sum_{x \in X^{\circ}(F)}
+\mathcal{F}(f)(x).\]</span> We remark that this may not be true in
+general. We expect it to be true for reductive monoids and more
+generally in multiplicity one situations. One thing we’ll talk about in
+later lectures is how one can prove new types of formulas of this type
+from old ones. We’ll see examples where even if you’re ultimately
+interested in situations with multiplicity one (spherical varieties), it
+may be useful to pass outside that setting.</p>
+<p>Now, Poisson summation is a very useful formula in analysis, but why
+would someone outside representation theory care about this? The reason
+is the connection to zeta integrals. Suppose <span
+class="math inline">\(\pi\)</span> is cuspidal in <span
+class="math inline">\(A_G \backslash G(\mathbb{A}_F)\)</span>, and let
+<span class="math inline">\(\varphi \in \pi\)</span>. Write <span
+class="math inline">\(Z_G^+ = \mathbb{G}_m^n\)</span>. We assume given
+characters <span class="math display">\[\eta_s : G(\mathbb{A}_F)
+\rightarrow(\mathbb{A}_F^\times)^n \xrightarrow{x \mapsto \prod \lvert
+x_i \rvert^{s_i}} \mathbb{C}^\times.\]</span> Given <span
+class="math inline">\(f \in \mathcal{S}(X(\mathbb{A}_F))\)</span>, we
+form the zeta integral <span class="math display">\[Z(f, \varphi, s) =
+\int_{[G]}
+  \sum_{x \in X^{\circ}(F)} f(x g)
+  \varphi(g)
+  \eta_s(g) \, d g.\]</span> Morally, the Poisson summation conjecture
+implies that <span class="math display">\[Z(f, \varphi, s) =
+Z(\mathcal{F}_X(f), \varphi^\vee, 1 - s),\]</span> where <span
+class="math inline">\(\varphi^\vee(g) = \varphi(\iota(g))\)</span> is
+just defined using this automorphism that we mentioned earlier. These
+sort of period integrals have appeared in almost every talk that we’ve
+seen this week.</p>
+<p>We’re primarily interested in the Eulerian case, i.e., when <span
+class="math display">\[Z(f, \varphi, s) = \prod_v Z(f_v, \varphi_v,
+s)\]</span></p>
+<p>for pure tensors <span class="math inline">\(f = \otimes_v
+f_v\)</span> and <span class="math inline">\(\varphi = \otimes_v
+\varphi_v\)</span>.</p>
+<h2 id="the-spectral-argument">The spectral argument</h2>
+<p>Known properties of <span class="math inline">\(L\)</span>-functions
+imply cases of the Poisson summation conjecture. (This is analogous to
+the fact that the functional equation of the Riemann zeta function is
+<em>equivalent</em> to Poisson summation for <span
+class="math inline">\(\mathbb{Z}\)</span>.) Why would you do this, given
+that it seems circular?</p>
+<ol>
+<li><p>It puts the local theory on firmer footing.</p></li>
+<li><p>It’s a check on the Poisson summation conjecture.</p></li>
+<li><p>We can produce new Poisson summation formulae from old ones. (If
+you place it in the right context, the Rankin–Selberg method is a
+consequence of this. It starts by taking known properties of Eisenstein
+series, which can always be understood as a case of the Poisson
+summation conjecture, and then applies it to new <span
+class="math inline">\(L\)</span>-functions.)</p></li>
+<li><p>“Boundary terms lead to residue kernels.” We won’t have much time
+to talk about this point in these lectures, but the idea is that if you
+want to remove the condition <a href="#eq:cq6txloduw"
+data-reference-type="eqref"
+data-reference="eq:cq6txloduw">\((3.4)\)</a>, you’ll get new
+boundary terms, which can in turn be related to residues of <span
+class="math inline">\(L\)</span>-functions.</p></li>
+</ol>
+<h3 id="plancherel-decomposition">Plancherel decomposition</h3>
+<p>Let’s talk about this spectral argument, starting locally. A nice
+reference is <a href="#ref-MR1075727" class="citation" data-cites="MR1075727">(Bernstein
+1988)</a>. Recall that we expect <span
+class="math display">\[C_c^\infty(X^{\circ}(F)) \subsetneq
+\mathcal{S}(X(F)) \subsetneq \mathcal{C}(X(F)) \subsetneq
+L^2(X(F)),\]</span> where <span
+class="math inline">\(\mathcal{C}\)</span> denotes the Harish–Chandra
+Schwartz space. We may write <span
+class="math display">\[L^2(X^{\circ}(F)) = \int_{\widehat{G(F)}} V_\pi
+\, d \mu_X(\pi)\]</span> for some Borel measure <span
+class="math inline">\(d \mu_X(\pi)\)</span>. (If you’re not familiar
+with these, they’re analogous to writing <span
+class="math inline">\(L^2(\mathbb{R}) = \int \mathbb{C} e^{i t} \, d
+t\)</span>.) We assume that the support of <span class="math inline">\(d
+\mu_X\)</span> is contained in the tempered spectrum <span
+class="math inline">\(T_p(G(F))\)</span>. For each <span
+class="math inline">\(\pi\)</span>, we have a projection map <span
+class="math display">\[\alpha_\pi : C_c^\infty(X^{\circ}(F)) \rightarrow
+V_\pi,\]</span> with adjoint <span class="math display">\[\beta_\pi :
+V_\pi^\infty \rightarrow C^\infty(X^{\circ}(F)).\]</span> For <span
+class="math inline">\(f \in C_c^\infty(X^{\circ}(F))\)</span>, we have
+<span class="math display">\[f(x) = \int_{T_p(G(F))}
+  f_\pi(x)
+  \, d \mu_X(\pi)
+  \quad
+  \text{ when }
+  f_\pi = \beta_\pi \circ \alpha_\pi(f).\]</span></p>
+<h3 id="l-functions"><span
+class="math inline">\(L\)</span>-functions</h3>
+<p>Recall that we have our torus <span
+class="math display">\[\begin{CD}         
+    Z_G^+    @&gt;&gt;&gt; \mathbb{G}_m^n\\
+    @VVV  @VVV \\
+    \overline{Z_G^+}    @&gt;&gt;&gt; \mathbb{G}_a^n. \\
+  \end{CD}\]</span> Recall that we asked that the action map <span
+class="math inline">\(X^{\circ} \times Z^+_G \rightarrow
+X^{\circ}\)</span> extends to a map (no longer an action) <span
+class="math inline">\(X \times \overline{Z_G^+} \rightarrow X\)</span>.
+We can choose <span class="math inline">\(d_i : G \rightarrow
+\mathbb{G}_m\)</span> such that <span class="math display">\[Z_G^+
+\rightarrow G \xrightarrow{\prod  d_i} \mathbb{G}_m^n\]</span> is an
+isogeny. For <span class="math inline">\(s \in \mathbb{C}^n\)</span>,
+set <span class="math display">\[\eta_s(g) := \prod \lvert d_i(g)
+\rvert^{s_i}.\]</span> We record <strong>Hypothesis L</strong>: there
+exists <span class="math inline">\(r_i :{}^L G \rightarrow
+{\mathop{\mathrm{GL}}}_{v_i}(\mathbb{C})\)</span>, for <span
+class="math inline">\(1 \leq i \leq n\)</span>, such that when <span
+class="math inline">\(F\)</span> is non-archimedean, for all <span
+class="math inline">\(f \in C_c^\infty(X(F))\)</span> and <span
+class="math inline">\(\phi \in C_c^\infty(X^{\circ}(F))\)</span>e, we
+have <span class="math display">\[\frac{\left\langle f, \phi_\pi \otimes
+\eta_s \right\rangle}{\prod L(\tfrac{1}{2} + s_i, \pi, r_i)} \in
+\mathbb{C}[q^{\pm s_1}, \dotsc, q^{\pm s_n}].\]</span> See the work of
+Sakellaridis–Venkatesh, Ichino–Ikeda, and our paper in the list of
+references. The idea is that some “almost <span
+class="math inline">\(L\)</span>-functions” (they would be actual <span
+class="math inline">\(L\)</span>-functions if the ratio were <span
+class="math inline">\(1\)</span> rather than some polynomial) control
+the boundary asymptotics.</p>
+<p>A basic example is when <span class="math inline">\(X^{\circ} =
+\mathbb{G}_m\)</span> and <span class="math inline">\(X =
+\mathbb{G}_a\)</span>, where the asymptotics near zero are controlled by
+the local zeta factor <span class="math inline">\(\zeta(s)\)</span>.</p>
+<p>There’s another hypothesis that’s useful: <strong>Multiplicity
+one</strong>. This says that for tempered <span
+class="math inline">\(\pi\)</span> and generic <span
+class="math inline">\(s \in \mathbb{C}^n\)</span>, we have <span
+class="math display">\[\dim \mathop{\mathrm{Hom}}(V_\pi \otimes \eta_s
+\otimes C^\infty(X^{\circ}(F)), \mathbb{C}) = 1.\]</span> (This was one
+of the motivations for Sakellaridis to focus on spherical varieties in
+his early papers.)</p>
+<p>Given the above, we can give our first pass at the definition of the
+Schwartz space.</p>
 <h1 id="sec:cq6tho3cpy">§4. Chen Wan’s lectures</h1>
 <p>We’ll focus on the <em>period</em> aspect of the relative Langlands
 duality of Ben-Zvi–Sakellaridis–Venkatesh. Recall from Chris’s talk that
@@ -3647,6 +3884,19 @@ f_v,\]</span> where <span
 class="math inline">\(\mathrm{Orb}_\gamma(f_v)\)</span> is a local
 orbital integral.</p>
 </div>
+<div id="remark:cq6th778hd" class="remark">
+<p><strong>Remark 63</strong>. There are a few different RTF’s one can
+see here:</p>
+<ul>
+<li><p><span class="math inline">\(G \circlearrowleft H_1 \times
+H_2\)</span>,</p></li>
+<li><p><span class="math inline">\(H_1 \backslash G \circlearrowleft
+H_2\)</span>,</p></li>
+<li><p><span class="math inline">\(H_1 \backslash G \times H_2
+\backslash G \circlearrowleft G\)</span>.</p></li>
+</ul>
+</div>
+<p>&lt;++&gt;</p>
 <h3 id="sec:cq6thubysx">§5.1.4. RTF and theta series</h3>
 <p>Assume for simplicity that <span class="math inline">\(\chi_1 =
 \chi_2 = 1\)</span>.</p>
@@ -3677,7 +3927,7 @@ convergence. These <span class="math inline">\(\Theta_f^X\)</span> are
 not arbitrary functions – they have a very special behavior. Here’s a
 fact that we’ll write in vague terms, and then give one example.</p>
 <div id="fact:cq6thubvi6" class="fact">
-<p><strong>Fact 63</strong>. <em><span
+<p><strong>Fact 64</strong>. <em><span
 class="math inline">\(\Theta^X_f\)</span> is “asymptotically finite”,
 i.e., is asymptotic to eigenfunctions with respect to the action of some
 tori (where we pluralize “torus” because the precise one depends upon in
@@ -3688,7 +3938,7 @@ is a canonical way to regularize <span
 class="math inline">\(\mathrm{RTF}_{X / G}\)</span>.</em></p>
 </div>
 <div id="example:cq6thubuij" class="example">
-<p><strong>Example 64</strong>. Take <span class="math inline">\(G =
+<p><strong>Example 65</strong>. Take <span class="math inline">\(G =
 \mathbb{G}_m\)</span>. Let <span class="math inline">\(\chi_0,
 \chi_\infty :[\mathbb{G}_m] \rightarrow \mathbb{C}^\times\)</span>.
 Define <span class="math inline">\(\mathcal{F}_{\chi_0,
@@ -3750,6 +4000,15 @@ class="math inline">\(f \in C_c^\infty(X_3(\mathbb{A}))\)</span>, we
 have <span class="math inline">\(\Theta_f^{X_3} \in \mathcal{F}_{\lvert
 . \rvert^{-1}, \lvert . \rvert}\)</span>.</p></li>
 </ol>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-MR1075727" class="csl-entry" role="listitem">
+Bernstein, Joseph N. 1988. <span>“On the Support of
+<span>P</span>lancherel Measure.”</span> <em>J. Geom. Phys.</em> 5 (4):
+663–710. <a
+href="https://doi.org/10.1016/0393-0440(88)90024-1">https://doi.org/10.1016/0393-0440(88)90024-1</a>.
+</div>
 </div>
 <script>
 document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
