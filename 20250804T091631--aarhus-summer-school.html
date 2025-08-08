@@ -225,7 +225,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-08 11:05:28
+2025-08-08 11:31:23
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -3855,8 +3855,10 @@ class="math inline">\(\mathcal{P}_{\hat{\Delta}}\)</span> is “equal” to
 </ol>
 <p>Two special cases:</p>
 <ol>
-<li><p><span class="math inline">\(\hat{\Delta} =(\hat{G}, \hat{H}&#39;,
-1, 0)\)</span>. Then the conjecture says that <span
+<li><p><span id="enumerate:cq6txwuycw"
+label="enumerate:cq6txwuycw"></span> <span
+class="math inline">\(\hat{\Delta} =(\hat{G}, \hat{H}&#39;, 1,
+0)\)</span>. Then the conjecture says that <span
 class="math inline">\(\mathcal{P}_\Delta(\phi)\)</span> detects the
 functoriality from <span
 class="math inline">\(H&#39;(\mathbb{A})\)</span> to <span
@@ -3875,8 +3877,9 @@ class="math inline">\(\phi\)</span> comes from the functorial lifting
 from <span class="math inline">\({\mathop{\mathrm{SO}}}_{2 n +
 1}(\mathbb{A})\)</span> to <span class="math inline">\(\mathrm{GL}_{2
 n}(\mathbb{A})\)</span>.</p></li>
-<li><p>Let’s consider next the case where <span
-class="math inline">\(\hat{\Delta} =(\hat{G}, \hat{G}, 1,
+<li><p><span id="enumerate:cq6txwu9pz"
+label="enumerate:cq6txwu9pz"></span> Let’s consider next the case where
+<span class="math inline">\(\hat{\Delta} =(\hat{G}, \hat{G}, 1,
 \hat{\rho}_{\hat{G}})\)</span>, i.e., we only have a symplectic
 representation (but no <span
 class="math inline">\(\mathrm{SL}_2\)</span> representation). Then the
@@ -3887,6 +3890,117 @@ class="math display">\[\left\lvert \mathcal{P}_\Delta(\phi)
 other words, in this case, the period corresponds to a special value of
 <span class="math inline">\(L\)</span>-functions.</p></li>
 </ol>
+<p>The general case will be some combination of these two cases: some
+detection of functoriality, and some special values.</p>
+<div id="exercise:cq6txvu33z" class="exercise">
+<p><strong>Exercise 12</strong>. Check this for <span
+class="math inline">\(\Delta =(\mathrm{GL}_n \times \mathrm{GL}_n,
+\mathrm{GL}_n \times \mathrm{GL}_n, 1,(\mathop{\mathrm{std}}\otimes
+\mathop{\mathrm{std}})^\vee \oplus(\mathop{\mathrm{std}}\otimes
+\mathop{\mathrm{std}}))\)</span> and <span
+class="math inline">\(\hat{\Delta} =(\mathrm{GL}_n \times \mathrm{GL}_n,
+\mathrm{GL}_n, 1, \mathop{\mathrm{std}}\oplus
+{\mathop{\mathrm{std}}}^\vee)\)</span>, where it corresponds to the
+results of Godement–Jacquet and Rankin–Selberg.</p>
+</div>
+<p>This is now the rough statement of the period conjecture, but we
+still haven’t said exactly what things are dual to each other, and which
+categories we’re working with (i.e., which quadruples). Let’s now
+discuss that point. We continue to fix our <span
+class="math inline">\(G\)</span> and <span
+class="math inline">\(\hat{G}\)</span>. The relative Langlands duality
+goes between <em>smooth, anomaly-free, hyperspherical Hamiltonian
+spaces</em> <span class="math inline">\(\mathcal{M} \leftrightarrow
+\hat{\mathcal{M}}\)</span> for <span class="math inline">\(G\)</span>
+and <span class="math inline">\(\hat{G}\)</span>, respectively. Let’s
+explain how to attach, to a quadruple <span class="math inline">\(\Delta
+=(G, H, \iota, \rho_H)\)</span>, a <span
+class="math inline">\(G\)</span>-Hamiltonian space <span
+class="math inline">\(\mathcal{M}_\Delta\)</span>. The association is
+easy to understand in special cases:</p>
+<ol>
+<li><p><span class="math inline">\(\Delta =(G, H, 1, 0)\)</span>. Then
+<span class="math inline">\(\mathcal{M}_\Delta = T^\ast(G / H)\)</span>
+is just the cotangent bundle.</p></li>
+<li><p><span class="math inline">\(\Delta =(G, G, 1, \rho_G)\)</span>,
+where <span class="math inline">\(\rho_G : G \rightarrow
+\mathop{\mathrm{Sp}}(V)\)</span>. Then <span
+class="math inline">\(\mathcal{M}_\Delta = V\)</span>.</p></li>
+<li><p>Combining these two cases together, take <span
+class="math inline">\(\Delta =(G, H, 1, \rho_H)\)</span>, where <span
+class="math inline">\(\rho_H : H \rightarrow
+\mathop{\mathrm{Sp}}(V)\)</span>. Then <span
+class="math inline">\(\mathcal{M}_\Delta =(V \times_{\mathfrak{h}^\ast}
+\mathfrak{g}^\ast) \times^H G\)</span>. Here <span
+class="math inline">\(V \times_{\mathfrak{h}^\ast}
+\mathfrak{g}^\ast\)</span> is the fiber product, where <span
+class="math inline">\(V \rightarrow \mathfrak{h}^\ast\)</span> is the
+moment map (coming from the symplectic action of <span
+class="math inline">\(H\)</span>). (This is sometimes called “symplectic
+induction”.)</p></li>
+</ol>
+<p>In general, recall that <span class="math inline">\(\iota\)</span>
+gives <span class="math inline">\(L =
+{\mathop{\mathrm{Cent}}}_G(\iota(\mathop{\mathrm{diag}}(t,
+t^{-1})))\)</span> and <span class="math inline">\(U =
+\exp(\mathfrak{u})\)</span>, where <span
+class="math inline">\(\mathfrak{u}\)</span> is the positive weight space
+for <span
+class="math inline">\(\mathop{\mathrm{Ad}}(\iota(\mathop{\mathrm{diag}}(t,
+t^{-1})))\)</span>. Let <span class="math inline">\(\mathfrak{u}_+
+\subseteq \mathfrak{u}\)</span> denote the weight <span
+class="math inline">\(\geq 2\)</span> space. Then <span
+class="math inline">\(\mathfrak{u} / \mathfrak{u}_+\)</span> is the
+weight one space. (We remark that <span
+class="math inline">\(\mathfrak{u} / \mathfrak{u}_+ = \{0\}\)</span> if
+and only if <span class="math inline">\(\iota\)</span> is even in the
+terminology introduced earlier.) The quotient <span
+class="math inline">\(\mathfrak{u} / \mathfrak{u}_+\)</span> is a
+symplectic vector space. <span class="math display">\[\mathcal{M}_\Delta
+= \left(
+    (V \times \mathfrak{u} / \mathfrak{u}_+)
+    \times_{(\mathfrak{h} + \mathfrak{u})^\ast}
+    \mathfrak{g}^\ast\right)
+  \times^{H U}
+  G.\]</span></p>
+<p>We have <span class="math inline">\(\mathfrak{u} / \mathfrak{u}_+
+\rightarrow \mathfrak{u}^\ast\)</span> via <span class="math inline">\(x
+\mapsto \kappa(x) + \kappa_f\)</span>, where <span
+class="math inline">\(\kappa : \mathfrak{u} / \mathfrak{u}_+
+\rightarrow(\mathfrak{u} / \mathfrak{u}_+)^\ast\)</span> comes from the
+symplectic pairing and the shift <span class="math inline">\(\kappa_f
+\in \mathfrak{u}^\ast\)</span> is given by <span class="math inline">\(Y
+\mapsto \left\langle \iota \left(
+    \begin{smallmatrix}
+      0&amp;0\\
+      1&amp;0 \\
+    \end{smallmatrix}
+  \right), Y \right\rangle\)</span>. The <em>hyperspherical</em>
+condition involves several requirements. Many concern avoiding the cases
+of covering groups, where stabilizers need not be connected. The main
+requirement is <em>coisotropy</em>, which says that the space <span
+class="math inline">\(K(\mathcal{M})^G\)</span> of <span
+class="math inline">\(G\)</span>-invariant rational functions on <span
+class="math inline">\(\mathcal{M}\)</span> is commutative with respect
+to the Poisson bracket.</p>
+<p>There is a structure theorem of BZSV that says that every smooth
+hyperspherical Hamiltonian <span class="math inline">\(G\)</span>-space
+<span class="math inline">\(\mathcal{M}\)</span> arises as <span
+class="math inline">\(\mathcal{M}_\Delta\)</span> for some unique BZSV
+quadruple <span class="math inline">\(\Delta\)</span>. Tomorrow, we’ll
+explain how in terms of the quadruples to see the coisotropy conditions;
+we will also explain the “anomaly-free” condition. (Note that so far we
+could take any subgroup <span class="math inline">\(H\)</span> in such a
+quadruple, which would be too powerful; the hyperspherical condition
+says roughly that <span class="math inline">\(H\)</span> is a spherical
+subgroup in the special case <a href="#enumerate:cq6txwuycw"
+data-reference-type="eqref"
+data-reference="enumerate:cq6txwuycw">\((1)\)</a>, while
+in the special case <a href="#enumerate:cq6txwu9pz"
+data-reference-type="eqref"
+data-reference="enumerate:cq6txwu9pz">\((2)\)</a>, it
+says that the symplectic representation should be multiplicity-free in a
+certain sense to be discussed tomorrow.)</p>
 <h1 id="sec:cq6tho1cgx">§5. Raphael Beuzart-Plessis’s lectures</h1>
 <p><strong>Introduction to Relative Trace Formulas (RTF)</strong></p>
 <h2 id="sec:cq6tho1blx">§5.1. RTF in general</h2>
