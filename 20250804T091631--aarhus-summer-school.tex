@@ -1657,7 +1657,7 @@ In the unramified case, we ask that for a \emph{basic function} $b_X \in S(X(F))
 
 In many cases, one can construct this.  For instance, the case of $\overline{P^{\der} \backslash G}^{\mathrm{aff}}$ was studied by Braverman--Kazhdan, refined by Getz--Liu, and further by Getz--Hsu--Leslie.
 
-\subsubsection{Poisson summation formula}
+\subsubsection{Poisson summation formula}\label{sec:cq6txpqnif}
 
 Let $F$ again be a number field.  Assume that $\mathcal{S}(X(F_v))$ has been constructed for all places $v$.  We then take
 \begin{equation*}
@@ -1703,7 +1703,7 @@ We're primarily interested in the Eulerian case, i.e., when
 
 for pure tensors $f = \otimes_v f_v$ and $\varphi = \otimes_v \varphi_v$.
 
-\subsection{The spectral argument}
+\subsection{The spectral argument}\label{sec:cq6txpqmpx}
 
 Known properties of $L$-functions imply cases of the Poisson summation conjecture.  (This is analogous to the fact that the functional equation of the Riemann zeta function is \emph{equivalent} to Poisson summation for $\mathbb{Z}$.)  Why would you do this, given that it seems circular?
 \begin{enumerate}
@@ -1713,7 +1713,7 @@ Known properties of $L$-functions imply cases of the Poisson summation conjectur
 \item ``Boundary terms lead to residue kernels.''  We won't have much time to talk about this point in these lectures, but the idea is that if you want to remove the condition \eqref{eq:cq6txloduw}, you'll get new boundary terms, which can in turn be related to residues of $L$-functions.
 \end{enumerate}
 
-\subsubsection{Plancherel decomposition}
+\subsubsection{Plancherel decomposition}\label{sec:cq6txpqlp7}
 
 Let's talk about this spectral argument, starting locally.  A nice reference is \cite{MR1075727}.  Recall that we expect
 \begin{equation*}
@@ -1742,7 +1742,7 @@ For $f \in C_c^\infty(X^{\circ}(F))$, we have
 \end{equation*}
 
 
-\subsubsection{$L$-functions}
+\subsubsection{$L$-functions}\label{sec:cq6txpqktt}
 
 Recall that we have our torus
 \begin{equation*}
@@ -1774,7 +1774,44 @@ There's another hypothesis that's useful: \textbf{Multiplicity one}.  This says 
 \end{equation*}
 (This was one of the motivations for Sakellaridis to focus on spherical varieties in his early papers.)
 
-Given the above, we can give our first pass at the definition of the Schwartz space.  
+\subsubsection{Construction of a Schwartz space}\label{sec:cq6txpqjrw}
+
+Given the above, we can give our first pass at the definition of the Schwartz space.  Assume that
+\begin{equation*}
+  f(x) = \int_{T_p(G(F))}
+  f_\pi(x)
+  \, d \mu_X(\pi).
+\end{equation*}
+Assume Hypothesis $L$ and Multiplicity One.  If $F$ is non-archimedean, then our first approximation at a definition is that
+\begin{equation*}
+  \mathcal{S}^{\text{naive}}(X(F))
+  =
+  \left\{ f \in \mathcal{C}(X^{\circ}(F)) \mid \pi \mapsto \frac{f_\pi}{\prod_i L(\frac{1}{2}, \pi, r_i)} \text{ is polynomial} \right\}.
+\end{equation*}
+(We follow the treatment of \cite[\S2.6]{2015arXiv150601452B} (TODO: fix ref).)  A polynomial function on $(\mathbb{R} / 2 \pi i \log q)^n$ is a function of the form $s \mapsto p(q^{- s}, q^{s})$ for some $p \in \mathbb{C}[x, y] /(x y - 1)$.  Locally, $T_p(G(F))$ is a quotient of $(\mathbb{R} / 2 \pi i \log q)^n$ by a finite group.  A polynomial function on $T_p(G(F))$ is a function that pulls back to a polynomial function on $(\mathbb{R} / 2 \pi i \log q)^n$.  (You can ask me later to give an example.)  Define the basic function to be
+\begin{equation*}
+  b_X = \int_{T_p(G(F))}
+  \prod_i L(\tfrac{1}{2}, \pi, r_i)
+  \cdot 
+  \mathbf{1}_{X^{\circ}(\mathcal{O}_F)_\pi}
+  \, d \mu_X(\pi)
+\end{equation*}
+and
+\begin{equation*}
+  \mathcal{F}_X(f) := \int_{T_p(G(F))} \prod_i \gamma(\tfrac{1}{2}, \pi, r_i) \cdot f_{\pi^\vee}
+  \, d \mu_X(\pi).
+\end{equation*}
+Then $\mathcal{F}_X$ acts on $\mathcal{S}^{\text{naive}}(X(F))$.  (This should be an approximation to the Schwartz space, but too big.)
+
+\subsubsection{The spectral argument}\label{sec:cq6txpqe90}
+
+We define $\mathcal{S}(X(\mathbb{A}_F))$ to be a restricted tensor product, as before.
+\begin{exercise}\label{exercise:cq6txpqdmd}
+  Derive the Poisson summation formula for $\mathbb{Z} \subset \mathbb{R}$ from the functional equation of the Riemann zeta function $\zeta(s)$.
+\end{exercise}
+Generalizing this, you can show that if $L(s, \pi, r_i)$ is nice for all $i$, then the Poisson summation conjecture holds for $X$.  We're not going to go through this, and in any given case there might be some difficulties to make this precise.
+
+
 
 
 
