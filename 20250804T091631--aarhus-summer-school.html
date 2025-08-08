@@ -225,7 +225,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-08 11:31:23
+2025-08-08 13:46:11
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -288,6 +288,19 @@ series</a></li>
 formally</a></li>
 <li><a href="#sec:cq6thubysx" id="toc-sec:cq6thubysx">RTF and theta
 series</a></li>
+</ul></li>
+<li><a href="#waldspurger-theorem-via-jacquets-comparison-of-rtf"
+id="toc-waldspurger-theorem-via-jacquets-comparison-of-rtf">Waldspurger
+theorem via Jacquet’s comparison of RTF</a>
+<ul>
+<li><a href="#reminder-on-hecke-periods"
+id="toc-reminder-on-hecke-periods">Reminder on Hecke periods</a></li>
+<li><a href="#waldspurgers-formula"
+id="toc-waldspurgers-formula">Waldspurger’s formula</a></li>
+<li><a href="#quaternion-algebras"
+id="toc-quaternion-algebras">Quaternion algebras</a></li>
+<li><a href="#non-vanishing"
+id="toc-non-vanishing">Non-vanishing</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -4044,7 +4057,7 @@ class="math inline">\(\mathcal{P}_{H, \chi}\)</span> is often related to
 \left(
       \begin{smallmatrix}
         \ast&amp;\\
-         &amp;1 \\
+                               &amp;1 \\
       \end{smallmatrix}
     \right) := \mathbb{G}_m\)</span>. For <span
 class="math inline">\(\varphi \in \pi \subset
@@ -4082,21 +4095,25 @@ class="math inline">\(\omega_\sigma = \chi^{-1}\)</span>.</p></li>
 :=\mathrm{GL}_{2 n} \supseteq H = \left\{
         \begin{pmatrix}
           g &amp;  \\
-            &amp; g \\
+                                                                                             &amp;
+g \\
         \end{pmatrix}
         \begin{pmatrix}
           1          &amp; X \\
-                     &amp; 1 \\
+                                                                                             &amp;
+1 \\
         \end{pmatrix} \mid g \in \mathrm{GL}_n, \, X \in
 {\mathop{\mathrm{Mat}}}_n \right\}.\]</span> Let <span
 class="math display">\[\chi :[H] \rightarrow \mathbb{C}^\times,\]</span>
 <span class="math display">\[\begin{pmatrix}
         g        &amp;  \\
-                 &amp; g \\
+                                                                          &amp;
+g \\
       \end{pmatrix}
       \begin{pmatrix}
         1        &amp; X \\
-                 &amp; 1 \\
+                                                                          &amp;
+1 \\
       \end{pmatrix}
       \mapsto \psi(\mathop{\mathrm{trace}}(X)).\]</span> For <span
 class="math inline">\(\pi \subset A_{\mathrm{cusp}}(\mathrm{GL}_{2 n} /
@@ -4342,7 +4359,7 @@ label="enumerate:cq6tht7mp9"></span> Take <span
 class="math inline">\(\mathbb{G}_m = A = \left(
       \begin{smallmatrix}
         \ast&amp;\\
-         &amp;1 \\
+                                &amp;1 \\
       \end{smallmatrix}
     \right) \subset \mathrm{PGL}_2\)</span>, then for all <span
 class="math inline">\(f \in C_c^\infty(X_3(\mathbb{A}))\)</span>, we
@@ -4350,6 +4367,245 @@ have <span class="math inline">\(\Theta_f^{X_3} \in \mathcal{F}_{\lvert
 . \rvert^{-1}, \lvert . \rvert}\)</span>.</p></li>
 </ol>
 </div>
+<h2 id="waldspurger-theorem-via-jacquets-comparison-of-rtf">Waldspurger
+theorem via Jacquet’s comparison of RTF</h2>
+<h3 id="reminder-on-hecke-periods">Reminder on Hecke periods</h3>
+<p>Set <span class="math display">\[G := \mathrm{PGL}_2 / K \supset A :=
+  \begin{pmatrix}
+    \ast    &amp;  \\
+                                                                             &amp;
+1 \\
+  \end{pmatrix}
+  = \mathbb{G}_m.\]</span> Let’s also fix an idele class character <span
+class="math inline">\(\chi :[\mathbb{G}_m] \rightarrow
+\mathbb{C}^\times\)</span>. Yesterday we formulated a relation between
+the Hecke period and the Hecke <span
+class="math inline">\(L\)</span>-function. Let’s recall that, being a
+little more precise. Let <span class="math inline">\(\varphi \in \pi
+\subset A_{\mathrm{cusp}}(G)\)</span> be a cusp form, living in some
+cuspidal automorphic representation. Then if you take the automorphic
+period over <span class="math inline">\(A\)</span> twisted by <span
+class="math inline">\(\chi\)</span> of <span
+class="math inline">\(\varphi\)</span>, you get the standard <span
+class="math inline">\(L\)</span>-function of <span
+class="math inline">\(\pi\)</span> twisted by <span
+class="math inline">\(\chi\)</span>, although it’s only an
+approximation: you need to add some local factors involving the local
+points of your torus, the local components of your character, and the
+local component of not exactly <span
+class="math inline">\(\varphi\)</span>, but rather its Whittaker
+function. This yields <span id="eq:cq6tx8qioa" class="math display">\[\label{eq:cq6tx8qioa}\tag{5.1}
+  \mathcal{P}_{A, \chi \lvert . \rvert^s}(\varphi) = L(\tfrac{1}{2} + s,
+\pi \times \chi) \prod_v \mathcal{P}_{A_v, \chi_v, \lvert .
+\rvert_v^s}^{\flat}(W_v),\]</span> where the Whittaker function is
+defined by <span class="math display">\[W_\varphi(g) = \int_{\mathbb{A}}
+\varphi \left(
+    \begin{pmatrix}
+      1 &amp; x \\
+      0 &amp; 1 \\
+    \end{pmatrix} g \right)
+  \psi(x) \, d x
+  = \prod_v W_v,\]</span> with the factorization was explained in
+Chris’s lectures, and where the local periods are defined in the obvious
+way, by integrating the Whittaker function against the character: <span
+class="math display">\[\mathcal{P}_{A_v, \chi_v, \lvert .
+\rvert_v^s}(W_v) := \int_{F_v^\times} W_v
+  \begin{pmatrix}
+    a    &amp;  \\
+                                                                                   &amp;
+1 \\
+  \end{pmatrix}
+  \chi_v(a) \lvert a \rvert_v^s \, d a,\]</span> which we normalize
+further by dividing by the local factor of the global <span
+class="math inline">\(L\)</span>-function: <span
+class="math display">\[\mathcal{P}_{A_v, \chi_v, \lvert .
+\rvert_v^s}^\flat(W_v) :=
+  \frac{\mathcal{P}_{A_v, \chi_v, \lvert .
+\rvert_v^s}(W_v)}{L(\tfrac{1}{2} + s, \pi_v \times \chi_v)}.\]</span>
+Specialize to <span class="math inline">\(s = 0\)</span>. It turns out
+that all local periods are nonzero, so we obtain <span
+class="math display">\[L(\tfrac{1}{2}, \pi \times \chi) \neq 0
+  \quad \iff \quad
+  \text{there exists } \varphi \in \pi, \, \, \mathcal{P}_{A,
+\chi}(\varphi) \neq 0.\]</span></p>
+<h3 id="waldspurgers-formula">Waldspurger’s formula</h3>
+<p>Let <span class="math inline">\(L /K\)</span> be a separable
+quadratic extension of <span class="math inline">\(K\)</span>. We can
+then define a torus <span class="math inline">\(T := L^\times / K^\times
+\subset G := {\mathop{\mathrm{Aut}}}_K(L) / K^\times\)</span>. We can
+define an automorphic character <span class="math inline">\(\chi :[T]
+\rightarrow \mathbb{C}^\times\)</span>. Let us remark that <span
+class="math inline">\([T]\)</span> can also be written as <span
+class="math inline">\(L^\times \backslash \mathbb{A}_L^\times /
+\mathbb{A}_K^\times\)</span>; thus, <span
+class="math inline">\(\chi\)</span> gives in particular an idele class
+character for <span class="math inline">\(L\)</span>. We then have all
+the ingredients needed to formulate a precise version of Waldspurger’s
+formula. It’s essentially an analogue of the Hecke formula <a
+href="#eq:cq6tx8qioa" data-reference-type="eqref"
+data-reference="eq:cq6tx8qioa">\((5.1)\)</a>. Let <span
+class="math inline">\(\varphi \in \pi \subset
+A_{\mathrm{cusp}}(G)\)</span>. Then <span
+class="math display">\[\left\lvert \mathcal{P}_{T, \chi}(\varphi)
+\right\rvert^2
+  =
+  L(\tfrac{1}{2}, \pi_L \times \chi) \prod(\text{local
+periods}),\]</span> where <span class="math inline">\(\pi_L \subset
+A(G_L)\)</span> is the base change lift of <span
+class="math inline">\(\pi\)</span> (a particular case of Langlands
+functoriality, shown to exist by Langlands in this case). That’s the
+shape of the Waldspurger formula.</p>
+<p>Now you can ask the same question: can we deduce from this formula a
+criterion for the nonvanishing of the central <span
+class="math inline">\(L\)</span>-value? The problem here is that the
+local periods can be identically zero! The way to work around this
+problem is to work with a family of groups, called <em>pure inner
+forms</em>. Let’s explain quickly what are these groups.</p>
+<h3 id="quaternion-algebras">Quaternion algebras</h3>
+<p>Let <span class="math inline">\(k\)</span> be an arbitrary field,
+with <span class="math inline">\(\operatorname{char}(k) \neq 2\)</span>.
+Let’s take as a definition that a <em>pure inner form</em> of <span
+class="math inline">\(G := \mathrm{PGL}_2\)</span> is a group of the
+form <span class="math inline">\(G^B := B^\times / k^\times\)</span>,
+where <span class="math inline">\(B\)</span> is a quaternion algebra
+over <span class="math inline">\(k\)</span>.</p>
+<p>Recall that a <em>quaternion algebra</em> over <span
+class="math inline">\(k\)</span> is an algebra <span
+class="math inline">\(B_{/k}\)</span> whose base change to the algebraic
+closure is the space of <span class="math inline">\(2 \times 2\)</span>
+matrices, i.e., <span class="math inline">\(B \otimes_k k^{\mathrm{sep}}
+\cong M_2(k^{\mathrm{sep}})\)</span>. If <span class="math inline">\(B
+\cong M_2(k)\)</span> (already over <span
+class="math inline">\(k\)</span>), then we say that <span
+class="math inline">\(B\)</span> is <em>split</em>. There’s a very
+simple classification of quaternion algebras, using the following
+construction. Over the algebraic closure, there’s a particular quadratic
+form on the <span class="math inline">\(2 \times 2\)</span> matrices,
+given by the determinant: <span class="math inline">\(\det :
+M_2(k^{\mathrm{sep}}) \rightarrow k^{\mathrm{sep}}\)</span>. Being
+unique, it descends to <span class="math inline">\(N : B \rightarrow
+k\)</span>, called the <em>reduced norm</em>. This is also a quadratic
+form. In particular, you can consider the orthogonal of <span
+class="math inline">\(k\)</span> with respect to the associated bilinear
+form, say <span class="math inline">\(B_0 := k^\perp\)</span>. Then we
+obtain <span class="math display">\[\begin{gathered}
+  \left\{
+    \begin{array}{c}
+      \text{quaternion algebras over } k \\
+      \text{up to isomorphism}
+    \end{array}
+  \right\}
+  \quad \longleftrightarrow \quad
+  \left\{
+    \begin{array}{c}
+      \text{rank } 3 \text{ quadratic forms} \\
+      \text{of discriminant one,} \\
+      \text{up to equivalence}
+    \end{array}
+  \right\} \\[1em]
+  B \quad \longmapsto \quad N|_{B^0}
+\end{gathered}\]</span> The classification proceeds as follows.</p>
+<ul>
+<li><p>If <span class="math inline">\(k\)</span> is a local field other
+than <span class="math inline">\(\mathbb{C}\)</span>, then there are two
+isomorphism classes of quaternion algebras: <span
+class="math inline">\(M_2(k) = B^+\)</span> (called <em>split</em>), and
+some other quaternion algebra <span
+class="math inline">\(B^-\)</span>.</p></li>
+<li><p>Suppose <span class="math inline">\(k = K\)</span> is global.
+Then:</p>
+<ul>
+<li><p>Two quaternion algebras <span class="math inline">\(B\)</span>
+and <span class="math inline">\(B&#39;\)</span> over <span
+class="math inline">\(K\)</span> are isomorphic if and only if their
+completions <span class="math inline">\(B_v :=B \otimes_K k_v\)</span>
+and <span class="math inline">\(B_v &#39;\)</span> are isomorphic for
+all <span class="math inline">\(v\)</span>.</p></li>
+<li><p>For a family <span
+class="math inline">\((\mathbb{B}_v)_v\)</span> of local quaternion
+algebras, there exists a quaternion algebra <span
+class="math inline">\(B_{/ K}\)</span> with <span
+class="math inline">\(B_v \cong \mathbb{B}_v\)</span> for all places
+<span class="math inline">\(v\)</span> if and only if</p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{B}_v\)</span> is split for
+almost all <span class="math inline">\(v\)</span>, and</p></li>
+<li><p><span class="math inline">\(\prod_v \varepsilon(\mathbb{B}_v) =
+1\)</span>, where <span
+class="math inline">\(\varepsilon(\mathbb{B}_v)\)</span> is defined to
+be <span class="math inline">\(+1\)</span> if <span
+class="math inline">\(\mathbb{B}_v\)</span> is split and <span
+class="math inline">\(- 1\)</span> otherwise.</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>We next recall the <em>Jacquet–Langlands</em> correspondence.</p>
+<ul>
+<li><p>For <span class="math inline">\(k = F\)</span> local, there
+exists <span class="math display">\[\mathrm{JL} :
+\mathop{\mathrm{Irr}}(G^B(F)) \hookrightarrow
+\mathop{\mathrm{Irr}}(G(F))\]</span> that is injective and is
+characterized by some character identities. Moreover, if <span
+class="math inline">\(B\)</span> is split, then <span
+class="math inline">\(\mathrm{JL}\)</span> is just the
+identity.</p></li>
+<li><p>For <span class="math inline">\(k \in K\)</span> global, there
+exists <span class="math display">\[\mathrm{JL} :
+    \left\{
+      \begin{array}{c}
+        \text{cuspidal automorphic } \\
+        \text{representations } \pi_B \subset A_{\mathrm{cusp}}(G^B)
+      \end{array}
+    \right\}
+    \hookrightarrow
+    \left\{
+      \begin{array}{c}
+        \text{cuspidal automorphic } \\
+        \text{representations } \pi \subset A_{\mathrm{cusp}}(G)
+      \end{array}
+    \right\}\]</span> such that <span
+class="math inline">\(\mathrm{JL}(\pi_B)_v = \mathrm{JL}(\pi_{B,
+v})\)</span> for all places <span class="math inline">\(v\)</span>. In
+particular, <span class="math inline">\(\pi_{B, v} \cong \pi_v\)</span>
+for all places <span class="math inline">\(v\)</span> such that <span
+class="math inline">\(B_v\)</span> is split.</p></li>
+</ul>
+<p>That’s all we wanted to say about quaternion algebras and the
+Jacquet–Langlands correspondence. Let’s now go back to finding a way to
+go from the Waldspurger formula to a criterion for the nonvanishing of
+the central <span class="math inline">\(L\)</span>-value.</p>
+<h3 id="non-vanishing">Non-vanishing</h3>
+<p>Return to the previous setting. Let <span class="math inline">\(L /
+K\)</span> be a quadratic extension of global fields, so that we have
+<span class="math display">\[T = L^\times / K^\times \subset G :=
+\mathrm{PGL}_2, \qquad \chi :[T] \rightarrow \mathbb{C}^\times\]</span>
+as before. Let <span class="math inline">\(B\)</span> be a quaternion
+algebra such that <span class="math inline">\(L \subset B\)</span>. Then
+we obtain an embedding <span class="math display">\[T = L^\times /
+K^\times \subset G^B \rightarrow B^\times / K^\times.\]</span> It turns
+out that in this situation also, there is a Waldspurger formula for the
+period of cusp forms on <span class="math inline">\(G^B\)</span> over
+<span class="math inline">\(T\)</span>. When you combine all these
+formulas, you can deduce the following nonvanishing result:</p>
+<div class="theorem">
+<p><strong>Theorem 67</strong> (Waldspurger). <em>Let <span
+class="math inline">\(\pi \subset A_{\mathrm{cusp}}(G)\)</span>. Then
+the following are equivalent:</em></p>
+<ol type="i">
+<li><p><em><span class="math inline">\(L(\tfrac{1}{2}, \pi_L \times
+\chi) \neq 0\)</span>.</em></p></li>
+<li><p><em>There exists a quaternion algebra <span
+class="math inline">\(B\)</span> over <span
+class="math inline">\(K\)</span> with <span class="math inline">\(L
+\subset B\)</span> and <span class="math inline">\(\pi_B \subset
+A_{\mathrm{cusp}}(G^B)\)</span> with <span
+class="math inline">\(\operatorname{JL}(\pi_B) = \pi\)</span> with <span
+class="math inline">\(\mathcal{P}_{T, \chi} |_{\pi^B} \neq
+0\)</span>.</em></p></li>
+</ol>
+</div>
+<p>That’s the statement. We’ll now aim to explain how Jacquet was able
+to reprove this using a comparison of RTF.</p>
 <div id="refs" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" role="list">
 <div id="ref-MR1075727" class="csl-entry" role="listitem">
