@@ -1576,7 +1576,7 @@ on an affine $G$-scheme $X$.  Assume that there is a unique open orbit $X^{\circ
 Assume that there exists an automorphic $\iota : G \rightarrow G$ such that $\iota(z) = z^{-1}$ for $z \in Z_G^+(\mathbb{R})$.
 
 \begin{example}\label{example:cq6tho7ox2}
-  Take $X$ to be a vector space, $G =\mathrm{GL}_{X}$, $\iota(g) = g^{- \transpose}$, and $X(R) := \{x \in R^n \mid Q(x) = 0\}$, where $Q$ is an anisotropic quadratic form.  Or take $G = \GO_Q$, and $\iota(g) = \operatorname{simil}(g^{-1}) g$.
+  Take $X$ to be a vector space, $G =\mathrm{GL}_{X}$, $\iota(g) = g^{- \intercal}$, and $X(R) := \{x \in R^n \mid Q(x) = 0\}$, where $Q$ is an anisotropic quadratic form.  Or take $G = \GO_Q$, and $\iota(g) = \operatorname{simil}(g^{-1}) g$.
 \end{example}
 
 We need a generalization.  In integral representations, you often need some sort of Whittaker or Fourier coefficients to integrate against.  The reason is that if you don't have it, then when you integrate against cusp forms, you get zero.  If we don't have this in the cases of interest, then we end up getting zero.  There's a geometric way of phrasing this:
@@ -1814,9 +1814,192 @@ We define $\mathcal{S}(X(\mathbb{A}_F))$ to be a restricted tensor product, as b
 \end{exercise}
 Generalizing this, you can show that if $L(s, \pi, r_i)$ is nice for all $i$, then the Poisson summation conjecture holds for $X$.  We're not going to go through this, and in any given case there might be some difficulties to make this precise.
 
+\begin{example}\label{example:cq6ud4pnkj}
+  Take $F$ to be a local non-archimedean field.  We may write
+  \begin{equation*}
+    L^2(F^\times) = \int_{\mathbb{R} / (2 \pi i \log q) \mathbb{Z}} \bigoplus_\chi \chi \lvert . \rvert^{i t} \, d t,
+  \end{equation*}
+  where $\chi$ runs over a set of characters of $F^\times$ modulo twisting by $\lvert . \rvert^{i t}$.  Take $X^{\circ} \subset X$ to be $\mathbb{G}_m \subset \mathbb{G}_a$.  Set $f := \mathbf{1}_{X(\mathcal{O}_F)}$.  Let $\phi \in C_c^\infty(F^\times)$, such as $\phi = \mathbf{1}_{\mathcal{O}_F^\times}$.  Then
+  \begin{equation*}
+    \phi_{\chi_s} = \int_{\mathcal{O}_F^\times} \chi_s(t) \, d t \, \chi_s(x).
+  \end{equation*}
+  We have
+  \begin{equation*}
+    \langle f, \phi_{\chi_s} \rangle = L(s, \chi).
+  \end{equation*}
+\end{example}
 
 
+\subsection{Producing new Poisson summation formulae from old}\label{sec:cq6ud4pku1}
 
+We will discuss two techniques, one of which has been exploited more than the other.
+
+\subsubsection{Restriction}\label{sec:cq6ud4pjsa}
+
+Suppose given $X \times G \rightarrow X$ together with a Poisson summation formula.  If we restrict to a subgroup $H \subset G$ that still has open orbit, then we get a Poisson summation formula still for $X$, but with respect to the action of $H$.
+\begin{example}\label{example:cq6ud4qj65}
+  Take a parabolic subgroup $P = M N \leq G$.  We can look at
+  \begin{equation*}
+    X := \overline{P^{\mathrm{der} \backslash G}}^{\mathrm{aff}},
+  \end{equation*}
+  with an action by $M^{\mathrm{a b}} \times G$.  The Poisson summation conjecture for $X$ is known, and is essentially the theory of Eisenstein series plus the spectral argument.  (Some of these ideas go back to Gelfand--Graev.)  Here $M^{\mathrm{ab}}$ is an abelian group, so you can do a Mellin transform.  By summing, one then gets an Eisenstein series.  The thing to note is that if we look at the integrals defined the other day $Z(f, \varphi, s) = 0$ for $\varphi$ a cusp form on $G(\mathbb{A}_F)$, because if we try to integrate it against this space, then every stabilizer will continue the unipotent radical of a parabolic subgroup, hence will die.  But $Z(f, \varphi, s)$ may be nonzero if $\varphi$ is a cusp form on $H(\mathbb{A}_F)$.  This will still have a functional equation because it inherits it from the case of $G$.  \end{example}
+The above is just another way of talking about the Rankin--Selberg method.  Here's a concrete example:
+\begin{example}\label{example:cq6ud4qlts}
+  Let $P$ denote the Siegel parabolic subgroup of $\mathrm{GSp}_6$, i.e.,
+  \begin{equation*}
+    P = \left\{
+      \begin{pmatrix}
+        z g        & \ast \\
+                   & g^{- \intercal} \\
+      \end{pmatrix}
+      : g \in \mathrm{GL}_3\right\}.
+  \end{equation*}
+  Take $H = G(\mathrm{SL}_2 \times \mathrm{SL}_2 \times \mathrm{SL}_2)$.  Poisson conjeture for $\overline{P^{\der} \backslash \mathrm{GSp}_6}$ is known.  This gives rise to the triple product $L$-function $L(s, \pi, \otimes^3)$ for $\pi = \pi_1 \otimes \pi_2 \otimes \pi_3$, with $\pi_i$ on $\mathrm{GL}_2(\mathbb{A}_F)$, introduced by Garrett \cite{MR881269} and developed further by Piatetski-Shapiro--Rallis \cite{MR911357}.
+\end{example}
+
+\subsubsection{Coinvariant}\label{sec:cq6ud4ph5c}
+
+Take $X \times G \rightarrow X$ and $\iota \circlearrowright G$, as before.  Assume that $G = G ' \ltimes H$ and that $\iota |_{H} = \id$.  Suppose given a $G'$-equivariant map
+\begin{equation*}
+  I : \mathcal{S}(X(F))_{H(F_v)} \rightarrow C^\infty(Y^{\circ}(F_v))
+\end{equation*}
+for some quasi-affine space $Y^{\circ}$, with $Y^{\circ} \times G' \rightarrow Y^{\circ}$ some other action.  We assume the Poisson summation conjecture for $X$.  Often, one can prove
+\begin{equation*}
+  \sum_{y \in Y^{\circ}(F)}
+  I(f)(y)
+  = \sum_{y \in Y^{\circ}(F)}
+  I(\mathcal{F}_X(f))(y).
+\end{equation*}
+This gives the Poisson summation formula for $Y \times G' \rightarrow Y$.
+
+It is often reasonable to define
+\begin{equation*}
+  \mathcal{S}(Y(\mathbb{A}_F)) := \mathcal{S}(X(\mathbb{A}_F))_{H(\mathbb{A}_F)}.
+\end{equation*}
+You have to be a bit careful at the infinite places (you want to take some closure, but let's not worry about that).  You can think of $\mathcal{S}(X(\mathbb{A}_F)) \rightarrow \mathcal{S}(Y(\mathbb{A}_F))$ as a harmonic analytic analogue of the map $X \rightarrow[X / H]$, where $[X / H]$ is the stack that appeared in yesterday's exercise session.
+
+Two examples:
+
+\begin{example}
+  (Suggested to me by Aaron Slipper.)  Take $V = \mathbb{G}_a^n$ to be a vector space, and $V \times G \times H \rightarrow V$ any action.  Then we get a Schwartz space for $V / H$.  This seems a bit stupid, but you can create some fairly complicated vector spaces $V$ and get some interesting examples out of this.
+\end{example}
+
+\begin{example}\label{example:cq6ud5xqwu}
+  $V = \mathbb{G}_a^n \times \mathbb{G}_a^n$ and $Q_n(x, y) := x y^{\intercal}$, and $Y_n(R) := \left\{ v \in V_n(R) : Q_n(v) = 0 \right\}$ to be the zero locus.  We have a Weil representation
+  \begin{equation*}
+    \rho : \mathrm{SL}_2(\mathbb{A}_F) \times \O_{V_n}(\mathbb{A}_F) \times \mathcal{S}(V_n(\mathbb{A}_F)) \rightarrow \mathcal{S}(V_n(\mathbb{A}_F)).
+  \end{equation*}
+  Let $R := (\rho \otimes\mathrm{std}^\vee) \boxtimes \mathrm{trivial} : \mathrm{SL}_2(\mathbb{A}_F) \otimes \O_{V_n}(\mathbb{A}_F) \times \mathcal{S}(V_{n + 1}(\mathbb{A}_F)) \rightarrow \mathcal{S}(V_{n + 1}(\mathbb{A}_F))$, where the action is extended from the subspace
+  \begin{equation*}
+    \mathcal{S}(V_{n + 1}(\mathbb{A}_F)) \supseteq \mathcal{S}(V_n(\mathbb{A}_F)) \otimes \mathcal{S}(\mathbb{A}_F^2)
+  \end{equation*}
+  Then you get a map (see \cite{MR4887846})
+  \begin{equation*}
+    I : \mathcal{S}(V_{n + 1}(\mathbb{A}_F))_{r(\mathrm{SL}_2(\mathbb{A}_F))} \rightarrow C^\infty(Y_n^{\circ}(\mathbb{A}_F)).
+  \end{equation*}
+  Note that $V_{n + 1}$ is \emph{not} spherical for $\O_n$.  It is not even homogeneous - the orthogonal group does not act transitively on $V_n$.  Nevertheless, after we take these coinvariants, we obtain a summation formula for the $\GO_n$-spherical variety $Y_n$.  The Fourier transform in this case just comes a Fourier transform on a big vector space.
+
+  There's a more complicated example, sort of combining this example with that of the Siegel parabolic, due to Getz--Liu \cite{MR3916514}.
+\end{example}
+
+\subsubsection{Fiber bundle method}
+
+Assume given affine $G$-schemes $B_i$ and equivariant maps $p_i : X \rightarrow B_i$, fitting into a diagram
+\begin{equation*}
+  \begin{tikzcd}
+    & X \arrow[dl, "p_1"'] \arrow[dr, "p_2"] & \\
+    B_1 & & B_2
+  \end{tikzcd}
+\end{equation*}
+Assume given compatible Poisson summation formulae for the fibers of $p_1$ and $p_2$.  Then we get the Poisson summation formulae for $X$.
+
+Say this is a vector bundle, for example.  Then you can just do Poisson summation on all the vector spaces, and as long as the group action preserves everything, you get a Poisson summation for the whole thing.  (That's kind of interesting -- maybe you don't think about Poisson summation formulas in families.)  But it's more interesting when you have two of these and can combine them.  Let's give a simple example saying what you can get out of this, which is very rich.
+
+\begin{example}
+   Take
+   \begin{equation*}
+    X = \overline{(N \backslash \mathrm{SL}_3)}^{\mathrm{aff}}.
+  \end{equation*}
+  Let $V = \mathbb{G}_a^3$ and let $V^\vee := \Hom(V, \mathbb{G}_a)$.  It's not hard to verify that we can identify
+  \begin{equation*}
+    X(R) = \left\{(v, v^\vee) \in V(R) \times V^\vee(R) : v^\vee(v) = 0 \right\}.
+  \end{equation*}
+  So it's another one of these cones.  In this picture, we have our little diagram again:
+  \begin{equation*}
+    \begin{tikzcd}
+      & X \arrow[dl, "p_1"'] \arrow[dr, "p_2"] & \\
+      V & & V^\vee
+    \end{tikzcd}
+  \end{equation*}
+  One Fourier transform is given by
+  \begin{equation*}
+    \mathcal{F}_1(f)(v, v^\vee) = \int_{(V^\vee)^{\perp}(F)} f(v ', v^\vee)
+    \psi \left( \frac{v \wedge v '}{v^\vee} \right)
+    \, \frac{d v'}{d v^\vee},
+  \end{equation*}
+  being a bit liberal here with notation in order to make the equivariance properties more transparent, e.g., in the argument of $\psi$, we think of $v \wedge v '$ as defining the linear map
+  \begin{equation*}
+    x \mapsto \frac{v \wedge v ' \wedge x}{e_1 \wedge e_2 \wedge e_3},
+  \end{equation*}
+  which is then a functional that we can then divide by $v^\vee$.  For $\mathcal{F}_2$, you exchange the roles of $v$ and $v^\vee$ in the above expression.  The operators $\mathcal{F}_1$ and $\mathcal{F}_2$ extend to $L^2(X^\circ(F))$ (there is an $\mathrm{SL}_3$-invariant measure on this), and generate a subgroup of $\Aut(L^2(X^{\circ}(F)))$ isomorphic to $S_3$.  The latter is really the Weyl group $W$ of a maximal torus in $\mathrm{SL}_3$ -- the two Fourier transforms correspond to simple reflections.  This tells us that we can define $\mathcal{F}_w$ for $w \in W$.  Let
+  \begin{equation*}
+    \mathcal{S}_{\mathrm{B K}}(X(F_v)) = \bigoplus_{w \in W}
+    \mathcal{F}_w(\mathcal{S}(X^{\circ}(F_v))).
+  \end{equation*}
+  This is a bit of a cheat, but it's obviously invariant under all the Fourier transforms now.  We can think of this as living inside $L^2(X^{\circ}(F))$.
+
+  We can adelize.  We get Poisson summation formulae for $X$, with a whole non-abelian group of Fourier transforms.
+
+  This example gives you \emph{hidden equivariance}.  You'll notice that this space is an example of the space from Example \ref{example:cq6ud5xqwu}, just realized differently.  You can ask, what is the relationship between the two? Let $P \subset \SO_6$ be the stabilizer of an isotropic vector.  Then
+  \begin{equation*}
+    \overline{P^{\mathrm{der}} \backslash \SO_6}^{\mathrm{aff}} = \overline{(N \backslash \SL_3)}^{\mathrm{aff}}.
+  \end{equation*}
+  The Schwartz spaces are the same.  But the actions are different - on the left, there is an action of $\mathbb{G}_m \times \SO_6$ (here $\mathbb{G}_m = P / P^{\mathrm{der}}$), while on the right, we have an action of $\mathbb{G}_m^2 \times \mathrm{SL}_3$ (here $\mathbb{G}_m^2 = T \leq \mathrm{SL}_3$ is the diagonal torus).  Now, $\mathcal{F}_1$ and $\mathcal{F}_2$ do \emph{not} commute with the action of $\SO_6$, but the long Weyl element for $\mathrm{SL}_3$ defines the operator $\mathcal{F}_1 \mathcal{F}_2 \mathcal{F}_1$, which \emph{does} commute with that action and defines the Fourier transform arising naturally on the left.
+
+  The moral is that sometimes one can build equivariant Fourier transforms by composing non-equivariant Fourier transforms.
+\end{example}
+
+\subsection{Integral representations of triple product $L$-functions}
+
+Maybe in the last five minutes, we'll try to say something about what we do in the preprint \cite{2025arXiv2503.21648}.  Let $\underline{r} =(r_1, r_2, r_3)$ be as before, and $\mathrm{GL}_{\underline{r}} = \prod_{i = 1}^3\mathrm{GL}_{r_i}$.  Let
+\begin{equation*}
+  H(R) := \{(h_1, h_2, h_3) \in \mathrm{GL}_{\underline{r}}(R) \mid \det h_1 = \det h_2 = \det h_3\}.
+\end{equation*}
+We construct an affine $\Psi$-bundle
+\begin{equation*}
+  \mathcal{V}^{\circ} \rightarrow X \times Y
+\end{equation*}
+equipped with an action of $\mathrm{GL}_{\underline{r}} \times\mathrm{GL}_{\underline{r - 2}} \times H$.  We assume that $f \in C^\infty(X^{\circ}(\mathbb{A}_F) \times Y^{\circ}(\mathbb{A}_F), \mathcal{L}_\psi)$.  We can then form the theta function
+\begin{equation*}
+  \theta_f(g, g', h) := \sum_{
+    (x, y) \in 
+    X^{\circ}(F) \times Y^{\circ}(F)
+  }
+  \mathcal{R}(g, g', h) f(x, y).
+\end{equation*}
+For $\varphi \in \pi$ on $\mathrm{GL}_{\underline{r}}(\mathbb{A}_F)$, $\varphi ' \in \pi '$ on $\mathrm{GL}_{\underline{r - 2}}(\mathbb{A}_F)$ and $s \in \mathbb{C}$ and $\underline{s} \in \mathbb{C}^3$, we define a zeta integral
+\begin{equation*}
+  Z(f, \varphi, \varphi ', s, \underline{s})
+  := \int_{[\mathrm{GL}_{\underline{r}} \times\mathrm{GL}_{\underline{r - 2}}] \times[H^{\circ}]}
+  \theta_f(g, g', h)
+  \varphi(g) \varphi '(g')
+  \eta_{s, \underline{s}}(g', h)
+  \, d g \, d g' \, d h,
+\end{equation*}
+with $\eta_{s, \underline{s}}$ a suitable quasi-character.
+\begin{theorem}[Getz--Gu--Hsu--Leslie]
+  \begin{enumerate}
+  \item This zeta integral is a holomorphic multiple of
+    \begin{equation*}
+      L(s + \tfrac{1}{2}, \pi^\vee, \otimes^3)
+      \prod_{i = 1}^3 L(\tfrac{1}{2} + s + \frac{s_i - s_{i + 1} - s_{i + 2}}{r_i - 2}, \pi_i \times \pi_i ')
+      L(\tfrac{1}{2} + s_i, \pi_i).
+    \end{equation*}
+
+  \item The Poisson summation conjecture for $X \times Y$ implies the meromorphic continuation of the above.
+  \end{enumerate}
+\end{theorem}
+If you were looking at this with a critical eye and knew something about the subject, you could just say, well, use the reductive monoid attached to the triple product, for which the Poisson summation conjecture implies the meromorphic continuation.  So what have you really done?  What we argue is that the space $X \times Y$ is designed so that one can apply the techniques discussed earlier in this lecture, e.g., the fiber bundle method, to get going.  On the other hand, at least far as the speaker can see, there is no known way of attacking the Poisson summation conjecture directly on reductive monoids.  The only real idea we have is to push it to the trace formula and try to work there.
 
 
 \section{Chen Wan's lectures}\label{sec:cq6tho3cpy}
@@ -1917,7 +2100,7 @@ Let's start with some easy special cases, before moving to the general case.
     \mathcal{P}_\Delta(\phi) := \int_{[H]} \mathcal{P}_\iota(\phi)(h) \Theta_{\rho_H}(h) \, d h.
   \end{equation}
   Here $\mathcal{P}_\iota$ is the Fourier coefficient of $\phi$ associated to $\iota$, defined as follows.  We first recall that $\iota : \mathrm{SL}_2 \rightarrow G$.  In particular, we can let $L := \mathrm{Cent}_G(\operatorname{image}(\iota(T_{\mathrm{SL}_2})))$, with $T_{\mathrm{SL}_2} \leq \mathrm{SL}_2$ the diagonal maximal torus consisting of elements of the form $\diag(t, t^{-1})$.  Then $L$ is a Levi subgroup of $G$.  We also know, since $H$ commutes with the image of $\iota$, that $H$ is a subgroup of $L$.  Now let $U := \exp(\mathfrak{u})$, where $\mathfrak{u}$ is the positive weight space for $\Ad(\iota(\diag(t, t^{-1})))$.  We also define $\bar{U} := \exp(\bar{\mathfrak{u}})$, with $\mathfrak{u}$ the negative weight space.
-  \begin{example}
+  \begin{example}\label{example:cq6ueb2rz1}
     Take $G = \mathrm{GL}_{2 n}$ and $\iota : \mathrm{SL}_2 \rightarrow \mathrm{GL}_{2 n}$ given by
     \begin{equation*}
       \begin{pmatrix}
@@ -1988,7 +2171,7 @@ Let's start with some easy special cases, before moving to the general case.
     \right) \rangle \bigr),
   \end{equation*}
   where $\psi : K \backslash \mathbb{A} \rightarrow \mathbb{C}^\times$ is some fixed character.
-  \begin{example}
+  \begin{example}\label{example:cq6ueb2vh0}
     In the above example,
     \begin{equation*}
       \xi
@@ -2008,7 +2191,7 @@ Let's start with some easy special cases, before moving to the general case.
       = \psi(\trace(x)).
     \end{equation*}
   \end{example}
-  \begin{exercise}
+  \begin{exercise}\label{exercise:cq6ueb2mev}
     Let $G := \mathrm{GL}_n$ and $\iota : \mathrm{SL}_2 \rightarrow \mathrm{GL}_n$ be $\rho_{\sym}^{n - 1}$.  Then write down the Fourier coefficient $\mathcal{P}_\iota(\phi)$.
   \end{exercise}
 
@@ -2206,8 +2389,107 @@ and the shift $\kappa_f \in \mathfrak{u}^\ast$ is given by $Y \mapsto \left\lang
 
 There is a structure theorem of BZSV that says that every smooth hyperspherical Hamiltonian $G$-space $\mathcal{M}$ arises as $\mathcal{M}_\Delta$ for some unique BZSV quadruple $\Delta$.  Tomorrow, we'll explain how in terms of the quadruples to see the coisotropy conditions; we will also explain the ``anomaly-free'' condition.  (Note that so far we could take any subgroup $H$ in such a quadruple, which would be too powerful; the hyperspherical condition says roughly that $H$ is a spherical subgroup in the special case \eqref{enumerate:cq6txwuycw}, while in the special case \eqref{enumerate:cq6txwu9pz}, it says that the symplectic representation should be multiplicity-free in a certain sense to be discussed tomorrow.)
 
+\begin{remark}\label{remark:cq6ueb2get}
+  For a reductive group over a local field, local Langlands classifies isomorphism classes of irreducible representations in terms of conjugacy classes of maps from $W_F '$ to $\hat{G}$.  (For a compact connected Lie group, there is a simpler bijection involving $S^1$ in place of $W_F'$.)  In this setting, there is a Hamiltonian $G$-space $\mathcal{M}$ and a Hamiltonian $\hat{G}$-space $\hat{\mathcal{M}}$.  There is something like quantization.  Formally, $\mathcal{M} =T^\ast X$ and $\hat{\mathcal{M}} = T^\ast \hat{X}$.  There are actions $G \circlearrowright L^2(X)$ and $\hat{G} \circlearrowright L^2(\hat{X})$.  For instance, if $\mathcal{M} = T^\ast(G / H)$, then $X= G / H$.  It makes sense to consider the subset
+  \begin{equation*}
+    \Irr_X(G(F)) = \left\{ \pi \in \Irr(G(F)) \text{ appearing in } L^2(X) \right\}.
+  \end{equation*}
+  This should correspond to
+  \begin{equation*}
+    \left\{ \phi : W_F ' \rightarrow \hat{G}(\mathbb{C}) : \hat{\mathcal{M}}^{\image(\phi)} \neq \emptyset \right\}.
+  \end{equation*}
+\end{remark}
 
+Continuing, let's first recall what we've been doing in the past few days, in the reverse order.  We start with a split reductive group $G$, with dual group $\hat{G}$.  We said at the end of yesterday that the relative Langlands duality is a duality, conjectured by BZSV, between certain Hamiltonian spaces $\mathcal{M}$ and $\hat{\mathcal{M}}$ for $G$ and $\hat{G}$ satisfying certain conditions: anomaly-free and hyperspherical.  The structure theorem of BZSV states that any hyperspherical $\mathcal{M}$ is of the course $\mathcal{M} = \mathcal{M}_\Delta$ for some unique BZSV quadruple $\Delta =(G, H, \iota, \rho_H)$, where we recall that $H \subset G$ is a reductive subgroup, $\iota : \mathrm{SL}_2 \rightarrow G$ commutes with $H$, and $\rho_H : H \rightarrow\mathrm{Sp}(V)$.
+\begin{definition}\label{definition:cq6ueb08jo}
+  We say that a quadruple $\Delta$ is \emph{anomaly-free hyperspherical} if the associated Hamiltonian space $\mathcal{M}_\Delta$ is.
+\end{definition}
+How does one see these conditions in terms of the quadruples?  Recall that, given $\Delta =(G, H, \iota, \rho_H)$, from $\iota$, we get $L := \operatorname{Cent}_G(\operatorname{image}(\iota(\diag(t, t^{-1}))))$ and $U = \exp(\mathfrak{u})$, with $\mathfrak{u}$ the positive weight space.  We also let $\mathfrak{u}_+$ denote the weight $\geq 2$ space, so that $\mathfrak{u} / \mathfrak{u}_+$ is actually the weight $1$ space; it is also a symplectic representation of $H$.  We denote this representation by $\rho_\iota$.  From this quadruple, we define another quadruple, but with trivial $\iota$, by
+\begin{equation}\label{eq:cq6uefar6y}
+  \Delta_{\mathrm{red}} :=(L, H, 1, \rho_{H, \iota}),
+\end{equation}
+where $\rho_{H, \iota} = \rho_H \oplus \rho_\iota$.  The reason we write ``$\mathrm{red}$'' for ``reductive'' is that the $\iota$ part in the period integral gives some unipotent period, so if you want a period integral over a reductive subgroup, that's equivalent to saying that $\iota$ is trivial.  We say that $\Delta$ is \emph{reductive} if $\iota = 1$, or equivalently, if $\Delta = \Delta_{\red}$.
+\begin{definition}\label{definition:cq6ueb2cbs}
+  We say that $\Delta$ is \emph{anomaly-free} if this symplectic representation $\rho_{H, \iota}$ is an anomaly-free symplectic representation of $H$, in the sense defined below.
+\end{definition}
+\begin{definition}\label{definition:cq6ueb0lsb}
+  Let $\pi : H \rightarrow\mathrm{Sp}(V)$ be a symplectic representation.  Recall that $H$ is split.  Let $T \subset H$ denote the maximal split torus.  We may then restrict our representation to $T$.  Since the representation is symplectic, its restriction to $T$ will be self-dual and even-dimensional, so we can decompose $\pi |_T = \tau \oplus \tau^\vee$ (non-uniquely, although the definition to follow does not depend upon this choice).  We say that $\pi$ is \emph{anomaly-free} if there exists $\chi : T \rightarrow \mathrm{GL}_1$ and $\eta : H \rightarrow \mathrm{GL}_1$ such that $\det(\tau) = \chi^2 \cdot \eta |_T$.
+\end{definition}
+This means roughly that if you take half the weights of the $\pi$, you get a square in the weight lattice.  From the point of view of period integrals, recall that we really needed a Weil representation, but this is usually not defined on $\mathrm{Sp}(V)$, but rather on its metaplectic cover $\tilde{\Sp}(V) \rightarrow\mathrm{Sp}(V)$; this anomaly-free condition ensures that the image of the representation has a splitting inside this cover.  There are several places where this condition becomes natural.
+\begin{exercise}\label{exercise:cq6ueb0ys0}
+  Check that Definition \ref{definition:cq6ueb0lsb} is independent of the choice of the decomposition of $\pi |_T$.
+\end{exercise}
+\begin{remark}
+  From the above definition, one can easily see that $\Delta$ is anomaly-free if and only if $\Delta_{\red}$ is.  Indeed, what really matters is the symplectic representation.
+\end{remark}
+Now let's discuss how to see the coisotropy condition.  Recall that $\mathcal{M}$ is coisotropic if the ring $K(\mathcal{M})^G$ of $G$-invariant rational functions is commutative with respect to the Poisson bracket.  What condition does this place on the quadruples?  To see this, we may reduce to the case that $\Delta$ is reductive.
+\begin{proposition}
+  (See \cite[\S3]{2024arXiv2409.04677}.)  For $\Delta = \Delta_{\red}$, we have that $\mathcal{M}_\Delta$ is coisotropic if and only if the following conditions hold:
+  \begin{enumerate}
+  \item\label{enumerate:cq6ueeom44} $H \subset L$ is a spherical subgroup.
+  \item\label{enumerate:cq6ueeon2w} The restricted symplectic representation $\rho_{H, \iota} |_{H_0}$ is a multiplicity-free symplectic representation, where $H_0$ is the stabilizer of a generic orbit for $H \circlearrowright \mathfrak{h}^\perp$, with $\mathfrak{h}^\perp$ the orthogonal complement of $\mathfrak{h}$ inside $\mathfrak{l} = \Lie(L)$.  Here ``multiplicity-free'' is similar to this coisotropy condition; it means basically that $K(V)^{H}$ is commutative with respect to the Poisson bracket.  Such representations were completely classified by Knop and Losev.
+  \end{enumerate}
+\end{proposition}
+We can now describe the duality $\Delta =(G, H, \iota, \rho_H) \longleftrightarrow \hat{\Delta} =(\hat{G}, \hat{H}', \hat{\iota}', \rho_{\hat{H}'})$.  We have focused here on the period conjectures, but there are also geometric and $L^2$-conjectures, and it is expected that those finer conjectures (especially the geometric ones) should classify this duality.  What is not available at the moment is, if we're given a $\Delta$, can you write down $\hat{\Delta}$?  This is apparently missing at the moment; there's no clear algorithm in general.  (By contrast, it's clear and algorithmic how to pass from a group $G$ to its dual group $\hat{G}$ in terms of root data.)  But there are algorithms for computing the duality in some special cases.
 
+First, BZSV explain how we can reduce the computation of the duality to the reductive case.  We want to go from $\Delta$ to $\hat{\Delta}$, and we know how to go from $\Delta$ to $\Delta_{\red}$, as in \eqref{eq:cq6uefar6y}.  What BZSV propose is to use
+\begin{equation*}
+  \widehat{\Delta_{\red}} =(\hat{L}, \hat{H}_{L}', \hat{\iota}_L ', \rho_{\hat{H}_{L}'})
+\end{equation*}
+(this is the dual of $\Delta_{\red}$, typically not the same as the reductive version $\hat{\Delta}_{\red}$ of the dual $\hat{\Delta}$) to compute $\hat{\Delta}$, as follows:
+\begin{enumerate}[(i)]
+\item $\hat{\iota}' = \hat{\iota}'_L $.
+\item $\hat{H}'$ is generated by $\hat{H}'_L$ and
+  \begin{equation*}
+    \left\{ \image(\iota_\alpha) \mid \alpha \in \Delta_{\hat{G}} = \Delta_{\hat{L}} \right\},
+  \end{equation*}
+  where $\Delta_{\dotsb}$ denotes simple roots.
+\item Write $\rho_{\hat{H}_L '} = \bigoplus_i \tau_{i, L}$, where the $\tau_{i, L}$ are irreducible representations of highest weight $\omega_{i,L}$.  Then take $\rho_{\hat{H}'} = \bigoplus_i \tau_i$, where the $\tau_i$ are irreducible representations of highest weight $\omega_i$ such that $\omega_i$ and $\omega_{i, L}$ belongs to the same orbit of the Weyl group.
+\end{enumerate}
+\begin{example}[Shalika model]
+  (Recall Example \ref{example:cq6tho3o9b}.)  $\Delta =(\mathrm{GL}_{2 n},\mathrm{GL}_{n},(2^n), 0)$.  Then
+  \begin{equation*}
+    \Delta_{\red} =(\mathrm{GL}_n \times \mathrm{GL}_n, \mathrm{GL}_n, 1, 0)
+    \rightarrow
+    \widehat{\Delta_{\red}}
+    =(\mathrm{GL}_n \times \mathrm{GL}_n, \underline{\mathrm{GL}_n}, 1, 0),
+  \end{equation*}
+  where $\underline{\mathrm{GL}_n}$ is a sort of diagonal $\mathrm{GL}_n$.  Pass from this to $\hat{\Delta}$, we get
+  \begin{equation*}
+    \hat{\Delta} =(\mathrm{GL}_{2 n},\mathrm{Sp}_{2 n}, 1, 0).
+  \end{equation*}
+\end{example}
+\begin{example}
+  (Recall Exercise \ref{exercise:cq6tho3oca}.)  $\Delta =(\mathrm{GL}_6, \mathrm{GL}_2,(3^2), 0)$.  Then
+  \begin{equation*}
+    \Delta_{\red} =(\mathrm{GL}_2^3, \mathrm{GL}_2, 1, 0)
+    \rightarrow \widehat{\Delta_{\red}} = (\mathrm{GL}_2^3, S(\mathrm{GL}_2^3), 1, \mathrm{std}^{\otimes 3}).
+  \end{equation*}
+  We obtain
+  \begin{equation*}
+    \hat{\Delta} =(\mathrm{GL}_6, \mathrm{SL}_6, 1, \wedge^3).
+  \end{equation*}
+  In deriving this, we look at
+  \begin{equation*}
+    \begin{pmatrix}
+      \diag(t_1, t_2)      &  \mathrm{GL}_2 &  \\
+                           & \diag(t_3, t_4) &  \\
+                           &  &  \mathrm{GL}_2 \\
+    \end{pmatrix}
+    \subset \mathrm{GL}_6,
+  \end{equation*}
+  and $\omega_{L} = t_1 t_3 t_5 \implies \omega = t_1 t_2 t_3$.
+\end{example}
+
+This is the first algorithm we have -- you can reduce to the reductive case.  It remains to consider the reductive case, where $\Delta =(G, H, 1, \rho_H)$.  In this case, there are two known algorithms.
+
+First, the \emph{polarized case} $\rho_H = \tau \oplus \tau^\vee$.  This includes, for instance, the case of spherical varieties, where $\Delta =(G, H, 1, 0)$.  It's not too far away from that case -- one can often just replace $H$ by a generic stabilizer for the action of $\tau$.  BZSV give a generic formula for computing the dual.
+\begin{itemize}
+\item $\hat{H}', \iota$ are given by the dual group of spherical varieties (Gaitsgory--Nadler, Sakellaridis--Venkatesh, Knop--Schalke).
+\item $\rho_{\hat{H}}$ was constructed (via unramified calculation) by Sakellaridis \cite{MR3117308}.
+\end{itemize}
+
+Another known case is the \emph{vector space case}, where $H = G$ but $\rho_H$ can be anything.  We then give a construction based on Knop's construction.  We give a way to describe $\hat{H}'$ and $\hat{\iota}'$, but for $\rho_{\hat{H}'}$, we use an \emph{ad hoc} method based on looking at the finite tables of examples.  See \cite{2023arXiv2310.17837}.
 \section{Raphael Beuzart-Plessis's lectures}\label{sec:cq6tho1cgx}
 \textbf{Introduction to Relative Trace Formulas (RTF)}
 
@@ -2801,5 +3083,39 @@ and the existence of matchings turns out to be trivial.  So let's assume that $v
   \end{enumerate}
 \end{theorem}
 We'll also need the fundamental lemma.  We'll explain that briefly next time, then say how to get the matching.
+
+\begin{remark}
+  Given an algebraic subgroup $H$ of an algebraic group $G$, there is a way to make the quotient $H \leq G$ a variety.  Even over a field, it is not necessarily the case that $H(k) \backslash G(k)$ coincides with $(H \backslash G)(k)$, but the former is always contained in the latter:
+  \begin{equation}\label{eq:cq6tyq0ey8}
+    H(k) \backslash G(k) \subseteq (H \backslash G)(k).
+  \end{equation}
+  We have
+  \begin{equation*}
+    (H \backslash G)(k) = \bigsqcup_{\alpha \in \ker(H^1(k, H) \rightarrow H^1(k, G))}
+    H_\alpha(k) \backslash G(k),
+  \end{equation*}
+  thus
+  \begin{equation*}
+    C_c^\infty((H \backslash G)(k)) = \bigoplus_{\alpha} C_c^\infty \left( H_\alpha(k) \backslash G(k) \right).
+  \end{equation*}
+  If $k$ is local, then \eqref{eq:cq6tyq0ey8} is closed and open.
+
+  Here we need $H$ to be smooth.  Otherwise, consider $\mu_2 \backslash \mathbb{G}_m$ with $\operatorname{char}(k) = 2$; theo rbits in this case are not open.
+
+  If $X \circlearrowright G$, we can form the stack $[X / G]]$, and we have (groupoids)
+  \begin{equation*}
+    [X(k) / G(k)] \subset [X/G](k) = \bigsqcup_{\alpha \in H^1(k, G)} X_\alpha(k) / G_\alpha(k).
+  \end{equation*}
+  Here $\alpha$ corresponds to pure inner forms $G_\alpha$
+
+  For example, if $X = T \backslash G \circlearrowleft T$ (same notation as today), then we end up looking at
+  \begin{equation*}
+    [T \backslash G / T](k)
+    = \bigsqcup_{B \text{:quat}}
+    T(k) \backslash G^B(k) / T(k).
+  \end{equation*}
+\end{remark}
+
+
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
