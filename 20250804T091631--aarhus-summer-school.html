@@ -225,7 +225,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-08 14:13:24
+2025-08-09 11:36:50
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -273,6 +273,20 @@ Schwartz space</a></li>
 <li><a href="#sec:cq6txpqe90" id="toc-sec:cq6txpqe90">The spectral
 argument</a></li>
 </ul></li>
+<li><a href="#sec:cq6ud4pku1" id="toc-sec:cq6ud4pku1">Producing new
+Poisson summation formulae from old</a>
+<ul>
+<li><a href="#sec:cq6ud4pjsa"
+id="toc-sec:cq6ud4pjsa">Restriction</a></li>
+<li><a href="#sec:cq6ud4ph5c"
+id="toc-sec:cq6ud4ph5c">Coinvariant</a></li>
+<li><a href="#fiber-bundle-method" id="toc-fiber-bundle-method">Fiber
+bundle method</a></li>
+</ul></li>
+<li><a href="#integral-representations-of-triple-product-l-functions"
+id="toc-integral-representations-of-triple-product-l-functions">Integral
+representations of triple product <span
+class="math inline">\(L\)</span>-functions</a></li>
 </ul></li>
 <li><a href="#sec:cq6tho3cpy" id="toc-sec:cq6tho3cpy">Chen Wan’s
 lectures</a></li>
@@ -2884,11 +2898,10 @@ class="math inline">\(z \in Z_G^+(\mathbb{R})\)</span>.</p>
 <p><strong>Example 49</strong>. Take <span
 class="math inline">\(X\)</span> to be a vector space, <span
 class="math inline">\(G =\mathrm{GL}_{X}\)</span>, <span
-class="math inline">\(\iota(g) = g^{- %
-  {\mathpalette\@transpose{}}%
-}\)</span>, and <span class="math inline">\(X(R) := \{x \in R^n \mid
-Q(x) = 0\}\)</span>, where <span class="math inline">\(Q\)</span> is an
-anisotropic quadratic form. Or take <span class="math inline">\(G =
+class="math inline">\(\iota(g) = g^{- \intercal}\)</span>, and <span
+class="math inline">\(X(R) := \{x \in R^n \mid Q(x) = 0\}\)</span>,
+where <span class="math inline">\(Q\)</span> is an anisotropic quadratic
+form. Or take <span class="math inline">\(G =
 {\mathop{\mathrm{GO}}}_Q\)</span>, and <span
 class="math inline">\(\iota(g) = \operatorname{simil}(g^{-1})
 g\)</span>.</p>
@@ -3260,6 +3273,322 @@ class="math inline">\(i\)</span>, then the Poisson summation conjecture
 holds for <span class="math inline">\(X\)</span>. We’re not going to go
 through this, and in any given case there might be some difficulties to
 make this precise.</p>
+<div id="example:cq6ud4pnkj" class="example">
+<p><strong>Example 52</strong>. Take <span
+class="math inline">\(F\)</span> to be a local non-archimedean field. We
+may write <span class="math display">\[L^2(F^\times) = \int_{\mathbb{R}
+/ (2 \pi i \log q) \mathbb{Z}} \bigoplus_\chi \chi \lvert . \rvert^{i t}
+\, d t,\]</span> where <span class="math inline">\(\chi\)</span> runs
+over a set of characters of <span
+class="math inline">\(F^\times\)</span> modulo twisting by <span
+class="math inline">\(\lvert . \rvert^{i t}\)</span>. Take <span
+class="math inline">\(X^{\circ} \subset X\)</span> to be <span
+class="math inline">\(\mathbb{G}_m \subset \mathbb{G}_a\)</span>. Set
+<span class="math inline">\(f := \mathbf{1}_{X(\mathcal{O}_F)}\)</span>.
+Let <span class="math inline">\(\phi \in C_c^\infty(F^\times)\)</span>,
+such as <span class="math inline">\(\phi =
+\mathbf{1}_{\mathcal{O}_F^\times}\)</span>. Then <span
+class="math display">\[\phi_{\chi_s} = \int_{\mathcal{O}_F^\times}
+\chi_s(t) \, d t \, \chi_s(x).\]</span> We have <span
+class="math display">\[\langle f, \phi_{\chi_s} \rangle = L(s,
+\chi).\]</span></p>
+</div>
+<h2 id="sec:cq6ud4pku1">§3.5. Producing new Poisson summation formulae from
+old</h2>
+<p>We will discuss two techniques, one of which has been exploited more
+than the other.</p>
+<h3 id="sec:cq6ud4pjsa">§3.5.1. Restriction</h3>
+<p>Suppose given <span class="math inline">\(X \times G \rightarrow
+X\)</span> together with a Poisson summation formula. If we restrict to
+a subgroup <span class="math inline">\(H \subset G\)</span> that still
+has open orbit, then we get a Poisson summation formula still for <span
+class="math inline">\(X\)</span>, but with respect to the action of
+<span class="math inline">\(H\)</span>.</p>
+<div id="example:cq6ud4qj65" class="example">
+<p><strong>Example 53</strong>. Take a parabolic subgroup <span
+class="math inline">\(P = M N \leq G\)</span>. We can look at <span
+class="math display">\[X := \overline{P^{\mathrm{der} \backslash
+G}}^{\mathrm{aff}},\]</span> with an action by <span
+class="math inline">\(M^{\mathrm{a b}} \times G\)</span>. The Poisson
+summation conjecture for <span class="math inline">\(X\)</span> is
+known, and is essentially the theory of Eisenstein series plus the
+spectral argument. (Some of these ideas go back to Gelfand–Graev.) Here
+<span class="math inline">\(M^{\mathrm{ab}}\)</span> is an abelian
+group, so you can do a Mellin transform. By summing, one then gets an
+Eisenstein series. The thing to note is that if we look at the integrals
+defined the other day <span class="math inline">\(Z(f, \varphi, s) =
+0\)</span> for <span class="math inline">\(\varphi\)</span> a cusp form
+on <span class="math inline">\(G(\mathbb{A}_F)\)</span>, because if we
+try to integrate it against this space, then every stabilizer will
+continue the unipotent radical of a parabolic subgroup, hence will die.
+But <span class="math inline">\(Z(f, \varphi, s)\)</span> may be nonzero
+if <span class="math inline">\(\varphi\)</span> is a cusp form on <span
+class="math inline">\(H(\mathbb{A}_F)\)</span>. This will still have a
+functional equation because it inherits it from the case of <span
+class="math inline">\(G\)</span>.</p>
+</div>
+<p>The above is just another way of talking about the Rankin–Selberg
+method. Here’s a concrete example:</p>
+<div id="example:cq6ud4qlts" class="example">
+<p><strong>Example 54</strong>. Let <span
+class="math inline">\(P\)</span> denote the Siegel parabolic subgroup of
+<span class="math inline">\(\mathrm{GSp}_6\)</span>, i.e., <span
+class="math display">\[P = \left\{
+      \begin{pmatrix}
+        z g        &amp; \ast \\
+                   &amp; g^{- \intercal} \\
+      \end{pmatrix}
+      : g \in \mathrm{GL}_3\right\}.\]</span> Take <span
+class="math inline">\(H = G(\mathrm{SL}_2 \times \mathrm{SL}_2 \times
+\mathrm{SL}_2)\)</span>. Poisson conjeture for <span
+class="math inline">\(\overline{P^{\mathop{\mathrm{der}}} \backslash
+\mathrm{GSp}_6}\)</span> is known. This gives rise to the triple product
+<span class="math inline">\(L\)</span>-function <span
+class="math inline">\(L(s, \pi, \otimes^3)\)</span> for <span
+class="math inline">\(\pi = \pi_1 \otimes \pi_2 \otimes \pi_3\)</span>,
+with <span class="math inline">\(\pi_i\)</span> on <span
+class="math inline">\(\mathrm{GL}_2(\mathbb{A}_F)\)</span>, introduced
+by Garrett <a href="#ref-MR881269" class="citation" data-cites="MR881269">(Garrett
+1987)</a> and developed further by Piatetski-Shapiro–Rallis <a href="#ref-MR911357"
+class="citation" data-cites="MR911357">(Piatetski-Shapiro and Rallis
+1987)</a>.</p>
+</div>
+<h3 id="sec:cq6ud4ph5c">§3.5.2. Coinvariant</h3>
+<p>Take <span class="math inline">\(X \times G \rightarrow X\)</span>
+and <span class="math inline">\(\iota \circlearrowright G\)</span>, as
+before. Assume that <span class="math inline">\(G = G &#39; \ltimes
+H\)</span> and that <span class="math inline">\(\iota |_{H} =
+\mathop{\mathrm{id}}\)</span>. Suppose given a <span
+class="math inline">\(G&#39;\)</span>-equivariant map <span
+class="math display">\[I : \mathcal{S}(X(F))_{H(F_v)} \rightarrow
+C^\infty(Y^{\circ}(F_v))\]</span> for some quasi-affine space <span
+class="math inline">\(Y^{\circ}\)</span>, with <span
+class="math inline">\(Y^{\circ} \times G&#39; \rightarrow
+Y^{\circ}\)</span> some other action. We assume the Poisson summation
+conjecture for <span class="math inline">\(X\)</span>. Often, one can
+prove <span class="math display">\[\sum_{y \in Y^{\circ}(F)}
+  I(f)(y)
+  = \sum_{y \in Y^{\circ}(F)}
+  I(\mathcal{F}_X(f))(y).\]</span> This gives the Poisson summation
+formula for <span class="math inline">\(Y \times G&#39; \rightarrow
+Y\)</span>.</p>
+<p>It is often reasonable to define <span
+class="math display">\[\mathcal{S}(Y(\mathbb{A}_F)) :=
+\mathcal{S}(X(\mathbb{A}_F))_{H(\mathbb{A}_F)}.\]</span> You have to be
+a bit careful at the infinite places (you want to take some closure, but
+let’s not worry about that). You can think of <span
+class="math inline">\(\mathcal{S}(X(\mathbb{A}_F)) \rightarrow
+\mathcal{S}(Y(\mathbb{A}_F))\)</span> as a harmonic analytic analogue of
+the map <span class="math inline">\(X \rightarrow[X / H]\)</span>, where
+<span class="math inline">\([X / H]\)</span> is the stack that appeared
+in yesterday’s exercise session.</p>
+<p>Two examples:</p>
+<div class="example">
+<p><strong>Example 55</strong>. (Suggested to me by Aaron Slipper.) Take
+<span class="math inline">\(V = \mathbb{G}_a^n\)</span> to be a vector
+space, and <span class="math inline">\(V \times G \times H \rightarrow
+V\)</span> any action. Then we get a Schwartz space for <span
+class="math inline">\(V / H\)</span>. This seems a bit stupid, but you
+can create some fairly complicated vector spaces <span
+class="math inline">\(V\)</span> and get some interesting examples out
+of this.</p>
+</div>
+<div id="example:cq6ud5xqwu" class="example">
+<p><strong>Example 56</strong>. <span class="math inline">\(V =
+\mathbb{G}_a^n \times \mathbb{G}_a^n\)</span> and <span
+class="math inline">\(Q_n(x, y) := x y^{\intercal}\)</span>, and <span
+class="math inline">\(Y_n(R) := \left\{ v \in V_n(R) : Q_n(v) = 0
+\right\}\)</span> to be the zero locus. We have a Weil representation
+<span class="math display">\[\rho : \mathrm{SL}_2(\mathbb{A}_F) \times
+\operatorname{O}_{V_n}(\mathbb{A}_F) \times
+\mathcal{S}(V_n(\mathbb{A}_F)) \rightarrow
+\mathcal{S}(V_n(\mathbb{A}_F)).\]</span> Let <span
+class="math inline">\(R := (\rho \otimes\mathrm{std}^\vee) \boxtimes
+\mathrm{trivial} : \mathrm{SL}_2(\mathbb{A}_F) \otimes
+\operatorname{O}_{V_n}(\mathbb{A}_F) \times \mathcal{S}(V_{n +
+1}(\mathbb{A}_F)) \rightarrow \mathcal{S}(V_{n +
+1}(\mathbb{A}_F))\)</span>, where the action is extended from the
+subspace <span class="math display">\[\mathcal{S}(V_{n +
+1}(\mathbb{A}_F)) \supseteq \mathcal{S}(V_n(\mathbb{A}_F)) \otimes
+\mathcal{S}(\mathbb{A}_F^2)\]</span> Then you get a map (see <a href="#ref-MR4887846"
+class="citation" data-cites="MR4887846">(Getz 2025)</a>) <span
+class="math display">\[I : \mathcal{S}(V_{n +
+1}(\mathbb{A}_F))_{r(\mathrm{SL}_2(\mathbb{A}_F))} \rightarrow
+C^\infty(Y_n^{\circ}(\mathbb{A}_F)).\]</span> Note that <span
+class="math inline">\(V_{n + 1}\)</span> is <em>not</em> spherical for
+<span class="math inline">\(\operatorname{O}_n\)</span>. It is not even
+homogeneous - the orthogonal group does not act transitively on <span
+class="math inline">\(V_n\)</span>. Nevertheless, after we take these
+coinvariants, we obtain a summation formula for the <span
+class="math inline">\({\mathop{\mathrm{GO}}}_n\)</span>-spherical variety
+<span class="math inline">\(Y_n\)</span>. The Fourier transform in this
+case just comes a Fourier transform on a big vector space.</p>
+<p>There’s a more complicated example, sort of combining this example
+with that of the Siegel parabolic, due to Getz–Liu <a href="#ref-MR3916514"
+class="citation" data-cites="MR3916514">(Getz and Liu 2019)</a>.</p>
+</div>
+<h3 id="fiber-bundle-method">Fiber bundle method</h3>
+<p>Assume given affine <span class="math inline">\(G\)</span>-schemes
+<span class="math inline">\(B_i\)</span> and equivariant maps <span
+class="math inline">\(p_i : X \rightarrow B_i\)</span>, fitting into a
+diagram <span class="math display">\[\begin{tikzcd}
+    &amp; X \arrow[dl, &quot;p_1&quot;&#39;] \arrow[dr, &quot;p_2&quot;]
+&amp; \\
+    B_1 &amp; &amp; B_2
+  \end{tikzcd}\]</span> Assume given compatible Poisson summation
+formulae for the fibers of <span class="math inline">\(p_1\)</span> and
+<span class="math inline">\(p_2\)</span>. Then we get the Poisson
+summation formulae for <span class="math inline">\(X\)</span>.</p>
+<p>Say this is a vector bundle, for example. Then you can just do
+Poisson summation on all the vector spaces, and as long as the group
+action preserves everything, you get a Poisson summation for the whole
+thing. (That’s kind of interesting – maybe you don’t think about Poisson
+summation formulas in families.) But it’s more interesting when you have
+two of these and can combine them. Let’s give a simple example saying
+what you can get out of this, which is very rich.</p>
+<div class="example">
+<p><strong>Example 57</strong>. Take <span class="math display">\[X =
+\overline{(N \backslash \mathrm{SL}_3)}^{\mathrm{aff}}.\]</span> Let
+<span class="math inline">\(V = \mathbb{G}_a^3\)</span> and let <span
+class="math inline">\(V^\vee := \mathop{\mathrm{Hom}}(V,
+\mathbb{G}_a)\)</span>. It’s not hard to verify that we can identify
+<span class="math display">\[X(R) = \left\{(v, v^\vee) \in V(R) \times
+V^\vee(R) : v^\vee(v) = 0 \right\}.\]</span> So it’s another one of
+these cones. In this picture, we have our little diagram again: <span
+class="math display">\[\begin{tikzcd}
+      &amp; X \arrow[dl, &quot;p_1&quot;&#39;] \arrow[dr,
+&quot;p_2&quot;] &amp; \\
+      V &amp; &amp; V^\vee
+    \end{tikzcd}\]</span> One Fourier transform is given by <span
+class="math display">\[\mathcal{F}_1(f)(v, v^\vee) =
+\int_{(V^\vee)^{\perp}(F)} f(v &#39;, v^\vee)
+    \psi \left( \frac{v \wedge v &#39;}{v^\vee} \right)
+    \, \frac{d v&#39;}{d v^\vee},\]</span> being a bit liberal here with
+notation in order to make the equivariance properties more transparent,
+e.g., in the argument of <span class="math inline">\(\psi\)</span>, we
+think of <span class="math inline">\(v \wedge v &#39;\)</span> as
+defining the linear map <span class="math display">\[x \mapsto \frac{v
+\wedge v &#39; \wedge x}{e_1 \wedge e_2 \wedge e_3},\]</span> which is
+then a functional that we can then divide by <span
+class="math inline">\(v^\vee\)</span>. For <span
+class="math inline">\(\mathcal{F}_2\)</span>, you exchange the roles of
+<span class="math inline">\(v\)</span> and <span
+class="math inline">\(v^\vee\)</span> in the above expression. The
+operators <span class="math inline">\(\mathcal{F}_1\)</span> and <span
+class="math inline">\(\mathcal{F}_2\)</span> extend to <span
+class="math inline">\(L^2(X^\circ(F))\)</span> (there is an <span
+class="math inline">\(\mathrm{SL}_3\)</span>-invariant measure on this),
+and generate a subgroup of <span
+class="math inline">\(\mathop{\mathrm{Aut}}(L^2(X^{\circ}(F)))\)</span>
+isomorphic to <span class="math inline">\(S_3\)</span>. The latter is
+really the Weyl group <span class="math inline">\(W\)</span> of a
+maximal torus in <span class="math inline">\(\mathrm{SL}_3\)</span> –
+the two Fourier transforms correspond to simple reflections. This tells
+us that we can define <span class="math inline">\(\mathcal{F}_w\)</span>
+for <span class="math inline">\(w \in W\)</span>. Let <span
+class="math display">\[\mathcal{S}_{\mathrm{B K}}(X(F_v)) = \bigoplus_{w
+\in W}
+    \mathcal{F}_w(\mathcal{S}(X^{\circ}(F_v))).\]</span> This is a bit
+of a cheat, but it’s obviously invariant under all the Fourier
+transforms now. We can think of this as living inside <span
+class="math inline">\(L^2(X^{\circ}(F))\)</span>.</p>
+<p>We can adelize. We get Poisson summation formulae for <span
+class="math inline">\(X\)</span>, with a whole non-abelian group of
+Fourier transforms.</p>
+<p>This example gives you <em>hidden equivariance</em>. You’ll notice
+that this space is an example of the space from Example <a
+href="#example:cq6ud5xqwu" data-reference-type="ref"
+data-reference="example:cq6ud5xqwu">3.13</a>, just realized differently.
+You can ask, what is the relationship between the two? Let <span
+class="math inline">\(P \subset {\mathop{\mathrm{SO}}}_6\)</span> be the
+stabilizer of an isotropic vector. Then <span
+class="math display">\[\overline{P^{\mathrm{der}} \backslash
+{\mathop{\mathrm{SO}}}_6}^{\mathrm{aff}} = \overline{(N \backslash
+{\mathop{\mathrm{SL}}}_3)}^{\mathrm{aff}}.\]</span> The Schwartz spaces
+are the same. But the actions are different - on the left, there is an
+action of <span class="math inline">\(\mathbb{G}_m \times
+{\mathop{\mathrm{SO}}}_6\)</span> (here <span
+class="math inline">\(\mathbb{G}_m = P / P^{\mathrm{der}}\)</span>),
+while on the right, we have an action of <span
+class="math inline">\(\mathbb{G}_m^2 \times \mathrm{SL}_3\)</span> (here
+<span class="math inline">\(\mathbb{G}_m^2 = T \leq
+\mathrm{SL}_3\)</span> is the diagonal torus). Now, <span
+class="math inline">\(\mathcal{F}_1\)</span> and <span
+class="math inline">\(\mathcal{F}_2\)</span> do <em>not</em> commute
+with the action of <span
+class="math inline">\({\mathop{\mathrm{SO}}}_6\)</span>, but the long Weyl
+element for <span class="math inline">\(\mathrm{SL}_3\)</span> defines
+the operator <span class="math inline">\(\mathcal{F}_1 \mathcal{F}_2
+\mathcal{F}_1\)</span>, which <em>does</em> commute with that action and
+defines the Fourier transform arising naturally on the left.</p>
+<p>The moral is that sometimes one can build equivariant Fourier
+transforms by composing non-equivariant Fourier transforms.</p>
+</div>
+<h2 id="integral-representations-of-triple-product-l-functions">Integral
+representations of triple product <span
+class="math inline">\(L\)</span>-functions</h2>
+<p>Maybe in the last five minutes, we’ll try to say something about what
+we do in the preprint <a href="#ref-2025arXiv2503.21648" class="citation"
+data-cites="2025arXiv2503.21648">(Getz et al. 2025)</a>. Let <span
+class="math inline">\(\underline{r} =(r_1, r_2, r_3)\)</span> be as
+before, and <span class="math inline">\(\mathrm{GL}_{\underline{r}} =
+\prod_{i = 1}^3\mathrm{GL}_{r_i}\)</span>. Let <span
+class="math display">\[H(R) := \{(h_1, h_2, h_3) \in
+\mathrm{GL}_{\underline{r}}(R) \mid \det h_1 = \det h_2 = \det
+h_3\}.\]</span> We construct an affine <span
+class="math inline">\(\Psi\)</span>-bundle <span
+class="math display">\[\mathcal{V}^{\circ} \rightarrow X \times
+Y\]</span> equipped with an action of <span
+class="math inline">\(\mathrm{GL}_{\underline{r}}
+\times\mathrm{GL}_{\underline{r - 2}} \times H\)</span>. We assume that
+<span class="math inline">\(f \in C^\infty(X^{\circ}(\mathbb{A}_F)
+\times Y^{\circ}(\mathbb{A}_F), \mathcal{L}_\psi)\)</span>. We can then
+form the theta function <span class="math display">\[\theta_f(g, g&#39;,
+h) := \sum_{
+    (x, y) \in
+    X^{\circ}(F) \times Y^{\circ}(F)
+  }
+  \mathcal{R}(g, g&#39;, h) f(x, y).\]</span> For <span
+class="math inline">\(\varphi \in \pi\)</span> on <span
+class="math inline">\(\mathrm{GL}_{\underline{r}}(\mathbb{A}_F)\)</span>,
+<span class="math inline">\(\varphi &#39; \in \pi &#39;\)</span> on
+<span class="math inline">\(\mathrm{GL}_{\underline{r -
+2}}(\mathbb{A}_F)\)</span> and <span class="math inline">\(s \in
+\mathbb{C}\)</span> and <span class="math inline">\(\underline{s} \in
+\mathbb{C}^3\)</span>, we define a zeta integral <span
+class="math display">\[Z(f, \varphi, \varphi &#39;, s, \underline{s})
+  := \int_{[\mathrm{GL}_{\underline{r}} \times\mathrm{GL}_{\underline{r
+- 2}}] \times[H^{\circ}]}
+  \theta_f(g, g&#39;, h)
+  \varphi(g) \varphi &#39;(g&#39;)
+  \eta_{s, \underline{s}}(g&#39;, h)
+  \, d g \, d g&#39; \, d h,\]</span> with <span
+class="math inline">\(\eta_{s, \underline{s}}\)</span> a suitable
+quasi-character.</p>
+<div class="theorem">
+<p><strong>Theorem 58</strong> (Getz–Gu–Hsu–Leslie). </p>
+<ol>
+<li><p><em>This zeta integral is a holomorphic multiple of <span
+class="math display">\[L(s + \tfrac{1}{2}, \pi^\vee, \otimes^3)
+      \prod_{i = 1}^3 L(\tfrac{1}{2} + s + \frac{s_i - s_{i + 1} - s_{i
++ 2}}{r_i - 2}, \pi_i \times \pi_i &#39;)
+      L(\tfrac{1}{2} + s_i, \pi_i).\]</span></em></p></li>
+<li><p><em>The Poisson summation conjecture for <span
+class="math inline">\(X \times Y\)</span> implies the meromorphic
+continuation of the above.</em></p></li>
+</ol>
+</div>
+<p>If you were looking at this with a critical eye and knew something
+about the subject, you could just say, well, use the reductive monoid
+attached to the triple product, for which the Poisson summation
+conjecture implies the meromorphic continuation. So what have you really
+done? What we argue is that the space <span class="math inline">\(X
+\times Y\)</span> is designed so that one can apply the techniques
+discussed earlier in this lecture, e.g., the fiber bundle method, to get
+going. On the other hand, at least far as the speaker can see, there is
+no known way of attacking the Poisson summation conjecture directly on
+reductive monoids. The only real idea we have is to push it to the trace
+formula and try to work there.</p>
 <h1 id="sec:cq6tho3cpy">§4. Chen Wan’s lectures</h1>
 <p>We’ll focus on the <em>period</em> aspect of the relative Langlands
 duality of Ben-Zvi–Sakellaridis–Venkatesh. Recall from Chris’s talk that
@@ -3382,7 +3711,7 @@ class="math inline">\(\phi : L_K \rightarrow
 with <span class="math inline">\(G\)</span> and <span
 class="math inline">\(\hat{G}\)</span> swapped.</p>
 <div id="definition:cq6tho3qgh" class="definition">
-<p><strong>Definition 52</strong>. A <em>BZSV quadruple</em> for <span
+<p><strong>Definition 59</strong>. A <em>BZSV quadruple</em> for <span
 class="math inline">\(G\)</span> is <span class="math inline">\(\Delta
 =(G, H, \iota, \rho_H)\)</span>, where</p>
 <ol>
@@ -3525,8 +3854,8 @@ t^{-1})))\)</span>. We also define <span class="math inline">\(\bar{U}
 := \exp(\bar{\mathfrak{u}})\)</span>, with <span
 class="math inline">\(\mathfrak{u}\)</span> the negative weight
 space.</p>
-<div class="example">
-<p><strong>Example 53</strong>. Take <span class="math inline">\(G =
+<div id="example:cq6ueb2rz1" class="example">
+<p><strong>Example 60</strong>. Take <span class="math inline">\(G =
 \mathrm{GL}_{2 n}\)</span> and <span class="math inline">\(\iota :
 \mathrm{SL}_2 \rightarrow \mathrm{GL}_{2 n}\)</span> given by <span
 class="math display">\[\begin{pmatrix}
@@ -3592,8 +3921,8 @@ class="math display">\[\xi(\exp(x)) := \psi \bigl( \langle x, \iota
     \right) \rangle \bigr),\]</span> where <span
 class="math inline">\(\psi : K \backslash \mathbb{A} \rightarrow
 \mathbb{C}^\times\)</span> is some fixed character.</p>
-<div class="example">
-<p><strong>Example 54</strong>. In the above example, <span
+<div id="example:cq6ueb2vh0" class="example">
+<p><strong>Example 61</strong>. In the above example, <span
 class="math display">\[\xi
       \begin{pmatrix}
         I_n    &amp; x \\
@@ -3611,7 +3940,7 @@ I_n \\
           \end{pmatrix} \right\rangle \right)
       = \psi(\mathop{\mathrm{trace}}(x)).\]</span></p>
 </div>
-<div class="exercise">
+<div id="exercise:cq6ueb2mev" class="exercise">
 <p><strong>Exercise 10</strong>. Let <span class="math inline">\(G :=
 \mathrm{GL}_n\)</span> and <span class="math inline">\(\iota :
 \mathrm{SL}_2 \rightarrow \mathrm{GL}_n\)</span> be <span
@@ -3650,7 +3979,7 @@ cases (<span class="math inline">\(\iota\)</span> trivial or even), we
 don’t need these.</p></li>
 </ol>
 <div id="example:cq6tho3o9b" class="example">
-<p><strong>Example 55</strong>. Take <span class="math inline">\(\Delta
+<p><strong>Example 62</strong>. Take <span class="math inline">\(\Delta
 =(G, H, \iota, \rho_H)\)</span>, where <span class="math display">\[G
 =\mathrm{GL}_{2 n},\]</span> <span class="math display">\[H =
 \mathrm{GL}_n = \left\{
@@ -3716,7 +4045,7 @@ is given by <span class="math display">\[\int_{[\mathrm{GL}_2]}
     \, d X \, d Y \, d Z \, d h.\]</span></p>
 </div>
 <div id="example:cq6tho3m7k" class="example">
-<p><strong>Example 56</strong>. <span class="math inline">\(\iota :
+<p><strong>Example 63</strong>. <span class="math inline">\(\iota :
 \mathrm{SL}_2 \rightarrow \mathrm{GL}_3\)</span> given by <span
 class="math inline">\(h \mapsto \mathop{\mathrm{diag}}(h, 1)\)</span> is
 <em>not</em> even, because we get odd weight spaces for <span
@@ -3749,7 +4078,7 @@ conjecture saying that there should be a duality between such quadruples
   (\hat{G}, \hat{H}&#39;, \hat{\iota}&#39;,
 \rho_{\hat{H}&#39;}).\]</span></p>
 <div id="remark:cq6txru6kw" class="remark">
-<p><strong>Remark 57</strong>. In general, for the duality, with <span
+<p><strong>Remark 64</strong>. In general, for the duality, with <span
 class="math inline">\(\Delta\)</span> dual to <span
 class="math inline">\(\hat{\Delta}\)</span>, one is a quadruple for
 <span class="math inline">\(G\)</span>, while the other is a quadruple
@@ -4019,6 +4348,297 @@ data-reference-type="eqref"
 data-reference="enumerate:cq6txwu9pz">\((2)\)</a>, it
 says that the symplectic representation should be multiplicity-free in a
 certain sense to be discussed tomorrow.)</p>
+<div id="remark:cq6ueb2get" class="remark">
+<p><strong>Remark 65</strong>. For a reductive group over a local field,
+local Langlands classifies isomorphism classes of irreducible
+representations in terms of conjugacy classes of maps from <span
+class="math inline">\(W_F &#39;\)</span> to <span
+class="math inline">\(\hat{G}\)</span>. (For a compact connected Lie
+group, there is a simpler bijection involving <span
+class="math inline">\(S^1\)</span> in place of <span
+class="math inline">\(W_F&#39;\)</span>.) In this setting, there is a
+Hamiltonian <span class="math inline">\(G\)</span>-space <span
+class="math inline">\(\mathcal{M}\)</span> and a Hamiltonian <span
+class="math inline">\(\hat{G}\)</span>-space <span
+class="math inline">\(\hat{\mathcal{M}}\)</span>. There is something
+like quantization. Formally, <span class="math inline">\(\mathcal{M}
+=T^\ast X\)</span> and <span class="math inline">\(\hat{\mathcal{M}} =
+T^\ast \hat{X}\)</span>. There are actions <span class="math inline">\(G
+\circlearrowright L^2(X)\)</span> and <span
+class="math inline">\(\hat{G} \circlearrowright L^2(\hat{X})\)</span>.
+For instance, if <span class="math inline">\(\mathcal{M} = T^\ast(G /
+H)\)</span>, then <span class="math inline">\(X= G / H\)</span>. It
+makes sense to consider the subset <span
+class="math display">\[{\mathop{\mathrm{Irr}}}_X(G(F)) = \left\{ \pi \in
+\mathop{\mathrm{Irr}}(G(F)) \text{ appearing in } L^2(X)
+\right\}.\]</span> This should correspond to <span
+class="math display">\[\left\{ \phi : W_F &#39; \rightarrow
+\hat{G}(\mathbb{C}) : \hat{\mathcal{M}}^{\mathop{\mathrm{image}}(\phi)}
+\neq \emptyset \right\}.\]</span></p>
+</div>
+<p>Continuing, let’s first recall what we’ve been doing in the past few
+days, in the reverse order. We start with a split reductive group <span
+class="math inline">\(G\)</span>, with dual group <span
+class="math inline">\(\hat{G}\)</span>. We said at the end of yesterday
+that the relative Langlands duality is a duality, conjectured by BZSV,
+between certain Hamiltonian spaces <span
+class="math inline">\(\mathcal{M}\)</span> and <span
+class="math inline">\(\hat{\mathcal{M}}\)</span> for <span
+class="math inline">\(G\)</span> and <span
+class="math inline">\(\hat{G}\)</span> satisfying certain conditions:
+anomaly-free and hyperspherical. The structure theorem of BZSV states
+that any hyperspherical <span class="math inline">\(\mathcal{M}\)</span>
+is of the course <span class="math inline">\(\mathcal{M} =
+\mathcal{M}_\Delta\)</span> for some unique BZSV quadruple <span
+class="math inline">\(\Delta =(G, H, \iota, \rho_H)\)</span>, where we
+recall that <span class="math inline">\(H \subset G\)</span> is a
+reductive subgroup, <span class="math inline">\(\iota : \mathrm{SL}_2
+\rightarrow G\)</span> commutes with <span
+class="math inline">\(H\)</span>, and <span class="math inline">\(\rho_H
+: H \rightarrow\mathrm{Sp}(V)\)</span>.</p>
+<div id="definition:cq6ueb08jo" class="definition">
+<p><strong>Definition 66</strong>. We say that a quadruple <span
+class="math inline">\(\Delta\)</span> is <em>anomaly-free
+hyperspherical</em> if the associated Hamiltonian space <span
+class="math inline">\(\mathcal{M}_\Delta\)</span> is.</p>
+</div>
+<p>How does one see these conditions in terms of the quadruples? Recall
+that, given <span class="math inline">\(\Delta =(G, H, \iota,
+\rho_H)\)</span>, from <span class="math inline">\(\iota\)</span>, we
+get <span class="math inline">\(L :=
+\operatorname{Cent}_G(\operatorname{image}(\iota(\mathop{\mathrm{diag}}(t,
+t^{-1}))))\)</span> and <span class="math inline">\(U =
+\exp(\mathfrak{u})\)</span>, with <span
+class="math inline">\(\mathfrak{u}\)</span> the positive weight space.
+We also let <span class="math inline">\(\mathfrak{u}_+\)</span> denote
+the weight <span class="math inline">\(\geq 2\)</span> space, so that
+<span class="math inline">\(\mathfrak{u} / \mathfrak{u}_+\)</span> is
+actually the weight <span class="math inline">\(1\)</span> space; it is
+also a symplectic representation of <span
+class="math inline">\(H\)</span>. We denote this representation by <span
+class="math inline">\(\rho_\iota\)</span>. From this quadruple, we
+define another quadruple, but with trivial <span
+class="math inline">\(\iota\)</span>, by <span id="eq:cq6uefar6y" class="math display">\[\label{eq:cq6uefar6y}\tag{4.6}
+  \Delta_{\mathrm{red}} :=(L, H, 1, \rho_{H, \iota}),\]</span> where
+<span class="math inline">\(\rho_{H, \iota} = \rho_H \oplus
+\rho_\iota\)</span>. The reason we write “<span
+class="math inline">\(\mathrm{red}\)</span>” for “reductive” is that the
+<span class="math inline">\(\iota\)</span> part in the period integral
+gives some unipotent period, so if you want a period integral over a
+reductive subgroup, that’s equivalent to saying that <span
+class="math inline">\(\iota\)</span> is trivial. We say that <span
+class="math inline">\(\Delta\)</span> is <em>reductive</em> if <span
+class="math inline">\(\iota = 1\)</span>, or equivalently, if <span
+class="math inline">\(\Delta =
+\Delta_{\mathop{\mathrm{red}}}\)</span>.</p>
+<div id="definition:cq6ueb2cbs" class="definition">
+<p><strong>Definition 67</strong>. We say that <span
+class="math inline">\(\Delta\)</span> is <em>anomaly-free</em> if this
+symplectic representation <span class="math inline">\(\rho_{H,
+\iota}\)</span> is an anomaly-free symplectic representation of <span
+class="math inline">\(H\)</span>, in the sense defined below.</p>
+</div>
+<div id="definition:cq6ueb0lsb" class="definition">
+<p><strong>Definition 68</strong>. Let <span class="math inline">\(\pi :
+H \rightarrow\mathrm{Sp}(V)\)</span> be a symplectic representation.
+Recall that <span class="math inline">\(H\)</span> is split. Let <span
+class="math inline">\(T \subset H\)</span> denote the maximal split
+torus. We may then restrict our representation to <span
+class="math inline">\(T\)</span>. Since the representation is
+symplectic, its restriction to <span class="math inline">\(T\)</span>
+will be self-dual and even-dimensional, so we can decompose <span
+class="math inline">\(\pi |_T = \tau \oplus \tau^\vee\)</span>
+(non-uniquely, although the definition to follow does not depend upon
+this choice). We say that <span class="math inline">\(\pi\)</span> is
+<em>anomaly-free</em> if there exists <span class="math inline">\(\chi :
+T \rightarrow \mathrm{GL}_1\)</span> and <span
+class="math inline">\(\eta : H \rightarrow \mathrm{GL}_1\)</span> such
+that <span class="math inline">\(\det(\tau) = \chi^2 \cdot \eta
+|_T\)</span>.</p>
+</div>
+<p>This means roughly that if you take half the weights of the <span
+class="math inline">\(\pi\)</span>, you get a square in the weight
+lattice. From the point of view of period integrals, recall that we
+really needed a Weil representation, but this is usually not defined on
+<span class="math inline">\(\mathrm{Sp}(V)\)</span>, but rather on its
+metaplectic cover <span
+class="math inline">\(\tilde{\mathop{\mathrm{Sp}}}(V)
+\rightarrow\mathrm{Sp}(V)\)</span>; this anomaly-free condition ensures
+that the image of the representation has a splitting inside this cover.
+There are several places where this condition becomes natural.</p>
+<div id="exercise:cq6ueb0ys0" class="exercise">
+<p><strong>Exercise 13</strong>. Check that Definition <a
+href="#definition:cq6ueb0lsb" data-reference-type="ref"
+data-reference="definition:cq6ueb0lsb">4.10</a> is independent of the
+choice of the decomposition of <span class="math inline">\(\pi
+|_T\)</span>.</p>
+</div>
+<div class="remark">
+<p><strong>Remark 69</strong>. From the above definition, one can easily
+see that <span class="math inline">\(\Delta\)</span> is anomaly-free if
+and only if <span
+class="math inline">\(\Delta_{\mathop{\mathrm{red}}}\)</span> is.
+Indeed, what really matters is the symplectic representation.</p>
+</div>
+<p>Now let’s discuss how to see the coisotropy condition. Recall that
+<span class="math inline">\(\mathcal{M}\)</span> is coisotropic if the
+ring <span class="math inline">\(K(\mathcal{M})^G\)</span> of <span
+class="math inline">\(G\)</span>-invariant rational functions is
+commutative with respect to the Poisson bracket. What condition does
+this place on the quadruples? To see this, we may reduce to the case
+that <span class="math inline">\(\Delta\)</span> is reductive.</p>
+<div class="proposition">
+<p><strong>Proposition 70</strong>. <em>(See <a href="#ref-2024arXiv2409.04677" class="citation"
+data-cites="2024arXiv2409.04677">(Ben-Zvi, Sakellaridis, and Venkatesh
+2024, sec. 3)</a>.) For <span class="math inline">\(\Delta =
+\Delta_{\mathop{\mathrm{red}}}\)</span>, we have that <span
+class="math inline">\(\mathcal{M}_\Delta\)</span> is coisotropic if and
+only if the following conditions hold:</em></p>
+<ol>
+<li><p><em><span id="enumerate:cq6ueeom44"
+label="enumerate:cq6ueeom44"></span> <span class="math inline">\(H
+\subset L\)</span> is a spherical subgroup.</em></p></li>
+<li><p><em><span id="enumerate:cq6ueeon2w"
+label="enumerate:cq6ueeon2w"></span> The restricted symplectic
+representation <span class="math inline">\(\rho_{H, \iota}
+|_{H_0}\)</span> is a multiplicity-free symplectic representation, where
+<span class="math inline">\(H_0\)</span> is the stabilizer of a generic
+orbit for <span class="math inline">\(H \circlearrowright
+\mathfrak{h}^\perp\)</span>, with <span
+class="math inline">\(\mathfrak{h}^\perp\)</span> the orthogonal
+complement of <span class="math inline">\(\mathfrak{h}\)</span> inside
+<span class="math inline">\(\mathfrak{l} =
+\mathop{\mathrm{Lie}}(L)\)</span>. Here “multiplicity-free” is similar
+to this coisotropy condition; it means basically that <span
+class="math inline">\(K(V)^{H}\)</span> is commutative with respect to
+the Poisson bracket. Such representations were completely classified by
+Knop and Losev.</em></p></li>
+</ol>
+</div>
+<p>We can now describe the duality <span class="math inline">\(\Delta
+=(G, H, \iota, \rho_H) \longleftrightarrow \hat{\Delta} =(\hat{G},
+\hat{H}&#39;, \hat{\iota}&#39;, \rho_{\hat{H}&#39;})\)</span>. We have
+focused here on the period conjectures, but there are also geometric and
+<span class="math inline">\(L^2\)</span>-conjectures, and it is expected
+that those finer conjectures (especially the geometric ones) should
+classify this duality. What is not available at the moment is, if we’re
+given a <span class="math inline">\(\Delta\)</span>, can you write down
+<span class="math inline">\(\hat{\Delta}\)</span>? This is apparently
+missing at the moment; there’s no clear algorithm in general. (By
+contrast, it’s clear and algorithmic how to pass from a group <span
+class="math inline">\(G\)</span> to its dual group <span
+class="math inline">\(\hat{G}\)</span> in terms of root data.) But there
+are algorithms for computing the duality in some special cases.</p>
+<p>First, BZSV explain how we can reduce the computation of the duality
+to the reductive case. We want to go from <span
+class="math inline">\(\Delta\)</span> to <span
+class="math inline">\(\hat{\Delta}\)</span>, and we know how to go from
+<span class="math inline">\(\Delta\)</span> to <span
+class="math inline">\(\Delta_{\mathop{\mathrm{red}}}\)</span>, as in <a
+href="#eq:cq6uefar6y" data-reference-type="eqref"
+data-reference="eq:cq6uefar6y">\((4.6)\)</a>. What BZSV propose is
+to use <span
+class="math display">\[\widehat{\Delta_{\mathop{\mathrm{red}}}}
+=(\hat{L}, \hat{H}_{L}&#39;, \hat{\iota}_L &#39;,
+\rho_{\hat{H}_{L}&#39;})\]</span> (this is the dual of <span
+class="math inline">\(\Delta_{\mathop{\mathrm{red}}}\)</span>, typically
+not the same as the reductive version <span
+class="math inline">\(\hat{\Delta}_{\mathop{\mathrm{red}}}\)</span> of
+the dual <span class="math inline">\(\hat{\Delta}\)</span>) to compute
+<span class="math inline">\(\hat{\Delta}\)</span>, as follows:</p>
+<ol type="i">
+<li><p><span class="math inline">\(\hat{\iota}&#39; =
+\hat{\iota}&#39;_L\)</span>.</p></li>
+<li><p><span class="math inline">\(\hat{H}&#39;\)</span> is generated by
+<span class="math inline">\(\hat{H}&#39;_L\)</span> and <span
+class="math display">\[\left\{ \mathop{\mathrm{image}}(\iota_\alpha)
+\mid \alpha \in \Delta_{\hat{G}} = \Delta_{\hat{L}} \right\},\]</span>
+where <span class="math inline">\(\Delta_{\dotsb}\)</span> denotes
+simple roots.</p></li>
+<li><p>Write <span class="math inline">\(\rho_{\hat{H}_L &#39;} =
+\bigoplus_i \tau_{i, L}\)</span>, where the <span
+class="math inline">\(\tau_{i, L}\)</span> are irreducible
+representations of highest weight <span
+class="math inline">\(\omega_{i,L}\)</span>. Then take <span
+class="math inline">\(\rho_{\hat{H}&#39;} = \bigoplus_i \tau_i\)</span>,
+where the <span class="math inline">\(\tau_i\)</span> are irreducible
+representations of highest weight <span
+class="math inline">\(\omega_i\)</span> such that <span
+class="math inline">\(\omega_i\)</span> and <span
+class="math inline">\(\omega_{i, L}\)</span> belongs to the same orbit
+of the Weyl group.</p></li>
+</ol>
+<div class="example">
+<p><strong>Example 71</strong> (Shalika model). (Recall Example <a
+href="#example:cq6tho3o9b" data-reference-type="ref"
+data-reference="example:cq6tho3o9b">4.4</a>.) <span
+class="math inline">\(\Delta =(\mathrm{GL}_{2 n},\mathrm{GL}_{n},(2^n),
+0)\)</span>. Then <span
+class="math display">\[\Delta_{\mathop{\mathrm{red}}} =(\mathrm{GL}_n
+\times \mathrm{GL}_n, \mathrm{GL}_n, 1, 0)
+    \rightarrow
+    \widehat{\Delta_{\mathop{\mathrm{red}}}}
+    =(\mathrm{GL}_n \times \mathrm{GL}_n, \underline{\mathrm{GL}_n}, 1,
+0),\]</span> where <span
+class="math inline">\(\underline{\mathrm{GL}_n}\)</span> is a sort of
+diagonal <span class="math inline">\(\mathrm{GL}_n\)</span>. Pass from
+this to <span class="math inline">\(\hat{\Delta}\)</span>, we get <span
+class="math display">\[\hat{\Delta} =(\mathrm{GL}_{2 n},\mathrm{Sp}_{2
+n}, 1, 0).\]</span></p>
+</div>
+<div class="example">
+<p><strong>Example 72</strong>. (Recall Exercise <a
+href="#exercise:cq6tho3oca" data-reference-type="ref"
+data-reference="exercise:cq6tho3oca">4.2</a>.) <span
+class="math inline">\(\Delta =(\mathrm{GL}_6, \mathrm{GL}_2,(3^2),
+0)\)</span>. Then <span
+class="math display">\[\Delta_{\mathop{\mathrm{red}}} =(\mathrm{GL}_2^3,
+\mathrm{GL}_2, 1, 0)
+    \rightarrow \widehat{\Delta_{\mathop{\mathrm{red}}}} =
+(\mathrm{GL}_2^3, S(\mathrm{GL}_2^3), 1, \mathrm{std}^{\otimes
+3}).\]</span> We obtain <span class="math display">\[\hat{\Delta}
+=(\mathrm{GL}_6, \mathrm{SL}_6, 1, \wedge^3).\]</span> In deriving this,
+we look at <span class="math display">\[\begin{pmatrix}
+      \mathop{\mathrm{diag}}(t_1, t_2)      &amp;  \mathrm{GL}_2
+&amp;  \\
+                           &amp; \mathop{\mathrm{diag}}(t_3, t_4)
+&amp;  \\
+                           &amp;  &amp;  \mathrm{GL}_2 \\
+    \end{pmatrix}
+    \subset \mathrm{GL}_6,\]</span> and <span
+class="math inline">\(\omega_{L} = t_1 t_3 t_5 \implies \omega = t_1 t_2
+t_3\)</span>.</p>
+</div>
+<p>This is the first algorithm we have – you can reduce to the reductive
+case. It remains to consider the reductive case, where <span
+class="math inline">\(\Delta =(G, H, 1, \rho_H)\)</span>. In this case,
+there are two known algorithms.</p>
+<p>First, the <em>polarized case</em> <span class="math inline">\(\rho_H
+= \tau \oplus \tau^\vee\)</span>. This includes, for instance, the case
+of spherical varieties, where <span class="math inline">\(\Delta =(G, H,
+1, 0)\)</span>. It’s not too far away from that case – one can often
+just replace <span class="math inline">\(H\)</span> by a generic
+stabilizer for the action of <span class="math inline">\(\tau\)</span>.
+BZSV give a generic formula for computing the dual.</p>
+<ul>
+<li><p><span class="math inline">\(\hat{H}&#39;, \iota\)</span> are
+given by the dual group of spherical varieties (Gaitsgory–Nadler,
+Sakellaridis–Venkatesh, Knop–Schalke).</p></li>
+<li><p><span class="math inline">\(\rho_{\hat{H}}\)</span> was
+constructed (via unramified calculation) by Sakellaridis <a href="#ref-MR3117308"
+class="citation" data-cites="MR3117308">(Sakellaridis
+2013)</a>.</p></li>
+</ul>
+<p>Another known case is the <em>vector space case</em>, where <span
+class="math inline">\(H = G\)</span> but <span
+class="math inline">\(\rho_H\)</span> can be anything. We then give a
+construction based on Knop’s construction. We give a way to describe
+<span class="math inline">\(\hat{H}&#39;\)</span> and <span
+class="math inline">\(\hat{\iota}&#39;\)</span>, but for <span
+class="math inline">\(\rho_{\hat{H}&#39;}\)</span>, we use an <em>ad
+hoc</em> method based on looking at the finite tables of examples. See
+<a href="#ref-2023arXiv2310.17837" class="citation" data-cites="2023arXiv2310.17837">(Mao, Wan, and
+Zhang 2023)</a>.</p>
 <h1 id="sec:cq6tho1cgx">§5. Raphael Beuzart-Plessis’s lectures</h1>
 <p><strong>Introduction to Relative Trace Formulas (RTF)</strong></p>
 <h2 id="sec:cq6tho1blx">§5.1. RTF in general</h2>
@@ -4037,7 +4657,7 @@ class="math inline">\((H, \chi)\)</span>-period, we mean the functional
 \mathbb{C}\]</span> <span class="math display">\[\varphi \mapsto
 \int_{[H]} \varphi(h) \chi(h) \, d h.\]</span></p>
 <div id="remark:cq6tho091q" class="remark">
-<p><strong>Remark 58</strong>. The integral often diverges. We’ll
+<p><strong>Remark 73</strong>. The integral often diverges. We’ll
 explain in some examples how one might regularize them. It’s usually
 convergent if the automorphic form <span
 class="math inline">\(\varphi\)</span> is cuspidal. (Usually, but not
@@ -4047,7 +4667,7 @@ class="math inline">\(G = \mathrm{GL}_2\)</span>, then it never
 converges.)</p>
 </div>
 <div id="remark:cq6tho3lbh" class="remark">
-<p><strong>Remark 59</strong>. We can replace <span
+<p><strong>Remark 74</strong>. We can replace <span
 class="math inline">\(\chi\)</span> by some “small” automorphic
 representation of <span class="math inline">\(H\)</span> (e.g.,
 “degenerate” Eisenstein series).</p>
@@ -4056,7 +4676,7 @@ representation of <span class="math inline">\(H\)</span> (e.g.,
 class="math inline">\(\mathcal{P}_{H, \chi}\)</span> is often related to
 <span class="math inline">\(L\)</span>-functions and functoriality.</p>
 <div id="example:cq6tho6g4r" class="example">
-<p><strong>Example 60</strong>. </p>
+<p><strong>Example 75</strong>. </p>
 <ol type="a">
 <li><p>(Hecke) <span class="math inline">\(G = \mathrm{GL}_2 \supset
 \left(
@@ -4159,7 +4779,7 @@ class="math display">\[\mathcal{P}_H |_\pi \not \equiv 0
 class="math inline">\(X\)</span>, not necessarily homogeneous. Put this
 way, it contains many basic examples.</p>
 <div id="example:cq6thpw9ml" class="example">
-<p><strong>Example 61</strong>. </p>
+<p><strong>Example 76</strong>. </p>
 <ol type="a">
 <li><p><span id="enumerate:cq6thpxd02"
 label="enumerate:cq6thpxd02"></span> Take <span class="math inline">\(X
@@ -4213,7 +4833,7 @@ class="math inline">\(\mathfrak{X}\)</span> to be, informally, the
 quotient <span class="math display">\[\text{``}H_1, \chi_1 \backslash G
 / H_2, \chi_2\text{&#39;&#39;}.\]</span> More precisely:</p>
 <div id="definition:cq6thqam4a" class="definition">
-<p><strong>Definition 62</strong>. For <span class="math inline">\(f \in
+<p><strong>Definition 77</strong>. For <span class="math inline">\(f \in
 C_c^\infty(G(\mathbb{A}))\)</span>, <span
 class="math display">\[\operatorname{RTF}_{\mathfrak{X}}(f) :=
 \int_{[H_1] \times[H_2]} K_f(h_1, h_2) \chi_1(h_1) \chi_2(h_2)
@@ -4241,7 +4861,7 @@ H_2)_\gamma\)</span> is the stabilizer with respect to the action <span
 class="math inline">\(\gamma \cdot(h_1, h_2) = h_1^{-1} \gamma
 h_2\)</span>.</p>
 <div id="remark:cq6thubzrk" class="remark">
-<p><strong>Remark 63</strong>. Two sources of divergence on the
+<p><strong>Remark 78</strong>. Two sources of divergence on the
 geometric side:</p>
 <ul>
 <li><p>the volumes can be infinite, and</p></li>
@@ -4256,7 +4876,7 @@ class="math inline">\(\mathrm{Orb}_\gamma(f_v)\)</span> is a local
 orbital integral.</p>
 </div>
 <div id="remark:cq6th778hd" class="remark">
-<p><strong>Remark 64</strong>. There are a few different RTF’s one can
+<p><strong>Remark 79</strong>. There are a few different RTF’s one can
 see here:</p>
 <ul>
 <li><p><span class="math inline">\(G \circlearrowleft H_1 \times
@@ -4298,7 +4918,7 @@ convergence. These <span class="math inline">\(\Theta_f^X\)</span> are
 not arbitrary functions – they have a very special behavior. Here’s a
 fact that we’ll write in vague terms, and then give one example.</p>
 <div id="fact:cq6thubvi6" class="fact">
-<p><strong>Fact 65</strong>. <em><span
+<p><strong>Fact 80</strong>. <em><span
 class="math inline">\(\Theta^X_f\)</span> is “asymptotically finite”,
 i.e., is asymptotic to eigenfunctions with respect to the action of some
 tori (where we pluralize “torus” because the precise one depends upon in
@@ -4309,7 +4929,7 @@ is a canonical way to regularize <span
 class="math inline">\(\mathrm{RTF}_{X / G}\)</span>.</em></p>
 </div>
 <div id="example:cq6thubuij" class="example">
-<p><strong>Example 66</strong>. Take <span class="math inline">\(G =
+<p><strong>Example 81</strong>. Take <span class="math inline">\(G =
 \mathbb{G}_m\)</span>. Let <span class="math inline">\(\chi_0,
 \chi_\infty :[\mathbb{G}_m] \rightarrow \mathbb{C}^\times\)</span>.
 Define <span class="math inline">\(\mathcal{F}_{\chi_0,
@@ -4595,7 +5215,7 @@ period of cusp forms on <span class="math inline">\(G^B\)</span> over
 <span class="math inline">\(T\)</span>. When you combine all these
 formulas, you can deduce the following nonvanishing result:</p>
 <div id="theorem:cq6tyal0fv" class="theorem">
-<p><strong>Theorem 67</strong> (Waldspurger). <em>Let <span
+<p><strong>Theorem 82</strong> (Waldspurger). <em>Let <span
 class="math inline">\(\pi \subset A_{\mathrm{cusp}}(G)\)</span>. Then
 the following are equivalent:</em></p>
 <ol type="i">
@@ -4658,7 +5278,7 @@ T}(f) = \sum_{\delta \in T(K) \backslash G^B(K) / T(K)}
     \mathop{\mathrm{vol}}([(T \times T)_\delta])
 \operatorname{Orb}_\gamma(f).\]</span></p>
 <div id="exercise:cq6tyalwr3" class="exercise">
-<p><strong>Exercise 13</strong>. We need to parametrize the orbits.
+<p><strong>Exercise 14</strong>. We need to parametrize the orbits.
 Define <span class="math display">\[L_B^- := L^\perp \subset B = L
 \oplus L_B^-.\]</span> We can define a map <span
 class="math display">\[\nu : G^B \rightarrow \mathbb{P}^1 -
@@ -4671,7 +5291,7 @@ class="math inline">\((- N(L_B^-) \setminus \{1\}) \cup
 \{\infty\}\)</span>.</p>
 </div>
 <div id="definition:cq6tyalx5j" class="definition">
-<p><strong>Definition 68</strong>. We say that <span
+<p><strong>Definition 83</strong>. We say that <span
 class="math inline">\(\delta \in G^B\)</span> is <em>regular
 semisimple</em> if <span class="math inline">\(\nu(\delta) \neq
 0\)</span> or <span class="math inline">\(\infty\)</span>.</p>
@@ -4679,7 +5299,7 @@ semisimple</em> if <span class="math inline">\(\nu(\delta) \neq
 <p>We denote by <span class="math display">\[G_{\mathrm{rs}}^B \subset
 G^B\]</span> the subset consisting of regular semisimple elements.</p>
 <div id="exercise:cq6tyaqy0z" class="exercise">
-<p><strong>Exercise 14</strong>. <span class="math display">\[\sqcup_{
+<p><strong>Exercise 15</strong>. <span class="math display">\[\sqcup_{
         \substack{
           B: \text{quat.\ alg }/ K  \\
           L \subset B          
@@ -4689,13 +5309,13 @@ G^B\]</span> the subset consisting of regular semisimple elements.</p>
       = \mathbb{P}^1(K).\]</span></p>
 </div>
 <div id="notation:1" class="notation">
-<p><strong>Notation 69</strong>. For <span class="math inline">\(x \in
+<p><strong>Notation 84</strong>. For <span class="math inline">\(x \in
 \nu(G^B(K))\)</span>, we set <span id="eq:cq6tyc779o" class="math display">\[\label{eq:cq6tyc779o}\tag{5.4}
       \operatorname{Orb}_{\delta_x}(f) =: \operatorname{O}_x(f)\]</span>
 and <span class="math inline">\(\nu(\delta_x) = x\)</span>.</p>
 </div>
 <div id="exercise:cq6tydnqrq" class="exercise">
-<p><strong>Exercise 15</strong>. Let <span class="math inline">\(x \in
+<p><strong>Exercise 16</strong>. Let <span class="math inline">\(x \in
 K^\times \setminus \{1\}\)</span>. Then <span
 class="math display">\[\mu_K^{-1}(x) = A(k)
       \underbrace
@@ -4773,7 +5393,7 @@ class="math inline">\(K\)</span>. Set <span class="math inline">\(E / F
 / F^\times \hookrightarrow G = \mathrm{PGL}_2(F)\)</span> and also <span
 class="math inline">\(T \hookrightarrow G^B\)</span>.</p>
 <div id="definition:cq6tydlv0l" class="definition">
-<p><strong>Definition 70</strong>. We say that <span
+<p><strong>Definition 85</strong>. We say that <span
 class="math inline">\(f \in C_c^\infty(G)\)</span> and <span
 class="math inline">\(f^B \in C_c^\infty(G^B)\)</span> <em>match</em> if
 <span class="math inline">\(\mathcal{O}_x^\eta(f) =
@@ -4794,7 +5414,7 @@ of matchings turns out to be trivial. So let’s assume that <span
 class="math inline">\(v\)</span> is non-split – this is the nontrivial
 case. Then you can genuinely have two quaternion algebras.</p>
 <div id="theorem:cq6tydtozy" class="theorem">
-<p><strong>Theorem 71</strong>. <em>[Jacquet]</em></p>
+<p><strong>Theorem 86</strong>. <em>[Jacquet]</em></p>
 <ol type="i">
 <li><p><em>For all <span class="math inline">\(f \in
 C_c^\infty(G)\)</span>, there exist <span class="math inline">\((f_+,
@@ -4810,8 +5430,49 @@ f_{\pm}\)</span>.</em></p></li>
 </div>
 <p>We’ll also need the fundamental lemma. We’ll explain that briefly
 next time, then say how to get the matching.</p>
+<div class="remark">
+<p><strong>Remark 87</strong>. Given an algebraic subgroup <span
+class="math inline">\(H\)</span> of an algebraic group <span
+class="math inline">\(G\)</span>, there is a way to make the quotient
+<span class="math inline">\(H \leq G\)</span> a variety. Even over a
+field, it is not necessarily the case that <span
+class="math inline">\(H(k) \backslash G(k)\)</span> coincides with <span
+class="math inline">\((H \backslash G)(k)\)</span>, but the former is
+always contained in the latter: <span id="eq:cq6tyq0ey8" class="math display">\[\label{eq:cq6tyq0ey8}\tag{5.5}
+    H(k) \backslash G(k) \subseteq (H \backslash G)(k).\]</span> We have
+<span class="math display">\[(H \backslash G)(k) = \bigsqcup_{\alpha \in
+\ker(H^1(k, H) \rightarrow H^1(k, G))}
+    H_\alpha(k) \backslash G(k),\]</span> thus <span
+class="math display">\[C_c^\infty((H \backslash G)(k)) =
+\bigoplus_{\alpha} C_c^\infty \left( H_\alpha(k) \backslash G(k)
+\right).\]</span> If <span class="math inline">\(k\)</span> is local,
+then <a href="#eq:cq6tyq0ey8" data-reference-type="eqref"
+data-reference="eq:cq6tyq0ey8">\((5.5)\)</a> is closed and
+open.</p>
+<p>Here we need <span class="math inline">\(H\)</span> to be smooth.
+Otherwise, consider <span class="math inline">\(\mu_2 \backslash
+\mathbb{G}_m\)</span> with <span
+class="math inline">\(\operatorname{char}(k) = 2\)</span>; theo rbits in
+this case are not open.</p>
+<p>If <span class="math inline">\(X \circlearrowright G\)</span>, we can
+form the stack <span class="math inline">\([X / G]]\)</span>, and we
+have (groupoids) <span class="math display">\[\subset [X/G](k) =
+\bigsqcup_{\alpha \in H^1(k, G)} X_\alpha(k) / G_\alpha(k).\]</span>
+Here <span class="math inline">\(\alpha\)</span> corresponds to pure
+inner forms <span class="math inline">\(G_\alpha\)</span></p>
+<p>For example, if <span class="math inline">\(X = T \backslash G
+\circlearrowleft T\)</span> (same notation as today), then we end up
+looking at <span class="math display">\[(k)
+    = \bigsqcup_{B \text{:quat}}
+    T(k) \backslash G^B(k) / T(k).\]</span></p>
+</div>
 <div id="refs" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" role="list">
+<div id="ref-2024arXiv2409.04677" class="csl-entry" role="listitem">
+Ben-Zvi, David, Yiannis Sakellaridis, and Akshay Venkatesh. 2024.
+<span>“Relative Langlands Duality,”</span> September. <a
+href="http://arxiv.org/abs/2409.04677v1">http://arxiv.org/abs/2409.04677v1</a>.
+</div>
 <div id="ref-MR1075727" class="csl-entry" role="listitem">
 Bernstein, Joseph N. 1988. <span>“On the Support of
 <span>P</span>lancherel Measure.”</span> <em>J. Geom. Phys.</em> 5 (4):
@@ -4823,6 +5484,45 @@ Beuzart-Plessis, R. 2015. <span>“<span class="nocase">A local trace
 formula for the Gan-Gross-Prasad conjecture for unitary groups: the
 archimedean case</span>.”</span> <em>ArXiv e-Prints</em>, June. <a
 href="https://arxiv.org/abs/1506.01452">https://arxiv.org/abs/1506.01452</a>.
+</div>
+<div id="ref-MR881269" class="csl-entry" role="listitem">
+Garrett, Paul B. 1987. <span>“Decomposition of <span>E</span>isenstein
+Series: <span>R</span>ankin Triple Products.”</span> <em>Ann. Of Math.
+(2)</em> 125 (2): 209–35. <a
+href="https://doi.org/10.2307/1971310">https://doi.org/10.2307/1971310</a>.
+</div>
+<div id="ref-MR4887846" class="csl-entry" role="listitem">
+Getz, Jayce R. 2025. <span>“Summation Formulae for Quadrics.”</span>
+<em>Selecta Math. (N.S.)</em> 31 (2): Paper No. 41, 42. <a
+href="https://doi.org/10.1007/s00029-025-01036-7">https://doi.org/10.1007/s00029-025-01036-7</a>.
+</div>
+<div id="ref-2025arXiv2503.21648" class="csl-entry" role="listitem">
+Getz, Jayce R., Miao Pam Gu, Chun-Hsien Hsu, and Spencer Leslie. 2025.
+<span>“On Triple Product <span
+class="math inline">\(L\)</span>-Functions and the Fiber Bundle
+Method,”</span> March. <a
+href="http://arxiv.org/abs/2503.21648v2">http://arxiv.org/abs/2503.21648v2</a>.
+</div>
+<div id="ref-MR3916514" class="csl-entry" role="listitem">
+Getz, Jayce R., and Baiying Liu. 2019. <span>“A Summation Formula for
+Triples of Quadratic Spaces.”</span> <em>Adv. Math.</em> 347: 150–91. <a
+href="https://doi.org/10.1016/j.aim.2019.02.023">https://doi.org/10.1016/j.aim.2019.02.023</a>.
+</div>
+<div id="ref-2023arXiv2310.17837" class="csl-entry" role="listitem">
+Mao, Zhengyu, Chen Wan, and Lei Zhang. 2023. <span>“BZSV Duality for
+Some Strongly Tempered Spherical Varieties,”</span> October. <a
+href="http://arxiv.org/abs/2310.17837v3">http://arxiv.org/abs/2310.17837v3</a>.
+</div>
+<div id="ref-MR911357" class="csl-entry" role="listitem">
+Piatetski-Shapiro, I., and Stephen Rallis. 1987. <span>“Rankin Triple
+<span><span class="math inline">\(L\)</span></span> Functions.”</span>
+<em>Compositio Math.</em> 64 (1): 31–115. <a
+href="http://www.numdam.org/item?id=CM_1987__64_1_31_0">http://www.numdam.org/item?id=CM_1987__64_1_31_0</a>.
+</div>
+<div id="ref-MR3117308" class="csl-entry" role="listitem">
+Sakellaridis, Yiannis. 2013. <span>“Spherical Functions on Spherical
+Varieties.”</span> <em>Amer. J. Math.</em> 135 (5): 1291–381. <a
+href="https://doi.org/10.1353/ajm.2013.0046">https://doi.org/10.1353/ajm.2013.0046</a>.
 </div>
 </div>
 <script>
