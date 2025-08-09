@@ -3064,7 +3064,7 @@ One remark before we proceed.  We have already solved yesterday all the converge
   \end{equation*}  
 \end{enumerate}
 
-\subsubsection{Local transfer}
+\subsubsection{Local transfer}\label{sec:cq6uerkd57}
 
 We briefly survey local transfer.  Let $v$ be a place of $K$.  Set $E / F := L_v / K_v$.  We have $T = E^\times / F^\times \hookrightarrow G = \mathrm{PGL}_2(F)$ and also $T \hookrightarrow G^B$.
 \begin{definition}\label{definition:cq6tydlv0l}
@@ -3084,7 +3084,7 @@ and the existence of matchings turns out to be trivial.  So let's assume that $v
 \end{theorem}
 We'll also need the fundamental lemma.  We'll explain that briefly next time, then say how to get the matching.
 
-\begin{remark}
+\begin{remark}\label{remark:cq6uewza4m}
   Given an algebraic subgroup $H$ of an algebraic group $G$, there is a way to make the quotient $H \leq G$ a variety.  Even over a field, it is not necessarily the case that $H(k) \backslash G(k)$ coincides with $(H \backslash G)(k)$, but the former is always contained in the latter:
   \begin{equation}\label{eq:cq6tyq0ey8}
     H(k) \backslash G(k) \subseteq (H \backslash G)(k).
@@ -3115,6 +3115,235 @@ We'll also need the fundamental lemma.  We'll explain that briefly next time, th
     T(k) \backslash G^B(k) / T(k).
   \end{equation*}
 \end{remark}
+
+Continuing (day 3), recall that $L /K$ is a quadratic extension of global fields, and $T = L^\times / K^\times \subset G = \mathrm{PGL}_2$.  We take
+\begin{equation*}
+  B \in \operatorname{Quat}_L(K) := \left\{ \text{quaternion algebras } B _{/K} \text{ with } L \subset K \right\},
+\end{equation*}
+which gives rise to $G^B \supset T$.
+\begin{theorem}[Waldspurger]\label{theorem:cq6uewzdca}
+  Let $\pi \subset A_{\mathrm{cusp}}(G)$.  Then $L(\tfrac{1}{2}, \pi) L(\tfrac{1}{2}, \pi \times \eta) \neq 0$ if and only if there exists $B \in \operatorname{Quat}_L(K)$ and $\pi^B  \in A_{\mathrm{cusp}}(G)$ such that $\pi = \operatorname{JL}(\pi^B)$ and $\mathcal{P}_T |_{\pi^B} \neq 0$.  
+\end{theorem}
+We explained this last time via an RTF comparison.  To simplify, let us introduce the notation
+\begin{equation*}
+  C(B) := - N(L_B^-).
+\end{equation*}
+Then we saw that
+\begin{equation*}
+  \mathrm{RTF}_{T \backslash G^B / T}(f^B) = \sum_{x \in C(B)} O_x(f^B) +
+  \vol([T]) O_0(f^B)
+  + \vol([T]) O_\infty(f^B)
+\end{equation*}
+and
+\begin{equation*}
+  \operatorname{RTF}_{A \backslash G / A, \eta}(f)
+  = \sum_{x \in K^\times - \{1\}} O^{\eta}_x(f) + O^{\eta}_{0, +}(f)  + O^{\eta}_{0, -}(f)
+  + O^{\eta}_{\infty, +}(f) + O^{\eta}_{\infty, -}(f).
+\end{equation*}
+Moreover,
+\begin{equation*}
+  \bigsqcup_{B \in \operatorname{Quat}_L(K)} C(B) = K^\times - \{1\}.
+\end{equation*}
+We have seen that there is a notion of \emph{local transfer.}  Let $v$ be a place of $K$.  Take
+\begin{equation*}
+  C_c^\infty(G_v) \ni f_v \longleftrightarrow(f^{B_v})_{B_v}, \quad B_v \in \operatorname{Quat}_{L_v}(K_v).
+\end{equation*}
+We say that we have such a matching if for each $x \in C(B_v)$, we have $O_x^\eta(f_v) = O_x(f^{B_v})$.  We saw yesterday the first part of the following:
+\begin{theorem}[Jacquet]\label{theorem:cq6uewzgjl}
+  Every $f_v$ admits a transfer $(f^{B_v})_{B_v}$, and conversely.  Moreover, if you have such matching functions, then for all $x \in \{0, \infty\}$, we have
+  \begin{equation*}
+    O_{x, +}^\eta(f_v) = \sum_{B_v \in \operatorname{Quat}_{L_v}(K_v)} O_x(f^{B_v}),
+  \end{equation*}
+  \begin{equation*}
+    O_{x, -}^\eta(f_v) = \sum_{B_v \in \operatorname{Quat}_{L_v}(K_v)} \eps(B_v) O_x(f^{B_v}),
+  \end{equation*}
+  where $\eps(B_v)$ is $\pm 1$ according to whether $B_v$ is split or not.
+\end{theorem}
+
+Finally, we need the \emph{fundamentally lemma}:
+\begin{theorem}[Jacquet]\label{theorem:cq6uewzh6d}
+  If $v$ is nonarchimedean and unramified in $L$, then for all $f_v \in C_c(G(\mathcal{O}_v) \backslash G(K_v) / G(\mathcal{O}_v))$, there is an explicit transfer $f_v \longleftrightarrow(f^{B_v})_{B_v}$, where
+  \begin{equation*}
+    f^{B_v} =
+    \begin{cases}
+      f_v      
+      & \text{ if $B_v$ is split}, \\
+      0 \text{ otherwise.}
+    \end{cases}
+  \end{equation*}
+\end{theorem}
+
+We'll now explain how to use this ingredient to prove an identity relating relative trace formulas.
+
+\subsubsection{Global comparison}\label{sec:cq6uewy7rr}
+
+For each place $v$ of $K$, we are going to pick matching test functions $f_v \longleftrightarrow(f^{B_v})_{B_v}$, as before, with the requirement that for almost all $v$, we have that $f_v = \mathbf{1}_{G(\mathcal{O}_v)}$ is the unit in the spherical Hecke algebra (i.e., the characteristic function of the integral points) and
+\begin{equation*}
+  f^{B_v} =
+  \begin{cases}
+    \mathbf{1}_{G(\mathcal{O}_v)}      
+    & \text{ if $B_v$ is split}, \\
+    0
+                                                                         & \text{ otherwise}.
+  \end{cases}
+\end{equation*}
+We then set
+\begin{equation*}
+  f = \prod_v f_v \in C_c^\infty(G(\mathbb{A})),
+  \quad
+  f^B = \prod_v f^{B_v} \in C_c^\infty(G^B(\mathbb{A})),
+\end{equation*}
+for $B \in \operatorname{Quat}_L(K)$.  Then for $x \in C(B)$,
+\begin{equation*}
+  O_x^\eta(f) = \prod_v O_x^\eta(f_v) = \prod_v O_x(f^{B_v})
+  = O_x(f^B).
+\end{equation*}
+You can do the same for $x \in \{0, \infty\}$, but you have to be a bit more careful:
+\begin{equation*}
+  O_{x, +}^\eta(f) + O_{x, -}^\eta(f) =
+  \prod_v
+  \underbrace
+  {
+    O_{x, +}^\eta(f_v)
+  }_{
+    \sum_{B_v} O_x(f^{B_v})
+  }
+  +
+  \prod_v
+  \underbrace
+  {
+    O_{x, -}^\eta(f_v)
+  }_{
+    \sum_{B_v} \eps(B_v) O_x(f^{B_v})
+  }.
+\end{equation*}
+Now you expand.  Using what we said yesterday about when collections of local quaternion algebras come from a global quaternion algebra, we see that the above is
+\begin{equation*}
+  2 \vol([T]) \sum_{B} O_x(f^B).
+\end{equation*}
+As a consequence, we obtain
+\begin{equation*}
+  \sum_B \operatorname{RTF}_{T \backslash G^B / T}(f^B) = \operatorname{RTF}_{A \backslash G / A, \eta}(f).
+\end{equation*}
+We now do the spectral expansions.  The right hand side expands to
+\begin{equation}\label{eq:cq6ueti8gi}
+  \sum_{\pi \subset A_{\mathrm{cusp}}(G)}
+  \underbrace
+  {
+    \sum_{
+      \substack{
+        \varphi \in \mathcal{B}  \\
+        \text{O.N.B.}      
+      }
+    }
+    \mathcal{P}_A(R(f) \varphi)
+    \mathcal{P}_{A, \eta}(\overline{\varphi})
+  }_{
+    I_\pi(f)
+  } + \dotsb,
+\end{equation}
+where $\dotsb$ comes from the Eisenstein part of the spectrum.  Similarly, the left hand side expands to
+\begin{equation}\label{eq:cq6uetkg8x}
+  \sum_B
+  \sum_{\pi^B \subset A_{\mathrm{cusp}}(G^B)}
+  \underbrace
+  {
+    \sum_{\varphi \in \pi^B}
+    \mathcal{P}_T(R(f^B) \varphi)
+    \mathcal{P}_T(\overline{\varphi})
+  }_{
+    J_{\pi^B}(f^B)
+  }
+  + \dotsb.
+\end{equation}
+
+Today we will mostly ignore the dots -- you either have to rid of them or to compute them explicitly, and we don't want to explain how to do either.  So let's just pretend that $\dotsb = 0$.
+
+Note that $I_\pi(f) \neq 0$ only if $\pi$ is unramified outside $S$, and similarly, $J_{\pi^B}(f^B) \neq 0$ only if $\pi^B$ is unramified outside $S$.  You can classify unramified representations very easily, using Satake parameters.  Suppose given a cuspidal representation $\pi$ unramified outside $S$.  We attach to this a Satake parameter
+\begin{equation*}
+  \operatorname{Sat}(\pi^S)
+  :=
+  \left( \operatorname{Sat}(\pi_v) \right)_{v \notin S} \in
+  \prod_{v \notin S}
+  \frac{\mathbb{C}^\times}{z \sim z^{-1}} =: \mathfrak{X}^S
+\end{equation*}
+and similarly
+\begin{equation*}
+  \operatorname{Sat}(\pi^{B, S}) \in \mathfrak{X}^S.
+\end{equation*}
+The Satake isomorphism says that if you take the restricted tensor product of the Hecke algebras outside $S$, namely
+\begin{equation*}
+  \mathcal{H}^S := \bigotimes_{v \notin S}{}'C_c \left( G(\mathcal{O}_v) \backslash G(K_v) / G(\mathcal{O}_v) \right)
+  \simeq \mathbb{C}[\mathfrak{X}^S].
+\end{equation*}
+We now take advantage of the fact that the fundamental lemma is valid for all elements of the Hecke algebra: for each element $h \in \mathcal{H}^S$, we have the matching
+\begin{equation*}
+  h \ast f \longleftrightarrow h \ast f^B
+\end{equation*}
+for all $B$.  You can now replace $f$ with $h \ast f$ and $f^B$ with $h \ast f^B$, which multiplies the contribution of $\pi$ to \eqref{eq:cq6ueti8gi} by $\hat{h}(\pi^S)$ and that of $\pi^B$ to \eqref{eq:cq6uetkg8x} by $\hat{h}(\pi^S)$.  Given $\pi \subset A_{\mathrm{cusp}}(G)$, we can isolate on both sides automorphic representations with the same Satake parameters as $\pi$.  But now it's well known, for example on the $\mathrm{PGL}_2$ side, that there's only one automorphic representation with the same Satake parameters as $\pi$, namely, $\pi$ itself.  This is \emph{strong multiplicity one}.  If you combine this with the Jacquet--Langlands correspondence, you will see that on the other side, all that remains are those $\pi^B$ whose Jacquet--Langlands lift is $\pi$, giving
+\begin{equation*}
+  \sum_B \sum_{
+    \substack{
+      \pi_B:  \\
+      \operatorname{JL}(\pi^B) = \pi
+    }
+  }
+  J_{\pi^B}(f^B)
+  = I_\pi(f).
+\end{equation*}
+By linear independence of characters, we see that $I_\pi \neq 0$ if and only if there exists $B$ and $\pi_{B}$ so that $\operatorname{JL}(\pi^B) = \pi$ and $J_{\pi^B} \neq 0$.  On sees further that $I_\pi \neq 0$ if and only if both $\mathcal{P}_{A, \eta} |_{\pi} \neq 0$ and $\mathcal{P}_A |_{\pi} \neq 0$.  On the other hand, $J_{\pi^B} \neq 0$ if and only if $\mathcal{P}_T |_{\pi^B} \neq 0$.
+
+\subsection{Gan--Gross--Prasad}\label{sec:cq6uewy6d8}
+
+In the remaining minutes, we very quickly explain a generalization proposed by Gross--Prasad and Gan--Gross--Prasad (GGP) \cite{GGP}.
+
+Waldspurger's formula concerns $T \hookrightarrow G^B$.  We may think of this as $\SO(2) \subset \SO(3)$, or as $\U(1) \subset \operatorname{P U}(2)$.
+
+GGP concerns the generalization to $\SO(n) \subset \SO(n + 1)$ and $\U(n) \subset \U(n + 1)$.
+
+Let's focus on the unitary case.
+
+Let $L /K$ be a quadratic extension.  To define unitary groups, we need hermitian spaces.  Let $(V', h)$ be a hermitian space of dimension $n + 1$ with respect to $L/K$.  Fix $V \subset V'$ a non-degenerate hyperplane, with $\dim V = n$ and $V' = V \bigoplus L$ (orthogonal direct sum, with $L$ a line).  It's more convenient to work with the product of the two unitary groups, $G^V := \U(V) \times \U(V')$, which contains the diagonal embedding of $H^V := \U(V)$.  We now have a group and a subgroup, so we have a period, the \emph{GGP period},
+\begin{equation*}
+  \mathcal{P}_{H^V} := A_{\mathrm{cusp}}(G^V)
+  \rightarrow \mathbb{C}.
+\end{equation*}
+This is one of the two ingredients.  The other is an $L$-function.  It's essentially the direct generalization of the $L$-function appearing in the most general version of Waldspurger's theorem (the one involving $L(\tfrac{1}{2}, \pi_L \times \chi)$).  We can do the same here, except that it requires also using Langlands base change, a case of Langlands functoriality.  Start with a cuspidal automorphic representation $\pi = \pi_n \boxtimes \pi_{n + 1} \subset A_{\mathrm{cusp}}(G)$.  Take its base change $\pi_L = \pi_{n, L} \boxtimes \pi_{n + 1, L} \subset A(G_L)$ (which is now known to exist in generality, see the work of Mok, Minguez, Shin and White).  In fact, $G_L =\mathrm{GL}_{n, L} \times\mathrm{GL}_{n + 1, L}$.  We may thus form the Rankin--Selberg $L$-function
+\begin{equation*}
+  L(s, \pi_L) = L(s, \pi_{n, L} \times \pi_{n + 1, L}).
+\end{equation*}
+
+There's actually a third ingredient, because we need the analogue of the family of quaternion algebras.  These are called \emph{pure inner forms}.  They are again parametrized by linear algebraic data.  They correspond to $W$, another $n$-dimensional hermitian space, and construct similar groups, but with $W$ replacing $V$.  One defines $W ' := W \bigoplus L$ (orthogonal direct sum) and $G^W \supset H^W$.  There's again a form of the Jacquet--Langlands correspondence, which gives a relation between automorphic forms on such groups as $W$ varies.  One way to define it is to say that a cuspidal automorphic representation $\pi \subset A_{\mathrm{cusp}}(G^V)$  and $\pi ' \subset A_{\mathrm{cusp}}(G^W)$ are \emph{nearly equivalent} if they are the same locally at almost all places: $\pi_v \simeq \pi_v '$ for almost all $v$.
+
+\begin{theorem}[GGP conjecture]\label{theorem:cq6uewzmi6}
+  Let $\pi \subset A_{\mathrm{cusp}}(G^V)$.  Assume that $\pi_L$ is generic.  Then the following are equivalent:
+  \begin{enumerate}[(i)]
+  \item $L(\tfrac{1}{2}, \pi_L) \neq 0$.
+  \item There exists $W$, as before, and a cuspidal representation $\pi '$ of the corresponding pure inner form, such that $\pi$ and $\pi'$ are nearly equivalent and $\mathcal{P}_{H^W} |_{\pi '}$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{remark}\label{remark:cq6uew7e6j}
+  \begin{itemize}
+  \item This follows from the work of many people (and we'll probably forget some of them).  What started it all was the work of Jacquet--Rallis \cite{MR2767518}.  What they did was they found a pair of RTF's whose comparison was expected to give the conjecture (the proof is similar to what we have seen in the Waldspurger case).  They also wrote down what the matching should be, precisely.  There was the work of Wei Zhang \cite{MR3245011}, Zhiwei Yun, Beuzart-Plessis--Liu--Zhang--Zhu \cite{MR4298750}, and \cite{MR4426741}.
+  \item The analogous conjecture for $(\SO(n), \SO(n + 1))$ is still open except for small values of $n$.  The case $n = 2$ is essentially Waldspurger; $n = 3$ is the formula for trilinear period that appeared in Chen's talk and follows from work of Garrett, Kudla--Harris and Ichino.  Already for $n = 4$, it's not known in generality.
+  \item There are similar conjectures for $(\U(m), \U(n))$.  These are known for any $m$ and $n$.  There's first the case where $n \not \equiv m(2)$.  This involves, as we've seen in Chen's lectures, a degenerate Fourier coefficient (but no theta series).  The proof of the $(\U(n), \U(n+1))$ case was extended to this more general case in work of Beuzart-Plessis--Chaudouard.  The case where $n \equiv m (2)$ is a new setting, where you have to compare two different RTF's involving Fourier--Jacobi periods.  This case involved theta series.  It was very recently established by Boisseau--Lu--Xue, again using a comparison of RTF.  
+  \item The proof uses RTF comparison (Jacquet--Rallis).  The two RTF to be compared are
+    \begin{equation*}
+      \mathrm{RTF}_{H^\vee \backslash G^\vee / H^\vee}, \qquad
+      \mathrm{RTF}_{H_1 \backslash G' / H_2, \eta}
+    \end{equation*}
+    where
+    \begin{equation*}
+      H_2 :=\mathrm{GL}_{n, K} \times\mathrm{GL}_{n + 1, K}
+      \subset 
+      G' :=\mathrm{GL}_{n, L} \times\mathrm{GL}_{n + 1, L}
+      \supset H_1 :=\mathrm{GL}_{n, L}.
+    \end{equation*}
+  \end{itemize}
+\end{remark}
+
+
 
 
 \bibliography{refs}{} \bibliographystyle{plain}
