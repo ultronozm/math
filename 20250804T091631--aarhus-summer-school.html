@@ -225,7 +225,7 @@
 </head>
 <body>
     <div class="my-links-container">
-2025-08-09 11:36:50
+2025-08-09 14:19:36
       <a href="20250804T091631--aarhus-summer-school.tex" class="my-link">tex</a>
       <a href="20250804T091631--aarhus-summer-school.pdf" class="my-link">pdf</a>
       <a href="https://github.com/ultronozm/math/commits/main/20250804T091631--aarhus-summer-school.tex" class="my-link">history</a>
@@ -318,9 +318,13 @@ id="toc-sec:cq6tyamcm6">Non-vanishing</a></li>
 approach</a></li>
 <li><a href="#sec:cq6tyamec3" id="toc-sec:cq6tyamec3">Geometric
 expansions</a></li>
-<li><a href="#local-transfer" id="toc-local-transfer">Local
+<li><a href="#sec:cq6uerkd57" id="toc-sec:cq6uerkd57">Local
 transfer</a></li>
+<li><a href="#sec:cq6uewy7rr" id="toc-sec:cq6uewy7rr">Global
+comparison</a></li>
 </ul></li>
+<li><a href="#sec:cq6uewy6d8"
+id="toc-sec:cq6uewy6d8">Gan–Gross–Prasad</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -3233,7 +3237,7 @@ class="math display">\[\mathcal{S}^{\text{naive}}(X(F))
   \left\{ f \in \mathcal{C}(X^{\circ}(F)) \mid \pi \mapsto
 \frac{f_\pi}{\prod_i L(\frac{1}{2}, \pi, r_i)} \text{ is polynomial}
 \right\}.\]</span> (Our treatment is inspired by <a href="#ref-2015arXiv150601452B" class="citation"
-data-cites="2015arXiv150601452B">(Beuzart-Plessis 2015, sec.
+data-cites="2015arXiv150601452B">(R. Beuzart-Plessis 2015, sec.
 2.6)</a>.) A polynomial function on <span
 class="math inline">\((\mathbb{R} / 2 \pi i \log q)^n\)</span> is a
 function of the form <span class="math inline">\(s \mapsto p(q^{- s},
@@ -5385,7 +5389,7 @@ class="math display">\[\mathcal{O}_x^\eta(f) :=
 \operatorname{Orb}_{\gamma_x^+}^{\mathop{\mathrm{reg}}}(f) +
 \operatorname{Orb}_{\gamma_x^-}^{\mathop{\mathrm{reg}}}(f).\]</span></p></li>
 </ol>
-<h3 id="local-transfer">Local transfer</h3>
+<h3 id="sec:cq6uerkd57">§5.2.7. Local transfer</h3>
 <p>We briefly survey local transfer. Let <span
 class="math inline">\(v\)</span> be a place of <span
 class="math inline">\(K\)</span>. Set <span class="math inline">\(E / F
@@ -5430,7 +5434,7 @@ f_{\pm}\)</span>.</em></p></li>
 </div>
 <p>We’ll also need the fundamental lemma. We’ll explain that briefly
 next time, then say how to get the matching.</p>
-<div class="remark">
+<div id="remark:cq6uewza4m" class="remark">
 <p><strong>Remark 87</strong>. Given an algebraic subgroup <span
 class="math inline">\(H\)</span> of an algebraic group <span
 class="math inline">\(G\)</span>, there is a way to make the quotient
@@ -5466,6 +5470,369 @@ looking at <span class="math display">\[(k)
     = \bigsqcup_{B \text{:quat}}
     T(k) \backslash G^B(k) / T(k).\]</span></p>
 </div>
+<p>Continuing (day 3), recall that <span class="math inline">\(L
+/K\)</span> is a quadratic extension of global fields, and <span
+class="math inline">\(T = L^\times / K^\times \subset G =
+\mathrm{PGL}_2\)</span>. We take <span class="math display">\[B \in
+\operatorname{Quat}_L(K) := \left\{ \text{quaternion algebras } B _{/K}
+\text{ with } L \subset K \right\},\]</span> which gives rise to <span
+class="math inline">\(G^B \supset T\)</span>.</p>
+<div id="theorem:cq6uewzdca" class="theorem">
+<p><strong>Theorem 88</strong> (Waldspurger). <em>Let <span
+class="math inline">\(\pi \subset A_{\mathrm{cusp}}(G)\)</span>. Then
+<span class="math inline">\(L(\tfrac{1}{2}, \pi) L(\tfrac{1}{2}, \pi
+\times \eta) \neq 0\)</span> if and only if there exists <span
+class="math inline">\(B \in \operatorname{Quat}_L(K)\)</span> and <span
+class="math inline">\(\pi^B  \in A_{\mathrm{cusp}}(G)\)</span> such that
+<span class="math inline">\(\pi = \operatorname{JL}(\pi^B)\)</span> and
+<span class="math inline">\(\mathcal{P}_T |_{\pi^B} \neq
+0\)</span>.</em></p>
+</div>
+<p>We explained this last time via an RTF comparison. To simplify, let
+us introduce the notation <span class="math display">\[C(B) := -
+N(L_B^-).\]</span> Then we saw that <span
+class="math display">\[\mathrm{RTF}_{T \backslash G^B / T}(f^B) =
+\sum_{x \in C(B)} O_x(f^B) +
+  \mathop{\mathrm{vol}}([T]) O_0(f^B)
+  + \mathop{\mathrm{vol}}([T]) O_\infty(f^B)\]</span> and <span
+class="math display">\[\operatorname{RTF}_{A \backslash G / A, \eta}(f)
+  = \sum_{x \in K^\times - \{1\}} O^{\eta}_x(f) + O^{\eta}_{0, +}(f)  +
+O^{\eta}_{0, -}(f)
+  + O^{\eta}_{\infty, +}(f) + O^{\eta}_{\infty, -}(f).\]</span>
+Moreover, <span class="math display">\[\bigsqcup_{B \in
+\operatorname{Quat}_L(K)} C(B) = K^\times - \{1\}.\]</span> We have seen
+that there is a notion of <em>local transfer.</em> Let <span
+class="math inline">\(v\)</span> be a place of <span
+class="math inline">\(K\)</span>. Take <span
+class="math display">\[C_c^\infty(G_v) \ni f_v
+\longleftrightarrow(f^{B_v})_{B_v}, \quad B_v \in
+\operatorname{Quat}_{L_v}(K_v).\]</span> We say that we have such a
+matching if for each <span class="math inline">\(x \in C(B_v)\)</span>,
+we have <span class="math inline">\(O_x^\eta(f_v) =
+O_x(f^{B_v})\)</span>. We saw yesterday the first part of the
+following:</p>
+<div id="theorem:cq6uewzgjl" class="theorem">
+<p><strong>Theorem 89</strong> (Jacquet). <em>Every <span
+class="math inline">\(f_v\)</span> admits a transfer <span
+class="math inline">\((f^{B_v})_{B_v}\)</span>, and conversely.
+Moreover, if you have such matching functions, then for all <span
+class="math inline">\(x \in \{0, \infty\}\)</span>, we have <span
+class="math display">\[O_{x, +}^\eta(f_v) = \sum_{B_v \in
+\operatorname{Quat}_{L_v}(K_v)} O_x(f^{B_v}),\]</span> <span
+class="math display">\[O_{x, -}^\eta(f_v) = \sum_{B_v \in
+\operatorname{Quat}_{L_v}(K_v)} \varepsilon(B_v) O_x(f^{B_v}),\]</span>
+where <span class="math inline">\(\varepsilon(B_v)\)</span> is <span
+class="math inline">\(\pm 1\)</span> according to whether <span
+class="math inline">\(B_v\)</span> is split or not.</em></p>
+</div>
+<p>Finally, we need the <em>fundamentally lemma</em>:</p>
+<div id="theorem:cq6uewzh6d" class="theorem">
+<p><strong>Theorem 90</strong> (Jacquet). <em>If <span
+class="math inline">\(v\)</span> is nonarchimedean and unramified in
+<span class="math inline">\(L\)</span>, then for all <span
+class="math inline">\(f_v \in C_c(G(\mathcal{O}_v) \backslash G(K_v) /
+G(\mathcal{O}_v))\)</span>, there is an explicit transfer <span
+class="math inline">\(f_v \longleftrightarrow(f^{B_v})_{B_v}\)</span>,
+where <span class="math display">\[f^{B_v} =
+    \begin{cases}
+      f_v      
+      &amp; \text{ if $B_v$ is split}, \\
+      0 \text{ otherwise.}
+    \end{cases}\]</span></em></p>
+</div>
+<p>We’ll now explain how to use this ingredient to prove an identity
+relating relative trace formulas.</p>
+<h3 id="sec:cq6uewy7rr">§5.2.8. Global comparison</h3>
+<p>For each place <span class="math inline">\(v\)</span> of <span
+class="math inline">\(K\)</span>, we are going to pick matching test
+functions <span class="math inline">\(f_v
+\longleftrightarrow(f^{B_v})_{B_v}\)</span>, as before, with the
+requirement that for almost all <span class="math inline">\(v\)</span>,
+we have that <span class="math inline">\(f_v =
+\mathbf{1}_{G(\mathcal{O}_v)}\)</span> is the unit in the spherical
+Hecke algebra (i.e., the characteristic function of the integral points)
+and <span class="math display">\[f^{B_v} =
+  \begin{cases}
+    \mathbf{1}_{G(\mathcal{O}_v)}      
+    &amp; \text{ if $B_v$ is split}, \\
+    0
+                                                                         &amp;
+\text{ otherwise}.
+  \end{cases}\]</span> We then set <span class="math display">\[f =
+\prod_v f_v \in C_c^\infty(G(\mathbb{A})),
+  \quad
+  f^B = \prod_v f^{B_v} \in C_c^\infty(G^B(\mathbb{A})),\]</span> for
+<span class="math inline">\(B \in \operatorname{Quat}_L(K)\)</span>.
+Then for <span class="math inline">\(x \in C(B)\)</span>, <span
+class="math display">\[O_x^\eta(f) = \prod_v O_x^\eta(f_v) = \prod_v
+O_x(f^{B_v})
+  = O_x(f^B).\]</span> You can do the same for <span
+class="math inline">\(x \in \{0, \infty\}\)</span>, but you have to be a
+bit more careful: <span class="math display">\[O_{x, +}^\eta(f) + O_{x,
+-}^\eta(f) =
+  \prod_v
+  \underbrace
+  {
+    O_{x, +}^\eta(f_v)
+  }_{
+    \sum_{B_v} O_x(f^{B_v})
+  }
+  +
+  \prod_v
+  \underbrace
+  {
+    O_{x, -}^\eta(f_v)
+  }_{
+    \sum_{B_v} \varepsilon(B_v) O_x(f^{B_v})
+  }.\]</span> Now you expand. Using what we said yesterday about when
+collections of local quaternion algebras come from a global quaternion
+algebra, we see that the above is <span class="math display">\[2
+\mathop{\mathrm{vol}}([T]) \sum_{B} O_x(f^B).\]</span> As a consequence,
+we obtain <span class="math display">\[\sum_B \operatorname{RTF}_{T
+\backslash G^B / T}(f^B) = \operatorname{RTF}_{A \backslash G / A,
+\eta}(f).\]</span> We now do the spectral expansions. The right hand
+side expands to <span id="eq:cq6ueti8gi" class="math display">\[\label{eq:cq6ueti8gi}\tag{5.6}
+  \sum_{\pi \subset A_{\mathrm{cusp}}(G)}
+  \underbrace
+  {
+    \sum_{
+      \substack{
+        \varphi \in \mathcal{B}  \\
+        \text{O.N.B.}      
+      }
+    }
+    \mathcal{P}_A(R(f) \varphi)
+    \mathcal{P}_{A, \eta}(\overline{\varphi})
+  }_{
+    I_\pi(f)
+  } + \dotsb,\]</span> where <span class="math inline">\(\dotsb\)</span>
+comes from the Eisenstein part of the spectrum. Similarly, the left hand
+side expands to <span id="eq:cq6uetkg8x" class="math display">\[\label{eq:cq6uetkg8x}\tag{5.7}
+  \sum_B
+  \sum_{\pi^B \subset A_{\mathrm{cusp}}(G^B)}
+  \underbrace
+  {
+    \sum_{\varphi \in \pi^B}
+    \mathcal{P}_T(R(f^B) \varphi)
+    \mathcal{P}_T(\overline{\varphi})
+  }_{
+    J_{\pi^B}(f^B)
+  }
+  + \dotsb.\]</span></p>
+<p>Today we will mostly ignore the dots – you either have to rid of them
+or to compute them explicitly, and we don’t want to explain how to do
+either. So let’s just pretend that <span class="math inline">\(\dotsb =
+0\)</span>.</p>
+<p>Note that <span class="math inline">\(I_\pi(f) \neq 0\)</span> only
+if <span class="math inline">\(\pi\)</span> is unramified outside <span
+class="math inline">\(S\)</span>, and similarly, <span
+class="math inline">\(J_{\pi^B}(f^B) \neq 0\)</span> only if <span
+class="math inline">\(\pi^B\)</span> is unramified outside <span
+class="math inline">\(S\)</span>. You can classify unramified
+representations very easily, using Satake parameters. Suppose given a
+cuspidal representation <span class="math inline">\(\pi\)</span>
+unramified outside <span class="math inline">\(S\)</span>. We attach to
+this a Satake parameter <span
+class="math display">\[\operatorname{Sat}(\pi^S)
+  :=
+  \left( \operatorname{Sat}(\pi_v) \right)_{v \notin S} \in
+  \prod_{v \notin S}
+  \frac{\mathbb{C}^\times}{z \sim z^{-1}} =: \mathfrak{X}^S\]</span> and
+similarly <span class="math display">\[\operatorname{Sat}(\pi^{B, S})
+\in \mathfrak{X}^S.\]</span> The Satake isomorphism says that if you
+take the restricted tensor product of the Hecke algebras outside <span
+class="math inline">\(S\)</span>, namely <span
+class="math display">\[\mathcal{H}^S := \bigotimes_{v \notin
+S}{}&#39;C_c \left( G(\mathcal{O}_v) \backslash G(K_v) /
+G(\mathcal{O}_v) \right)
+  \simeq \mathbb{C}[\mathfrak{X}^S].\]</span> We now take advantage of
+the fact that the fundamental lemma is valid for all elements of the
+Hecke algebra: for each element <span class="math inline">\(h \in
+\mathcal{H}^S\)</span>, we have the matching <span
+class="math display">\[h \ast f \longleftrightarrow h \ast f^B\]</span>
+for all <span class="math inline">\(B\)</span>. You can now replace
+<span class="math inline">\(f\)</span> with <span
+class="math inline">\(h \ast f\)</span> and <span
+class="math inline">\(f^B\)</span> with <span class="math inline">\(h
+\ast f^B\)</span>, which multiplies the contribution of <span
+class="math inline">\(\pi\)</span> to <a href="#eq:cq6ueti8gi"
+data-reference-type="eqref"
+data-reference="eq:cq6ueti8gi">\((5.6)\)</a> by <span
+class="math inline">\(\hat{h}(\pi^S)\)</span> and that of <span
+class="math inline">\(\pi^B\)</span> to <a href="#eq:cq6uetkg8x"
+data-reference-type="eqref"
+data-reference="eq:cq6uetkg8x">\((5.7)\)</a> by <span
+class="math inline">\(\hat{h}(\pi^S)\)</span>. Given <span
+class="math inline">\(\pi \subset A_{\mathrm{cusp}}(G)\)</span>, we can
+isolate on both sides automorphic representations with the same Satake
+parameters as <span class="math inline">\(\pi\)</span>. But now it’s
+well known, for example on the <span
+class="math inline">\(\mathrm{PGL}_2\)</span> side, that there’s only
+one automorphic representation with the same Satake parameters as <span
+class="math inline">\(\pi\)</span>, namely, <span
+class="math inline">\(\pi\)</span> itself. This is <em>strong
+multiplicity one</em>. If you combine this with the Jacquet–Langlands
+correspondence, you will see that on the other side, all that remains
+are those <span class="math inline">\(\pi^B\)</span> whose
+Jacquet–Langlands lift is <span class="math inline">\(\pi\)</span>,
+giving <span class="math display">\[\sum_B \sum_{
+    \substack{
+      \pi_B:  \\
+      \operatorname{JL}(\pi^B) = \pi
+    }
+  }
+  J_{\pi^B}(f^B)
+  = I_\pi(f).\]</span> By linear independence of characters, we see that
+<span class="math inline">\(I_\pi \neq 0\)</span> if and only if there
+exists <span class="math inline">\(B\)</span> and <span
+class="math inline">\(\pi_{B}\)</span> so that <span
+class="math inline">\(\operatorname{JL}(\pi^B) = \pi\)</span> and <span
+class="math inline">\(J_{\pi^B} \neq 0\)</span>. On sees further that
+<span class="math inline">\(I_\pi \neq 0\)</span> if and only if both
+<span class="math inline">\(\mathcal{P}_{A, \eta} |_{\pi} \neq
+0\)</span> and <span class="math inline">\(\mathcal{P}_A |_{\pi} \neq
+0\)</span>. On the other hand, <span class="math inline">\(J_{\pi^B}
+\neq 0\)</span> if and only if <span class="math inline">\(\mathcal{P}_T
+|_{\pi^B} \neq 0\)</span>.</p>
+<h2 id="sec:cq6uewy6d8">§5.3. Gan–Gross–Prasad</h2>
+<p>In the remaining minutes, we very quickly explain a generalization
+proposed by Gross–Prasad and Gan–Gross–Prasad (GGP) <a href="#ref-GGP"
+class="citation" data-cites="GGP">(Gan, Gross, and Prasad
+2012)</a>.</p>
+<p>Waldspurger’s formula concerns <span class="math inline">\(T
+\hookrightarrow G^B\)</span>. We may think of this as <span
+class="math inline">\(\mathop{\mathrm{SO}}(2) \subset
+\mathop{\mathrm{SO}}(3)\)</span>, or as <span
+class="math inline">\(\mathop{\mathrm{U}}(1) \subset \operatorname{P
+U}(2)\)</span>.</p>
+<p>GGP concerns the generalization to <span
+class="math inline">\(\mathop{\mathrm{SO}}(n) \subset
+\mathop{\mathrm{SO}}(n + 1)\)</span> and <span
+class="math inline">\(\mathop{\mathrm{U}}(n) \subset
+\mathop{\mathrm{U}}(n + 1)\)</span>.</p>
+<p>Let’s focus on the unitary case.</p>
+<p>Let <span class="math inline">\(L /K\)</span> be a quadratic
+extension. To define unitary groups, we need hermitian spaces. Let <span
+class="math inline">\((V&#39;, h)\)</span> be a hermitian space of
+dimension <span class="math inline">\(n + 1\)</span> with respect to
+<span class="math inline">\(L/K\)</span>. Fix <span
+class="math inline">\(V \subset V&#39;\)</span> a non-degenerate
+hyperplane, with <span class="math inline">\(\dim V = n\)</span> and
+<span class="math inline">\(V&#39; = V \bigoplus L\)</span> (orthogonal
+direct sum, with <span class="math inline">\(L\)</span> a line). It’s
+more convenient to work with the product of the two unitary groups,
+<span class="math inline">\(G^V := \mathop{\mathrm{U}}(V) \times
+\mathop{\mathrm{U}}(V&#39;)\)</span>, which contains the diagonal
+embedding of <span class="math inline">\(H^V :=
+\mathop{\mathrm{U}}(V)\)</span>. We now have a group and a subgroup, so
+we have a period, the <em>GGP period</em>, <span
+class="math display">\[\mathcal{P}_{H^V} := A_{\mathrm{cusp}}(G^V)
+  \rightarrow \mathbb{C}.\]</span> This is one of the two ingredients.
+The other is an <span class="math inline">\(L\)</span>-function. It’s
+essentially the direct generalization of the <span
+class="math inline">\(L\)</span>-function appearing in the most general
+version of Waldspurger’s theorem (the one involving <span
+class="math inline">\(L(\tfrac{1}{2}, \pi_L \times \chi)\)</span>). We
+can do the same here, except that it requires also using Langlands base
+change, a case of Langlands functoriality. Start with a cuspidal
+automorphic representation <span class="math inline">\(\pi = \pi_n
+\boxtimes \pi_{n + 1} \subset A_{\mathrm{cusp}}(G)\)</span>. Take its
+base change <span class="math inline">\(\pi_L = \pi_{n, L} \boxtimes
+\pi_{n + 1, L} \subset A(G_L)\)</span> (which is now known to exist in
+generality, see the work of Mok, Minguez, Shin and White). In fact,
+<span class="math inline">\(G_L =\mathrm{GL}_{n, L} \times\mathrm{GL}_{n
++ 1, L}\)</span>. We may thus form the Rankin–Selberg <span
+class="math inline">\(L\)</span>-function <span
+class="math display">\[L(s, \pi_L) = L(s, \pi_{n, L} \times \pi_{n + 1,
+L}).\]</span></p>
+<p>There’s actually a third ingredient, because we need the analogue of
+the family of quaternion algebras. These are called <em>pure inner
+forms</em>. They are again parametrized by linear algebraic data. They
+correspond to <span class="math inline">\(W\)</span>, another <span
+class="math inline">\(n\)</span>-dimensional hermitian space, and
+construct similar groups, but with <span
+class="math inline">\(W\)</span> replacing <span
+class="math inline">\(V\)</span>. One defines <span
+class="math inline">\(W &#39; := W \bigoplus L\)</span> (orthogonal
+direct sum) and <span class="math inline">\(G^W \supset H^W\)</span>.
+There’s again a form of the Jacquet–Langlands correspondence, which
+gives a relation between automorphic forms on such groups as <span
+class="math inline">\(W\)</span> varies. One way to define it is to say
+that a cuspidal automorphic representation <span
+class="math inline">\(\pi \subset A_{\mathrm{cusp}}(G^V)\)</span> and
+<span class="math inline">\(\pi &#39; \subset
+A_{\mathrm{cusp}}(G^W)\)</span> are <em>nearly equivalent</em> if they
+are the same locally at almost all places: <span
+class="math inline">\(\pi_v \simeq \pi_v &#39;\)</span> for almost all
+<span class="math inline">\(v\)</span>.</p>
+<div id="theorem:cq6uewzmi6" class="theorem">
+<p><strong>Theorem 91</strong> (GGP conjecture). <em>Let <span
+class="math inline">\(\pi \subset A_{\mathrm{cusp}}(G^V)\)</span>.
+Assume that <span class="math inline">\(\pi_L\)</span> is generic. Then
+the following are equivalent:</em></p>
+<ol type="i">
+<li><p><em><span class="math inline">\(L(\tfrac{1}{2}, \pi_L) \neq
+0\)</span>.</em></p></li>
+<li><p><em>There exists <span class="math inline">\(W\)</span>, as
+before, and a cuspidal representation <span class="math inline">\(\pi
+&#39;\)</span> of the corresponding pure inner form, such that <span
+class="math inline">\(\pi\)</span> and <span
+class="math inline">\(\pi&#39;\)</span> are nearly equivalent and <span
+class="math inline">\(\mathcal{P}_{H^W} |_{\pi
+&#39;}\)</span>.</em></p></li>
+</ol>
+</div>
+<div id="remark:cq6uew7e6j" class="remark">
+<p><strong>Remark 92</strong>. </p>
+<ul>
+<li><p>This follows from the work of many people (and we’ll probably
+forget some of them). What started it all was the work of Jacquet–Rallis
+<a href="#ref-MR2767518" class="citation" data-cites="MR2767518">(Jacquet and Rallis
+2011)</a>. What they did was they found a pair of RTF’s whose
+comparison was expected to give the conjecture (the proof is similar to
+what we have seen in the Waldspurger case). They also wrote down what
+the matching should be, precisely. There was the work of Wei Zhang <a href="#ref-MR3245011"
+class="citation" data-cites="MR3245011">(Zhang 2014)</a>, Zhiwei Yun,
+Beuzart-Plessis–Liu–Zhang–Zhu <a href="#ref-MR4298750" class="citation"
+data-cites="MR4298750">(Raphaël Beuzart-Plessis et al. 2021)</a>, and
+<a href="#ref-MR4426741" class="citation" data-cites="MR4426741">(Raphaël Beuzart-Plessis,
+Chaudouard, and Zydor 2022)</a>.</p></li>
+<li><p>The analogous conjecture for <span
+class="math inline">\((\mathop{\mathrm{SO}}(n), \mathop{\mathrm{SO}}(n +
+1))\)</span> is still open except for small values of <span
+class="math inline">\(n\)</span>. The case <span class="math inline">\(n
+= 2\)</span> is essentially Waldspurger; <span class="math inline">\(n =
+3\)</span> is the formula for trilinear period that appeared in Chen’s
+talk and follows from work of Garrett, Kudla–Harris and Ichino. Already
+for <span class="math inline">\(n = 4\)</span>, it’s not known in
+generality.</p></li>
+<li><p>There are similar conjectures for <span
+class="math inline">\((\mathop{\mathrm{U}}(m),
+\mathop{\mathrm{U}}(n))\)</span>. These are known for any <span
+class="math inline">\(m\)</span> and <span
+class="math inline">\(n\)</span>. There’s first the case where <span
+class="math inline">\(n \not \equiv m(2)\)</span>. This involves, as
+we’ve seen in Chen’s lectures, a degenerate Fourier coefficient (but no
+theta series). The proof of the <span
+class="math inline">\((\mathop{\mathrm{U}}(n),
+\mathop{\mathrm{U}}(n+1))\)</span> case was extended to this more
+general case in work of Beuzart-Plessis–Chaudouard. The case where <span
+class="math inline">\(n \equiv m (2)\)</span> is a new setting, where
+you have to compare two different RTF’s involving Fourier–Jacobi
+periods. This case involved theta series. It was very recently
+established by Boisseau–Lu–Xue, again using a comparison of
+RTF.</p></li>
+<li><p>The proof uses RTF comparison (Jacquet–Rallis). The two RTF to be
+compared are <span class="math display">\[\mathrm{RTF}_{H^\vee
+\backslash G^\vee / H^\vee}, \qquad
+      \mathrm{RTF}_{H_1 \backslash G&#39; / H_2, \eta}\]</span> where
+<span class="math display">\[H_2 :=\mathrm{GL}_{n, K}
+\times\mathrm{GL}_{n + 1, K}
+      \subset
+      G&#39; :=\mathrm{GL}_{n, L} \times\mathrm{GL}_{n + 1, L}
+      \supset H_1 :=\mathrm{GL}_{n, L}.\]</span></p></li>
+</ul>
+</div>
 <div id="refs" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" role="list">
 <div id="ref-2024arXiv2409.04677" class="csl-entry" role="listitem">
@@ -5484,6 +5851,28 @@ Beuzart-Plessis, R. 2015. <span>“<span class="nocase">A local trace
 formula for the Gan-Gross-Prasad conjecture for unitary groups: the
 archimedean case</span>.”</span> <em>ArXiv e-Prints</em>, June. <a
 href="https://arxiv.org/abs/1506.01452">https://arxiv.org/abs/1506.01452</a>.
+</div>
+<div id="ref-MR4426741" class="csl-entry" role="listitem">
+Beuzart-Plessis, Raphaël, Pierre-Henri Chaudouard, and Michał Zydor.
+2022. <span>“The Global
+<span>G</span>an-<span>G</span>ross-<span>P</span>rasad Conjecture for
+Unitary Groups: The Endoscopic Case.”</span> <em>Publ. Math. Inst.
+Hautes Études Sci.</em> 135: 183–336. <a
+href="https://doi.org/10.1007/s10240-021-00129-1">https://doi.org/10.1007/s10240-021-00129-1</a>.
+</div>
+<div id="ref-MR4298750" class="csl-entry" role="listitem">
+Beuzart-Plessis, Raphaël, Yifeng Liu, Wei Zhang, and Xinwen Zhu. 2021.
+<span>“Isolation of Cuspidal Spectrum, with Application to the
+<span>G</span>an-<span>G</span>ross-<span>P</span>rasad
+Conjecture.”</span> <em>Ann. Of Math. (2)</em> 194 (2): 519–84. <a
+href="https://doi.org/10.4007/annals.2021.194.2.5">https://doi.org/10.4007/annals.2021.194.2.5</a>.
+</div>
+<div id="ref-GGP" class="csl-entry" role="listitem">
+Gan, Wee Teck, Benedict H. Gross, and Dipendra Prasad. 2012.
+<span>“Symplectic Local Root Numbers, Central Critical <span><span
+class="math inline">\(L\)</span></span> Values, and Restriction Problems
+in the Representation Theory of Classical Groups.”</span>
+<em>Astérisque</em>, no. 346: 1–109.
 </div>
 <div id="ref-MR881269" class="csl-entry" role="listitem">
 Garrett, Paul B. 1987. <span>“Decomposition of <span>E</span>isenstein
@@ -5508,6 +5897,13 @@ Getz, Jayce R., and Baiying Liu. 2019. <span>“A Summation Formula for
 Triples of Quadratic Spaces.”</span> <em>Adv. Math.</em> 347: 150–91. <a
 href="https://doi.org/10.1016/j.aim.2019.02.023">https://doi.org/10.1016/j.aim.2019.02.023</a>.
 </div>
+<div id="ref-MR2767518" class="csl-entry" role="listitem">
+Jacquet, Hervé, and Stephen Rallis. 2011. <span>“On the
+<span>G</span>ross-<span>P</span>rasad Conjecture for Unitary
+Groups.”</span> In <em>On Certain <span><span
+class="math inline">\(L\)</span></span>-Functions</em>, 13:205–64. Clay
+Math. Proc. Amer. Math. Soc., Providence, RI.
+</div>
 <div id="ref-2023arXiv2310.17837" class="csl-entry" role="listitem">
 Mao, Zhengyu, Chen Wan, and Lei Zhang. 2023. <span>“BZSV Duality for
 Some Strongly Tempered Spherical Varieties,”</span> October. <a
@@ -5523,6 +5919,12 @@ href="http://www.numdam.org/item?id=CM_1987__64_1_31_0">http://www.numdam.org/it
 Sakellaridis, Yiannis. 2013. <span>“Spherical Functions on Spherical
 Varieties.”</span> <em>Amer. J. Math.</em> 135 (5): 1291–381. <a
 href="https://doi.org/10.1353/ajm.2013.0046">https://doi.org/10.1353/ajm.2013.0046</a>.
+</div>
+<div id="ref-MR3245011" class="csl-entry" role="listitem">
+Zhang, Wei. 2014. <span>“Fourier Transform and the Global
+<span>G</span>an-<span>G</span>ross-<span>P</span>rasad Conjecture for
+Unitary Groups.”</span> <em>Ann. Of Math. (2)</em> 180 (3): 971–1049. <a
+href="https://doi.org/10.4007/annals.2014.180.3.4">https://doi.org/10.4007/annals.2014.180.3.4</a>.
 </div>
 </div>
 <script>
