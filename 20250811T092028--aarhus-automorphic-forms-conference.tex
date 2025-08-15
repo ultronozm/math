@@ -698,7 +698,10 @@ Motivated by the prime counting function approximation
 \begin{equation*}
   \sum_{p \leq x} \log p = x - \sum_\rho \frac{x^\rho}{\rho} + \mathrm{small},
 \end{equation*}
-one wants to know the distribution of zeros of the Riemann zeta function.  The basic zero counting function
+one wants to know the distribution of zeros of the Riemann zeta function.
+\includegraphics[width=0.5\textwidth]{images/img_20250815_092849}
+
+The basic zero counting function
 \begin{equation*}
   N(T) := \# \left\{ \rho = \beta + i \gamma : \zeta(\rho) = 0, \, 0 \leq \beta \leq 1, \, \lvert \gamma \rvert \leq T \right\}
 \end{equation*}
@@ -714,9 +717,125 @@ Hardy (1915) showed that
 \end{equation*}
 What methods did Hardy employ to detect zeros on $\sigma = 1/2$?
 \begin{itemize}
-\item \emph{Sign changes}.  Hardy defined the function $Z(t) := e^{i \theta(t)} \zeta(1/2 + i t)$, which is real-valued for $t \in \mathbb{R}$.  He studied the mean value $\int_I Z(t) \, d t$ of it over some small-ish interval $I$.
-\end{itemize}<++>
+\item \emph{Sign changes}.  Hardy defined the function $Z(t) := e^{i \theta(t)} \zeta(1/2 + i t)$, which is real-valued for $t \in \mathbb{R}$.  He studied the mean value $\int_I Z(t) \, d t$ of it over some small-ish interval $I$.  The problem with this is that the function fluctuates wildly, so occasional large values swamp the typical behavior.  This is reflected in the fact that Hardy doesn't show a good rate at which $N_0(T)$ tends to infinity.  Later, Hardy--Littlewood refined this approach and showed $N_0(T) \gg T$.
+\item \emph{Argument changes}.  Levinson (1974) showed that $N_0(T) > \frac{1}{3} N(T)$ using a different approach.  He started with an Ansatz.  Restrict to the critical line $\sigma = 1/2$.  Suppose, by the functional equation, that we can write the Riemann $\xi$ function as
+  \begin{equation*}
+    \xi(s) = 2 \Re f(s)
+  \end{equation*}
+  for a certain entire function $f$.  To understand Levinson's strategy, it's good to draw some pictures.
+  \includegraphics[width=0.5\textwidth]{images/img_20250815_093058}
+What Levinson was trying to detect is, when is the argument of $f(s)$ congruent to $\pi /2$ modulo $\pi$, along the indented segment shown in the picture?  The game is detecting when this image curve (depicted in blue) intersect the imaginary axis; that will give zeros on the $1/2$-line.  A naive lower bound for zeros on the critical line is that
+\begin{equation}\label{eq:cq6w5cvj0y}
+  N_0(T) \geq \frac{1}{\pi} \Delta_{\mathcal{C}} \arg f(s),
+\end{equation}
+with $\mathcal{C}$ as in the picture.  If you rewrite $f = H G$, with an archimedean (resp.\ non-archimedean) part $H$ (resp.\ $G$), then you can bound the changing argument in \eqref{eq:cq6w5cvj0y} from below by
+\begin{equation*}
+  \frac{1}{\pi} \Delta_{\mathcal{C}} \arg H(s) + \frac{1}{\pi} \Delta_{\partial R} \arg G(s),
+\end{equation*}
+using the boundary of the rectangle $R$ indicated below.
+\includegraphics[width=0.5\textwidth]{images/img_20250815_093455}
 
+One can then further bound the above below by $N(T) - 2 N_R(G)$ up to some small error.  But, \emph{a priori}, for this strategy, there's no guarantee that this quantity is positive.  That's the gamble for Levinson.  But at least this strategy says how to approach a problem via the mean value of the Riemann $\xi$ function, for example.  To make the translation, we need to use a gift from Denmark, Jensen's inequality.  To count the zeros, we use that, with $a$ as in the above picture,
+\begin{equation*}
+  (1/2 - a) N_R(G) \leq \frac{1}{2 \pi} \int_{\partial \hat{R}} \log \lvert G(s) \rvert \, d s
+  =
+  \frac{1}{2 \pi} \frac{1}{2} \int_{\partial \hat{R}} \log \lvert G(s) \rvert^2 \, d s.
+\end{equation*}
+One then uses something by Littlewood, roughly a mean value theorem for $G$.  We don't know how to compute the moment, but we can use log-convexity to pull the log outside the moment, leading to
+\begin{equation*}
+  \leq \frac{1}{4 \pi} \log \int_{a - i T}^{a + i T} \lvert G(s) \rvert^2 \, d t.
+\end{equation*}
+\end{itemize}
+
+To do better, we need to use another gift from Denmark -- mollifiers, originally used by Bohr.  A mollifier $M$ only introduces more zeros, so
+\begin{equation*}
+  (\tfrac{1}{2} - a) N_R(G) \leq(\tfrac{1}{2} - a) N_R(G M) \leq \dotsb.
+\end{equation*}
+You would like to take $M = \zeta^{-1}$, but this isn't practical, so one instead takes something like a truncation.  What Levinson did was to take
+\begin{equation*}
+  M(s) := \sum_{h \leq y} \frac{M(h)}{h^{s + 1/2 - a}} \frac{\log(Y / h)}{\log Y}
+  \approx \zeta(1/2 + i T)^{-1} \quad(Y = T^0).
+\end{equation*}
+Assuming RH, there is an equivalent formulation due to Speiser in 1935 which says that all the zeros of the derivative of $\zeta '(1 - s)$ are all to the left of the $1$-line.  Later on, Levinson and Montgomery show something even more precise: if you have a zero $\rho '_r$ for $\zeta '$ to the right of the critical line, then you get a zero of $\zeta$ to the left of the critical line, with control over the distances:
+\includegraphics[width=0.5\textwidth]{images/img_20250815_094533}
+Levinson then takes $f(s) =(\xi(s) + \lambda \xi '(s)) / 2$ and shows that, for some shifts $\alpha$ and $\beta$,
+\begin{equation*}
+  \int_0^T \zeta(1/2 + \alpha + i t) \zeta(1/2 + \beta - i t) \Bigl( \frac{k}{h} \Bigr)^{i t}
+  \, d t
+  = \mathrm{MT}(h k) + \mathcal{E}(h, k)
+\end{equation*}
+as $T \rightarrow \infty $.  Here $\mathcal{E}$ is understood as an error term in the bilinear sense.
+
+We want to do something like this more generally.  We consider
+\begin{equation*}
+  \sum_{q \sim Q} \sum_{\chi(q)}^\ast
+  \chi(h) \overline{\chi}(k)
+  \mathcal{M}_{\alpha, \beta}(h, k; \pi),
+\end{equation*}
+where $\pi \in \mathcal{A}_0(\PGL (3))$  and
+\begin{equation}\label{eq:cq6w5d17ud}
+  \mathcal{M}_{\alpha, \beta}(h, k;\pi) := \int_0^T L(1/2 + \alpha + i t, \pi \times \chi)
+  L(1/2 + \beta - i t, \bar{\pi} \times \bar{\chi})
+  \Bigl( \frac{k}{h} \Bigr)^{i t} \, d t.
+\end{equation}
+\begin{theorem}[Conrey, Kwan, Lin, Turnage-Butterbaugh]
+  Suppose $\pi \in \mathcal{A}_0(\PGL(3) / \mathbb{Q})$ such that either
+  \begin{itemize}
+  \item $\pi \simeq \tilde{\pi}$, or
+  \item $30 \mid q_\pi$ and  $\sum_{n \leq x} \frac{\lvert \lambda_\pi(n) \rvert^4}{n} \ll_\pi x^\eps$.
+  \end{itemize}
+  Suppose $\theta \in [0,1/2)$ and
+  \begin{equation}\label{eq:cq6w5d7akn}
+    Q^\eps \ll T \ll Q^{\frac{1 - 2 \theta}{3 - 2 \theta} - \eps},
+  \end{equation}
+  with $Q \rightarrow \infty$.  Let $(\lambda_h)$ be complex numbers such that
+  \begin{enumerate}[(a)]
+  \item\label{enumerate:cq6w5d4pra} $\lambda_h \ll h^{\gamma_\theta}$ and $\sum_{n \leq(T Q)^\theta} \frac{\lvert \lambda_h \rvert^{2 m}}{h} \ll(T Q)^\eps$ for $m = 1, 2$.
+  \end{enumerate}
+  Then
+  \begin{equation*}
+    \mathcal{M}_{\alpha, \beta}(h, k; T) =(\text{expected } \mathrm{MT} \asymp T Q^2)
+    + \mathcal{E}_{\alpha, \beta}(h, k),
+  \end{equation*}
+  where
+  \begin{equation*}
+    \sum_{h, k \leq(T Q)^\theta}
+    \frac{\lambda_h \overline{\lambda_k}}{\sqrt{h k}}
+    \mathcal{E}_{\alpha, \beta}(h, k)
+    \ll(T Q)^{7/4 + \theta / 2 + \eps}.
+  \end{equation*}
+\end{theorem}
+\begin{theorem}[CKLT-B and Farmer]
+  For $\pi$'s as above and $\eps > 0$ sufficiently small, there are $\geq(11.4 - \O(\eps))$ percentage of zeros with $\lvert \gamma \rvert \leq Q^\eps$ for the family $\{L(s, \pi \times \chi) : \chi(q)^\ast, \, q \sim Q\}$ that are on the critical line.
+\end{theorem}
+We emphasize that our results are unconditional for $\pi = \bar{\pi}$, independent of GRC.  It's also fully unconditional for $\mathrm{GL}(2)$ Maass forms.  We note that there's no hope to asymptotically evaluate \eqref{eq:cq6w5d17ud} when $T$ is too small and $Q$ is large.  This motivates the assumption \eqref{eq:cq6w5d7akn}.
+We can't take $T$ too large, because then we would encounter difficult shifted convolution sums.  So the moral of the story is that this result is strong in the $Q$-aspect, while we only get ``something'' in the $T$-aspect (e.g., nothing beyond $Q^{1/3}$).
+
+The idea of the proof is to use approximate functional equation and orthogonality.  This gives
+\begin{equation*}
+  \mathcal{M}(h, k, \pi) \approx T \sum_{c d \sim Q} \mu(c) \phi(d)
+  \sum_{
+    \substack{
+      m n \ll(T Q)^3  \\
+      m h \equiv n k(d) \\
+      m h \approx n k
+    }
+  }
+  \frac{\lambda_\pi(m) \lambda_{\tilde{\pi}}(n)}{\sqrt{m n}}.
+\end{equation*}
+Suppose for instance that $T \sim Q^\eps$ and $0 < 1/2 - \O(\eps)$.  We truncate and re-expand according to whether $c > C$ or not, where $C \approx Q^\eps$.  We get
+\begin{equation*}
+  \mathcal{M}_{c > C} \approx \sum_{
+    \substack{
+      c > C  \\
+      d \ll Q / C      
+    }
+  }^\ast \mu(c) \sum_{\psi(d)}^\ast \psi(h) \overline{\psi}(k)
+  \int_{t \approx T}
+  \sum_{m n \ll(T Q / C)^{3/2}}
+  \frac{\lambda_\pi(m) \lambda_{\tilde{\pi}}(n)}{\sqrt{m n}}.  
+\end{equation*}
+We then switch and re-expand and use arithmetic: writing $m h = n k + d l$, we see that for $m h \neq n k$, we have $\ell \ll \frac{m h - n k}{d} \ll \frac{c}{Q}(T Q)^{3/2 + \theta}$.  So the whole point of this hyperbola trick is that the length is now much shorter, by a factor of $Q$.  This enables divisor switching.  Because we're doing the aspect where $Q \rightarrow \infty$, we can drop the condition $m h \neq n k$.  After dropping this condition, we can reexpand (mod $\ell$) as above.  This leads to a problem in multiplicative number theory.  The game is, how do you use the hybrid large sieve for the rest of the sums, making sure that the argument is independent of GRC.  Previous relevant work was done by Conrey--Iwaniec--Sound.  They used the bound $\tau_3(n) \ll n^\eps$ all the time.  For a cuspidal automorphic representation, we only have the much weaker bound $\lambda_\pi(n) \ll n^{5/4 + \eps}$.  So one needs to overcome that crutch.
 
 \bibliography{refs}{} \bibliographystyle{plain}
 \end{document}
