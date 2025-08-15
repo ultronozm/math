@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>20250811T092028--aarhus-automorphic-forms-conference</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+    <div class="my-links-container">
+2025-08-15 11:00:49
+      <a href="20250811T092028--aarhus-automorphic-forms-conference.tex" class="my-link">tex</a>
+      <a href="20250811T092028--aarhus-automorphic-forms-conference.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20250811T092028--aarhus-automorphic-forms-conference.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#peter-koymans-hilbert-10-via-additive-combinatorics"
+id="toc-peter-koymans-hilbert-10-via-additive-combinatorics">Peter
+Koymans, <em>Hilbert 10 via additive combinatorics</em></a></li>
+<li><a
+href="#morten-risager-the-error-term-in-the-hyperbolic-circle-problem"
+id="toc-morten-risager-the-error-term-in-the-hyperbolic-circle-problem">Morten
+Risager, <em>The error term in the hyperbolic circle
+problem</em></a></li>
+<li><a
+href="#alan-zhao-a-different-perspective-on-whittaker-functions-for-mathrmgl_n"
+id="toc-alan-zhao-a-different-perspective-on-whittaker-functions-for-mathrmgl_n">Alan
+Zhao, <em>A different perspective on Whittaker functions for</em> <span
+class="math inline">\(\mathrm{GL}_n\)</span></a>
+<ul>
+<li><a href="#notation" id="toc-notation">Notation</a></li>
+<li><a href="#macdonald-polynomials"
+id="toc-macdonald-polynomials">MacDonald polynomials</a></li>
+</ul></li>
+<li><a
+href="#valentin-blomer-hecke-fields---galois-theory-meets-shifted-convolution-problems"
+id="toc-valentin-blomer-hecke-fields---galois-theory-meets-shifted-convolution-problems">Valentin
+Blomer, <em>Hecke fields - Galois theory meets shifted convolution
+problems</em></a>
+<ul>
+<li><a href="#galois-theory" id="toc-galois-theory">Galois
+theory</a></li>
+<li><a href="#shifted-convolution-sums"
+id="toc-shifted-convolution-sums">Shifted convolution sums</a></li>
+</ul></li>
+<li><a
+href="#zvi-shem-tov-equidistribution-of-lifts-on-hyperbolic-4-manifolds"
+id="toc-zvi-shem-tov-equidistribution-of-lifts-on-hyperbolic-4-manifolds">Zvi
+Shem-Tov, <em>Equidistribution of lifts on hyperbolic
+4-manifolds</em></a></li>
+<li><a
+href="#matthew-young-shifted-convolution-problem-for-siegel-modular-forms"
+id="toc-matthew-young-shifted-convolution-problem-for-siegel-modular-forms">Matthew
+Young, <em>Shifted convolution problem for Siegel modular
+forms</em></a></li>
+<li><a
+href="#kevin-kwan-on-a-hybrid-twisted-moment-for-operatornamegl3-automorphic-l-functions-and-its-applications"
+id="toc-kevin-kwan-on-a-hybrid-twisted-moment-for-operatornamegl3-automorphic-l-functions-and-its-applications">Kevin
+Kwan, <em>On a hybrid twisted moment for</em> <span
+class="math inline">\(\operatorname{GL}(3)\)</span> <em>automorphic</em>
+<span class="math inline">\(L\)</span><em>-functions and its
+applications</em> </a></li>
+</ul>
+</nav>
+<h1 id="peter-koymans-hilbert-10-via-additive-combinatorics">Peter
+Koymans, <em>Hilbert 10 via additive combinatorics</em></h1>
+<p>Let’s start with a question of Hilbert from the influential 1900
+conference:</p>
+<div class="question">
+<p><strong>Question 1</strong>. Does there exist an algorithm with</p>
+<ul>
+<li><p>INPUT: <span class="math inline">\(f \in \mathbb{Z}[x_1, \dotsc,
+x_n]\)</span></p></li>
+<li><p>OUTPUT: “YES” if there is a solution <span
+class="math inline">\(a_1, \dotsc, a_n \in \mathbb{Z}\)</span> to <span
+class="math inline">\(f(a_1, \dotsc, a_n) = 0\)</span>, “NO” if
+not?</p></li>
+</ul>
+</div>
+<p>Let’s give a brief overview of the history of this question:</p>
+<div class="definition">
+<p><strong>Definition 2</strong>. A subset <span class="math inline">\(S
+\subseteq \mathbb{Z}\)</span> is called <em>Diophantine</em> if there
+exists an integer <span class="math inline">\(m &gt; n\)</span> and a
+polynomial <span class="math inline">\(f \in \mathbb{Z}[x_1, \dotsc,
+x_n]\)</span> such that <span class="math display">\[S = \left\{(a_1,
+\dotsc, a_n) \in \mathbb{Z}^n \mid \text{ there exists } a_{n + 1,
+\dotsc, a_m} \in \mathbb{Z}, \, f(a_1, \dotsc, a_m) = 0
+\right\}.\]</span> In other words, take the solution set to a polynomial
+equation and project it onto some coordinates.</p>
+</div>
+<p>A bit of history:</p>
+<ul>
+<li><p>1951 (Julia Robinson): A certain hypothesis <span
+class="roman">JR</span> implies that <span
+class="math display">\[\mathrm{EXP} := \left\{(a, b, c) \in \mathbb{N}^3
+: a = b^{c} \right\}\]</span> is Diophantine. A key ingredient is Pell’s
+equation.</p></li>
+<li><p>1960 (DPR): The exponential Diophantine sets are exactly the
+recursively enumerable <span class="roman">RE</span> sets, meaning,
+those sets all of whose elements can eventually be listed (exactly) by
+an algorithm if we let it run forever.</p></li>
+<li><p>A corollary of this is that <span class="roman">JR</span> implies
+that Hilbert’s 10th problem is undecidable. For instance, the Halting
+Problem is <span class="roman">RE</span>.</p></li>
+<li><p>1970 (Matiyasevich): Proved <span
+class="roman">JR</span>.</p></li>
+</ul>
+<div class="theorem">
+<p><strong>Theorem 3</strong> (Mazur–Rubin). <em>Let <span
+class="math inline">\(R\)</span> be a finitely-generated ring over <span
+class="math inline">\(\mathbb{Z}\)</span>, with <span
+class="math inline">\(\lvert R \rvert = \infty\)</span>. Assume that for
+all number fields <span class="math inline">\(K\)</span>, and all
+elliptic curves <span class="math inline">\(E\)</span> over <span
+class="math inline">\(K\)</span>, that the Tate–Shafarevich group <span
+class="math inline">\(\operatorname{Sha}(E/K)\)</span> is finite. Then
+Hilbert’s 10th problem is undecidable over <span
+class="math inline">\(R\)</span>.</em></p>
+</div>
+<div id="theorem:cq6vrxrm1j" class="theorem">
+<p><strong>Theorem 4</strong> (Koymans–Pagano, 2024). <em>Same result,
+unconditionally.</em></p>
+</div>
+<div id="theorem:cq6vrxro7z" class="theorem">
+<p><strong>Theorem 5</strong> (Koymans–Pagano, 2024). <em>Let <span
+class="math inline">\(K\)</span> be a number field. Then <span
+class="math inline">\(\mathbb{Z}\)</span> is Diophantine over <span
+class="math inline">\(\mathcal{O}_K\)</span></em></p>
+</div>
+<p>Let</p>
+<div id="theorem:cq6vrxrob0" class="theorem">
+<p><strong>Theorem 6</strong> (Koymans–Pagano). <em>Let <span
+class="math inline">\(K\)</span> be a number field with <span
+class="math inline">\(\geq 32\)</span> real embeddings. Then there
+exists <span class="math inline">\(E/K\)</span> such that <span
+class="math inline">\(\operatorname{rank} E(K)  = \operatorname{rank}
+E(K(i)) &gt; 0\)</span>.</em></p>
+</div>
+<p>The proof that Theorem <a href="#theorem:cq6vrxrob0"
+data-reference-type="ref" data-reference="theorem:cq6vrxrob0">6</a>
+implies Theorem <a href="#theorem:cq6vrxrm1j" data-reference-type="ref"
+data-reference="theorem:cq6vrxrm1j">4</a> uses the following:</p>
+<div class="lemma">
+<p><strong>Lemma 7</strong>. Let <span class="math inline">\(K \subseteq
+L\)</span> be number fields. Then:</p>
+<ol type="i">
+<li><p><span id="enumerate:cq6vr0vqg9"
+label="enumerate:cq6vr0vqg9"></span> If <span
+class="math inline">\(D_1\)</span>, <span
+class="math inline">\(D_2\)</span> are Diophantine over <span
+class="math inline">\(\mathcal{O}_K\)</span>, then so is <span
+class="math inline">\(D_1 \cap D_2\)</span>.</p></li>
+<li><p><span id="enumerate:cq6vr0zdtm"
+label="enumerate:cq6vr0zdtm"></span> If <span class="math inline">\(D
+\subseteq \mathcal{O}_K\)</span> is Diophantine over <span
+class="math inline">\(\mathcal{O}_K\)</span>, and also <span
+class="math inline">\(\mathcal{O}_K\)</span> is Diophantine over <span
+class="math inline">\(\mathcal{O}_L\)</span>, then <span
+class="math inline">\(D\)</span> is Diophantine over <span
+class="math inline">\(\mathcal{O}_L\)</span>.</p></li>
+<li><p><span id="enumerate:cq6vrx9ccs"
+label="enumerate:cq6vrx9ccs"></span> If <span
+class="math inline">\(\mathbb{Z}\)</span> is Diophantine over <span
+class="math inline">\(\mathcal{O}_L\)</span>, then <span
+class="math inline">\(\mathbb{Z}\)</span> is Diophantine over <span
+class="math inline">\(\mathcal{O}_K\)</span>.</p></li>
+<li><p><span id="enumerate:cq6vr0ybj9"
+label="enumerate:cq6vr0ybj9"></span> If <span
+class="math inline">\(K\)</span> is totally real, then <span
+class="math inline">\(\mathbb{Z}\)</span> is Diophantine over <span
+class="math inline">\(\mathcal{O}_K\)</span>.</p></li>
+<li><p><span id="enumerate:cq6vr0twgm"
+label="enumerate:cq6vr0twgm"></span> If <span
+class="math inline">\(E\)</span> satisfies <span
+class="math inline">\(\operatorname{rank} E(K) = \operatorname{rank}
+E(L) &gt; 0\)</span>, then <span
+class="math inline">\(\mathcal{O}_K\)</span> is Diophantine over <span
+class="math inline">\(\mathcal{O}_L\)</span>.</p></li>
+</ol>
+</div>
+<p>Assuming the above:</p>
+<div class="proof">
+<p><em>Proof that Theorem <a href="#theorem:cq6vrxrob0"
+data-reference-type="ref" data-reference="theorem:cq6vrxrob0">6</a>
+implies Theorem <a href="#theorem:cq6vrxrm1j" data-reference-type="ref"
+data-reference="theorem:cq6vrxrm1j">4</a>.</em> Let <span
+class="math inline">\(K\)</span> be a number field. We want to show that
+<span class="math inline">\(\mathbb{Z}\)</span> is Diophantine over
+<span class="math inline">\(\mathcal{O}_K\)</span>. Define <span
+class="math inline">\(M\)</span> to be the Galois closure of <span
+class="math inline">\(K(i, \sqrt{2}, \dotsc, \sqrt{13})\)</span>. It
+suffices to show that <span class="math inline">\(\mathbb{Z}\)</span> is
+Diophantine over <span class="math inline">\(\mathcal{O}_M\)</span>, by
+<a href="#enumerate:cq6vrx9ccs" data-reference-type="eqref"
+data-reference="enumerate:cq6vrx9ccs">\((iii)\)</a>. Taking
+the decomposition group <span class="math inline">\(D \subseteq
+\mathop{\mathrm{Gal}}(M / \mathbb{Q})\)</span> at an infinite place, we
+must have <span class="math inline">\(1 \notin M^D =: L\)</span>. Thus
+<span class="math inline">\(M = L(i)\)</span>. Hence by Theorem <a
+href="#theorem:cq6vrxrob0" data-reference-type="ref"
+data-reference="theorem:cq6vrxrob0">6</a> and <a
+href="#enumerate:cq6vr0twgm" data-reference-type="eqref"
+data-reference="enumerate:cq6vr0twgm">\((v)\)</a>, we
+know that <span class="math inline">\(\mathcal{O}_{M^D}\)</span> is
+Diophantine over <span class="math inline">\(\mathcal{O}_M\)</span>.
+Hence by <a href="#enumerate:cq6vr0vqg9" data-reference-type="eqref"
+data-reference="enumerate:cq6vr0vqg9">\((i)\)</a>, we see
+that <span class="math display">\[\bigcap_{
+      \substack{
+        D \subseteq \mathop{\mathrm{Gal}}(M / \mathbb{Q})  \\
+        D \text{ decomp. at } \infty
+      }
+    }
+    \mathcal{O}_D.\]</span> is Diophantine over <span
+class="math inline">\(\mathcal{O}_M\)</span>. We may write the above as
+<span class="math inline">\(\mathcal{O}_F\)</span>, with <span
+class="math display">\[F := \bigcap_{
+      \substack{
+        D \subseteq \mathop{\mathrm{Gal}}(M / \mathbb{Q})  \\
+        D \text{ decomp. at } \infty
+      }        
+    }
+    M^D.\]</span> But <span class="math inline">\(F\)</span> is totally
+real, so <span class="math inline">\(\mathbb{Z}\)</span> is Diophantine
+over <span class="math inline">\(\mathcal{O}_F\)</span> by <a
+href="#enumerate:cq6vr0ybj9" data-reference-type="eqref"
+data-reference="enumerate:cq6vr0ybj9">\((iv)\)</a>, hence
+<span class="math inline">\(Z\)</span> is Diophantine over <span
+class="math inline">\(\mathcal{O}_M\)</span> by <a
+href="#enumerate:cq6vr0zdtm" data-reference-type="eqref"
+data-reference="enumerate:cq6vr0zdtm">\((ii)\)</a>. ◻</p>
+</div>
+<p>Let’s now give the proof of Theorem <a href="#theorem:cq6vrxrob0"
+data-reference-type="ref" data-reference="theorem:cq6vrxrob0">6</a>.</p>
+<p><strong>We first discuss <span
+class="math inline">\(2\)</span><em>-Selmer groups</em></strong>. Take
+the Galois cohomology of <span class="math inline">\(G_K :=
+\mathop{\mathrm{Gal}}(\bar{K} / K)\)</span>. Look at <span
+class="math display">\[0 \rightarrow E[2] \rightarrow E
+\xrightarrow{\bullet 2} E \rightarrow 0.\]</span> This gives <span
+class="math display">\[0 \rightarrow E(K)[2] \rightarrow E(K)
+\xrightarrow{\bullet 2} E(K) \xrightarrow{\delta} H^1(G_{K},
+E[2]),\]</span> so <span class="math display">\[0 \rightarrow
+  \frac{E(K)}{2 E(K)}
+  \xrightarrow{\delta} H^1(G_K, E[2]).\]</span> The first term is an
+<span class="math inline">\(\mathbb{F}_2\)</span>-vector space of
+dimension <span class="math display">\[\operatorname{rank} E(K) +
+\dim_{\mathbb{F}_2} E(K)[2].\]</span> We can also do the same diagram
+for each place <span class="math inline">\(v\)</span> of <span
+class="math inline">\(K\)</span>. You can check that this whole thing
+gives a commutative diagram <span class="math display">\[\begin{CD}
+    \small
+    0 @&gt;&gt;&gt; E(K)[2] @&gt;&gt;&gt; E(K) @&gt;{\bullet 2}&gt;&gt;
+E(K) @&gt;{\delta}&gt;&gt; H^1(G_K, E[2]) \\
+    @. @VVV @VVV @VV {\mathop{\mathrm{res}}}_vV
+@VV{\mathop{\mathrm{res}}}_vV \\
+    0 @&gt;&gt;&gt; E(K_v)[2] @&gt;&gt;&gt; E(K_v) @&gt;{\bullet
+2}&gt;&gt; E(K_v) @&gt;{\delta_v}&gt;&gt; H^1(G_{K_v}, E[2])
+  \end{CD}\]</span>&lt;++&gt; <span class="math display">\[0 \rightarrow
+E(K)[2] \rightarrow E(K) \xrightarrow{\bullet 2} E(K)
+\xrightarrow{\delta} H^1(G_K, E[2])
+  \xrightarrow{{\mathop{\mathrm{res}}}_v}
+  H^1(G_{K_v}, E[2])\]</span> and <span class="math display">\[0
+\rightarrow  E(K_v)[2]
+  \rightarrow E(K_v) \xrightarrow{\bullet 2}
+  E(K_v)
+  \xrightarrow{\delta_v} H^1(G_{K_v}, E[2]).\]</span> Hence <span
+class="math inline">\({\mathop{\mathrm{Sel}}}^2(E / K) := \ker(H^1(G_K,
+E[2]) \xrightarrow{\prod {\mathop{\mathrm{res}}}_v} H^1(G_{K_v}, E[2]) /
+\mathop{\mathrm{image}}(\delta_v))\)</span>.</p>
+<ol>
+<li><p>If <span class="math inline">\(\mathop{\mathrm{image}}(\delta)
+\subseteq {\mathop{\mathrm{Sel}}}^2(E / K)\)</span>, then <span
+class="math inline">\(\mathop{\mathrm{rank}}E(K) + \dim_{\mathbb{F}_2}
+E(K)[2] \leq \dim_{\mathbb{F}_2} {\mathop{\mathrm{Sel}}}^2(E /
+K)\)</span>.</p></li>
+<li><p><span class="math inline">\({\mathop{\mathrm{Sel}}}^2(E /
+K)\)</span> is computable and finite-dimensional.</p></li>
+</ol>
+<p><strong>Let’s now discuss <em>forcing positive rank</em></strong>.
+Take <span class="math inline">\(\tilde{E}\)</span> with <span
+class="math inline">\(\tilde{E}(K)[2] \cong \mathbb{F}_2^2\)</span>,
+i.e., <span class="math inline">\(y^2 =(x - a_1)(x - a_2)(x -
+a_3)\)</span> with <span class="math inline">\(a_1, a_2, a_3 \in
+K\)</span> distinct. Twisting by <span class="math inline">\(t :=(n -
+a_1)(n - a_2)(n - a_3)\)</span> gives a new elliptic curvge <span
+class="math inline">\(t y^2 =(x - a_1)(x - a_2)(x - a_3)\)</span> with
+rational point <span class="math inline">\((x, y) =(0, 1)\)</span>.
+Twisting by <span class="math inline">\(t :=(n - a_1 d)(n - a_2 d)(n -
+a_3 d)\)</span> gives a new curve with rational point <span
+class="math inline">\((x, y) =(\tfrac{n}{d},
+\tfrac{1}{d^2})\)</span>.</p>
+<p>Since <span class="math inline">\(i \notin K\)</span>, we have <span
+class="math inline">\(\operatorname{rank} \tilde{E}^t(K(i)) =
+\mathop{\mathrm{rank}}\tilde{E}^t(K)\)</span> suffices to find <span
+class="math inline">\(t = d(n - a_1 d)(n - a_2 d)(n - a_3 d)\)</span>
+with <span class="math inline">\(\mathop{\mathrm{rank}}\tilde{E}^{-
+t}(K) = 0\)</span>. It suffices to show that <span
+class="math inline">\(\dim_{\mathbb{F}_2} {\mathop{\mathrm{Sel}}}^2(E/K) =
+2\)</span>, because this implies that <span
+class="math inline">\(\mathop{\mathrm{rank}}\tilde{E}^{- t}(K)[2] + 2
+\leq 2\)</span>, whence <span
+class="math inline">\(\mathop{\mathrm{rank}}\tilde{E}^{- t}(K)[2] =
+0\)</span>.</p>
+<p>So we need to control <span class="math inline">\(2\)</span>-Selmer
+groups. What’s the punchline? (We’ve talked about Hilbert 10, but not
+yet additive combinatorics.) <strong>Fact</strong>: we can compute <span
+class="math inline">\({\mathop{\mathrm{Sel}}}^2(E / K)\)</span> from
+Legendre symbols of primes dividing <span
+class="math inline">\(t\)</span>.</p>
+<h1
+id="morten-risager-the-error-term-in-the-hyperbolic-circle-problem">Morten
+Risager, <em>The error term in the hyperbolic circle problem</em></h1>
+<p>Let <span class="math inline">\(\Gamma \leq
+\mathrm{SL}_2(\mathbb{R})\)</span> be a discrete, cofinite subgroup that
+contains <span class="math inline">\(- 1\)</span>. A good example is
+<span class="math inline">\(\mathrm{SL}_2(\mathbb{Z})\)</span>.</p>
+<p>Let <span class="math inline">\(z, z &#39; \in \mathbb{H}\)</span>.
+We want to count how many <span
+class="math inline">\(\Gamma\)</span>-translates of <span
+class="math inline">\(z\)</span> lie in a hyperbolic circle based at
+<span class="math inline">\(z&#39;\)</span>, with radius <span
+class="math inline">\(R \rightarrow \infty\)</span>: <span
+class="math display">\[N(z, z&#39;, X)
+  :=
+  \#
+  \left\{
+    \gamma \in \Gamma \mid
+    4 u(\gamma z, z &#39;) + 2 \leq X
+  \right\}.\]</span> Here <span class="math inline">\(u(z, z&#39;) =
+\frac{\lvert z - z &#39; \rvert^2}{4 \Im(z) \Im(z&#39;)}\)</span>. We
+note that <span class="math inline">\(4 u(\gamma z, z &#39;) = 2
+\cosh(d_H(\gamma z, z &#39;))\)</span>, so one can formulate the
+counting problem in a few ways.</p>
+<p>Selberg (1970’s) showed that <span class="math display">\[N(z,
+z&#39;, X)
+  =
+  \frac{2 \pi}{\mathop{\mathrm{vol}}(\Gamma \backslash \mathbb{H})}
+  X
+  +
+  (\text{contribution from small eigenvalues})
+  + \operatorname{O}(X^{2/3}).\]</span> (Selberg never published this
+result, but he gave talks about it, and we have notes from these talks
+available at the IAS.)</p>
+<div class="question">
+<p><strong>Question 8</strong>. Can <span
+class="math inline">\(\operatorname{O}(X^{2/3})\)</span> be improved?
+(Note that <span class="math inline">\(\tfrac{2}{3} = \tfrac{1}{2} +
+\tfrac{1}{6}\)</span>.)</p>
+</div>
+<p>We have the <span class="math inline">\(\Omega\)</span>-result of
+Phillips–Rudnick (’94): <span class="math inline">\(N(z, z&#39;, X) -
+M(X) = \Omega(X^{\frac{1}{2} - \delta})\)</span>, for each <span
+class="math inline">\(\delta &gt; 0\)</span>.</p>
+<p>What do we do when we don’t know how to bound something? We try to do
+something easier: take an average of some sort. Look at the second
+radial moment.</p>
+<p>Chamizo (’96): <span class="math display">\[\left( \frac{1}{X}
+\int_X^{2 X} \left( N(z, z&#39;, X) - M(X) \right)^2 \, d
+x  \right)^{1/2}
+  = \operatorname{O}\bigl(
+  X^{1/2} \log X\bigr).\]</span> Cherubini (2016): <span id="eq:cq6vse71xz" class="math display">\[\label{eq:cq6vse71xz}\tag{1}
+  \operatorname{O}(X^{1/2} \log^{1/2} X).\]</span></p>
+<div class="conjecture">
+<p><strong>Conjecture 9</strong>. <em><span class="math inline">\(N(z,
+z&#39;, X) - M(X) = \operatorname{O}(X^{\frac{1}{2} +
+\varepsilon})\)</span>.</em></p>
+</div>
+<p><strong>Local averages</strong>. Biro (2018): take <span
+class="math inline">\(f\)</span> of compact support, and <span
+class="math inline">\(z = z &#39;\)</span>. Then <span
+class="math display">\[\int_{\Gamma \backslash \mathbb{H}}
+  f(z) \left( N(z, z, X) - M(X) \right)
+  \, d \mu(z)
+  = \operatorname{O}\bigl(X^{\frac{1}{2} +
+\frac{1}{8}}\bigr).\]</span></p>
+<p>From now on, restrict to <span class="math inline">\(\Gamma =
+\mathrm{SL}_2(\mathbb{Z})\)</span>. In that case, the main term is
+simply <span class="math inline">\(6 X\)</span>. One can improve
+Phillips–Rudnick to <span
+class="math inline">\(\Omega\bigl(X^{\frac{1}{2}}(\log X)^{\frac{1}{4} -
+\delta}\bigr)\)</span> , and Cherubini to <span
+class="math inline">\(\operatorname{O}(X^{\frac{1}{2} + \frac{1}{12} +
+\varepsilon})\)</span>.</p>
+<p>We want now to restrict to an even more arithmetic situations, where
+<span class="math inline">\(z = z_d\)</span> and <span
+class="math inline">\(z &#39; = z_{d &#39;}\)</span> are both Heegner
+points. We want <span class="math inline">\(d\)</span> and <span
+class="math inline">\(d&#39;\)</span> to be different fundamental
+squarefree discriminants, with <span class="math inline">\(0 &gt; d =
+b^2 - 4 a c \equiv 1 \pmod{4}\)</span> and <span
+class="math display">\[z_d = \frac{- b + \sqrt{\lvert d \rvert}}{2
+a}.\]</span></p>
+<div class="theorem">
+<p><strong>Theorem 10</strong>. <em>Second spacial moment: with <span
+class="math inline">\(\Gamma = \mathrm{SL}_2(\mathbb{Z})\)</span>, <span
+class="math display">\[\Bigl( \int_{\Omega} \bigl( N(z, z, X) - M(X)
+\bigr)^2 \, d \mu(z) \Bigr)^{1/2} = \operatorname{O}(X^{\frac{1}{2} +
+\frac{1}{7}}).\]</span></em></p>
+</div>
+<p>Let’s return to the theorem:</p>
+<div class="theorem">
+<p><strong>Theorem 11</strong> (Chatzakos, Cherubini, Lester, Risager,
+2025). <em>Let <span class="math inline">\(\Gamma =
+\mathrm{SL}_2(\mathbb{Z})\)</span>, and <span
+class="math inline">\(d\)</span>, <span
+class="math inline">\(d&#39;\)</span> are as above. Then we manage to
+prove <span class="math display">\[N(z_d, z_{d&#39;}, X) = b X +
+\operatorname{O}(\frac{X^{2/3}}{(\log X)^{1/6}}).\]</span></em></p>
+</div>
+<p>We can furthermore improve <a href="#eq:cq6vse71xz"
+data-reference-type="eqref"
+data-reference="eq:cq6vse71xz">\((1)\)</a> to <span
+class="math inline">\(\operatorname{O}\bigl(X^{1/2} \log^{3/8}
+X\bigr)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(p_0(x, y) := a_0 x^2 + b_0 x y + c_0
+y^2\)</span>, <span class="math inline">\(d_0 = b_0 4 a_0
+c_0\)</span></p></li>
+<li><p><span class="math inline">\(p(x, y) = a x^2 + b x y + c
+y^2\)</span>, <span class="math inline">\(d = b^2 - 4 a
+c\)</span></p></li>
+<li><p><span class="math inline">\(\mathrm{codiscr}(p, p) = 2(a c_0 - c
+a_0) - b b_0\)</span>.</p></li>
+</ul>
+<div class="corollary">
+<p><strong>Corollary 12</strong>. <em>Fix <span
+class="math inline">\(d\)</span>, <span
+class="math inline">\(d_0\)</span> (not equal to <span
+class="math inline">\(-3\)</span> (different squarefree fundmental
+discriminants). <span class="math display">\[\eta_d = \left\{ p \mid a
+&gt; 0, \, \text{discr}(p) = d,
+      \,
+      0 &lt;(\sigma - \operatorname{discr(p, p_0)})\right\}
+    = \frac{6 h(d)}{ \sqrt{d d_0}}
+    + \operatorname{O}(\frac{X^{2/3}}{(\log q
+k^{1/2})}).\]</span></em></p>
+</div>
+<p>To understand <span class="math inline">\(N(z, z&#39;, X)\)</span>,
+it is useful to understand bounds on <span class="math display">\[S(x)
+:= \sum_{T \leq t_j \leq 2 T}
+  \sum_{T \leq t_j \leq 2 T}
+  X^{t_j}
+  \varphi_j(z) \overline{\varphi_j(z &#39;)}
+  \ll T^2.\]</span> Here <span class="math inline">\(\lambda_j =
+\tfrac{1}{4} + j^2\)</span> is an eigenvalue of <span
+class="math inline">\(\Delta_P\)</span> with eigenfunction <span
+class="math inline">\(q_j(z)\)</span>.</p>
+<p>We prove: <span class="math display">\[\lvert S(X, T) \rvert
+  \leq \sum_{T \leq t_j \leq 2 T}
+  \left\lvert \varphi_{j}(z_d) \varphi_j(z_{d &#39;}) \right\rvert
+  \ll \frac{T^2}{(\log T)^{1/4}}.\]</span></p>
+<p>Using Waldspurger: <span class="math display">\[\lvert \varphi_j(z)
+\rvert \ll_d  \sum_{\xi \in \widehat{\mathrm{Cl}(\mathbb{Q}(\sqrt{d}))}}
+  \frac{L(\varphi_j \times f_\xi, \frac{1}{2})^{\frac{1}{2}}}{L(1,
+{\mathop{\mathrm{sym}}}^2 \varphi_j)}.\]</span> Here <span
+class="math inline">\(f_s\)</span> is the theta series related to the
+class group character <span class="math inline">\(\xi\)</span>.</p>
+<div class="theorem">
+<p><strong>Theorem 13</strong>. <em>Let <span
+class="math inline">\(d\)</span> and <span
+class="math inline">\(d&#39;\)</span> be different, <span
+class="math inline">\(\xi \in
+\widehat{\mathrm{Cl}(\mathbb{Q}(\sqrt{d}))}\)</span> and <span
+class="math inline">\(\xi&#39; \in
+\widehat{\mathrm{Cl}(\mathbb{Q}(\sqrt{d&#39;}))}\)</span>. Then <span
+class="math display">\[\sum_{T \leq t_j \leq 2 T}
+    \frac{L(\varphi_j \times f_\xi, \frac{1}{2})^{1/2} L(\varphi_j,
+f_{\xi &#39;})^{1/2}}{L({\mathop{\mathrm{sym}}}^2 \varphi_j, 1)}
+    = \operatorname{O}\left( \frac{T^2}{(\log
+T)^{1/4}}\right)\]</span></em></p>
+</div>
+<p>In order to prove this, we needed <span
+class="math display">\[\sum_{t_j} h(t_j) \frac{L(\tfrac{1}{2}, \varphi_j
+\times f_{\xi})}{L({\mathop{\mathrm{sym}}}^2 \varphi, 1)}
+  \lambda_j(\ell) = C_h
+  \frac{\lambda_{f_{\xi}}(\ell)}{\sqrt{\ell}} T^2 +
+\operatorname{O}(T^{1 + \varepsilon}).\]</span> Here <span
+class="math inline">\(h\)</span> localizes at <span
+class="math inline">\([T, 2 T]\)</span>.</p>
+<h1
+id="alan-zhao-a-different-perspective-on-whittaker-functions-for-mathrmgl_n">Alan
+Zhao, <em>A different perspective on Whittaker functions for</em> <span
+class="math inline">\(\mathrm{GL}_n\)</span></h1>
+<h2 id="notation">Notation</h2>
+<p>Let <span class="math inline">\(\lambda\)</span> denote a partition,
+say <span class="math inline">\((4 3 1)\)</span>, with accompanying
+Young diagram. We’ll also use <span class="math display">\[(a;q) =(1 -
+a)(1 - a q) \dotsb(1 - a q^{n - 1}).\]</span> We’ll also fix <span
+class="math inline">\(q &lt; 1\)</span>.</p>
+<p>To introduce the <span class="math inline">\(q\)</span>-deformation
+Whittaker functions, we’ll start by defining:</p>
+<h2 id="macdonald-polynomials">MacDonald polynomials</h2>
+<p>These will lie in <span class="math inline">\(\mathbb{Q}(q, t)[x_1,
+\dotsc, x_n]\)</span>. They’ll depend upon a partition, whose length is
+the number of variables. For each <span
+class="math inline">\(\lambda\)</span>, there exists <span
+class="math inline">\(P_\lambda\)</span> such that <span
+class="math inline">\(\langle P_\lambda, P_\mu \rangle = 0\)</span> for
+<span class="math inline">\(\lambda \neq \mu\)</span>. We get <span
+class="math inline">\(P_\lambda(x, q, t)\)</span>. Specializations:</p>
+<ul>
+<li><p><span class="math inline">\(q = 0 \rightsquigarrow\)</span>
+Hall–Littlewood.</p></li>
+<li><p><span class="math inline">\(t = 0 \rightsquigarrow\)</span> <span
+class="math inline">\(q\)</span>-Whittaker.</p></li>
+<li><p>Applying both, we obtain Schur polynomials.</p></li>
+</ul>
+<div class="example">
+<p><strong>Example 14</strong>. The <span
+class="math inline">\(q\)</span>-Whittaker polynomial associated to
+<span class="math inline">\(\lambda =(2 1)\)</span> is <span
+class="math display">\[(x_1^3 + x_2^3) +(1 + q + q t)(x_1^2 x_2 + x_1
+x_2^2).\]</span> If you just take <span class="math inline">\(q =
+1\)</span> naively, you get (...).)</p>
+</div>
+<p><span class="math inline">\(q\)</span>-Whittaker <span
+class="math inline">\(\Psi_{x_1, \dotsc,
+x_n}(\underline{\lambda}_n)\)</span>, where <span
+class="math inline">\(\underline{\lambda}_n\)</span> is a
+Gelfand–Tsetlin pattern <span class="math inline">\(\lambda_{n, 1} \geq
+\lambda_{n, 2} \geq \dotsb \lambda_{n, n}\)</span> with interlaced rows
+below that. This comes out to <span class="math display">\[\Psi_{x_1,
+\dotsc, x_n}(\underline{\lambda}_n) = \sum_{\text{patterns}} \prod
+x_i^{\sum \lambda_{???} - \sum_{?}\lambda_{\dotsb}}
+  \times(\text{quotient of }(q, q)_n).\]</span></p>
+<h1
+id="valentin-blomer-hecke-fields---galois-theory-meets-shifted-convolution-problems">Valentin
+Blomer, <em>Hecke fields - Galois theory meets shifted convolution
+problems</em></h1>
+<p>Let <span class="math inline">\(f(z) = \sum_n a_n e(n z)\)</span> be
+a cusp form, <span class="math inline">\(\mathbb{Q}(f) :=
+\mathbb{Q}(\left\{ a_n \mid n \in \mathbb{N}  \right\})\)</span>.</p>
+<p>Let <span class="math inline">\(\chi\)</span> be a Dirichlet
+character, <span class="math inline">\(\mathbb{Q}(\chi) :=
+\mathbb{Q}(\left\{ \chi(n) \mid n \in \mathbb{N} \right\})\)</span>.</p>
+<p>Shimura (1977): there exists <span class="math inline">\(\Omega_{f,
+\pm} \in \mathbb{C}^\times\)</span> such that <span
+class="math display">\[L^{\mathrm{alg}}(\tfrac{1}{2}, f \times \chi)
+  :=
+  \frac{G(\bar{\chi}) L(\tfrac{1}{2}, f \times \chi)}{\Omega_{f,
+\mathop{\mathrm{sgn}}(\chi)}}
+  \in \mathbb{Q}(f, \chi).\]</span> Here we think of <span
+class="math inline">\(f\)</span> as being fixed and <span
+class="math inline">\(\chi\)</span> as varying. Moreover, we have the
+following <em>reciprocity</em>: for a Galois automorphism <span
+class="math inline">\(\sigma\)</span>, <span
+class="math display">\[\sigma L^{\mathrm{alg}}(\tfrac{1}{2}, f \times
+\chi)
+  := L(\tfrac{1}{2}, f^\sigma \times \chi^\sigma).\]</span></p>
+<p>We recall that <span class="math display">\[\mathbb{Z}_p^\times =
+\mu_{p - 1} \times(1 + p \mathbb{Z}_p)
+  \cong \widehat{\mathbb{Z}^\times_p}.\]</span> If we take a character
+<span class="math inline">\(\chi\)</span> of prime power conductor <span
+class="math inline">\(p^{h}\)</span>, then <span
+class="math inline">\(p^{h - 1}\)</span> divides the order of <span
+class="math inline">\(\chi\)</span>. We’re interested in the set of
+characters <span class="math inline">\(\chi\)</span> such that the
+conductor is <span class="math inline">\(p^{h}\)</span> and the order is
+<span class="math inline">\(p^{h - 1}\)</span>: <span
+class="math display">\[\Xi_{p, h} := \left\{ \chi : \mathrm{conductor} =
+p^{h}, \mathrm{order} = p^{h - 1} \right\}.\]</span> In the terminology
+of Ravi’s talk yesterday, these are “wild characters”. We’ll see later
+that this is a Galois orbit. The values of such a character <span
+class="math inline">\(\chi\)</span> are <span class="math inline">\(p^{h
+- 1}\)</span>th roots of unity, and most of these values are primitive.
+In particular, <span class="math display">\[\operatorname{image}(\chi) =
+\mu_{p^{h - 1}}.\]</span> More precisely, <span
+class="math inline">\(\chi(x)\)</span> is a primitive <span
+class="math inline">\(p^{h - 1}\)</span> root of unity if and only if
+<span class="math inline">\(x = x_0 + x_1 p + x_2 p^2 + \dotsb\)</span>,
+where <span class="math inline">\(p \nmid x_0 x_1\)</span>.</p>
+<p>After this interlude on characters, we come to the thing we really
+want to discuss. The number <span
+class="math inline">\(L^{\mathrm{alg}}(\tfrac{1}{2}, f \times
+\chi)\)</span> lies in the field <span
+class="math inline">\(\mathbb{Q}(f, \chi)\)</span>, and you might ask,
+is it a generator of the field? When is this the case?</p>
+<p>The work of Luo–Ramakrishnan (1977) and later work of Sun (2019)
+established the following. Fix a prime <span
+class="math inline">\(p\)</span> and a cusp form <span
+class="math inline">\(f\)</span>. We make the assumption that <span
+class="math inline">\(f\)</span> has no inner twist, meaning that <span
+class="math inline">\(f\)</span> is not equal to <span
+class="math inline">\(f \otimes \chi_D\)</span> for a real character
+<span class="math inline">\(\chi_D\)</span>. (If the level is
+squarefree, then this can never happen.) Then they proved that <span
+class="math inline">\(\mathbb{Q}(f, \chi) =
+\mathbb{Q}(L^{\mathrm{alg}}(\tfrac{1}{2}, f \times \chi),
+\mu_p)\)</span> holds for all <span class="math inline">\(\chi \in
+\Xi_{p, h}\)</span> provided that <span class="math inline">\(h \geq
+h_0\)</span>. That’s quite remarkable - a central character is able to
+generate fields when you run through character.</p>
+<p>We want to do the same with more complicated expressions involving
+this central value (see <a href="#ref-2025arXiv2503.15040" class="citation"
+data-cites="2025arXiv2503.15040">(Blomer et al. 2025)</a>):</p>
+<div class="theorem">
+<p><strong>Theorem 15</strong> (Blomer–Burungale–Michel–Min). <em>Under
+the same assumptions, <span class="math inline">\(\mathbb{Q}(f, \chi) =
+\mathbb{Q}(\left\lvert L(\tfrac{1}{2}, f \times \chi) \right\rvert^2,
+\mu_p)\)</span> for all <span class="math inline">\(\chi \in \Xi_{p,
+h}\)</span> with <span class="math inline">\(h \geq
+h_0\)</span>.</em></p>
+</div>
+<p>We note that the containment “<span
+class="math inline">\(\supseteq\)</span>” is obvious; the hard part is
+to show “<span class="math inline">\(\subseteq\)</span>”.</p>
+<p>As announced in the abstract, there is an analytic part and a
+Galois-theoretic part.</p>
+<h2 id="galois-theory">Galois theory</h2>
+<p>We have <span class="math inline">\(\mathbb{Q}(\chi) \subseteq
+\mathbb{Q}(\mu_p, \ast)\)</span> and <span
+class="math inline">\(\mathbb{Q}(f) \subseteq \mathbb{Q}(\chi,
+\ast)\)</span>. The real reason we picked this topic is that we can now
+draw complicated field diagrams.</p>
+<p>The top field is <span class="math inline">\(\mathbb{Q}(f,
+\chi)\)</span>, which contains <span
+class="math inline">\(\mathbb{Q}(\chi, \ast)\)</span>. This contains
+<span class="math inline">\(\mathbb{Q}(\chi)\)</span> (branching down
+and to the left) and also <span class="math inline">\(\mathbb{Q}(\mu_p ,
+\ast)\)</span> (branching down and to the right), which both contain the
+common subfield <span class="math inline">\(\mathbb{Q}(\chi) \cap
+\mathbb{Q}(\mu_p, \ast)\)</span>, which in turn contains <span
+class="math inline">\(\mathbb{Q}\)</span>. There is a further extension,
+with dotted lines: <span class="math inline">\(\mathbb{Q}(f,
+\chi)\)</span> contains <span
+class="math inline">\(\mathbb{Q}(f)\)</span> which contains <span
+class="math inline">\(\mathbb{Q}\)</span>. Furthermore, <span
+class="math inline">\(\mathbb{Q}(f)\)</span> is contained in its Galois
+extension <span class="math inline">\(E\)</span>, which is contained in
+(branching up and to the right) <span
+class="math inline">\(E(\chi)\)</span>, which contains (down and to the
+right) <span class="math inline">\(\mathbb{Q}(f, \ast)\)</span>, and
+then there’s the common subfield <span class="math inline">\(E \cap
+\mathbb{Q}(\chi, \ast)\)</span> of <span
+class="math inline">\(E\)</span> and <span
+class="math inline">\(\mathbb{Q}(f, \ast)\)</span>:</p>
+<p><img src="images/img_20250813_094513.png" style="width:50.0%"
+alt="image" /></p>
+<p>We set <span class="math inline">\(\ell_{f, \chi} := \lvert
+L^{\mathrm{alg}}(\tfrac{1}{2}, f \times \chi) \rvert^2\)</span>. By some
+diagram chasing, we have <span class="math display">\[0 \neq
+{\mathop{\mathrm{trace}}}_{\mathbb{Q}(f, \chi) / \mathbb{Q}}(\chi(x)
+\ell_{f, \chi})
+  = {\mathop{\mathrm{trace}}}_{\mathbb{Q}(\mu_p, \ast) / \mathbb{Q}}
+\left( \ell_{f, \chi} {\mathop{\mathrm{trace}}}_{\mathbb{Q}(f, \chi) /
+\mathbb{Q}(\mu_p, \ast)} \chi(x) \right).\]</span> We deduce that,
+unless the extension is trivial, we obtain <span
+class="math display">\[\deg {\mathop{\mathrm{trace}}}_{\mathbb{Q}(\chi,
+\ast) / \mathbb{Q}(\mu_p, \ast)} \chi(x) = 0.\]</span> Let <span
+class="math inline">\(\sigma\)</span> be a Galois automorphism of <span
+class="math inline">\(E(\chi) / \mathbb{Q}(f, \ast)\)</span>. Then <span
+class="math display">\[\ell_{f, \chi} = \sigma(\ell_{f, \chi}) =
+\ell_{f^2 \times \chi},\]</span> which implies that <span
+class="math inline">\(f = f^\sigma\)</span>, so that the extension is
+trivial. We then consider <span
+class="math display">\[{\mathop{\mathrm{trace}}}_{\mathbb{Q}(f_1, f_2,
+\chi) / \mathbb{Q}(f_1, f_2)}(\chi(x) \ell_{f_1, \chi}).\]</span> The
+upshot is that we need to evaluate <span id="eq:cq6v8d8hcu" class="math display">\[\label{eq:cq6v8d8hcu}\tag{2}
+  \sum_{\sigma \in \mathop{\mathrm{Gal}}(F(\chi)) / F_0}
+  L(\tfrac{1}{2}, f \times \chi^\sigma) \overline{F(\tfrac{1}{2}, g
+\times \chi^\sigma)} \chi^\sigma(x).\]</span> We’re not summing over all
+characters, but only over a Galois orbit, so there is only some
+orthogonality: <span class="math display">\[\mathbb{E}_{\sigma}
+\chi^\sigma(n) := \delta_{n^{p - 1} \equiv 1 \pmod{p^{h}}}.\]</span></p>
+<h2 id="shifted-convolution-sums">Shifted convolution sums</h2>
+<p>The standard way to evaluate such a sum of <span
+class="math inline">\(L\)</span>-values is via the approximate
+functional equation. This leads morally to something like <span id="eq:cq6v8a8450" class="math display">\[\label{eq:cq6v8a8450}\tag{3}
+  \sum_{ \substack{
+      m n \leq q^2  \\
+      \alpha m \equiv x n \pmod{q}
+    } } \lambda_f(m) \lambda_f(n),\]</span> where <span
+class="math inline">\(x\)</span> is fixed, <span class="math inline">\(q
+= p^{h}\)</span> and <span class="math inline">\(\alpha^{p - 1} \equiv 1
+\pmod{q}\)</span>. The subtlety here is that <span
+class="math inline">\(\alpha\)</span> is not fixed – there are only so
+many such roots of unity, but they’re spread out all over the place.
+Most results concerning the shifted convolution problem apply when the
+coefficients playing the role of <span
+class="math inline">\(\alpha\)</span> and <span
+class="math inline">\(x\)</span> in <a href="#eq:cq6v8a8450"
+data-reference-type="eqref"
+data-reference="eq:cq6v8a8450">\((3)\)</a> are essentially
+fixed.</p>
+<p>Let’s start with the case <span class="math inline">\(\alpha =
+1\)</span>. Take <span class="math inline">\(n \asymp N\)</span>, <span
+class="math inline">\(m \asymp M\)</span>.</p>
+<ol type="i">
+<li><p><span id="enumerate:cq6v8blrg4"
+label="enumerate:cq6v8blrg4"></span> If <span class="math inline">\(N
+\leq q^{3/2 - \varepsilon}\)</span>, then one can apply spectral
+methods: <span class="math inline">\(\delta\)</span>-symbol, Voronoi
+summation, large sieve. Indeed, this works as long as the longer
+variable is no more than three times as long as the shorter
+variable.</p></li>
+<li><p><span id="enumerate:cq6v8blt69"
+label="enumerate:cq6v8blt69"></span> If <span class="math inline">\(N
+\geq q^{3/2 + \varepsilon}\)</span>, then we apply Voronoi in <span
+class="math inline">\(n\)</span>, which leads to <span
+class="math inline">\(\frac{N}{q^2} \sum_{m \asymp M} \sum_{n \asymp q^2
+/ N} \lambda(m) \lambda(n) S(m, n, q)\)</span>, which we can treat using
+the Weil bound for Kloosterman sums.</p></li>
+<li><p><span id="enumerate:cq6v8blu1b"
+label="enumerate:cq6v8blu1b"></span> There remains the intermediary
+range. One can hope to treat this by upgrading the treatment of the
+<span class="math inline">\(N \geq q^{3/2 + \varepsilon}\)</span> range,
+using that <span class="math inline">\(q = p^{h}\)</span> is factorable,
+via Weyl differencing.</p></li>
+</ol>
+<p>For <span class="math inline">\(\alpha \neq 1\)</span> large, the
+treatment of case <a href="#enumerate:cq6v8blrg4"
+data-reference-type="eqref"
+data-reference="enumerate:cq6v8blrg4">\((i)\)</a> breaks
+down completely. Without a better idea how to proceed, we take absolute
+values: <span class="math display">\[\sum_{(m, n) \in \Lambda}\lvert
+\lambda_f(n) \lambda_f(m) \rvert,
+  \quad
+  \Lambda := \left\{ \alpha m \equiv x n \pmod{q} \right\}.\]</span> We
+observe that <span class="math inline">\(\Delta\)</span> is a “roundish”
+lattice, and we’re summing nonnegative multiplicative functions over it.
+Sieve theory tells us that we understand this, and the answer doesn’t
+depend upon the shape of the lattice. Recall that (by approximations to
+Sato–Tate) the magnitudes <span class="math inline">\(\lvert
+\lambda_f(n) \rvert\)</span> are a bit smaller than <span
+class="math inline">\(1\)</span> on average. This saves <span
+class="math inline">\((\log q)^{- \delta}\)</span> for some <span
+class="math inline">\(\delta \approx 0.1\)</span>.</p>
+<p>This suffices for an asymptotic evaluation of the moment <a
+href="#eq:cq6v8d8hcu" data-reference-type="eqref"
+data-reference="eq:cq6v8d8hcu">\((2)\)</a>. (We were worried
+that we already had to do a dyadic subdivision, so saving the fractional
+log would be swamped by the logarithmically many scales, but it turns
+out that the main term is of size <span class="math inline">\(q \log
+q\)</span>, so it really suffices.)</p>
+<p>So, what is the upshot, or the moral to be learned? There’s somehow
+an interesting passage from generation of Hecke fields to moments – by a
+bit of Galois theory, we can relate such a generation question to
+moments of <span class="math inline">\(L\)</span>-functions, at which
+point we can apply analytic theory. It results in situations where we’re
+summing over a Galois orbit, which changes the shifted convolution
+structure drastically.</p>
+<h1
+id="zvi-shem-tov-equidistribution-of-lifts-on-hyperbolic-4-manifolds">Zvi
+Shem-Tov, <em>Equidistribution of lifts on hyperbolic
+4-manifolds</em></h1>
+<p>(Joint with de Faveri)</p>
+<p>Take <span class="math inline">\(M = \Gamma \backslash
+\mathbb{H}^n\)</span>, where <span class="math inline">\(\Gamma =
+\mathbb{G}(\mathbb{Z})\)</span> and <span class="math inline">\(G =
+\mathbb{G}(\mathbb{R}) = \mathop{\mathrm{SO}}(1, n)\)</span>.</p>
+<p>Take a sequence <span class="math inline">\(\phi_j\)</span> of joint
+eigenfunctions of the hyperbolic Laplacian <span
+class="math inline">\(\Delta\)</span> and the family of Hecke operators
+<span class="math inline">\(\mathcal{H}\)</span>. So that this sequence
+is nontrivial, we require that <span class="math inline">\(\lvert
+\lambda_j \rvert \rightarrow \infty\)</span>. We also normalize so that
+<span class="math inline">\(\lVert \phi_j \rVert_2 = 1\)</span>. We
+define the probability measures <span class="math display">\[\mu_j =
+\lvert \phi_j \rvert^2 \, d \mathop{\mathrm{vol}}.\]</span></p>
+<div class="question">
+<p><strong>Question 16</strong>. What are the weak-<span
+class="math inline">\(\ast\)</span> limits of such <span
+class="math inline">\(\mu_j\)</span>?</p>
+</div>
+<div class="conjecture">
+<p><strong>Conjecture 17</strong> (Rudnick–Sarnak, “QUE”, 1995). <em>The
+only such limit is the uniform measure <span class="math inline">\(\mu =
+d \mathop{\mathrm{vol}}\)</span>.</em></p>
+</div>
+<p>What is known so far? (We focus on this specific setup, ignoring many
+others.)</p>
+<ul>
+<li><p>When <span class="math inline">\(n = 2\)</span>, Lindenstrauss
+(2005) proved for congruence surfaces that <span
+class="math inline">\(\mu = c \mathop{\mathrm{vol}}\)</span> for some
+scalar <span class="math inline">\(c\)</span>. When the surface is
+compact, we must have <span class="math inline">\(c = 1\)</span>.
+Soundarajan showed in general (e.g., for for <span
+class="math inline">\(\mathrm{SL}_2(\mathbb{Z})\)</span>) that <span
+class="math inline">\(c = 1\)</span> (“non-escape of mass”).</p></li>
+<li><p>When <span class="math inline">\(n = 3\)</span>,
+Shem-Tov–Silberman (2023) showed the analogous result for <span
+class="math inline">\(\Gamma \backslash \mathbb{H}^3\)</span>, or more
+generally, <span class="math inline">\(\Gamma \backslash
+(\mathbb{H}^2)^r \times(\mathbb{H}^3)^s\)</span>. Non-escape of mass was
+shown in the master’s thesis of Zaman.</p></li>
+<li><p>When <span class="math inline">\(n = 4\)</span>, we don’t quite
+have QUE, but we do have some partial results. Shem-Tov–Silberman showed
+roughly that any such <span class="math inline">\(\mu\)</span> is a
+countable combination of measures, each of which is either the uniform
+measure <span class="math inline">\(d \mathop{\mathrm{vol}}\)</span> or
+the uniform measure on totally geodesic submanifolds of dimension <span
+class="math inline">\(3\)</span>. In this case, we also know non-escape
+of mass (de Faveri–Shem-Tov).</p></li>
+</ul>
+<p>In the following work in progress, we can prove QUE in dimension
+<span class="math inline">\(4\)</span> for a concrete, nontrivial
+example of such a sequence.</p>
+<div class="theorem">
+<p><strong>Theorem 18</strong> (de Faveri–Shem-Tov). <em>QUE holds for
+Pitale lifts. In fact, all we need to know is that the Hecke eigenvalues
+are large. The result applies, for instance, to <span
+class="math inline">\(\Gamma =
+\operatorname{SU}_2(\mathbb{Z})\)</span>.</em></p>
+</div>
+<p><strong>Step 1</strong> is the <em>microlocal lift</em>. Namely, we
+can lift the measure <span class="math inline">\(\mu\)</span> to a
+measure <span class="math inline">\(\tilde{\mu}\)</span> on the phase
+space <span class="math inline">\(\Gamma \backslash G\)</span> in a way
+such that this lift satisfies two conditions:</p>
+<ul>
+<li><p><span class="math inline">\(\tilde{\mu}\)</span> is <span
+class="math inline">\(A\)</span>-invariant.</p></li>
+<li><p><span class="math inline">\(\tilde{\mu}\)</span> is a limit of
+Hecke eigenfunctions.</p></li>
+</ul>
+<p>We use a very general construction of Silberman–Venkatesh (although
+such constructions have a long history). That’s the first step – once we
+have this microlocal lift, we can forget the original quotients and just
+speak of measures on these homogeneous spaces.</p>
+<p><strong>Step 2</strong> is <em>ergodic theory</em> or
+<em>measure-rigidity</em>. Basically, what we do is to try to classify
+these <span class="math inline">\(A\)</span>-invariant measures, using
+entropy/recurrence conditions and results of Einsiedler–Lindenstrauss.
+What we get out is that <span class="math inline">\(\tilde{\mu}\)</span>
+is a convex combination of homogeneous measures (i.e., a measure on the
+orbit of a reasonable reasonable). What we need to show is then that,
+for <span class="math inline">\(\pi : G \rightarrow \Gamma \backslash
+G\)</span> the natural projection, we have <span
+class="math inline">\(\tilde{\mu}(\pi(L)) = 0\)</span> for certain
+submanifolds <span class="math inline">\(L \subset G\)</span>. The most
+general result we know how to prove in this context is the following</p>
+<div class="theorem">
+<p><strong>Theorem 19</strong> (Shem-Tov–Silberman). <em>Assume that for
+any subspace <span class="math inline">\(U \subset L\)</span> with
+irreducible Zariski closure <span
+class="math inline">\(\bar{U}^Z\)</span>, we have that <span
+class="math display">\[S := \left\{ s \in \mathbb{G}(\bar{\mathbb{Q}}
+\cap \mathbb{R})
+      :
+      s \bar{U}^Z = \bar{U}^Z
+    \right\}\]</span> is <span
+class="math inline">\(\tfrac{1}{2}\)</span>-weakly small (to be defined
+below). Then <span class="math inline">\(\tilde{\mu}(\pi(L)) =
+0\)</span>.</em></p>
+</div>
+<p><strong>Weak smallness</strong> (defined by Marshall in the context
+of the sup norm problem). Let <span class="math inline">\(H &lt;
+G\)</span>. Fix maximal split tori <span class="math inline">\(T_H &lt;
+T_G\)</span>. For <span class="math inline">\(\eta \in
+X_\ast(T_G)\)</span>, define <span class="math display">\[\lVert \eta
+\rVert_G^\ast := \max_{w \in W_G}
+  \left\langle \rho_G, w \eta \right\rangle.\]</span> Here <span
+class="math display">\[\rho_G := \frac{1}{2} \sum_{\alpha &gt; 0}
+\dim(\mathfrak{g}_\alpha) \alpha.\]</span> We similarly define <span
+class="math inline">\(\lVert \eta \rVert_H^\ast\)</span> for <span
+class="math inline">\(\eta \in X_\ast(T_H)\)</span>. Using these norms,
+we define two notions of smallness (where one should think <span
+class="math inline">\(\alpha = \tfrac{1}{2}\)</span>):</p>
+<ul>
+<li><p><span class="math inline">\(H\)</span> is <span
+class="math inline">\(\alpha\)</span><em>-tempered</em> if for all <span
+class="math inline">\(\eta \in X_\ast(T_H)\)</span>, we have that <span
+class="math inline">\(\lVert \eta \rVert_H^\ast \leq \alpha \lVert \eta
+\rVert_G^\ast\)</span>.</p></li>
+<li><p><span class="math inline">\(H\)</span> is <span
+class="math inline">\(\alpha\)</span><em>-weakly small</em> if, in
+addition, either <span class="math inline">\(\dim T_H &lt; \dim
+T_G\)</span> or <span class="math inline">\(\max_{w \in W_G} \lVert w
+\eta \rVert_H^\ast &lt; \alpha \lVert \eta
+\rVert_G^\ast\)</span>.</p></li>
+</ul>
+<p>To give some geometric intuition, take <span
+class="math inline">\(\eta \in X_\ast(T_G)\)</span> and <span
+class="math inline">\(p\)</span> prime. We can then form the
+corresponding Hecke operator <span class="math inline">\(\tau =
+\tau(\eta, p)\)</span>. What’s important about this norm is that <span
+class="math inline">\(\lvert \pi(H) \cap \mathop{\mathrm{supp}}(\tau)
+\rvert \ll \sum_{ \substack{
+    w \in W  \\
+    w \eta \in X_\ast(T_H)    
+  } } p^{2 \lVert w \eta \rVert_H^\ast}\)</span>.</p>
+<p>Back to non-concentration. What we really proved is that <span
+class="math inline">\(\mu(\pi(L)) = 0\)</span> if the following
+condition is satisfied: each of the stabilizers <span
+class="math inline">\(S\)</span> that we saw before is contained in</p>
+<p>for all <span class="math inline">\(\varepsilon&gt; 0\)</span> there
+exists a finite set <span class="math inline">\(J_\varepsilon\in
+\mathcal{H}\)</span> such that for all <span
+class="math inline">\(\phi\)</span>, we can find <span
+class="math inline">\(\tau \in J_\varepsilon\)</span> so that <span
+class="math display">\[\frac{\lVert \tau \rVert_{L^1(H)}}{\lambda_\phi}
+&lt; \varepsilon.\]</span></p>
+<p>Idea (Marshall): take <span class="math inline">\(\tau = \left(
+\sum_{p \sim P} \tau_p \right)^2\)</span> such that each <span
+class="math inline">\(\tau_p\)</span> satisfies <span
+class="math inline">\(\tfrac{1}{2}\)</span>-weak smallness. That way,
+you hope to make the intersection small. But this is not a basic Hecke
+operator – you can expand it as <span class="math inline">\(\tau = \sum
+\tau_p^2 + \sum_{p \neq q} \tau_p \tau_q\)</span>. We may assume by some
+other reasons that <span class="math inline">\(\lambda_p
+\sim(\mathop{\mathrm{supp}}\tau_p)^{1/2}\)</span>. For the off-diagonal,
+we use weak smallness. For the diagonal terms, use temperedness. The
+problem is that in our case (dimension <span
+class="math inline">\(4\)</span>), there are some very non-small groups
+that appear: <span class="math inline">\(H \approx
+\mathop{\mathrm{SO}}(1, 3) \subset \mathop{\mathrm{SO}}(1, 4)\)</span>,
+which is far from being <span
+class="math inline">\(\tfrac{1}{2}\)</span>-tempered; it is <span
+class="math inline">\(\tfrac{2}{3}\)</span>-tempered? But <span
+class="math inline">\(\lambda_p
+\geq(\mathop{\mathrm{supp}}\tau_p)^{1/2}\)</span>. The reason we find
+our theorem interesting is that we were nevertheless able to construct
+new Hecke operators such that the argument still works. This shows that
+the <span class="math inline">\(\tfrac{1}{2}\)</span>-weakly small
+condition (used in a lot of other works) is <em>not</em> tight. This
+gives us hope for at least the following two things:</p>
+<ul>
+<li><p>We constructed our Hecke operators using spectral methods,
+involving the Satake isomorphism. We hoped that maybe a more conceptual,
+geometric understanding of the Hecke operators and the geometry of the
+building will improve this construction. So, maybe there exist better
+operators that can be used to prove something for general
+sequences.</p></li>
+<li><p>Nontrivial upper bounds for <span class="math inline">\(\lVert .
+\rVert_\infty\)</span> in this case, for <span
+class="math inline">\(\Gamma \backslash \mathbb{H}^4\)</span>.</p></li>
+</ul>
+<p>Both of these</p>
+<h1
+id="matthew-young-shifted-convolution-problem-for-siegel-modular-forms">Matthew
+Young, <em>Shifted convolution problem for Siegel modular
+forms</em></h1>
+<p>(joint work with Wing Hong (Joseph) Leung; extremely recent, decided
+to speak on it just a week ago)</p>
+<p>Let <span class="math inline">\(\mathbb{H}_2\)</span> denote the
+Siegel upper half-space, and <span class="math inline">\(G =
+\mathrm{Sp}_4(\mathbb{R}) := \left\{ g \in \mathrm{GL}_4(\mathbb{R})
+\mid g J g^t = J \right\}\)</span> the symplectic group, where <span
+class="math inline">\(J = \left(
+  \begin{smallmatrix}
+    0&amp;-I\\
+    I&amp;0 \\
+  \end{smallmatrix}
+\right)\)</span>. The group <span class="math inline">\(G\)</span> acts
+on <span class="math inline">\(\mathbb{H}_2\)</span> via fractional
+linear transformations: <span class="math inline">\(\gamma z =(A z +
+B)(C z + D)^{-1}\)</span> for <span class="math inline">\(\gamma =
+\left(
+  \begin{smallmatrix}
+    A&amp;B\\
+    C&amp;D \\
+  \end{smallmatrix}
+\right)\)</span>.</p>
+<p>Let <span class="math inline">\(F\)</span> be a Siegel modular form
+of weight <span class="math inline">\(k\)</span> on <span
+class="math inline">\(\Gamma = \mathrm{Sp}_4(\mathbb{Z})\)</span>. It
+admits a Fourier expansion <span class="math inline">\(F(Z) = \sum_{M
+\in \Lambda^+} a_F(M)\)</span>, where <span
+class="math inline">\(\Lambda^+ = \left\{ M \in \Lambda \mid M &gt; 0
+\right\}\)</span>. We adopt the normalization <span
+class="math inline">\(a_F(M) =(\det M)^{\frac{k}{2} - \frac{3}{4}}
+\tilde{a}_F(M)\)</span>.</p>
+<div id="conjecture:cq6wos23vs" class="conjecture">
+<p><strong>Conjecture 20</strong> (Resnikoff and Saldana, 1974). <em>If
+<span class="math inline">\(4 \det M\)</span> is a fundamental
+discriminant, then <span class="math inline">\(\tilde{a}_F(M) \ll(\det
+M)^\varepsilon\)</span>.</em></p>
+</div>
+<div class="conjecture">
+<p><strong>Conjecture 21</strong> (Borcherer). <em><span
+class="math inline">\(\lvert a(M) \rvert^2 \doteq L(\tfrac{1}{2}, \pi
+\otimes \chi_d)\)</span>, where <span class="math inline">\(\pi\)</span>
+lives on <span class="math inline">\(\mathrm{GSp}_4\)</span> and <span
+class="math inline">\(d = \operatorname{disc}(M)\)</span>.</em></p>
+</div>
+<p>We’ve been imprecise here – there’s an extra average over the class
+group. In particular, Lindelöf does not imply Conjecture <a
+href="#conjecture:cq6wos23vs" data-reference-type="ref"
+data-reference="conjecture:cq6wos23vs">20</a>.</p>
+<div class="theorem">
+<p><strong>Theorem 22</strong> (Leung, Y. 2025+). <em>let <span
+class="math inline">\(Q \in \Lambda\)</span>, <span
+class="math inline">\(Q \neq 0\)</span>. For a “reasonable” class of
+test function <span class="math inline">\(W_N\)</span> (<span
+class="math inline">\(N \geq 1\)</span>), we have <span
+class="math display">\[\sum_{
+      \substack{
+        M_1, M_2 \in \Lambda^+  \\
+        M_1 + Q = M_2        
+      }
+    }
+    \tilde{a}_F(M_1)
+    \overline{\tilde{a}_F(M_2)}
+    W_N(M_1, M_2, Q)
+    \ll N^{\frac{5}{2} + \varepsilon},\]</span> where <span
+class="math inline">\(W_N\)</span> is essentially supported on matrices
+of size <span class="math inline">\(N\)</span>.</em></p>
+</div>
+<p>Note that the number of matrices is essentially of size <span
+class="math inline">\(N^3\)</span>. The trivial bound is <span
+class="math inline">\(N^{3 + \varepsilon}\)</span>; this follows in
+particular from Conjecture <a href="#conjecture:cq6wos23vs"
+data-reference-type="ref" data-reference="conjecture:cq6wos23vs">20</a>,
+although we only need that on average.</p>
+<p>The analogous problem for <span
+class="math inline">\(\mathrm{GL}_2\)</span> is well-studied; other
+results are sparse. For instance, there has been somewhat recent
+progress (last 10 or 15 years) in studying, for a <span
+class="math inline">\(\mathrm{GL}_3\)</span> coefficient <span
+class="math inline">\(\lambda_F\)</span> and <span
+class="math inline">\(\mathrm{GL}_2\)</span> coefficient <span
+class="math inline">\(\lambda_f\)</span>, sums like <span
+class="math inline">\(\sum_n \lambda_F(n) \lambda_f(n + 1)\)</span>. But
+we’re stuck on, e.g., <span class="math inline">\(\sum_n d_3(n) d_3(n +
+1)\)</span>, which is a major bottleneck for understanding, e.g., the
+sixth moment of the zeta function. There’s a paper of
+Jaasaari–Lester–Saha where, assuming GRH, they proved QUE for Siegel
+modular forms of large weights <span class="math inline">\(k \rightarrow
+\infty\)</span>. Our method generalizes a method of DFI. The key was to
+find a way to interpret their method in an automorphic way, and porting
+that interpretation over to the land of Siegel modular forms.</p>
+<p>Our first goal is to explain the <span
+class="math inline">\(\delta\)</span>-method of DFI and indicate an
+automorphic way to understand it. The <em>slogan</em> is that the DFI
+<span class="math inline">\(\delta\)</span>-method is the same as the
+fact that you can write the constant function as an incomplete
+Eisenstein series on <span class="math inline">\(\mathrm{GL}_2\)</span>:
+<span class="math inline">\(1 = E^{\mathrm{inc}}\)</span> (which the
+speaker says he learned from <a href="#ref-2012arXiv1210.1243N" class="citation"
+data-cites="2012arXiv1210.1243N">(Nelson 2015)</a>).</p>
+<p>So let’s “recall” the DFI <span
+class="math inline">\(\delta\)</span>-method. Let <span
+class="math inline">\(\omega : \mathbb{R} \rightarrow
+\mathbb{C}\)</span>, with <span class="math inline">\(\omega(0) =
+0\)</span>, say of compact support. Take it to be even and normalized so
+that <span class="math inline">\(\sum_{n \in \mathbb{Z}} \omega(n) =
+1\)</span>. The starting point of the <span
+class="math inline">\(\delta\)</span>-method is the following simple
+fact: zero is divisible by every integer, but nonzero integers have
+their divisors come in pairs, since each divisor has a complementary
+divisor. So you can write <span class="math display">\[\delta(n = 0) =
+\sum_{d \mid n} \bigl( \omega(d) - \omega\bigl(\tfrac{n}{d}\bigr)
+\bigr).\]</span> Here <span class="math inline">\(d\)</span> runs over
+all integers dividing <span class="math inline">\(n\)</span>. It’s
+convenient to write this in terms of the positive divisors, as <span
+class="math display">\[2 \sum_{
+    \substack{
+      d \mid n  \\
+      d \geq 1      
+    }
+  }
+  \bigl( \omega(d) - \omega\bigl(\tfrac{n}{d}\bigr) \bigr).\]</span> We
+can further write the divisibility condition using the finite Fourier
+transform, giving <span class="math display">\[2 \sum_{
+    \substack{
+      d \mid n  \\
+      d \geq 1      
+    }
+  }
+  \sum_{h(d)}
+  e_d(h n)
+  \bigl( \omega(d) - \omega\bigl(\tfrac{n}{d}\bigr) \bigr).\]</span>
+Next, writing <span class="math inline">\((h, c) = d\)</span> and <span
+class="math inline">\(d = c k\)</span>, we obtain <span
+class="math display">\[2 \sum_{
+    \substack{
+      d \mid n  \\
+      d \geq 1      
+    }
+  }
+  \sum_{h(d)}^\ast
+  e_d(h n)
+  \sum_{k \geq 1}
+  \bigl( \omega(c k) - \omega\bigl(\tfrac{n}{c k}\bigr) \bigr).\]</span>
+The sum over <span class="math inline">\(h\)</span> is just the
+Ramanujan sum <span class="math inline">\(S(n, 0, c)\)</span>. One
+typically takes <span class="math inline">\(c \leq Q\)</span>, <span
+class="math inline">\(Q^2 = N\)</span>.</p>
+<p>Next, following <a href="#ref-2012arXiv1210.1243N" class="citation"
+data-cites="2012arXiv1210.1243N">(Nelson 2015)</a>, let <span
+class="math inline">\(g :(0, \infty) \rightarrow \mathbb{C}\)</span> be
+smooth, with <span class="math inline">\(g(y) \ll y^A\)</span> as <span
+class="math inline">\(y \rightarrow 0\)</span> and <span
+class="math inline">\(g(y) \ll 1\)</span> as <span
+class="math inline">\(y \rightarrow \infty\)</span>. The incomplete
+Eisenstein series attached to <span class="math inline">\(g\)</span> is
+<span class="math display">\[E(z, g) := \sum_{\gamma \in \Gamma_\infty
+\backslash \mathrm{SL}_2(\mathbb{Z})} g(\Im \gamma z).\]</span> By
+Mellin inversion and reversing orders of summation and integration, we
+may write the above as <span class="math display">\[\frac{1}{2 \pi i}
+\int_{(2)} \tilde{g}(- s) E(z, s) \, d s.\]</span> Pick <span
+class="math inline">\(\tilde{g}(- s) \zeta^\ast(2 s) \bigl( H(s) - H(1 -
+s) \bigr)\)</span>, with <span class="math inline">\(\zeta^\ast\)</span>
+the completed zeta function and some mild conditions on <span
+class="math inline">\(H\)</span>, e.g., that <span
+class="math inline">\(H(1) - H(0) \neq 0\)</span>. Then the above
+becomes <span class="math display">\[\frac{1}{2 \pi i} \int_{(2)} \bigl(
+H(s) - H(1 - s) \bigr) E^\ast(z, s) \, d s.\]</span> This evaluates to
+the residue at <span class="math inline">\(s = 1\)</span> plus an
+integral over the line <span class="math inline">\(1/2\)</span>, but the
+latter cancels out. Normalizing that residue to be <span
+class="math inline">\(1\)</span>, we obtain <span
+class="math display">\[E^{\mathrm{inc}}(z) := E(z, g) = 1.\]</span> Now,
+<span class="math inline">\(\delta(n = 0)\)</span> is the <span
+class="math inline">\(n\)</span>th Fourier coefficient of <span
+class="math inline">\(1 = E^{\mathrm{inc}}\)</span>, which may thus be
+written <span class="math display">\[\frac{1}{2 \pi i} \int_{(2)}
+  \bigl( H(s) - H(1 - s) \bigr)
+  \bigl(\text{$n$th Fourier coefficient of $E^\ast(z, s)$}\bigr)
+  \, d s,\]</span> where the parenthetical Fourier coefficient is a
+divisor function or sum of Ramanujan sums.</p>
+<p>The basic application of DFI is to solve the shifted convolution
+problem on <span class="math inline">\(\mathrm{GL}_2\)</span>. There,
+you obtain, for <span class="math inline">\(q \neq 0\)</span>, <span
+class="math display">\[\sum_n \lambda_f(n) \lambda_f(n + q) w \bigl(
+\tfrac{n}{N} \bigr) \ll N^{\frac{3}{4} + \varepsilon}.\]</span> One uses
+DFI, Voronoi twice (converting Ramanujan sums into Kloosterman sums),
+and then the Weil bound. Let’s explain how to do this same sort of
+thing, but using this interpretation of the <span
+class="math inline">\(\delta\)</span>-method in terms of Eisenstein
+series (an “automorphic variant on DFI”). Let’s pick another test
+function <span class="math inline">\(\psi :(0, \infty) \rightarrow
+\mathbb{C}\)</span>, smooth, <span class="math inline">\(q \in
+\mathbb{Z}\)</span>, <span class="math inline">\(\psi(y) \ll
+y^A\)</span> as <span class="math inline">\(y \rightarrow 0\)</span> and
+<span class="math inline">\(\ll 1\)</span> as <span
+class="math inline">\(y \rightarrow \infty\)</span>. Form the Poincaré
+series <span class="math display">\[P_q(z, \psi) = \sum_{\gamma \in
+\Gamma_\infty \backslash \Gamma}
+  e(q \Re(\gamma z))
+  \psi(\Im \gamma z).\]</span> Then <span
+class="math display">\[\begin{align}
+  I
+  &amp;= \langle f P_q, f \rangle
+    = \int_0^\infty \int_0^1 y^k \lvert f(z) \rvert^2 e(q x) \psi(y)
+    \, \frac{d x \, d y}{y^2} \\
+  &amp;= \sum_{m + q = n}
+    \lambda(m) \overline{\lambda(n)}
+    (m n)^{\frac{k - 1}{2}}
+    \int_0^\infty y^k \exp(- 2 \pi(m + n) y) \psi(y)
+    \, \frac{d y}{y^2}.
+\end{align}\]</span> Here we think of the integral as a weight
+function of length <span class="math inline">\(\approx N\)</span> if
+<span class="math inline">\(\psi(y)\)</span> concentrates on <span
+class="math inline">\(y \asymp 1/N\)</span>. Now <span
+class="math display">\[I = \langle f P_q E^{\mathrm{inc}}, f \rangle
+  = \int_0^\infty \int_0^1 y^k \lvert f(z) \rvert^2 P_q(z, \psi) g(y) \,
+\frac{d x \, d y}{y^2},\]</span> where, say, <span
+class="math display">\[P_q(z, \psi) = \sum_{r \in \mathbb{Z}} a_q(r, y,
+\psi) e(r x),\]</span> <span class="math display">\[I = \sum_{
+    \substack{
+      m, n, r  \\
+      m + r = n      
+    }
+  }
+  \lambda(m) m^{\frac{k - 1}{2}}
+  \overline{\lambda(n)}
+  n^{\frac{k - 1}{2}}
+  \int_0^\infty \exp \left( - 2 \pi(m + n) y \right) y^{k - 1}
+  g(y) a_q(r, y, \psi) \, \frac{d y}{y}.\]</span> Now <span
+class="math inline">\(g\)</span> decays rapidly at zero, so one should
+think <span class="math inline">\(y \gg 1\)</span>. The exponential has
+rapid decay, so one should think <span class="math inline">\(y \ll
+1\)</span>. Thus, effectively, <span class="math inline">\(y \asymp
+1\)</span>. Also, <span class="math inline">\(r, m, n \ll 1\)</span>, so
+we just need to bound the Fourier coefficients, and the bound is, for
+<span class="math inline">\(y \asymp 1\)</span>, <span
+class="math display">\[a_q(r, y, \psi) \ll N^{\frac{3}{4} +
+\varepsilon}\]</span></p>
+<p>There’s a standard calculation of the Poincaré series, which gives
+<span class="math display">\[a_q(r, y, \psi) = \psi(y) \delta(q = r)
+  + y
+  \sum_{c = 1}^\infty S(r, q, c)
+  \int_{- \infty}^\infty e\Bigl(- r x y - \frac{q x}{c^2 y(1 +
+x^2)}\Bigr) \, d x\]</span> Now, <span class="math inline">\(c^2 y(1 +
+x^2) \asymp N\)</span> implies <span class="math inline">\(c \leq
+\sqrt{N}\)</span>, so we can truncate just like in DFI. The <span
+class="math inline">\(x\)</span>-integral is <span
+class="math inline">\(\ll \sqrt{N}/c\)</span>. One obtains <span
+class="math display">\[\sum_{c \leq \sqrt{N}}
+  \sqrt{N}
+  \frac{\lvert S(r, q, c) \rvert}{c}
+  \ll N^{\frac{3}{4} + \varepsilon}.\]</span> Note that there’s no
+Voronoi or Bessel functions in this treatment – these are all implicit
+in the automorphy.</p>
+<p>That was <span class="math inline">\(\mathrm{GL}_2\)</span>. Now we
+want to do the same for <span
+class="math inline">\(\mathrm{GSp}_4\)</span>:</p>
+<ol>
+<li><p>First, we should construct an identity <span
+class="math inline">\(1 = E^{\mathrm{inc}}\)</span>, which will be the
+analogue of DFI (although perhaps one could work out an analogue of DFI
+for matrices). This is harder, since <span
+class="math inline">\(E\)</span> has <span
+class="math inline">\(12\)</span> polar lines in <span
+class="math inline">\(\mathbb{C}^2\)</span>.</p></li>
+<li><p>Next, we should compute <span class="math inline">\(\langle F
+P_Q, F\rangle\)</span> as a shifted convolution sum (unfolding <span
+class="math inline">\(P_Q\)</span>).</p></li>
+<li><p>Finally, we unfold the other way. For this, we need a bound on
+the Fourier coefficients of the Poincaré series <span
+class="math inline">\(P_Q\)</span>. We use Kitaoka’s bound (similar to
+the Weil bound). The classical Weil bound <span
+class="math inline">\(\lvert S(m, n, c) \rvert \leq c^\varepsilon(m, n,
+c)^{1/2} c^{1/2}\)</span> involves this GCD factor, and the analogous
+factor in Kitaoka’s work is more complicated.</p></li>
+</ol>
+<h1
+id="kevin-kwan-on-a-hybrid-twisted-moment-for-operatornamegl3-automorphic-l-functions-and-its-applications">Kevin
+Kwan, <em>On a hybrid twisted moment for</em> <span
+class="math inline">\(\operatorname{GL}(3)\)</span> <em>automorphic</em>
+<span class="math inline">\(L\)</span><em>-functions and its
+applications</em> </h1>
+<p>The zeta function is defined by <span class="math inline">\(\zeta(s)
+= \sum_{n = 1}^\infty n^{- s} = \prod_p(1 - p^{- s})^{-1}\)</span> for
+<span class="math inline">\(s = \sigma + i t\)</span> with <span
+class="math inline">\(\sigma &gt; 1\)</span>. It satisfies the
+functional equation <span class="math display">\[\xi(s) := H(s) \zeta(s)
+= \xi(1 - s),\]</span> where <span class="math display">\[H(s) :=
+\frac{1}{2} s(s - 1) \pi^{- s/2} \Gamma(s/2).\]</span></p>
+<p>Motivated by the prime counting function approximation <span
+class="math display">\[\sum_{p \leq x} \log p = x - \sum_\rho
+\frac{x^\rho}{\rho} + \mathrm{small},\]</span> one wants to know the
+distribution of zeros of the Riemann zeta function. <img
+src="images/img_20250815_092849.png" style="width:50.0%"
+alt="image" /></p>
+<p>The basic zero counting function <span class="math display">\[N(T) :=
+\# \left\{ \rho = \beta + i \gamma : \zeta(\rho) = 0, \, 0 \leq \beta
+\leq 1, \, \lvert \gamma \rvert \leq T \right\}\]</span> satisfies the
+asymptotic <span class="math display">\[N(T) \sim \frac{T}{\pi} \log
+\frac{T}{2 \pi e}
+  \sim \Delta_{[\frac{1}{2} - i T, \frac{1}{2} + i T]}
+\operatorname{avg} H(s).\]</span> Hardy (1915) showed that <span
+class="math display">\[N_0(T) := \# \left\{ \rho \text{ as above} :
+\beta = 1/2 \right\}
+  \rightarrow \infty.\]</span> What methods did Hardy employ to detect
+zeros on <span class="math inline">\(\sigma = 1/2\)</span>?</p>
+<ul>
+<li><p><em>Sign changes</em>. Hardy defined the function <span
+class="math inline">\(Z(t) := e^{i \theta(t)} \zeta(1/2 + i t)\)</span>,
+which is real-valued for <span class="math inline">\(t \in
+\mathbb{R}\)</span>. He studied the mean value <span
+class="math inline">\(\int_I Z(t) \, d t\)</span> of it over some
+small-ish interval <span class="math inline">\(I\)</span>. The problem
+with this is that the function fluctuates wildly, so occasional large
+values swamp the typical behavior. This is reflected in the fact that
+Hardy doesn’t show a good rate at which <span
+class="math inline">\(N_0(T)\)</span> tends to infinity. Later,
+Hardy–Littlewood refined this approach and showed <span
+class="math inline">\(N_0(T) \gg T\)</span>.</p></li>
+<li><p><em>Argument changes</em>. Levinson (1974) showed that <span
+class="math inline">\(N_0(T) &gt; \frac{1}{3} N(T)\)</span> using a
+different approach. He started with an Ansatz. Restrict to the critical
+line <span class="math inline">\(\sigma = 1/2\)</span>. Suppose, by the
+functional equation, that we can write the Riemann <span
+class="math inline">\(\xi\)</span> function as <span
+class="math display">\[\xi(s) = 2 \Re f(s)\]</span> for a certain entire
+function <span class="math inline">\(f\)</span>. To understand
+Levinson’s strategy, it’s good to draw some pictures. <img
+src="images/img_20250815_093058.png" style="width:50.0%" alt="image" />
+What Levinson was trying to detect is, when is the argument of <span
+class="math inline">\(f(s)\)</span> congruent to <span
+class="math inline">\(\pi /2\)</span> modulo <span
+class="math inline">\(\pi\)</span>, along the indented segment shown in
+the picture? The game is detecting when this image curve (depicted in
+blue) intersect the imaginary axis; that will give zeros on the <span
+class="math inline">\(1/2\)</span>-line. A naive lower bound for zeros
+on the critical line is that <span id="eq:cq6w5cvj0y" class="math display">\[\label{eq:cq6w5cvj0y}\tag{4}
+  N_0(T) \geq \frac{1}{\pi} \Delta_{\mathcal{C}} \arg f(s),\]</span>
+with <span class="math inline">\(\mathcal{C}\)</span> as in the picture.
+If you rewrite <span class="math inline">\(f = H G\)</span>, with an
+archimedean (resp. non-archimedean) part <span
+class="math inline">\(H\)</span> (resp. <span
+class="math inline">\(G\)</span>), then you can bound the changing
+argument in <a href="#eq:cq6w5cvj0y" data-reference-type="eqref"
+data-reference="eq:cq6w5cvj0y">\((4)\)</a> from below by <span
+class="math display">\[\frac{1}{\pi} \Delta_{\mathcal{C}} \arg H(s) +
+\frac{1}{\pi} \Delta_{\partial R} \arg G(s),\]</span> using the boundary
+of the rectangle <span class="math inline">\(R\)</span> indicated below.
+<img src="images/img_20250815_093455.png" style="width:50.0%"
+alt="image" /></p>
+<p>One can then further bound the above below by <span
+class="math inline">\(N(T) - 2 N_R(G)\)</span> up to some small error.
+But, <em>a priori</em>, for this strategy, there’s no guarantee that
+this quantity is positive. That’s the gamble for Levinson. But at least
+this strategy says how to approach a problem via the mean value of the
+Riemann <span class="math inline">\(\xi\)</span> function, for example.
+To make the translation, we need to use a gift from Denmark, Jensen’s
+inequality. To count the zeros, we use that, with <span
+class="math inline">\(a\)</span> as in the above picture, <span
+class="math display">\[(1/2 - a) N_R(G) \leq \frac{1}{2 \pi}
+\int_{\partial \hat{R}} \log \lvert G(s) \rvert \, d s
+  =
+  \frac{1}{2 \pi} \frac{1}{2} \int_{\partial \hat{R}} \log \lvert G(s)
+\rvert^2 \, d s.\]</span> One then uses something by Littlewood, roughly
+a mean value theorem for <span class="math inline">\(G\)</span>. We
+don’t know how to compute the moment, but we can use log-convexity to
+pull the log outside the moment, leading to <span
+class="math display">\[\leq \frac{1}{4 \pi} \log \int_{a - i T}^{a + i
+T} \lvert G(s) \rvert^2 \, d t.\]</span></p></li>
+</ul>
+<p>To do better, we need to use another gift from Denmark – mollifiers,
+originally used by Bohr. A mollifier <span
+class="math inline">\(M\)</span> only introduces more zeros, so <span
+class="math display">\[(\tfrac{1}{2} - a) N_R(G) \leq(\tfrac{1}{2} - a)
+N_R(G M) \leq \dotsb.\]</span> You would like to take <span
+class="math inline">\(M = \zeta^{-1}\)</span>, but this isn’t practical,
+so one instead takes something like a truncation. What Levinson did was
+to take <span class="math display">\[M(s) := \sum_{h \leq y}
+\frac{M(h)}{h^{s + 1/2 - a}} \frac{\log(Y / h)}{\log Y}
+  \approx \zeta(1/2 + i T)^{-1} \quad(Y = T^0).\]</span> Assuming RH,
+there is an equivalent formulation due to Speiser in 1935 which says
+that all the zeros of the derivative of <span
+class="math inline">\(\zeta &#39;(1 - s)\)</span> are all to the left of
+the <span class="math inline">\(1\)</span>-line. Later on, Levinson and
+Montgomery show something even more precise: if you have a zero <span
+class="math inline">\(\rho &#39;_r\)</span> for <span
+class="math inline">\(\zeta &#39;\)</span> to the right of the critical
+line, then you get a zero of <span class="math inline">\(\zeta\)</span>
+to the left of the critical line, with control over the distances: <img
+src="images/img_20250815_094533.png" style="width:50.0%" alt="image" />
+Levinson then takes <span class="math inline">\(f(s) =(\xi(s) + \lambda
+\xi &#39;(s)) / 2\)</span> and shows that, for some shifts <span
+class="math inline">\(\alpha\)</span> and <span
+class="math inline">\(\beta\)</span>, <span
+class="math display">\[\int_0^T \zeta(1/2 + \alpha + i t) \zeta(1/2 +
+\beta - i t) \Bigl( \frac{k}{h} \Bigr)^{i t}
+  \, d t
+  = \mathrm{MT}(h k) + \mathcal{E}(h, k)\]</span> as <span
+class="math inline">\(T \rightarrow \infty\)</span>. Here <span
+class="math inline">\(\mathcal{E}\)</span> is understood as an error
+term in the bilinear sense.</p>
+<p>We want to do something like this more generally. We consider <span
+class="math display">\[\sum_{q \sim Q} \sum_{\chi(q)}^\ast
+  \chi(h) \overline{\chi}(k)
+  \mathcal{M}_{\alpha, \beta}(h, k; \pi),\]</span> where <span
+class="math inline">\(\pi \in
+\mathcal{A}_0(\mathop{\mathrm{PGL}}(3))\)</span> and <span id="eq:cq6w5d17ud" class="math display">\[\label{eq:cq6w5d17ud}\tag{5}
+  \mathcal{M}_{\alpha, \beta}(h, k;\pi) := \int_0^T L(1/2 + \alpha + i
+t, \pi \times \chi)
+  L(1/2 + \beta - i t, \bar{\pi} \times \bar{\chi})
+  \Bigl( \frac{k}{h} \Bigr)^{i t} \, d t.\]</span></p>
+<div class="theorem">
+<p><strong>Theorem 23</strong> (Conrey, Kwan, Lin, Turnage-Butterbaugh).
+<em>Suppose <span class="math inline">\(\pi \in
+\mathcal{A}_0(\mathop{\mathrm{PGL}}(3) / \mathbb{Q})\)</span> such that
+either</em></p>
+<ul>
+<li><p><em><span class="math inline">\(\pi \simeq \tilde{\pi}\)</span>,
+or</em></p></li>
+<li><p><em><span class="math inline">\(30 \mid q_\pi\)</span> and <span
+class="math inline">\(\sum_{n \leq x} \frac{\lvert \lambda_\pi(n)
+\rvert^4}{n} \ll_\pi x^\varepsilon\)</span>.</em></p></li>
+</ul>
+<p><em>Suppose <span class="math inline">\(\theta \in [0,1/2)\)</span>
+and <span id="eq:cq6w5d7akn" class="math display">\[\label{eq:cq6w5d7akn}\tag{6}
+    Q^\varepsilon\ll T \ll Q^{\frac{1 - 2 \theta}{3 - 2 \theta} -
+\varepsilon},\]</span> with <span class="math inline">\(Q \rightarrow
+\infty\)</span>. Let <span class="math inline">\((\lambda_h)\)</span> be
+complex numbers such that</em></p>
+<ol type="a">
+<li><p><em><span id="enumerate:cq6w5d4pra"
+label="enumerate:cq6w5d4pra"></span> <span
+class="math inline">\(\lambda_h \ll h^{\gamma_\theta}\)</span> and <span
+class="math inline">\(\sum_{n \leq(T Q)^\theta} \frac{\lvert \lambda_h
+\rvert^{2 m}}{h} \ll(T Q)^\varepsilon\)</span> for <span
+class="math inline">\(m = 1, 2\)</span>.</em></p></li>
+</ol>
+<p><em>Then <span class="math display">\[\mathcal{M}_{\alpha, \beta}(h,
+k; T) =(\text{expected } \mathrm{MT} \asymp T Q^2)
+    + \mathcal{E}_{\alpha, \beta}(h, k),\]</span> where <span
+class="math display">\[\sum_{h, k \leq(T Q)^\theta}
+    \frac{\lambda_h \overline{\lambda_k}}{\sqrt{h k}}
+    \mathcal{E}_{\alpha, \beta}(h, k)
+    \ll(T Q)^{7/4 + \theta / 2 + \varepsilon}.\]</span></em></p>
+</div>
+<div class="theorem">
+<p><strong>Theorem 24</strong> (CKLT-B and Farmer). <em>For <span
+class="math inline">\(\pi\)</span>’s as above and <span
+class="math inline">\(\varepsilon&gt; 0\)</span> sufficiently small,
+there are <span class="math inline">\(\geq(11.4 -
+\operatorname{O}(\varepsilon))\)</span> percentage of zeros with <span
+class="math inline">\(\lvert \gamma \rvert \leq Q^\varepsilon\)</span>
+for the family <span class="math inline">\(\{L(s, \pi \times \chi) :
+\chi(q)^\ast, \, q \sim Q\}\)</span> that are on the critical
+line.</em></p>
+</div>
+<p>We emphasize that our results are unconditional for <span
+class="math inline">\(\pi = \bar{\pi}\)</span>, independent of GRC. It’s
+also fully unconditional for <span
+class="math inline">\(\mathrm{GL}(2)\)</span> Maass forms. We note that
+there’s no hope to asymptotically evaluate <a href="#eq:cq6w5d17ud"
+data-reference-type="eqref"
+data-reference="eq:cq6w5d17ud">\((5)\)</a> when <span
+class="math inline">\(T\)</span> is too small and <span
+class="math inline">\(Q\)</span> is large. This motivates the assumption
+<a href="#eq:cq6w5d7akn" data-reference-type="eqref"
+data-reference="eq:cq6w5d7akn">\((6)\)</a>. We can’t take <span
+class="math inline">\(T\)</span> too large, because then we would
+encounter difficult shifted convolution sums. So the moral of the story
+is that this result is strong in the <span
+class="math inline">\(Q\)</span>-aspect, while we only get “something”
+in the <span class="math inline">\(T\)</span>-aspect (e.g., nothing
+beyond <span class="math inline">\(Q^{1/3}\)</span>).</p>
+<p>The idea of the proof is to use approximate functional equation and
+orthogonality. This gives <span class="math display">\[\mathcal{M}(h, k,
+\pi) \approx T \sum_{c d \sim Q} \mu(c) \phi(d)
+  \sum_{
+    \substack{
+      m n \ll(T Q)^3  \\
+      m h \equiv n k(d) \\
+      m h \approx n k
+    }
+  }
+  \frac{\lambda_\pi(m) \lambda_{\tilde{\pi}}(n)}{\sqrt{m n}}.\]</span>
+Suppose for instance that <span class="math inline">\(T \sim
+Q^\varepsilon\)</span> and <span class="math inline">\(0 &lt; 1/2 -
+\operatorname{O}(\varepsilon)\)</span>. We truncate and re-expand
+according to whether <span class="math inline">\(c &gt; C\)</span> or
+not, where <span class="math inline">\(C \approx Q^\varepsilon\)</span>.
+We get <span class="math display">\[\mathcal{M}_{c &gt; C} \approx
+\sum_{
+    \substack{
+      c &gt; C  \\
+      d \ll Q / C      
+    }
+  }^\ast \mu(c) \sum_{\psi(d)}^\ast \psi(h) \overline{\psi}(k)
+  \int_{t \approx T}
+  \sum_{m n \ll(T Q / C)^{3/2}}
+  \frac{\lambda_\pi(m) \lambda_{\tilde{\pi}}(n)}{\sqrt{m n}}.\]</span>
+We then switch and re-expand and use arithmetic: writing <span
+class="math inline">\(m h = n k + d l\)</span>, we see that for <span
+class="math inline">\(m h \neq n k\)</span>, we have <span
+class="math inline">\(\ell \ll \frac{m h - n k}{d} \ll \frac{c}{Q}(T
+Q)^{3/2 + \theta}\)</span>. So the whole point of this hyperbola trick
+is that the length is now much shorter, by a factor of <span
+class="math inline">\(Q\)</span>. This enables divisor switching.
+Because we’re doing the aspect where <span class="math inline">\(Q
+\rightarrow \infty\)</span>, we can drop the condition <span
+class="math inline">\(m h \neq n k\)</span>. After dropping this
+condition, we can reexpand (mod <span
+class="math inline">\(\ell\)</span>) as above. This leads to a problem
+in multiplicative number theory. The game is, how do you use the hybrid
+large sieve for the rest of the sums, making sure that the argument is
+independent of GRC. Previous relevant work was done by
+Conrey–Iwaniec–Sound. They used the bound <span
+class="math inline">\(\tau_3(n) \ll n^\varepsilon\)</span> all the time.
+For a cuspidal automorphic representation, we only have the much weaker
+bound <span class="math inline">\(\lambda_\pi(n) \ll n^{5/4 +
+\varepsilon}\)</span>. So one needs to overcome that crutch.</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-2025arXiv2503.15040" class="csl-entry" role="listitem">
+Blomer, Valentin, Ashay Burungale, Philippe Michel, and Jun-Hwi Min.
+2025. <span>“Generation of Hecke Fields by Squares of Cyclotomic Twists
+of Modular <span class="math inline">\(L\)</span>-Values,”</span> March.
+<a
+href="http://arxiv.org/abs/2503.15040v2">http://arxiv.org/abs/2503.15040v2</a>.
+</div>
+<div id="ref-2012arXiv1210.1243N" class="csl-entry" role="listitem">
+Nelson, Paul D. 2015. <span>“Evaluating Modular Forms on
+<span>S</span>himura Curves.”</span> <em>Math. Comp.</em> 84 (295):
+2471–2503. <a
+href="https://doi.org/10.1090/S0025-5718-2015-02943-3">https://doi.org/10.1090/S0025-5718-2015-02943-3</a>.
+</div>
+</div>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
