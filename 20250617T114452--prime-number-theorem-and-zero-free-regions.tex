@@ -1,0 +1,241 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\begin{document}
+
+\title{Prime number theorem and zero-free regions}
+
+\begin{abstract}
+  Notes from a lecture on 13 Dec 2018 at ETH Z\"urich, where I substituted for Ian Petrow's course on analytic number theory and presented a proof of the basic zero-free regions for the zeta function.
+\end{abstract}
+
+\section{Overview}
+\label{sec:org55674c2}
+Last time, Ian explained how the quantitative zero-free region implies the quantitative prime numbers theorem: if
+\begin{equation}
+  \zeta(\beta + i t) = 0 \implies 1 - \beta \gg \frac{1}{\log(2 + |t|)},
+\end{equation}
+then
+\begin{equation}
+  \sum_{n \leq x}
+  \Lambda(n) = x + \O(\exp(- c \sqrt{\log x}))
+  = x ( 1 + O(\log^{-A} x)).
+\end{equation}
+Today we aim to prove the quantitative zero-free region, thereby establishing the quantitative prime number theorem.
+
+As warm-up, we prove a qualitative zero-free region:
+\begin{equation}\label{eqn:qual-zfr}
+  \zeta(\beta + i t) \implies 1 - \beta > 0, \text{ i.e., }
+  \beta = 1.
+\end{equation}
+This implies a qualitative prime number theorem
+\begin{equation}
+  \sum_{n \leq x} \Lambda(x) = x + o(x)
+\end{equation}
+by the same argument as last time.
+
+\section{Proof of the qualitative zero-free region}
+\label{sec:org9ae21da}
+At the point $s = 1$, the zeta function $\zeta$ has a simple pole, so its negative logarithmic derivative $ - \zeta ' / \zeta$ has a simple pole with residue $1$.  Thus for $\sigma > 1$,
+\begin{equation}\label{eq:zeta-1}
+  \sum_{n}
+  \frac{\Lambda(n)}{n^{\sigma} }
+  = - \frac{\zeta '}{ \zeta } (\sigma)
+  = \frac{1}{\sigma - 1} + \O(1).
+\end{equation}
+Note that the right hand side tends to $\infty$ as $\sigma \rightarrow 1^+$.
+
+At $s = 1 + it$ with $t \neq 0$, $\zeta$ is holomorphic.  Let $\ell \geq 0$ denote its order of vanishing.  Then $ - \zeta ' / \zeta$ has a simple pole with residue $- \ell$, and so
+\begin{equation}\label{eqn:zeta-1-it}
+  \sum_{n}
+  n^{-i t}
+  \frac{\Lambda(n)}{n^{\sigma} }
+  = - \frac{\zeta '}{ \zeta } (\sigma + i t)
+  = \frac{-\ell }{\sigma - 1} + \O_t(1).
+\end{equation}
+Comparing \eqref{eq:zeta-1} with \eqref{eqn:zeta-1-it} and using that $\Lambda(n) \geq 0$ and $|n^{i t}| \leq 1$, we see that $\ell \leq 1$.  We wish to show that $\ell = 0$, so we suppose for the sake of contradiction that $\ell = 1$.
+
+The informal idea is now that \eqref{eq:zeta-1} and \eqref{eqn:zeta-1-it} say that when $\Lambda(n) \neq 0$, we have $n^{-i t} \approx -1$; but then $n^{- 2 i t} \approx 1$, which contradicts the following consequence of \eqref{eqn:zeta-1-it} (applied to $2 t$ instead of $t$):
+\begin{equation}\label{eq:upper-zeta-1-2it}
+  \sum_{n}
+  n^{-2 i t}
+  \frac{\Lambda(n)}{n^{\sigma} }
+  \leq \O_t(1).
+\end{equation}
+
+To implement this idea rigorously, we need to make precise the idea that
+\begin{equation}
+  n^{-i t} \approx -1 \implies n^{-2 i t} \approx 1. 
+\end{equation}
+Let's start simple, with what is essentially the continuity of $z \mapsto z^2$ at $z = -1$:
+\begin{center}
+  For each $\eps > 0$ there exists $\delta > 0$ so that $\Re(n^{-it}) < -1 + \delta \implies \Re(n^{-2 i t}) > 1 - \eps$.
+\end{center}
+Taking real parts in \eqref{eq:zeta-1} and \eqref{eqn:zeta-1-it} gives
+\begin{equation}
+\sum_{n : \Re(n^{-2 i t}) \leq 1 - \eps } \frac{\Lambda(n)}{n^\sigma } \leq \sum_{n : \Re(n^{-i t}) + 1 \geq \delta } \frac{\Lambda(n)}{n^\sigma } \leq \frac{1}{\delta } \sum_n (\Re( n^{-i t}) + 1) \frac{\Lambda(n)}{n^\sigma } = \O_t(\frac{1}{\delta }),
+\end{equation}
+thus
+\begin{align}\label{eq:}
+  \sum_{n}
+  (1 - \Re(n^{-2 i t}))
+  \frac{\Lambda(n)}{n^\sigma }
+  &=
+                                                                                                            \sum_{n : 1 - \Re(n^{-2 it}) \geq \eps}
+                                                                                                            \dotsb
+                                                                                                            + 
+                                                                                                            \sum_{n : 1 - \Re(n^{-2 it}) < \eps}
+                                                                                                            \dotsb
+  \\
+                                                                                                         &\leq
+                                                                                                            C_t (\frac{1}{\delta } + \frac{\eps }{\sigma - 1}),
+\end{align}
+say.  Choose $\eps = 1 / 10 C_t$, and take $\sigma$ close enough to $1$ that $\sigma - 1 \leq \delta/10 C_t$.  Then the above estimate reads
+\begin{equation}\label{eq:}
+  \sum_{n}
+  (1 - \Re(n^{-2 i t}))
+  \frac{\Lambda(n)}{n^\sigma }
+  \leq
+  \frac{2/10}{\sigma - 1}.
+\end{equation}
+Using \eqref{eq:zeta-1}, it follows that
+\begin{equation}
+  \sum_{n}
+  \Re(n^{-2 i t})
+  \frac{\Lambda(n)}{n^\sigma }
+  \geq
+  \frac{8/10}{\sigma - 1} + \O(1).
+\end{equation}
+But this contradicts \eqref{eq:upper-zeta-1-2it} upon taking $\sigma \rightarrow 1^+$.
+
+This completes the proof of the qualitative zero-free region, hence of the qualitative prime number theorem.
+\section{Quantitative zero-free region}
+\label{sec:org45a909a}
+We need to clean up the above argument and make explicit how everything depends upon $t$.  First, we recall the following estimate from last time, a consequence of factorization theory for holomorphic functions: for $s = \sigma + i t$ with $|\sigma| \leq 10$,
+\begin{equation}
+  \zeta(s)
+  =
+  \frac{\prod_{\rho : |s - \rho| < 1} (s - \rho)}{s - 1}
+  \exp(\O(\mathcal{L})),
+  \quad
+  \mathcal{L} := \log(2 + |t|),
+\end{equation}
+or equivalently,
+\begin{equation}
+  - \frac{\zeta ' }{\zeta }(s)
+  =
+  \frac{1}{s - 1}
+  -\sum_{\rho : |s - \rho| < 1}
+  \frac{1}{s - \rho}
+  + \O(\mathcal{L}).
+\end{equation}
+Note that for $|s-1| \gg 1/\mathcal{L}$ (e.g., for $|t| \gg 1/\mathcal{L}$), we can absorb the first term $\frac{1}{s - 1}$ into the error term.
+
+Suppose henceforth that $\sigma > 1$.  Since each $\rho$ has real part at most $1$, it follows that each fraction $\frac{1}{s - \rho }$ has positive real part when $s = \sigma + i t$.  Thus for $|t| \gg 1/\mathcal{L}$,
+\begin{equation}\label{eq:log-der-up}
+  - \Re \frac{\zeta ' }{\zeta }(\sigma + i t)
+  \leq 
+  \O(\mathcal{L}).
+\end{equation}
+
+Suppose now that $\zeta(\beta + i t) = 0$.  We aim to show that $1 - \beta \gg \frac{1}{ \mathcal{L} }$, with the abbreviation $\mathcal{L}$ as above.  Since $\zeta$ has a pole at $s = 1$, we know that it has no zeros in that region.  So we may suppose that $|t| \gg 1$.  We improve upon \eqref{eq:log-der-up} by taking into account the contribution from $\rho = \beta + i t$:
+\begin{equation}\label{eq:log-der-up}
+  \sum_n
+  \Re(n^{-it})
+  \frac{\Lambda(n)}{n^\sigma }
+  =
+  - \Re \frac{\zeta ' }{\zeta }(\sigma + i t)
+  \leq
+  -\frac{1}{\sigma - \beta }
+  +
+  \O(\mathcal{L}).
+\end{equation}
+As before, we use \eqref{eq:zeta-1} to write this as
+\begin{equation}\label{eq:log-der-up-2}
+  \sum_n
+  (1 + \Re(n^{-it}))
+  \frac{\Lambda(n)}{n^\sigma }
+  \leq
+  \frac{1}{\sigma - 1}
+  -
+  \frac{1}{\sigma - \beta }
+  +
+  \O(\mathcal{L}).
+\end{equation}
+We note also by \eqref{eq:zeta-1} and \eqref{eq:log-der-up} (applied to $2 t$) that
+\begin{equation}\label{eq:quant-est-n-2-it}
+  \sum_n
+  (1 - \Re(n^{-2 it}))
+  \frac{\Lambda(n)}{n^\sigma }
+  \geq
+  \frac{1}{\sigma - 1}
+  + 
+  \O(\mathcal{L}).
+\end{equation}
+
+We aim now to implement more quantitatively the idea that $n^{-i t} \approx -1 \implies n^{- 2 i t} \approx 1$.  To that end, let's write $n^{-i t} = e^{i \theta}$, so that $\Re(n^{-it}) + 1 = \cos(\theta) + 1 $ and $1 - \Re(n^{-2 i t}) = 1 - \cos(2 \theta)$.  These quantitaties are related by the formula $\cos(2 \theta) = 2 \cos^2(\theta) - 1$, from which we deduce that
+\begin{equation}\label{eq:}
+  1 - \cos(2 \theta)
+  =
+  2 (1 - \cos^2(\theta))
+  = 
+  2 (1 - \cos(\theta))
+  (1 + \cos(\theta))
+  \leq
+  4 (1 + \cos(\theta)),
+\end{equation}
+or equivalently,
+\begin{equation}\label{eq:}
+  1 - \Re(n^{-2 it}) \leq 4 (1 + \Re(n^{- it})).
+\end{equation}
+Inserting this into \eqref{eq:log-der-up-2} and \eqref{eq:quant-est-n-2-it} gives
+\begin{equation}\label{eq:}
+  \frac{1}{\sigma - 1}
+  \leq 
+  4
+  \left(
+    \frac{1}{\sigma - 1}
+    -
+    \frac{1}{\sigma - \beta }
+  \right)
+  +
+  \O(\mathcal{L}),
+\end{equation}
+which may be rearranged as
+\begin{equation}\label{eq:}
+  \frac{4}{\sigma - \beta }
+  -
+  \frac{3}{\sigma - 1}
+  \leq 
+  \O(\mathcal{L}).
+\end{equation}
+We choose $\sigma$ so that $\sigma - 1 = (1 - \beta)/\eps$ for some small enough $\eps > 0$; note that if $\beta$ is close enough to $1$, then $\sigma < 10$.  Then $\sigma - \beta = (1 + 1/\eps) (1 - \beta)$, so the above estimate reads
+\begin{equation}\label{eq:}
+  \frac{1}{1 - \beta }
+  \left(
+    \frac{4}{1 + 1/\eps }
+    -
+    3 \eps 
+  \right)
+  \leq 
+  \O(\mathcal{L}).
+\end{equation}
+Taking $\eps = 1/4$ (say) leads to the required estimate $1 - \beta \gg 1/ \mathcal{L}$.
+\section{How to make the proof seem more mysterious}
+\label{sec:orgb1b6469}
+We can rewrite the key trigonometric inequality as $1 - \cos(2 \theta) \leq 4 (1 + \cos(\theta))$ as $3 + 4 \cos(\theta) + \cos(2 \theta) \geq 0$, i.e.,
+\begin{equation*}
+  3 + 4 \Re(n^{-i t}) + \Re(n^{-2 it}) \geq 0,
+\end{equation*}
+hence
+\begin{equation*}
+  - \frac{\zeta '}{ \zeta }(\sigma) + 4 \frac{\zeta '}{ \zeta }(\sigma+it) + \frac{\zeta '}{ \zeta }(\sigma+2 it)
+\end{equation*}
+has nonnegative real part for any $\sigma > 1$, and then integrating gives
+\begin{equation*}
+  |\zeta(\sigma)|^3 |\zeta(\sigma + it)|^4 |\zeta(\sigma + 2 it)| \geq 1.
+\end{equation*}
+So we can interpret the above proof in terms of orders of poles, etc.
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}

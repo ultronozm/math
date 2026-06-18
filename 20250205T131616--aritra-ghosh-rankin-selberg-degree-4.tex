@@ -1,0 +1,348 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\begin{document}
+
+\title{The general Rankin--Selberg problem of degree $4$}
+
+\begin{abstract}
+  Talk by Aritra Ghosh (R\'enyi Institute).
+\end{abstract}
+
+
+
+The \emph{general correlation problem} considers sums of the form.
+\begin{equation*}
+  S = \sum a(n) b(n).
+\end{equation*}
+For example, taking $a(n) = 1$ and $b(n) = n^{- i t}$ is relevant for $\zeta(\tfrac{1}{2} + i t)$.
+
+We assume that they are supported in $[N, 2 N]$.
+
+We also assume that they are essentially $\O(1)$ in mean square (``Ramanujan on average'').
+
+We might also normalize each coefficient sequence to have mean zero, by subtracting the average.
+
+Then, by Cauchy--Schwarz,
+\begin{equation*}
+  S \ll N^{1 + \eps}.
+\end{equation*}
+
+The sequences are said to be \emph{independent} if $S \ll N^{1 - \delta}$.
+
+These problems are important in various applications:
+\begin{itemize}
+\item subconvexity problems
+\item shifted convolution problems
+\item Dirichlet divisor problem, Gauss circle problem, critical zeros of $L$-functions, ...
+\end{itemize}
+
+We will discuss mainly the \emph{delta symbol approach} towards these correlation problems.  In that, we first consider the space $\mathcal{B}$ of all functions $[N, 2 N] \cap \mathbb{Z} \rightarrow \mathbb{C}$.  This is a vector space of dimension $N$ with hermitian inner product $\langle , \rangle$.  Note that $a = \{a(n)\}, b = \{b(n)\} \in \mathcal{B}$, and
+\begin{equation}\label{eq:cqy4xpyll4}
+  S = \langle a, \bar{b} \rangle.
+\end{equation}
+
+Suppose $\{\psi_v(n) : v \in \mathcal{B}\}$ is an orthonormal basis of the space $\mathcal{B}$.  Then we get an orthonormal matrix
+\begin{equation*}
+  \psi_v(n) \overline{\psi_v}(m) =: \delta(n, m)
+  =
+  \begin{cases}
+    1    & \text{ if } n = m, \\
+    0         & \text{ otherwise}.
+  \end{cases}
+\end{equation*}
+
+We can use this basis to expand \eqref{eq:cqy4xpyll4} as a sum of products
+\begin{equation*}
+  \langle a, \psi_v \rangle \langle \psi_v, b \rangle.
+\end{equation*}
+We can often use Poisson, Voronoi, etc., to transform
+\begin{equation*}
+  \langle a, \psi_v \rangle = \sum_{n \asymp N} a(n) \overline{\psi_v(n)}
+  \approx \sum_{n \asymp N^\ast} a^\ast(n) \overline{\psi_v^\ast(n)},
+\end{equation*}
+and similarly for $b$.  Then, applying Cauchy--Schwarz to get rid of (say) $a$, we obtain
+\begin{equation*}
+  S \ll \sqrt{N^\ast} \left( \sum_{n \asymp N^\ast} \left| \sum_{v \in \mathcal{B}} \psi_v^\ast(n) \sum_{m \asymp M^\dagger}
+      b^\dagger(m) \psi_v^\dagger(m)\right|^2 \right)^{1/2}.
+\end{equation*}
+Opening the absolute value squared, we then use summation formulas to estimate the sums
+\begin{equation*}
+  \sum_{n \asymp N^\ast} \psi_v^\ast(n) \overline{\psi_{v '}^\ast(n)}.
+\end{equation*}
+
+The classical form of the circle method is based on the trigonometric functions, or harmonics of the circle group.
+
+The skeleton for the $\GL(1)$ delta symbol formula is
+\begin{equation*}
+  \frac{1}{N}
+  \sum_{q < \sqrt{N}}
+  \sum_{a(q)^\ast}
+  e_q(a n) \overline{e_q(a m)}.
+\end{equation*}
+Here we basically take $v = (a,q)$.
+
+DFI delta method (Duke, Friedlander, Iwaniec): for a large real number $L \geq 1$ and $n \in \mathbb{Z} \cap[- 2 L, 2 L]$,
+\begin{equation*}
+  \delta(n) = \frac{1}{Q} \sum_{1 \leq q \leq Q} \frac{1}{q}
+  \sum_{a(q)^\ast}
+  e_q(a n)
+  \int_{\mathbb{R}} g(q, x) e \left( \frac{n x}{q Q} \right) \, d x,
+\end{equation*}
+where $Q = 2 L^{1/2}$ and $e(z) = e^{2 \pi i z}$.  The function $g$ is not given explicitly, but we only need a few properties in our analysis.  This leads to
+\begin{equation*}
+  \delta(n) = \frac{1}{Q} \sum_{1 \leq q \leq Q} \frac{1}{q}
+  \sum_{a(q)^\ast}
+  e_q(a n)
+  \int_{\mathbb{R}}
+  W \left( \frac{x}{Q^\eps} \right)
+  g(q, x) e \left( \frac{n x}{q Q} \right) \, d x,
+\end{equation*}
+where $W$ is mild.
+
+Let's now give some rough basics on modular forms.  A holomorphic function $f : \mathbb{H} \rightarrow \mathbb{C}$ is a modular form of weight $k$ for $\SL_2(\mathbb{Z})$ if it satisfies the automorphy condition $f(\gamma z) =(c z + d)^k f(z)$ for all $\gamma \in \SL_2(\mathbb{Z})$ and satisfies a growth condition.  It then admits a Fourier expansion $\sum_{n \geq 0} a(n) q^n$, and is a cusp form if $a_0 = 0$.
+
+Voronoi summation formula says that if $\gcd(a, c) = 1$, then
+\begin{equation*}
+  \sum a(n) e_c(a n) W(n)
+  = \frac{1}{c}
+  \sum_n a(n) e_c(- \bar{a} n)
+  \int(\text{Bessel transform of W}).
+\end{equation*}
+
+Dirichlet divisor problem: taking $a(n) = 1$ and $b(n) = d(n)$, the sum $S$ is as in the Dirichlet divisor problem.  Hyperbola method.
+\begin{equation*}
+  S = X \log X +  X(2 \gamma - 1) + \O(X^{1 - \theta})
+\end{equation*}
+Hardy: $\theta \geq 1/4$.
+Huxley (2003): $\theta = 131/416$
+
+Now consider
+\begin{equation*}
+  A(x) = \sum_{n \leq X} a(n), \mathcal{A}(s) = \sum_{n = 1}^\infty \frac{a(n)}{ n^s},
+\end{equation*}
+degree $d$ $L$-function (satisfying some properties, e.g., Selberg class).
+
+Friedlander--Iwaniec: $A(X) = R(X) + \Delta(X)$, where $R(X)$ is given explicitly as the residue $X \res_{s=1} \frac{\mathcal{A}(s)}{s}$ and
+\begin{equation*}
+  \Delta(X) \ll X^{\frac{d - 1}{ d + 1} + \eps}.
+\end{equation*}
+Friedlander--Iwaniec conjectured that
+\begin{equation*}
+  \Delta(X) \ll X^{\frac{d - 1}{2 d} + \eps}.
+\end{equation*}
+
+For $d = 2$, it remains a great open problem to improve the bound (for a cusp form) $\Delta(X) \ll X^{1/3}$.
+
+We will focus mainly on the case $a(n) = \lambda_f(n)$ and $b(n) = \lambda_g(n)$, where $\lambda_f(n)$ and $\lambda_g(n)$ are normalized Fourier coefficients (i.e., $\lambda_f(1) = 1$) of Hecke cusp forms (Maass or holomorphic).  Corresponding $L$-function:
+\begin{equation*}
+  L(s, f \otimes g) = \zeta(2 s) \sum_{n = 1}^\infty \frac{\lambda_f(n) \lambda_g(n)}{ n^s}.
+\end{equation*}
+For this case, we have
+\begin{equation*}
+  A(x) = C_f 1_{f = \bar{g}} + \O(X^{3/5 + \eps}),
+\end{equation*}
+where for $f = \bar{g}$, we have
+\begin{equation*}
+  C_f = \frac{L(1, \sym^2 f)}{ \zeta(2)}.
+\end{equation*}
+
+We want to discuss the problem first when $f = \bar{g}$, of degree $4$.
+
+Ivic first proved that $\Delta(X) = \O_f(X^{3/8 + \eps})$, and Lau-Lu--Wu proved that $\Delta(X, f) = \Omega_f(X^{3/8})$.
+
+Huang first considered the problem when $f = \bar{g}$, and showed that
+\begin{equation*}
+  \Delta(X) \ll X^{\frac{3}{5} - \frac{1}{560} + \eps}.
+\end{equation*}
+Later, Pal considered the second moment of degree three $L$-functions and got
+\begin{equation*}
+  \Delta(X) \ll X^{\frac{3}{5} - \frac{6}{1085} + \eps}.
+\end{equation*}
+Huang improved the previous bound and got
+\begin{equation*}
+  \Delta(X) \ll X^{\frac{3}{5} - \frac{3}{305} + \eps}.
+\end{equation*}
+Kumar--Sharma got
+\begin{equation*}
+  \Delta(X) \ll X^{\frac{3}{5} - \frac{3}{205} + \eps}.
+\end{equation*}
+Recently, Dasgupta, Leung and Young considered the second moment of degree three $L$-functions and got
+\begin{equation*}
+  \Delta(X) \ll X^{\frac{3}{5} - \frac{1}{35} + \eps}.
+\end{equation*}
+
+Huang considered
+\begin{equation*}
+  \lambda_{1 \boxplus \sym^2 f}(n) = \lambda_{f \otimes \bar{f}}(n)
+  = \lambda_{f \otimes f}(n)
+  = \sum_{\ell^2 m = n} \lambda_f(m)^2.
+\end{equation*}
+Instead of $\sym^2 f$, Huang considered a Hecke--Maass cusp form $\Phi$ for $\SL_3(\mathbb{Z})$ and considered the sum
+\begin{equation*}
+  \mathcal{A}(X, 1 \boxplus \Phi) = \sum_{1 \leq n \leq X} \lambda_{1 \boxplus \Phi}(n),
+\end{equation*}
+where $\lambda_{1 \boxplus \Phi}(n) = \sum_{\ell m = n} A_{\Phi}(1, m)$.  (Or smoothed variant.)
+
+Using the inverse Mellin transforms, he reduced the problem that of estimating a first integral moment of $L$-functions:
+\begin{equation*}
+  \int_{T}^{2 T}L(\tfrac{1}{2} + i t, 1 \boxplus \Phi) X^{i t} \, d t, \quad T = X^{\frac{2}{5} + \delta}, \quad \delta > 0.
+\end{equation*}
+Then he reduced to estimating
+\begin{equation*}
+  \sum_{n \geq 1} \lambda_{1 \boxplus \Phi}(n) e(- 4(n X))^{1/4} V \left( \frac{n}{N} \right).
+\end{equation*}
+Using the delta method, he proved that
+\begin{equation*}
+  \sum_{n \geq 1} \lambda_{1 \boxplus \Phi}(n) W \left( \frac{n}{N} \right) = L(1, \Phi) X
+  + \O(X^{\frac{3}{5} - \delta + \eps}).
+\end{equation*}
+To get the required result, at last he used
+\begin{equation*}
+  \lambda_f(n)^2 = \mathop{\sum \sum }_{\ell^2 m = n} \dotsb.
+\end{equation*}
+
+In an ongoing project (joint with Mallesham, Munshi and Singh), we will show that:
+\begin{theorem}
+  Let $f$ and $g$ be Hecke cusp forms for $\SL_2(\mathbb{Z})$.  Then there exists $\delta > 0$ such that
+  \begin{equation*}
+    \sum_{n \leq X} \lambda_f(n) \lambda_g(n) = C_f 1_{f = \bar{g}} X + \O(X^{\frac{3}{5} - \delta + \eps}).
+  \end{equation*}
+\end{theorem}
+
+We now sketch the proof.  By dyadic subdivision, reduce to summing over $n \asymp X$.  Smooth the sum out using $W$ supported on $[1 - X^{\sigma - 1}, 2 + \Xi^{\sigma - 1}]$, taking the value $1$ on $[1, 2]$; this gives $S$ up to accuracy $\O(X^{\sigma})$.  Using Mellin transform and stationary phase method.  Focus on
+\begin{equation*}
+  \sum_{n \asymp N} \lambda_f(n) \lambda_g(n) e \left( - 4(n X)^{1/4} \right).
+\end{equation*}
+Here we are avoiding the method described in Friedlander--Iwaniec's paper, since we don't want to use the pointwise Ramanujan conjecture.
+
+
+We will consider a more general correlation problem:
+\begin{equation*}
+  S := \sum_{n \asymp N} \lambda_f(n) \lambda_g(n) e(f(n)),
+\end{equation*}
+with $f(n) \asymp N^{\theta}$.
+
+We are working with general phase functions $f(n)$ of size $N^{\theta}$ (e.g., $f(n) = \alpha n^\beta$ for some $0 \neq \alpha \in \mathbb{R}$), and will show that $\theta < \frac{7}{10}$.  For the Rankin--Selberg problem, we have the special phase function $f(n) = - 4(n X)^{1/4}$ with $n \asymp N$ and $X \asymp N^{5/3}$.  Hence the amplitude here is of size $(N X)^{1/4} = N^{2/3}$, i.e., $\theta = 2/3$.  This falls in the range covered by our result as $2/3 < 7/10$.  (Note that the Weyl range would be $3/4$, which is far away from $7/10$.)
+
+We use the DFI delta symbol.  This leads to
+\begin{equation*}
+  S \approx \frac{1}{Q^2}
+  \int_{\mathbb{R}}
+  \sum_{q \asymp Q}
+  \sum_{a(q^\ast)}
+  \sum_{n \asymp N}
+  \lambda_f(n) e_q(a n) e \left( \frac{n u}{q Q} \right)
+  \sum_{m \asymp N} \lambda_g(m) e_{q}(- a m) e(f(m))
+  e(f(m))
+  e \left( - \frac{m u}{q Q} \right)
+  \, d u.
+\end{equation*}
+Trivial estimation at this stage gives $N^{2 + \eps}$, so we need to say $N^{1 + \dotsb}$.
+
+Voronoi gives
+\begin{equation*}
+  \sum_{n} \dotsb \rightsquigarrow \frac{N}{q}
+  \sum_{n \asymp \frac{(Q K)^2}{N} = K}
+  \lambda_f(n) e_q(- \bar{a} n) \mathcal{I}_1,
+\end{equation*}
+saving $\sqrt{N / K }$, and
+
+\begin{equation*}
+  \sum_{m} \dotsb \rightsquigarrow \frac{N}{q} \sum_{m \asymp \frac{(Q N^\theta)^2}{N} = \frac{N^{2 \theta}}{K}}
+  \lambda_g(m)
+  e_q(\bar{a} m) \mathcal{I}_2,
+\end{equation*}
+saving $\sqrt{N K} / N^\theta$.
+
+In total, we obtain
+\begin{equation*}
+  S \approx \sum_{q \asymp Q} \sum_{n \asymp  K} \lambda_f(n) \sum_{m \asymp \frac{N^{2 \theta}}{K}}
+  \lambda_g(m) C_q(n - m)
+  \mathcal{I}(m, n, q),
+\end{equation*}
+where $\mathcal{I}(m, n, q)$ is the whole integral.  Savings from the integral is $\sqrt{K}$.  Savings from the $a$-sum is $Q = \sqrt{N / K}$.  Total savings is
+\begin{equation*}
+  \sqrt{\frac{N}{K}}
+  \cdot 
+  \frac{\sqrt{N K}}{ N^\theta}
+  \cdot 
+  \sqrt{K}
+  \cdot
+  \sqrt{\frac{N}{K}}
+  = N \cdot N^{\frac{1}{2} - \theta}.
+\end{equation*}
+
+We need to do more.  Apply Cauchy--Schwarz, focus on
+\begin{equation*}
+  \sum_{q \asymp Q}
+  \sum_{m \asymp \frac{N^{2 \theta}}{K}}
+  \left| \sum_{n \asymp K}
+    \lambda_f(n)
+    C_q(n - m)
+    \mathcal{J}(m, n, q)\right|^2,
+\end{equation*}
+where $\mathcal{J}$ has size $K$ and open the absolute value squared, giving sums over $q, m, n_1, n_2$.  For the diagonal $n_1 = n_2$, we save $\frac{K}{Q} = \frac{K^{3/2}}{\sqrt{N}}$.  For the off-diagonal $n_1 \neq n_2$, we focus on the resulting $m$-sum
+\begin{equation*}
+  \sum_{m \asymp \frac{N^{2 \theta}}{K}}
+  C_q(n_1 - m) C_q(n_2 - m)
+  \mathcal{J}(m, n_1, q)
+  \mathcal{J}(m, n_2, q).
+\end{equation*}
+We use Poisson summation on the $m$-sum.  This gives rise to a character sum modulo $q$, involving Ramanujan sums:
+\begin{equation*}
+  \sum_{\beta(q)} C_q(n_1 - \beta) C_q(n_2 - \beta) e_q(m \beta).
+\end{equation*}
+After opening these and evaluating, we get
+\begin{equation*}
+  \asymp q^2 e_q(m n_q) 1_{n_1 \equiv n_2(q)},
+\end{equation*}
+which is $\asymp q$ on average.  Thus far, for the $m$-sum, we obtain
+\begin{equation*}
+  \frac{N^{2 \theta}}{K}
+  \mapsto \frac{N^{2 \theta}}{K Q}
+  \cdot \frac{K^{3/2}}{N^{2 \theta - 1/2}}
+  \cdot Q \cdot \frac{1}{\sqrt{K}}.
+\end{equation*}
+Hence savings for the $m$ sum becomes
+\begin{equation*}
+  \frac{N^{2 \theta  - 1/2}}{K}.
+\end{equation*}
+
+Okay, now, we get some further off-diagonal savings.  We're looking at
+\begin{equation*}
+  \sum_{m \ll \frac{K^{3/2}}{N^{2 \theta - 1/2}}}
+  \sum_{q \asymp Q} \sum_{n_1 \equiv n_2(q)} \lambda_f(n_1) \lambda_f(n_2) e_q(m n_2) \int \dotsb.
+\end{equation*}
+We apply Cauchy--Schwarz, leading to
+\begin{equation*}
+  \sum_{m} \sum_q \sum_{n_1} \left|  \sum_{n_2 \equiv n_1 (q)} \dotsb  \right|^2.
+\end{equation*}
+Straightforward analysis isn't sufficient.  To do better, we improve by using some markers $n \asymp L$ to partition the $n_2$'s into small blocks satisfying
+\begin{equation*}
+  \left| n_2 - \nu \right| \ll \frac{K}{L}.
+\end{equation*}
+This works a bit opposite to the amplification method or the mass transfer method -- the diagonal is okay but the off-diagonal is not, so we're trying to save more in the off-diagonal.  With this modification, the diagonal savings are $K/L Q$.  For off-diagonal, we will mainly consider $\sum_{n_1 \asymp K, \, n_1 \equiv n_2(q) } \dotsb$.  Here the effective length for $n_1$ is $K/Q$ and $\dotsb$ oscillates like $K /L$.  Off-diagonal savings becomes
+\begin{equation*}
+  \frac{K^{3/2}}{ \sqrt{N} \sqrt{K /L}}.
+\end{equation*}
+Optimal choice for $L$ is obtained by equating diagonal and off-diagonal, giving $L = K^{1/3}$.
+
+To choose the optimal size for $K$, we solve
+\begin{equation*}
+  \frac{K^{3/2}}{\sqrt{N}} = \frac{N^{2 \theta - 1/2}}{K} \cdot \frac{K^{7/12}}{N^{1/4}},
+\end{equation*}
+yielding
+\begin{equation*}
+  K = N^{\frac{24}{23} \theta - \frac{3}{23}}.
+\end{equation*}
+Our total savings is thus
+\begin{equation*}
+  N \cdot N^{1/2 - \theta}
+  \cdot \sqrt{\frac{K^{3/2}}{\sqrt{N}}} = N \cdot N^{\frac{1}{4} - \theta + \frac{3}{4} \left( \frac{24}{23} \theta - \frac{3}{23} \right)}.
+\end{equation*}
+This savings will be enough for us if this last parenthetical quantity in the exponent is positive.  This means $\theta < 7/10$, and as $7/10 > 2/3$, we are done.
+
+
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}

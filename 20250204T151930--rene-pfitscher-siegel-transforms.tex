@@ -1,0 +1,178 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\begin{document}
+
+\title{Siegel transforms and counting rational approximations on flag varieties}
+
+\begin{abstract}
+  Talk by Ren\'e Pfitscher (Paris 13).
+\end{abstract}
+
+Dirichlet: infinitely many rational approximations with
+\begin{equation*}
+  \left| x - \frac{p}{q} \right| < \frac{1}{q^2}.
+\end{equation*}
+Khintchine: let $\psi : \mathbb{N} \rightarrow \mathbb{R}_+$ be non-increasing.  Then for almost all $x \in \mathbb{R}$, the inequality
+\begin{equation*}
+  \left| x - \frac{p}{q} \right| < \psi(q)
+\end{equation*}
+has infinitely (resp.\ finitely) many solutions according as the sum $\sum_{q \geq 1} \psi(q) q$ is infinite (resp.\ finite).
+
+Schmidt, 1960: Set
+\begin{equation*}
+  N_\psi(x, T) := \# \left\{(p, q) \in \mathbb{Z} \times \mathbb{N} :(\ast) \text{ holds, } q < T \right\}.
+\end{equation*}
+Then for almost all $x \in \mathbb{R}$, we have
+\begin{equation*}
+  N_\psi(x, T) \sim 2 \sum_{q = 1}^T \psi(q) q \text{ as } T \rightarrow \infty.
+\end{equation*}
+
+Now let's say a bit about \emph{flag varieties}.  More generally, let $G$ be a semisimple $\mathbb{Q}$-group, and $P$ a parabolic $\mathbb{Q}$-subgroup.  We set $X := G / P$.  We choose a maximal compact subgroup $K$.  We also need a height function $H_\chi : X(\mathbb{Q}) \rightarrow \mathbb{R}_+$.  We also need a $K$-invariant Riemannian distance function $d(\cdot, \cdot)$.  We denote by $\sigma$ the corresponding $K$-invariance Riemannian probability measure, given by the normalized volume form.
+
+For example, we can take
+\begin{equation*}
+  G = \SL_2(\mathbb{R}) > P =
+  \begin{pmatrix}
+    \ast    & \ast \\
+    0         & \ast \\
+  \end{pmatrix}, \quad
+  K = \SO(2),
+\end{equation*}
+so that $X = \mathbb{P}^1$, and
+\begin{equation*}
+  H : \mathbb{P}^1(\mathbb{Q}) \rightarrow \mathbb{R}_+
+\end{equation*}
+given as follows: given $v \in \mathbb{P}^1(\mathbb{Q})$, we can represent it by a primitive lattice point $\vec{v} \in \mathbb{Z}^2_{\mathrm{prim}}$, and we then define the height to be the norm of that vector:
+\begin{equation*}
+  H(v) := \lVert \vec{v} \rVert.
+\end{equation*}
+
+We can picture this in terms of shortest integer vectors along rational lines.
+
+Set
+\begin{equation*}
+  N_\tau(x, T) = \# \left\{ v \in X(\mathbb{Q}) : d(x, v < H_\chi(v)^{- \tau}), \, H_\chi(v) < T \right\},
+\end{equation*}
+\begin{equation*}
+  \mathcal{E}(x, T) = \left\{ \vec{v} \in \mathbb{R}^2 - \{0\} : \lVert \vec{v} \rVert < T,
+    \,
+    d(x,[\vec{v}]) < \lVert \vec{v} \rVert^{- \tau}
+  \right\}.
+\end{equation*}
+In the example of interest,
+\begin{equation*}
+  N_\tau(x, T) = \#(\mathbb{Z}_{\mathrm{prim}}^2 \cap \mathcal{E}(x, T))
+  =
+  \sum_{v \in \mathbb{Z}^2_{\mathrm{prim}}} 1_{\mathcal{E}(x, T)}(v).
+\end{equation*}
+
+We form the dyadic region
+\begin{equation*}
+  \mathcal{F}(x, T) := \mathcal{E}(x, T) - \mathcal{E}(x, T/2).
+\end{equation*}
+We can apply a flow, such as $a_y := \diag(y^{-1}, y)$, to this region.  We choose $y_T$ so that the flowed region, $\mathcal{B}(T)$, is nice and round.  Then
+\begin{align*}
+  \#(\mathbb{Z}^2_{\mathrm{prim}} \cap \mathcal{F}(x, T)) &= \# \left( k_X \mathbb{Z}^2_{\mathrm{prim}} \cap \mathcal{F}(T) \right)
+  \\ &=
+  \# \left( a_{y_T} k_X \mathbb{Z}^2_{\mathrm{prim}} \cap \mathcal{B}(T) \right) \\
+  &\approx \vol(\mathcal{B}(T)).
+\end{align*}
+Here $\mathcal{B}(T)$ ``looks like a square'', while $k_X$ is typically not ``too distorted''.
+
+\begin{lemma}
+  There exists $\eps > 0$ such that for all large $T$, and all $g \in G$ such that $\operatorname{height}(g) \ll T^\eps$, where
+  \begin{equation*}
+    \operatorname{height}(g) := \left( \min_{v \in \mathbb{Z}^2 - 0} \lVert g v \rVert \right)^{-1},
+  \end{equation*}
+  we have
+  \begin{equation*}
+    \# \left( g \mathbb{Z}^2_{\mathrm{prim}} \cap \mathcal{B}(T) \right)
+    = \vol(\mathcal{B}(T)) \left( 1 + \O(T^{- \eps}) \right).    
+  \end{equation*}
+\end{lemma}
+\begin{proof}[Proof sketch]
+  This is a counting argument due to (or at least inspired by) Eskin--McMullen.
+
+  Let's first notice that what we want to estimate is, as we have said before, the primitive Siegel transform
+  \begin{equation*}
+    F_T(g) := \#(g \mathbb{Z}^2_{\mathrm{prim}} \cap \mathcal{B}(T)) = \sum_{v \in \mathbb{Z}^2_{\mathrm{prim}}} 1_{\mathcal{B}(T)}(g v)
+    = \sum_{\gamma \in \Gamma / \Gamma_\infty} 1_{\mathcal{B}(T)}(g \gamma e_1).
+  \end{equation*}
+  Here $\Gamma_\infty = \Gamma \cap U$, where $U := \left(
+    \begin{smallmatrix}
+      1&\ast\\
+      0       &1 \\
+    \end{smallmatrix}
+  \right)$.  Now we unfold:
+  \begin{align*}
+    \langle F_T, \phi \rangle &= \int_{G / \Gamma} F_T(g) \phi(g) \, d \mu(g) =
+    \int_{G / \Gamma} \sum_{\gamma \in \Gamma / \Gamma_\infty} 1_{\mathcal{B}(T)}
+                 (g \gamma e_1) \phi(g) \, d \mu  \\
+               &= \int_{G / U} \int_{U / \Gamma_\infty}
+                 1_{\mathcal{B}(T)}(g u e_1) \phi(g u)
+                 \, d u \, d m \\
+               &=
+                 \int_{\mathbb{R}^2} 1_{\mathcal{B}(T)}(k a_y e_1)
+                 \int_{U / \Gamma_\infty}
+                 \phi(k a_y u) \, d u \, d m.
+  \end{align*}
+  Now we use the equidistribution result of Sarnak (1981) to see that there exists $\alpha > 0$ so that for all $f \in C_c^\infty(G / \Gamma)$, we have
+  \begin{equation*}
+    \left| \int_{U / \Gamma_\infty} \phi(k a_y u) \, d u - \int_{G / \Gamma} \phi \, d \mu \right|
+    \ll y^{- \alpha} S(\phi).    
+  \end{equation*}
+  This yields the required asymptotic.  The well-roundedness allows us to go from an average counting result to an individual counting result.  Main term: $f = 1_{\mathcal{B}(T)}$,
+  \begin{equation*}
+    \vol(\mathcal{B}(T)) = \int_{\mathbb{R}^2} f \, d m
+    = \int_{G / \Gamma} \hat{f} \, d \mu.
+  \end{equation*}
+  Variance:
+  \begin{equation*}
+    \int_{G / \Gamma} \left| \hat{f} - \vol(\mathcal{B}(T)) \right|^2 \, d \mu
+    =
+    \int_{G / \Gamma} \left| \hat{f} \right|^2 \, d \mu
+    -
+    \vol(\mathcal{B}(T))^2.    
+  \end{equation*}
+  The integral on the right hand side may be written
+  \begin{equation*}
+    \langle \hat{f}, \hat{f} \rangle =
+    \int_{\mathbb{R}^2} 1_{\mathcal{B}(T)}(k a_y e_1)
+    \int_{U / \Gamma_\infty}
+    E(k a_y u, f) \, d u \, d m.
+  \end{equation*}
+  This last integral is a constant term of an Eisenstein series.  It describes second moments of Siegel transforms.  One obtains in this way a bound on the variance.  One can also argue and get an asymptotic estimate.
+\end{proof}
+
+Okay, here's our result:
+\begin{theorem}[Pfitscher 2024]
+  Suppose that $P$ is a \emph{maximal} parabolic subgroup of any semisimple algebraic $\mathbb{Q}$-group $G$.  Let $\tau \geq 0$ be arbitrary.  Write $d := \dim X$, let $\beta_\chi$ denote the Diophantine exponent, and define
+  \begin{equation*}
+    \Psi(T) :=
+    \begin{cases}
+      T^{(\beta_\chi - \tau) d} & \text{ if } \tau < \beta_\chi, \\
+      \log T& \text{ if } \tau = \beta_\chi.
+    \end{cases}
+  \end{equation*}
+  Then there exists $c > 0$ and $\eps > 0$ such that for almost every $x \in X$, the counting function is given by
+  \begin{equation*}
+    \mathcal{N}_\tau(x, T) = c \Psi(T) \left( 1 + \O_X(\Psi(T)^{- \eps}) \right).
+  \end{equation*}
+\end{theorem}
+
+\begin{remark}
+  For $\mathbb{R}^n$, you can prove that the second moment of the Siegel transform is given as follows:
+  \begin{equation*}
+    \int_{G / \Gamma} \lvert \hat{f} \rvert^2 \, d \mu -
+    \left( \int_{\mathbb{R}^n} f \, d m \right)^2 = \int_{\mathbb{R}} (\lvert f \rvert^2 +
+    f \cdot f^-) \, d m \ll \vol(\mathcal{B}(T)),
+  \end{equation*}
+  where
+  \begin{equation*}
+    f^-(v) = f(- v).
+  \end{equation*}
+  This estimate suffices to get the conclusion of the theorem (for an arbitrary decreasing $\Psi$).  Kelmer--Yu gave an analogue for the sphere.  Our proof used dynamics.
+\end{remark}
+
+\bibliography{refs}{} \bibliographystyle{plain}
+\end{document}
