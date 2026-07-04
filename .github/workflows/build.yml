@@ -122,7 +122,8 @@ jobs:
           FAILED=""
           while read -r f; do
             [ -z "$f" ] && continue
-            if ./compile.sh "$f" && ./convert.sh "$f"; then
+            # </dev/null: latexmk/pandoc must not eat the file list on stdin
+            if ./compile.sh "$f" </dev/null && ./convert.sh "$f" </dev/null; then
               echo "OK: $f"
             else
               FAILED="$FAILED $f"
