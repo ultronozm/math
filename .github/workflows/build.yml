@@ -45,7 +45,7 @@ jobs:
         run: |
           git fetch origin deploy || true
           if git rev-parse --verify origin/deploy >/dev/null 2>&1; then
-            git restore --overlay --source=origin/deploy -- '*.pdf' '*.html' || true
+            git restore --overlay --source=origin/deploy -- '*.pdf' '*.html' 'listing.json' || true
           fi
 
       - name: Install TeX Live (cached)
@@ -122,6 +122,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git checkout -B "$DEPLOY_BRANCH"
           git add -f -- '*.pdf' '*.html' || true
+          git add -f -- listing.json || true
           git commit -m "Deploy snapshot from ${GITHUB_SHA}" || echo "No changes to commit"
           git push -f origin "$DEPLOY_BRANCH"
 
