@@ -107,7 +107,7 @@ jobs:
               git restore --overlay --source=origin/deploy -- "${f%.tex}.pdf" "${f%.tex}.html" 2>/dev/null || true
             fi
           done < /tmp/files-to-build.txt
-          echo "$FAILED" | xargs -n1 > /tmp/failed.txt || true
+          for f in $FAILED; do echo "$f"; done > /tmp/failed.txt
 
       - name: Push deploy snapshot
         run: |
