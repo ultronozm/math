@@ -19,20 +19,17 @@ on:
         description: "Rebuild all tex files (otherwise only those missing artifacts)"
         type: boolean
         default: false
-  # Temporary trial trigger (remove after adopting; then enable the main trigger):
   push:
-    branches: [reliable-ci]
-  # push:
-  #   branches: [main]
-  #   paths: ['**/*.tex', '**/*.bib']
+    branches: [main]
+    # css/el included so style changes redeploy the snapshot (replaces rebase-deploy-branch)
+    paths: ['**/*.tex', '**/*.bib', '**/*.css', '**/*.el']
 
 permissions:
   contents: write
 
 env:
-  # Branch the snapshot is pushed to. deploy-test while trialing;
-  # flip to deploy when adopting this workflow.
-  DEPLOY_BRANCH: deploy-test
+  # Branch the snapshot is pushed to.
+  DEPLOY_BRANCH: deploy
   # Space-separated tex files to rebuild regardless of change detection.
   FORCE_REBUILD: ""
 
@@ -79,12 +76,19 @@ jobs:
           ALL=$(git ls-files '*.tex' | grep -vFxf <(printf '%s\n' "$EXCLUDE") || true)
           if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.ref_name }}" = "main" ]; then
             CHANGED=$(git diff --name-only --diff-filter=d "${{ github.event.before }}" "${{ github.event.after }}" -- '*.tex' '*.bib' || true)
-            # If shared inputs changed, rebuild everything that might depend on them.
-            if echo "$CHANGED" | grep -qE '^(common\.tex|refs\.bib)$'; then
-              FILES="$ALL"
-            else
-              FILES=$(echo "$CHANGED" | grep '\.tex$' | grep -vFxf <(printf '%s\n' "$EXCLUDE") || true)
-            fi
+            FILES=""
+            for c in $CHANGED; do
+              # the changed file itself, if it's a buildable document
+              if printf '%s\n' "$ALL" | grep -qFx "$c"; then
+                FILES="$FILES $c"
+              fi
+              # plus any document referencing it: multifile docs (\input{foo-body}),
+              # shared preambles (common.tex), bibliographies (refs.bib)
+              stem=$(basename "${c%.*}")
+              DEPS=$(grep -lF "$stem" $ALL </dev/null || true)
+              FILES="$FILES $DEPS"
+            done
+            FILES=$(printf '%s\n' $FILES | sort -u)
           elif [ "${{ inputs.rebuild_all }}" = "true" ]; then
             FILES="$ALL"
           else
