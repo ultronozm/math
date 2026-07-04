@@ -19,6 +19,10 @@ on:
         description: "Rebuild all tex files (otherwise only those missing artifacts)"
         type: boolean
         default: false
+      force:
+        description: "Space-separated tex files to rebuild regardless of change detection"
+        type: string
+        default: ""
   push:
     branches: [main]
     # css/el included so style changes redeploy the snapshot (replaces rebase-deploy-branch)
@@ -31,7 +35,7 @@ env:
   # Branch the snapshot is pushed to.
   DEPLOY_BRANCH: deploy
   # Space-separated tex files to rebuild regardless of change detection.
-  FORCE_REBUILD: ""
+  FORCE_REBUILD: ${{ inputs.force || '' }}
 
 jobs:
   build:
@@ -46,7 +50,9 @@ jobs:
           git fetch origin deploy
           # One restore per pattern: git restore aborts ALL pathspecs if any
           # single one matches nothing, which must not take the others down.
-          for pat in '*.pdf' '*.html' 'listing.json'; do
+          # aux files are needed at build time: notes cross-reference each
+          # other's aux via the xr package (\externaldocument).
+          for pat in '*.pdf' '*.html' '*.aux' 'listing.json'; do
             git restore --overlay --source=origin/deploy -- "$pat" || true
           done
           # Sanity check: carried-forward artifacts must actually be present.
@@ -93,9 +99,10 @@ jobs:
                 FILES="$FILES $c"
               fi
               # plus any document referencing it: multifile docs (\input{foo-body}),
-              # shared preambles (common.tex), bibliographies (refs.bib)
+              # shared preambles (common.tex), bibliographies (refs.bib).
+              # Match the braced form "{stem}" so prose mentions don't count.
               stem=$(basename "${c%.*}")
-              DEPS=$(grep -lF "$stem" $ALL </dev/null || true)
+              DEPS=$(grep -lF "{$stem}" $ALL </dev/null || true)
               FILES="$FILES $DEPS"
             done
             FILES=$(printf '%s\n' $FILES | sort -u)
@@ -119,12 +126,24 @@ jobs:
               echo "OK: $f"
             else
               FAILED="$FAILED $f"
+              echo "FAILED: $f (will retry)"
+            fi
+          done < /tmp/files-to-build.txt
+          # Retry once: cross-document references (xr) can require aux files
+          # that only exist after the referenced document compiled above.
+          RETRY="$FAILED"
+          FAILED=""
+          for f in $RETRY; do
+            if ./compile.sh "$f" && ./convert.sh "$f"; then
+              echo "OK on retry: $f"
+            else
+              FAILED="$FAILED $f"
               echo "FAILED: $f (restoring previous artifacts if any)"
               rm -f "${f%.tex}.pdf" "${f%.tex}.html"
               git restore --overlay --source=origin/deploy -- "${f%.tex}.pdf" 2>/dev/null || true
               git restore --overlay --source=origin/deploy -- "${f%.tex}.html" 2>/dev/null || true
             fi
-          done < /tmp/files-to-build.txt
+          done
           for f in $FAILED; do echo "$f"; done > /tmp/failed.txt
 
       - name: Push deploy snapshot
@@ -132,7 +151,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git checkout -B "$DEPLOY_BRANCH"
-          git add -f -- '*.pdf' '*.html' || true
+          git add -f -- '*.pdf' '*.html' '*.aux' || true
           git add -f -- listing.json || true
           git commit -m "Deploy snapshot from ${GITHUB_SHA}" || echo "No changes to commit"
           git push -f origin "$DEPLOY_BRANCH"

@@ -58,7 +58,8 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add listing.json || true
-          git add index.html || true
+          # -f: listing.json is gitignored on main, plain add skips it silently
+          git add -f listing.json || true
+          git add -f index.html || true
           git commit -m "Updated listing.json and index.html" || echo "No changes to commit"
           git push -f
