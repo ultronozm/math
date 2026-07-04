@@ -103,6 +103,7 @@ jobs:
             else
               FAILED="$FAILED $f"
               echo "FAILED: $f (restoring previous artifacts if any)"
+              rm -f "${f%.tex}.pdf" "${f%.tex}.html"
               git restore --overlay --source=origin/deploy -- "${f%.tex}.pdf" "${f%.tex}.html" 2>/dev/null || true
             fi
           done < /tmp/files-to-build.txt
