@@ -2,7 +2,7 @@ name: make-index
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: ["build-html", "compile"]
+    workflows: ["build-html", "build"]
     types:
       - completed
   push:

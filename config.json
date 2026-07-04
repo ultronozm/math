@@ -1,4 +1,30 @@
 {
-    "exclude": ["common.tex", "test9.tex", "test10.tex", "test11.tex", "test7.tex"],
-    "boxed-environments": ["theorem", "lemma", "exercise", "example", "corollary", "remark", "notation", "note", "problem", "question", "answer", "criterion", "summary"]
+  "exclude": [
+    "common.tex",
+    "test-basic.tex",
+    "test.tex",
+    "test10.tex",
+    "test11.tex",
+    "test2.tex",
+    "test6.tex",
+    "test7.tex",
+    "test8.tex",
+    "test9.tex",
+    "testitup.tex"
+  ],
+  "boxed-environments": [
+    "theorem",
+    "lemma",
+    "exercise",
+    "example",
+    "corollary",
+    "remark",
+    "notation",
+    "note",
+    "problem",
+    "question",
+    "answer",
+    "criterion",
+    "summary"
+  ]
 }
