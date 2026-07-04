@@ -72,6 +72,10 @@ jobs:
       - name: Install TeX Live (cached)
         uses: TeX-Live/setup-texlive-action@v4
         with:
+          # Pinned: TL2026's amsart/hyperref/xr-hyper interaction breaks
+          # several notes ("Missing number, treated as zero" reading aux).
+          # 2025 matches the local toolchain. Revisit when bumping.
+          version: 2025
           packages: |
             scheme-basic
             collection-latex
