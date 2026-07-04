@@ -33,6 +33,8 @@ env:
   # Branch the snapshot is pushed to. deploy-test while trialing;
   # flip to deploy when adopting this workflow.
   DEPLOY_BRANCH: deploy-test
+  # Space-separated tex files to rebuild regardless of change detection.
+  FORCE_REBUILD: 20230523T130721__my-cool-math-note.tex
 
 jobs:
   build:
@@ -89,9 +91,10 @@ jobs:
             # Dispatch default: only build files whose pdf is missing.
             FILES=$(for f in $ALL; do [ -f "${f%.tex}.pdf" ] || echo "$f"; done)
           fi
+          FILES="$FILES ${FORCE_REBUILD:-}"
           echo "Files to build:"
           echo "$FILES"
-          printf '%s\n' "$FILES" > /tmp/files-to-build.txt
+          printf '%s\n' $FILES > /tmp/files-to-build.txt
 
       - name: Compile and convert
         run: |
