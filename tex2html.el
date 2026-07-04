@@ -570,6 +570,39 @@ file to .html and apply postprocessing."
     (replace-regexp-in-string "T" " " substr))
   )
 
+(defun tex2html-detex (s)
+  "Convert common TeX accents and ligatures in S to unicode.
+Math ($...$) is left intact for MathJax to render client-side."
+  (if (not s) s
+    (require 'ucs-normalize)
+    (let ((accents '((?' . #x301) (?` . #x300) (?\" . #x308) (?^ . #x302)
+                     (?~ . #x303) (?= . #x304) (?. . #x307)))
+          (cedilla #x327))
+      (with-temp-buffer
+        (insert s)
+        ;; \'e, \'{e}, \"u, ... -> letter + combining accent
+        (goto-char (point-min))
+        (while (re-search-forward
+                "\\\\\\([\"'`^~=.]\\)\\(?:{\\([A-Za-z]\\)}\\|\\([A-Za-z]\\)\\)" nil t)
+          (let ((acc (string-to-char (match-string 1)))
+                (ch (or (match-string 2) (match-string 3))))
+            (replace-match (concat ch (string (cdr (assq acc accents)))) t t)))
+        ;; \c{c} -> c + combining cedilla
+        (goto-char (point-min))
+        (while (re-search-forward "\\\\c{\\([A-Za-z]\\)}" nil t)
+          (replace-match (concat (match-string 1) (string cedilla)) t t))
+        ;; ligatures, special letters, dashes, quotes
+        (dolist (pair '(("\\\\ss\\_>" . "ß") ("\\\\ae\\_>" . "æ") ("\\\\AE\\_>" . "Æ")
+                        ("\\\\o\\_>" . "ø") ("\\\\O\\_>" . "Ø")
+                        ("\\\\aa\\_>" . "å") ("\\\\AA\\_>" . "Å")
+                        ("\\\\l\\_>" . "ł") ("\\\\L\\_>" . "Ł")
+                        ("---" . "—") ("--" . "–")
+                        ("``" . "“") ("''" . "”")))
+          (goto-char (point-min))
+          (while (re-search-forward (car pair) nil t)
+            (replace-match (cdr pair) t t)))
+        (ucs-normalize-NFC-string (buffer-string))))))
+
 (defun populate-listing-json ()
   (interactive)
   (let* ((exclude-file "config.json")
@@ -603,8 +636,8 @@ file to .html and apply postprocessing."
                                      (modified (czm/format-git-time-string
                                                 (shell-command-to-string
                                                  (concat "git log -1 --format=%aI -- " filename)))))
-                                `((title . ,title)
-                                  (abstract . ,abstract)
+                                `((title . ,(tex2html-detex title))
+                                  (abstract . ,(tex2html-detex abstract))
                                   (dateCreated . ,created)
                                   (dateModified . ,modified)
                                   (file . ,(file-name-sans-extension filename)))))

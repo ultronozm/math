@@ -6,6 +6,8 @@
 #+HTML_HEAD:    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 #+HTML_HEAD:    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
 #+HTML_HEAD:    <style> table.dataTable thead th { text-align: left; } </style>
+#+HTML_HEAD:    <script>window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']]}};</script>
+#+HTML_HEAD:    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"></script>
 
 # #+HTML_HEAD:        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/jszip-2.5.0/dt-1.10.18/af-2.3.2/b-1.5.2/b-html5-1.5.2/b-print-1.5.2/r-2.2.2/sl-1.2.6/datatables.min.css"/>
  
@@ -55,7 +57,6 @@ $(document).ready(function() {
             return response.json();
         })
         .then(data => {
-            console.log(data);  // Log the data to the console
             data.forEach(item => {
                 table.row.add([
 		    `<a href="${item.file}.html">${item.title}</a>`,
@@ -63,12 +64,20 @@ $(document).ready(function() {
                     item.dateCreated,
                     item.dateModified,
                     `<a href="${item.file}.tex">tex</a> <a href="${item.file}.pdf">pdf</a>`
-		    ]).draw();
+		    ]);
             });
+            table.draw();
         })
         .catch(e => {
             console.log('There was a problem with the fetch operation: ' + e.message);
         });
+
+    // Typeset math in newly rendered rows (initial load, pagination, search)
+    $('#myTable').on('draw.dt', function () {
+        if (window.MathJax && MathJax.typesetPromise) {
+            MathJax.typesetPromise([document.getElementById('myTable')]);
+        }
+    });
 });
 </script>
 #+END_EXPORT
