@@ -143,9 +143,18 @@ jobs:
           while read -r f; do
             [ -z "$f" ] || rm -f "${f%.tex}.aux"
           done < /tmp/files-to-build.txt
+          # Strip amsart tocindent labels from sibling auxes before each
+          # compile (they poison xr importers; see carry-forward step).
+          # Freshly built notes re-emit them, hence per-file, not one-shot.
+          strip_tocindent() {
+            for a in *.aux; do
+              [ -e "$a" ] && sed -i '/\\newlabel{tocindent/d' "$a"
+            done
+          }
           FAILED=""
           while read -r f; do
             [ -z "$f" ] && continue
+            strip_tocindent
             # </dev/null: latexmk/pandoc must not eat the file list on stdin
             if ./compile.sh "$f" </dev/null && ./convert.sh "$f" </dev/null; then
               echo "OK: $f"
@@ -159,6 +168,7 @@ jobs:
           RETRY="$FAILED"
           FAILED=""
           for f in $RETRY; do
+            strip_tocindent
             if ./compile.sh "$f" </dev/null && ./convert.sh "$f" </dev/null; then
               echo "OK on retry: $f"
             else
