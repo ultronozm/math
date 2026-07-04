@@ -34,7 +34,7 @@ env:
   # flip to deploy when adopting this workflow.
   DEPLOY_BRANCH: deploy-test
   # Space-separated tex files to rebuild regardless of change detection.
-  FORCE_REBUILD: 20230523T130721__my-cool-math-note.tex
+  FORCE_REBUILD: ""
 
 jobs:
   build:
