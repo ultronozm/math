@@ -19,6 +19,9 @@ on:
         description: "Rebuild all tex files (otherwise only those missing artifacts)"
         type: boolean
         default: false
+  # Temporary trial trigger (remove after adopting; then enable the main trigger):
+  push:
+    branches: [reliable-ci]
   # push:
   #   branches: [main]
   #   paths: ['**/*.tex', '**/*.bib']
@@ -72,7 +75,7 @@ jobs:
         run: |
           EXCLUDE=$(jq -r '.exclude[]' config.json)
           ALL=$(git ls-files '*.tex' | grep -vFxf <(printf '%s\n' "$EXCLUDE") || true)
-          if [ "${{ github.event_name }}" = "push" ]; then
+          if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.ref_name }}" = "main" ]; then
             CHANGED=$(git diff --name-only --diff-filter=d "${{ github.event.before }}" "${{ github.event.after }}" -- '*.tex' '*.bib' || true)
             # If shared inputs changed, rebuild everything that might depend on them.
             if echo "$CHANGED" | grep -qE '^(common\.tex|refs\.bib)$'; then
