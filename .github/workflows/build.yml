@@ -1,0 +1,120 @@
+name: build
+# Reliable replacement for compile.yml + rebase-deploy-branch.yml.
+#
+# Design:
+#  - deploy is a *snapshot* branch: each run reconstructs it as
+#    main + artifact overlay and force-pushes a single commit.
+#    No rebase, no conflicts, no accumulated artifact history.
+#    Permanent URLs are preserved because file paths never change.
+#  - A failed compile keeps the previous artifact (site never
+#    regresses) and marks the run failed with a summary.
+#  - TeX Live is cached between runs (setup-texlive-action).
+#
+# Trial via workflow_dispatch; once trusted, uncomment the push
+# trigger below and disable compile.yml / rebase-deploy-branch.yml.
+on:
+  workflow_dispatch:
+    inputs:
+      rebuild_all:
+        description: "Rebuild all tex files (otherwise only those missing artifacts)"
+        type: boolean
+        default: false
+  # push:
+  #   branches: [main]
+  #   paths: ['**/*.tex', '**/*.bib']
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Carry forward artifacts from previous deploy
+        run: |
+          git fetch origin deploy || true
+          if git rev-parse --verify origin/deploy >/dev/null 2>&1; then
+            git restore --overlay --source=origin/deploy -- '*.pdf' '*.html' || true
+          fi
+
+      - name: Install TeX Live (cached)
+        uses: teatimeguest/setup-texlive-action@v3
+        with:
+          packages: |
+            scheme-basic
+            collection-latex
+            collection-latexextra
+            collection-latexrecommended
+            collection-mathscience
+            collection-fontsrecommended
+            collection-publishers
+            latexmk
+            cm-super
+
+      - name: Install pandoc and jq
+        run: sudo apt-get update && sudo apt-get install -y pandoc jq
+
+      - uses: purcell/setup-emacs@master
+        with:
+          version: 29.4
+
+      - name: Determine files to build
+        id: plan
+        run: |
+          EXCLUDE=$(jq -r '.exclude[]' config.json)
+          ALL=$(git ls-files '*.tex' | grep -vFxf <(printf '%s\n' "$EXCLUDE") || true)
+          if [ "${{ github.event_name }}" = "push" ]; then
+            CHANGED=$(git diff --name-only --diff-filter=d "${{ github.event.before }}" "${{ github.event.after }}" -- '*.tex' '*.bib' || true)
+            # If shared inputs changed, rebuild everything that might depend on them.
+            if echo "$CHANGED" | grep -qE '^(common\.tex|refs\.bib)$'; then
+              FILES="$ALL"
+            else
+              FILES=$(echo "$CHANGED" | grep '\.tex$' | grep -vFxf <(printf '%s\n' "$EXCLUDE") || true)
+            fi
+          elif [ "${{ inputs.rebuild_all }}" = "true" ]; then
+            FILES="$ALL"
+          else
+            # Dispatch default: only build files whose pdf is missing.
+            FILES=$(for f in $ALL; do [ -f "${f%.tex}.pdf" ] || echo "$f"; done)
+          fi
+          echo "Files to build:"
+          echo "$FILES"
+          printf '%s\n' "$FILES" > /tmp/files-to-build.txt
+
+      - name: Compile and convert
+        run: |
+          FAILED=""
+          while read -r f; do
+            [ -z "$f" ] && continue
+            if ./compile.sh "$f" && ./convert.sh "$f"; then
+              echo "OK: $f"
+            else
+              FAILED="$FAILED $f"
+              echo "FAILED: $f (restoring previous artifacts if any)"
+              git restore --overlay --source=origin/deploy -- "${f%.tex}.pdf" "${f%.tex}.html" 2>/dev/null || true
+            fi
+          done < /tmp/files-to-build.txt
+          echo "$FAILED" | xargs -n1 > /tmp/failed.txt || true
+
+      - name: Push deploy snapshot
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git checkout -B deploy
+          git add -f -- '*.pdf' '*.html' || true
+          git commit -m "Deploy snapshot from ${GITHUB_SHA}" || echo "No changes to commit"
+          git push -f origin deploy
+
+      - name: Report failures
+        run: |
+          if [ -s /tmp/failed.txt ]; then
+            echo "## Failed compiles" >> "$GITHUB_STEP_SUMMARY"
+            sed 's/^/- /' /tmp/failed.txt >> "$GITHUB_STEP_SUMMARY"
+            echo "::error::Some files failed to compile: $(cat /tmp/failed.txt | tr '\n' ' ')"
+            exit 1
+          fi
