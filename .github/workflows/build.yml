@@ -26,13 +26,17 @@ on:
 permissions:
   contents: write
 
+env:
+  # Branch the snapshot is pushed to. deploy-test while trialing;
+  # flip to deploy when adopting this workflow.
+  DEPLOY_BRANCH: deploy-test
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
           fetch-depth: 0
 
       - name: Carry forward artifacts from previous deploy
@@ -105,10 +109,10 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git checkout -B deploy
+          git checkout -B "$DEPLOY_BRANCH"
           git add -f -- '*.pdf' '*.html' || true
           git commit -m "Deploy snapshot from ${GITHUB_SHA}" || echo "No changes to commit"
-          git push -f origin deploy
+          git push -f origin "$DEPLOY_BRANCH"
 
       - name: Report failures
         run: |
