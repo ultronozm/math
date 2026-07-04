@@ -60,6 +60,14 @@ jobs:
           for pat in '*.pdf' '*.html' '*.aux' 'listing.json'; do
             git restore --overlay --source=origin/deploy -- "$pat" || true
           done
+          # amsart records toc indentation as ordinary labels
+          # (\newlabel{tocindentN}{...}); importing those via xr/xr-hyper
+          # breaks the importing document ("Missing number, treated as
+          # zero"). They only matter to the note's own recompile, which
+          # latexmk -gg regenerates from scratch, so strip them here.
+          for f in *.aux; do
+            [ -e "$f" ] && sed -i '/\\newlabel{tocindent/d' "$f"
+          done
           # Sanity check: carried-forward artifacts must actually be present.
           have=$(ls -1 *.pdf 2>/dev/null | wc -l)
           expect=$(git ls-tree -r origin/deploy --name-only | grep -c '\.pdf$')
@@ -72,9 +80,7 @@ jobs:
       - name: Install TeX Live (cached)
         uses: TeX-Live/setup-texlive-action@v4
         with:
-          # Pinned: TL2026's amsart/hyperref/xr-hyper interaction breaks
-          # several notes ("Missing number, treated as zero" reading aux).
-          # 2025 matches the local toolchain. Revisit when bumping.
+          # Pinned to match the local toolchain (TeX Live 2025).
           version: 2025
           packages: |
             scheme-basic
@@ -87,6 +93,8 @@ jobs:
             latexmk
             cm-super
             navigator
+            texapi
+            yax
 
       - name: Install pandoc and jq
         run: sudo apt-get update && sudo apt-get install -y pandoc jq
