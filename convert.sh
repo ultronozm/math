@@ -9,7 +9,7 @@ echo "converted_file: $converted_file"
 
 if command -v pandoc &> /dev/null
 then
-    pandoc --standalone "$file" -o "$converted_file" --mathjax --citeproc --toc
+    pandoc --standalone "$file" -o "$converted_file" --mathjax=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js --citeproc --toc
 elif command -v docker &> /dev/null
 then
     docker run --volume "`pwd`:`pwd`" --workdir "`pwd`" pandoc/core:3.1 --standalone "$file" -o "$converted_file" --mathjax --citeproc --toc
