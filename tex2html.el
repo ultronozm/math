@@ -974,7 +974,7 @@ The check is warning-only; it returns the number of issues found."
                                (tex2html--listing-entry filename "org"))
                              org-files))))
     (with-temp-file data-file
-      (insert (json-encode data-list)))))
+      (insert (json-encode (vconcat data-list))))))
 
 (defun tex2html-make-index ()
   (interactive)

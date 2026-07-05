@@ -54,11 +54,6 @@ env:
 
 jobs:
   build:
-    # This repository is the reusable parent, not a published notes site.
-    # Keep manual dispatch available for debugging, but do not run noisy
-    # push-triggered deploy jobs here. Child repositories run this job after
-    # merging the workflow because their repository name differs.
-    if: ${{ github.event_name != 'push' || github.repository != 'ultronozm/tex-site' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

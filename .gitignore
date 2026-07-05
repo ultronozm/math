@@ -18,6 +18,7 @@
 _region_.*
 .DS_Store
 /listing.json
+/link-check-report.md
 /*.html
 /*.pdf
 /*.aux
