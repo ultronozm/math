@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-07-05 Sun 14:09 -->
+<!-- 2026-07-05 Sun 15:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>some math notes</title>
@@ -208,21 +208,21 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org0110161">1. Updates</a></li>
-<li><a href="#org0f00066">2. CIRM School <span class="timestamp-wrapper"><span class="timestamp">&lt;2024-09-02 Mon&gt;&ndash;&lt;2024-09-03 Tue&gt;</span></span></a></li>
-<li><a href="#org71e8dab">3. AIM workshop <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-10-16 Mon&gt;&ndash;&lt;2023-10-20 Fri&gt;</span></span></a></li>
-<li><a href="#orgc58637f">4. Oberwolfach seminar</a>
+<li><a href="#orge7a2a11">1. Updates</a></li>
+<li><a href="#org10193f5">2. CIRM School <span class="timestamp-wrapper"><span class="timestamp">&lt;2024-09-02 Mon&gt;&ndash;&lt;2024-09-03 Tue&gt;</span></span></a></li>
+<li><a href="#orgbcb38a2">3. AIM workshop <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-10-16 Mon&gt;&ndash;&lt;2023-10-20 Fri&gt;</span></span></a></li>
+<li><a href="#org2cb8ac9">4. Oberwolfach seminar</a>
 <ul>
-<li><a href="#org06a9d9d">4.1. Plan</a></li>
-<li><a href="#org659882c">4.2. Exercises</a></li>
-<li><a href="#org220b9e8">4.3. Notes</a></li>
+<li><a href="#orgfcd033a">4.1. Plan</a></li>
+<li><a href="#org3b5c9c3">4.2. Exercises</a></li>
+<li><a href="#org24ee257">4.3. Notes</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0110161" class="outline-2">
-<h2 id="org0110161"><span class="section-number-2">1.</span> Updates</h2>
+<div id="outline-container-orge7a2a11" class="outline-2">
+<h2 id="orge7a2a11"><span class="section-number-2">1.</span> Updates</h2>
 <div class="outline-text-2" id="text-1">
 <table id="myTable" class="display" style="width:100%">
     <thead>
@@ -267,12 +267,16 @@ $(document).ready(function() {
         })
         .then(data => {
             data.forEach(item => {
+                const source = item.source || `${item.file}.tex`;
+                const fileLinks = item.pdf
+                    ? `<a href="${source}">${item.type || 'tex'}</a> <a href="${item.pdf}">pdf</a>`
+                    : `<a href="${source}">${item.type || 'source'}</a>`;
                 table.row.add([
 		    `<a href="${item.file}.html">${item.title}</a>`,
                     item.abstract,
                     item.dateCreated,
                     item.dateModified,
-                    `<a href="${item.file}.tex">tex</a> <a href="${item.file}.pdf">pdf</a>`
+                    fileLinks
 		    ]);
             });
             table.draw();
@@ -295,36 +299,36 @@ $(document).ready(function() {
 </ul>
 </div>
 </div>
-<div id="outline-container-org0f00066" class="outline-2">
-<h2 id="org0f00066"><span class="section-number-2">2.</span> CIRM School <span class="timestamp-wrapper"><span class="timestamp">&lt;2024-09-02 Mon&gt;&ndash;&lt;2024-09-03 Tue&gt;</span></span></h2>
+<div id="outline-container-org10193f5" class="outline-2">
+<h2 id="org10193f5"><span class="section-number-2">2.</span> CIRM School <span class="timestamp-wrapper"><span class="timestamp">&lt;2024-09-02 Mon&gt;&ndash;&lt;2024-09-03 Tue&gt;</span></span></h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><a href="20240902T121422--cirm-subconvexity.html">20240902T121422–cirm-subconvexity.tex</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org71e8dab" class="outline-2">
-<h2 id="org71e8dab"><span class="section-number-2">3.</span> AIM workshop <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-10-16 Mon&gt;&ndash;&lt;2023-10-20 Fri&gt;</span></span></h2>
+<div id="outline-container-orgbcb38a2" class="outline-2">
+<h2 id="orgbcb38a2"><span class="section-number-2">3.</span> AIM workshop <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-10-16 Mon&gt;&ndash;&lt;2023-10-20 Fri&gt;</span></span></h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>test: <a href="20230522T190340__pgl2-spectral-aspect-subconvexity_expository.html">Spectral aspect subconvexity for $\PGL_2$: a couple approaches</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc58637f" class="outline-2">
-<h2 id="orgc58637f"><span class="section-number-2">4.</span> Oberwolfach seminar</h2>
+<div id="outline-container-org2cb8ac9" class="outline-2">
+<h2 id="org2cb8ac9"><span class="section-number-2">4.</span> Oberwolfach seminar</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org06a9d9d" class="outline-3">
-<h3 id="org06a9d9d"><span class="section-number-3">4.1.</span> Plan</h3>
+<div id="outline-container-orgfcd033a" class="outline-3">
+<h3 id="orgfcd033a"><span class="section-number-3">4.1.</span> Plan</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li><a href="20230529T040944__mfo2322a-plan.html">MFO2322a plan</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org659882c" class="outline-3">
-<h3 id="org659882c"><span class="section-number-3">4.2.</span> Exercises</h3>
+<div id="outline-container-org3b5c9c3" class="outline-3">
+<h3 id="org3b5c9c3"><span class="section-number-3">4.2.</span> Exercises</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li><a href="20230524T094424__exercises-localized-vectors.html">Some exercises concerning localized vectors in low rank</a></li>
@@ -332,8 +336,8 @@ $(document).ready(function() {
 </ul>
 </div>
 </div>
-<div id="outline-container-org220b9e8" class="outline-3">
-<h3 id="org220b9e8"><span class="section-number-3">4.3.</span> Notes</h3>
+<div id="outline-container-org24ee257" class="outline-3">
+<h3 id="org24ee257"><span class="section-number-3">4.3.</span> Notes</h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li><a href="20230522T190340__pgl2-spectral-aspect-subconvexity_expository.html">Spectral aspect subconvexity for $\PGL_2$: a couple approaches</a></li>
@@ -345,7 +349,7 @@ $(document).ready(function() {
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Paul D. Nelson</p>
-<p class="date">Created: 2026-07-05 Sun 14:09</p>
+<p class="date">Created: 2026-07-05 Sun 15:04</p>
 </div>
 </body>
 </html>
