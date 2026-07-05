@@ -1,5 +1,4 @@
 name: build
-# Reliable replacement for compile.yml + rebase-deploy-branch.yml.
 #
 # Design:
 #  - deploy is a *snapshot* branch: each run reconstructs it as
@@ -9,9 +8,6 @@ name: build
 #  - A failed compile keeps the previous artifact (site never
 #    regresses) and marks the run failed with a summary.
 #  - TeX Live is cached between runs (setup-texlive-action).
-#
-# Trial via workflow_dispatch; once trusted, uncomment the push
-# trigger below and disable compile.yml / rebase-deploy-branch.yml.
 on:
   workflow_dispatch:
     inputs:
@@ -25,8 +21,17 @@ on:
         default: ""
   push:
     branches: [main]
-    # css/el included so style changes redeploy the snapshot (replaces rebase-deploy-branch)
-    paths: ['**/*.tex', '**/*.bib', '**/*.css', '**/*.el']
+    paths:
+      - '**/*.tex'
+      - '**/*.bib'
+      - '**/*.css'
+      - '**/*.el'
+      - '.github/workflows/build.yml'
+      - 'compile.sh'
+      - 'config.json'
+      - 'convert.sh'
+      - 'index.org'
+      - 'tex2html.el'
 
 permissions:
   contents: write
@@ -52,35 +57,38 @@ jobs:
 
       - name: Carry forward artifacts from previous deploy
         run: |
-          git fetch origin deploy
-          # One restore per pattern: git restore aborts ALL pathspecs if any
-          # single one matches nothing, which must not take the others down.
-          # aux files are needed at build time: notes cross-reference each
-          # other's aux via the xr package (\externaldocument).
-          for pat in '*.pdf' '*.html' '*.aux' 'listing.json'; do
-            git restore --overlay --source=origin/deploy -- "$pat" || true
-          done
-          # amsart records toc indentation as ordinary labels
-          # (\newlabel{tocindentN}{...}); importing those via xr/xr-hyper
-          # breaks the importing document ("Missing number, treated as
-          # zero"). They only matter to the note's own recompile, which
-          # latexmk -gg regenerates from scratch, so strip them here.
-          for f in *.aux; do
-            [ -e "$f" ] && sed -i '/\\newlabel{tocindent/d' "$f"
-          done
-          # Sanity check: carried-forward artifacts must actually be present.
-          have=$(ls -1 *.pdf 2>/dev/null | wc -l)
-          expect=$(git ls-tree -r origin/deploy --name-only | grep -c '\.pdf$')
-          echo "carried forward $have pdfs (deploy has $expect)"
-          if [ "$have" -lt "$expect" ]; then
-            echo "::error::Carry-forward incomplete: $have pdfs present, deploy has $expect"
-            exit 1
+          if git fetch origin "$DEPLOY_BRANCH"; then
+            # One restore per pattern: git restore aborts ALL pathspecs if
+            # any single one matches nothing, which must not take the others
+            # down. aux files are needed at build time for xr
+            # (\externaldocument) cross-document references.
+            for pat in '*.pdf' '*.html' '*.aux' 'listing.json'; do
+              git restore --overlay --source="origin/$DEPLOY_BRANCH" -- "$pat" || true
+            done
+            # amsart records toc indentation as ordinary labels
+            # (\newlabel{tocindentN}{...}); importing those via xr/xr-hyper
+            # breaks the importing document ("Missing number, treated as
+            # zero"). They only matter to the note's own recompile, which
+            # latexmk -gg regenerates from scratch, so strip them here.
+            for f in *.aux; do
+              [ -e "$f" ] && sed -i '/\\newlabel{tocindent/d' "$f"
+            done
+            # Sanity check: carried-forward artifacts must actually be present.
+            have=$(ls -1 *.pdf 2>/dev/null | wc -l)
+            expect=$(git ls-tree -r "origin/$DEPLOY_BRANCH" --name-only | grep -c '\.pdf$')
+            echo "carried forward $have pdfs ($DEPLOY_BRANCH has $expect)"
+            if [ "$have" -lt "$expect" ]; then
+              echo "::error::Carry-forward incomplete: $have pdfs present, $DEPLOY_BRANCH has $expect"
+              exit 1
+            fi
+          else
+            echo "No existing $DEPLOY_BRANCH branch; starting first deploy snapshot."
           fi
 
       - name: Install TeX Live (cached)
         uses: TeX-Live/setup-texlive-action@v4
         with:
-          # Pinned to match the local toolchain (TeX Live 2025).
+          # Pin if you need bit-for-bit parity with an older local toolchain.
           version: 2025
           packages: |
             scheme-basic
@@ -175,8 +183,8 @@ jobs:
               FAILED="$FAILED $f"
               echo "FAILED: $f (restoring previous artifacts if any)"
               rm -f "${f%.tex}.pdf" "${f%.tex}.html"
-              git restore --overlay --source=origin/deploy -- "${f%.tex}.pdf" 2>/dev/null || true
-              git restore --overlay --source=origin/deploy -- "${f%.tex}.html" 2>/dev/null || true
+              git restore --overlay --source="origin/$DEPLOY_BRANCH" -- "${f%.tex}.pdf" 2>/dev/null || true
+              git restore --overlay --source="origin/$DEPLOY_BRANCH" -- "${f%.tex}.html" 2>/dev/null || true
               # Deliberately do NOT restore the old aux: absent is a warning
               # for referencing documents, stale can be a hard error.
             fi

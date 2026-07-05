@@ -1,4 +1,5 @@
 /auto/
+*.elc
 *.bbl
 *.blg
 *.fdb_latexmk
@@ -17,6 +18,9 @@
 _region_.*
 .DS_Store
 /listing.json
+/*.html
+/*.pdf
+/*.aux
 /test-basic.md
 /test-basic.tex
 /test.json

@@ -26,6 +26,32 @@
 
 (require 'cl-lib)
 (require 'json)
+(require 'subr-x)
+(require 'ox-html)
+
+(defcustom tex2html-config-file "config.json"
+  "JSON configuration file for the TeX notes site."
+  :type 'string
+  :group 'tex2html)
+
+(defun tex2html-read-config (&optional directory)
+  "Read `tex2html-config-file' from DIRECTORY as an alist.
+Return nil when the file does not exist."
+  (let ((file (expand-file-name tex2html-config-file
+                                (or directory default-directory)))
+        (json-object-type 'alist)
+        (json-array-type 'list)
+        (json-key-type 'string))
+    (when (file-exists-p file)
+      (json-read-file file))))
+
+(defun tex2html-config-get (keys &optional default directory)
+  "Return nested config value at KEYS, or DEFAULT.
+KEYS is a list of string keys read from `tex2html-config-file'."
+  (let ((value (tex2html-read-config directory)))
+    (while (and keys value)
+      (setq value (alist-get (pop keys) value nil nil #'string=)))
+    (or value default)))
 
 (defcustom tex2html-theorem-names
   '("theorem" "lemma" "proposition" "corollary" "conjecture"
@@ -66,6 +92,8 @@
             (push file files))
           )
         files))))
+
+(defvar tex2html-scripts)
 
 (defun tex2html-postprocess-make-proof-links-toggleable ()
   "Make proof links toggleable."
@@ -210,7 +238,7 @@ file."
     (while (re-search-forward "<h[1-9][[:space:]]id=\"\\([^\"]+\\)\">" nil t)
       (let ((contents (match-string 0))
             (label (match-string 1)))
-        (when-let ((number (gethash label label-number-hash)))
+        (when-let* ((number (gethash label label-number-hash)))
           (replace-match (concat contents "§" number ". ") t t nil 0))))
 
     ;; Step 5: bibliography links
@@ -267,23 +295,12 @@ file."
     ))
 
 (defcustom giscus-comment-script
-  "<script src=\"https://giscus.app/client.js\"
-        data-repo=\"Ultronozm/math\"
-        data-repo-id=\"R_kgDOJlhjqQ\"
-        data-category=\"Announcements\"
-        data-category-id=\"DIC_kwDOJlhjqc4CWo21\"
-        data-mapping=\"pathname\"
-        data-strict=\"0\"
-        data-reactions-enabled=\"1\"
-        data-emit-metadata=\"0\"
-        data-input-position=\"bottom\"
-        data-theme=\"preferred_color_scheme\"
-        data-lang=\"en\"
-        crossorigin=\"anonymous\"
-        async>
-</script>"
-  "Script to add comments to HTML files (specific to my repo)."
-  :type 'string)
+  ""
+  "Fallback script to add comments to HTML files.
+When config.json has site.commentsScript, that value takes precedence.
+Leave empty to disable comments."
+  :type 'string
+  :group 'tex2html)
 
 (defcustom tex2html-scripts
   "<script>
@@ -320,14 +337,18 @@ document.querySelector(\"#toggle-all-proofs\").addEventListener(\"click\", funct
 </script>
 "
   "Scripts to add to HTML files."
-  :type 'string)
+  :type 'string
+  :group 'tex2html)
 
 (defun tex2html-add-comment-script ()
   "Add script to HTML buffer that allows users to add comments."
   (interactive)
-  (goto-char (point-min))
-  (when (re-search-forward "</body>" nil t)
-    (replace-match (concat giscus-comment-script "\n</body>"))))
+  (let ((script (or (tex2html-config-get '("site" "commentsScript"))
+                    giscus-comment-script)))
+    (when (and script (not (string-empty-p script)))
+      (goto-char (point-min))
+      (when (re-search-forward "</body>" nil t)
+        (replace-match (concat script "\n</body>"))))))
 
 (require 'sgml-mode)
 (require 'dom)
@@ -350,38 +371,37 @@ document.querySelector(\"#toggle-all-proofs\").addEventListener(\"click\", funct
 (defun tex2html-add-tex-pdf-links (&optional file-name)
   (interactive)
   (goto-char (point-min))
-  (when-let ((style-beg (search-forward "<style>" nil t))
-             (body-beg (search-forward "<body>" nil t))
-             (base-filename
-              (file-name-nondirectory (file-name-sans-extension
-                                       (or file-name
-                                           (buffer-file-name))))))
+  (when-let* ((style-beg (search-forward "<style>" nil t))
+              (body-beg (search-forward "<body>" nil t))
+              (base-filename
+               (file-name-nondirectory (file-name-sans-extension
+                                        (or file-name
+                                            (buffer-file-name))))))
     (goto-char body-beg)
-    (insert
-     (format "
+    (let* ((repo (tex2html-config-get '("site" "githubRepository")))
+           (branch (tex2html-config-get '("site" "sourceBranch") "main"))
+           (history-link
+            (if (and repo (not (string-empty-p repo)))
+                (format
+                 "      <a href=\"https://github.com/%s/commits/%s/%s.tex\" class=\"my-link\">history</a>\n"
+                 repo branch base-filename)
+              "")))
+      (insert
+       (format "
     <div class=\"my-links-container\">
 %s
       <a href=\"%s.tex\" class=\"my-link\">tex</a>
       <a href=\"%s.pdf\" class=\"my-link\">pdf</a>
-      <a href=\"https://github.com/ultronozm/math/commits/main/%s.tex\" class=\"my-link\">history</a>
+%s
       <a href=\".\" class=\"my-link\">home</a>
     </div>"
-             ;; "
-             ;;     <div class=\"my-links-container-2\"> <!-- new div for the second row -->
-             ;;       <a href=\"#\" id=\"toggle-all-proofs\">Hide all proofs</a>
-             ;;       <a href=\"new-link-1\" class=\"my-link-2\">new link 1</a>
-             ;;       <a href=\"new-link-2\" class=\"my-link-2\">new link 2</a>
-             ;;       <a href=\"new-link-3\" class=\"my-link-2\">new link 3</a>
-             ;;     </div>
-             ;; "
-             (czm/format-git-time-string
-              (shell-command-to-string
-               (concat "git log -1 --format=%aI -- " (concat base-filename ".tex"))))
-             base-filename
-             base-filename
-             base-filename
-             )
-     )
+               (czm/format-git-time-string
+                (shell-command-to-string
+                 (concat "git log -1 --format=%aI -- "
+                         (concat base-filename ".tex"))))
+               base-filename
+               base-filename
+               history-link)))
     (goto-char style-beg)
     (insert "
       .my-links-container {
@@ -477,16 +497,9 @@ The output directory and output filename can be optionally specified."
 
 
 (defun tex2html-exclude-from-config (directory)
-  "Read and parse the 'exclude' field from 'config.json'."
+  "Read and parse the `exclude' field from config.json."
   (interactive "D")
-  (let* ((json-object-type 'hash-table)
-         (json-array-type 'list)
-         (json-key-type 'string)
-         (json-data (json-read-file
-                     (expand-file-name
-                      (concat (file-name-as-directory directory)
-                              "config.json")))))
-    (gethash "exclude" json-data)))
+  (tex2html-config-get '("exclude") nil directory))
 
 
 (defun tex2html-process-directory (&optional directory)
@@ -565,10 +578,10 @@ file to .html and apply postprocessing."
 (require 'seq)
 
 (defun czm/format-git-time-string (str)
-  (let ((substr (substring str 0 19)))
-    ;; replace T by space in substr
-    (replace-regexp-in-string "T" " " substr))
-  )
+  (if (< (length str) 19)
+      ""
+    (let ((substr (substring str 0 19)))
+      (replace-regexp-in-string "T" " " substr))))
 
 (defun tex2html-detex (s)
   "Convert common TeX accents and ligatures in S to unicode.
@@ -605,17 +618,14 @@ Math ($...$) is left intact for MathJax to render client-side."
 
 (defun populate-listing-json ()
   (interactive)
-  (let* ((exclude-file "config.json")
-         (data-file "listing.json")
-         (exclude-list (with-temp-buffer
-                         (insert-file-contents exclude-file)
-                         (cdr (assoc 'exclude (json-read)))))
+  (let* ((data-file "listing.json")
+         (exclude-list (tex2html-config-get '("exclude") nil))
          (tex-files (seq-filter (lambda (filename)
                                   (and (string-suffix-p ".tex" filename)
                                        (not (seq-contains-p exclude-list filename))))
                                 (split-string
-                                 (shell-command-to-string "git ls-files *.tex")
-                                 "\n")))
+                                 (shell-command-to-string "git ls-files -- '*.tex'")
+                                 "\n" t)))
          (data-list (mapcar (lambda (filename)
                               (let* ((title (with-temp-buffer
                                               (insert-file-contents filename)
@@ -653,19 +663,20 @@ Math ($...$) is left intact for MathJax to render client-side."
   (org-html-export-to-html))
 
 (require 'org)
-(org-add-link-type
+(org-link-set-parameters
  "tex-html"
- (lambda (path)
-   (browse-url (format "%s.html" path)))
- (lambda (path desc backend)
-   (let* ((json-array-type 'list)
-          (json-object-type 'plist)
-          (data (json-read-file "listing.json"))
-          (entry (cl-find-if (lambda (e) (string= (plist-get e :file) path))
-                             data))
-          (title (plist-get entry :title)))
-     (cond ((eq backend 'html)
-            (format "<a href=\"%s.html\">%s</a>" path title))))))
+ :follow (lambda (path)
+           (browse-url (format "%s.html" path)))
+ :export (lambda (path _desc backend)
+           (let* ((json-array-type 'list)
+                  (json-object-type 'plist)
+                  (data (json-read-file "listing.json"))
+                  (entry (cl-find-if
+                          (lambda (e) (string= (plist-get e :file) path))
+                          data))
+                  (title (plist-get entry :title)))
+             (cond ((eq backend 'html)
+                    (format "<a href=\"%s.html\">%s</a>" path title))))))
 
 
 (provide 'tex2html)

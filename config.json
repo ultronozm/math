@@ -16,8 +16,11 @@
   "boxed-environments": [
     "theorem",
     "lemma",
+    "proposition",
+    "definition",
     "exercise",
     "example",
+    "hypothesis",
     "corollary",
     "remark",
     "notation",
@@ -27,5 +30,13 @@
     "answer",
     "criterion",
     "summary"
-  ]
+  ],
+  "site": {
+    "title": "some math notes",
+    "author": "Paul D. Nelson",
+    "email": "ultrono@gmail.com",
+    "githubRepository": "ultronozm/math",
+    "sourceBranch": "main",
+    "commentsScript": "<script src=\"https://giscus.app/client.js\"\n        data-repo=\"Ultronozm/math\"\n        data-repo-id=\"R_kgDOJlhjqQ\"\n        data-category=\"Announcements\"\n        data-category-id=\"DIC_kwDOJlhjqc4CWo21\"\n        data-mapping=\"pathname\"\n        data-strict=\"0\"\n        data-reactions-enabled=\"1\"\n        data-emit-metadata=\"0\"\n        data-input-position=\"bottom\"\n        data-theme=\"preferred_color_scheme\"\n        data-lang=\"en\"\n        crossorigin=\"anonymous\"\n        async>\n</script>"
+  }
 }
