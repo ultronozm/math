@@ -75,7 +75,8 @@ jobs:
             # zero"). They only matter to the note's own recompile, which
             # latexmk -gg regenerates from scratch, so strip them here.
             for f in *.aux; do
-              [ -e "$f" ] && sed -i '/\\newlabel{tocindent/d' "$f"
+              [ -e "$f" ] || continue
+              sed -i '/\\newlabel{tocindent/d' "$f"
             done
             # Sanity check: carried-forward artifacts must actually be present.
             have=$(ls -1 *.pdf 2>/dev/null | wc -l)
@@ -160,8 +161,10 @@ jobs:
           # Freshly built notes re-emit them, hence per-file, not one-shot.
           strip_tocindent() {
             for a in *.aux; do
-              [ -e "$a" ] && sed -i '/\\newlabel{tocindent/d' "$a"
+              [ -e "$a" ] || continue
+              sed -i '/\\newlabel{tocindent/d' "$a"
             done
+            return 0
           }
           FAILED=""
           while read -r f; do
