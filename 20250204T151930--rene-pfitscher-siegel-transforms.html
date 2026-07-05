@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Siegel transforms and counting rational approximations on flag varieties</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+    <div class="my-links-container">
+2026-06-18 16:23:31
+      <a href="20250204T151930--rene-pfitscher-siegel-transforms.tex" class="my-link">tex</a>
+      <a href="20250204T151930--rene-pfitscher-siegel-transforms.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20250204T151930--rene-pfitscher-siegel-transforms.tex" class="my-link">history</a>
+
+      <a href="." class="my-link">home</a>
+    </div>
+<header id="title-block-header">
+<h1 class="title">Siegel transforms and counting rational approximations
+on flag varieties</h1>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>Talk by René Pfitscher (Paris 13).</p>
+</div>
+</header>
+<p>Dirichlet: infinitely many rational approximations with <span
+class="math display">\[\left| x - \frac{p}{q} \right| &lt;
+\frac{1}{q^2}.\]</span> Khintchine: let <span class="math inline">\(\psi
+: \mathbb{N} \rightarrow \mathbb{R}_+\)</span> be non-increasing. Then
+for almost all <span class="math inline">\(x \in \mathbb{R}\)</span>,
+the inequality <span class="math display">\[\left| x - \frac{p}{q}
+\right| &lt; \psi(q)\]</span> has infinitely (resp. finitely) many
+solutions according as the sum <span class="math inline">\(\sum_{q \geq
+1} \psi(q) q\)</span> is infinite (resp. finite).</p>
+<p>Schmidt, 1960: Set <span class="math display">\[N_\psi(x, T) := \#
+\left\{(p, q) \in \mathbb{Z} \times \mathbb{N} :(\ast) \text{ holds, } q
+&lt; T \right\}.\]</span> Then for almost all <span
+class="math inline">\(x \in \mathbb{R}\)</span>, we have <span
+class="math display">\[N_\psi(x, T) \sim 2 \sum_{q = 1}^T \psi(q) q
+\text{ as } T \rightarrow \infty.\]</span></p>
+<p>Now let’s say a bit about <em>flag varieties</em>. More generally,
+let <span class="math inline">\(G\)</span> be a semisimple <span
+class="math inline">\(\mathbb{Q}\)</span>-group, and <span
+class="math inline">\(P\)</span> a parabolic <span
+class="math inline">\(\mathbb{Q}\)</span>-subgroup. We set <span
+class="math inline">\(X := G / P\)</span>. We choose a maximal compact
+subgroup <span class="math inline">\(K\)</span>. We also need a height
+function <span class="math inline">\(H_\chi : X(\mathbb{Q}) \rightarrow
+\mathbb{R}_+\)</span>. We also need a <span
+class="math inline">\(K\)</span>-invariant Riemannian distance function
+<span class="math inline">\(d(\cdot, \cdot)\)</span>. We denote by <span
+class="math inline">\(\sigma\)</span> the corresponding <span
+class="math inline">\(K\)</span>-invariance Riemannian probability
+measure, given by the normalized volume form.</p>
+<p>For example, we can take <span class="math display">\[G =
+{\mathop{\mathrm{SL}}}_2(\mathbb{R}) &gt; P =
+  \begin{pmatrix}
+    \ast    &amp; \ast \\
+    0         &amp; \ast \\
+  \end{pmatrix}, \quad
+  K = \mathop{\mathrm{SO}}(2),\]</span> so that <span
+class="math inline">\(X = \mathbb{P}^1\)</span>, and <span
+class="math display">\[H : \mathbb{P}^1(\mathbb{Q}) \rightarrow
+\mathbb{R}_+\]</span> given as follows: given <span
+class="math inline">\(v \in \mathbb{P}^1(\mathbb{Q})\)</span>, we can
+represent it by a primitive lattice point <span
+class="math inline">\(\vec{v} \in \mathbb{Z}^2_{\mathrm{prim}}\)</span>,
+and we then define the height to be the norm of that vector: <span
+class="math display">\[H(v) := \lVert \vec{v} \rVert.\]</span></p>
+<p>We can picture this in terms of shortest integer vectors along
+rational lines.</p>
+<p>Set <span class="math display">\[N_\tau(x, T) = \# \left\{ v \in
+X(\mathbb{Q}) : d(x, v &lt; H_\chi(v)^{- \tau}), \, H_\chi(v) &lt; T
+\right\},\]</span> <span class="math display">\[\mathcal{E}(x, T) =
+\left\{ \vec{v} \in \mathbb{R}^2 - \{0\} : \lVert \vec{v} \rVert &lt; T,
+    \,
+    d(x,[\vec{v}]) &lt; \lVert \vec{v} \rVert^{- \tau}
+  \right\}.\]</span> In the example of interest, <span
+class="math display">\[N_\tau(x, T) = \#(\mathbb{Z}_{\mathrm{prim}}^2
+\cap \mathcal{E}(x, T))
+  =
+  \sum_{v \in \mathbb{Z}^2_{\mathrm{prim}}} 1_{\mathcal{E}(x,
+T)}(v).\]</span></p>
+<p>We form the dyadic region <span class="math display">\[\mathcal{F}(x,
+T) := \mathcal{E}(x, T) - \mathcal{E}(x, T/2).\]</span> We can apply a
+flow, such as <span class="math inline">\(a_y :=
+\mathop{\mathrm{diag}}(y^{-1}, y)\)</span>, to this region. We choose
+<span class="math inline">\(y_T\)</span> so that the flowed region,
+<span class="math inline">\(\mathcal{B}(T)\)</span>, is nice and round.
+Then <span class="math display">\[\begin{align}
+  \#(\mathbb{Z}^2_{\mathrm{prim}} \cap \mathcal{F}(x, T)) &amp;= \#
+\left( k_X \mathbb{Z}^2_{\mathrm{prim}} \cap \mathcal{F}(T) \right)
+  \\ &amp;=
+  \# \left( a_{y_T} k_X \mathbb{Z}^2_{\mathrm{prim}} \cap \mathcal{B}(T)
+\right) \\
+  &amp;\approx \mathop{\mathrm{vol}}(\mathcal{B}(T)).
+\end{align}\]</span> Here <span
+class="math inline">\(\mathcal{B}(T)\)</span> “looks like a square”,
+while <span class="math inline">\(k_X\)</span> is typically not “too
+distorted”.</p>
+<div class="lemma">
+<p><strong>Lemma 1</strong>. There exists <span
+class="math inline">\(\varepsilon&gt; 0\)</span> such that for all large
+<span class="math inline">\(T\)</span>, and all <span
+class="math inline">\(g \in G\)</span> such that <span
+class="math inline">\(\operatorname{height}(g) \ll
+T^\varepsilon\)</span>, where <span
+class="math display">\[\operatorname{height}(g) := \left( \min_{v \in
+\mathbb{Z}^2 - 0} \lVert g v \rVert \right)^{-1},\]</span> we have <span
+class="math display">\[\# \left( g \mathbb{Z}^2_{\mathrm{prim}} \cap
+\mathcal{B}(T) \right)
+    = \mathop{\mathrm{vol}}(\mathcal{B}(T)) \left( 1 +
+\operatorname{O}(T^{- \varepsilon}) \right).\]</span></p>
+</div>
+<div class="proof"><p>
+<a href="#" class="toggle-proof"><em data-default-text="Proof sketch." data-folded-text="Proof sketch. (...)">Proof sketch.</em></a>
+<span class="proof-content"> This is a counting argument due to (or at
+least inspired by) Eskin–McMullen.</p>
+<p>Let’s first notice that what we want to estimate is, as we have said
+before, the primitive Siegel transform <span
+class="math display">\[F_T(g) := \#(g \mathbb{Z}^2_{\mathrm{prim}} \cap
+\mathcal{B}(T)) = \sum_{v \in \mathbb{Z}^2_{\mathrm{prim}}}
+1_{\mathcal{B}(T)}(g v)
+    = \sum_{\gamma \in \Gamma / \Gamma_\infty} 1_{\mathcal{B}(T)}(g
+\gamma e_1).\]</span> Here <span class="math inline">\(\Gamma_\infty =
+\Gamma \cap U\)</span>, where <span class="math inline">\(U := \left(
+    \begin{smallmatrix}
+      1&amp;\ast\\
+      0       &amp;1 \\
+    \end{smallmatrix}
+  \right)\)</span>. Now we unfold: <span
+class="math display">\[\begin{align}
+    \langle F_T, \phi \rangle &amp;= \int_{G / \Gamma} F_T(g) \phi(g) \,
+d \mu(g) =
+    \int_{G / \Gamma} \sum_{\gamma \in \Gamma / \Gamma_\infty}
+1_{\mathcal{B}(T)}
+                 (g \gamma e_1) \phi(g) \, d \mu  \\
+               &amp;= \int_{G / U} \int_{U / \Gamma_\infty}
+                 1_{\mathcal{B}(T)}(g u e_1) \phi(g u)
+                 \, d u \, d m \\
+               &amp;=
+                 \int_{\mathbb{R}^2} 1_{\mathcal{B}(T)}(k a_y e_1)
+                 \int_{U / \Gamma_\infty}
+                 \phi(k a_y u) \, d u \, d m.
+  
+\end{align}\]</span> Now we use the equidistribution result of Sarnak
+(1981) to see that there exists <span class="math inline">\(\alpha &gt;
+0\)</span> so that for all <span class="math inline">\(f \in
+C_c^\infty(G / \Gamma)\)</span>, we have <span
+class="math display">\[\left| \int_{U / \Gamma_\infty} \phi(k a_y u) \,
+d u - \int_{G / \Gamma} \phi \, d \mu \right|
+    \ll y^{- \alpha} S(\phi).\]</span> This yields the required
+asymptotic. The well-roundedness allows us to go from an average
+counting result to an individual counting result. Main term: <span
+class="math inline">\(f = 1_{\mathcal{B}(T)}\)</span>, <span
+class="math display">\[\mathop{\mathrm{vol}}(\mathcal{B}(T)) =
+\int_{\mathbb{R}^2} f \, d m
+    = \int_{G / \Gamma} \hat{f} \, d \mu.\]</span> Variance: <span
+class="math display">\[\int_{G / \Gamma} \left| \hat{f} -
+\mathop{\mathrm{vol}}(\mathcal{B}(T)) \right|^2 \, d \mu
+    =
+    \int_{G / \Gamma} \left| \hat{f} \right|^2 \, d \mu
+    -
+    \mathop{\mathrm{vol}}(\mathcal{B}(T))^2.\]</span> The integral on
+the right hand side may be written <span class="math display">\[\langle
+\hat{f}, \hat{f} \rangle =
+    \int_{\mathbb{R}^2} 1_{\mathcal{B}(T)}(k a_y e_1)
+    \int_{U / \Gamma_\infty}
+    E(k a_y u, f) \, d u \, d m.\]</span> This last integral is a
+constant term of an Eisenstein series. It describes second moments of
+Siegel transforms. One obtains in this way a bound on the variance. One
+can also argue and get an asymptotic estimate. ◻</p>
+</span></div>
+<p>Okay, here’s our result:</p>
+<div class="theorem">
+<p><strong>Theorem 2</strong> (Pfitscher 2024). <em>Suppose that <span
+class="math inline">\(P\)</span> is a <em>maximal</em> parabolic
+subgroup of any semisimple algebraic <span
+class="math inline">\(\mathbb{Q}\)</span>-group <span
+class="math inline">\(G\)</span>. Let <span class="math inline">\(\tau
+\geq 0\)</span> be arbitrary. Write <span class="math inline">\(d :=
+\dim X\)</span>, let <span class="math inline">\(\beta_\chi\)</span>
+denote the Diophantine exponent, and define <span
+class="math display">\[\Psi(T) :=
+    \begin{cases}
+      T^{(\beta_\chi - \tau) d} &amp; \text{ if } \tau &lt; \beta_\chi,
+\\
+      \log T&amp; \text{ if } \tau = \beta_\chi.
+    \end{cases}\]</span> Then there exists <span class="math inline">\(c
+&gt; 0\)</span> and <span class="math inline">\(\varepsilon&gt;
+0\)</span> such that for almost every <span class="math inline">\(x \in
+X\)</span>, the counting function is given by <span
+class="math display">\[\mathcal{N}_\tau(x, T) = c \Psi(T) \left( 1 +
+\operatorname{O}_X(\Psi(T)^{- \varepsilon}) \right).\]</span></em></p>
+</div>
+<div class="remark">
+<p><strong>Remark 3</strong>. For <span
+class="math inline">\(\mathbb{R}^n\)</span>, you can prove that the
+second moment of the Siegel transform is given as follows: <span
+class="math display">\[\int_{G / \Gamma} \lvert \hat{f} \rvert^2 \, d
+\mu -
+    \left( \int_{\mathbb{R}^n} f \, d m \right)^2 = \int_{\mathbb{R}}
+(\lvert f \rvert^2 +
+    f \cdot f^-) \, d m \ll
+\mathop{\mathrm{vol}}(\mathcal{B}(T)),\]</span> where <span
+class="math display">\[f^-(v) = f(- v).\]</span> This estimate suffices
+to get the conclusion of the theorem (for an arbitrary decreasing <span
+class="math inline">\(\Psi\)</span>). Kelmer–Yu gave an analogue for the
+sphere. Our proof used dynamics.</p>
+</div>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
