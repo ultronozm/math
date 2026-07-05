@@ -67,7 +67,7 @@ EXCLUDE-LIST may contain either `foo.tex' or `foo'."
         (member stem exclude-list))))
 
 (defun tex2html-buildable-tex-files (&optional directory)
-  "Return tracked standalone TeX files in DIRECTORY."
+  "Return tracked standalone top-level TeX files in DIRECTORY."
   (let* ((default-directory (or directory default-directory))
          (exclude-list (tex2html-exclude-from-config default-directory))
          (files (split-string
@@ -75,11 +75,12 @@ EXCLUDE-LIST may contain either `foo.tex' or `foo'."
                  "\n" t)))
     (cl-remove-if
      (lambda (file)
-       (tex2html--excluded-file-p file exclude-list))
+       (or (string-match-p "/" file)
+           (tex2html--excluded-file-p file exclude-list)))
      files)))
 
 (defun tex2html-buildable-org-files (&optional directory)
-  "Return tracked standalone Org files in DIRECTORY.
+  "Return tracked standalone top-level Org files in DIRECTORY.
 `index.org' is reserved for the site index template."
   (let* ((default-directory (or directory default-directory))
          (exclude-list (tex2html-exclude-from-config default-directory))
@@ -88,7 +89,8 @@ EXCLUDE-LIST may contain either `foo.tex' or `foo'."
                  "\n" t)))
     (cl-remove-if
      (lambda (file)
-       (or (string= (file-name-nondirectory file) "index.org")
+       (or (string-match-p "/" file)
+           (string= (file-name-nondirectory file) "index.org")
            (tex2html--excluded-file-p file exclude-list)))
      files)))
 

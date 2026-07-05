@@ -54,6 +54,11 @@ env:
 
 jobs:
   build:
+    # This repository is the reusable parent, not a published notes site.
+    # Keep manual dispatch available for debugging, but do not run noisy
+    # push-triggered deploy jobs here. Child repositories run this job after
+    # merging the workflow because their repository name differs.
+    if: ${{ github.event_name != 'push' || github.repository != 'ultronozm/tex-site' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -80,8 +85,8 @@ jobs:
               sed -i '/\\newlabel{tocindent/d' "$f"
             done
             # Sanity check: carried-forward artifacts must actually be present.
-            have=$(ls -1 *.pdf 2>/dev/null | wc -l)
-            expect=$(git ls-tree -r "origin/$DEPLOY_BRANCH" --name-only | grep -c '\.pdf$')
+            have=$(find . -maxdepth 1 -type f -name '*.pdf' | wc -l)
+            expect=$(git ls-tree -r "origin/$DEPLOY_BRANCH" --name-only | grep -c '\.pdf$' || true)
             echo "carried forward $have pdfs ($DEPLOY_BRANCH has $expect)"
             if [ "$have" -lt "$expect" ]; then
               echo "::error::Carry-forward incomplete: $have pdfs present, $DEPLOY_BRANCH has $expect"
@@ -134,8 +139,8 @@ jobs:
               fi
             done
           }
-          ALL=$(git ls-files '*.tex' | filter_excludes || true)
-          ALL_ORG=$(git ls-files '*.org' | grep -vx 'index.org' | filter_excludes || true)
+          ALL=$(git ls-files '*.tex' | awk '!/\//' | filter_excludes || true)
+          ALL_ORG=$(git ls-files '*.org' | awk '!/\//' | grep -vx 'index.org' | filter_excludes || true)
           if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.ref_name }}" = "main" ]; then
             CHANGED=$(git diff --name-only --diff-filter=d "${{ github.event.before }}" "${{ github.event.after }}" -- '*.tex' '*.bib' || true)
             FILES=""
