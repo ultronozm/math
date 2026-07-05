@@ -94,6 +94,10 @@ jobs:
       - name: Install TeX Live (cached)
         uses: TeX-Live/setup-texlive-action@v4
         with:
+          # Current TeX Live cold setup was tested on 2026-07-05 and took
+          # about twenty minutes before compilation. Keep the known-fast
+          # cached toolchain unless a downstream site deliberately retests.
+          version: 2025
           packages: |
             scheme-basic
             collection-latex

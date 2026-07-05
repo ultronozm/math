@@ -35,3 +35,17 @@ For safe trials, dispatch the `build` workflow manually with
 `deploy_branch=deploy-test`, then dispatch `make-index` with the same
 `deploy_branch`.  This exercises the snapshot branch without changing the
 live Pages branch.
+
+## Deployment Notes
+
+- The default workflow pins TeX Live to 2025.  Unpinning to the current TeX
+  Live was tested on 2026-07-05 and the cold setup path took about twenty
+  minutes before compilation, so the known-fast cached toolchain remains the
+  default.
+- The workflow strips `tocindent` labels from carried `.aux` files before
+  compiling.  This avoids an `amsart`/`xr` interaction where imported
+  `tocindent` labels can break another document's sectioning commands.
+- Missing external aux files are warnings.  HTML conversion leaves visible
+  `??` markers when a number cannot be resolved, and CI reports the missing
+  aux file or dangling reference without breaking the deploy snapshot by
+  itself.
