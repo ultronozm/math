@@ -21,5 +21,12 @@ git fetch upstream
 git merge upstream/main
 ```
 
+## Deployment
+
 The live site is served from the generated `deploy` branch.  The branch is a
 snapshot artifact branch, not source history.
+
+For safe trials, dispatch the `build` workflow manually with
+`deploy_branch=deploy-test`, then dispatch `make-index` with the same
+`deploy_branch`.  This exercises the snapshot branch without changing the
+live Pages branch.

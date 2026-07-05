@@ -19,6 +19,10 @@ on:
         description: "Space-separated tex files to rebuild regardless of change detection"
         type: string
         default: ""
+      deploy_branch:
+        description: "Branch to force-push the generated snapshot to"
+        type: string
+        default: "deploy"
   push:
     branches: [main]
     paths:
@@ -38,12 +42,12 @@ permissions:
 
 # Serialize runs: concurrent builds would race on force-pushing deploy.
 concurrency:
-  group: build-deploy
+  group: build-deploy-${{ github.event_name == 'workflow_dispatch' && inputs.deploy_branch || 'deploy' }}
   cancel-in-progress: false
 
 env:
   # Branch the snapshot is pushed to.
-  DEPLOY_BRANCH: deploy
+  DEPLOY_BRANCH: ${{ github.event_name == 'workflow_dispatch' && inputs.deploy_branch || 'deploy' }}
   # Space-separated tex files to rebuild regardless of change detection.
   FORCE_REBUILD: ${{ inputs.force || '' }}
 

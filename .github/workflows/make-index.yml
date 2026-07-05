@@ -1,6 +1,11 @@
 name: make-index
 on:
   workflow_dispatch:
+    inputs:
+      deploy_branch:
+        description: "Branch containing the generated snapshot"
+        type: string
+        default: "deploy"
   workflow_run:
     workflows: ["build"]
     types:
@@ -8,7 +13,7 @@ on:
 permissions:
   contents: write
 env:
-  DEPLOY_BRANCH: deploy
+  DEPLOY_BRANCH: ${{ github.event_name == 'workflow_dispatch' && inputs.deploy_branch || 'deploy' }}
 jobs:          
   make-index:
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
