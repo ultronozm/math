@@ -58,12 +58,16 @@ $(document).ready(function() {
         })
         .then(data => {
             data.forEach(item => {
+                const source = item.source || `${item.file}.tex`;
+                const fileLinks = item.pdf
+                    ? `<a href="${source}">${item.type || 'tex'}</a> <a href="${item.pdf}">pdf</a>`
+                    : `<a href="${source}">${item.type || 'source'}</a>`;
                 table.row.add([
 		    `<a href="${item.file}.html">${item.title}</a>`,
                     item.abstract,
                     item.dateCreated,
                     item.dateModified,
-                    `<a href="${item.file}.tex">tex</a> <a href="${item.file}.pdf">pdf</a>`
+                    fileLinks
 		    ]);
             });
             table.draw();
@@ -102,4 +106,3 @@ $(document).ready(function() {
 ** Notes
 - [[tex-html:20230522T190340__pgl2-spectral-aspect-subconvexity_expository]]
 - [[tex-html:20230522T150333__microlocal-localized-vectors]]
-

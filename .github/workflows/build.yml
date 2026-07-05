@@ -16,7 +16,7 @@ on:
         type: boolean
         default: false
       force:
-        description: "Space-separated tex files to rebuild regardless of change detection"
+        description: "Space-separated source files to rebuild regardless of change detection"
         type: string
         default: ""
       deploy_branch:
@@ -28,6 +28,7 @@ on:
     paths:
       - '**/*.tex'
       - '**/*.bib'
+      - '**/*.org'
       - '**/*.css'
       - '**/*.el'
       - '.github/workflows/build.yml'
@@ -93,8 +94,6 @@ jobs:
       - name: Install TeX Live (cached)
         uses: TeX-Live/setup-texlive-action@v4
         with:
-          # Pin if you need bit-for-bit parity with an older local toolchain.
-          version: 2025
           packages: |
             scheme-basic
             collection-latex
@@ -120,7 +119,19 @@ jobs:
         id: plan
         run: |
           EXCLUDE=$(jq -r '.exclude[]' config.json)
-          ALL=$(git ls-files '*.tex' | grep -vFxf <(printf '%s\n' "$EXCLUDE") || true)
+          filter_excludes() {
+            while read -r f; do
+              [ -z "$f" ] && continue
+              base=$(basename "$f")
+              stem=${base%.*}
+              if ! printf '%s\n' "$EXCLUDE" | grep -qxF "$base" &&
+                 ! printf '%s\n' "$EXCLUDE" | grep -qxF "$stem"; then
+                echo "$f"
+              fi
+            done
+          }
+          ALL=$(git ls-files '*.tex' | filter_excludes || true)
+          ALL_ORG=$(git ls-files '*.org' | grep -vx 'index.org' | filter_excludes || true)
           if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.ref_name }}" = "main" ]; then
             CHANGED=$(git diff --name-only --diff-filter=d "${{ github.event.before }}" "${{ github.event.after }}" -- '*.tex' '*.bib' || true)
             FILES=""
@@ -137,16 +148,42 @@ jobs:
               FILES="$FILES $DEPS"
             done
             FILES=$(printf '%s\n' $FILES | sort -u)
+            CHANGED_ORG=$(git diff --name-only --diff-filter=d "${{ github.event.before }}" "${{ github.event.after }}" -- '*.org' || true)
+            ORG_FILES=""
+            for c in $CHANGED_ORG; do
+              if printf '%s\n' "$ALL_ORG" | grep -qFx "$c"; then
+                ORG_FILES="$ORG_FILES $c"
+              fi
+            done
+            ORG_FILES=$(printf '%s\n' $ORG_FILES | sort -u)
           elif [ "${{ inputs.rebuild_all }}" = "true" ]; then
             FILES="$ALL"
+            ORG_FILES="$ALL_ORG"
           else
             # Dispatch default: only build files whose pdf is missing.
             FILES=$(for f in $ALL; do [ -f "${f%.tex}.pdf" ] || echo "$f"; done)
+            ORG_FILES=$(for f in $ALL_ORG; do [ -f "${f%.org}.html" ] || echo "$f"; done)
           fi
-          FILES="$FILES ${FORCE_REBUILD:-}"
-          echo "Files to build:"
+          FORCE_TEX=""
+          FORCE_ORG=""
+          for f in ${FORCE_REBUILD:-}; do
+            case "$f" in
+              *.tex) FORCE_TEX="$FORCE_TEX $f" ;;
+              *.org) FORCE_ORG="$FORCE_ORG $f" ;;
+              *) if [ -f "$f.tex" ]; then FORCE_TEX="$FORCE_TEX $f.tex"; fi
+                 if [ -f "$f.org" ]; then FORCE_ORG="$FORCE_ORG $f.org"; fi ;;
+            esac
+          done
+          FILES="$FILES $FORCE_TEX"
+          ORG_FILES="$ORG_FILES $FORCE_ORG"
+          FILES=$(printf '%s\n' $FILES | sort -u)
+          ORG_FILES=$(printf '%s\n' $ORG_FILES | sort -u)
+          echo "TeX files to build:"
           echo "$FILES"
+          echo "Org files to build:"
+          echo "$ORG_FILES"
           printf '%s\n' $FILES > /tmp/files-to-build.txt
+          printf '%s\n' $ORG_FILES > /tmp/org-files-to-build.txt
 
       - name: Compile and convert
         run: |
@@ -198,6 +235,34 @@ jobs:
           done
           for f in $FAILED; do echo "$f"; done > /tmp/failed.txt
 
+      - name: Convert Org
+        run: |
+          FAILED_ORG=""
+          while read -r f; do
+            [ -z "$f" ] && continue
+            if emacs --batch -l ./tex2html.el --eval "(tex2html-convert-org-file \"$f\")" </dev/null; then
+              echo "OK: $f"
+            else
+              FAILED_ORG="$FAILED_ORG $f"
+              echo "FAILED: $f (restoring previous artifact if any)"
+              rm -f "${f%.org}.html"
+              git restore --overlay --source="origin/$DEPLOY_BRANCH" -- "${f%.org}.html" 2>/dev/null || true
+            fi
+          done < /tmp/org-files-to-build.txt
+          for f in $FAILED_ORG; do echo "$f"; done > /tmp/failed-org.txt
+
+      - name: Check TeX links
+        run: |
+          emacs --batch -l ./tex2html.el --eval '(tex2html-check-links "link-check-report.md")'
+          cat link-check-report.md >> "$GITHUB_STEP_SUMMARY"
+          if grep -q '^- ' link-check-report.md; then
+            while IFS= read -r line; do
+              case "$line" in
+                "- "*) echo "::warning::${line#- }" ;;
+              esac
+            done < link-check-report.md
+          fi
+
       - name: Push deploy snapshot
         run: |
           git config --local user.email "action@github.com"
@@ -210,9 +275,16 @@ jobs:
 
       - name: Report failures
         run: |
-          if [ -s /tmp/failed.txt ]; then
+          if [ -s /tmp/failed.txt ] || [ -s /tmp/failed-org.txt ]; then
             echo "## Failed compiles" >> "$GITHUB_STEP_SUMMARY"
-            sed 's/^/- /' /tmp/failed.txt >> "$GITHUB_STEP_SUMMARY"
-            echo "::error::Some files failed to compile: $(cat /tmp/failed.txt | tr '\n' ' ')"
+            if [ -s /tmp/failed.txt ]; then
+              echo "### TeX" >> "$GITHUB_STEP_SUMMARY"
+              sed 's/^/- /' /tmp/failed.txt >> "$GITHUB_STEP_SUMMARY"
+            fi
+            if [ -s /tmp/failed-org.txt ]; then
+              echo "### Org" >> "$GITHUB_STEP_SUMMARY"
+              sed 's/^/- /' /tmp/failed-org.txt >> "$GITHUB_STEP_SUMMARY"
+            fi
+            echo "::error::Some files failed to build: $(cat /tmp/failed.txt /tmp/failed-org.txt | tr '\n' ' ')"
             exit 1
           fi
