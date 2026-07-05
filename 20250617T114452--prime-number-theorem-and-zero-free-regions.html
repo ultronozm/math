@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Prime number theorem and zero-free regions</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+    <div class="my-links-container">
+2026-06-18 16:23:31
+      <a href="20250617T114452--prime-number-theorem-and-zero-free-regions.tex" class="my-link">tex</a>
+      <a href="20250617T114452--prime-number-theorem-and-zero-free-regions.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20250617T114452--prime-number-theorem-and-zero-free-regions.tex" class="my-link">history</a>
+      <a href="." class="my-link">home</a>
+    </div>
+<header id="title-block-header">
+<h1 class="title">Prime number theorem and zero-free regions</h1>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>Notes from a lecture on 13 Dec 2018 at ETH Zürich, where I
+substituted for Ian Petrow’s course on analytic number theory and
+presented a proof of the basic zero-free regions for the zeta
+function.</p>
+</div>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#sec:org55674c2" id="toc-sec:org55674c2">Overview</a></li>
+<li><a href="#sec:org9ae21da" id="toc-sec:org9ae21da">Proof of the
+qualitative zero-free region</a></li>
+<li><a href="#sec:org45a909a" id="toc-sec:org45a909a">Quantitative
+zero-free region</a></li>
+<li><a href="#sec:orgb1b6469" id="toc-sec:orgb1b6469">How to make the
+proof seem more mysterious</a></li>
+</ul>
+</nav>
+<h1 id="sec:org55674c2">§1. Overview</h1>
+<p>Last time, Ian explained how the quantitative zero-free region
+implies the quantitative prime numbers theorem: if <span
+class="math display">\[\zeta(\beta + i t) = 0 \implies 1 - \beta \gg
+\frac{1}{\log(2 + |t|)},\]</span> then <span
+class="math display">\[\sum_{n \leq x}
+  \Lambda(n) = x + \operatorname{O}(\exp(- c \sqrt{\log x}))
+  = x ( 1 + O(\log^{-A} x)).\]</span> Today we aim to prove the
+quantitative zero-free region, thereby establishing the quantitative
+prime number theorem.</p>
+<p>As warm-up, we prove a qualitative zero-free region: <span id="eqn:qual-zfr" class="math display">\[\label{eqn:qual-zfr}\tag{3}
+  \zeta(\beta + i t) \implies 1 - \beta &gt; 0, \text{ i.e., }
+  \beta = 1.\]</span> This implies a qualitative prime number theorem
+<span class="math display">\[\sum_{n \leq x} \Lambda(x) = x +
+o(x)\]</span> by the same argument as last time.</p>
+<h1 id="sec:org9ae21da">§2. Proof of the qualitative zero-free region</h1>
+<p>At the point <span class="math inline">\(s = 1\)</span>, the zeta
+function <span class="math inline">\(\zeta\)</span> has a simple pole,
+so its negative logarithmic derivative <span class="math inline">\(-
+\zeta &#39; / \zeta\)</span> has a simple pole with residue <span
+class="math inline">\(1\)</span>. Thus for <span
+class="math inline">\(\sigma &gt; 1\)</span>, <span id="eq:zeta-1" class="math display">\[\label{eq:zeta-1}\tag{5}
+  \sum_{n}
+  \frac{\Lambda(n)}{n^{\sigma} }
+  = - \frac{\zeta &#39;}{ \zeta } (\sigma)
+  = \frac{1}{\sigma - 1} + \operatorname{O}(1).\]</span> Note that the
+right hand side tends to <span class="math inline">\(\infty\)</span> as
+<span class="math inline">\(\sigma \rightarrow 1^+\)</span>.</p>
+<p>At <span class="math inline">\(s = 1 + it\)</span> with <span
+class="math inline">\(t \neq 0\)</span>, <span
+class="math inline">\(\zeta\)</span> is holomorphic. Let <span
+class="math inline">\(\ell \geq 0\)</span> denote its order of
+vanishing. Then <span class="math inline">\(- \zeta &#39; /
+\zeta\)</span> has a simple pole with residue <span
+class="math inline">\(- \ell\)</span>, and so <span id="eqn:zeta-1-it" class="math display">\[\label{eqn:zeta-1-it}\tag{6}
+  \sum_{n}
+  n^{-i t}
+  \frac{\Lambda(n)}{n^{\sigma} }
+  = - \frac{\zeta &#39;}{ \zeta } (\sigma + i t)
+  = \frac{-\ell }{\sigma - 1} + \operatorname{O}_t(1).\]</span>
+Comparing <a href="#eq:zeta-1" data-reference-type="eqref"
+data-reference="eq:zeta-1">\((5)\)</a> with <a href="#eqn:zeta-1-it"
+data-reference-type="eqref"
+data-reference="eqn:zeta-1-it">\((6)\)</a> and using that <span
+class="math inline">\(\Lambda(n) \geq 0\)</span> and <span
+class="math inline">\(|n^{i t}| \leq 1\)</span>, we see that <span
+class="math inline">\(\ell \leq 1\)</span>. We wish to show that <span
+class="math inline">\(\ell = 0\)</span>, so we suppose for the sake of
+contradiction that <span class="math inline">\(\ell = 1\)</span>.</p>
+<p>The informal idea is now that <a href="#eq:zeta-1"
+data-reference-type="eqref" data-reference="eq:zeta-1">\((5)\)</a>
+and <a href="#eqn:zeta-1-it" data-reference-type="eqref"
+data-reference="eqn:zeta-1-it">\((6)\)</a> say that when <span
+class="math inline">\(\Lambda(n) \neq 0\)</span>, we have <span
+class="math inline">\(n^{-i t} \approx -1\)</span>; but then <span
+class="math inline">\(n^{- 2 i t} \approx 1\)</span>, which contradicts
+the following consequence of <a href="#eqn:zeta-1-it"
+data-reference-type="eqref"
+data-reference="eqn:zeta-1-it">\((6)\)</a> (applied to <span
+class="math inline">\(2 t\)</span> instead of <span
+class="math inline">\(t\)</span>): <span id="eq:upper-zeta-1-2it" class="math display">\[\label{eq:upper-zeta-1-2it}\tag{7}
+  \sum_{n}
+  n^{-2 i t}
+  \frac{\Lambda(n)}{n^{\sigma} }
+  \leq \operatorname{O}_t(1).\]</span></p>
+<p>To implement this idea rigorously, we need to make precise the idea
+that <span class="math display">\[n^{-i t} \approx -1 \implies n^{-2 i
+t} \approx 1.\]</span> Let’s start simple, with what is essentially the
+continuity of <span class="math inline">\(z \mapsto z^2\)</span> at
+<span class="math inline">\(z = -1\)</span>:</p>
+<div class="center">
+<p>For each <span class="math inline">\(\varepsilon&gt; 0\)</span> there
+exists <span class="math inline">\(\delta &gt; 0\)</span> so that <span
+class="math inline">\(\Re(n^{-it}) &lt; -1 + \delta \implies \Re(n^{-2 i
+t}) &gt; 1 - \varepsilon\)</span>.</p>
+</div>
+<p>Taking real parts in <a href="#eq:zeta-1" data-reference-type="eqref"
+data-reference="eq:zeta-1">\((5)\)</a> and <a href="#eqn:zeta-1-it"
+data-reference-type="eqref"
+data-reference="eqn:zeta-1-it">\((6)\)</a> gives <span
+class="math display">\[\sum_{n : \Re(n^{-2 i t}) \leq 1 - \varepsilon}
+\frac{\Lambda(n)}{n^\sigma } \leq \sum_{n : \Re(n^{-i t}) + 1 \geq
+\delta } \frac{\Lambda(n)}{n^\sigma } \leq \frac{1}{\delta } \sum_n
+(\Re( n^{-i t}) + 1) \frac{\Lambda(n)}{n^\sigma } =
+\operatorname{O}_t(\frac{1}{\delta }),\]</span> thus <span id="eq:" class="math display">\[\begin{align}
+\label{eq:}\tag{24}
+  \sum_{n}
+  (1 - \Re(n^{-2 i t}))
+  \frac{\Lambda(n)}{n^\sigma }
+  &amp;=
+                                                                                                            \sum_{n
+: 1 - \Re(n^{-2 it}) \geq \varepsilon}
+                                                                                                            \dotsb
+                                                                                                            +
+                                                                                                            \sum_{n
+: 1 - \Re(n^{-2 it}) &lt; \varepsilon}
+                                                                                                            \dotsb
+  \\
+                                                                                                         &amp;\leq
+                                                                                                            C_t
+(\frac{1}{\delta } + \frac{\varepsilon}{\sigma - 1}),
+\end{align}\]</span> say. Choose <span
+class="math inline">\(\varepsilon= 1 / 10 C_t\)</span>, and take <span
+class="math inline">\(\sigma\)</span> close enough to <span
+class="math inline">\(1\)</span> that <span class="math inline">\(\sigma
+- 1 \leq \delta/10 C_t\)</span>. Then the above estimate reads <span id="eq:" class="math display">\[\label{eq:}\tag{24}
+  \sum_{n}
+  (1 - \Re(n^{-2 i t}))
+  \frac{\Lambda(n)}{n^\sigma }
+  \leq
+  \frac{2/10}{\sigma - 1}.\]</span> Using <a href="#eq:zeta-1"
+data-reference-type="eqref" data-reference="eq:zeta-1">\((5)\)</a>,
+it follows that <span class="math display">\[\sum_{n}
+  \Re(n^{-2 i t})
+  \frac{\Lambda(n)}{n^\sigma }
+  \geq
+  \frac{8/10}{\sigma - 1} + \operatorname{O}(1).\]</span> But this
+contradicts <a href="#eq:upper-zeta-1-2it" data-reference-type="eqref"
+data-reference="eq:upper-zeta-1-2it">\((7)\)</a> upon
+taking <span class="math inline">\(\sigma \rightarrow 1^+\)</span>.</p>
+<p>This completes the proof of the qualitative zero-free region, hence
+of the qualitative prime number theorem.</p>
+<h1 id="sec:org45a909a">§3. Quantitative zero-free region</h1>
+<p>We need to clean up the above argument and make explicit how
+everything depends upon <span class="math inline">\(t\)</span>. First,
+we recall the following estimate from last time, a consequence of
+factorization theory for holomorphic functions: for <span
+class="math inline">\(s = \sigma + i t\)</span> with <span
+class="math inline">\(|\sigma| \leq 10\)</span>, <span
+class="math display">\[\zeta(s)
+  =
+  \frac{\prod_{\rho : |s - \rho| &lt; 1} (s - \rho)}{s - 1}
+  \exp(\operatorname{O}(\mathcal{L})),
+  \quad
+  \mathcal{L} := \log(2 + |t|),\]</span> or equivalently, <span
+class="math display">\[- \frac{\zeta &#39; }{\zeta }(s)
+  =
+  \frac{1}{s - 1}
+  -\sum_{\rho : |s - \rho| &lt; 1}
+  \frac{1}{s - \rho}
+  + \operatorname{O}(\mathcal{L}).\]</span> Note that for <span
+class="math inline">\(|s-1| \gg 1/\mathcal{L}\)</span> (e.g., for <span
+class="math inline">\(|t| \gg 1/\mathcal{L}\)</span>), we can absorb the
+first term <span class="math inline">\(\frac{1}{s - 1}\)</span> into the
+error term.</p>
+<p>Suppose henceforth that <span class="math inline">\(\sigma &gt;
+1\)</span>. Since each <span class="math inline">\(\rho\)</span> has
+real part at most <span class="math inline">\(1\)</span>, it follows
+that each fraction <span class="math inline">\(\frac{1}{s - \rho
+}\)</span> has positive real part when <span class="math inline">\(s =
+\sigma + i t\)</span>. Thus for <span class="math inline">\(|t| \gg
+1/\mathcal{L}\)</span>, <span id="eq:log-der-up" class="math display">\[\label{eq:log-der-up}\tag{17}
+  - \Re \frac{\zeta &#39; }{\zeta }(\sigma + i t)
+  \leq
+  \operatorname{O}(\mathcal{L}).\]</span></p>
+<p>Suppose now that <span class="math inline">\(\zeta(\beta + i t) =
+0\)</span>. We aim to show that <span class="math inline">\(1 - \beta
+\gg \frac{1}{ \mathcal{L} }\)</span>, with the abbreviation <span
+class="math inline">\(\mathcal{L}\)</span> as above. Since <span
+class="math inline">\(\zeta\)</span> has a pole at <span
+class="math inline">\(s = 1\)</span>, we know that it has no zeros in
+that region. So we may suppose that <span class="math inline">\(|t| \gg
+1\)</span>. We improve upon <a href="#eq:log-der-up"
+data-reference-type="eqref"
+data-reference="eq:log-der-up">\((17)\)</a> by taking into
+account the contribution from <span class="math inline">\(\rho = \beta +
+i t\)</span>: <span id="eq:log-der-up" class="math display">\[\label{eq:log-der-up}\tag{17}
+  \sum_n
+  \Re(n^{-it})
+  \frac{\Lambda(n)}{n^\sigma }
+  =
+  - \Re \frac{\zeta &#39; }{\zeta }(\sigma + i t)
+  \leq
+  -\frac{1}{\sigma - \beta }
+  +
+  \operatorname{O}(\mathcal{L}).\]</span> As before, we use <a
+href="#eq:zeta-1" data-reference-type="eqref"
+data-reference="eq:zeta-1">\((5)\)</a> to write this as <span id="eq:log-der-up-2" class="math display">\[\label{eq:log-der-up-2}\tag{18}
+  \sum_n
+  (1 + \Re(n^{-it}))
+  \frac{\Lambda(n)}{n^\sigma }
+  \leq
+  \frac{1}{\sigma - 1}
+  -
+  \frac{1}{\sigma - \beta }
+  +
+  \operatorname{O}(\mathcal{L}).\]</span> We note also by <a
+href="#eq:zeta-1" data-reference-type="eqref"
+data-reference="eq:zeta-1">\((5)\)</a> and <a href="#eq:log-der-up"
+data-reference-type="eqref"
+data-reference="eq:log-der-up">\((17)\)</a> (applied to <span
+class="math inline">\(2 t\)</span>) that <span id="eq:quant-est-n-2-it" class="math display">\[\label{eq:quant-est-n-2-it}\tag{19}
+  \sum_n
+  (1 - \Re(n^{-2 it}))
+  \frac{\Lambda(n)}{n^\sigma }
+  \geq
+  \frac{1}{\sigma - 1}
+  +
+  \operatorname{O}(\mathcal{L}).\]</span></p>
+<p>We aim now to implement more quantitatively the idea that <span
+class="math inline">\(n^{-i t} \approx -1 \implies n^{- 2 i t} \approx
+1\)</span>. To that end, let’s write <span class="math inline">\(n^{-i
+t} = e^{i \theta}\)</span>, so that <span
+class="math inline">\(\Re(n^{-it}) + 1 = \cos(\theta) + 1\)</span> and
+<span class="math inline">\(1 - \Re(n^{-2 i t}) = 1 - \cos(2
+\theta)\)</span>. These quantitaties are related by the formula <span
+class="math inline">\(\cos(2 \theta) = 2 \cos^2(\theta) - 1\)</span>,
+from which we deduce that <span id="eq:" class="math display">\[\label{eq:}\tag{24}
+  1 - \cos(2 \theta)
+  =
+  2 (1 - \cos^2(\theta))
+  =
+  2 (1 - \cos(\theta))
+  (1 + \cos(\theta))
+  \leq
+  4 (1 + \cos(\theta)),\]</span> or equivalently, <span id="eq:" class="math display">\[\label{eq:}\tag{24}
+  1 - \Re(n^{-2 it}) \leq 4 (1 + \Re(n^{- it})).\]</span> Inserting this
+into <a href="#eq:log-der-up-2" data-reference-type="eqref"
+data-reference="eq:log-der-up-2">\((18)\)</a> and <a
+href="#eq:quant-est-n-2-it" data-reference-type="eqref"
+data-reference="eq:quant-est-n-2-it">\((19)\)</a> gives
+<span id="eq:" class="math display">\[\label{eq:}\tag{24}
+  \frac{1}{\sigma - 1}
+  \leq
+  4
+  \left(
+    \frac{1}{\sigma - 1}
+    -
+    \frac{1}{\sigma - \beta }
+  \right)
+  +
+  \operatorname{O}(\mathcal{L}),\]</span> which may be rearranged as
+<span id="eq:" class="math display">\[\label{eq:}\tag{24}
+  \frac{4}{\sigma - \beta }
+  -
+  \frac{3}{\sigma - 1}
+  \leq
+  \operatorname{O}(\mathcal{L}).\]</span> We choose <span
+class="math inline">\(\sigma\)</span> so that <span
+class="math inline">\(\sigma - 1 = (1 - \beta)/\varepsilon\)</span> for
+some small enough <span class="math inline">\(\varepsilon&gt;
+0\)</span>; note that if <span class="math inline">\(\beta\)</span> is
+close enough to <span class="math inline">\(1\)</span>, then <span
+class="math inline">\(\sigma &lt; 10\)</span>. Then <span
+class="math inline">\(\sigma - \beta = (1 + 1/\varepsilon) (1 -
+\beta)\)</span>, so the above estimate reads <span id="eq:" class="math display">\[\label{eq:}\tag{24}
+  \frac{1}{1 - \beta }
+  \left(
+    \frac{4}{1 + 1/\varepsilon}
+    -
+    3 \varepsilon
+  \right)
+  \leq
+  \operatorname{O}(\mathcal{L}).\]</span> Taking <span
+class="math inline">\(\varepsilon= 1/4\)</span> (say) leads to the
+required estimate <span class="math inline">\(1 - \beta \gg 1/
+\mathcal{L}\)</span>.</p>
+<h1 id="sec:orgb1b6469">§4. How to make the proof seem more mysterious</h1>
+<p>We can rewrite the key trigonometric inequality as <span
+class="math inline">\(1 - \cos(2 \theta) \leq 4 (1 +
+\cos(\theta))\)</span> as <span class="math inline">\(3 + 4 \cos(\theta)
++ \cos(2 \theta) \geq 0\)</span>, i.e., <span class="math display">\[3 +
+4 \Re(n^{-i t}) + \Re(n^{-2 it}) \geq 0,\]</span> hence <span
+class="math display">\[- \frac{\zeta &#39;}{ \zeta }(\sigma) + 4
+\frac{\zeta &#39;}{ \zeta }(\sigma+it) + \frac{\zeta &#39;}{ \zeta
+}(\sigma+2 it)\]</span> has nonnegative real part for any <span
+class="math inline">\(\sigma &gt; 1\)</span>, and then integrating gives
+<span class="math display">\[|\zeta(\sigma)|^3 |\zeta(\sigma + it)|^4
+|\zeta(\sigma + 2 it)| \geq 1.\]</span> So we can interpret the above
+proof in terms of orders of poles, etc.</p>
+<script>
+document.querySelectorAll(".toggle-proof").forEach(function(toggle) {
+  toggle.addEventListener("click", function(e) {
+    e.preventDefault();
+    const content = this.nextElementSibling;
+    const em = this.querySelector('em');
+    if (window.getComputedStyle(content).display === "none") {
+      content.style.display = "inline";
+      em.textContent = em.dataset.defaultText;
+    } else {
+      content.style.display = "none";
+      em.textContent = em.dataset.foldedText;
+    }
+  });
+});
+</script>
+<script>
+document.querySelector("#toggle-all-proofs").addEventListener("click", function(e) {
+  e.preventDefault();
+  const proofs = document.querySelectorAll(".proof-content");
+  proofs.forEach(function(proof) {
+    const proofToggle = proof.previousElementSibling;
+    if (window.getComputedStyle(proof).display === "none") {
+      proof.style.display = "inline";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
+    } else {
+      proof.style.display = "none";
+      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
+    }
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
