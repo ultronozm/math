@@ -25,7 +25,7 @@ git merge upstream/main
 
 A note with `\begin{sketch}` can also be built as a reader, a page where
 sketches stand beside the arguments they summarize and fold them.  Set
-`SKETCHES_PYTHON` to the python of an environment with `plastex_sketches`
+`SKETCHES_PYTHON` to the python of an environment with `sketches_html`
 installed (see the sketches repository) and run `convert.sh note.tex` after
 compiling the note; the reader is written to `note-reader/`.  Without the
 variable `convert.sh` does nothing extra, and CI does not build readers.

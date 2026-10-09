@@ -22,7 +22,7 @@ fi
 emacs --batch "$converted_file" -l ./tex2html.el --eval "(progn (tex2html-add-style-to-html-head) (tex2html-postprocess-html-buffer) (tex2html-add-comment-script) (tex2html-add-tex-pdf-links))" -f save-buffer
 
 # Optional: a notes with sketches also gets a reader, in FILE-reader/.  Set SKETCHES_PYTHON to
-# the python of an environment with plastex_sketches installed (https://github.com/ultronozm/sketches).
+# the python of an environment with sketches_html installed (https://github.com/ultronozm/sketches).
 if [ -n "$SKETCHES_PYTHON" ] && grep -q '\\begin{sketch' "$file"; then
-    "$SKETCHES_PYTHON" -m plastex_sketches --engine pandoc --aux "${file%.tex}.aux" --output "${file%.tex}-reader" "$file"
+    "$SKETCHES_PYTHON" -m sketches_html --engine pandoc --aux "${file%.tex}.aux" --output "${file%.tex}-reader" "$file"
 fi
