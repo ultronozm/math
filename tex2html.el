@@ -162,35 +162,114 @@ are included and later treated as empty label tables."
 
 (defvar tex2html-scripts)
 
+(defconst tex2html-proof-style
+  "<style>
+.proof .toggle-proof { cursor: pointer; }
+.proof.folded > :not(:first-child),
+.proof.folded > p:first-child > .proof-rest { display: none; }
+.proof.folded .toggle-proof::after { content: \" (...)\"; }
+</style>"
+  "Style that folds the proofs, added by
+`tex2html-postprocess-make-proof-links-toggleable'.")
+
 (defun tex2html-postprocess-make-proof-links-toggleable ()
-  "Make proof links toggleable."
+  "Make each proof fold when its caption is clicked.
+The caption (\"Proof.\", \"Proof of (3).\") becomes a button and the
+rest of the first paragraph goes into a span; the style hides that
+span and the proof's other blocks when the proof has the class
+`folded'.  Everything stays valid HTML, however long the proof is and
+whatever its caption holds."
   (interactive)
   (goto-char (point-min))
+  (when (re-search-forward "</head>" nil t)
+    (replace-match (concat tex2html-proof-style "\n</head>") t t))
+  (goto-char (point-min))
   (when (re-search-forward "</body>" nil t)
-    (replace-match (concat tex2html-scripts "\n</body>")))
+    (replace-match (concat tex2html-scripts "\n</body>") t t))
   (goto-char (point-min))
   (while (re-search-forward
-          "<div class=\"proof\">[\n\r[:blank:]]*<p>\\(<em>\\(.*?\\)</em>\\)"
+          "<div class=\"proof\">[[:space:]]*<p><em>\\(\\(?:.\\|\n\\)*?\\)</em>"
           nil t)
-    (save-match-data
-      (search-backward "<div" nil t)
-      (sgml-skip-tag-forward 1)
-      (replace-match "</span></div>"))
-    (let* ((proof-text (match-string 2))
-           (folded-text (concat proof-text " (...)"))
-           (replacement
-            (format
-             (concat
-              "<div class=\"proof\"><p>\n"
-              "<a href=\"#\" class=\"toggle-proof\">"
-              "<em data-default-text=\"%s\" data-folded-text=\"%s\">"
-              "%s</em></a>\n"
-              "<span class=\"proof-content\">")
-             proof-text folded-text proof-text)))
-      (replace-match replacement))
-    ;; (re-search-forward "</p>\n</div>")
-    ;; (replace-match "</span>\n</div>")
-    ))
+    (let ((caption (match-string 1)))
+      (replace-match
+       (concat "<div class=\"proof\">\n<p><em class=\"toggle-proof\""
+               " role=\"button\" tabindex=\"0\" aria-expanded=\"true\">"
+               caption "</em><span class=\"proof-rest\">")
+       t t)
+      (when (search-forward "</p>" nil t)
+        (replace-match "</span></p>" t t)))))
+
+(defconst tex2html--display-regexp
+  "<span\\(?:[[:space:]]+id=\"[^\"]*\"\\)?[[:space:]]+class=\"math display\">"
+  "Opening tag of a display equation in pandoc's HTML.")
+
+(defun tex2html--in-tex-comment-p (limit pos)
+  "Return non-nil when POS is in a TeX comment, looking back no further than LIMIT."
+  (let* ((start (max limit (save-excursion
+                             (goto-char pos)
+                             (line-beginning-position))))
+         (text (buffer-substring-no-properties start pos)))
+    (< (length (tex2html--strip-tex-comment text)) (length text))))
+
+(defun tex2html--label-displays (label-number-hash)
+  "Number and anchor the labeled display equations of the current buffer.
+LABEL-NUMBER-HASH maps labels to the numbers that LaTeX gave them.  Each
+\\label in a display is followed by a \\tag with its number (one per row,
+so that MathJax never sees two).  The first label of a display becomes
+the id of its span; further labels become empty anchors just before it.
+Labels in TeX comments are left alone."
+  (goto-char (point-min))
+  (while (re-search-forward tex2html--display-regexp nil t)
+    (let* ((span-beg (match-beginning 0))
+           (body-beg (match-end 0))
+           (body-end (copy-marker
+                      (or (save-excursion
+                            (and (search-forward "</span>" nil t)
+                                 (match-beginning 0)))
+                          (point-max))))
+           (tagged (save-excursion
+                     (goto-char body-beg)
+                     (re-search-forward "\\\\tag\\*?{" body-end t)))
+           last-tag labels)
+      (goto-char body-beg)
+      (while (re-search-forward "\\\\label{\\([^}]+\\)}" body-end t)
+        (let ((label (match-string 1))
+              (label-beg (match-beginning 0)))
+          (unless (tex2html--in-tex-comment-p body-beg label-beg)
+            (push label labels)
+            (unless (or tagged
+                        (and last-tag
+                             (not (save-excursion
+                                    (goto-char last-tag)
+                                    (re-search-forward "\\\\\\\\" label-beg t)))))
+              (insert (format "\\tag{%s}"
+                              (or (gethash label label-number-hash) "??")))
+              (setq last-tag (point))))))
+      (setq labels (nreverse labels))
+      (when labels
+        (goto-char span-beg)
+        (when (looking-at "<span\\([[:space:]]+\\)class=")
+          (replace-match (format "<span id=\"%s\" class=" (car labels)) t t))
+        (goto-char span-beg)
+        (dolist (label (cdr labels))
+          (insert (format "<span id=\"%s\"></span>" label))))
+      (goto-char body-end)
+      (set-marker body-end nil))))
+
+(defun tex2html--number-statements (label-number-hash)
+  "Give each labeled statement the number that LaTeX gave it.
+Pandoc numbers theorems on its own, flatly: it ignores \\numberwithin and
+the optional argument of \\newtheorem, so its headings can disagree with
+the references, which come from the aux file.  A statement without a
+label keeps pandoc's number."
+  (goto-char (point-min))
+  (while (re-search-forward
+          "<div id=\"\\([^\"]+\\)\" class=\"[^\"]+\">[[:space:]]*<p><strong>[^<0-9]*\\([0-9][0-9.]*\\)</strong>"
+          nil t)
+    (let ((number (gethash (match-string 1) label-number-hash)))
+      (when (and number
+                 (string-match-p "\\`[[:alnum:]]+\\(?:\\.[[:alnum:]]+\\)*\\'" number))
+        (replace-match number t t nil 2)))))
 
 (defun tex2html-postprocess-html-buffer (&optional auxfile external-auxfiles)
   "Update an HTML buffer with MathJax created using pandoc from a LaTeX
@@ -226,16 +305,7 @@ file."
     (save-excursion
       (goto-char (point-min))
       ;; Step 1: Handle \label{eqn:blah}
-      (while (search-forward-regexp "\\\\label{\\([^}]+\\)}" nil t)
-        (let* ((label (match-string 1))
-               (tag-number (or (gethash label label-number-hash) "??")))
-          (replace-match (concat "\\\\label{" label "}\\\\tag{" tag-number "}"))
-          (save-excursion
-            (if (search-backward-regexp "<span[[:space:]]+class=\"math display\"" nil t)
-                (progn
-                  (replace-match (concat "<span id=\"" label "\" class=\"math display\""))
-                  t)
-              (message "Warning: something went wrong"))))))
+      (tex2html--label-displays label-number-hash))
     ;; Step 2: Handle links with data-reference-type="ref" or "eqref"
     (goto-char (point-min))
     ;; (while (search-forward "<a" nil t)
@@ -326,7 +396,8 @@ file."
     ;; Step 5: bibliography links
     (goto-char (point-min))
     (while (search-forward-regexp "<\\(span\\)[[:space:]]+class=\"citation\"[[:space:]]+data-cites=\"\\([^\"]+\\)\">([^<]*)</\\(span\\)>" nil t)
-      (let ((label (match-string 2)))
+      ;; data-cites holds all the keys of \cite{a,b}, separated by spaces
+      (let ((label (save-match-data (car (split-string (match-string 2))))))
         (replace-match "a" t t nil 3)
         (replace-match (format "a href=\"#ref-%s\"" label) t t nil 1)))
 
@@ -353,29 +424,11 @@ file."
     ;; Step 8: make proof environments toggleable
     (tex2html-postprocess-make-proof-links-toggleable)
 
-    ;; Step 9: fix theorem numbering.
-    ;; Disabling for now due to a bug in pandoc: https://github.com/jgm/pandoc/issues/8872
-    ;; (goto-char (point-min))
-    ;; (while (search-forward "<div" nil t)
-    ;;   (let* ((opening-end (save-excursion
-    ;;           (goto-char (match-beginning 0))
-    ;;           (forward-sexp 1) (point)))
-    ;;        (id (save-excursion
-    ;;        (when (re-search-forward "id=\"\\([^\"]+\\)\"" opening-end t)
-    ;;          (match-string 1))))
-    ;;        (class (save-excursion
-    ;;           (when (re-search-forward "class=\"\\([^\"]+\\)\"" opening-end t)
-    ;;       (match-string 1))))
-    ;;        (closing (save-excursion (search-forward "</div>" nil t) (point))))
-    ;;   (when (member class tex2html-theorem-names)
-    ;;     (let ((number
-    ;;      (when id
-    ;;        (concat " "
-    ;;          (gethash id label-number-hash)))))
-    ;;       (when (re-search-forward "<strong>\\([A-Za-z]+\\)\\( [0-9]+\\)</strong>"
-    ;;              closing t)
-    ;;         (replace-match (or number "") t t nil 2))))))
-    ))
+    ;; Step 9: fix theorem numbering (pandoc's counters are flat).  This
+    ;; was once disabled because of https://github.com/jgm/pandoc/issues/8872,
+    ;; which was closed in November 2023.
+    (goto-char (point-min))
+    (tex2html--number-statements label-number-hash)))
 
 (defcustom giscus-comment-script
   ""
@@ -387,39 +440,32 @@ Leave empty to disable comments."
 
 (defcustom tex2html-scripts
   "<script>
-document.querySelectorAll(\".toggle-proof\").forEach(function(toggle) {
-  toggle.addEventListener(\"click\", function(e) {
+document.querySelectorAll(\".proof > p:first-child > .toggle-proof\").forEach(function(caption) {
+  function flip(e) {
+    if (e.target.closest(\"a\")) return;  // a link in the caption is only a link
+    if (e.type === \"keydown\" && e.key !== \"Enter\" && e.key !== \" \") return;
     e.preventDefault();
-    const content = this.nextElementSibling;
-    const em = this.querySelector('em');
-    if (window.getComputedStyle(content).display === \"none\") {
-      content.style.display = \"inline\";
-      em.textContent = em.dataset.defaultText;
-    } else {
-      content.style.display = \"none\";
-      em.textContent = em.dataset.foldedText;
-    }
-  });
+    const folded = caption.closest(\".proof\").classList.toggle(\"folded\");
+    caption.setAttribute(\"aria-expanded\", String(!folded));
+  }
+  caption.addEventListener(\"click\", flip);
+  caption.addEventListener(\"keydown\", flip);
 });
 </script>
 <script>
-document.querySelector(\"#toggle-all-proofs\").addEventListener(\"click\", function(e) {
+const toggleAll = document.querySelector(\"#toggle-all-proofs\");
+if (toggleAll) toggleAll.addEventListener(\"click\", function(e) {
   e.preventDefault();
-  const proofs = document.querySelectorAll(\".proof-content\");
-  proofs.forEach(function(proof) {
-    const proofToggle = proof.previousElementSibling;
-    if (window.getComputedStyle(proof).display === \"none\") {
-      proof.style.display = \"inline\";
-      proofToggle.innerHTML = `<em>${proofToggle.dataset.defaultText}</em>`;
-    } else {
-      proof.style.display = \"none\";
-      proofToggle.innerHTML = `<em>${proofToggle.dataset.foldedText}</em>`;
-    }
+  const captions = document.querySelectorAll(\".proof > p:first-child > .toggle-proof\");
+  const fold = [...captions].some(function(c) { return !c.closest(\".proof\").classList.contains(\"folded\"); });
+  captions.forEach(function(c) {
+    c.closest(\".proof\").classList.toggle(\"folded\", fold);
+    c.setAttribute(\"aria-expanded\", String(!fold));
   });
 });
 </script>
 "
-  "Scripts to add to HTML files."
+  "Scripts to add to HTML files: they fold the proofs."
   :type 'string
   :group 'tex2html)
 
@@ -593,7 +639,9 @@ The output directory and output filename can be optionally specified."
            (pandoc-status
             (call-process "pandoc" nil "*pandoc output*" t
                           "--standalone" filename "-o"
-                          output-file "--mathjax" "--citeproc" "--toc")))
+                          output-file "--mathjax" "--citeproc" "--toc"
+                          ;; wrapping would split TeX comments inside math
+                          "--wrap=none")))
       ;; call pandoc
       (unless (equal 0 pandoc-status)
         (error (format "pandoc failed with exit status %d" pandoc-status)))
