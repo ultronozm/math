@@ -21,6 +21,15 @@ git fetch upstream
 git merge upstream/main
 ```
 
+## Readers
+
+A note with `\begin{sketch}` can also be built as a reader, a page where
+sketches stand beside the arguments they summarize and fold them.  Set
+`SKETCHES_PYTHON` to the python of an environment with `plastex_sketches`
+installed (see the sketches repository) and run `convert.sh note.tex` after
+compiling the note; the reader is written to `note-reader/`.  Without the
+variable `convert.sh` does nothing extra, and CI does not build readers.
+
 ## Deployment
 
 The live site is served from the generated `deploy` branch.  The branch is a
