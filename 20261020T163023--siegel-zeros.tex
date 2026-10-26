@@ -1,0 +1,1228 @@
+\documentclass[reqno]{amsart} \input{common.tex}
+
+\begin{document}
+
+\title{Some notes on recent results on Landau--Siegel zeros}
+
+\maketitle
+
+\setcounter{tocdepth}{1} \tableofcontents
+
+\section{Introduction}
+
+A recent paper of OpenAI \cite{OAI:Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026} established the following result, known as the \emph{exclusion of Landau--Siegel zeros}:
+\begin{theorem}\label{theorem:no-siegel-zeros}
+  There is an effective absolute constant $c>0$ such that, for every primitive real Dirichlet character $\chi$ of conductor $q$, we have
+  \begin{equation*}
+    L(s,\chi)\neq0
+    \qquad\text{for real }s>1-\frac c{\log(2q)}.
+  \end{equation*}
+\end{theorem}
+Theorem \ref{theorem:no-siegel-zeros} has significant consequences in analytic number theory, including for the distribution of primes in arithmetic progressions and the sizes of class groups of quadratic fields.  The book by Davenport \cite{Dav80} is a standard reference for that context.  The result was immediately superseded by another result of OpenAI \cite{OpenAI2026QuasiRHSeptember30} showing that $L(s, \chi) \neq 0$ for $\Re s > 7/8$ for any Dirichlet character $\chi$, but the method of proof of Theorem \ref{theorem:no-siegel-zeros} is of independent interest.
+
+The proof uses the following standard criterion, relating zeros to prime sums:
+\begin{lemma}\label{lemma:prime-saving-zeros}
+  Suppose there are effective constants $0 < \kappa < 1$ and $B \geq 0$ such that for every $x \geq 2$ and every primitive real Dirichlet character $\chi$ of conductor $q$, we have
+  \begin{equation}\label{eq:cus7zyehfg}
+    \sum_{
+      \substack{
+        p \leq x  \\
+        \chi(p) = - 1        
+      }
+    }
+    \frac{\log p}{p}
+    \leq \kappa \log x + B \log(2 q).
+  \end{equation}
+  Then the conclusion of Theorem \ref{theorem:no-siegel-zeros} holds.
+\end{lemma}
+\begin{proof}
+  See Appendix~\ref{sec:cus645mtdu}.
+\end{proof}
+Mertens's theorem gives $\sum_{p \leq x} \frac{\log p}{p} \leq \log x + O(1)$, so \eqref{eq:cus7zyehfg} for $\kappa < 1$ represents a saving over the trivial bound, uniformly for $\log q = o(\log x)$.
+
+These notes were written to help me understand the method of proof of Theorem \ref{theorem:no-siegel-zeros}.  They are based on notes of Alexandru Pascadi \cite{Pascadi2026PrivateCommunication} and a blog post by Tao \cite{Tao2026SiegelZeros}, which was in turn based on a note by Green \cite{hexagon:2610.00311v2}.  There are many related notes, including those of Banks \cite{2026arXiv2610.15483,2026arXiv2610.31402}, Barreto \cite{Barreto2026SiegelZeros}, van Dijk \cite{hexagon:2610.00409v1}, Guo \cite{2026arXiv2610.30476}, Kerr \cite{2026arXiv2610.21099v1} and Kominers \cite{Kominers2026FrobeniusPrimeSums}.  We used Codex (GPT-6.1 Sol on ``Low'' reasoning effort) extensively in both preparing and revising these notes (particularly for the estimates of \S\ref{section:explicit}).
+
+The new method for establishing \eqref{eq:cus7zyehfg} may be understood as a way to control the distribution of Frobenius elements.  Let $F/F_0$ be a finite Galois extension of number fields (we lose little by taking $F_0 = \mathbb{Q}$).  We write
+\begin{equation}\label{eq:cus6m6efl3}
+  d_0:=[F_0:\mathbb Q],\qquad d:=[F:F_0],\qquad
+  \Delta:=\lvert\operatorname{disc}F\rvert.
+\end{equation}
+We denote by $p$ a prime of $F_0$, i.e., a nonzero prime ideal of the ring of integers $\mathcal O_{F_0}$.  We denote by $|p|:=\lvert \mathcal O_{F_0}/p \rvert$ its absolute norm.
+
+Suppose $p$ is unramified in $F$.  For each prime $\mathfrak p$ of $F$ above $p$, we write $\Frob_{\mathfrak p} \in \Gal(F / F_0)$ for the arithmetic Frobenius element, characterized by
+\begin{equation}\label{eq:cus58nqx6q}
+  \Frob_{\mathfrak p}(u) \equiv u^{|p|}\pmod{\mathfrak p}
+\end{equation}
+for all $u\in\mathcal O_F$.  We write $\Frob_p \subseteq \Gal(F / F_0)$ for the Frobenius conjugacy class, which consists of the $\Frob_{\mathfrak p}$ for all $\mathfrak p$ above $p$.  Throughout these notes, sums or products involving $\Frob_{\mathfrak{p}}$ or $\Frob_{p}$ are understood to be restricted to primes $p$ that are unramified in $F$.
+
+\begin{example}\label{example:cus70rplg4}
+  Take $F_0 := \mathbb{Q}$, so that $d_0 = 1$, $p$ is a rational prime and $|p| = p$.  Let $D\neq1$ be a fundamental discriminant.  Let $\chi_D$ denote the corresponding primitive real Dirichlet character (the Kronecker symbol).  Every such character except the principal character arises in this way.  Take for $F := \mathbb{Q}(\sqrt{D})$ the corresponding quadratic extension, thus $d = 2$.  Write $\Gal(F / F_0) = \{1, \sigma\}$, and take for $C := \{\sigma\}$ the nontrivial class.  Then $p$ is unramified in $F$ precisely when $p \nmid D$, and
+  \begin{equation}
+    \Frob_p = \sigma  \iff \chi_D(p) = -1.
+  \end{equation}
+\end{example}
+
+In view of Example \ref{example:cus70rplg4}, the sums appearing in \eqref{eq:cus7zyehfg} are controlled by the following more general result:
+
+\begin{theorem}\label{theorem:prime-sum}
+  Let $C\subseteq\Gal(F/F_0)$ be a conjugacy class.  For every real $x\geq2$,
+  \begin{equation}\label{eq:cus7jrsd00}
+    \sum_{\substack{|p|\leq x\\ \Frob_p=C}} \frac{\log|p|}{|p|} \leq \frac{|C|}{d}\left(\log x+\frac12\log\Delta\right) +d_0\log\log(3x)+50d_0|C|.
+  \end{equation}
+\end{theorem}
+Theorem \ref{theorem:prime-sum}, specialized as in Example \ref{example:cus70rplg4}, implies the hypotheses of Lemma \ref{lemma:prime-saving-zeros} for any fixed $1/2 < \kappa < 1$, such as $\kappa = 3/4$, with an absolute constant $B$.  Theorem \ref{theorem:no-siegel-zeros} follows.  The coefficient \(|C|/d\) is the density occurring in the Chebotarev density theorem (see Stevenhagen--Lenstra \cite{StevenhagenLenstra1996} for background, and Thorner--Zaman \cite[\S1]{ThornerZaman2019} for a discussion of effective versions).
+
+The idea of the proof of Theorem \ref{theorem:prime-sum} is as follows.  Let $\mathfrak{p} \mid p$ be as in the definition \eqref{eq:cus58nqx6q}, and suppose that $\Frob_{\mathfrak{p}} = \sigma \in C$.  Then for each \(u\in\mathcal O_F\), we have \(\sigma(u)\equiv u^{|p|}\pmod{\mathfrak p}\); in other words, the pair $(u, \sigma(u)) \in \mathcal{O}_F^2$ lies in the vanishing set modulo $\mathfrak{p}$ of the polynomial $X^{\lvert p \rvert} - Y$.  This vanishing forces many relations, modulo $\mathfrak{p}$ and its powers, between the values taken by polynomials at the pairs $(u, \sigma(u))$.  For example, for $f \in \mathcal{O}_F[X, Y]$, we have the implication
+\begin{equation}\label{eq:cus62xos8h}
+  (X^{\lvert p \rvert} - Y)^k \mid f \implies 
+  f(u, \sigma(u)) \in \mathfrak{p}^k.
+\end{equation}
+To control these relations as $\mathfrak{p}$ varies, it is natural (at least in retrospect) to consider the determinants $\delta$ obtained by specializing $f$ and $u$ to finite sets.  To fix ideas, take a finite subset $\{u_i\} \subset \mathcal{O}_F$ and a finite collection of monomials $\{X^{a_j} Y^{b_j}\}$, where $1 \leq i, j \leq r$, and consider
+\begin{equation}\label{eq:cus642yldw}
+  \delta := \det \bigl( u_i^{a_j} \sigma(u_i)^{b_j} \bigr)_{i, j} \in \mathcal{O}_F.
+\end{equation}
+If $\delta \neq 0$, then it satisfies the product formula
+\begin{equation}\label{eq:cus62z6mr2}
+  \sum_{\mathfrak{p}} \ord_{\mathfrak{p}}(\delta) \log \lvert \mathfrak{p} \rvert = \sum_{v \mid \infty} \log \lvert \delta \rvert_v.
+\end{equation}
+The integrality of $\delta$ makes each term on the left-hand side nonnegative, so by dropping some terms, we obtain the inequality
+\begin{equation}\label{eq:cus63wm1w9}
+  \sum_{
+    \substack{
+      \mathfrak{p} :  \\
+      \Frob_{\mathfrak{p}} = \sigma      
+    }
+  }
+  \ord_{\mathfrak{p}}(\delta) \log \lvert \mathfrak{p} \rvert \leq \sum_{v \mid \infty} \log \lvert \delta \rvert_v.
+\end{equation}
+We might expect relations like \eqref{eq:cus62xos8h} to force $\ord_{\mathfrak{p}}(\delta)$ to be large whenever $\Frob_{\mathfrak{p}} = \sigma$.  After estimating the archimedean norms of $\delta$, we might then hope to use \eqref{eq:cus63wm1w9} to give upper bounds for the set $\{\mathfrak{p} : \Frob_{\mathfrak{p}} = \sigma\}$.
+
+Without derivatives, this strategy gives no improvement over the trivial bound in the quadratic case $d=2$, as we explain in \S\ref{section:discussion}.  In that case, a nontrivial bound was obtained in \cite{OAI:Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026} using the following idea.  Take a biquadratic extension $F'/F_0$ containing $F$, and let $\sigma_1,\sigma_2\in\Gal(F'/F_0)$ denote the two lifts of the nontrivial element $\sigma\in\Gal(F/F_0)$.  If $\Frob_{\mathfrak{p}}=\sigma_1$, then $u^{|p|}\equiv\sigma_1(u)\pmod{\mathfrak{p}}$; if $\Frob_{\mathfrak{p}}=\sigma_2$, then $u^{|p|}\equiv\sigma_2(u)\pmod{\mathfrak{p}}$.  Thus the triples $(u,\sigma_1(u),\sigma_2(u))$ allow one determinant
+\begin{equation}\label{eq:cus6424wkg}
+  \det \bigl( u_i^{a_j} \sigma_1(u_i)^{b_j} \sigma_2(u_i)^{c_j} \bigr)_{i, j},
+\end{equation}
+with $u_i\in\mathcal{O}_{F'}$, to detect both families of primes.  The product formula over $F'$ turns out to give a nontrivial bound.  We explain the numerics in Example~\ref{example:cus65n1pf9}.  One can do better numerically by passing to further extensions and introducing additional variables (Example~\ref{example:cus65oadaz}).
+
+A refined approach, observed in \cite{hexagon:2610.00311v2}, is to consider the determinants defined using not just point evaluations, but also derivatives in the first variable:
+\begin{equation}\label{eq:cus646c6bn}
+  \det \bigl( \partial_X^k X^{a_j} Y^{b_j} \mid_{X = u_i, \, Y = \sigma(u_i)}\bigr)_{(i, k), j}.
+\end{equation}
+Derivatives preserve the divisibility in \eqref{eq:cus62xos8h} (Lemma~\ref{lemma:cus6muraaw}), while supplying more evaluation conditions at the same points.  This method readily yields the sharp bounds noted in Theorem \ref{theorem:prime-sum}; we use it to prove the theorem in \S\ref{section:inputs}, then discuss the various approaches in \S\ref{section:discussion}.
+
+
+
+\section{Spaces of polynomials}
+We begin by constructing spaces of polynomials in which ``many elements are divisible by large powers of $X^q - Y$''.  We do so by taking spans of sets of monomials closed under the substitution $X^q \mapsto Y$.
+\begin{lemma}\label{lemma:cus6mosh6y}
+  Let $q \geq 1$ be a natural number.  Let $\mathcal{T}$ be a finite subset of $\mathbb{Z}_{\geq 0}^2$.  Assume that $\mathcal{T}$ is closed under $(a, b) \mapsto(a - q, b + 1)$ whenever $a \geq q$.  For $(a, b) \in \mathcal{T}$, define
+  \begin{equation*}
+    f_{a, b} := X^{a - q k} Y^{b} (X^q - Y)^k,
+    \qquad k := \left\lfloor \frac{a}{q} \right\rfloor.
+  \end{equation*}
+  These polynomials define a basis for
+  \begin{equation*}
+    \bigoplus_{(a, b) \in \mathcal{T}} \mathbb{Z} X^a Y^b \subset \mathbb{Z}[X, Y].
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  By the binomial expansion,
+  \begin{equation*}
+    f_{a, b} - X^a Y^b = \sum_{j = 1}^{k} \binom{k}{j} (-1)^j X^{a - q j} Y^{b + j}.
+  \end{equation*}
+  By our closure assumption concerning $\mathcal{T}$, each monomial on the right-hand side has its exponents in $\mathcal{T}$.  Moreover, each such monomial is strictly less than $X^a Y^b$ in the lexicographic ordering (first by $a$, then by $b$).  The $f_{a, b}$ are thus related to the standard basis $X^a Y^b$ via an upper-triangular substitution with ones on the diagonal, hence form a basis.
+\end{proof}
+
+\begin{example}\label{example:cus6mv4c50} 
+  For $H \geq 1$ and $t \geq 2$, set
+  \begin{equation*}
+    \mathcal{T} := \left\{(a, b) : a + H b < t \right\}.
+  \end{equation*}
+  This selects monomials of weighted degree less than $t$, where $X$ has weight $1$ and $Y$ has weight $H$.  The closure assumption of Lemma~\ref{lemma:cus6mosh6y} is satisfied if $H \leq q$ (in other words, if $X^q \mapsto Y$ does not increase the weight).
+\end{example}
+
+Lemma \ref{lemma:cus6mosh6y} generalizes to more variables, with the same proof:
+\begin{lemma}\label{lemma:cus64ddnsk}
+  Let $q \geq 1$ and $r \geq 1$ be natural numbers, and let $\ell \in \{1, \dotsc, r\}$.  Let $\mathcal{T}$ be a finite subset of $\mathbb{Z}_{\geq 0}^{r + 1}$ that is closed under $a = (a_0, a_1, \dotsc, a_r) \mapsto a - q e_0 + e_\ell$ whenever $a_0 \geq q$.  For $a \in \mathcal{T}$, define
+  \begin{equation*}
+    f_{a} :=
+    X_0^{a_0 - q k}
+    X_1^{a_1} \dotsb X_r^{a_r}
+    (X_0^q - X_\ell)^{k},
+    \qquad k := \left\lfloor \frac{a_0}{q} \right\rfloor.
+  \end{equation*}
+  These polynomials define a basis for
+  \begin{equation*}
+    \bigoplus_{a \in \mathcal{T}} \mathbb{Z}
+    X_0^{a_0} X_1^{a_1} \dotsb X_r^{a_r} \subset \mathbb{Z}[X_0, \dotsc, X_r].
+  \end{equation*}
+\end{lemma}
+Given weights $H_1, \dotsc, H_r \geq 1$, Example~\ref{example:cus6mv4c50} generalizes to
+\begin{equation*}
+  \mathcal{T} := \left\{(a_0, a_1, \dotsc, a_r) : a_0 + H_1 a_1 + \dotsb + H_r a_r < t \right\}.
+\end{equation*}
+The substitution $X_0^q \mapsto X_\ell$ preserves this set whenever $q \geq H_\ell$.
+
+
+\section{Evaluation matrices}\label{section:evaluation}\label{sec:cus6mz1ygp}
+For the rest of these notes, we assume given the following data:
+\begin{itemize}
+\item A commutative ring $R$.  In practice, it will be a ring of integers, a local field or a global field.
+\item An integer $r \geq 1$.  We eventually specialize to $r = 1$.
+\item A finite, nonempty subset $\mathcal{T}$ of $\mathbb{Z}_{\geq 0}^{r + 1}$.
+\item An integer $I \geq 1$ and, for each $1 \leq i \leq I$, an element $z_i = (z_{i,0}, \dotsc, z_{i,r}) \in R^{r + 1}$.
+\item An integer $J \geq 1$.
+\end{itemize}
+We impose further conditions as needed.
+
+Given the above data, we introduce some notation:
+\begin{itemize}
+\item $T := \lvert \mathcal{T} \rvert$.
+\item For each exponent tuple $a \in \mathbb{Z}_{\geq 0}^{r + 1}$, we define the corresponding monomial $X^a := X_0^{a_0} \dotsb X_r^{a_r}$ and its total degree $|a| := a_0 + \dotsb + a_r$.  
+\item We denote by
+  \begin{equation*}
+    \tau : \bigoplus_{a \in \mathcal{T}} R X^a \rightarrow R^{I \times J}
+  \end{equation*}
+  the map assigning to each polynomial $f$ with exponents in $\mathcal{T}$ its values and derivatives at the given elements $z_i$:
+  \begin{equation*}
+    \tau(f) := \bigl((\partial_{X_0}^j f)(z_i)\bigr)_{i,j},
+  \end{equation*}
+  where $1 \leq i \leq I$ and $0 \leq j < J$.
+\item $M$ denotes the matrix of $\tau$ with respect to the standard bases:
+  \begin{equation}\label{eq:cus6m1rjtg}
+    M_{(i,j),a} := (\partial_{X_0}^j X^a)(z_i).
+  \end{equation}
+
+\end{itemize}
+When $r = 1$, we also write $X, Y$ for $X_0, X_1$.
+
+\section{Divisibility}\label{section:division}
+
+Suppose that $R$ has an ideal $\mathfrak{p}$ containing the image of an integer $q \geq 1$.  For example, take $R = \mathcal{O}_F$, $q = |p|$, and $\mathfrak{p}$ a prime above $p$.
+
+If $u, v \in R$ satisfy $v \equiv u^q \pmod{\mathfrak{p}}$, then
+\begin{equation*}
+  (X^q - Y)^k \mid f \implies f(u,v) \in \mathfrak{p}^k.
+\end{equation*}
+A useful observation \cite[\S5]{hexagon:2610.00311v2} is that this remains true after taking any number of derivatives with respect to $X$:
+\begin{lemma}\label{lemma:cus6muraaw}
+  Let $f \in R[X,Y]$ and $u, v \in R$.  Assume that $f$ is divisible by $(X^q - Y)^k$ and that $v \equiv u^q \pmod{\mathfrak{p}}$.  Then for every $j \geq 0$,
+  \begin{equation*}
+    (\partial_X^j f)(u,v) \in \mathfrak{p}^k.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  Set $g := X^q - Y$.  We write $f = g^k h$ and apply the product rule to the $k$ factors of $g$ and the factor $h$.  By hypothesis, $g(u, v) \in \mathfrak{p}$.  On the other hand, every derivative $g', g'', \dotsc$ of $g$ belongs to $qR[X,Y] \subseteq \mathfrak{p}R[X,Y]$.  Thus, after evaluating at $(u, v)$, each of the $k$ factors contributes either $g(u,v) \in \mathfrak{p}$ or a positive derivative of $g$, also in $\mathfrak{p}$.  Thus every term lies in $\mathfrak{p}^k$.
+\end{proof}
+
+We now apply this observation to the evaluation matrix of \S\ref{section:evaluation}.
+\begin{lemma}\label{lemma:determinantal-divisibility}
+  Fix $\ell \in \{1, \dotsc, r\}$.  Suppose that $\mathcal{T}$ is closed under $a \mapsto a - qe_0 + e_\ell$ whenever $a_0 \geq q$, and that $z_{i,\ell} \equiv z_{i,0}^q \pmod{\mathfrak{p}}$ for every $i$.  Then every $T \times T$ minor of $M$ belongs to
+  \begin{equation*}
+    \mathfrak{p}^{\sum_{a \in \mathcal{T}}\lfloor a_0/q\rfloor}.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  The ideal generated by the $T \times T$ minors is unchanged by an invertible change of basis.  We may therefore use the basis $f_a$ of Lemma~\ref{lemma:cus64ddnsk}.  Since $f_a$ is divisible by $(X_0^q-X_\ell)^{\lfloor a_0/q\rfloor}$, Lemma~\ref{lemma:cus6muraaw} gives
+  \begin{equation*}
+    (\partial_{X_0}^j f_a)(z_i) \in \mathfrak{p}^{\lfloor a_0/q\rfloor}
+  \end{equation*}
+  for every $i,j$.  Thus the $a$th column in the new basis is divisible by $\mathfrak{p}^{\lfloor a_0/q\rfloor}$.  Each term in a $T \times T$ determinant has one factor from each column, giving the claim.
+\end{proof}
+
+\section{Local estimates}\label{section:local}
+
+We take $R = F$, where $F$ is a local field equipped with its normalized absolute value $|\cdot|$.  In the following estimates, we denote by $\delta$ any $T \times T$ minor of $M$ and by
+\begin{equation*}
+  \beta := \max_{\substack{1\leq i\leq I\\0\leq\ell\leq r}}\{1, |z_{i,\ell}|\}
+\end{equation*}
+the ``local height'' of the given set of points $z_i$.
+
+We first record some crude bounds:
+
+\begin{lemma}\label{lemma:nonarch}
+  If $F$ is nonarchimedean, then
+  \begin{equation*}
+    |\delta| \leq \beta^{\sum_{a \in \mathcal{T}}|a|}.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  Each entry in the $a$th column of $M$ is an integer times a monomial of total degree $|a| - j$ for some $j \geq 0$.  Since integers have absolute value at most one and $\beta \geq 1$, each such entry has absolute value at most $\beta^{|a|}$.  The claim follows by expanding the determinant and applying the ultrametric inequality.
+\end{proof}
+
+\begin{lemma}\label{lemma:arch}
+  Suppose that $F$ is archimedean, and set $a_* := \max(\{1\}\cup\{a_0:a\in\mathcal{T}\})$.  Then
+  \begin{equation*}
+    |\delta|
+    \leq \beta^{\sum_{a\in\mathcal{T}}|a|}
+    \left(T^T a_*^{T(J-1)}\right)^{[F:\mathbb{R}]}.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  We write $|\cdot|_{\mathrm{E}}$ for the Euclidean absolute value, so that $|\cdot|=|\cdot|_{\mathrm{E}}^{[F:\mathbb{R}]}$.  The determinant is a sum of $T! \leq T^T$ products, each involving one entry from each column.  Each entry in the $a$th column of $M$ has magnitude
+  \begin{equation*}
+    |(\partial_{X_0}^j X^a)(z_i)|_{\mathrm{E}}
+    \leq a_*^j\beta^{|a|/[F:\mathbb{R}]}
+  \end{equation*}
+  for some $j \leq J - 1$.  The claim follows.
+\end{proof}
+
+We may improve the crude nonarchimedean bound using the Frobenius congruences (Lemma \ref{lemma:determinantal-divisibility}):
+\begin{lemma}\label{lemma:cus6m7ho5n}
+  Suppose that $F/F_0$ is a finite unramified Galois extension of nonarchimedean local fields.  Write $p$ and $\mathfrak{p}$ for their maximal ideals, and $\sigma$ for the arithmetic Frobenius.  Fix $\ell\in\{1,\dotsc,r\}$.  Assume that $z_{i,\ell}=\sigma(z_{i,0})$ for all $i$, and that $\mathcal{T}$ is closed under $a\mapsto a-|p|e_0+e_\ell$ whenever $a_0\geq|p|$.  Then
+  \begin{equation*}
+    |\delta|
+    \leq \beta^{\sum_{a\in\mathcal{T}}|a|}
+    |\mathfrak{p}|^{-\sum_{a\in\mathcal{T}}\lfloor a_0/|p|\rfloor}.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  Suppose first that all coordinates are integral.  Then $z_{i,\ell}\equiv z_{i,0}^{|p|}\pmod{\mathfrak{p}}$, and Lemma~\ref{lemma:determinantal-divisibility} gives the claim with $\beta=1$.
+
+  In general, since $F / F_0$ is unramified, we may choose $\lambda \in F_0$ with $|\lambda| = \beta$.  The scaled points $z_i / \lambda$ are then integral, and since $\sigma(\lambda) = \lambda$, we still have $z_{i,\ell}/\lambda = \sigma(z_{i,0}/\lambda)$.  If $\widetilde\delta$ is the minor defined like $\delta$, but using the scaled points, then
+  \begin{equation*}
+    \delta=\lambda^{\sum_{a\in\mathcal{T}}|a|-\sum_{(i,j)\in\mathcal{M}}j}\widetilde\delta,
+  \end{equation*}
+  where $\mathcal{M}$ is the set of rows used to define the minors.  Since $|\lambda| = \beta \geq 1$, the bound for the scaled points implies the required bound for the original points.
+\end{proof}
+
+\section{The global inequality}\label{section:global}
+
+We take $R = F$, where $F$ is a global field.  We denote by $v$ a place of $F$ and by $|\cdot|_v$ the corresponding normalized absolute value.  We define the global height of the set of points $z_i$ to be
+\begin{equation}\label{eq:cus65o51ep}
+  \beta := \prod_v\beta_v,
+  \qquad \beta_v := \max_{\substack{1\leq i\leq I\\0\leq\ell\leq r}}\{1,|z_{i,\ell}|_v\}.
+\end{equation}
+We will use the following identity to pass from primes of $F$ to primes of $F_0$.
+\begin{lemma}\label{lemma:frobenius-count}
+  Let $F/F_0$ be a finite Galois extension of global fields of degree $d$, and let $C_\sigma$ be the conjugacy class of $\sigma\in\Gal(F/F_0)$.  If $\Frob_p=C_\sigma$, then
+  \begin{equation}\label{eq:cus6naqvq3}
+    \sum_{\substack{\mathfrak{p}\mid p\\\Frob_{\mathfrak{p}}=\sigma}}
+    \log|\mathfrak{p}|=\frac{d}{|C_\sigma|}\log|p|.
+  \end{equation}
+\end{lemma}
+\begin{proof}
+  We write $f_p$ for the residue degree and $g_p$ for the number of primes above $p$, so that $f_pg_p=d$.  The Galois group acts transitively on these primes, and the map $\mathfrak{p}\mapsto\Frob_{\mathfrak{p}}$ is equivariant for conjugation.  Thus its fibers have equal size $g_p/|C_\sigma|$.  Each prime above $p$ satisfies $\log|\mathfrak{p}|=f_p\log|p|$, giving the claim.
+\end{proof}
+
+We now combine the local estimates using the product formula.
+\begin{proposition}\label{proposition:cus6m68zjr}
+  Let $F/F_0$ be a finite Galois extension of global fields, of degree $d$.  Let $\sigma_1,\dotsc,\sigma_r$ be distinct elements of $\Gal(F/F_0)$, with conjugacy classes $C_1,\dotsc,C_r$.  Take
+  \begin{equation*}
+    z_i:=(u_i,\sigma_1(u_i),\dotsc,\sigma_r(u_i))
+  \end{equation*}
+  for some $u_1, \dotsc, u_I \in F$.  Let $J \geq 1$ be an integer.  Retain the notation $\mathcal{T} \subset \mathbb{Z}_{\geq 0}^{r + 1}$, $T = \lvert \mathcal{T} \rvert$ and $\tau : \bigoplus_{a \in \mathcal{T}} R X^a \rightarrow R^{I \times J}$ from \S\ref{section:evaluation}.  Assume that $\tau$ is injective.  Let $t\geq2$ be such that $a_0<t$ for all $a \in \mathcal{T}$.  For each $\ell \in \{1, \dotsc, r\}$, let $H_\ell\geq1$.  Assume that for all integers $q\geq H_\ell$, the set $\mathcal{T}$ is closed under $a\mapsto a-qe_0+e_\ell$ whenever $a_0\geq q$.  Set
+  \begin{equation}\label{eq:cus6oc79wo}
+    A_\infty :=
+    \begin{cases}
+      [F_0:\mathbb{Q}]\bigl(T\log T+T(J-1)\log t\bigr),&\text{for number fields},\\
+      0,&\text{for function fields}.
+    \end{cases}
+  \end{equation}
+  Then
+  \begin{equation}\label{eq:general-global-bound}
+    \sum_{\ell=1}^r\frac{1}{|C_\ell|}
+    \sum_{\substack{|p|\geq H_\ell\\\Frob_p=C_\ell}}
+    \left(\sum_{a\in\mathcal{T}}\left\lfloor\frac{a_0}{|p|}\right\rfloor\right)\log|p|
+    \leq \frac{\log\beta}{d}\sum_{a\in\mathcal{T}}|a|+A_\infty.
+  \end{equation}
+\end{proposition}
+\begin{proof}
+  Since $\tau$ is injective, we may choose a nonzero $T \times T$ minor $\delta$.  At every finite place $\mathfrak{p}$, Lemma~\ref{lemma:nonarch} gives the bound $\beta_{\mathfrak{p}}^{\sum_a|a|}$.  If $\Frob_{\mathfrak{p}}=\sigma_\ell$ and $|p|\geq H_\ell$, then Lemma~\ref{lemma:cus6m7ho5n}, applied to $F_{\mathfrak{p}}/F_{0,p}$, improves this bound by the factor
+  \begin{equation*}
+    |\mathfrak{p}|^{-\sum_{a\in\mathcal{T}}\lfloor a_0/|p|\rfloor}.
+  \end{equation*}
+  Since the $\sigma_\ell$ are distinct, each prime $\mathfrak{p}$ occurs for at most one $\ell$.  At the archimedean places, Lemma~\ref{lemma:arch} and the inequality $a_*\leq t$ give an additional factor of at most $\exp(dA_\infty)$, using here that $\sum_{v\mid\infty}[F_v:\mathbb{R}]=d[F_0:\mathbb{Q}]$ in the number field case; in the function field case, there are no archimedean places.  The product formula then gives
+  \begin{equation*}
+    1=\prod_v|\delta|_v\leq\beta^{\sum_{a\in\mathcal{T}}|a|}\exp(dA_\infty)
+    \prod_{\ell=1}^r
+    \prod_{\substack{|p|\geq H_\ell}}
+    \prod_{\substack{\mathfrak{p}\mid p\\\Frob_{\mathfrak{p}}=\sigma_\ell}}
+    |\mathfrak{p}|^{-\sum_{a\in\mathcal{T}}\lfloor a_0/|p|\rfloor}.
+  \end{equation*}
+  Taking logarithms, applying Lemma~\ref{lemma:frobenius-count}, and dividing by $d$ gives the claim.
+\end{proof}
+
+\begin{corollary}\label{corollary:height-prime-comparison}
+  Retain the extension $F/F_0$, the distinct elements $\sigma_1, \dotsc, \sigma_r$, and the points $z_i$ of Proposition~\ref{proposition:cus6m68zjr}.  Assume that $F$ is a number field.  Let $2 \leq H \leq t$, and take
+  \begin{equation*}
+    \mathcal{T} := \{a : a_0 + H(a_1 + \dotsb + a_r) < t\}.
+  \end{equation*}
+  For each conjugacy class $C$, set
+  \begin{equation*}
+    w(C) := \frac{\#\{\ell : \sigma_\ell \in C\}}{|C|},
+    \qquad \lVert w \rVert_\infty := \max_C w(C).
+  \end{equation*}
+  Define
+  \begin{equation}\label{eq:comparison-bound}
+    \begin{split}
+      \mathcal{B}
+      &:= \frac{\sum_{a \in \mathcal{T}} |a|}{d\sum_{a \in \mathcal{T}} a_0}\log\beta
+      + \frac{A_\infty}{\sum_{a \in \mathcal{T}} a_0} \\
+      &\quad + \lVert w \rVert_\infty\left(
+      \frac{T}{\sum_{a \in \mathcal{T}} a_0}\sum_{|p| \leq t}\log|p|
+        + \sum_{|p| < H}\frac{\log|p|}{|p|}\right).
+    \end{split}
+  \end{equation}
+  If $\tau$ is injective, then
+  \begin{equation}\label{eq:weighted-prime-bound}
+    \sum_{|p| \leq t} w(\Frob_p)\frac{\log|p|}{|p|} \leq \mathcal{B}.
+  \end{equation}
+\end{corollary}
+\begin{proof}
+  We apply Proposition~\ref{proposition:cus6m68zjr} with $H_\ell = H$ for all $\ell$, and restrict the prime sum to $H \leq |p| \leq t$.  Using
+  \begin{equation*}
+    \sum_{a \in \mathcal{T}}\left\lfloor\frac{a_0}{|p|}\right\rfloor
+    \geq \frac{1}{|p|}\sum_{a \in \mathcal{T}} a_0 - T,
+  \end{equation*}
+  we obtain the claim by dividing by $\sum_{a \in \mathcal{T}} a_0 > 0$, restoring the primes below $H$, and bounding each weight by $\lVert w \rVert_\infty$.
+\end{proof}
+
+\section{Proof of the main estimate}\label{section:inputs}
+We state the inputs needed to prove Theorem~\ref{theorem:prime-sum}, deferring their proofs to the appendices.  We then complete the proof.
+
+\subsection{Prime sums}
+
+\begin{lemma}\label{lemma:prime-estimates}
+  Let $F_0$ be a number field of degree $d_0$.  For every real $y \geq 2$, we have
+  \begin{equation*}
+    \sum_{|p| \leq y} \log |p| \leq 2d_0 y,
+    \qquad
+    \sum_{|p| \leq y} \frac{\log |p|}{|p|} \leq d_0(\log y + 2),
+  \end{equation*}
+  where the sums run over all primes of $F_0$.
+\end{lemma}
+This estimate reduces to the case $F_0 = \mathbb{Q}$, where it is established in sharper form by Rosser--Schoenfeld \cite[(3.24), (3.32)]{rosser-schoenfeld-1962}.  We record a self-contained proof in Appendix~\ref{appendix:prime-estimates}.
+
+\subsection{Interpolation}\label{section:interpolation}
+
+Let $F$ be a field of characteristic zero, and let $\sigma$ be an automorphism of $F$.  Let $t \geq 2$, $H \geq 1$ and $I, J \geq 1$ be integers.  Let $u_1, \dotsc, u_I \in F$.  We consider (as in \S\ref{section:evaluation}) the map
+\begin{equation*}
+  \bigoplus_{a + H b < t} F X^a Y^b \longrightarrow F^{I \times J}
+\end{equation*}
+sending a polynomial $f$ to its tuples of derivatives of order less than $J$ at the points $(u_i, \sigma(u_i))$:
+\begin{equation*}
+  f \mapsto \bigl((\partial_X^j f)(u_i, \sigma(u_i))\bigr)_{1 \leq i \leq I, 0 \leq j < J}.
+\end{equation*}
+
+\begin{lemma}\label{lemma:triangle-interpolation}
+  If the $u_i$ are distinct and
+  \begin{equation*}
+    I > t - 1 + \left\lfloor\frac{t - 1}{H}\right\rfloor,
+    \qquad
+    J \geq 2\left\lfloor\frac{t - 1}{H}\right\rfloor + 1,
+  \end{equation*}
+  then $\tau$ is injective.
+\end{lemma}
+This was established in a note of Kevin Barreto \cite{Barreto2026SiegelZeros}.  We record a proof in Appendix~\ref{appendix:interpolation}.
+
+\subsection{Points of small height}\label{section:small}
+
+Let $F$ be a number field of absolute discriminant $\Delta$.
+
+\begin{proposition}\label{prop:small-set}
+  Let $\sigma_1,\dotsc,\sigma_r\in\operatorname{Aut}(F)$, and let $I\geq1$ be an integer.  There exist distinct $u_1,\dotsc,u_I\in F$ such that the elements
+  \begin{equation*}
+    z_i=(u_i,\sigma_1(u_i),\dotsc,\sigma_r(u_i)) \in F^{r + 1}
+  \end{equation*}
+  have global height (see \eqref{eq:cus65o51ep}) satisfying
+  \begin{equation*}
+    \beta\leq I\sqrt\Delta.
+  \end{equation*}
+\end{proposition}
+This follows (in slightly sharper form) from Blichfeldt's theorem; see Cassels \cite[Chapter III, \S3, Theorem IV]{cassels-geometry-of-numbers}.  We record an adelic proof in Appendix~\ref{appendix:small}.
+
+\subsection{A numerical estimate}
+
+Finally, we require estimates for the right-hand side of Corollary~\ref{corollary:height-prime-comparison}.
+
+\begin{lemma}\label{lemma:numerical-bound}
+  Let $F/F_0$, $d$, $d_0$ and $\Delta$ be as in the introduction, and let $C\subseteq\Gal(F/F_0)$ be a conjugacy class.  Let $x\geq16$ be an integer satisfying
+  \begin{equation*}
+    \frac{\log(2x\sqrt\Delta)}{d}<d_0\log x.
+  \end{equation*}
+  In \eqref{eq:comparison-bound}, take $t=x$, $r=1$, $\sigma_1\in C$, and
+  \begin{equation}\label{eq:cus65vhezd}
+    \mathcal{T}:=\{(a,b):a+Hb<x\}, \qquad
+    H:=\lceil\log x\rceil, \qquad
+    J:=2\left\lfloor\frac{x-1}{H}\right\rfloor+1.
+  \end{equation}
+  If $\beta\leq2x\sqrt\Delta$, then
+  \begin{equation*}
+    |C|\mathcal{B}
+    \leq \frac{|C|}{d}\left(\log x+\frac12\log\Delta\right)
+    +d_0\log\log(3x)+50d_0|C|.
+  \end{equation*}
+\end{lemma}
+We prove this estimate in Appendix~\ref{section:explicit}.
+
+\subsection{Completion of the proof}
+
+\begin{proof}[Proof of Theorem \ref{theorem:prime-sum}]
+  We must verify the inequality \eqref{eq:cus7jrsd00}.  Since its left-hand side is unchanged on replacing $x$ by $\lfloor x\rfloor$, and its right-hand side is increasing in $x$, we may assume that $x$ is an integer.  If $x < 16$, then Lemma \ref{lemma:prime-estimates} gives the bound $d_0(\log 16 + 2) < 5d_0$ for its left-hand side, which is less than the term $50d_0|C|$ appearing on its right-hand side.  We may thus assume that $x \geq 16$.
+
+  We may also assume that
+  \begin{equation}\label{eq:height-range}
+    \frac{\log(2x\sqrt{\Delta})}{d} < d_0\log x.
+  \end{equation}
+  Otherwise,
+  \begin{equation*}
+    \frac{|C|}{d}\left(\log x + \frac12\log\Delta\right)
+    \geq d_0|C|\log x - \frac{|C|}{d}\log 2,
+  \end{equation*}
+  and the theorem follows from Lemma \ref{lemma:prime-estimates}, since $|C| \geq 1$ and $2d_0 + (|C|/d)\log 2 < 3d_0|C|$.
+
+  Choose $\sigma\in C$, and take $H, J$ as in \eqref{eq:cus65vhezd} and $I:=2x$.  Proposition~\ref{prop:small-set} gives distinct $u_1,\dotsc,u_I\in F$ for which the pairs $(u_i,\sigma(u_i))$ have height $\beta\leq2x\sqrt\Delta$.  For $\mathcal{T}$ as in \eqref{eq:cus65vhezd}, Lemma~\ref{lemma:triangle-interpolation}, with $t=x$, implies that $\tau$ is injective.  Corollary~\ref{corollary:height-prime-comparison}, again with $t=x$ and $r=1$, now gives
+  \begin{equation*}
+    \sum_{\substack{|p|\leq x\\\Frob_p=C}}\frac{\log|p|}{|p|}
+    \leq |C|\mathcal{B}.
+  \end{equation*}
+  The required bound then follows from Lemma~\ref{lemma:numerical-bound}.
+\end{proof}
+
+\section{Variables and derivatives}\label{section:discussion}
+
+The proof of Theorem~\ref{theorem:prime-sum} is complete, modulo the inputs proved in the appendices.  We now estimate the right-hand side of Corollary~\ref{corollary:height-prime-comparison} more simply to explain the choices of variables and derivatives.  We first compare these choices under optimistic interpolation assumptions, then use the actual interpolation bound to give a softer proof of a weaker bound.
+
+We take $F$ to be a number field and write $d_0 := [F_0 : \mathbb{Q}]$.
+
+\subsection{Estimating $\mathcal{B}$}
+
+In this section, we regard $r$ as fixed -- any implied constants may depend upon it.
+
+
+\begin{lemma}\label{lemma:weighted-monomial-estimates}
+  Let $r \geq 1$ and $2 \leq H \leq t$.  For
+  \begin{equation*}
+    \mathcal{T} := \{a \in \mathbb{Z}_{\geq 0}^{r+1} : a_0 + H(a_1 + \dotsb + a_r) < t\},
+  \end{equation*}
+  we have
+  \begin{equation}\label{eq:cus637ip5d}
+    T \asymp \frac{t^{r+1}}{H^r},\qquad
+    \sum_{a \in \mathcal{T}} a_0 \asymp \frac{t^{r+2}}{H^r},\qquad
+    \sum_{a \in \mathcal{T}}\sum_{\ell=1}^r a_\ell
+    \ll \frac{t^{r+2}}{H^{r+1}}.
+  \end{equation}
+\end{lemma}
+\begin{proof}
+  The set $\mathcal{T}$ is contained in the rectangle given by $0 \leq a_0 < t$ and $0 \leq a_\ell < t/H$ for $\ell \geq 1$, and contains the rectangle given by
+  \begin{equation*}
+    0 \leq a_0 \leq t/2,\qquad
+    0 \leq a_\ell < t/(2rH)\quad (1 \leq \ell \leq r).
+  \end{equation*}
+  Counting the integer points in these rectangles and summing $a_0$ gives the first two estimates.  For the last, we use $\sum_{\ell=1}^r a_\ell < t/H$ on $\mathcal{T}$ and the upper bound for $T$.
+\end{proof}
+
+\begin{lemma}\label{lemma:parameter-bound}
+  With the notation of Corollary~\ref{corollary:height-prime-comparison}, we have
+  \begin{equation}\label{eq:parameter-bound}
+    \begin{split}
+      \mathcal{B}
+      &\leq \frac{1 + \O(1/H)}{d}\log\beta
+        + d_0\lVert w \rVert_\infty\log H \\
+      &\quad + \O \left(d_0\left(1 + \frac{(J-1)\log t}{t}\right)\right).
+    \end{split}
+  \end{equation}
+  All implied constants depend only on $r$ and are effective.
+\end{lemma}
+\begin{proof}
+  By Lemma~\ref{lemma:weighted-monomial-estimates},
+  \begin{equation*}
+    \frac{\sum_{a \in \mathcal{T}}|a|}{\sum_{a \in \mathcal{T}}a_0}
+    = 1 + \O(1/H),\qquad
+    \frac{T}{\sum_{a \in \mathcal{T}}a_0} \ll \frac1t.
+  \end{equation*}
+  Since $\log T \ll \log t$, the archimedean term satisfies
+  \begin{equation*}
+    \frac{A_\infty}{\sum_{a \in \mathcal{T}}a_0}
+    \ll d_0\frac{\log t + (J-1)\log t}{t}.
+  \end{equation*}
+  Lemma~\ref{lemma:prime-estimates} bounds the remaining terms by
+  \begin{equation*}
+    \O(d_0) + d_0\lVert w \rVert_\infty(\log H + 2).
+  \end{equation*}
+  Using $\log t/t \ll 1$ and $\lVert w \rVert_\infty \leq 1$ gives the claim.
+\end{proof}
+
+\subsection{Optimistic interpolation}
+
+For any $I$, Proposition~\ref{prop:small-set} supplies distinct points $u_i\in F$ for which $(u_i,\sigma_1(u_i),\dotsc,\sigma_r(u_i))$ have height $\beta\leq I\sqrt\Delta$.  The remaining question is whether the evaluation map $\tau$ is injective.  Its matrix has $T$ columns and $IJ$ rows, so injectivity requires $IJ\geq T$.  We first ask what bound we would obtain if this necessary condition were sufficient up to a fixed factor.  Below, we first estimate $\mathcal{B}$ in this range (Proposition~\ref{proposition:conditional-main-term}) and then apply the resulting estimate when $\tau$ is injective (Corollary~\ref{corollary:conditional-prime-main-term}).  We restrict to $J \leq t$ because our polynomials have degree less than $t$ in $X_0$.
+
+\begin{proposition}\label{proposition:conditional-main-term}
+  Let the setting of Corollary~\ref{corollary:height-prime-comparison} vary with an integral parameter $t\to\infty$.  Suppose that, for some $K\geq1$,
+  \begin{equation}\label{eq:optimistic-interpolation}
+    IJ\leq KT,\qquad \beta\leq I\sqrt\Delta,
+    \qquad 2\leq H\leq t,\quad 1\leq J\leq t.
+  \end{equation}
+  Assume that $r,d,d_0,K$ remain bounded and that
+  \begin{equation}\label{eq:main-term-range}
+    H\to\infty,\qquad J=o(t),\qquad \log\Delta=o(\log t).
+  \end{equation}
+  If moreover
+  \begin{equation}\label{eq:cus7ztzryx}
+    \text{$\log H=o(\log t)$ and $J=t^{\theta+o(1)}$ for some $0\leq\theta\leq1$,}
+  \end{equation}
+  then
+  \begin{equation}\label{eq:conditional-B-main-term}
+    \mathcal{B}\leq\left(\frac{r+1-\theta}{d}+o(1)\right)\log t
+    +\frac1{2d}\log\Delta.
+  \end{equation}
+\end{proposition}
+\begin{proof}
+  By the upper bounds on $IJ$ and $\beta$, and Lemma~\ref{lemma:weighted-monomial-estimates}, we have
+  \begin{equation*}
+    \log\beta\leq\log\frac{KT\sqrt\Delta}{J}
+    =\log\frac{t^{r+1}\sqrt\Delta}{H^rJ}+\O_{r,K}(1).
+  \end{equation*}
+  Substituting into Lemma~\ref{lemma:parameter-bound} gives
+  \begin{equation}\label{eq:optimistic-bound}
+    \begin{split}
+      \mathcal{B}
+      &\leq\frac{1+\O(1/H)}{d}\log\frac{t^{r+1}\sqrt\Delta}{H^rJ}
+      +d_0\lVert w\rVert_\infty\log H \\
+      &\quad+\O\left(d_0\left(1+\frac{(J-1)\log t}{t}\right)\right).
+    \end{split}
+  \end{equation}
+  This estimate holds for finite $t$, with effective implied constants depending only on $r,K$.
+
+  Under \eqref{eq:main-term-range} and \eqref{eq:cus7ztzryx}, we have
+  \begin{equation*}
+    \log\frac{t^{r+1}\sqrt\Delta}{H^rJ}
+    =(r+1-\theta)\log t+\frac12\log\Delta+o(\log t).
+  \end{equation*}
+  The error terms in \eqref{eq:optimistic-bound} are $o(\log t)$, giving \eqref{eq:conditional-B-main-term}.
+\end{proof}
+
+\begin{corollary}\label{corollary:conditional-prime-main-term}
+  In the setting of Proposition~\ref{proposition:conditional-main-term}, suppose that $\tau$ is injective.  Then
+  \begin{equation}\label{eq:cus646868v}
+    \boxed{
+      \sum_{\ell=1}^r\frac1{|C_\ell|}
+      \sum_{\substack{|p|\leq t\\\Frob_p=C_\ell}}
+      \frac{\log|p|}{|p|}
+      \leq\left(\frac{r+1-\theta}{d}+o(1)\right)\log t
+      +\frac1{2d}\log\Delta.
+    }
+  \end{equation}
+\end{corollary}
+\begin{proof}
+  Combine Corollary~\ref{corollary:height-prime-comparison} with Proposition~\ref{proposition:conditional-main-term}.
+\end{proof}
+
+We give examples to illustrate the range of parameters and the resulting bounds.  Each of these should be understood as conditional on the injectivity of $\tau$ in the ``optimistic'' range of parameters specified in Proposition~\ref{proposition:conditional-main-term}.
+
+\begin{example}\label{example:cus65nzxgy}
+  Let $F := \mathbb{Q}(\sqrt{D})$ be a quadratic field and let $\sigma$ denote its nontrivial automorphism.  We have $d = 2$.  Take $r := 1$ and $J := 1$ (thus $\theta = 0$); this amounts to working with the determinants \eqref{eq:cus642yldw} in two variables without derivatives.  Then \eqref{eq:cus646868v} specializes to
+  \begin{equation*}
+    \sum_{
+      \substack{
+        p \leq t  \\
+        \chi_D(p) = - 1
+      }
+    }
+    \frac{\log p}{p} \leq
+    \left( \frac{2}{2} + o(1) \right) \log t,  
+  \end{equation*}
+  which fails to improve upon the trivial bound.
+\end{example}
+\begin{example}\label{example:cus65n1pf9}
+  Let $F := \mathbb{Q}(\sqrt{D}, \sqrt{2})$ with $\mathbb{Q}(\sqrt{D}) \neq \mathbb{Q}(\sqrt{2})$ be a biquadratic extension of $\mathbb{Q}$, with Galois group $G \cong (\mathbb{Z}/2\mathbb{Z})^2$.  We have $d = 4$.  Take $r := 2$ and $J := 1$ (thus $\theta = 0$); this amounts to working with the determinants \eqref{eq:cus6424wkg} in three variables without derivatives, as in OpenAI's original paper \cite{OAI:Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026}.  Let $\sigma_1$ and $\sigma_2$ denote the two automorphisms that restrict to the nontrivial automorphism of $\mathbb{Q}(\sqrt{D})$.  Observe that if $p$ is unramified in $F$ and $\chi_D(p) = - 1$, then $\Frob_p \in \{\sigma_1, \sigma_2\}$.  Under the hypotheses of Corollary~\ref{corollary:conditional-prime-main-term}, we obtain from \eqref{eq:cus646868v}
+  \begin{equation*}
+    \sum_{
+      \substack{
+        p \leq t  \\
+        \chi_D(p) = - 1
+      }
+    }
+    \frac{\log p}{p}
+    \leq 
+    \sum_{
+      \substack{
+        p \leq t  \\
+        \Frob_p \in \{\sigma_1, \sigma_2\}        
+      }
+    }
+    \frac{\log p}{p}
+    + \O(1)
+    \leq \left( \frac{3}{4} + o(1) \right) \log t,
+  \end{equation*}
+  which improves upon the trivial bound.
+\end{example}
+
+\begin{example}\label{example:cus65oadaz}
+  Choose an auxiliary finite set $p_1, \dotsc, p_k$ of fundamental discriminants.  Assume that $D, p_1, \dotsc, p_k$ are independent in $\mathbb{Q}^{\times} / \mathbb{Q}^{\times 2}$.  Take
+  \begin{equation*}
+    F = \mathbb{Q}(\sqrt{D}, \sqrt{p_1}, \dotsc, \sqrt{p_k}),
+  \end{equation*}
+  with Galois group $G \cong(\mathbb{Z} / 2 \mathbb{Z})^{k + 1}$.  Then $d = 2^{k + 1}$.  Take $r := 2^{k}$ and $J := 1$ (thus $\theta = 0$), and let $\sigma_1, \dotsc, \sigma_r$ denote the automorphisms that restrict to the nontrivial automorphism of $\mathbb{Q}(\sqrt{D})$.  Under the same interpolation assumptions, \eqref{eq:cus646868v} gives, for each fixed $k$,
+  \begin{equation*}
+    \sum_{
+      \substack{
+        p \leq t  \\
+        \chi_D(p) = - 1        
+      }
+    }
+    \frac{\log p}{p}
+    \leq \left( \frac{2^k + 1}{2^{k+1}} + o(1) \right) \log t.
+  \end{equation*}
+  Note that the coefficient of $\log t$ approaches $1/2$ as $k \to \infty$.
+\end{example}
+
+\subsection{A qualitative bound}\label{section:qualitative}
+
+We now take $r:=1$ and $J\asymp t/H$, corresponding to the determinants \eqref{eq:cus646c6bn} in two variables, as in \cite{hexagon:2610.00311v2}.  In that setting, Lemma~\ref{lemma:triangle-interpolation} gives the injectivity of $\tau$ in the required range, and we obtain the following qualitative form of Theorem~\ref{theorem:prime-sum}.
+
+\begin{theorem}\label{theorem:qualitative}
+  Let $F/F_0$, $d$, $d_0$ and $\Delta$ be as in the introduction, and let $C\subseteq\Gal(F/F_0)$ be a conjugacy class.  For every $\eps>0$ and every real $t\geq2$, we have
+  \begin{equation}\label{eq:cus646uh7v}
+    \frac1{|C|}\sum_{\substack{|p|\leq t\\\Frob_p=C}}
+    \frac{\log|p|}{|p|}
+    \leq \frac{1+\eps}{d}\log(t\sqrt\Delta)
+    +\O_{\eps,d,d_0}(1),
+  \end{equation}
+  with an effective implied constant depending only on $\eps,d,d_0$.
+\end{theorem}
+\begin{proof}
+  We may assume that $t$ is an integer.  Choose $\sigma\in C$, and let $H\geq2$ be an integer to be chosen in terms of $\eps,d,d_0$.  For $t\leq H$, the result follows from Lemma~\ref{lemma:prime-estimates}, so assume that $t>H$.
+
+  By Proposition~\ref{prop:small-set}, we can choose $I:=2t$ distinct points $u_i\in F$ such that the pairs $(u_i,\sigma(u_i))$ have height $\beta\leq2t\sqrt\Delta$.  Take
+  \begin{equation*}
+    \mathcal{T}:=\{(a,b):a+Hb<t\},\qquad
+    J:=2\left\lfloor\frac{t-1}{H}\right\rfloor+1,
+  \end{equation*}
+  so that by Lemma~\ref{lemma:triangle-interpolation}, $\tau$ is injective.  Since $J-1\leq2t/H$, Corollary~\ref{corollary:height-prime-comparison} and Lemma~\ref{lemma:parameter-bound}, with $r=1$ and $\lVert w\rVert_\infty=1/|C|$, give
+  \begin{equation*}
+    \frac1{|C|}\sum_{\substack{|p|\leq t\\\Frob_p=C}}\frac{\log|p|}{|p|}
+    \leq\left(\frac1d+\O\left(\frac{1+dd_0}{dH}\right)\right)
+    \log(t\sqrt\Delta)+\O\bigl(d_0(1+\log H)\bigr).
+  \end{equation*}
+  Here we have used that $\log t\leq\log(t\sqrt\Delta)$.  Taking $H$ large enough in terms of $\eps,d,d_0$ gives the claim.
+\end{proof}
+
+Taking $d=2$, $d_0=1$ and $\eps=1/2$ in Theorem~\ref{theorem:qualitative} gives the saving required by Lemma~\ref{lemma:prime-saving-zeros}.  Thus the softer estimates of this section also suffice to exclude Landau--Siegel zeros.
+
+\appendix
+
+\section{Prime sums}\label{appendix:prime-estimates}
+
+\begin{proof}[Proof of Lemma~\ref{lemma:prime-estimates}]
+  We first take $F_0=\mathbb{Q}$ and write
+  \begin{equation*}
+    \vartheta(N):=\sum_{p\leq N}\log p,
+    \qquad M(N):=\sum_{p\leq N}\frac{\log p}{p}.
+  \end{equation*}
+  We claim that $\vartheta(N)\leq2N$ for every integer $N\geq1$.  Indeed, primes in $(m,2m]$ divide $\binom{2m}{m}$, while primes in $(m+1,2m+1]$ divide $\binom{2m+1}{m}$.  Thus
+  \begin{equation*}
+    \begin{split}
+      \vartheta(2m)-\vartheta(m)
+      &\leq\log\binom{2m}{m}\leq2m\log2,\\
+      \vartheta(2m+1)-\vartheta(m+1)
+      &\leq\log\binom{2m+1}{m}\leq2m\log2.
+    \end{split}
+  \end{equation*}
+  For the last inequality, we use that the two middle coefficients of $(1+1)^{2m+1}$ are equal.  Since $\log2<1$, induction from $\vartheta(1)=0$ gives the claim.
+
+  We estimate $M(N)$ via an argument in the spirit of the determinant method applied elsewhere in these notes, observed by Pascadi \cite{Pascadi2026PrivateCommunication} and Tao \cite{Tao2026SiegelZeros}.  For $N\geq2$, consider the Vandermonde determinant
+  \begin{equation*}
+    V_N:=\det\bigl(u^a\bigr)_{1\leq u\leq N,\,0\leq a<N}
+    =\prod_{1\leq i<j\leq N}(j-i).
+  \end{equation*}
+  For each prime $p$, the polynomials
+  \begin{equation*}
+    X^{a-pk}(X^p-X)^k,\qquad k:=\lfloor a/p\rfloor
+  \end{equation*}
+  give a basis for the space $\bigoplus_{0 \leq a < N} \mathbb{Z} X^a$ of polynomials of degree less than $N$.  The change of basis is triangular with ones on the diagonal, so it leaves $V_N$ unchanged.  Since $u^p-u$ is divisible by $p$ for every integer $u$, the $a$th column is now divisible by $p^{\lfloor a/p\rfloor}$.  Writing $N=mp+r$ with $0\leq r<p$, we obtain
+  \begin{equation*}
+    \operatorname{ord}_p(V_N)
+    \geq\sum_{a=0}^{N-1}\left\lfloor\frac ap\right\rfloor
+    =\frac{N^2}{2p}-\frac N2+\frac{r(p-r)}{2p}
+    \geq\frac{N^2}{2p}-\frac N2.
+  \end{equation*}
+  Comparing divisibility and size gives
+  \begin{equation*}
+    \frac{N^2}{2}M(N)-\frac N2\vartheta(N)
+    \leq\log V_N\leq\frac{N(N-1)}2\log N.
+  \end{equation*}
+  Consequently,
+  \begin{equation*}
+    M(N)\leq\left(1-\frac1N\right)\log N+\frac{\vartheta(N)}N
+    \leq\log N+2.
+  \end{equation*}
+  Taking $N=\lfloor y\rfloor$ proves both bounds for real $y\geq2$.
+
+  For general $F_0$, write $|p|=\ell^{f_p}$ when $p\mid\ell$, and use $\sum_{p\mid\ell}f_p\leq d_0$.  The contribution above $\ell$ to the first sum is at most $d_0\log\ell$, and that to the second is at most $d_0\log\ell/\ell$, so we reduce to the bounds over $\mathbb{Q}$.
+\end{proof}
+
+\section{Interpolation}\label{appendix:interpolation}
+
+We return to two variables $X,Y$ and points $(u_i,v_i)$.  Take $R = F$, where $F$ is a field of characteristic zero.  For integers $r, s \geq 0$, set
+\begin{equation*}
+  \mathcal{T}_{r, s} := \left\{(a, b) \in \mathbb{Z}_{\geq 0}^2 : a \leq r, \, b \leq s \right\},
+\end{equation*}
+and take $\mathcal{T} = \mathcal{T}_{r, s}$.  We record a criterion for the injectivity of
+\begin{equation*}
+  \tau : \bigoplus_{\substack{0 \leq a \leq r \\ 0 \leq b \leq s}} F X^a Y^b \longrightarrow F^{I \times J}.
+\end{equation*}
+\begin{proposition}\label{prop:interpolation}
+  Suppose that the $u_i$ are pairwise distinct and that the $v_i$ are pairwise distinct.  If
+  \begin{equation}\label{eq:cus6n5zz8x}
+    I > r + s, \qquad J \geq 2s + 1,
+  \end{equation}
+  then $\tau$ is injective.
+\end{proposition}
+We use the Wronskian argument of Barreto \cite[proof of Theorem 1]{Barreto2026SiegelZeros}, also used by Kominers \cite[proof of Theorem 1]{Kominers2026FrobeniusPrimeSums}.
+\begin{proof}
+  Suppose that a nonzero polynomial $P \in F[X,Y]$ of $X$-degree at most $r$ and $Y$-degree at most $s$ lies in the kernel of $\tau$.  In other words, each specialization $P_i(X):=P(X,v_i)$ vanishes to order at least $J$ at $u_i$.
+
+  At most $s$ of the specializations $P_i$ are identically zero.  Indeed, write $P=\sum_a c_a(Y)X^a$ and choose a nonzero coefficient $c_a$.  Since $\deg c_a\leq s$, it has at most $s$ roots.  Since the $v_i$ are distinct, there are at most $s$ indices $i$ for which $c_a(v_i)=0$.  For the remaining indices $i$, we have $c_a(v_i) \neq 0$, hence $P_i \neq 0$, as required.
+
+  We now write $P=\sum_{b=0}^s f_b(X)Y^b$ and let $W\subseteq F[X]$ denote the span of the coefficients $f_b$.  Write $\ell:=\dim_F W$, so that
+  \begin{equation}\label{eq:cus6n50s8z}
+    1\leq\ell\leq s+1.
+  \end{equation}
+  Each $P_i$ belongs to $W$, and each element of $W$ has degree at most $r$.
+
+  Choose a basis $g_1,\dotsc,g_\ell$ of $W$, and form its Wronskian
+  \begin{equation*}
+    \mathcal W(X):=\det\bigl(\partial_X^j g_b(X)\bigr)_{0\leq j<\ell,\ 1\leq b\leq\ell}.
+  \end{equation*}
+  For example, when $\ell = 3$,
+  \begin{equation*}
+    \mathcal{W}(X) = \det\begin{pmatrix}
+      g_1(X) & g_2(X) & g_3(X) \\
+      g_1'(X) & g_2'(X) & g_3'(X) \\
+      g_1''(X) & g_2''(X) & g_3''(X)
+    \end{pmatrix}
+  \end{equation*}.
+  Changing the basis multiplies $\mathcal W$ by a nonzero constant.  We observe that
+  \begin{equation}\label{eq:cus6n5llr4}
+    \mathcal W\neq0,\qquad
+    \deg\mathcal W=\sum_b d_b-\binom\ell2\leq\ell r.
+  \end{equation}
+  Indeed, by canceling leading terms, we may choose the $g_b$ monic with strictly increasing degrees $d_1<\dotsb<d_\ell$.  The coefficient of degree $\sum_b d_b-\binom\ell2$ in $\mathcal W$ is
+  \begin{equation*}
+    \det\bigl(d_b(d_b-1)\dotsb(d_b-j+1)\bigr)_{0\leq j<\ell,\ 1\leq b\leq\ell}
+    =\prod_{a<b}(d_b-d_a).
+  \end{equation*}
+  Since $F$ has characteristic zero, this product is nonzero, so it is the leading coefficient of $\mathcal W$, giving \eqref{eq:cus6n5llr4}.
+
+  Now fix $i$ with $P_i\neq0$, and extend $P_i$ to a basis of $W$.  The Wronskian in this new basis contains the column
+  \begin{equation*}
+    \begin{pmatrix}
+      P_i \\ \partial_X P_i \\ \vdots \\ \partial_X^{\ell-1} P_i
+    \end{pmatrix}.
+  \end{equation*}
+  Each entry in that column is divisible by $(X-u_i)^{J-\ell+1}$.  The same divisibility holds for the new Wronskian, hence also for $\mathcal W$.
+  Since the $u_i$ are distinct and at least $I-s$ of the $P_i$ are nonzero, we obtain
+  \begin{equation*}
+    \deg\mathcal W\geq(I-s)(J - \ell + 1).
+  \end{equation*}
+  Our hypotheses \eqref{eq:cus6n5zz8x} and \eqref{eq:cus6n50s8z} give
+  \begin{equation*}
+    I - s > r, \quad J-\ell+1\geq 2s+2-\ell\geq\ell,
+  \end{equation*}
+  so we obtain $\deg\mathcal W > r \ell$, giving the required contradiction to \eqref{eq:cus6n5llr4}.
+\end{proof}
+
+\begin{proof}[Proof of Lemma~\ref{lemma:triangle-interpolation}]
+  We must verify the hypotheses of Proposition \ref{prop:interpolation}.  The points $v_i = \sigma(u_i)$ are distinct.  For $(a, b) \in \mathcal{T}$, we have $a < t$ and $H b < t$, hence
+  \begin{equation}\label{eq:cus6n580mv}
+    a \leq r := t - 1, \qquad b \leq s := \lfloor(t - 1)/H\rfloor.
+  \end{equation}
+  Thus the domain of $\tau$ is contained in the span of the monomials with $X$-degree at most $r$ and $Y$-degree at most $s$.  The assumed bounds on $I$ and $J$ give \eqref{eq:cus6n5zz8x}, so Proposition \ref{prop:interpolation} applies.
+\end{proof}
+
+\section{Points of small height}\label{appendix:small}
+
+We record a proof of Proposition~\ref{prop:small-set}.
+
+\subsection{Haar measures}
+
+Let $F$ be a global field, and let $\mathbb{A}$ denote its adele ring.  We equip $\mathbb{A}$ with product Haar measure $\mu := \prod_v \mu_v$, normalized as follows:
+\begin{itemize}
+\item at finite places, $\mu_v$ assigns volume one to the ring of integers;
+\item at real places, $\mu_v$ is Lebesgue measure;
+\item at complex places, $\mu_v$ is twice the Euclidean area.
+\end{itemize}
+On $\mathbb{A}/F$, we use the quotient measure induced by $\mu$ and counting measure on $F$.  When $F$ is a number field, we continue to write $\Delta:=|\operatorname{disc}F|$.  When $F$ is a function field with constant field $\mathbb{F}$ of cardinality $q$, we set
+\begin{equation*}
+  g:=\dim_{\mathbb{F}}\mathbb{A}/\left(F+\prod_v\mathfrak{o}_v\right),
+  \qquad \Delta:=q^{2g-2}.
+\end{equation*}
+\begin{lemma}\label{lemma:adelic-volume}
+  We have
+  \begin{equation*}
+    \mu(\mathbb{A}/F) = \sqrt{\Delta}.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  For number fields, see Weil \cite[\S2.1.3]{MR670072}.  For function fields, $F\cap\prod_v\mathfrak{o}_v=\mathbb{F}$, so the image of $\prod_v\mathfrak{o}_v$ in $\mathbb{A}/F$ has measure $1/q$.  Its index is $q^g$, giving total volume $q^{g-1}$.
+\end{proof}
+We denote the probability Haar measure on $\mathbb{A}/F$ by $dt$.
+
+\subsection{Averaging}
+
+\begin{lemma}\label{lemma:adelic-averaging}
+  For every compact measurable subset $\Omega \subseteq \mathbb{A}$, we have
+  \begin{equation*}
+    \int_{\mathbb{A}/F}\#\bigl((t + \Omega) \cap F\bigr) \, d t
+    = \frac{\mu(\Omega)}{\sqrt\Delta}.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  Call the left-hand side $\nu(\Omega)$.  It defines a Haar measure $\nu$ on $\mathbb{A}$, so the two sides are proportional.  To compute the constant of proportionality, we take $\Omega$ to be a measurable fundamental domain for $\mathbb{A}/F$.  The integrand on the left-hand side is then identically one, so $\nu(\Omega) = 1$.  We conclude using Lemma~\ref{lemma:adelic-volume}.
+\end{proof}
+
+\subsection{Producing points of small height}
+
+\begin{lemma}\label{lemma:small-points}
+  Let $I\geq1$ be an integer.  For each place $v$, choose $B_v>0$, with $B_v=1$ at almost all places and $B_v\in|F_v^\times|_v$ at each place.  If
+  \begin{equation*}
+    \prod_v B_v\geq I\sqrt\Delta,
+  \end{equation*}
+  then there is a subset $\{u_1, \dotsc u_I\} \subset F$ of cardinality $I$ such that
+  \begin{equation*}
+    |u_i|_v\leq B_v
+  \end{equation*}
+  for all $i$ and $v$.
+\end{lemma}
+\begin{proof}
+  At finite places, set $\Omega_v:=\{z\in F_v:|z|_v\leq B_v\}$.  At real places, set $\Omega_v=[0,B_v]$.  At complex places, let $\Omega_v$ be a square of side $\sqrt{B_v/2}$.  These choices satisfy
+  \begin{equation*}
+    \mu_v(\Omega_v)=B_v,\qquad
+    \Omega_v-\Omega_v\subseteq\{z\in F_v:|z|_v\leq B_v\}.
+  \end{equation*}
+  Thus $\Omega:=\prod_v\Omega_v$ is compact and $\mu(\Omega)=\prod_vB_v$.  By Lemma \ref{lemma:adelic-averaging}, we have
+  \begin{equation*}
+    \int_{\mathbb{A}/F}\#\bigl((t+\Omega)\cap F\bigr)\,dt
+    =\frac{\mu(\Omega)}{\sqrt\Delta}\geq I.
+  \end{equation*}
+  Thus some translate $t + \Omega$ contains $I$ distinct elements $x_1, \dotsc, x_I$ of $F$.  The differences $u_i := x_i - x_1$ lie in $F\cap(\Omega-\Omega)$ and satisfy the required bounds.
+\end{proof}
+
+\begin{remark}
+  Over number fields, using disks instead of squares at the complex places improves the factor \(\sqrt{\Delta}\) in the hypothesis of Lemma~\ref{lemma:small-points} to \((2/\pi)^{r_2}\sqrt{\Delta}\), where \(r_2\) is the number of complex places.
+\end{remark}
+
+\begin{proof}[Proof of Proposition~\ref{prop:small-set}]
+  We set $H:=(I\sqrt\Delta)^{1/[F:\mathbb Q]}$ and apply Lemma~\ref{lemma:small-points} with
+  \begin{equation*}
+    B_v:=
+    \begin{cases}
+      1,&v\nmid\infty,\\
+      H^{[F_v:\mathbb R]},&v\mid\infty.
+    \end{cases}
+  \end{equation*}
+  These radii are at least one and have product $I\sqrt\Delta$.  They are preserved by every automorphism of $F$: if $\sigma v$ is the transported place, characterized by $|\sigma\alpha|_{\sigma v}=|\alpha|_v$, then $B_{\sigma v}=B_v$.  The resulting $u_i$ are integral at all finite places, and every conjugate has Euclidean modulus at most $H$.  The same bounds hold for each $\sigma_\ell(u_i)$, so
+  \begin{equation*}
+    \beta\leq\prod_vB_v=I\sqrt\Delta.
+  \end{equation*}
+\end{proof}
+
+\section{Comparison with Bombieri--Stepanov}\label{section:stepanov}
+
+The ``small points'' estimate (Lemma \ref{lemma:small-points}), and the product formula employed in \S\ref{section:global} are also relevant for the Bombieri--Stepanov method \cite{Bombieri1974CountingPoints} for proving the Riemann hypothesis for curves over finite fields.  We give a brief sketch of that argument.
+
+Let $F$ be a global function field, thus $F$ is the field of rational functions on a curve $C$ over a finite field $\mathbb{F}$ of some cardinality $q$.  We always assume that $\mathbb{F}$ is the full constant field of $F$.  We retain the notation $\mathbb{A}$ and $\Delta = q^{2 g - 2}$ from the preceding appendix.  We assume that $F$ has a place $\infty$ of degree one, which can be arranged after passing to a finite extension of $\mathbb{F}$.  Take
+\begin{equation*}
+  R:=F\cap\prod_{v\ne\infty}\mathfrak{o}_v,
+  \qquad
+  R_\ell:=\{f\in R:\operatorname{ord}_\infty(f)\geq-\ell\}
+  \quad(\ell\geq0).
+\end{equation*}
+The $R_\ell$ are finite-dimensional $\mathbb{F}$-vector spaces.  They are special cases of the sets considered in the proof of Lemma \ref{lemma:small-points}.
+
+We have $R_0=\mathbb{F}$.  By considering the leading coefficient at $\infty$, whose residue field is $\mathbb{F}$, we see that
+\begin{equation*}
+  0\leq\dim_{\mathbb{F}}R_{\ell+1}-\dim_{\mathbb{F}}R_\ell\leq1.
+\end{equation*}
+In particular, $\dim R_\ell\leq\ell+1$, and we may choose bases of the $R_\ell$ with distinct pole orders at $\infty$.
+
+For $\ell\geq g-1$, we apply Lemma~\ref{lemma:small-points} with
+\begin{equation*}
+  I:=q^{\ell+1-g},\qquad B_\infty:=q^\ell,
+  \qquad B_v:=1\quad(v\ne\infty).
+\end{equation*}
+Since $\prod_v B_v=I\sqrt\Delta$, the lemma supplies $q^{\ell+1-g}$ distinct elements of $R_\ell$.  As $R_\ell$ is an $\mathbb{F}$-vector space, we obtain the Riemann--Roch estimate
+\begin{equation}\label{eq:stepanov-dimensions}
+  \ell+1-g\leq\dim_{\mathbb{F}}R_\ell\leq\ell+1.
+\end{equation}
+The lower bound is automatic for $\ell<g-1$.
+
+For $m\geq1$, write
+\begin{equation*}
+  N_m:=\sum_{\deg v\mid m}\deg v,
+  \qquad \deg v:=[\mathfrak{o}_v/\mathfrak{p}_v:\mathbb{F}].
+\end{equation*}
+This is the number of points over $\mathbb{F}_{q^m}$ on $C$.  For a place $\mathfrak{p}$ of $F$, write $|\mathfrak{p}|=q^{\deg\mathfrak{p}}$ for its absolute norm.  If a nonzero $f\in R_L$ vanishes at every place $\mathfrak{p}\ne\infty$ with $\deg\mathfrak{p}\mid m$, then the product formula gives
+\begin{equation}\label{eq:stepanov-product-formula}
+  (N_m-1)\log q
+  \leq \sum_{\mathfrak p\ne\infty}
+  \operatorname{ord}_{\mathfrak p}(f)\log|\mathfrak p|
+  =\log|f|_\infty
+  \leq L\log q.
+\end{equation}
+Thus $N_m\leq L+1$.  The equality in \eqref{eq:stepanov-product-formula} is the analogue of \eqref{eq:cus62z6mr2}, while comparisons like \eqref{eq:stepanov-product-formula} are analogous to \eqref{eq:cus63wm1w9}.
+
+\begin{proposition}\label{proposition:stepanov}
+  For even $m\geq2$, we have
+  \begin{equation*}
+    N_m\leq q^m+\O_F(q^{m/2}).
+  \end{equation*}
+\end{proposition}
+\begin{proof}
+  Write $Q:=q^{m/2}$.  Let $\ell_1,\ell_2\geq0$ be integers with $\ell_1<Q$.  Choose bases $\{x_i\}$ of $R_{\ell_1}$ and $\{y_j\}$ of $R_{\ell_2}$ with distinct pole orders at $\infty$.
+
+  Suppose we can find coefficients $c_{ij}\in\mathbb{F}$, not all zero, such that
+  \begin{equation*}
+    \widetilde f:=\sum_{i,j}c_{ij}x_i^Qy_j=0.
+  \end{equation*}
+  For such coefficients, we set
+  \begin{equation*}
+    f:=\sum_{i,j}c_{ij}x_i y_j^Q\in R_{\ell_1+Q\ell_2}.
+  \end{equation*}
+  The pole orders at $\infty$ of the $x_i y_j^Q$ are distinct: those of the $x_i$ lie in $[0,\ell_1]\subset[0,Q)$, while those of the $y_j^Q$ are distinct multiples of $Q$.  Since the coefficients are not all zero, we have $f\ne0$.
+
+  Now, for each place $v\ne\infty$ with $\deg v\mid m$, we have $u^{Q^2}\equiv u\pmod{\mathfrak{p}_v}$ for all $u\in R$ (an analogue of the Frobenius condition employed in the rest of this note).  Since also $c_{ij}^Q=c_{ij}$ (a condition involving the field of constants $\mathbb{F}$, which admits no obvious analogue in the number field setting), we obtain
+  \begin{equation*}
+    f^Q\equiv\sum_{i,j}c_{ij}x_i^Qy_j=\widetilde f=0\pmod{\mathfrak{p}_v}.
+  \end{equation*}
+  Hence $f$ vanishes at all the required places, and the product formula \eqref{eq:stepanov-product-formula} gives
+  \begin{equation*}
+    N_m\leq1+\ell_1+Q\ell_2.
+  \end{equation*}
+
+  It remains to find the coefficients $c_{i j}$.  The map $(c_{ij})\mapsto\widetilde f$ takes values in $R_{Q\ell_1+\ell_2}$, so in view of the dimension estimates \eqref{eq:stepanov-dimensions}, it has a nonzero kernel provided that
+  \begin{equation*}
+    (\ell_1+1-g)(\ell_2+1-g)>Q\ell_1+\ell_2+1,
+  \end{equation*}
+  assuming $\ell_1,\ell_2\geq g-1$.  Take
+  \begin{equation*}
+    \ell_1:=Q-1,\qquad \ell_2:=Q+2g.
+  \end{equation*}
+  For sufficiently large $Q$, the required inequality holds, since
+  \begin{equation*}
+    (Q-g)(Q+g+1)-(Q^2+2g+1)=Q-g^2-3g-1>0.
+  \end{equation*}
+  We conclude that $N_m\leq Q^2+(2g+1)Q$ for $m$ large enough.  For small $m$, we conclude via trivial estimation.
+\end{proof}
+
+For the Galois argument that passes from these upper bounds to the Riemann hypothesis, see Bombieri \cite[\S III]{Bombieri1974CountingPoints}.
+
+\begin{remark}
+  The above argument is similar to that of the rest of this note in the use of the product formula, the existence of points of small height, and a Frobenius condition to detect certain primes (here those whose degree divides $m$, elsewhere those whose Frobenius is some given automorphism $\sigma$).  The arguments differ in how the elements fed into the product formula are constructed: in Bombieri--Stepanov, they are nonzero elements of the kernel of a linear map defined over the constant field $\mathbb{F}$, while in the rest of the note, they are nonzero determinantal minors of an injective map defined using auxiliary polynomials.  The Bombieri--Stepanov argument also uses the exact additivity $(\sum a_{i j})^Q = \sum a_{i j}^Q$, which has no analogue in the number field setting.
+\end{remark}
+
+\section{Explicit estimates}\label{section:explicit}
+
+We now prove Lemma~\ref{lemma:numerical-bound}.  The estimates recorded here were done in ``one shot'' by Codex (GPT-6.1 Sol on ``Low'' reasoning effort) after we asked it to use Corollary~\ref{corollary:height-prime-comparison} to prove any completely effective estimate in the setting of Theorem~\ref{theorem:prime-sum}.
+
+\subsection{Monomial sums}
+
+\begin{lemma}\label{lemma:triangle-estimates}
+  Let $x \geq 6$ and $1 \leq H \leq x/2$ be integers, and take
+  \begin{equation*}
+    \mathcal{T} := \{(a, b) : a + H b < x\}.
+  \end{equation*}
+  Then
+  \begin{equation*}
+    T \leq \frac{x^2}{H}, \qquad
+    \sum_{\mathcal{T}} a \geq \frac{x^3}{8H}, \qquad
+    \sum_{\mathcal{T}} b \leq \frac{8}{H}\sum_{\mathcal{T}} a.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  For each integer $b$ with $0 \leq b \leq \lfloor(x - 1)/H\rfloor$, the possible values of $a$ are $0, \dotsc, x - Hb - 1$.  Comparing the resulting sums with integrals gives
+  \begin{equation*}
+    T = \sum_{b = 0}^{\lfloor(x - 1)/H\rfloor}(x - Hb)
+    \leq x + \frac{1}{H}\int_0^x u \, d u
+    = x + \frac{x^2}{2H}
+    \leq \frac{x^2}{H}
+  \end{equation*}
+  and
+  \begin{equation*}
+    \begin{split}
+      \sum_{\mathcal{T}} a
+      &= \sum_{b = 0}^{\lfloor(x - 1)/H\rfloor}\frac{(x - Hb)(x - Hb - 1)}{2} \\
+      &\geq \frac{1}{H}\int_1^x \frac{u(u - 1)}{2} \, d u
+      = \frac{2x^3 - 3x^2 + 1}{12H}
+      \geq \frac{x^3}{8H}.
+    \end{split}
+  \end{equation*}
+  Here the first comparison uses that $u$ is increasing, and the second uses that $u(u - 1)/2$ is increasing and nonnegative for $u \geq 1$.  The last inequality holds for $x \geq 6$.  Finally, $b < x/H$ for every $(a, b) \in \mathcal{T}$, so
+  \begin{equation*}
+    \sum_{\mathcal{T}} b
+    \leq \frac{xT}{H}
+    \leq \frac{x^3}{H^2}
+    \leq \frac{8}{H}\sum_{\mathcal{T}} a.
+  \end{equation*}
+\end{proof}
+
+\subsection{Dependence on $H$}
+
+\begin{proposition}\label{proposition:variable-parameters}
+  Retain the notation of Lemma~\ref{lemma:numerical-bound}, but allow any integer $2 \leq H \leq x/2$, still taking $J=2\lfloor(x-1)/H\rfloor+1$.  Then
+  \begin{equation*}
+    |C|\mathcal{B}
+    \leq \frac{|C|}{d}\log(2x\sqrt{\Delta})
+    + \frac{8|C|}{H}\left(\frac{\log(2x\sqrt{\Delta})}{d} + 2d_0\log x\right)
+    + d_0\log H + 21d_0|C|.
+  \end{equation*}
+\end{proposition}
+\begin{proof}
+  Since $r=1$ and $\lVert w\rVert_\infty=1/|C|$, the definition \eqref{eq:comparison-bound} gives
+  \begin{equation}\label{eq:height-prime-comparison}
+    \begin{split}
+      |C|\mathcal{B}
+      &= \frac{|C|}{d}\frac{\sum_{\mathcal{T}}(a+b)}{\sum_{\mathcal{T}}a}\log\beta
+      + \frac{|C|A_\infty}{\sum_{\mathcal{T}}a} \\
+      &\quad + \frac{T}{\sum_{\mathcal{T}}a}\sum_{|p|\leq x}\log|p|
+      + \sum_{|p|<H}\frac{\log|p|}{|p|}.
+    \end{split}
+  \end{equation}
+  We estimate these four terms in order.
+
+  By Lemma \ref{lemma:triangle-estimates}, the height term is at most
+  \begin{equation*}
+    \frac{|C|}{d}\left(1 + \frac{8}{H}\right)\log(2x\sqrt{\Delta}).
+  \end{equation*}
+  Next, the same lemma gives $T/\sum_{\mathcal{T}} a \leq 8/x$.  Using the definition \eqref{eq:cus6oc79wo} of $A_\infty$, together with $T \leq x^2$ and $J + 1 \leq 2x/H + 2$, we find
+  \begin{equation*}
+    \begin{split}
+      \frac{|C| A_\infty}{\sum_{\mathcal{T}} a}
+      &\leq \frac{8d_0|C|}{x}\bigl(\log T + (J - 1)\log x\bigr) \\
+      &\leq 16d_0|C|\left(\frac{\log x}{H} + \frac{\log x}{x}\right) \\
+      &\leq \frac{16d_0|C|\log x}{H} + 3d_0|C|.
+    \end{split}
+  \end{equation*}
+  Here we used that $16\log x/x \leq \log 16 < 3$ for $x \geq 16$.  Finally, Lemma \ref{lemma:prime-estimates} gives
+  \begin{equation*}
+    \frac{T}{\sum_{\mathcal{T}} a}\sum_{|p| \leq x}\log |p|
+    \leq 16d_0.
+  \end{equation*}
+  The omitted primes with $|p| < H$ contribute at most $d_0(\log H + 2)$, again by Lemma \ref{lemma:prime-estimates}.  Combining these bounds and using $|C| \geq 1$ proves the claim.
+\end{proof}
+
+\subsection{Choosing $H$}
+
+\begin{proof}[Proof of Lemma~\ref{lemma:numerical-bound}]
+  Take
+  \begin{equation*}
+    H := \lceil\log x\rceil.
+  \end{equation*}
+  Then $2 \leq H \leq x/2$, and the hypothesis of the lemma gives
+  \begin{equation*}
+    \frac{8|C|}{H}\left(\frac{\log(2x\sqrt{\Delta})}{d} + 2d_0\log x\right)
+    \leq 24d_0|C|\frac{\log x}{H}
+    \leq 24d_0|C|.
+  \end{equation*}
+  Moreover, $H \leq \log x + 1 \leq \log(3x)$, so $\log H \leq \log\log(3x)$.  Proposition \ref{proposition:variable-parameters} now gives
+  \begin{equation*}
+    \begin{split}
+      |C|\mathcal{B}
+      &\leq \frac{|C|}{d}\left(\log x + \frac12\log\Delta\right)
+        + d_0\log\log(3x) \\
+      &\quad + \frac{|C|}{d}\log 2 + 45d_0|C|.
+    \end{split}
+  \end{equation*}
+  Since $|C|/d \leq d_0|C|$ and $45 + \log 2 < 50$, this proves the lemma.
+\end{proof}
+
+\section{Excluding real zeros}\label{sec:cus645mtdu}
+
+We now prove Lemma~\ref{lemma:prime-saving-zeros}.  Let $\chi$ be a primitive real nonprincipal Dirichlet character of conductor $q$.  We first record the two facts about $L$-functions that we need.
+
+\begin{lemma}\label{lemma:euler-prime-comparison}
+  For $0<\eta\leq1$, we have
+  \begin{equation}\label{eq:cus703aoqd}
+    \frac{L'}{L}(1+\eta,\chi)
+    =-\frac1\eta+2\sum_{\chi(p)=-1}\frac{\log p}{p^{1+\eta}}
+    +\O(\log(2q)),
+  \end{equation}
+  with an absolute effective implied constant.
+\end{lemma}
+\begin{proof}
+  Logarithmically differentiating the Euler products gives, for $s>1$,
+  \begin{equation*}
+    \frac{L'}{L}(s,\chi)-\frac{\zeta'}{\zeta}(s)
+    =\sum_p\sum_{k\geq1}(1-\chi(p)^k)\frac{\log p}{p^{ks}}.
+  \end{equation*}
+  The terms with $k=1$ and $p\nmid q$ give the sum on the right-hand side of \eqref{eq:cus703aoqd}.  The terms with $k\geq2$ contribute $\O(1)$, while those with $k=1$ and $p\mid q$ contribute at most $\sum_{p\mid q}\log p\leq\log q$.  Finally, the simple pole of $\zeta$ at $1$ gives
+  \begin{equation*}
+    \frac{\zeta'}{\zeta}(1+\eta)=-\frac1\eta+\O(1).
+  \end{equation*}
+\end{proof}
+
+\begin{lemma}\label{lemma:real-zero-contribution}
+  Suppose that $L(\beta,\chi)=0$ with $0<\beta<1$.  For $0<\eta\leq1$, we have
+  \begin{equation*}
+    \frac{L'}{L}(1+\eta,\chi)
+    \geq\frac1{1+\eta-\beta}-\O(\log(2q)),
+  \end{equation*}
+  with an absolute effective implied constant.
+\end{lemma}
+\begin{proof}
+  The partial fraction expansion of the logarithmic derivative \cite[\S12, (17)--(18)]{Dav80} gives
+  \begin{equation*}
+    \frac{L'}{L}(1+\eta,\chi)
+    =\sum_\rho\Re\frac1{1+\eta-\rho}-\frac12\log q+\O(1),
+  \end{equation*}
+  where $\rho$ runs over the nontrivial zeros, counted with multiplicity.  Since $\Re\rho\leq1$, each summand is nonnegative.  The claim follows by dropping terms except $\rho=\beta$.
+\end{proof}
+
+\begin{samepage}
+\begin{lemma}\label{lemma:smoothing-prime-bound}
+  Let $a_n\geq0$ for integers $n\geq2$.  Suppose that, for some $A,B\geq0$ and all $x \geq 2$,
+  \begin{equation*}
+    \sum_{2\leq n\leq x}a_n\leq A\log x+B.
+  \end{equation*}
+  Then for every $\eta>0$,
+  \begin{equation*}
+    \sum_{n\geq2}\frac{a_n}{n^\eta}\leq\frac A\eta+B.
+  \end{equation*}
+\end{lemma}
+\end{samepage}
+\begin{proof}
+  Set $S(x):=\sum_{2\leq n\leq x}a_n$.  Partial summation gives
+  \begin{align*}
+    \sum_{n\geq2}\frac{a_n}{n^\eta}
+    &=
+      \int_{2}^\infty x^{-\eta}\,d S(x)
+      = \eta\int_2^\infty S(x)x^{-1-\eta}\,d x \\
+    &\leq\eta\int_1^\infty(A\log x+B)x^{-1-\eta}\,d x.
+  \end{align*}
+  We have
+  \begin{equation*}
+    \eta\int_1^\infty x^{-1-\eta}\,d x=1,
+    \qquad
+    \eta\int_1^\infty(\log x)x^{-1-\eta}\,d x
+    =\int_1^\infty x^{-1-\eta}\,d x=\frac1\eta,
+  \end{equation*}
+  where the second identity follows by integration by parts.  The claim follows.
+\end{proof}
+
+\begin{proof}[Proof of Lemma~\ref{lemma:prime-saving-zeros}]
+  The principal character has conductor $1$ and $L$-function $\zeta(s)$, which has no positive real zero, so it is covered whenever $c<\log 2$.  We may therefore assume that $\chi$ is nonprincipal.  We apply Lemma~\ref{lemma:smoothing-prime-bound} with $a_p:=\log p/p$ when $\chi(p)=-1$ and $a_n:=0$ otherwise.  The assumed bound \eqref{eq:cus7zyehfg} gives
+  \begin{equation*}
+    \sum_{\chi(p)=-1}\frac{\log p}{p^{1+\eta}}
+    \leq\frac\kappa\eta+B\log(2q).
+  \end{equation*}
+  We know that $L(\beta, \chi) \neq 0$ when $\beta \geq 1$ (see for instance Davenport \cite[\S1--6]{Dav80}), so suppose that $L(\beta,\chi)=0$ for some $0<\beta<1$.  Then Lemmas~\ref{lemma:euler-prime-comparison} and~\ref{lemma:real-zero-contribution} give
+  \begin{equation*}
+    \frac\eta{1+\eta-\beta}
+    \leq2\kappa-1+\O_B(\eta\log(2q)).
+  \end{equation*}
+  Choose $\eta:=a/\log(2q)$, with $0<a\leq1$ small enough in terms of $\kappa,B$ that the right-hand side is at most $\kappa<1$.  Then
+  \begin{equation*}
+    1-\beta\geq\frac{1-\kappa}{\kappa}\eta
+    \geq
+    \frac{c}{\log(2 q)},
+    \quad 
+    c := 
+    \min\left\{\frac{\log 2}{2},\frac{a(1-\kappa)}{\kappa}\right\},
+  \end{equation*}
+  as required.
+\end{proof}
+
+\bibliography{refs}{} \bibliographystyle{plain}
+
+\end{document}
