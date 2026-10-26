@@ -1,3 +1,4 @@
+% -*- mode: latex; -*-
 \usepackage{graphicx, amsmath, amssymb, amsfonts, amsthm, stmaryrd, amscd}
 \usepackage[usenames, dvipsnames]{xcolor}
 \usepackage{tikz}
@@ -24,7 +25,11 @@
 % \WarningFilter{latex}{Label `tocindent2' multiply defined}
 % \WarningFilter{latex}{Label `tocindent3' multiply defined}
 \usepackage{ifpdf}
-\ifpdf \RequirePackage[pdftex]{hyperref} \fi
+\ifpdf
+  \makeatletter
+  \@ifpackageloaded{hyperref}{}{\RequirePackage[pdftex]{hyperref}}
+  \makeatother
+\fi
 % \usepackage{navigator}
 
 
@@ -264,6 +269,9 @@
 \DeclareMathOperator{\codim}{codim}
 \DeclareMathOperator{\linear}{linear}
 \newcommand{\git}{/\!\!/}
+\newcommand{\tripleslash}{/\!/\!/}
+\newcommand{\tripleslashb}{\mathrel{\ooalign{%
+$\tripleslash$\cr\hidewidth$\backslash$\hidewidth\cr}}}
 \DeclareMathOperator{\geom}{geom}
 \DeclareMathOperator{\spec}{spec}
 \def\O{\operatorname{O}}
@@ -348,15 +356,17 @@
 \DeclareMathOperator{\Cent}{Cent}
 \DeclareMathOperator{\val}{val}
 \DeclareMathOperator{\area}{area}
-\DeclareMathOperator{\nr}{nr}
+% \DeclareMathOperator{\nr}{nr}
 \DeclareMathOperator{\CM}{CM}
 \DeclareMathOperator{\CH}{CH}
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\characteristic}{char}
 \DeclareMathOperator{\supp}{supp}
+\def\Dmod{\mathrm{D}\text{-}\mathrm{mod}}
 
 
-\theoremstyle{plain} \newtheorem{theorem} {Theorem} \newtheorem{conjecture} [theorem] {Conjecture} \newtheorem{corollary} [theorem] {Corollary} \newtheorem{proposition} [theorem] {Proposition} \newtheorem{commentary} [theorem] {Commentary}
+\theoremstyle{plain} \newtheorem{theorem} {Theorem} \newtheorem{conjecture} [theorem] {Conjecture} \newtheorem{corollary} [theorem] {Corollary} \newtheorem{proposition} [theorem] {Proposition}
+% \newtheorem*{commentary}{Commentary}
 \newtheorem{fact} [theorem] {Fact}
 \theoremstyle{definition} \newtheorem{definition} [theorem] {Definition} \newtheorem{hypothesis} [theorem] {Hypothesis} \newtheorem{assumptions} [theorem] {Assumptions}
 \newtheorem{example} [theorem] {Example}
@@ -399,3 +409,17 @@
 
 \newtheorem*{results*}{Results}
 \newtheorem{results} [theorem] {Results}
+
+
+\usepackage[delayed,displaymath,textmath,sections,graphics]{preview}
+\PreviewEnvironment{align*}
+\PreviewEnvironment{multline*}
+\PreviewEnvironment{tabular}
+\PreviewEnvironment{verbatim}
+\PreviewEnvironment{lstlisting}
+\PreviewEnvironment*{frame}
+\PreviewEnvironment*{alert}
+\PreviewEnvironment*{emph}
+\PreviewEnvironment*{footnote}
+\PreviewEnvironment*{textbf}
+\PreviewEnvironment*{pn}
