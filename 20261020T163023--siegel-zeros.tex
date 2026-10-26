@@ -8,7 +8,7 @@
 
 \setcounter{tocdepth}{1} \tableofcontents
 
-\section{Introduction}
+\section{Introduction}\label{sec:cus71nf8oy}
 
 A recent paper of OpenAI \cite{OAI:Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026} established the following result, known as the \emph{exclusion of Landau--Siegel zeros}:
 \begin{theorem}\label{theorem:no-siegel-zeros}
@@ -111,7 +111,7 @@ Derivatives preserve the divisibility in \eqref{eq:cus62xos8h} (Lemma~\ref{lemma
 
 
 
-\section{Spaces of polynomials}
+\section{Spaces of polynomials}\label{sec:cus71nf9xo}
 We begin by constructing spaces of polynomials in which ``many elements are divisible by large powers of $X^q - Y$''.  We do so by taking spans of sets of monomials closed under the substitution $X^q \mapsto Y$.
 \begin{lemma}\label{lemma:cus6mosh6y}
   Let $q \geq 1$ be a natural number.  Let $\mathcal{T}$ be a finite subset of $\mathbb{Z}_{\geq 0}^2$.  Assume that $\mathcal{T}$ is closed under $(a, b) \mapsto(a - q, b + 1)$ whenever $a \geq q$.  For $(a, b) \in \mathcal{T}$, define
@@ -380,7 +380,7 @@ We now combine the local estimates using the product formula.
 \section{Proof of the main estimate}\label{section:inputs}
 We state the inputs needed to prove Theorem~\ref{theorem:prime-sum}, deferring their proofs to the appendices.  We then complete the proof.
 
-\subsection{Prime sums}
+\subsection{Prime sums}\label{sec:cus71nhbml}
 
 \begin{lemma}\label{lemma:prime-estimates}
   Let $F_0$ be a number field of degree $d_0$.  For every real $y \geq 2$, we have
@@ -431,7 +431,7 @@ Let $F$ be a number field of absolute discriminant $\Delta$.
 \end{proposition}
 This follows (in slightly sharper form) from Blichfeldt's theorem; see Cassels \cite[Chapter III, \S3, Theorem IV]{cassels-geometry-of-numbers}.  We record an adelic proof in Appendix~\ref{appendix:small}.
 
-\subsection{A numerical estimate}
+\subsection{A numerical estimate}\label{sec:cus71nhdho}
 
 Finally, we require estimates for the right-hand side of Corollary~\ref{corollary:height-prime-comparison}.
 
@@ -455,7 +455,7 @@ Finally, we require estimates for the right-hand side of Corollary~\ref{corollar
 \end{lemma}
 We prove this estimate in Appendix~\ref{section:explicit}.
 
-\subsection{Completion of the proof}
+\subsection{Completion of the proof}\label{sec:cus71nhevd}
 
 \begin{proof}[Proof of Theorem \ref{theorem:prime-sum}]
   We must verify the inequality \eqref{eq:cus7jrsd00}.  Since its left-hand side is unchanged on replacing $x$ by $\lfloor x\rfloor$, and its right-hand side is increasing in $x$, we may assume that $x$ is an integer.  If $x < 16$, then Lemma \ref{lemma:prime-estimates} gives the bound $d_0(\log 16 + 2) < 5d_0$ for its left-hand side, which is less than the term $50d_0|C|$ appearing on its right-hand side.  We may thus assume that $x \geq 16$.
@@ -485,7 +485,7 @@ The proof of Theorem~\ref{theorem:prime-sum} is complete, modulo the inputs prov
 
 We take $F$ to be a number field and write $d_0 := [F_0 : \mathbb{Q}]$.
 
-\subsection{Estimating $\mathcal{B}$}
+\subsection{Estimating $\mathcal{B}$}\label{sec:cus71nhgnt}
 
 In this section, we regard $r$ as fixed -- any implied constants may depend upon it.
 
@@ -543,7 +543,7 @@ In this section, we regard $r$ as fixed -- any implied constants may depend upon
   Using $\log t/t \ll 1$ and $\lVert w \rVert_\infty \leq 1$ gives the claim.
 \end{proof}
 
-\subsection{Optimistic interpolation}
+\subsection{Optimistic interpolation}\label{sec:cus71nhhdz}
 
 For any $I$, Proposition~\ref{prop:small-set} supplies distinct points $u_i\in F$ for which $(u_i,\sigma_1(u_i),\dotsc,\sigma_r(u_i))$ have height $\beta\leq I\sqrt\Delta$.  The remaining question is whether the evaluation map $\tau$ is injective.  Its matrix has $T$ columns and $IJ$ rows, so injectivity requires $IJ\geq T$.  We first ask what bound we would obtain if this necessary condition were sufficient up to a fixed factor.  Below, we first estimate $\mathcal{B}$ in this range (Proposition~\ref{proposition:conditional-main-term}) and then apply the resulting estimate when $\tau$ is injective (Corollary~\ref{corollary:conditional-prime-main-term}).  We restrict to $J \leq t$ because our polynomials have degree less than $t$ in $X_0$.
 
@@ -835,7 +835,7 @@ We use the Wronskian argument of Barreto \cite[proof of Theorem 1]{Barreto2026Si
 
 We record a proof of Proposition~\ref{prop:small-set}.
 
-\subsection{Haar measures}
+\subsection{Haar measures}\label{sec:cus71nhjko}
 
 Let $F$ be a global field, and let $\mathbb{A}$ denote its adele ring.  We equip $\mathbb{A}$ with product Haar measure $\mu := \prod_v \mu_v$, normalized as follows:
 \begin{itemize}
@@ -859,7 +859,7 @@ On $\mathbb{A}/F$, we use the quotient measure induced by $\mu$ and counting mea
 \end{proof}
 We denote the probability Haar measure on $\mathbb{A}/F$ by $dt$.
 
-\subsection{Averaging}
+\subsection{Averaging}\label{sec:cus71nhke1}
 
 \begin{lemma}\label{lemma:adelic-averaging}
   For every compact measurable subset $\Omega \subseteq \mathbb{A}$, we have
@@ -872,7 +872,7 @@ We denote the probability Haar measure on $\mathbb{A}/F$ by $dt$.
   Call the left-hand side $\nu(\Omega)$.  It defines a Haar measure $\nu$ on $\mathbb{A}$, so the two sides are proportional.  To compute the constant of proportionality, we take $\Omega$ to be a measurable fundamental domain for $\mathbb{A}/F$.  The integrand on the left-hand side is then identically one, so $\nu(\Omega) = 1$.  We conclude using Lemma~\ref{lemma:adelic-volume}.
 \end{proof}
 
-\subsection{Producing points of small height}
+\subsection{Producing points of small height}\label{sec:cus71nhoyd}
 
 \begin{lemma}\label{lemma:small-points}
   Let $I\geq1$ be an integer.  For each place $v$, choose $B_v>0$, with $B_v=1$ at almost all places and $B_v\in|F_v^\times|_v$ at each place.  If
@@ -1016,7 +1016,7 @@ For the Galois argument that passes from these upper bounds to the Riemann hypot
 
 We now prove Lemma~\ref{lemma:numerical-bound}.  The estimates recorded here were done in ``one shot'' by Codex (GPT-6.1 Sol on ``Low'' reasoning effort) after we asked it to use Corollary~\ref{corollary:height-prime-comparison} to prove any completely effective estimate in the setting of Theorem~\ref{theorem:prime-sum}.
 
-\subsection{Monomial sums}
+\subsection{Monomial sums}\label{sec:cus71nhu98}
 
 \begin{lemma}\label{lemma:triangle-estimates}
   Let $x \geq 6$ and $1 \leq H \leq x/2$ be integers, and take
@@ -1057,7 +1057,7 @@ We now prove Lemma~\ref{lemma:numerical-bound}.  The estimates recorded here wer
   \end{equation*}
 \end{proof}
 
-\subsection{Dependence on $H$}
+\subsection{Dependence on $H$}\label{sec:cus71nhv9g}
 
 \begin{proposition}\label{proposition:variable-parameters}
   Retain the notation of Lemma~\ref{lemma:numerical-bound}, but allow any integer $2 \leq H \leq x/2$, still taking $J=2\lfloor(x-1)/H\rfloor+1$.  Then
@@ -1102,7 +1102,7 @@ We now prove Lemma~\ref{lemma:numerical-bound}.  The estimates recorded here wer
   The omitted primes with $|p| < H$ contribute at most $d_0(\log H + 2)$, again by Lemma \ref{lemma:prime-estimates}.  Combining these bounds and using $|C| \geq 1$ proves the claim.
 \end{proof}
 
-\subsection{Choosing $H$}
+\subsection{Choosing $H$}\label{sec:cus71nhw6n}
 
 \begin{proof}[Proof of Lemma~\ref{lemma:numerical-bound}]
   Take
