@@ -1,5 +1,7 @@
 #!/bin/bash
 
+script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+
 file=$1
 converted_file="${file%.tex}.html"
 
@@ -19,7 +21,7 @@ else
     exit 1
 fi
 
-emacs --batch "$converted_file" -l ./tex2html.el --eval "(progn (tex2html-add-style-to-html-head) (tex2html-postprocess-html-buffer) (tex2html-add-comment-script) (tex2html-add-tex-pdf-links))" -f save-buffer
+emacs --batch "$converted_file" -l "$script_dir/tex2html.el" --eval "(progn (tex2html-add-style-to-html-head) (tex2html-postprocess-html-buffer) (tex2html-add-comment-script) (tex2html-add-tex-pdf-links))" -f save-buffer
 
 # Optional: a notes with sketches also gets a reader, in FILE-reader/.  Set SKETCHES_PYTHON to
 # the python of an environment with sketches_html installed (https://github.com/ultronozm/sketches).
