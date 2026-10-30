@@ -1129,99 +1129,122 @@ We now prove Lemma~\ref{lemma:numerical-bound}.  The estimates recorded here wer
 
 \section{Excluding real zeros}\label{sec:cus645mtdu}
 
-We now prove Lemma~\ref{lemma:prime-saving-zeros}.  Let $\chi$ be a primitive real nonprincipal Dirichlet character of conductor $q$.  We first record the two facts about $L$-functions that we need.
+We now prove Lemma~\ref{lemma:prime-saving-zeros}, following some auxiliary lemmas.  Let $\chi$ be a primitive real nonprincipal character of conductor $q$.  The idea is that a zero of $L(s, \chi)$ very close to $1$ forces almost all the logarithmic prime mass onto $\chi(p)=-1$, but the hypothesis bounds that mass by a fixed proportion $\kappa<1$.  In what follows, all implied constants are absolute and effective.
 
-\begin{lemma}\label{lemma:euler-prime-comparison}
-  For $0<\eta\leq1$, we have
-  \begin{equation}\label{eq:cus703aoqd}
-    \frac{L'}{L}(1+\eta,\chi)
-    =-\frac1\eta+2\sum_{\chi(p)=-1}\frac{\log p}{p^{1+\eta}}
-    +\O(\log(2q)),
-  \end{equation}
-  with an absolute effective implied constant.
+We first record the two facts about $L$-functions that we need.  Write $\mathcal L:=\log(2q)$.
+
+\begin{lemma}\label{lemma:cus9we2fk5}
+  Let $1 < s \leq 2$.  We have
+  
+  \begin{equation*}
+    - \frac{\zeta '}{\zeta}(s) = \frac{1}{s - 1} + \O(1).
+  \end{equation*}
+  If $L(s, \chi)$ has a real zero $\beta \in (0, 1)$, then
+  \begin{equation*}
+    -\frac{L'}L(s,\chi)
+    \leq - \frac{1}{s-\beta} +\O(\mathcal{L}).
+  \end{equation*}
 \end{lemma}
 \begin{proof}
-  Logarithmically differentiating the Euler products gives, for $s>1$,
+  The first estimate follows from the fact that $\zeta$ has a simple pole at $s = 1$.  As for the second estimate, the partial fraction expansion of $L'/L$ \cite[\S12, (17)--(18)]{Dav80} gives
   \begin{equation*}
-    \frac{L'}{L}(s,\chi)-\frac{\zeta'}{\zeta}(s)
-    =\sum_p\sum_{k\geq1}(1-\chi(p)^k)\frac{\log p}{p^{ks}}.
+    -\frac{L'}L(s,\chi)
+    =- \sum_\rho \frac{1}{s-\rho}+ \frac12\log q+\O(\mathcal{L}),
   \end{equation*}
-  The terms with $k=1$ and $p\nmid q$ give the sum on the right-hand side of \eqref{eq:cus703aoqd}.  The terms with $k\geq2$ contribute $\O(1)$, while those with $k=1$ and $p\mid q$ contribute at most $\sum_{p\mid q}\log p\leq\log q$.  Finally, the simple pole of $\zeta$ at $1$ gives
-  \begin{equation*}
-    \frac{\zeta'}{\zeta}(1+\eta)=-\frac1\eta+\O(1).
-  \end{equation*}
+  where $\rho$ runs over the nontrivial zeros with multiplicity and the sum is performed symmetrically, grouping the zeros $\rho$ into conjugate pairs.  For each such $\rho$, we have $\Re \frac{1}{s - \rho} \geq 0$ for $s$ in the indicated range, so taking real parts and dropping all terms but one $\rho = \beta$ gives the required estimate.
 \end{proof}
 
-\begin{lemma}\label{lemma:real-zero-contribution}
-  Suppose that $L(\beta,\chi)=0$ with $0<\beta<1$.  For $0<\eta\leq1$, we have
+\begin{lemma}\label{lemma:cus9we1a1l}
+  For $\Re s > 1$, we have
   \begin{equation*}
-    \frac{L'}{L}(1+\eta,\chi)
-    \geq\frac1{1+\eta-\beta}-\O(\log(2q)),
+    - \frac{\zeta '}{\zeta}(s) = \sum_{k=1}^\infty \sum_p \frac{\log p}{p^{ks}}
+    = \sum_p \frac{\log p}{p^s} + \O(1)
   \end{equation*}
-  with an absolute effective implied constant.
+  and
+  \begin{equation*}
+    - \frac{L'}{L}(s, \chi) = \sum_{k=1}^\infty \sum_p \frac{\chi(p)^k \log p}{p^{ks}}
+    = \sum_p \frac{\chi(p)\log p}{p^s} + \O(1).
+  \end{equation*}
 \end{lemma}
 \begin{proof}
-  The partial fraction expansion of the logarithmic derivative \cite[\S12, (17)--(18)]{Dav80} gives
-  \begin{equation*}
-    \frac{L'}{L}(1+\eta,\chi)
-    =\sum_\rho\Re\frac1{1+\eta-\rho}-\frac12\log q+\O(1),
-  \end{equation*}
-  where $\rho$ runs over the nontrivial zeros, counted with multiplicity.  Since $\Re\rho\leq1$, each summand is nonnegative.  The claim follows by dropping terms except $\rho=\beta$.
+  These estimates follow from the Euler product expansions of $\zeta$ and $L(s, \chi)$, together with the fact that $\sum_{k \geq 2} \sum_p \frac{\log p}{p^k}$ converges.
 \end{proof}
 
-\begin{samepage}
-\begin{lemma}\label{lemma:smoothing-prime-bound}
-  Let $a_n\geq0$ for integers $n\geq2$.  Suppose that, for some $A,B\geq0$ and all $x \geq 2$,
+\begin{lemma}\label{lemma:cus9wfbo36}
+  If $L(s, \chi)$ has a real zero $\beta \in (0, 1)$, then for $1 < s \leq 2$,
   \begin{equation*}
-    \sum_{2\leq n\leq x}a_n\leq A\log x+B.
-  \end{equation*}
-  Then for every $\eta>0$,
-  \begin{equation*}
-    \sum_{n\geq2}\frac{a_n}{n^\eta}\leq\frac A\eta+B.
-  \end{equation*}
-\end{lemma}
-\end{samepage}
-\begin{proof}
-  Set $S(x):=\sum_{2\leq n\leq x}a_n$.  Partial summation gives
-  \begin{align*}
-    \sum_{n\geq2}\frac{a_n}{n^\eta}
-    &=
-      \int_{2}^\infty x^{-\eta}\,d S(x)
-      = \eta\int_2^\infty S(x)x^{-1-\eta}\,d x \\
-    &\leq\eta\int_1^\infty(A\log x+B)x^{-1-\eta}\,d x.
-  \end{align*}
-  We have
-  \begin{equation*}
-    \eta\int_1^\infty x^{-1-\eta}\,d x=1,
-    \qquad
-    \eta\int_1^\infty(\log x)x^{-1-\eta}\,d x
-    =\int_1^\infty x^{-1-\eta}\,d x=\frac1\eta,
-  \end{equation*}
-  where the second identity follows by integration by parts.  The claim follows.
-\end{proof}
-
-\begin{proof}[Proof of Lemma~\ref{lemma:prime-saving-zeros}]
-  The principal character has conductor $1$ and $L$-function $\zeta(s)$, which has no positive real zero, so it is covered whenever $c<\log 2$.  We may therefore assume that $\chi$ is nonprincipal.  We apply Lemma~\ref{lemma:smoothing-prime-bound} with $a_p:=\log p/p$ when $\chi(p)=-1$ and $a_n:=0$ otherwise.  The assumed bound \eqref{eq:cus7zyehfg} gives
-  \begin{equation*}
-    \sum_{\chi(p)=-1}\frac{\log p}{p^{1+\eta}}
-    \leq\frac\kappa\eta+B\log(2q).
-  \end{equation*}
-  We know that $L(\beta, \chi) \neq 0$ when $\beta \geq 1$ (see for instance Davenport \cite[\S1--6]{Dav80}), so suppose that $L(\beta,\chi)=0$ for some $0<\beta<1$.  Then Lemmas~\ref{lemma:euler-prime-comparison} and~\ref{lemma:real-zero-contribution} give
-  \begin{equation*}
-    \frac\eta{1+\eta-\beta}
-    \leq2\kappa-1+\O_B(\eta\log(2q)).
-  \end{equation*}
-  Choose $\eta:=a/\log(2q)$, with $0<a\leq1$ small enough in terms of $\kappa,B$ that the right-hand side is at most $\kappa<1$.  Then
-  \begin{equation*}
-    1-\beta\geq\frac{1-\kappa}{\kappa}\eta
+    \sum_{p : \chi(p) = - 1}\frac{\log p}{p^s}
     \geq
-    \frac{c}{\log(2 q)},
-    \quad 
-    c := 
-    \min\left\{\frac{\log 2}{2},\frac{a(1-\kappa)}{\kappa}\right\},
+    \frac{1}{2} \left(
+      \frac{1}{s - 1} + \frac{1}{s - \beta}
+    \right)
+    + \O(\mathcal{L}).
   \end{equation*}
-  as required.
+\end{lemma}
+\begin{proof}
+  Away from primes dividing $q$, we have $1_{\chi(p)=-1}=(1-\chi(p))/2$.  The primes dividing $q$ contribute $\O(\mathcal L)$, so after some rearrangement, we deduce from Lemma~\ref{lemma:cus9we1a1l} that
+  \begin{equation*}
+    \sum_{p : \chi(p) = - 1}\frac{\log p}{p^s}
+    =
+    \frac{1}{2} \left(
+      - \frac{\zeta '}{\zeta}(s) + \frac{L'}{L}(s, \chi)
+    \right)
+    + \O(\mathcal{L}).
+  \end{equation*}
+  The desired estimate then follows from Lemma~\ref{lemma:cus9we2fk5}.
 \end{proof}
+
+We now complete the proof of Lemma~\ref{lemma:prime-saving-zeros}.  Suppose \(L(s,\chi)\) has a real zero \(\beta\in(0,1)\).  Take $R \geq 1$.  Applying Lemma~\ref{lemma:cus9wfbo36} with $s := 1 + 1/R$ and multiplying by $1/R$ gives
+\begin{equation*}
+  P_R := \frac{1}{R} \sum_{p:\chi (p) = - 1} \frac{\log p}{p}
+  \exp \left( {- \frac{\log p}{R}} \right)
+  \geq \frac{1}{2} \left( 1 + \frac{1}{1 + R(1 - \beta)} \right) - C \mathcal{L} / R
+\end{equation*}
+for some absolute effective constant $C$.  With the notation
+\begin{equation*}
+  S(t):=\sum_{\substack{\chi(p)=-1\\\log p\le t}}\frac{\log p}{p},
+\end{equation*}
+our hypothesis reads
+\begin{equation*}
+  S(t) \leq \kappa t + B \mathcal{L}.
+\end{equation*}
+We see using the identities
+\begin{equation*}
+  e^{- x} = \int_{x}^\infty e^{- t} \, d t, \quad 
+  \int_0^\infty e^{- t} \, d t = 1, \quad 
+  \int_0^\infty t e^{- t} \, d t = 1
+\end{equation*}
+that
+\begin{equation*}
+  P_R = \int_{0}^\infty e^{-t} \frac{S(R t)}{R} \, d t
+  \leq
+  \int_{0}^\infty e^{-t} \left( \kappa t + B \mathcal{L} / R \right) \, d t
+  = \kappa + B \mathcal{L} / R.
+\end{equation*}
+Combining the lower and upper bounds for $P_R$ gives
+\begin{equation}\label{eq:cus9wa0jyo}
+  \frac{1}{2} \left( 1 + \frac{1}{1 + R(1 - \beta)} \right) - C \mathcal{L} / R
+  \leq
+  P_R
+  \leq
+  \kappa + B \mathcal{L} / R.
+\end{equation}
+
+This implies that $\mathcal{L}(1 - \beta) \geq c$ for some absolute effective $c > 0$.  Informally, suppose $\mathcal{L}(1 - \beta)$ is small, so that $\mathcal{L}$ is much smaller than $1 /(1 - \beta)$.  We may then choose a scale $R$, intermediate between $\mathcal{L}$ and $1/(1 - \beta)$, so that both $\mathcal{L} / R$ and $R(1 - \beta)$ are small.  The two sides of \eqref{eq:cus9wa0jyo} are then arbitrarily close to $1$ and $\kappa$, respectively, contradicting our assumption that $\kappa < 1$.
+
+To carry out this last argument effectively, write $\delta := 1 - \beta$ and $D := B + C$.  The bound \eqref{eq:cus9wa0jyo} rearranges to
+\begin{equation*}
+  1 - \kappa \leq \frac{R \delta}{2(1 +R \delta)} + D \mathcal{L} / R.
+\end{equation*}
+Take $R := \sqrt{\mathcal{L} / \delta}$.  Then $R \delta$ and $\mathcal{L} / R$ are both equal to $\sqrt{\mathcal{L} \delta}$, so we obtain
+\begin{equation*}
+  1 - \kappa \leq \sqrt{\mathcal{L} \delta}(\tfrac{1}{2} + D),
+\end{equation*}
+i.e.,
+\begin{equation*}
+  \mathcal{L} \delta \geq c := \left( \frac{1 - \kappa}{\tfrac{1}{2} + D} \right)^2,
+\end{equation*}
+as required.
 
 \bibliography{refs}{} \bibliographystyle{plain}
 
