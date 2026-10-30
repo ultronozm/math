@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Some notes on recent results on Landau–Siegel zeros</title>
+  <link rel="stylesheet" href="tex.css">
+  <style>
+      .my-links-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 20px;
+        padding-top: 10px;
+      }
+      .my-link {
+        margin-left: 10px;
+      }
+      .my-links-container-2 { /* new CSS class for the second row */
+        position: absolute;
+        top: 40px; /* adjust this value based on the height of your links */
+        right: 0;
+        padding-right: 20px;
+      }
+      .my-link-2 {
+        margin-left: 10px;
+      }
+
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+<style>
+.proof .toggle-proof { cursor: pointer; }
+.proof.folded > :not(:first-child),
+.proof.folded > p:first-child > .proof-rest { display: none; }
+.proof.folded .toggle-proof::after { content: " (...)"; }
+</style>
+</head>
+<body>
+    <div class="my-links-container">
+2026-10-30 19:28:00
+      <a href="20261020T163023--siegel-zeros.tex" class="my-link">tex</a>
+      <a href="20261020T163023--siegel-zeros.pdf" class="my-link">pdf</a>
+      <a href="https://github.com/ultronozm/math/commits/main/20261020T163023--siegel-zeros.tex" class="my-link">history</a>
+
+      <a href="." class="my-link">home</a>
+    </div>
+<header id="title-block-header">
+<h1 class="title">Some notes on recent results on Landau–Siegel zeros</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#sec:cus71nf8oy" id="toc-sec:cus71nf8oy">Introduction</a></li>
+<li><a href="#sec:cus71nf9xo" id="toc-sec:cus71nf9xo">Spaces of polynomials</a></li>
+<li><a href="#section:evaluation" id="toc-section:evaluation">Evaluation matrices</a></li>
+<li><a href="#section:division" id="toc-section:division">Divisibility</a></li>
+<li><a href="#section:local" id="toc-section:local">Local estimates</a></li>
+<li><a href="#section:global" id="toc-section:global">The global inequality</a></li>
+<li><a href="#section:inputs" id="toc-section:inputs">Proof of the main estimate</a>
+<ul>
+<li><a href="#sec:cus71nhbml" id="toc-sec:cus71nhbml">Prime sums</a></li>
+<li><a href="#section:interpolation" id="toc-section:interpolation">Interpolation</a></li>
+<li><a href="#section:small" id="toc-section:small">Points of small height</a></li>
+<li><a href="#sec:cus71nhdho" id="toc-sec:cus71nhdho">A numerical estimate</a></li>
+<li><a href="#sec:cus71nhevd" id="toc-sec:cus71nhevd">Completion of the proof</a></li>
+</ul></li>
+<li><a href="#section:discussion" id="toc-section:discussion">Variables and derivatives</a>
+<ul>
+<li><a href="#sec:cus71nhgnt" id="toc-sec:cus71nhgnt">Estimating <span class="math inline">\(\mathcal{B}\)</span></a></li>
+<li><a href="#sec:cus71nhhdz" id="toc-sec:cus71nhhdz">Optimistic interpolation</a></li>
+<li><a href="#section:qualitative" id="toc-section:qualitative">A qualitative bound</a></li>
+</ul></li>
+<li><a href="#appendix:prime-estimates" id="toc-appendix:prime-estimates">Prime sums</a></li>
+<li><a href="#appendix:interpolation" id="toc-appendix:interpolation">Interpolation</a></li>
+<li><a href="#appendix:small" id="toc-appendix:small">Points of small height</a>
+<ul>
+<li><a href="#sec:cus71nhjko" id="toc-sec:cus71nhjko">Haar measures</a></li>
+<li><a href="#sec:cus71nhke1" id="toc-sec:cus71nhke1">Averaging</a></li>
+<li><a href="#sec:cus71nhoyd" id="toc-sec:cus71nhoyd">Producing points of small height</a></li>
+</ul></li>
+<li><a href="#section:stepanov" id="toc-section:stepanov">Comparison with Bombieri–Stepanov</a></li>
+<li><a href="#section:explicit" id="toc-section:explicit">Explicit estimates</a>
+<ul>
+<li><a href="#sec:cus71nhu98" id="toc-sec:cus71nhu98">Monomial sums</a></li>
+<li><a href="#sec:cus71nhv9g" id="toc-sec:cus71nhv9g">Dependence on <span class="math inline">\(H\)</span></a></li>
+<li><a href="#sec:cus71nhw6n" id="toc-sec:cus71nhw6n">Choosing <span class="math inline">\(H\)</span></a></li>
+</ul></li>
+<li><a href="#sec:cus645mtdu" id="toc-sec:cus645mtdu">Excluding real zeros</a></li>
+</ul>
+</nav>
+<h1 id="sec:cus71nf8oy">§1. Introduction</h1>
+<p>A recent paper of OpenAI <a href="#ref-OAI:Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026" class="citation" data-cites="OAI:Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026">(OpenAI 2026b)</a> established the following result, known as the <em>exclusion of Landau–Siegel zeros</em>:</p>
+<div id="theorem:no-siegel-zeros" class="theorem">
+<p><strong>Theorem 1</strong>. <em>There is an effective absolute constant <span class="math inline">\(c&gt;0\)</span> such that, for every primitive real Dirichlet character <span class="math inline">\(\chi\)</span> of conductor <span class="math inline">\(q\)</span>, we have <span class="math display">\[L(s,\chi)\neq0
+    \qquad\text{for real }s&gt;1-\frac c{\log(2q)}.\]</span></em></p>
+</div>
+<p>Theorem <a href="#theorem:no-siegel-zeros" data-reference-type="ref" data-reference="theorem:no-siegel-zeros">1</a> has significant consequences in analytic number theory, including for the distribution of primes in arithmetic progressions and the sizes of class groups of quadratic fields. The book by Davenport <a href="#ref-Dav80" class="citation" data-cites="Dav80">(Davenport 1980)</a> is a standard reference for that context. The result was immediately superseded by another result of OpenAI <a href="#ref-OpenAI2026QuasiRHSeptember30" class="citation" data-cites="OpenAI2026QuasiRHSeptember30">(OpenAI 2026a)</a> showing that <span class="math inline">\(L(s, \chi) \neq 0\)</span> for <span class="math inline">\(\Re s &gt; 7/8\)</span> for any Dirichlet character <span class="math inline">\(\chi\)</span>, but the method of proof of Theorem <a href="#theorem:no-siegel-zeros" data-reference-type="ref" data-reference="theorem:no-siegel-zeros">1</a> is of independent interest.</p>
+<p>The proof uses the following standard criterion, relating zeros to prime sums:</p>
+<div id="lemma:prime-saving-zeros" class="lemma">
+<p><strong>Lemma 2</strong>. Suppose there are effective constants <span class="math inline">\(0 &lt; \kappa &lt; 1\)</span> and <span class="math inline">\(B \geq 0\)</span> such that for every <span class="math inline">\(x \geq 2\)</span> and every primitive real Dirichlet character <span class="math inline">\(\chi\)</span> of conductor <span class="math inline">\(q\)</span>, we have <span id="eq:cus7zyehfg" class="math display">\[\label{eq:cus7zyehfg}\tag{1}
+    \sum_{
+      \substack{
+        p \leq x  \\
+        \chi(p) = - 1        
+      }
+    }
+    \frac{\log p}{p}
+    \leq \kappa \log x + B \log(2 q).\]</span> Then the conclusion of Theorem <a href="#theorem:no-siegel-zeros" data-reference-type="ref" data-reference="theorem:no-siegel-zeros">1</a> holds.</p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> See Appendix <a href="#sec:cus645mtdu" data-reference-type="ref" data-reference="sec:cus645mtdu">F</a>. ◻</span></p>
+</div>
+<p>Mertens’s theorem gives <span class="math inline">\(\sum_{p \leq x} \frac{\log p}{p} \leq \log x + O(1)\)</span>, so <a href="#eq:cus7zyehfg" data-reference-type="eqref" data-reference="eq:cus7zyehfg">\((1)\)</a> for <span class="math inline">\(\kappa &lt; 1\)</span> represents a saving over the trivial bound, uniformly for <span class="math inline">\(\log q = o(\log x)\)</span>.</p>
+<p>These notes were written to help me understand the method of proof of Theorem <a href="#theorem:no-siegel-zeros" data-reference-type="ref" data-reference="theorem:no-siegel-zeros">1</a>. They are based on notes of Alexandru Pascadi <a href="#ref-Pascadi2026PrivateCommunication" class="citation" data-cites="Pascadi2026PrivateCommunication">(Pascadi 2026)</a> and a blog post by Tao <a href="#ref-Tao2026SiegelZeros" class="citation" data-cites="Tao2026SiegelZeros">(Tao 2026)</a>, which was in turn based on a note by Green <a href="#ref-hexagon:2610.00311v2" class="citation" data-cites="hexagon:2610.00311v2">(Green 2026)</a>. There are many related notes, including those of Banks <a href="#ref-2026arXiv2610.15483" class="citation" data-cites="2026arXiv2610.15483 2026arXiv2610.31402">(Banks 2026b, 2026a)</a>, Barreto <a href="#ref-Barreto2026SiegelZeros" class="citation" data-cites="Barreto2026SiegelZeros">(Barreto 2026)</a>, van Dijk <a href="#ref-hexagon:2610.00409v1" class="citation" data-cites="hexagon:2610.00409v1">(Dijk 2026)</a>, Guo <a href="#ref-2026arXiv2610.30476" class="citation" data-cites="2026arXiv2610.30476">(Guo 2026)</a>, Kerr <a href="#ref-2026arXiv2610.21099v1" class="citation" data-cites="2026arXiv2610.21099v1">(Kerr 2026)</a> and Kominers <a href="#ref-Kominers2026FrobeniusPrimeSums" class="citation" data-cites="Kominers2026FrobeniusPrimeSums">(Kominers 2026)</a>. We used Codex (GPT-6.1 Sol on “Low” reasoning effort) extensively in both preparing and revising these notes (particularly for the estimates of §<a href="#section:explicit" data-reference-type="ref" data-reference="section:explicit">E</a>).</p>
+<p>The new method for establishing <a href="#eq:cus7zyehfg" data-reference-type="eqref" data-reference="eq:cus7zyehfg">\((1)\)</a> may be understood as a way to control the distribution of Frobenius elements. Let <span class="math inline">\(F/F_0\)</span> be a finite Galois extension of number fields (we lose little by taking <span class="math inline">\(F_0 = \mathbb{Q}\)</span>). We write <span id="eq:cus6m6efl3" class="math display">\[\label{eq:cus6m6efl3}\tag{2}
+  d_0:=[F_0:\mathbb Q],\qquad d:=[F:F_0],\qquad
+  \Delta:=\lvert\operatorname{disc}F\rvert.\]</span> We denote by <span class="math inline">\(p\)</span> a prime of <span class="math inline">\(F_0\)</span>, i.e., a nonzero prime ideal of the ring of integers <span class="math inline">\(\mathcal O_{F_0}\)</span>. We denote by <span class="math inline">\(|p|:=\lvert \mathcal O_{F_0}/p \rvert\)</span> its absolute norm.</p>
+<p>Suppose <span class="math inline">\(p\)</span> is unramified in <span class="math inline">\(F\)</span>. For each prime <span class="math inline">\(\mathfrak p\)</span> of <span class="math inline">\(F\)</span> above <span class="math inline">\(p\)</span>, we write <span class="math inline">\({\mathop{\mathrm{Frob}}}_{\mathfrak p} \in \mathop{\mathrm{Gal}}(F / F_0)\)</span> for the arithmetic Frobenius element, characterized by <span id="eq:cus58nqx6q" class="math display">\[\label{eq:cus58nqx6q}\tag{3}
+  {\mathop{\mathrm{Frob}}}_{\mathfrak p}(u) \equiv u^{|p|}\pmod{\mathfrak p}\]</span> for all <span class="math inline">\(u\in\mathcal O_F\)</span>. We write <span class="math inline">\({\mathop{\mathrm{Frob}}}_p \subseteq \mathop{\mathrm{Gal}}(F / F_0)\)</span> for the Frobenius conjugacy class, which consists of the <span class="math inline">\({\mathop{\mathrm{Frob}}}_{\mathfrak p}\)</span> for all <span class="math inline">\(\mathfrak p\)</span> above <span class="math inline">\(p\)</span>. Throughout these notes, sums or products involving <span class="math inline">\({\mathop{\mathrm{Frob}}}_{\mathfrak{p}}\)</span> or <span class="math inline">\({\mathop{\mathrm{Frob}}}_{p}\)</span> are understood to be restricted to primes <span class="math inline">\(p\)</span> that are unramified in <span class="math inline">\(F\)</span>.</p>
+<div id="example:cus70rplg4" class="example">
+<p><strong>Example 3</strong>. Take <span class="math inline">\(F_0 := \mathbb{Q}\)</span>, so that <span class="math inline">\(d_0 = 1\)</span>, <span class="math inline">\(p\)</span> is a rational prime and <span class="math inline">\(|p| = p\)</span>. Let <span class="math inline">\(D\neq1\)</span> be a fundamental discriminant. Let <span class="math inline">\(\chi_D\)</span> denote the corresponding primitive real Dirichlet character (the Kronecker symbol). Every such character except the principal character arises in this way. Take for <span class="math inline">\(F := \mathbb{Q}(\sqrt{D})\)</span> the corresponding quadratic extension, thus <span class="math inline">\(d = 2\)</span>. Write <span class="math inline">\(\mathop{\mathrm{Gal}}(F / F_0) = \{1, \sigma\}\)</span>, and take for <span class="math inline">\(C := \{\sigma\}\)</span> the nontrivial class. Then <span class="math inline">\(p\)</span> is unramified in <span class="math inline">\(F\)</span> precisely when <span class="math inline">\(p \nmid D\)</span>, and <span class="math display">\[{\mathop{\mathrm{Frob}}}_p = \sigma  \iff \chi_D(p) = -1.\]</span></p>
+</div>
+<p>In view of Example <a href="#example:cus70rplg4" data-reference-type="ref" data-reference="example:cus70rplg4">3</a>, the sums appearing in <a href="#eq:cus7zyehfg" data-reference-type="eqref" data-reference="eq:cus7zyehfg">\((1)\)</a> are controlled by the following more general result:</p>
+<div id="theorem:prime-sum" class="theorem">
+<p><strong>Theorem 4</strong>. <em>Let <span class="math inline">\(C\subseteq\mathop{\mathrm{Gal}}(F/F_0)\)</span> be a conjugacy class. For every real <span class="math inline">\(x\geq2\)</span>, <span id="eq:cus7jrsd00" class="math display">\[\label{eq:cus7jrsd00}\tag{5}
+    \sum_{\substack{|p|\leq x\\ {\mathop{\mathrm{Frob}}}_p=C}} \frac{\log|p|}{|p|} \leq \frac{|C|}{d}\left(\log x+\frac12\log\Delta\right) +d_0\log\log(3x)+50d_0|C|.\]</span></em></p>
+</div>
+<p>Theorem <a href="#theorem:prime-sum" data-reference-type="ref" data-reference="theorem:prime-sum">4</a>, specialized as in Example <a href="#example:cus70rplg4" data-reference-type="ref" data-reference="example:cus70rplg4">3</a>, implies the hypotheses of Lemma <a href="#lemma:prime-saving-zeros" data-reference-type="ref" data-reference="lemma:prime-saving-zeros">2</a> for any fixed <span class="math inline">\(1/2 &lt; \kappa &lt; 1\)</span>, such as <span class="math inline">\(\kappa = 3/4\)</span>, with an absolute constant <span class="math inline">\(B\)</span>. Theorem <a href="#theorem:no-siegel-zeros" data-reference-type="ref" data-reference="theorem:no-siegel-zeros">1</a> follows. The coefficient <span class="math inline">\(|C|/d\)</span> is the density occurring in the Chebotarev density theorem (see Stevenhagen–Lenstra <a href="#ref-StevenhagenLenstra1996" class="citation" data-cites="StevenhagenLenstra1996">(Stevenhagen and Lenstra 1996)</a> for background, and Thorner–Zaman <a href="#ref-ThornerZaman2019" class="citation" data-cites="ThornerZaman2019">(Thorner and Zaman 2019, sec. 1)</a> for a discussion of effective versions).</p>
+<p>The idea of the proof of Theorem <a href="#theorem:prime-sum" data-reference-type="ref" data-reference="theorem:prime-sum">4</a> is as follows. Let <span class="math inline">\(\mathfrak{p} \mid p\)</span> be as in the definition <a href="#eq:cus58nqx6q" data-reference-type="eqref" data-reference="eq:cus58nqx6q">\((3)\)</a>, and suppose that <span class="math inline">\({\mathop{\mathrm{Frob}}}_{\mathfrak{p}} = \sigma \in C\)</span>. Then for each <span class="math inline">\(u\in\mathcal O_F\)</span>, we have <span class="math inline">\(\sigma(u)\equiv u^{|p|}\pmod{\mathfrak p}\)</span>; in other words, the pair <span class="math inline">\((u, \sigma(u)) \in \mathcal{O}_F^2\)</span> lies in the vanishing set modulo <span class="math inline">\(\mathfrak{p}\)</span> of the polynomial <span class="math inline">\(X^{\lvert p \rvert} - Y\)</span>. This vanishing forces many relations, modulo <span class="math inline">\(\mathfrak{p}\)</span> and its powers, between the values taken by polynomials at the pairs <span class="math inline">\((u, \sigma(u))\)</span>. For example, for <span class="math inline">\(f \in \mathcal{O}_F[X, Y]\)</span>, we have the implication <span id="eq:cus62xos8h" class="math display">\[\label{eq:cus62xos8h}\tag{6}
+  (X^{\lvert p \rvert} - Y)^k \mid f \implies
+  f(u, \sigma(u)) \in \mathfrak{p}^k.\]</span> To control these relations as <span class="math inline">\(\mathfrak{p}\)</span> varies, it is natural (at least in retrospect) to consider the determinants <span class="math inline">\(\delta\)</span> obtained by specializing <span class="math inline">\(f\)</span> and <span class="math inline">\(u\)</span> to finite sets. To fix ideas, take a finite subset <span class="math inline">\(\{u_i\} \subset \mathcal{O}_F\)</span> and a finite collection of monomials <span class="math inline">\(\{X^{a_j} Y^{b_j}\}\)</span>, where <span class="math inline">\(1 \leq i, j \leq r\)</span>, and consider <span id="eq:cus642yldw" class="math display">\[\label{eq:cus642yldw}\tag{7}
+  \delta := \det \bigl( u_i^{a_j} \sigma(u_i)^{b_j} \bigr)_{i, j} \in \mathcal{O}_F.\]</span> If <span class="math inline">\(\delta \neq 0\)</span>, then it satisfies the product formula <span id="eq:cus62z6mr2" class="math display">\[\label{eq:cus62z6mr2}\tag{8}
+  \sum_{\mathfrak{p}} {\mathop{\mathrm{ord}}}_{\mathfrak{p}}(\delta) \log \lvert \mathfrak{p} \rvert = \sum_{v \mid \infty} \log \lvert \delta \rvert_v.\]</span> The integrality of <span class="math inline">\(\delta\)</span> makes each term on the left-hand side nonnegative, so by dropping some terms, we obtain the inequality <span id="eq:cus63wm1w9" class="math display">\[\label{eq:cus63wm1w9}\tag{9}
+  \sum_{
+    \substack{
+      \mathfrak{p} :  \\
+      {\mathop{\mathrm{Frob}}}_{\mathfrak{p}} = \sigma      
+    }
+  }
+  {\mathop{\mathrm{ord}}}_{\mathfrak{p}}(\delta) \log \lvert \mathfrak{p} \rvert \leq \sum_{v \mid \infty} \log \lvert \delta \rvert_v.\]</span> We might expect relations like <a href="#eq:cus62xos8h" data-reference-type="eqref" data-reference="eq:cus62xos8h">\((6)\)</a> to force <span class="math inline">\({\mathop{\mathrm{ord}}}_{\mathfrak{p}}(\delta)\)</span> to be large whenever <span class="math inline">\({\mathop{\mathrm{Frob}}}_{\mathfrak{p}} = \sigma\)</span>. After estimating the archimedean norms of <span class="math inline">\(\delta\)</span>, we might then hope to use <a href="#eq:cus63wm1w9" data-reference-type="eqref" data-reference="eq:cus63wm1w9">\((9)\)</a> to give upper bounds for the set <span class="math inline">\(\{\mathfrak{p} : {\mathop{\mathrm{Frob}}}_{\mathfrak{p}} = \sigma\}\)</span>.</p>
+<p>Without derivatives, this strategy gives no improvement over the trivial bound in the quadratic case <span class="math inline">\(d=2\)</span>, as we explain in §<a href="#section:discussion" data-reference-type="ref" data-reference="section:discussion">8</a>. In that case, a nontrivial bound was obtained in <a href="#ref-OAI:Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026" class="citation" data-cites="OAI:Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026">(OpenAI 2026b)</a> using the following idea. Take a biquadratic extension <span class="math inline">\(F&#39;/F_0\)</span> containing <span class="math inline">\(F\)</span>, and let <span class="math inline">\(\sigma_1,\sigma_2\in\mathop{\mathrm{Gal}}(F&#39;/F_0)\)</span> denote the two lifts of the nontrivial element <span class="math inline">\(\sigma\in\mathop{\mathrm{Gal}}(F/F_0)\)</span>. If <span class="math inline">\({\mathop{\mathrm{Frob}}}_{\mathfrak{p}}=\sigma_1\)</span>, then <span class="math inline">\(u^{|p|}\equiv\sigma_1(u)\pmod{\mathfrak{p}}\)</span>; if <span class="math inline">\({\mathop{\mathrm{Frob}}}_{\mathfrak{p}}=\sigma_2\)</span>, then <span class="math inline">\(u^{|p|}\equiv\sigma_2(u)\pmod{\mathfrak{p}}\)</span>. Thus the triples <span class="math inline">\((u,\sigma_1(u),\sigma_2(u))\)</span> allow one determinant <span id="eq:cus6424wkg" class="math display">\[\label{eq:cus6424wkg}\tag{10}
+  \det \bigl( u_i^{a_j} \sigma_1(u_i)^{b_j} \sigma_2(u_i)^{c_j} \bigr)_{i, j},\]</span> with <span class="math inline">\(u_i\in\mathcal{O}_{F&#39;}\)</span>, to detect both families of primes. The product formula over <span class="math inline">\(F&#39;\)</span> turns out to give a nontrivial bound. We explain the numerics in Example <a href="#example:cus65n1pf9" data-reference-type="ref" data-reference="example:cus65n1pf9">25</a>. One can do better numerically by passing to further extensions and introducing additional variables (Example <a href="#example:cus65oadaz" data-reference-type="ref" data-reference="example:cus65oadaz">26</a>).</p>
+<p>A refined approach, observed in <a href="#ref-hexagon:2610.00311v2" class="citation" data-cites="hexagon:2610.00311v2">(Green 2026)</a>, is to consider the determinants defined using not just point evaluations, but also derivatives in the first variable: <span id="eq:cus646c6bn" class="math display">\[\label{eq:cus646c6bn}\tag{11}
+  \det \bigl( \partial_X^k X^{a_j} Y^{b_j} \mid_{X = u_i, \, Y = \sigma(u_i)}\bigr)_{(i, k), j}.\]</span> Derivatives preserve the divisibility in <a href="#eq:cus62xos8h" data-reference-type="eqref" data-reference="eq:cus62xos8h">\((6)\)</a> (Lemma <a href="#lemma:cus6muraaw" data-reference-type="ref" data-reference="lemma:cus6muraaw">8</a>), while supplying more evaluation conditions at the same points. This method readily yields the sharp bounds noted in Theorem <a href="#theorem:prime-sum" data-reference-type="ref" data-reference="theorem:prime-sum">4</a>; we use it to prove the theorem in §<a href="#section:inputs" data-reference-type="ref" data-reference="section:inputs">7</a>, then discuss the various approaches in §<a href="#section:discussion" data-reference-type="ref" data-reference="section:discussion">8</a>.</p>
+<h1 id="sec:cus71nf9xo">§2. Spaces of polynomials</h1>
+<p>We begin by constructing spaces of polynomials in which “many elements are divisible by large powers of <span class="math inline">\(X^q - Y\)</span>”. We do so by taking spans of sets of monomials closed under the substitution <span class="math inline">\(X^q \mapsto Y\)</span>.</p>
+<div id="lemma:cus6mosh6y" class="lemma">
+<p><strong>Lemma 5</strong>. Let <span class="math inline">\(q \geq 1\)</span> be a natural number. Let <span class="math inline">\(\mathcal{T}\)</span> be a finite subset of <span class="math inline">\(\mathbb{Z}_{\geq 0}^2\)</span>. Assume that <span class="math inline">\(\mathcal{T}\)</span> is closed under <span class="math inline">\((a, b) \mapsto(a - q, b + 1)\)</span> whenever <span class="math inline">\(a \geq q\)</span>. For <span class="math inline">\((a, b) \in \mathcal{T}\)</span>, define <span class="math display">\[f_{a, b} := X^{a - q k} Y^{b} (X^q - Y)^k,
+    \qquad k := \left\lfloor \frac{a}{q} \right\rfloor.\]</span> These polynomials define a basis for <span class="math display">\[\bigoplus_{(a, b) \in \mathcal{T}} \mathbb{Z} X^a Y^b \subset \mathbb{Z}[X, Y].\]</span></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> By the binomial expansion, <span class="math display">\[f_{a, b} - X^a Y^b = \sum_{j = 1}^{k} \binom{k}{j} (-1)^j X^{a - q j} Y^{b + j}.\]</span> By our closure assumption concerning <span class="math inline">\(\mathcal{T}\)</span>, each monomial on the right-hand side has its exponents in <span class="math inline">\(\mathcal{T}\)</span>. Moreover, each such monomial is strictly less than <span class="math inline">\(X^a Y^b\)</span> in the lexicographic ordering (first by <span class="math inline">\(a\)</span>, then by <span class="math inline">\(b\)</span>). The <span class="math inline">\(f_{a, b}\)</span> are thus related to the standard basis <span class="math inline">\(X^a Y^b\)</span> via an upper-triangular substitution with ones on the diagonal, hence form a basis. ◻</span></p>
+</div>
+<div id="example:cus6mv4c50" class="example">
+<p><strong>Example 6</strong>. For <span class="math inline">\(H \geq 1\)</span> and <span class="math inline">\(t \geq 2\)</span>, set <span class="math display">\[\mathcal{T} := \left\{(a, b) : a + H b &lt; t \right\}.\]</span> This selects monomials of weighted degree less than <span class="math inline">\(t\)</span>, where <span class="math inline">\(X\)</span> has weight <span class="math inline">\(1\)</span> and <span class="math inline">\(Y\)</span> has weight <span class="math inline">\(H\)</span>. The closure assumption of Lemma <a href="#lemma:cus6mosh6y" data-reference-type="ref" data-reference="lemma:cus6mosh6y">5</a> is satisfied if <span class="math inline">\(H \leq q\)</span> (in other words, if <span class="math inline">\(X^q \mapsto Y\)</span> does not increase the weight).</p>
+</div>
+<p>Lemma <a href="#lemma:cus6mosh6y" data-reference-type="ref" data-reference="lemma:cus6mosh6y">5</a> generalizes to more variables, with the same proof:</p>
+<div id="lemma:cus64ddnsk" class="lemma">
+<p><strong>Lemma 7</strong>. Let <span class="math inline">\(q \geq 1\)</span> and <span class="math inline">\(r \geq 1\)</span> be natural numbers, and let <span class="math inline">\(\ell \in \{1, \dotsc, r\}\)</span>. Let <span class="math inline">\(\mathcal{T}\)</span> be a finite subset of <span class="math inline">\(\mathbb{Z}_{\geq 0}^{r + 1}\)</span> that is closed under <span class="math inline">\(a = (a_0, a_1, \dotsc, a_r) \mapsto a - q e_0 + e_\ell\)</span> whenever <span class="math inline">\(a_0 \geq q\)</span>. For <span class="math inline">\(a \in \mathcal{T}\)</span>, define <span class="math display">\[f_{a} :=
+    X_0^{a_0 - q k}
+    X_1^{a_1} \dotsb X_r^{a_r}
+    (X_0^q - X_\ell)^{k},
+    \qquad k := \left\lfloor \frac{a_0}{q} \right\rfloor.\]</span> These polynomials define a basis for <span class="math display">\[\bigoplus_{a \in \mathcal{T}} \mathbb{Z}
+    X_0^{a_0} X_1^{a_1} \dotsb X_r^{a_r} \subset \mathbb{Z}[X_0, \dotsc, X_r].\]</span></p>
+</div>
+<p>Given weights <span class="math inline">\(H_1, \dotsc, H_r \geq 1\)</span>, Example <a href="#example:cus6mv4c50" data-reference-type="ref" data-reference="example:cus6mv4c50">6</a> generalizes to <span class="math display">\[\mathcal{T} := \left\{(a_0, a_1, \dotsc, a_r) : a_0 + H_1 a_1 + \dotsb + H_r a_r &lt; t \right\}.\]</span> The substitution <span class="math inline">\(X_0^q \mapsto X_\ell\)</span> preserves this set whenever <span class="math inline">\(q \geq H_\ell\)</span>.</p>
+<h1 id="section:evaluation">§3. Evaluation matrices</h1>
+<p><span id="sec:cus6mz1ygp" label="sec:cus6mz1ygp"></span> For the rest of these notes, we assume given the following data:</p>
+<ul>
+<li><p>A commutative ring <span class="math inline">\(R\)</span>. In practice, it will be a ring of integers, a local field or a global field.</p></li>
+<li><p>An integer <span class="math inline">\(r \geq 1\)</span>. We eventually specialize to <span class="math inline">\(r = 1\)</span>.</p></li>
+<li><p>A finite, nonempty subset <span class="math inline">\(\mathcal{T}\)</span> of <span class="math inline">\(\mathbb{Z}_{\geq 0}^{r + 1}\)</span>.</p></li>
+<li><p>An integer <span class="math inline">\(I \geq 1\)</span> and, for each <span class="math inline">\(1 \leq i \leq I\)</span>, an element <span class="math inline">\(z_i = (z_{i,0}, \dotsc, z_{i,r}) \in R^{r + 1}\)</span>.</p></li>
+<li><p>An integer <span class="math inline">\(J \geq 1\)</span>.</p></li>
+</ul>
+<p>We impose further conditions as needed.</p>
+<p>Given the above data, we introduce some notation:</p>
+<ul>
+<li><p><span class="math inline">\(T := \lvert \mathcal{T} \rvert\)</span>.</p></li>
+<li><p>For each exponent tuple <span class="math inline">\(a \in \mathbb{Z}_{\geq 0}^{r + 1}\)</span>, we define the corresponding monomial <span class="math inline">\(X^a := X_0^{a_0} \dotsb X_r^{a_r}\)</span> and its total degree <span class="math inline">\(|a| := a_0 + \dotsb + a_r\)</span>.</p></li>
+<li><p>We denote by <span class="math display">\[\tau : \bigoplus_{a \in \mathcal{T}} R X^a \rightarrow R^{I \times J}\]</span> the map assigning to each polynomial <span class="math inline">\(f\)</span> with exponents in <span class="math inline">\(\mathcal{T}\)</span> its values and derivatives at the given elements <span class="math inline">\(z_i\)</span>: <span class="math display">\[\tau(f) := \bigl((\partial_{X_0}^j f)(z_i)\bigr)_{i,j},\]</span> where <span class="math inline">\(1 \leq i \leq I\)</span> and <span class="math inline">\(0 \leq j &lt; J\)</span>.</p></li>
+<li><p><span class="math inline">\(M\)</span> denotes the matrix of <span class="math inline">\(\tau\)</span> with respect to the standard bases: <span id="eq:cus6m1rjtg" class="math display">\[\label{eq:cus6m1rjtg}\tag{12}
+    M_{(i,j),a} := (\partial_{X_0}^j X^a)(z_i).\]</span></p></li>
+</ul>
+<p>When <span class="math inline">\(r = 1\)</span>, we also write <span class="math inline">\(X, Y\)</span> for <span class="math inline">\(X_0, X_1\)</span>.</p>
+<h1 id="section:division">§4. Divisibility</h1>
+<p>Suppose that <span class="math inline">\(R\)</span> has an ideal <span class="math inline">\(\mathfrak{p}\)</span> containing the image of an integer <span class="math inline">\(q \geq 1\)</span>. For example, take <span class="math inline">\(R = \mathcal{O}_F\)</span>, <span class="math inline">\(q = |p|\)</span>, and <span class="math inline">\(\mathfrak{p}\)</span> a prime above <span class="math inline">\(p\)</span>.</p>
+<p>If <span class="math inline">\(u, v \in R\)</span> satisfy <span class="math inline">\(v \equiv u^q \pmod{\mathfrak{p}}\)</span>, then <span class="math display">\[(X^q - Y)^k \mid f \implies f(u,v) \in \mathfrak{p}^k.\]</span> A useful observation <a href="#ref-hexagon:2610.00311v2" class="citation" data-cites="hexagon:2610.00311v2">(Green 2026, sec. 5)</a> is that this remains true after taking any number of derivatives with respect to <span class="math inline">\(X\)</span>:</p>
+<div id="lemma:cus6muraaw" class="lemma">
+<p><strong>Lemma 8</strong>. Let <span class="math inline">\(f \in R[X,Y]\)</span> and <span class="math inline">\(u, v \in R\)</span>. Assume that <span class="math inline">\(f\)</span> is divisible by <span class="math inline">\((X^q - Y)^k\)</span> and that <span class="math inline">\(v \equiv u^q \pmod{\mathfrak{p}}\)</span>. Then for every <span class="math inline">\(j \geq 0\)</span>, <span class="math display">\[(\partial_X^j f)(u,v) \in \mathfrak{p}^k.\]</span></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> Set <span class="math inline">\(g := X^q - Y\)</span>. We write <span class="math inline">\(f = g^k h\)</span> and apply the product rule to the <span class="math inline">\(k\)</span> factors of <span class="math inline">\(g\)</span> and the factor <span class="math inline">\(h\)</span>. By hypothesis, <span class="math inline">\(g(u, v) \in \mathfrak{p}\)</span>. On the other hand, every derivative <span class="math inline">\(g&#39;, g&#39;&#39;, \dotsc\)</span> of <span class="math inline">\(g\)</span> belongs to <span class="math inline">\(qR[X,Y] \subseteq \mathfrak{p}R[X,Y]\)</span>. Thus, after evaluating at <span class="math inline">\((u, v)\)</span>, each of the <span class="math inline">\(k\)</span> factors contributes either <span class="math inline">\(g(u,v) \in \mathfrak{p}\)</span> or a positive derivative of <span class="math inline">\(g\)</span>, also in <span class="math inline">\(\mathfrak{p}\)</span>. Thus every term lies in <span class="math inline">\(\mathfrak{p}^k\)</span>. ◻</span></p>
+</div>
+<p>We now apply this observation to the evaluation matrix of §<a href="#section:evaluation" data-reference-type="ref" data-reference="section:evaluation">3</a>.</p>
+<div id="lemma:determinantal-divisibility" class="lemma">
+<p><strong>Lemma 9</strong>. Fix <span class="math inline">\(\ell \in \{1, \dotsc, r\}\)</span>. Suppose that <span class="math inline">\(\mathcal{T}\)</span> is closed under <span class="math inline">\(a \mapsto a - qe_0 + e_\ell\)</span> whenever <span class="math inline">\(a_0 \geq q\)</span>, and that <span class="math inline">\(z_{i,\ell} \equiv z_{i,0}^q \pmod{\mathfrak{p}}\)</span> for every <span class="math inline">\(i\)</span>. Then every <span class="math inline">\(T \times T\)</span> minor of <span class="math inline">\(M\)</span> belongs to <span class="math display">\[\mathfrak{p}^{\sum_{a \in \mathcal{T}}\lfloor a_0/q\rfloor}.\]</span></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> The ideal generated by the <span class="math inline">\(T \times T\)</span> minors is unchanged by an invertible change of basis. We may therefore use the basis <span class="math inline">\(f_a\)</span> of Lemma <a href="#lemma:cus64ddnsk" data-reference-type="ref" data-reference="lemma:cus64ddnsk">7</a>. Since <span class="math inline">\(f_a\)</span> is divisible by <span class="math inline">\((X_0^q-X_\ell)^{\lfloor a_0/q\rfloor}\)</span>, Lemma <a href="#lemma:cus6muraaw" data-reference-type="ref" data-reference="lemma:cus6muraaw">8</a> gives <span class="math display">\[(\partial_{X_0}^j f_a)(z_i) \in \mathfrak{p}^{\lfloor a_0/q\rfloor}\]</span> for every <span class="math inline">\(i,j\)</span>. Thus the <span class="math inline">\(a\)</span>th column in the new basis is divisible by <span class="math inline">\(\mathfrak{p}^{\lfloor a_0/q\rfloor}\)</span>. Each term in a <span class="math inline">\(T \times T\)</span> determinant has one factor from each column, giving the claim. ◻</span></p>
+</div>
+<h1 id="section:local">§5. Local estimates</h1>
+<p>We take <span class="math inline">\(R = F\)</span>, where <span class="math inline">\(F\)</span> is a local field equipped with its normalized absolute value <span class="math inline">\(|\cdot|\)</span>. In the following estimates, we denote by <span class="math inline">\(\delta\)</span> any <span class="math inline">\(T \times T\)</span> minor of <span class="math inline">\(M\)</span> and by <span class="math display">\[\beta := \max_{\substack{1\leq i\leq I\\0\leq\ell\leq r}}\{1, |z_{i,\ell}|\}\]</span> the “local height” of the given set of points <span class="math inline">\(z_i\)</span>.</p>
+<p>We first record some crude bounds:</p>
+<div id="lemma:nonarch" class="lemma">
+<p><strong>Lemma 10</strong>. If <span class="math inline">\(F\)</span> is nonarchimedean, then <span class="math display">\[|\delta| \leq \beta^{\sum_{a \in \mathcal{T}}|a|}.\]</span></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> Each entry in the <span class="math inline">\(a\)</span>th column of <span class="math inline">\(M\)</span> is an integer times a monomial of total degree <span class="math inline">\(|a| - j\)</span> for some <span class="math inline">\(j \geq 0\)</span>. Since integers have absolute value at most one and <span class="math inline">\(\beta \geq 1\)</span>, each such entry has absolute value at most <span class="math inline">\(\beta^{|a|}\)</span>. The claim follows by expanding the determinant and applying the ultrametric inequality. ◻</span></p>
+</div>
+<div id="lemma:arch" class="lemma">
+<p><strong>Lemma 11</strong>. Suppose that <span class="math inline">\(F\)</span> is archimedean, and set <span class="math inline">\(a_* := \max(\{1\}\cup\{a_0:a\in\mathcal{T}\})\)</span>. Then <span class="math display">\[|\delta|
+    \leq \beta^{\sum_{a\in\mathcal{T}}|a|}
+    \left(T^T a_*^{T(J-1)}\right)^{[F:\mathbb{R}]}.\]</span></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> We write <span class="math inline">\(|\cdot|_{\mathrm{E}}\)</span> for the Euclidean absolute value, so that <span class="math inline">\(|\cdot|=|\cdot|_{\mathrm{E}}^{[F:\mathbb{R}]}\)</span>. The determinant is a sum of <span class="math inline">\(T! \leq T^T\)</span> products, each involving one entry from each column. Each entry in the <span class="math inline">\(a\)</span>th column of <span class="math inline">\(M\)</span> has magnitude <span class="math display">\[|(\partial_{X_0}^j X^a)(z_i)|_{\mathrm{E}}
+    \leq a_*^j\beta^{|a|/[F:\mathbb{R}]}\]</span> for some <span class="math inline">\(j \leq J - 1\)</span>. The claim follows. ◻</span></p>
+</div>
+<p>We may improve the crude nonarchimedean bound using the Frobenius congruences (Lemma <a href="#lemma:determinantal-divisibility" data-reference-type="ref" data-reference="lemma:determinantal-divisibility">9</a>):</p>
+<div id="lemma:cus6m7ho5n" class="lemma">
+<p><strong>Lemma 12</strong>. Suppose that <span class="math inline">\(F/F_0\)</span> is a finite unramified Galois extension of nonarchimedean local fields. Write <span class="math inline">\(p\)</span> and <span class="math inline">\(\mathfrak{p}\)</span> for their maximal ideals, and <span class="math inline">\(\sigma\)</span> for the arithmetic Frobenius. Fix <span class="math inline">\(\ell\in\{1,\dotsc,r\}\)</span>. Assume that <span class="math inline">\(z_{i,\ell}=\sigma(z_{i,0})\)</span> for all <span class="math inline">\(i\)</span>, and that <span class="math inline">\(\mathcal{T}\)</span> is closed under <span class="math inline">\(a\mapsto a-|p|e_0+e_\ell\)</span> whenever <span class="math inline">\(a_0\geq|p|\)</span>. Then <span class="math display">\[|\delta|
+    \leq \beta^{\sum_{a\in\mathcal{T}}|a|}
+    |\mathfrak{p}|^{-\sum_{a\in\mathcal{T}}\lfloor a_0/|p|\rfloor}.\]</span></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> Suppose first that all coordinates are integral. Then <span class="math inline">\(z_{i,\ell}\equiv z_{i,0}^{|p|}\pmod{\mathfrak{p}}\)</span>, and Lemma <a href="#lemma:determinantal-divisibility" data-reference-type="ref" data-reference="lemma:determinantal-divisibility">9</a> gives the claim with <span class="math inline">\(\beta=1\)</span>.</span></p>
+<p>In general, since <span class="math inline">\(F / F_0\)</span> is unramified, we may choose <span class="math inline">\(\lambda \in F_0\)</span> with <span class="math inline">\(|\lambda| = \beta\)</span>. The scaled points <span class="math inline">\(z_i / \lambda\)</span> are then integral, and since <span class="math inline">\(\sigma(\lambda) = \lambda\)</span>, we still have <span class="math inline">\(z_{i,\ell}/\lambda = \sigma(z_{i,0}/\lambda)\)</span>. If <span class="math inline">\(\widetilde\delta\)</span> is the minor defined like <span class="math inline">\(\delta\)</span>, but using the scaled points, then <span class="math display">\[\delta=\lambda^{\sum_{a\in\mathcal{T}}|a|-\sum_{(i,j)\in\mathcal{M}}j}\widetilde\delta,\]</span> where <span class="math inline">\(\mathcal{M}\)</span> is the set of rows used to define the minors. Since <span class="math inline">\(|\lambda| = \beta \geq 1\)</span>, the bound for the scaled points implies the required bound for the original points. ◻</p>
+</div>
+<h1 id="section:global">§6. The global inequality</h1>
+<p>We take <span class="math inline">\(R = F\)</span>, where <span class="math inline">\(F\)</span> is a global field. We denote by <span class="math inline">\(v\)</span> a place of <span class="math inline">\(F\)</span> and by <span class="math inline">\(|\cdot|_v\)</span> the corresponding normalized absolute value. We define the global height of the set of points <span class="math inline">\(z_i\)</span> to be <span id="eq:cus65o51ep" class="math display">\[\label{eq:cus65o51ep}\tag{13}
+  \beta := \prod_v\beta_v,
+  \qquad \beta_v := \max_{\substack{1\leq i\leq I\\0\leq\ell\leq r}}\{1,|z_{i,\ell}|_v\}.\]</span> We will use the following identity to pass from primes of <span class="math inline">\(F\)</span> to primes of <span class="math inline">\(F_0\)</span>.</p>
+<div id="lemma:frobenius-count" class="lemma">
+<p><strong>Lemma 13</strong>. Let <span class="math inline">\(F/F_0\)</span> be a finite Galois extension of global fields of degree <span class="math inline">\(d\)</span>, and let <span class="math inline">\(C_\sigma\)</span> be the conjugacy class of <span class="math inline">\(\sigma\in\mathop{\mathrm{Gal}}(F/F_0)\)</span>. If <span class="math inline">\({\mathop{\mathrm{Frob}}}_p=C_\sigma\)</span>, then <span id="eq:cus6naqvq3" class="math display">\[\label{eq:cus6naqvq3}\tag{14}
+    \sum_{\substack{\mathfrak{p}\mid p\\{\mathop{\mathrm{Frob}}}_{\mathfrak{p}}=\sigma}}
+    \log|\mathfrak{p}|=\frac{d}{|C_\sigma|}\log|p|.\]</span></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> We write <span class="math inline">\(f_p\)</span> for the residue degree and <span class="math inline">\(g_p\)</span> for the number of primes above <span class="math inline">\(p\)</span>, so that <span class="math inline">\(f_pg_p=d\)</span>. The Galois group acts transitively on these primes, and the map <span class="math inline">\(\mathfrak{p}\mapsto{\mathop{\mathrm{Frob}}}_{\mathfrak{p}}\)</span> is equivariant for conjugation. Thus its fibers have equal size <span class="math inline">\(g_p/|C_\sigma|\)</span>. Each prime above <span class="math inline">\(p\)</span> satisfies <span class="math inline">\(\log|\mathfrak{p}|=f_p\log|p|\)</span>, giving the claim. ◻</span></p>
+</div>
+<p>We now combine the local estimates using the product formula.</p>
+<div id="proposition:cus6m68zjr" class="proposition">
+<p><strong>Proposition 14</strong>. <em>Let <span class="math inline">\(F/F_0\)</span> be a finite Galois extension of global fields, of degree <span class="math inline">\(d\)</span>. Let <span class="math inline">\(\sigma_1,\dotsc,\sigma_r\)</span> be distinct elements of <span class="math inline">\(\mathop{\mathrm{Gal}}(F/F_0)\)</span>, with conjugacy classes <span class="math inline">\(C_1,\dotsc,C_r\)</span>. Take <span class="math display">\[z_i:=(u_i,\sigma_1(u_i),\dotsc,\sigma_r(u_i))\]</span> for some <span class="math inline">\(u_1, \dotsc, u_I \in F\)</span>. Let <span class="math inline">\(J \geq 1\)</span> be an integer. Retain the notation <span class="math inline">\(\mathcal{T} \subset \mathbb{Z}_{\geq 0}^{r + 1}\)</span>, <span class="math inline">\(T = \lvert \mathcal{T} \rvert\)</span> and <span class="math inline">\(\tau : \bigoplus_{a \in \mathcal{T}} R X^a \rightarrow R^{I \times J}\)</span> from §<a href="#section:evaluation" data-reference-type="ref" data-reference="section:evaluation">3</a>. Assume that <span class="math inline">\(\tau\)</span> is injective. Let <span class="math inline">\(t\geq2\)</span> be such that <span class="math inline">\(a_0&lt;t\)</span> for all <span class="math inline">\(a \in \mathcal{T}\)</span>. For each <span class="math inline">\(\ell \in \{1, \dotsc, r\}\)</span>, let <span class="math inline">\(H_\ell\geq1\)</span>. Assume that for all integers <span class="math inline">\(q\geq H_\ell\)</span>, the set <span class="math inline">\(\mathcal{T}\)</span> is closed under <span class="math inline">\(a\mapsto a-qe_0+e_\ell\)</span> whenever <span class="math inline">\(a_0\geq q\)</span>. Set <span id="eq:cus6oc79wo" class="math display">\[\label{eq:cus6oc79wo}\tag{15}
+    A_\infty :=
+    \begin{cases}
+      [F_0:\mathbb{Q}]\bigl(T\log T+T(J-1)\log t\bigr),&amp;\text{for number fields},\\
+      0,&amp;\text{for function fields}.
+    \end{cases}\]</span> Then <span id="eq:general-global-bound" class="math display">\[\label{eq:general-global-bound}\tag{16}
+    \sum_{\ell=1}^r\frac{1}{|C_\ell|}
+    \sum_{\substack{|p|\geq H_\ell\\{\mathop{\mathrm{Frob}}}_p=C_\ell}}
+    \left(\sum_{a\in\mathcal{T}}\left\lfloor\frac{a_0}{|p|}\right\rfloor\right)\log|p|
+    \leq \frac{\log\beta}{d}\sum_{a\in\mathcal{T}}|a|+A_\infty.\]</span></em></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> Since <span class="math inline">\(\tau\)</span> is injective, we may choose a nonzero <span class="math inline">\(T \times T\)</span> minor <span class="math inline">\(\delta\)</span>. At every finite place <span class="math inline">\(\mathfrak{p}\)</span>, Lemma <a href="#lemma:nonarch" data-reference-type="ref" data-reference="lemma:nonarch">10</a> gives the bound <span class="math inline">\(\beta_{\mathfrak{p}}^{\sum_a|a|}\)</span>. If <span class="math inline">\({\mathop{\mathrm{Frob}}}_{\mathfrak{p}}=\sigma_\ell\)</span> and <span class="math inline">\(|p|\geq H_\ell\)</span>, then Lemma <a href="#lemma:cus6m7ho5n" data-reference-type="ref" data-reference="lemma:cus6m7ho5n">12</a>, applied to <span class="math inline">\(F_{\mathfrak{p}}/F_{0,p}\)</span>, improves this bound by the factor <span class="math display">\[|\mathfrak{p}|^{-\sum_{a\in\mathcal{T}}\lfloor a_0/|p|\rfloor}.\]</span> Since the <span class="math inline">\(\sigma_\ell\)</span> are distinct, each prime <span class="math inline">\(\mathfrak{p}\)</span> occurs for at most one <span class="math inline">\(\ell\)</span>. At the archimedean places, Lemma <a href="#lemma:arch" data-reference-type="ref" data-reference="lemma:arch">11</a> and the inequality <span class="math inline">\(a_*\leq t\)</span> give an additional factor of at most <span class="math inline">\(\exp(dA_\infty)\)</span>, using here that <span class="math inline">\(\sum_{v\mid\infty}[F_v:\mathbb{R}]=d[F_0:\mathbb{Q}]\)</span> in the number field case; in the function field case, there are no archimedean places. The product formula then gives <span class="math display">\[1=\prod_v|\delta|_v\leq\beta^{\sum_{a\in\mathcal{T}}|a|}\exp(dA_\infty)
+    \prod_{\ell=1}^r
+    \prod_{\substack{|p|\geq H_\ell}}
+    \prod_{\substack{\mathfrak{p}\mid p\\{\mathop{\mathrm{Frob}}}_{\mathfrak{p}}=\sigma_\ell}}
+    |\mathfrak{p}|^{-\sum_{a\in\mathcal{T}}\lfloor a_0/|p|\rfloor}.\]</span> Taking logarithms, applying Lemma <a href="#lemma:frobenius-count" data-reference-type="ref" data-reference="lemma:frobenius-count">13</a>, and dividing by <span class="math inline">\(d\)</span> gives the claim. ◻</span></p>
+</div>
+<div id="corollary:height-prime-comparison" class="corollary">
+<p><strong>Corollary 15</strong>. <em>Retain the extension <span class="math inline">\(F/F_0\)</span>, the distinct elements <span class="math inline">\(\sigma_1, \dotsc, \sigma_r\)</span>, and the points <span class="math inline">\(z_i\)</span> of Proposition <a href="#proposition:cus6m68zjr" data-reference-type="ref" data-reference="proposition:cus6m68zjr">14</a>. Assume that <span class="math inline">\(F\)</span> is a number field. Let <span class="math inline">\(2 \leq H \leq t\)</span>, and take <span class="math display">\[\mathcal{T} := \{a : a_0 + H(a_1 + \dotsb + a_r) &lt; t\}.\]</span> For each conjugacy class <span class="math inline">\(C\)</span>, set <span class="math display">\[w(C) := \frac{\#\{\ell : \sigma_\ell \in C\}}{|C|},
+    \qquad \lVert w \rVert_\infty := \max_C w(C).\]</span> Define <span id="eq:comparison-bound" class="math display">\[\label{eq:comparison-bound}\tag{17}
+    \begin{split}
+      \mathcal{B}
+      &amp;:= \frac{\sum_{a \in \mathcal{T}} |a|}{d\sum_{a \in \mathcal{T}} a_0}\log\beta
+      + \frac{A_\infty}{\sum_{a \in \mathcal{T}} a_0} \\
+      &amp;\quad + \lVert w \rVert_\infty\left(
+      \frac{T}{\sum_{a \in \mathcal{T}} a_0}\sum_{|p| \leq t}\log|p|
+        + \sum_{|p| &lt; H}\frac{\log|p|}{|p|}\right).
+    \end{split}\]</span> If <span class="math inline">\(\tau\)</span> is injective, then <span id="eq:weighted-prime-bound" class="math display">\[\label{eq:weighted-prime-bound}\tag{18}
+    \sum_{|p| \leq t} w({\mathop{\mathrm{Frob}}}_p)\frac{\log|p|}{|p|} \leq \mathcal{B}.\]</span></em></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> We apply Proposition <a href="#proposition:cus6m68zjr" data-reference-type="ref" data-reference="proposition:cus6m68zjr">14</a> with <span class="math inline">\(H_\ell = H\)</span> for all <span class="math inline">\(\ell\)</span>, and restrict the prime sum to <span class="math inline">\(H \leq |p| \leq t\)</span>. Using <span class="math display">\[\sum_{a \in \mathcal{T}}\left\lfloor\frac{a_0}{|p|}\right\rfloor
+    \geq \frac{1}{|p|}\sum_{a \in \mathcal{T}} a_0 - T,\]</span> we obtain the claim by dividing by <span class="math inline">\(\sum_{a \in \mathcal{T}} a_0 &gt; 0\)</span>, restoring the primes below <span class="math inline">\(H\)</span>, and bounding each weight by <span class="math inline">\(\lVert w \rVert_\infty\)</span>. ◻</span></p>
+</div>
+<h1 id="section:inputs">§7. Proof of the main estimate</h1>
+<p>We state the inputs needed to prove Theorem <a href="#theorem:prime-sum" data-reference-type="ref" data-reference="theorem:prime-sum">4</a>, deferring their proofs to the appendices. We then complete the proof.</p>
+<h2 id="sec:cus71nhbml">§7.1. Prime sums</h2>
+<div id="lemma:prime-estimates" class="lemma">
+<p><strong>Lemma 16</strong>. Let <span class="math inline">\(F_0\)</span> be a number field of degree <span class="math inline">\(d_0\)</span>. For every real <span class="math inline">\(y \geq 2\)</span>, we have <span class="math display">\[\sum_{|p| \leq y} \log |p| \leq 2d_0 y,
+    \qquad
+    \sum_{|p| \leq y} \frac{\log |p|}{|p|} \leq d_0(\log y + 2),\]</span> where the sums run over all primes of <span class="math inline">\(F_0\)</span>.</p>
+</div>
+<p>This estimate reduces to the case <span class="math inline">\(F_0 = \mathbb{Q}\)</span>, where it is established in sharper form by Rosser–Schoenfeld <a href="#ref-rosser-schoenfeld-1962" class="citation" data-cites="rosser-schoenfeld-1962">(Rosser and Schoenfeld 1962, (3.24), (3.32))</a>. We record a self-contained proof in Appendix <a href="#appendix:prime-estimates" data-reference-type="ref" data-reference="appendix:prime-estimates">A</a>.</p>
+<h2 id="section:interpolation">§7.2. Interpolation</h2>
+<p>Let <span class="math inline">\(F\)</span> be a field of characteristic zero, and let <span class="math inline">\(\sigma\)</span> be an automorphism of <span class="math inline">\(F\)</span>. Let <span class="math inline">\(t \geq 2\)</span>, <span class="math inline">\(H \geq 1\)</span> and <span class="math inline">\(I, J \geq 1\)</span> be integers. Let <span class="math inline">\(u_1, \dotsc, u_I \in F\)</span>. We consider (as in §<a href="#section:evaluation" data-reference-type="ref" data-reference="section:evaluation">3</a>) the map <span class="math display">\[\bigoplus_{a + H b &lt; t} F X^a Y^b \longrightarrow F^{I \times J}\]</span> sending a polynomial <span class="math inline">\(f\)</span> to its tuples of derivatives of order less than <span class="math inline">\(J\)</span> at the points <span class="math inline">\((u_i, \sigma(u_i))\)</span>: <span class="math display">\[f \mapsto \bigl((\partial_X^j f)(u_i, \sigma(u_i))\bigr)_{1 \leq i \leq I, 0 \leq j &lt; J}.\]</span></p>
+<div id="lemma:triangle-interpolation" class="lemma">
+<p><strong>Lemma 17</strong>. If the <span class="math inline">\(u_i\)</span> are distinct and <span class="math display">\[I &gt; t - 1 + \left\lfloor\frac{t - 1}{H}\right\rfloor,
+    \qquad
+    J \geq 2\left\lfloor\frac{t - 1}{H}\right\rfloor + 1,\]</span> then <span class="math inline">\(\tau\)</span> is injective.</p>
+</div>
+<p>This was established in a note of Kevin Barreto <a href="#ref-Barreto2026SiegelZeros" class="citation" data-cites="Barreto2026SiegelZeros">(Barreto 2026)</a>. We record a proof in Appendix <a href="#appendix:interpolation" data-reference-type="ref" data-reference="appendix:interpolation">B</a>.</p>
+<h2 id="section:small">§7.3. Points of small height</h2>
+<p>Let <span class="math inline">\(F\)</span> be a number field of absolute discriminant <span class="math inline">\(\Delta\)</span>.</p>
+<div id="prop:small-set" class="proposition">
+<p><strong>Proposition 18</strong>. <em>Let <span class="math inline">\(\sigma_1,\dotsc,\sigma_r\in\operatorname{Aut}(F)\)</span>, and let <span class="math inline">\(I\geq1\)</span> be an integer. There exist distinct <span class="math inline">\(u_1,\dotsc,u_I\in F\)</span> such that the elements <span class="math display">\[z_i=(u_i,\sigma_1(u_i),\dotsc,\sigma_r(u_i)) \in F^{r + 1}\]</span> have global height (see <a href="#eq:cus65o51ep" data-reference-type="eqref" data-reference="eq:cus65o51ep">\((13)\)</a>) satisfying <span class="math display">\[\beta\leq I\sqrt\Delta.\]</span></em></p>
+</div>
+<p>This follows (in slightly sharper form) from Blichfeldt’s theorem; see Cassels <a href="#ref-cassels-geometry-of-numbers" class="citation" data-cites="cassels-geometry-of-numbers">(Cassels 1997, chap. III, §3, Theorem IV)</a>. We record an adelic proof in Appendix <a href="#appendix:small" data-reference-type="ref" data-reference="appendix:small">C</a>.</p>
+<h2 id="sec:cus71nhdho">§7.4. A numerical estimate</h2>
+<p>Finally, we require estimates for the right-hand side of Corollary <a href="#corollary:height-prime-comparison" data-reference-type="ref" data-reference="corollary:height-prime-comparison">15</a>.</p>
+<div id="lemma:numerical-bound" class="lemma">
+<p><strong>Lemma 19</strong>. Let <span class="math inline">\(F/F_0\)</span>, <span class="math inline">\(d\)</span>, <span class="math inline">\(d_0\)</span> and <span class="math inline">\(\Delta\)</span> be as in the introduction, and let <span class="math inline">\(C\subseteq\mathop{\mathrm{Gal}}(F/F_0)\)</span> be a conjugacy class. Let <span class="math inline">\(x\geq16\)</span> be an integer satisfying <span class="math display">\[\frac{\log(2x\sqrt\Delta)}{d}&lt;d_0\log x.\]</span> In <a href="#eq:comparison-bound" data-reference-type="eqref" data-reference="eq:comparison-bound">\((17)\)</a>, take <span class="math inline">\(t=x\)</span>, <span class="math inline">\(r=1\)</span>, <span class="math inline">\(\sigma_1\in C\)</span>, and <span id="eq:cus65vhezd" class="math display">\[\label{eq:cus65vhezd}\tag{19}
+    \mathcal{T}:=\{(a,b):a+Hb&lt;x\}, \qquad
+    H:=\lceil\log x\rceil, \qquad
+    J:=2\left\lfloor\frac{x-1}{H}\right\rfloor+1.\]</span> If <span class="math inline">\(\beta\leq2x\sqrt\Delta\)</span>, then <span class="math display">\[|C|\mathcal{B}
+    \leq \frac{|C|}{d}\left(\log x+\frac12\log\Delta\right)
+    +d_0\log\log(3x)+50d_0|C|.\]</span></p>
+</div>
+<p>We prove this estimate in Appendix <a href="#section:explicit" data-reference-type="ref" data-reference="section:explicit">E</a>.</p>
+<h2 id="sec:cus71nhevd">§7.5. Completion of the proof</h2>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof of Theorem <a href="#theorem:prime-sum" data-reference-type="ref" data-reference="theorem:prime-sum">4</a>.</em><span class="proof-rest"> We must verify the inequality <a href="#eq:cus7jrsd00" data-reference-type="eqref" data-reference="eq:cus7jrsd00">\((5)\)</a>. Since its left-hand side is unchanged on replacing <span class="math inline">\(x\)</span> by <span class="math inline">\(\lfloor x\rfloor\)</span>, and its right-hand side is increasing in <span class="math inline">\(x\)</span>, we may assume that <span class="math inline">\(x\)</span> is an integer. If <span class="math inline">\(x &lt; 16\)</span>, then Lemma <a href="#lemma:prime-estimates" data-reference-type="ref" data-reference="lemma:prime-estimates">16</a> gives the bound <span class="math inline">\(d_0(\log 16 + 2) &lt; 5d_0\)</span> for its left-hand side, which is less than the term <span class="math inline">\(50d_0|C|\)</span> appearing on its right-hand side. We may thus assume that <span class="math inline">\(x \geq 16\)</span>.</span></p>
+<p>We may also assume that <span id="eq:height-range" class="math display">\[\label{eq:height-range}\tag{20}
+    \frac{\log(2x\sqrt{\Delta})}{d} &lt; d_0\log x.\]</span> Otherwise, <span class="math display">\[\frac{|C|}{d}\left(\log x + \frac12\log\Delta\right)
+    \geq d_0|C|\log x - \frac{|C|}{d}\log 2,\]</span> and the theorem follows from Lemma <a href="#lemma:prime-estimates" data-reference-type="ref" data-reference="lemma:prime-estimates">16</a>, since <span class="math inline">\(|C| \geq 1\)</span> and <span class="math inline">\(2d_0 + (|C|/d)\log 2 &lt; 3d_0|C|\)</span>.</p>
+<p>Choose <span class="math inline">\(\sigma\in C\)</span>, and take <span class="math inline">\(H, J\)</span> as in <a href="#eq:cus65vhezd" data-reference-type="eqref" data-reference="eq:cus65vhezd">\((19)\)</a> and <span class="math inline">\(I:=2x\)</span>. Proposition <a href="#prop:small-set" data-reference-type="ref" data-reference="prop:small-set">18</a> gives distinct <span class="math inline">\(u_1,\dotsc,u_I\in F\)</span> for which the pairs <span class="math inline">\((u_i,\sigma(u_i))\)</span> have height <span class="math inline">\(\beta\leq2x\sqrt\Delta\)</span>. For <span class="math inline">\(\mathcal{T}\)</span> as in <a href="#eq:cus65vhezd" data-reference-type="eqref" data-reference="eq:cus65vhezd">\((19)\)</a>, Lemma <a href="#lemma:triangle-interpolation" data-reference-type="ref" data-reference="lemma:triangle-interpolation">17</a>, with <span class="math inline">\(t=x\)</span>, implies that <span class="math inline">\(\tau\)</span> is injective. Corollary <a href="#corollary:height-prime-comparison" data-reference-type="ref" data-reference="corollary:height-prime-comparison">15</a>, again with <span class="math inline">\(t=x\)</span> and <span class="math inline">\(r=1\)</span>, now gives <span class="math display">\[\sum_{\substack{|p|\leq x\\{\mathop{\mathrm{Frob}}}_p=C}}\frac{\log|p|}{|p|}
+    \leq |C|\mathcal{B}.\]</span> The required bound then follows from Lemma <a href="#lemma:numerical-bound" data-reference-type="ref" data-reference="lemma:numerical-bound">19</a>. ◻</p>
+</div>
+<h1 id="section:discussion">§8. Variables and derivatives</h1>
+<p>The proof of Theorem <a href="#theorem:prime-sum" data-reference-type="ref" data-reference="theorem:prime-sum">4</a> is complete, modulo the inputs proved in the appendices. We now estimate the right-hand side of Corollary <a href="#corollary:height-prime-comparison" data-reference-type="ref" data-reference="corollary:height-prime-comparison">15</a> more simply to explain the choices of variables and derivatives. We first compare these choices under optimistic interpolation assumptions, then use the actual interpolation bound to give a softer proof of a weaker bound.</p>
+<p>We take <span class="math inline">\(F\)</span> to be a number field and write <span class="math inline">\(d_0 := [F_0 : \mathbb{Q}]\)</span>.</p>
+<h2 id="sec:cus71nhgnt">§8.1. Estimating <span class="math inline">\(\mathcal{B}\)</span></h2>
+<p>In this section, we regard <span class="math inline">\(r\)</span> as fixed – any implied constants may depend upon it.</p>
+<div id="lemma:weighted-monomial-estimates" class="lemma">
+<p><strong>Lemma 20</strong>. Let <span class="math inline">\(r \geq 1\)</span> and <span class="math inline">\(2 \leq H \leq t\)</span>. For <span class="math display">\[\mathcal{T} := \{a \in \mathbb{Z}_{\geq 0}^{r+1} : a_0 + H(a_1 + \dotsb + a_r) &lt; t\},\]</span> we have <span id="eq:cus637ip5d" class="math display">\[\label{eq:cus637ip5d}\tag{21}
+    T \asymp \frac{t^{r+1}}{H^r},\qquad
+    \sum_{a \in \mathcal{T}} a_0 \asymp \frac{t^{r+2}}{H^r},\qquad
+    \sum_{a \in \mathcal{T}}\sum_{\ell=1}^r a_\ell
+    \ll \frac{t^{r+2}}{H^{r+1}}.\]</span></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> The set <span class="math inline">\(\mathcal{T}\)</span> is contained in the rectangle given by <span class="math inline">\(0 \leq a_0 &lt; t\)</span> and <span class="math inline">\(0 \leq a_\ell &lt; t/H\)</span> for <span class="math inline">\(\ell \geq 1\)</span>, and contains the rectangle given by <span class="math display">\[0 \leq a_0 \leq t/2,\qquad
+    0 \leq a_\ell &lt; t/(2rH)\quad (1 \leq \ell \leq r).\]</span> Counting the integer points in these rectangles and summing <span class="math inline">\(a_0\)</span> gives the first two estimates. For the last, we use <span class="math inline">\(\sum_{\ell=1}^r a_\ell &lt; t/H\)</span> on <span class="math inline">\(\mathcal{T}\)</span> and the upper bound for <span class="math inline">\(T\)</span>. ◻</span></p>
+</div>
+<div id="lemma:parameter-bound" class="lemma">
+<p><strong>Lemma 21</strong>. With the notation of Corollary <a href="#corollary:height-prime-comparison" data-reference-type="ref" data-reference="corollary:height-prime-comparison">15</a>, we have <span id="eq:parameter-bound" class="math display">\[\label{eq:parameter-bound}\tag{22}
+    \begin{split}
+      \mathcal{B}
+      &amp;\leq \frac{1 + \operatorname{O}(1/H)}{d}\log\beta
+        + d_0\lVert w \rVert_\infty\log H \\
+      &amp;\quad + \operatorname{O}\left(d_0\left(1 + \frac{(J-1)\log t}{t}\right)\right).
+    \end{split}\]</span> All implied constants depend only on <span class="math inline">\(r\)</span> and are effective.</p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> By Lemma <a href="#lemma:weighted-monomial-estimates" data-reference-type="ref" data-reference="lemma:weighted-monomial-estimates">20</a>, <span class="math display">\[\frac{\sum_{a \in \mathcal{T}}|a|}{\sum_{a \in \mathcal{T}}a_0}
+    = 1 + \operatorname{O}(1/H),\qquad
+    \frac{T}{\sum_{a \in \mathcal{T}}a_0} \ll \frac1t.\]</span> Since <span class="math inline">\(\log T \ll \log t\)</span>, the archimedean term satisfies <span class="math display">\[\frac{A_\infty}{\sum_{a \in \mathcal{T}}a_0}
+    \ll d_0\frac{\log t + (J-1)\log t}{t}.\]</span> Lemma <a href="#lemma:prime-estimates" data-reference-type="ref" data-reference="lemma:prime-estimates">16</a> bounds the remaining terms by <span class="math display">\[\operatorname{O}(d_0) + d_0\lVert w \rVert_\infty(\log H + 2).\]</span> Using <span class="math inline">\(\log t/t \ll 1\)</span> and <span class="math inline">\(\lVert w \rVert_\infty \leq 1\)</span> gives the claim. ◻</span></p>
+</div>
+<h2 id="sec:cus71nhhdz">§8.2. Optimistic interpolation</h2>
+<p>For any <span class="math inline">\(I\)</span>, Proposition <a href="#prop:small-set" data-reference-type="ref" data-reference="prop:small-set">18</a> supplies distinct points <span class="math inline">\(u_i\in F\)</span> for which <span class="math inline">\((u_i,\sigma_1(u_i),\dotsc,\sigma_r(u_i))\)</span> have height <span class="math inline">\(\beta\leq I\sqrt\Delta\)</span>. The remaining question is whether the evaluation map <span class="math inline">\(\tau\)</span> is injective. Its matrix has <span class="math inline">\(T\)</span> columns and <span class="math inline">\(IJ\)</span> rows, so injectivity requires <span class="math inline">\(IJ\geq T\)</span>. We first ask what bound we would obtain if this necessary condition were sufficient up to a fixed factor. Below, we first estimate <span class="math inline">\(\mathcal{B}\)</span> in this range (Proposition <a href="#proposition:conditional-main-term" data-reference-type="ref" data-reference="proposition:conditional-main-term">22</a>) and then apply the resulting estimate when <span class="math inline">\(\tau\)</span> is injective (Corollary <a href="#corollary:conditional-prime-main-term" data-reference-type="ref" data-reference="corollary:conditional-prime-main-term">23</a>). We restrict to <span class="math inline">\(J \leq t\)</span> because our polynomials have degree less than <span class="math inline">\(t\)</span> in <span class="math inline">\(X_0\)</span>.</p>
+<div id="proposition:conditional-main-term" class="proposition">
+<p><strong>Proposition 22</strong>. <em>Let the setting of Corollary <a href="#corollary:height-prime-comparison" data-reference-type="ref" data-reference="corollary:height-prime-comparison">15</a> vary with an integral parameter <span class="math inline">\(t\to\infty\)</span>. Suppose that, for some <span class="math inline">\(K\geq1\)</span>, <span id="eq:optimistic-interpolation" class="math display">\[\label{eq:optimistic-interpolation}\tag{23}
+    IJ\leq KT,\qquad \beta\leq I\sqrt\Delta,
+    \qquad 2\leq H\leq t,\quad 1\leq J\leq t.\]</span> Assume that <span class="math inline">\(r,d,d_0,K\)</span> remain bounded and that <span id="eq:main-term-range" class="math display">\[\label{eq:main-term-range}\tag{24}
+    H\to\infty,\qquad J=o(t),\qquad \log\Delta=o(\log t).\]</span> If moreover <span id="eq:cus7ztzryx" class="math display">\[\label{eq:cus7ztzryx}\tag{25}
+    \text{$\log H=o(\log t)$ and $J=t^{\theta+o(1)}$ for some $0\leq\theta\leq1$,}\]</span> then <span id="eq:conditional-B-main-term" class="math display">\[\label{eq:conditional-B-main-term}\tag{26}
+    \mathcal{B}\leq\left(\frac{r+1-\theta}{d}+o(1)\right)\log t
+    +\frac1{2d}\log\Delta.\]</span></em></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> By the upper bounds on <span class="math inline">\(IJ\)</span> and <span class="math inline">\(\beta\)</span>, and Lemma <a href="#lemma:weighted-monomial-estimates" data-reference-type="ref" data-reference="lemma:weighted-monomial-estimates">20</a>, we have <span class="math display">\[\log\beta\leq\log\frac{KT\sqrt\Delta}{J}
+    =\log\frac{t^{r+1}\sqrt\Delta}{H^rJ}+\operatorname{O}_{r,K}(1).\]</span> Substituting into Lemma <a href="#lemma:parameter-bound" data-reference-type="ref" data-reference="lemma:parameter-bound">21</a> gives <span id="eq:optimistic-bound" class="math display">\[\label{eq:optimistic-bound}\tag{27}
+    \begin{split}
+      \mathcal{B}
+      &amp;\leq\frac{1+\operatorname{O}(1/H)}{d}\log\frac{t^{r+1}\sqrt\Delta}{H^rJ}
+      +d_0\lVert w\rVert_\infty\log H \\
+      &amp;\quad+\operatorname{O}\left(d_0\left(1+\frac{(J-1)\log t}{t}\right)\right).
+    \end{split}\]</span> This estimate holds for finite <span class="math inline">\(t\)</span>, with effective implied constants depending only on <span class="math inline">\(r,K\)</span>.</span></p>
+<p>Under <a href="#eq:main-term-range" data-reference-type="eqref" data-reference="eq:main-term-range">\((24)\)</a> and <a href="#eq:cus7ztzryx" data-reference-type="eqref" data-reference="eq:cus7ztzryx">\((25)\)</a>, we have <span class="math display">\[\log\frac{t^{r+1}\sqrt\Delta}{H^rJ}
+    =(r+1-\theta)\log t+\frac12\log\Delta+o(\log t).\]</span> The error terms in <a href="#eq:optimistic-bound" data-reference-type="eqref" data-reference="eq:optimistic-bound">\((27)\)</a> are <span class="math inline">\(o(\log t)\)</span>, giving <a href="#eq:conditional-B-main-term" data-reference-type="eqref" data-reference="eq:conditional-B-main-term">\((26)\)</a>. ◻</p>
+</div>
+<div id="corollary:conditional-prime-main-term" class="corollary">
+<p><strong>Corollary 23</strong>. <em>In the setting of Proposition <a href="#proposition:conditional-main-term" data-reference-type="ref" data-reference="proposition:conditional-main-term">22</a>, suppose that <span class="math inline">\(\tau\)</span> is injective. Then <span id="eq:cus646868v" class="math display">\[\label{eq:cus646868v}\tag{28}
+    \boxed{
+      \sum_{\ell=1}^r\frac1{|C_\ell|}
+      \sum_{\substack{|p|\leq t\\{\mathop{\mathrm{Frob}}}_p=C_\ell}}
+      \frac{\log|p|}{|p|}
+      \leq\left(\frac{r+1-\theta}{d}+o(1)\right)\log t
+      +\frac1{2d}\log\Delta.
+    }\]</span></em></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> Combine Corollary <a href="#corollary:height-prime-comparison" data-reference-type="ref" data-reference="corollary:height-prime-comparison">15</a> with Proposition <a href="#proposition:conditional-main-term" data-reference-type="ref" data-reference="proposition:conditional-main-term">22</a>. ◻</span></p>
+</div>
+<p>We give examples to illustrate the range of parameters and the resulting bounds. Each of these should be understood as conditional on the injectivity of <span class="math inline">\(\tau\)</span> in the “optimistic” range of parameters specified in Proposition <a href="#proposition:conditional-main-term" data-reference-type="ref" data-reference="proposition:conditional-main-term">22</a>.</p>
+<div id="example:cus65nzxgy" class="example">
+<p><strong>Example 24</strong>. Let <span class="math inline">\(F := \mathbb{Q}(\sqrt{D})\)</span> be a quadratic field and let <span class="math inline">\(\sigma\)</span> denote its nontrivial automorphism. We have <span class="math inline">\(d = 2\)</span>. Take <span class="math inline">\(r := 1\)</span> and <span class="math inline">\(J := 1\)</span> (thus <span class="math inline">\(\theta = 0\)</span>); this amounts to working with the determinants <a href="#eq:cus642yldw" data-reference-type="eqref" data-reference="eq:cus642yldw">\((7)\)</a> in two variables without derivatives. Then <a href="#eq:cus646868v" data-reference-type="eqref" data-reference="eq:cus646868v">\((28)\)</a> specializes to <span class="math display">\[\sum_{
+      \substack{
+        p \leq t  \\
+        \chi_D(p) = - 1
+      }
+    }
+    \frac{\log p}{p} \leq
+    \left( \frac{2}{2} + o(1) \right) \log t,\]</span> which fails to improve upon the trivial bound.</p>
+</div>
+<div id="example:cus65n1pf9" class="example">
+<p><strong>Example 25</strong>. Let <span class="math inline">\(F := \mathbb{Q}(\sqrt{D}, \sqrt{2})\)</span> with <span class="math inline">\(\mathbb{Q}(\sqrt{D}) \neq \mathbb{Q}(\sqrt{2})\)</span> be a biquadratic extension of <span class="math inline">\(\mathbb{Q}\)</span>, with Galois group <span class="math inline">\(G \cong (\mathbb{Z}/2\mathbb{Z})^2\)</span>. We have <span class="math inline">\(d = 4\)</span>. Take <span class="math inline">\(r := 2\)</span> and <span class="math inline">\(J := 1\)</span> (thus <span class="math inline">\(\theta = 0\)</span>); this amounts to working with the determinants <a href="#eq:cus6424wkg" data-reference-type="eqref" data-reference="eq:cus6424wkg">\((10)\)</a> in three variables without derivatives, as in OpenAI’s original paper <a href="#ref-OAI:Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026" class="citation" data-cites="OAI:Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026">(OpenAI 2026b)</a>. Let <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> denote the two automorphisms that restrict to the nontrivial automorphism of <span class="math inline">\(\mathbb{Q}(\sqrt{D})\)</span>. Observe that if <span class="math inline">\(p\)</span> is unramified in <span class="math inline">\(F\)</span> and <span class="math inline">\(\chi_D(p) = - 1\)</span>, then <span class="math inline">\({\mathop{\mathrm{Frob}}}_p \in \{\sigma_1, \sigma_2\}\)</span>. Under the hypotheses of Corollary <a href="#corollary:conditional-prime-main-term" data-reference-type="ref" data-reference="corollary:conditional-prime-main-term">23</a>, we obtain from <a href="#eq:cus646868v" data-reference-type="eqref" data-reference="eq:cus646868v">\((28)\)</a> <span class="math display">\[\sum_{
+      \substack{
+        p \leq t  \\
+        \chi_D(p) = - 1
+      }
+    }
+    \frac{\log p}{p}
+    \leq
+    \sum_{
+      \substack{
+        p \leq t  \\
+        {\mathop{\mathrm{Frob}}}_p \in \{\sigma_1, \sigma_2\}        
+      }
+    }
+    \frac{\log p}{p}
+    + \operatorname{O}(1)
+    \leq \left( \frac{3}{4} + o(1) \right) \log t,\]</span> which improves upon the trivial bound. We note that OpenAI’s original argument establishes surjectivity rather than injectivity of the evaluation map <span class="math inline">\(\tau\)</span> with <span class="math inline">\(J = 1\)</span>, giving nonzero minors of size <span class="math inline">\(I \times I\)</span> rather than <span class="math inline">\(T \times T\)</span>.</p>
+</div>
+<div id="example:cus65oadaz" class="example">
+<p><strong>Example 26</strong>. Choose an auxiliary finite set <span class="math inline">\(p_1, \dotsc, p_k\)</span> of fundamental discriminants. Assume that <span class="math inline">\(D, p_1, \dotsc, p_k\)</span> are independent in <span class="math inline">\(\mathbb{Q}^{\times} / \mathbb{Q}^{\times 2}\)</span>. Take <span class="math display">\[F = \mathbb{Q}(\sqrt{D}, \sqrt{p_1}, \dotsc, \sqrt{p_k}),\]</span> with Galois group <span class="math inline">\(G \cong(\mathbb{Z} / 2 \mathbb{Z})^{k + 1}\)</span>. Then <span class="math inline">\(d = 2^{k + 1}\)</span>. Take <span class="math inline">\(r := 2^{k}\)</span> and <span class="math inline">\(J := 1\)</span> (thus <span class="math inline">\(\theta = 0\)</span>), and let <span class="math inline">\(\sigma_1, \dotsc, \sigma_r\)</span> denote the automorphisms that restrict to the nontrivial automorphism of <span class="math inline">\(\mathbb{Q}(\sqrt{D})\)</span>. Under the same interpolation assumptions, <a href="#eq:cus646868v" data-reference-type="eqref" data-reference="eq:cus646868v">\((28)\)</a> gives, for each fixed <span class="math inline">\(k\)</span>, <span class="math display">\[\sum_{
+      \substack{
+        p \leq t  \\
+        \chi_D(p) = - 1        
+      }
+    }
+    \frac{\log p}{p}
+    \leq \left( \frac{2^k + 1}{2^{k+1}} + o(1) \right) \log t.\]</span> Note that the coefficient of <span class="math inline">\(\log t\)</span> approaches <span class="math inline">\(1/2\)</span> as <span class="math inline">\(k \to \infty\)</span>.</p>
+</div>
+<h2 id="section:qualitative">§8.3. A qualitative bound</h2>
+<p>We now take <span class="math inline">\(r:=1\)</span> and <span class="math inline">\(J\asymp t/H\)</span>, corresponding to the determinants <a href="#eq:cus646c6bn" data-reference-type="eqref" data-reference="eq:cus646c6bn">\((11)\)</a> in two variables, as in <a href="#ref-hexagon:2610.00311v2" class="citation" data-cites="hexagon:2610.00311v2">(Green 2026)</a>. In that setting, Lemma <a href="#lemma:triangle-interpolation" data-reference-type="ref" data-reference="lemma:triangle-interpolation">17</a> gives the injectivity of <span class="math inline">\(\tau\)</span> in the required range, and we obtain the following qualitative form of Theorem <a href="#theorem:prime-sum" data-reference-type="ref" data-reference="theorem:prime-sum">4</a>.</p>
+<div id="theorem:qualitative" class="theorem">
+<p><strong>Theorem 27</strong>. <em>Let <span class="math inline">\(F/F_0\)</span>, <span class="math inline">\(d\)</span>, <span class="math inline">\(d_0\)</span> and <span class="math inline">\(\Delta\)</span> be as in the introduction, and let <span class="math inline">\(C\subseteq\mathop{\mathrm{Gal}}(F/F_0)\)</span> be a conjugacy class. For every <span class="math inline">\(\varepsilon&gt;0\)</span> and every real <span class="math inline">\(t\geq2\)</span>, we have <span id="eq:cus646uh7v" class="math display">\[\label{eq:cus646uh7v}\tag{29}
+    \frac1{|C|}\sum_{\substack{|p|\leq t\\{\mathop{\mathrm{Frob}}}_p=C}}
+    \frac{\log|p|}{|p|}
+    \leq \frac{1+\varepsilon}{d}\log(t\sqrt\Delta)
+    +\operatorname{O}_{\varepsilon,d,d_0}(1),\]</span> with an effective implied constant depending only on <span class="math inline">\(\varepsilon,d,d_0\)</span>.</em></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> We may assume that <span class="math inline">\(t\)</span> is an integer. Choose <span class="math inline">\(\sigma\in C\)</span>, and let <span class="math inline">\(H\geq2\)</span> be an integer to be chosen in terms of <span class="math inline">\(\varepsilon,d,d_0\)</span>. For <span class="math inline">\(t\leq H\)</span>, the result follows from Lemma <a href="#lemma:prime-estimates" data-reference-type="ref" data-reference="lemma:prime-estimates">16</a>, so assume that <span class="math inline">\(t&gt;H\)</span>.</span></p>
+<p>By Proposition <a href="#prop:small-set" data-reference-type="ref" data-reference="prop:small-set">18</a>, we can choose <span class="math inline">\(I:=2t\)</span> distinct points <span class="math inline">\(u_i\in F\)</span> such that the pairs <span class="math inline">\((u_i,\sigma(u_i))\)</span> have height <span class="math inline">\(\beta\leq2t\sqrt\Delta\)</span>. Take <span class="math display">\[\mathcal{T}:=\{(a,b):a+Hb&lt;t\},\qquad
+    J:=2\left\lfloor\frac{t-1}{H}\right\rfloor+1,\]</span> so that by Lemma <a href="#lemma:triangle-interpolation" data-reference-type="ref" data-reference="lemma:triangle-interpolation">17</a>, <span class="math inline">\(\tau\)</span> is injective. Since <span class="math inline">\(J-1\leq2t/H\)</span>, Corollary <a href="#corollary:height-prime-comparison" data-reference-type="ref" data-reference="corollary:height-prime-comparison">15</a> and Lemma <a href="#lemma:parameter-bound" data-reference-type="ref" data-reference="lemma:parameter-bound">21</a>, with <span class="math inline">\(r=1\)</span> and <span class="math inline">\(\lVert w\rVert_\infty=1/|C|\)</span>, give <span class="math display">\[\frac1{|C|}\sum_{\substack{|p|\leq t\\{\mathop{\mathrm{Frob}}}_p=C}}\frac{\log|p|}{|p|}
+    \leq\left(\frac1d+\operatorname{O}\left(\frac{1+dd_0}{dH}\right)\right)
+    \log(t\sqrt\Delta)+\operatorname{O}\bigl(d_0(1+\log H)\bigr).\]</span> Here we have used that <span class="math inline">\(\log t\leq\log(t\sqrt\Delta)\)</span>. Taking <span class="math inline">\(H\)</span> large enough in terms of <span class="math inline">\(\varepsilon,d,d_0\)</span> gives the claim. ◻</p>
+</div>
+<p>Taking <span class="math inline">\(d=2\)</span>, <span class="math inline">\(d_0=1\)</span> and <span class="math inline">\(\varepsilon=1/2\)</span> in Theorem <a href="#theorem:qualitative" data-reference-type="ref" data-reference="theorem:qualitative">27</a> gives the saving required by Lemma <a href="#lemma:prime-saving-zeros" data-reference-type="ref" data-reference="lemma:prime-saving-zeros">2</a>. Thus the softer estimates of this section also suffice to exclude Landau–Siegel zeros.</p>
+<h1 id="appendix:prime-estimates">§A. Prime sums</h1>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof of Lemma <a href="#lemma:prime-estimates" data-reference-type="ref" data-reference="lemma:prime-estimates">16</a>.</em><span class="proof-rest"> We first take <span class="math inline">\(F_0=\mathbb{Q}\)</span> and write <span class="math display">\[\vartheta(N):=\sum_{p\leq N}\log p,
+    \qquad M(N):=\sum_{p\leq N}\frac{\log p}{p}.\]</span> We claim that <span class="math inline">\(\vartheta(N)\leq2N\)</span> for every integer <span class="math inline">\(N\geq1\)</span>. Indeed, primes in <span class="math inline">\((m,2m]\)</span> divide <span class="math inline">\(\binom{2m}{m}\)</span>, while primes in <span class="math inline">\((m+1,2m+1]\)</span> divide <span class="math inline">\(\binom{2m+1}{m}\)</span>. Thus <span class="math display">\[\begin{split}
+      \vartheta(2m)-\vartheta(m)
+      &amp;\leq\log\binom{2m}{m}\leq2m\log2,\\
+      \vartheta(2m+1)-\vartheta(m+1)
+      &amp;\leq\log\binom{2m+1}{m}\leq2m\log2.
+    \end{split}\]</span> For the last inequality, we use that the two middle coefficients of <span class="math inline">\((1+1)^{2m+1}\)</span> are equal. Since <span class="math inline">\(\log2&lt;1\)</span>, induction from <span class="math inline">\(\vartheta(1)=0\)</span> gives the claim.</span></p>
+<p>We estimate <span class="math inline">\(M(N)\)</span> via an argument in the spirit of the determinant method applied elsewhere in these notes, observed by Pascadi <a href="#ref-Pascadi2026PrivateCommunication" class="citation" data-cites="Pascadi2026PrivateCommunication">(Pascadi 2026)</a> and Tao <a href="#ref-Tao2026SiegelZeros" class="citation" data-cites="Tao2026SiegelZeros">(Tao 2026)</a>. For <span class="math inline">\(N\geq2\)</span>, consider the Vandermonde determinant <span class="math display">\[V_N:=\det\bigl(u^a\bigr)_{1\leq u\leq N,\,0\leq a&lt;N}
+    =\prod_{1\leq i&lt;j\leq N}(j-i).\]</span> For each prime <span class="math inline">\(p\)</span>, the polynomials <span class="math display">\[X^{a-pk}(X^p-X)^k,\qquad k:=\lfloor a/p\rfloor\]</span> give a basis for the space <span class="math inline">\(\bigoplus_{0 \leq a &lt; N} \mathbb{Z} X^a\)</span> of polynomials of degree less than <span class="math inline">\(N\)</span>. The change of basis is triangular with ones on the diagonal, so it leaves <span class="math inline">\(V_N\)</span> unchanged. Since <span class="math inline">\(u^p-u\)</span> is divisible by <span class="math inline">\(p\)</span> for every integer <span class="math inline">\(u\)</span>, the <span class="math inline">\(a\)</span>th column is now divisible by <span class="math inline">\(p^{\lfloor a/p\rfloor}\)</span>. Writing <span class="math inline">\(N=mp+r\)</span> with <span class="math inline">\(0\leq r&lt;p\)</span>, we obtain <span class="math display">\[\operatorname{ord}_p(V_N)
+    \geq\sum_{a=0}^{N-1}\left\lfloor\frac ap\right\rfloor
+    =\frac{N^2}{2p}-\frac N2+\frac{r(p-r)}{2p}
+    \geq\frac{N^2}{2p}-\frac N2.\]</span> Comparing divisibility and size gives <span class="math display">\[\frac{N^2}{2}M(N)-\frac N2\vartheta(N)
+    \leq\log V_N\leq\frac{N(N-1)}2\log N.\]</span> Consequently, <span class="math display">\[M(N)\leq\left(1-\frac1N\right)\log N+\frac{\vartheta(N)}N
+    \leq\log N+2.\]</span> Taking <span class="math inline">\(N=\lfloor y\rfloor\)</span> proves both bounds for real <span class="math inline">\(y\geq2\)</span>.</p>
+<p>For general <span class="math inline">\(F_0\)</span>, write <span class="math inline">\(|p|=\ell^{f_p}\)</span> when <span class="math inline">\(p\mid\ell\)</span>, and use <span class="math inline">\(\sum_{p\mid\ell}f_p\leq d_0\)</span>. The contribution above <span class="math inline">\(\ell\)</span> to the first sum is at most <span class="math inline">\(d_0\log\ell\)</span>, and that to the second is at most <span class="math inline">\(d_0\log\ell/\ell\)</span>, so we reduce to the bounds over <span class="math inline">\(\mathbb{Q}\)</span>. ◻</p>
+</div>
+<h1 id="appendix:interpolation">§B. Interpolation</h1>
+<p>We return to two variables <span class="math inline">\(X,Y\)</span> and points <span class="math inline">\((u_i,v_i)\)</span>. Take <span class="math inline">\(R = F\)</span>, where <span class="math inline">\(F\)</span> is a field of characteristic zero. For integers <span class="math inline">\(r, s \geq 0\)</span>, set <span class="math display">\[\mathcal{T}_{r, s} := \left\{(a, b) \in \mathbb{Z}_{\geq 0}^2 : a \leq r, \, b \leq s \right\},\]</span> and take <span class="math inline">\(\mathcal{T} = \mathcal{T}_{r, s}\)</span>. We record a criterion for the injectivity of <span class="math display">\[\tau : \bigoplus_{\substack{0 \leq a \leq r \\ 0 \leq b \leq s}} F X^a Y^b \longrightarrow F^{I \times J}.\]</span></p>
+<div id="prop:interpolation" class="proposition">
+<p><strong>Proposition 28</strong>. <em>Suppose that the <span class="math inline">\(u_i\)</span> are pairwise distinct and that the <span class="math inline">\(v_i\)</span> are pairwise distinct. If <span id="eq:cus6n5zz8x" class="math display">\[\label{eq:cus6n5zz8x}\tag{30}
+    I &gt; r + s, \qquad J \geq 2s + 1,\]</span> then <span class="math inline">\(\tau\)</span> is injective.</em></p>
+</div>
+<p>We use the Wronskian argument of Barreto <a href="#ref-Barreto2026SiegelZeros" class="citation" data-cites="Barreto2026SiegelZeros">(Barreto 2026, proof of Theorem 1)</a>, also used by Kominers <a href="#ref-Kominers2026FrobeniusPrimeSums" class="citation" data-cites="Kominers2026FrobeniusPrimeSums">(Kominers 2026, proof of Theorem 1)</a>.</p>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> Suppose that a nonzero polynomial <span class="math inline">\(P \in F[X,Y]\)</span> of <span class="math inline">\(X\)</span>-degree at most <span class="math inline">\(r\)</span> and <span class="math inline">\(Y\)</span>-degree at most <span class="math inline">\(s\)</span> lies in the kernel of <span class="math inline">\(\tau\)</span>. In other words, each specialization <span class="math inline">\(P_i(X):=P(X,v_i)\)</span> vanishes to order at least <span class="math inline">\(J\)</span> at <span class="math inline">\(u_i\)</span>.</span></p>
+<p>At most <span class="math inline">\(s\)</span> of the specializations <span class="math inline">\(P_i\)</span> are identically zero. Indeed, write <span class="math inline">\(P=\sum_a c_a(Y)X^a\)</span> and choose a nonzero coefficient <span class="math inline">\(c_a\)</span>. Since <span class="math inline">\(\deg c_a\leq s\)</span>, it has at most <span class="math inline">\(s\)</span> roots. Since the <span class="math inline">\(v_i\)</span> are distinct, there are at most <span class="math inline">\(s\)</span> indices <span class="math inline">\(i\)</span> for which <span class="math inline">\(c_a(v_i)=0\)</span>. For the remaining indices <span class="math inline">\(i\)</span>, we have <span class="math inline">\(c_a(v_i) \neq 0\)</span>, hence <span class="math inline">\(P_i \neq 0\)</span>, as required.</p>
+<p>We now write <span class="math inline">\(P=\sum_{b=0}^s f_b(X)Y^b\)</span> and let <span class="math inline">\(W\subseteq F[X]\)</span> denote the span of the coefficients <span class="math inline">\(f_b\)</span>. Write <span class="math inline">\(\ell:=\dim_F W\)</span>, so that <span id="eq:cus6n50s8z" class="math display">\[\label{eq:cus6n50s8z}\tag{31}
+    1\leq\ell\leq s+1.\]</span> Each <span class="math inline">\(P_i\)</span> belongs to <span class="math inline">\(W\)</span>, and each element of <span class="math inline">\(W\)</span> has degree at most <span class="math inline">\(r\)</span>.</p>
+<p>Choose a basis <span class="math inline">\(g_1,\dotsc,g_\ell\)</span> of <span class="math inline">\(W\)</span>, and form its Wronskian <span class="math display">\[\mathcal W(X):=\det\bigl(\partial_X^j g_b(X)\bigr)_{0\leq j&lt;\ell,\ 1\leq b\leq\ell}.\]</span> For example, when <span class="math inline">\(\ell = 3\)</span>, <span class="math display">\[\mathcal{W}(X) = \det\begin{pmatrix}
+      g_1(X) &amp; g_2(X) &amp; g_3(X) \\
+      g_1&#39;(X) &amp; g_2&#39;(X) &amp; g_3&#39;(X) \\
+      g_1&#39;&#39;(X) &amp; g_2&#39;&#39;(X) &amp; g_3&#39;&#39;(X)
+    \end{pmatrix}\]</span>. Changing the basis multiplies <span class="math inline">\(\mathcal W\)</span> by a nonzero constant. We observe that <span id="eq:cus6n5llr4" class="math display">\[\label{eq:cus6n5llr4}\tag{32}
+    \mathcal W\neq0,\qquad
+    \deg\mathcal W=\sum_b d_b-\binom\ell2\leq\ell r.\]</span> Indeed, by canceling leading terms, we may choose the <span class="math inline">\(g_b\)</span> monic with strictly increasing degrees <span class="math inline">\(d_1&lt;\dotsb&lt;d_\ell\)</span>. The coefficient of degree <span class="math inline">\(\sum_b d_b-\binom\ell2\)</span> in <span class="math inline">\(\mathcal W\)</span> is <span class="math display">\[\det\bigl(d_b(d_b-1)\dotsb(d_b-j+1)\bigr)_{0\leq j&lt;\ell,\ 1\leq b\leq\ell}
+    =\prod_{a&lt;b}(d_b-d_a).\]</span> Since <span class="math inline">\(F\)</span> has characteristic zero, this product is nonzero, so it is the leading coefficient of <span class="math inline">\(\mathcal W\)</span>, giving <a href="#eq:cus6n5llr4" data-reference-type="eqref" data-reference="eq:cus6n5llr4">\((32)\)</a>.</p>
+<p>Now fix <span class="math inline">\(i\)</span> with <span class="math inline">\(P_i\neq0\)</span>, and extend <span class="math inline">\(P_i\)</span> to a basis of <span class="math inline">\(W\)</span>. The Wronskian in this new basis contains the column <span class="math display">\[\begin{pmatrix}
+      P_i \\ \partial_X P_i \\ \vdots \\ \partial_X^{\ell-1} P_i
+    \end{pmatrix}.\]</span> Each entry in that column is divisible by <span class="math inline">\((X-u_i)^{J-\ell+1}\)</span>. The same divisibility holds for the new Wronskian, hence also for <span class="math inline">\(\mathcal W\)</span>. Since the <span class="math inline">\(u_i\)</span> are distinct and at least <span class="math inline">\(I-s\)</span> of the <span class="math inline">\(P_i\)</span> are nonzero, we obtain <span class="math display">\[\deg\mathcal W\geq(I-s)(J - \ell + 1).\]</span> Our hypotheses <a href="#eq:cus6n5zz8x" data-reference-type="eqref" data-reference="eq:cus6n5zz8x">\((30)\)</a> and <a href="#eq:cus6n50s8z" data-reference-type="eqref" data-reference="eq:cus6n50s8z">\((31)\)</a> give <span class="math display">\[I - s &gt; r, \quad J-\ell+1\geq 2s+2-\ell\geq\ell,\]</span> so we obtain <span class="math inline">\(\deg\mathcal W &gt; r \ell\)</span>, giving the required contradiction to <a href="#eq:cus6n5llr4" data-reference-type="eqref" data-reference="eq:cus6n5llr4">\((32)\)</a>. ◻</p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof of Lemma <a href="#lemma:triangle-interpolation" data-reference-type="ref" data-reference="lemma:triangle-interpolation">17</a>.</em><span class="proof-rest"> We must verify the hypotheses of Proposition <a href="#prop:interpolation" data-reference-type="ref" data-reference="prop:interpolation">28</a>. The points <span class="math inline">\(v_i = \sigma(u_i)\)</span> are distinct. For <span class="math inline">\((a, b) \in \mathcal{T}\)</span>, we have <span class="math inline">\(a &lt; t\)</span> and <span class="math inline">\(H b &lt; t\)</span>, hence <span id="eq:cus6n580mv" class="math display">\[\label{eq:cus6n580mv}\tag{33}
+    a \leq r := t - 1, \qquad b \leq s := \lfloor(t - 1)/H\rfloor.\]</span> Thus the domain of <span class="math inline">\(\tau\)</span> is contained in the span of the monomials with <span class="math inline">\(X\)</span>-degree at most <span class="math inline">\(r\)</span> and <span class="math inline">\(Y\)</span>-degree at most <span class="math inline">\(s\)</span>. The assumed bounds on <span class="math inline">\(I\)</span> and <span class="math inline">\(J\)</span> give <a href="#eq:cus6n5zz8x" data-reference-type="eqref" data-reference="eq:cus6n5zz8x">\((30)\)</a>, so Proposition <a href="#prop:interpolation" data-reference-type="ref" data-reference="prop:interpolation">28</a> applies. ◻</span></p>
+</div>
+<h1 id="appendix:small">§C. Points of small height</h1>
+<p>We record a proof of Proposition <a href="#prop:small-set" data-reference-type="ref" data-reference="prop:small-set">18</a>.</p>
+<h2 id="sec:cus71nhjko">§C.1. Haar measures</h2>
+<p>Let <span class="math inline">\(F\)</span> be a global field, and let <span class="math inline">\(\mathbb{A}\)</span> denote its adele ring. We equip <span class="math inline">\(\mathbb{A}\)</span> with product Haar measure <span class="math inline">\(\mu := \prod_v \mu_v\)</span>, normalized as follows:</p>
+<ul>
+<li><p>at finite places, <span class="math inline">\(\mu_v\)</span> assigns volume one to the ring of integers;</p></li>
+<li><p>at real places, <span class="math inline">\(\mu_v\)</span> is Lebesgue measure;</p></li>
+<li><p>at complex places, <span class="math inline">\(\mu_v\)</span> is twice the Euclidean area.</p></li>
+</ul>
+<p>On <span class="math inline">\(\mathbb{A}/F\)</span>, we use the quotient measure induced by <span class="math inline">\(\mu\)</span> and counting measure on <span class="math inline">\(F\)</span>. When <span class="math inline">\(F\)</span> is a number field, we continue to write <span class="math inline">\(\Delta:=|\operatorname{disc}F|\)</span>. When <span class="math inline">\(F\)</span> is a function field with constant field <span class="math inline">\(\mathbb{F}\)</span> of cardinality <span class="math inline">\(q\)</span>, we set <span class="math display">\[g:=\dim_{\mathbb{F}}\mathbb{A}/\left(F+\prod_v\mathfrak{o}_v\right),
+  \qquad \Delta:=q^{2g-2}.\]</span></p>
+<div id="lemma:adelic-volume" class="lemma">
+<p><strong>Lemma 29</strong>. We have <span class="math display">\[\mu(\mathbb{A}/F) = \sqrt{\Delta}.\]</span></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> For number fields, see Weil <a href="#ref-MR670072" class="citation" data-cites="MR670072">(Weil 1982, vol. 23, sec. 2.1.3)</a>. For function fields, <span class="math inline">\(F\cap\prod_v\mathfrak{o}_v=\mathbb{F}\)</span>, so the image of <span class="math inline">\(\prod_v\mathfrak{o}_v\)</span> in <span class="math inline">\(\mathbb{A}/F\)</span> has measure <span class="math inline">\(1/q\)</span>. Its index is <span class="math inline">\(q^g\)</span>, giving total volume <span class="math inline">\(q^{g-1}\)</span>. ◻</span></p>
+</div>
+<p>We denote the probability Haar measure on <span class="math inline">\(\mathbb{A}/F\)</span> by <span class="math inline">\(dt\)</span>.</p>
+<h2 id="sec:cus71nhke1">§C.2. Averaging</h2>
+<div id="lemma:adelic-averaging" class="lemma">
+<p><strong>Lemma 30</strong>. For every compact measurable subset <span class="math inline">\(\Omega \subseteq \mathbb{A}\)</span>, we have <span class="math display">\[\int_{\mathbb{A}/F}\#\bigl((t + \Omega) \cap F\bigr) \, d t
+    = \frac{\mu(\Omega)}{\sqrt\Delta}.\]</span></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> Call the left-hand side <span class="math inline">\(\nu(\Omega)\)</span>. It defines a Haar measure <span class="math inline">\(\nu\)</span> on <span class="math inline">\(\mathbb{A}\)</span>, so the two sides are proportional. To compute the constant of proportionality, we take <span class="math inline">\(\Omega\)</span> to be a measurable fundamental domain for <span class="math inline">\(\mathbb{A}/F\)</span>. The integrand on the left-hand side is then identically one, so <span class="math inline">\(\nu(\Omega) = 1\)</span>. We conclude using Lemma <a href="#lemma:adelic-volume" data-reference-type="ref" data-reference="lemma:adelic-volume">29</a>. ◻</span></p>
+</div>
+<h2 id="sec:cus71nhoyd">§C.3. Producing points of small height</h2>
+<div id="lemma:small-points" class="lemma">
+<p><strong>Lemma 31</strong>. Let <span class="math inline">\(I\geq1\)</span> be an integer. For each place <span class="math inline">\(v\)</span>, choose <span class="math inline">\(B_v&gt;0\)</span>, with <span class="math inline">\(B_v=1\)</span> at almost all places and <span class="math inline">\(B_v\in|F_v^\times|_v\)</span> at each place. If <span class="math display">\[\prod_v B_v\geq I\sqrt\Delta,\]</span> then there is a subset <span class="math inline">\(\{u_1, \dotsc u_I\} \subset F\)</span> of cardinality <span class="math inline">\(I\)</span> such that <span class="math display">\[|u_i|_v\leq B_v\]</span> for all <span class="math inline">\(i\)</span> and <span class="math inline">\(v\)</span>.</p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> At finite places, set <span class="math inline">\(\Omega_v:=\{z\in F_v:|z|_v\leq B_v\}\)</span>. At real places, set <span class="math inline">\(\Omega_v=[0,B_v]\)</span>. At complex places, let <span class="math inline">\(\Omega_v\)</span> be a square of side <span class="math inline">\(\sqrt{B_v/2}\)</span>. These choices satisfy <span class="math display">\[\mu_v(\Omega_v)=B_v,\qquad
+    \Omega_v-\Omega_v\subseteq\{z\in F_v:|z|_v\leq B_v\}.\]</span> Thus <span class="math inline">\(\Omega:=\prod_v\Omega_v\)</span> is compact and <span class="math inline">\(\mu(\Omega)=\prod_vB_v\)</span>. By Lemma <a href="#lemma:adelic-averaging" data-reference-type="ref" data-reference="lemma:adelic-averaging">30</a>, we have <span class="math display">\[\int_{\mathbb{A}/F}\#\bigl((t+\Omega)\cap F\bigr)\,dt
+    =\frac{\mu(\Omega)}{\sqrt\Delta}\geq I.\]</span> Thus some translate <span class="math inline">\(t + \Omega\)</span> contains <span class="math inline">\(I\)</span> distinct elements <span class="math inline">\(x_1, \dotsc, x_I\)</span> of <span class="math inline">\(F\)</span>. The differences <span class="math inline">\(u_i := x_i - x_1\)</span> lie in <span class="math inline">\(F\cap(\Omega-\Omega)\)</span> and satisfy the required bounds. ◻</span></p>
+</div>
+<div class="remark">
+<p><strong>Remark 32</strong>. Over number fields, using disks instead of squares at the complex places improves the factor <span class="math inline">\(\sqrt{\Delta}\)</span> in the hypothesis of Lemma <a href="#lemma:small-points" data-reference-type="ref" data-reference="lemma:small-points">31</a> to <span class="math inline">\((2/\pi)^{r_2}\sqrt{\Delta}\)</span>, where <span class="math inline">\(r_2\)</span> is the number of complex places.</p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof of Proposition <a href="#prop:small-set" data-reference-type="ref" data-reference="prop:small-set">18</a>.</em><span class="proof-rest"> We set <span class="math inline">\(H:=(I\sqrt\Delta)^{1/[F:\mathbb Q]}\)</span> and apply Lemma <a href="#lemma:small-points" data-reference-type="ref" data-reference="lemma:small-points">31</a> with <span class="math display">\[B_v:=
+    \begin{cases}
+      1,&amp;v\nmid\infty,\\
+      H^{[F_v:\mathbb R]},&amp;v\mid\infty.
+    \end{cases}\]</span> These radii are at least one and have product <span class="math inline">\(I\sqrt\Delta\)</span>. They are preserved by every automorphism of <span class="math inline">\(F\)</span>: if <span class="math inline">\(\sigma v\)</span> is the transported place, characterized by <span class="math inline">\(|\sigma\alpha|_{\sigma v}=|\alpha|_v\)</span>, then <span class="math inline">\(B_{\sigma v}=B_v\)</span>. The resulting <span class="math inline">\(u_i\)</span> are integral at all finite places, and every conjugate has Euclidean modulus at most <span class="math inline">\(H\)</span>. The same bounds hold for each <span class="math inline">\(\sigma_\ell(u_i)\)</span>, so <span class="math display">\[\beta\leq\prod_vB_v=I\sqrt\Delta.\]</span> ◻</span></p>
+</div>
+<h1 id="section:stepanov">§D. Comparison with Bombieri–Stepanov</h1>
+<p>The “small points” estimate (Lemma <a href="#lemma:small-points" data-reference-type="ref" data-reference="lemma:small-points">31</a>), and the product formula employed in §<a href="#section:global" data-reference-type="ref" data-reference="section:global">6</a> are also relevant for the Bombieri–Stepanov method <a href="#ref-Bombieri1974CountingPoints" class="citation" data-cites="Bombieri1974CountingPoints">(Bombieri 1974)</a> for proving the Riemann hypothesis for curves over finite fields. We give a brief sketch of that argument.</p>
+<p>Let <span class="math inline">\(F\)</span> be a global function field, thus <span class="math inline">\(F\)</span> is the field of rational functions on a curve <span class="math inline">\(C\)</span> over a finite field <span class="math inline">\(\mathbb{F}\)</span> of some cardinality <span class="math inline">\(q\)</span>. We always assume that <span class="math inline">\(\mathbb{F}\)</span> is the full constant field of <span class="math inline">\(F\)</span>. We retain the notation <span class="math inline">\(\mathbb{A}\)</span> and <span class="math inline">\(\Delta = q^{2 g - 2}\)</span> from the preceding appendix. We assume that <span class="math inline">\(F\)</span> has a place <span class="math inline">\(\infty\)</span> of degree one, which can be arranged after passing to a finite extension of <span class="math inline">\(\mathbb{F}\)</span>. Take <span class="math display">\[R:=F\cap\prod_{v\ne\infty}\mathfrak{o}_v,
+  \qquad
+  R_\ell:=\{f\in R:\operatorname{ord}_\infty(f)\geq-\ell\}
+  \quad(\ell\geq0).\]</span> The <span class="math inline">\(R_\ell\)</span> are finite-dimensional <span class="math inline">\(\mathbb{F}\)</span>-vector spaces. They are special cases of the sets considered in the proof of Lemma <a href="#lemma:small-points" data-reference-type="ref" data-reference="lemma:small-points">31</a>.</p>
+<p>We have <span class="math inline">\(R_0=\mathbb{F}\)</span>. By considering the leading coefficient at <span class="math inline">\(\infty\)</span>, whose residue field is <span class="math inline">\(\mathbb{F}\)</span>, we see that <span class="math display">\[0\leq\dim_{\mathbb{F}}R_{\ell+1}-\dim_{\mathbb{F}}R_\ell\leq1.\]</span> In particular, <span class="math inline">\(\dim R_\ell\leq\ell+1\)</span>, and we may choose bases of the <span class="math inline">\(R_\ell\)</span> with distinct pole orders at <span class="math inline">\(\infty\)</span>.</p>
+<p>For <span class="math inline">\(\ell\geq g-1\)</span>, we apply Lemma <a href="#lemma:small-points" data-reference-type="ref" data-reference="lemma:small-points">31</a> with <span class="math display">\[I:=q^{\ell+1-g},\qquad B_\infty:=q^\ell,
+  \qquad B_v:=1\quad(v\ne\infty).\]</span> Since <span class="math inline">\(\prod_v B_v=I\sqrt\Delta\)</span>, the lemma supplies <span class="math inline">\(q^{\ell+1-g}\)</span> distinct elements of <span class="math inline">\(R_\ell\)</span>. As <span class="math inline">\(R_\ell\)</span> is an <span class="math inline">\(\mathbb{F}\)</span>-vector space, we obtain the Riemann–Roch estimate <span id="eq:stepanov-dimensions" class="math display">\[\label{eq:stepanov-dimensions}\tag{34}
+  \ell+1-g\leq\dim_{\mathbb{F}}R_\ell\leq\ell+1.\]</span> The lower bound is automatic for <span class="math inline">\(\ell&lt;g-1\)</span>.</p>
+<p>For <span class="math inline">\(m\geq1\)</span>, write <span class="math display">\[N_m:=\sum_{\deg v\mid m}\deg v,
+  \qquad \deg v:=[\mathfrak{o}_v/\mathfrak{p}_v:\mathbb{F}].\]</span> This is the number of points over <span class="math inline">\(\mathbb{F}_{q^m}\)</span> on <span class="math inline">\(C\)</span>. For a place <span class="math inline">\(\mathfrak{p}\)</span> of <span class="math inline">\(F\)</span>, write <span class="math inline">\(|\mathfrak{p}|=q^{\deg\mathfrak{p}}\)</span> for its absolute norm. If a nonzero <span class="math inline">\(f\in R_L\)</span> vanishes at every place <span class="math inline">\(\mathfrak{p}\ne\infty\)</span> with <span class="math inline">\(\deg\mathfrak{p}\mid m\)</span>, then the product formula gives <span id="eq:stepanov-product-formula" class="math display">\[\label{eq:stepanov-product-formula}\tag{35}
+  (N_m-1)\log q
+  \leq \sum_{\mathfrak p\ne\infty}
+  \operatorname{ord}_{\mathfrak p}(f)\log|\mathfrak p|
+  =\log|f|_\infty
+  \leq L\log q.\]</span> Thus <span class="math inline">\(N_m\leq L+1\)</span>. The equality in <a href="#eq:stepanov-product-formula" data-reference-type="eqref" data-reference="eq:stepanov-product-formula">\((35)\)</a> is the analogue of <a href="#eq:cus62z6mr2" data-reference-type="eqref" data-reference="eq:cus62z6mr2">\((8)\)</a>, while comparisons like <a href="#eq:stepanov-product-formula" data-reference-type="eqref" data-reference="eq:stepanov-product-formula">\((35)\)</a> are analogous to <a href="#eq:cus63wm1w9" data-reference-type="eqref" data-reference="eq:cus63wm1w9">\((9)\)</a>.</p>
+<div id="proposition:stepanov" class="proposition">
+<p><strong>Proposition 33</strong>. <em>For even <span class="math inline">\(m\geq2\)</span>, we have <span class="math display">\[N_m\leq q^m+\operatorname{O}_F(q^{m/2}).\]</span></em></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> Write <span class="math inline">\(Q:=q^{m/2}\)</span>. Let <span class="math inline">\(\ell_1,\ell_2\geq0\)</span> be integers with <span class="math inline">\(\ell_1&lt;Q\)</span>. Choose bases <span class="math inline">\(\{x_i\}\)</span> of <span class="math inline">\(R_{\ell_1}\)</span> and <span class="math inline">\(\{y_j\}\)</span> of <span class="math inline">\(R_{\ell_2}\)</span> with distinct pole orders at <span class="math inline">\(\infty\)</span>.</span></p>
+<p>Suppose we can find coefficients <span class="math inline">\(c_{ij}\in\mathbb{F}\)</span>, not all zero, such that <span class="math display">\[\widetilde f:=\sum_{i,j}c_{ij}x_i^Qy_j=0.\]</span> For such coefficients, we set <span class="math display">\[f:=\sum_{i,j}c_{ij}x_i y_j^Q\in R_{\ell_1+Q\ell_2}.\]</span> The pole orders at <span class="math inline">\(\infty\)</span> of the <span class="math inline">\(x_i y_j^Q\)</span> are distinct: those of the <span class="math inline">\(x_i\)</span> lie in <span class="math inline">\([0,\ell_1]\subset[0,Q)\)</span>, while those of the <span class="math inline">\(y_j^Q\)</span> are distinct multiples of <span class="math inline">\(Q\)</span>. Since the coefficients are not all zero, we have <span class="math inline">\(f\ne0\)</span>.</p>
+<p>Now, for each place <span class="math inline">\(v\ne\infty\)</span> with <span class="math inline">\(\deg v\mid m\)</span>, we have <span class="math inline">\(u^{Q^2}\equiv u\pmod{\mathfrak{p}_v}\)</span> for all <span class="math inline">\(u\in R\)</span> (an analogue of the Frobenius condition employed in the rest of this note). Since also <span class="math inline">\(c_{ij}^Q=c_{ij}\)</span> (a condition involving the field of constants <span class="math inline">\(\mathbb{F}\)</span>, which admits no obvious analogue in the number field setting), we obtain <span class="math display">\[f^Q\equiv\sum_{i,j}c_{ij}x_i^Qy_j=\widetilde f=0\pmod{\mathfrak{p}_v}.\]</span> Hence <span class="math inline">\(f\)</span> vanishes at all the required places, and the product formula <a href="#eq:stepanov-product-formula" data-reference-type="eqref" data-reference="eq:stepanov-product-formula">\((35)\)</a> gives <span class="math display">\[N_m\leq1+\ell_1+Q\ell_2.\]</span></p>
+<p>It remains to find the coefficients <span class="math inline">\(c_{i j}\)</span>. The map <span class="math inline">\((c_{ij})\mapsto\widetilde f\)</span> takes values in <span class="math inline">\(R_{Q\ell_1+\ell_2}\)</span>, so in view of the dimension estimates <a href="#eq:stepanov-dimensions" data-reference-type="eqref" data-reference="eq:stepanov-dimensions">\((34)\)</a>, it has a nonzero kernel provided that <span class="math display">\[(\ell_1+1-g)(\ell_2+1-g)&gt;Q\ell_1+\ell_2+1,\]</span> assuming <span class="math inline">\(\ell_1,\ell_2\geq g-1\)</span>. Take <span class="math display">\[\ell_1:=Q-1,\qquad \ell_2:=Q+2g.\]</span> For sufficiently large <span class="math inline">\(Q\)</span>, the required inequality holds, since <span class="math display">\[(Q-g)(Q+g+1)-(Q^2+2g+1)=Q-g^2-3g-1&gt;0.\]</span> We conclude that <span class="math inline">\(N_m\leq Q^2+(2g+1)Q\)</span> for <span class="math inline">\(m\)</span> large enough. For small <span class="math inline">\(m\)</span>, we conclude via trivial estimation. ◻</p>
+</div>
+<p>For the Galois argument that passes from these upper bounds to the Riemann hypothesis, see Bombieri <a href="#ref-Bombieri1974CountingPoints" class="citation" data-cites="Bombieri1974CountingPoints">(Bombieri 1974, sec. III)</a>.</p>
+<div class="remark">
+<p><strong>Remark 34</strong>. The above argument is similar to that of the rest of this note in the use of the product formula, the existence of points of small height, and a Frobenius condition to detect certain primes (here those whose degree divides <span class="math inline">\(m\)</span>, elsewhere those whose Frobenius is some given automorphism <span class="math inline">\(\sigma\)</span>). The arguments differ in how the elements fed into the product formula are constructed: in Bombieri–Stepanov, they are nonzero elements of the kernel of a linear map defined over the constant field <span class="math inline">\(\mathbb{F}\)</span>, while in the rest of the note, they are nonzero determinantal minors of an injective map defined using auxiliary polynomials. The Bombieri–Stepanov argument also uses the exact additivity <span class="math inline">\((\sum a_{i j})^Q = \sum a_{i j}^Q\)</span>, which has no analogue in the number field setting.</p>
+</div>
+<h1 id="section:explicit">§E. Explicit estimates</h1>
+<p>We now prove Lemma <a href="#lemma:numerical-bound" data-reference-type="ref" data-reference="lemma:numerical-bound">19</a>. The estimates recorded here were done in “one shot” by Codex (GPT-6.1 Sol on “Low” reasoning effort) after we asked it to use Corollary <a href="#corollary:height-prime-comparison" data-reference-type="ref" data-reference="corollary:height-prime-comparison">15</a> to prove any completely effective estimate in the setting of Theorem <a href="#theorem:prime-sum" data-reference-type="ref" data-reference="theorem:prime-sum">4</a>.</p>
+<h2 id="sec:cus71nhu98">§E.1. Monomial sums</h2>
+<div id="lemma:triangle-estimates" class="lemma">
+<p><strong>Lemma 35</strong>. Let <span class="math inline">\(x \geq 6\)</span> and <span class="math inline">\(1 \leq H \leq x/2\)</span> be integers, and take <span class="math display">\[\mathcal{T} := \{(a, b) : a + H b &lt; x\}.\]</span> Then <span class="math display">\[T \leq \frac{x^2}{H}, \qquad
+    \sum_{\mathcal{T}} a \geq \frac{x^3}{8H}, \qquad
+    \sum_{\mathcal{T}} b \leq \frac{8}{H}\sum_{\mathcal{T}} a.\]</span></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> For each integer <span class="math inline">\(b\)</span> with <span class="math inline">\(0 \leq b \leq \lfloor(x - 1)/H\rfloor\)</span>, the possible values of <span class="math inline">\(a\)</span> are <span class="math inline">\(0, \dotsc, x - Hb - 1\)</span>. Comparing the resulting sums with integrals gives <span class="math display">\[T = \sum_{b = 0}^{\lfloor(x - 1)/H\rfloor}(x - Hb)
+    \leq x + \frac{1}{H}\int_0^x u \, d u
+    = x + \frac{x^2}{2H}
+    \leq \frac{x^2}{H}\]</span> and <span class="math display">\[\begin{split}
+      \sum_{\mathcal{T}} a
+      &amp;= \sum_{b = 0}^{\lfloor(x - 1)/H\rfloor}\frac{(x - Hb)(x - Hb - 1)}{2} \\
+      &amp;\geq \frac{1}{H}\int_1^x \frac{u(u - 1)}{2} \, d u
+      = \frac{2x^3 - 3x^2 + 1}{12H}
+      \geq \frac{x^3}{8H}.
+    \end{split}\]</span> Here the first comparison uses that <span class="math inline">\(u\)</span> is increasing, and the second uses that <span class="math inline">\(u(u - 1)/2\)</span> is increasing and nonnegative for <span class="math inline">\(u \geq 1\)</span>. The last inequality holds for <span class="math inline">\(x \geq 6\)</span>. Finally, <span class="math inline">\(b &lt; x/H\)</span> for every <span class="math inline">\((a, b) \in \mathcal{T}\)</span>, so <span class="math display">\[\sum_{\mathcal{T}} b
+    \leq \frac{xT}{H}
+    \leq \frac{x^3}{H^2}
+    \leq \frac{8}{H}\sum_{\mathcal{T}} a.\]</span> ◻</span></p>
+</div>
+<h2 id="sec:cus71nhv9g">§E.2. Dependence on <span class="math inline">\(H\)</span></h2>
+<div id="proposition:variable-parameters" class="proposition">
+<p><strong>Proposition 36</strong>. <em>Retain the notation of Lemma <a href="#lemma:numerical-bound" data-reference-type="ref" data-reference="lemma:numerical-bound">19</a>, but allow any integer <span class="math inline">\(2 \leq H \leq x/2\)</span>, still taking <span class="math inline">\(J=2\lfloor(x-1)/H\rfloor+1\)</span>. Then <span class="math display">\[|C|\mathcal{B}
+    \leq \frac{|C|}{d}\log(2x\sqrt{\Delta})
+    + \frac{8|C|}{H}\left(\frac{\log(2x\sqrt{\Delta})}{d} + 2d_0\log x\right)
+    + d_0\log H + 21d_0|C|.\]</span></em></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> Since <span class="math inline">\(r=1\)</span> and <span class="math inline">\(\lVert w\rVert_\infty=1/|C|\)</span>, the definition <a href="#eq:comparison-bound" data-reference-type="eqref" data-reference="eq:comparison-bound">\((17)\)</a> gives <span id="eq:height-prime-comparison" class="math display">\[\label{eq:height-prime-comparison}\tag{36}
+    \begin{split}
+      |C|\mathcal{B}
+      &amp;= \frac{|C|}{d}\frac{\sum_{\mathcal{T}}(a+b)}{\sum_{\mathcal{T}}a}\log\beta
+      + \frac{|C|A_\infty}{\sum_{\mathcal{T}}a} \\
+      &amp;\quad + \frac{T}{\sum_{\mathcal{T}}a}\sum_{|p|\leq x}\log|p|
+      + \sum_{|p|&lt;H}\frac{\log|p|}{|p|}.
+    \end{split}\]</span> We estimate these four terms in order.</span></p>
+<p>By Lemma <a href="#lemma:triangle-estimates" data-reference-type="ref" data-reference="lemma:triangle-estimates">35</a>, the height term is at most <span class="math display">\[\frac{|C|}{d}\left(1 + \frac{8}{H}\right)\log(2x\sqrt{\Delta}).\]</span> Next, the same lemma gives <span class="math inline">\(T/\sum_{\mathcal{T}} a \leq 8/x\)</span>. Using the definition <a href="#eq:cus6oc79wo" data-reference-type="eqref" data-reference="eq:cus6oc79wo">\((15)\)</a> of <span class="math inline">\(A_\infty\)</span>, together with <span class="math inline">\(T \leq x^2\)</span> and <span class="math inline">\(J + 1 \leq 2x/H + 2\)</span>, we find <span class="math display">\[\begin{split}
+      \frac{|C| A_\infty}{\sum_{\mathcal{T}} a}
+      &amp;\leq \frac{8d_0|C|}{x}\bigl(\log T + (J - 1)\log x\bigr) \\
+      &amp;\leq 16d_0|C|\left(\frac{\log x}{H} + \frac{\log x}{x}\right) \\
+      &amp;\leq \frac{16d_0|C|\log x}{H} + 3d_0|C|.
+    \end{split}\]</span> Here we used that <span class="math inline">\(16\log x/x \leq \log 16 &lt; 3\)</span> for <span class="math inline">\(x \geq 16\)</span>. Finally, Lemma <a href="#lemma:prime-estimates" data-reference-type="ref" data-reference="lemma:prime-estimates">16</a> gives <span class="math display">\[\frac{T}{\sum_{\mathcal{T}} a}\sum_{|p| \leq x}\log |p|
+    \leq 16d_0.\]</span> The omitted primes with <span class="math inline">\(|p| &lt; H\)</span> contribute at most <span class="math inline">\(d_0(\log H + 2)\)</span>, again by Lemma <a href="#lemma:prime-estimates" data-reference-type="ref" data-reference="lemma:prime-estimates">16</a>. Combining these bounds and using <span class="math inline">\(|C| \geq 1\)</span> proves the claim. ◻</p>
+</div>
+<h2 id="sec:cus71nhw6n">§E.3. Choosing <span class="math inline">\(H\)</span></h2>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof of Lemma <a href="#lemma:numerical-bound" data-reference-type="ref" data-reference="lemma:numerical-bound">19</a>.</em><span class="proof-rest"> Take <span class="math display">\[H := \lceil\log x\rceil.\]</span> Then <span class="math inline">\(2 \leq H \leq x/2\)</span>, and the hypothesis of the lemma gives <span class="math display">\[\frac{8|C|}{H}\left(\frac{\log(2x\sqrt{\Delta})}{d} + 2d_0\log x\right)
+    \leq 24d_0|C|\frac{\log x}{H}
+    \leq 24d_0|C|.\]</span> Moreover, <span class="math inline">\(H \leq \log x + 1 \leq \log(3x)\)</span>, so <span class="math inline">\(\log H \leq \log\log(3x)\)</span>. Proposition <a href="#proposition:variable-parameters" data-reference-type="ref" data-reference="proposition:variable-parameters">36</a> now gives <span class="math display">\[\begin{split}
+      |C|\mathcal{B}
+      &amp;\leq \frac{|C|}{d}\left(\log x + \frac12\log\Delta\right)
+        + d_0\log\log(3x) \\
+      &amp;\quad + \frac{|C|}{d}\log 2 + 45d_0|C|.
+    \end{split}\]</span> Since <span class="math inline">\(|C|/d \leq d_0|C|\)</span> and <span class="math inline">\(45 + \log 2 &lt; 50\)</span>, this proves the lemma. ◻</span></p>
+</div>
+<h1 id="sec:cus645mtdu">§F. Excluding real zeros</h1>
+<p>We now prove Lemma <a href="#lemma:prime-saving-zeros" data-reference-type="ref" data-reference="lemma:prime-saving-zeros">2</a>, following some auxiliary lemmas. Let <span class="math inline">\(\chi\)</span> be a primitive real nonprincipal character of conductor <span class="math inline">\(q\)</span>. The idea is that a zero of <span class="math inline">\(L(s, \chi)\)</span> very close to <span class="math inline">\(1\)</span> forces almost all the logarithmic prime mass onto <span class="math inline">\(\chi(p)=-1\)</span>, but the hypothesis bounds that mass by a fixed proportion <span class="math inline">\(\kappa&lt;1\)</span>. In what follows, all implied constants are absolute and effective.</p>
+<p>We first record the two facts about <span class="math inline">\(L\)</span>-functions that we need. Write <span class="math inline">\(\mathcal L:=\log(2q)\)</span>.</p>
+<div id="lemma:cus9we2fk5" class="lemma">
+<p><strong>Lemma 37</strong>. Let <span class="math inline">\(1 &lt; s \leq 2\)</span>. We have</p>
+<p><span class="math display">\[- \frac{\zeta &#39;}{\zeta}(s) = \frac{1}{s - 1} + \operatorname{O}(1).\]</span> If <span class="math inline">\(L(s, \chi)\)</span> has a real zero <span class="math inline">\(\beta \in (0, 1)\)</span>, then <span class="math display">\[-\frac{L&#39;}L(s,\chi)
+    \leq - \frac{1}{s-\beta} +\operatorname{O}(\mathcal{L}).\]</span></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> The first estimate follows from the fact that <span class="math inline">\(\zeta\)</span> has a simple pole at <span class="math inline">\(s = 1\)</span>. As for the second estimate, the partial fraction expansion of <span class="math inline">\(L&#39;/L\)</span> <a href="#ref-Dav80" class="citation" data-cites="Dav80">(Davenport 1980, vol. 74, secs. 12, (17)–(18))</a> gives <span class="math display">\[-\frac{L&#39;}L(s,\chi)
+    =- \sum_\rho \frac{1}{s-\rho}+ \frac12\log q+\operatorname{O}(\mathcal{L}),\]</span> where <span class="math inline">\(\rho\)</span> runs over the nontrivial zeros with multiplicity and the sum is performed symmetrically, grouping the zeros <span class="math inline">\(\rho\)</span> into conjugate pairs. For each such <span class="math inline">\(\rho\)</span>, we have <span class="math inline">\(\Re \frac{1}{s - \rho} \geq 0\)</span> for <span class="math inline">\(s\)</span> in the indicated range, so taking real parts and dropping all terms but one <span class="math inline">\(\rho = \beta\)</span> gives the required estimate. ◻</span></p>
+</div>
+<div id="lemma:cus9we1a1l" class="lemma">
+<p><strong>Lemma 38</strong>. For <span class="math inline">\(\Re s &gt; 1\)</span>, we have <span class="math display">\[- \frac{\zeta &#39;}{\zeta}(s) = \sum_{k=1}^\infty \sum_p \frac{\log p}{p^{ks}}
+    = \sum_p \frac{\log p}{p^s} + \operatorname{O}(1)\]</span> and <span class="math display">\[- \frac{L&#39;}{L}(s, \chi) = \sum_{k=1}^\infty \sum_p \frac{\chi(p)^k \log p}{p^{ks}}
+    = \sum_p \frac{\chi(p)\log p}{p^s} + \operatorname{O}(1).\]</span></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> These estimates follow from the Euler product expansions of <span class="math inline">\(\zeta\)</span> and <span class="math inline">\(L(s, \chi)\)</span>, together with the fact that <span class="math inline">\(\sum_{k \geq 2} \sum_p \frac{\log p}{p^k}\)</span> converges. ◻</span></p>
+</div>
+<div id="lemma:cus9wfbo36" class="lemma">
+<p><strong>Lemma 39</strong>. If <span class="math inline">\(L(s, \chi)\)</span> has a real zero <span class="math inline">\(\beta \in (0, 1)\)</span>, then for <span class="math inline">\(1 &lt; s \leq 2\)</span>, <span class="math display">\[\sum_{p : \chi(p) = - 1}\frac{\log p}{p^s}
+    \geq
+    \frac{1}{2} \left(
+      \frac{1}{s - 1} + \frac{1}{s - \beta}
+    \right)
+    + \operatorname{O}(\mathcal{L}).\]</span></p>
+</div>
+<div class="proof">
+<p><em class="toggle-proof" role="button" tabindex="0" aria-expanded="true">Proof.</em><span class="proof-rest"> Away from primes dividing <span class="math inline">\(q\)</span>, we have <span class="math inline">\(1_{\chi(p)=-1}=(1-\chi(p))/2\)</span>. The primes dividing <span class="math inline">\(q\)</span> contribute <span class="math inline">\(\operatorname{O}(\mathcal L)\)</span>, so after some rearrangement, we deduce from Lemma <a href="#lemma:cus9we1a1l" data-reference-type="ref" data-reference="lemma:cus9we1a1l">38</a> that <span class="math display">\[\sum_{p : \chi(p) = - 1}\frac{\log p}{p^s}
+    =
+    \frac{1}{2} \left(
+      - \frac{\zeta &#39;}{\zeta}(s) + \frac{L&#39;}{L}(s, \chi)
+    \right)
+    + \operatorname{O}(\mathcal{L}).\]</span> The desired estimate then follows from Lemma <a href="#lemma:cus9we2fk5" data-reference-type="ref" data-reference="lemma:cus9we2fk5">37</a>. ◻</span></p>
+</div>
+<p>We now complete the proof of Lemma <a href="#lemma:prime-saving-zeros" data-reference-type="ref" data-reference="lemma:prime-saving-zeros">2</a>. Suppose <span class="math inline">\(L(s,\chi)\)</span> has a real zero <span class="math inline">\(\beta\in(0,1)\)</span>. Take <span class="math inline">\(R \geq 1\)</span>. Applying Lemma <a href="#lemma:cus9wfbo36" data-reference-type="ref" data-reference="lemma:cus9wfbo36">39</a> with <span class="math inline">\(s := 1 + 1/R\)</span> and multiplying by <span class="math inline">\(1/R\)</span> gives <span class="math display">\[P_R := \frac{1}{R} \sum_{p:\chi (p) = - 1} \frac{\log p}{p}
+  \exp \left( {- \frac{\log p}{R}} \right)
+  \geq \frac{1}{2} \left( 1 + \frac{1}{1 + R(1 - \beta)} \right) - C \mathcal{L} / R\]</span> for some absolute effective constant <span class="math inline">\(C\)</span>. With the notation <span class="math display">\[S(t):=\sum_{\substack{\chi(p)=-1\\\log p\le t}}\frac{\log p}{p},\]</span> our hypothesis reads <span class="math display">\[S(t) \leq \kappa t + B \mathcal{L}.\]</span> We see using the identities <span class="math display">\[e^{- x} = \int_{x}^\infty e^{- t} \, d t, \quad
+  \int_0^\infty e^{- t} \, d t = 1, \quad
+  \int_0^\infty t e^{- t} \, d t = 1\]</span> that <span class="math display">\[P_R = \int_{0}^\infty e^{-t} \frac{S(R t)}{R} \, d t
+  \leq
+  \int_{0}^\infty e^{-t} \left( \kappa t + B \mathcal{L} / R \right) \, d t
+  = \kappa + B \mathcal{L} / R.\]</span> Combining the lower and upper bounds for <span class="math inline">\(P_R\)</span> gives <span id="eq:cus9wa0jyo" class="math display">\[\label{eq:cus9wa0jyo}\tag{37}
+  \frac{1}{2} \left( 1 + \frac{1}{1 + R(1 - \beta)} \right) - C \mathcal{L} / R
+  \leq
+  P_R
+  \leq
+  \kappa + B \mathcal{L} / R.\]</span></p>
+<p>This implies that <span class="math inline">\(\mathcal{L}(1 - \beta) \geq c\)</span> for some absolute effective <span class="math inline">\(c &gt; 0\)</span>. Informally, suppose <span class="math inline">\(\mathcal{L}(1 - \beta)\)</span> is small, so that <span class="math inline">\(\mathcal{L}\)</span> is much smaller than <span class="math inline">\(1 /(1 - \beta)\)</span>. We may then choose a scale <span class="math inline">\(R\)</span>, intermediate between <span class="math inline">\(\mathcal{L}\)</span> and <span class="math inline">\(1/(1 - \beta)\)</span>, so that both <span class="math inline">\(\mathcal{L} / R\)</span> and <span class="math inline">\(R(1 - \beta)\)</span> are small. The two sides of <a href="#eq:cus9wa0jyo" data-reference-type="eqref" data-reference="eq:cus9wa0jyo">\((37)\)</a> are then arbitrarily close to <span class="math inline">\(1\)</span> and <span class="math inline">\(\kappa\)</span>, respectively, contradicting our assumption that <span class="math inline">\(\kappa &lt; 1\)</span>.</p>
+<p>To carry out this last argument effectively, write <span class="math inline">\(\delta := 1 - \beta\)</span> and <span class="math inline">\(D := B + C\)</span>. The bound <a href="#eq:cus9wa0jyo" data-reference-type="eqref" data-reference="eq:cus9wa0jyo">\((37)\)</a> rearranges to <span class="math display">\[1 - \kappa \leq \frac{R \delta}{2(1 +R \delta)} + D \mathcal{L} / R.\]</span> Take <span class="math inline">\(R := \sqrt{\mathcal{L} / \delta}\)</span>. Then <span class="math inline">\(R \delta\)</span> and <span class="math inline">\(\mathcal{L} / R\)</span> are both equal to <span class="math inline">\(\sqrt{\mathcal{L} \delta}\)</span>, so we obtain <span class="math display">\[1 - \kappa \leq \sqrt{\mathcal{L} \delta}(\tfrac{1}{2} + D),\]</span> i.e., <span class="math display">\[\mathcal{L} \delta \geq c := \left( \frac{1 - \kappa}{\tfrac{1}{2} + D} \right)^2,\]</span> as required.</p>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-2026arXiv2610.31402" class="csl-entry" role="listitem">
+Banks, William D. 2026a. <span>“<span>Landau–Siegel</span> Zeros over a Base Field and Effective <span>Brauer–Siegel</span>,”</span> October. <a href="http://arxiv.org/abs/2610.31402v1">http://arxiv.org/abs/2610.31402v1</a>.
+</div>
+<div id="ref-2026arXiv2610.15483" class="csl-entry" role="listitem">
+———. 2026b. <span>“On the <span>OpenAI</span> Proof That <span>Landau–Siegel</span> Zeros Do Not Exist,”</span> October. <a href="http://arxiv.org/abs/2610.15483v1">http://arxiv.org/abs/2610.15483v1</a>.
+</div>
+<div id="ref-Barreto2026SiegelZeros" class="csl-entry" role="listitem">
+Barreto, Kevin. 2026. <span>“An Elementary Proof of the Non-Existence of <span>Landau–Siegel</span> Zeros.”</span>
+</div>
+<div id="ref-Bombieri1974CountingPoints" class="csl-entry" role="listitem">
+Bombieri, Enrico. 1974. <span>“Counting Points on Curves over Finite Fields.”</span> In <em>Séminaire Bourbaki : Vol. 1972/73, Exposés 418–435</em>, 234–41. Séminaire Bourbaki 15. Springer-Verlag. <a href="https://numdam.org/item/SB_1972-1973__15__234_0/">https://numdam.org/item/SB_1972-1973__15__234_0/</a>.
+</div>
+<div id="ref-cassels-geometry-of-numbers" class="csl-entry" role="listitem">
+Cassels, J. W. S. 1997. <em>An Introduction to the Geometry of Numbers</em>. Classics in Mathematics. Springer-Verlag, Berlin. <a href="https://doi.org/10.1007/978-3-642-62035-5">https://doi.org/10.1007/978-3-642-62035-5</a>.
+</div>
+<div id="ref-Dav80" class="csl-entry" role="listitem">
+Davenport, Harold. 1980. <em>Multiplicative Number Theory</em>. Second. Vol. 74. Graduate Texts in Mathematics. New York: Springer-Verlag.
+</div>
+<div id="ref-hexagon:2610.00409v1" class="csl-entry" role="listitem">
+Dijk, Roelof van. 2026. <span>“A <span>Frobenius</span> Determinant Proof of the Non-Existence of <span>Landau–Siegel</span> Zeros.”</span> Hexagon preprint hexagon:2610.00409v1. <a href="https://hexagonmath.org/2610.00409v1">https://hexagonmath.org/2610.00409v1</a>.
+</div>
+<div id="ref-hexagon:2610.00311v2" class="csl-entry" role="listitem">
+Green, Ben. 2026. <span>“On <span>Landau–Siegel</span> Zeros.”</span> Hexagon preprint hexagon:2610.00311v2. <a href="https://hexagonmath.org/2610.00311v2">https://hexagonmath.org/2610.00311v2</a>.
+</div>
+<div id="ref-2026arXiv2610.30476" class="csl-entry" role="listitem">
+Guo, Victor Zhenyu. 2026. <span>“An Explicit Elementary Proof of No <span>Landau–Siegel</span> Zeros,”</span> October. <a href="http://arxiv.org/abs/2610.30476v1">http://arxiv.org/abs/2610.30476v1</a>.
+</div>
+<div id="ref-2026arXiv2610.21099v1" class="csl-entry" role="listitem">
+Kerr, Bryce. 2026. <span>“A Simpler Proof That There Are No <span>Landau–Siegel</span> Zeros,”</span> October. <a href="http://arxiv.org/abs/2610.21099v1">http://arxiv.org/abs/2610.21099v1</a>.
+</div>
+<div id="ref-Kominers2026FrobeniusPrimeSums" class="csl-entry" role="listitem">
+Kominers, Scott Duke. 2026. <span>“Small Algebraic Integers and <span>Frobenius</span> Prime Sums.”</span> Hexagon preprint <a href="https://hexagonmath.org/2610.00451v1">hexagon:2610.00451v1</a>. <a href="https://hexagonmath.org/2610.00451v1">https://hexagonmath.org/2610.00451v1</a>.
+</div>
+<div id="ref-OpenAI2026QuasiRHSeptember30" class="csl-entry" role="listitem">
+OpenAI. 2026a. <span>“The <span>Quasi-Riemann Hypothesis</span>: A Zero-Free Half-Plane <span><span class="math inline">\(\Re(s)&gt;7/8\)</span></span>.”</span>
+</div>
+<div id="ref-OAI:Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026" class="csl-entry" role="listitem">
+———. 2026b. <span>“<span class="nocase">Uniform exclusion of Landau–Siegel zeros</span>.”</span> OpenAI Math Release preprint <a href="https://github.com/openai/math/blob/main/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/paper.pdf">OAI:Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026</a>.
+</div>
+<div id="ref-Pascadi2026PrivateCommunication" class="csl-entry" role="listitem">
+Pascadi, Alexandru. 2026. <span>“Private Communication.”</span>
+</div>
+<div id="ref-rosser-schoenfeld-1962" class="csl-entry" role="listitem">
+Rosser, J. Barkley, and Lowell Schoenfeld. 1962. <span>“Approximate Formulas for Some Functions of Prime Numbers.”</span> <em>Illinois Journal of Mathematics</em> 6 (1): 64–94. <a href="https://doi.org/10.1215/ijm/1255631807">https://doi.org/10.1215/ijm/1255631807</a>.
+</div>
+<div id="ref-StevenhagenLenstra1996" class="csl-entry" role="listitem">
+Stevenhagen, P., and H. W. Lenstra Jr. 1996. <span>“<span class="nocase">Chebotar<span class="nocase">ë</span>v</span> and His Density Theorem.”</span> <em>The Mathematical Intelligencer</em> 18 (2): 26–37. <a href="https://doi.org/10.1007/BF03027290">https://doi.org/10.1007/BF03027290</a>.
+</div>
+<div id="ref-Tao2026SiegelZeros" class="csl-entry" role="listitem">
+Tao, Terence. 2026. <span>“A Sketch of the Proof of Non-Existence of <span>Siegel</span> Zeroes.”</span> <a href="https://terrytao.wordpress.com/2026/10/19/a-sketch-of-the-proof-of-non-existence-of-siegel-zeroes/"><em>What’s new</em></a>, October 19. <a href="https://terrytao.wordpress.com/2026/10/19/a-sketch-of-the-proof-of-non-existence-of-siegel-zeroes/">https://terrytao.wordpress.com/2026/10/19/a-sketch-of-the-proof-of-non-existence-of-siegel-zeroes/</a>.
+</div>
+<div id="ref-ThornerZaman2019" class="csl-entry" role="listitem">
+Thorner, Jesse, and Asif Zaman. 2019. <span>“A Unified and Improved <span>Chebotarev</span> Density Theorem.”</span> <em>Algebra &amp; Number Theory</em> 13 (5): 1039–68. <a href="https://doi.org/10.2140/ant.2019.13.1039">https://doi.org/10.2140/ant.2019.13.1039</a>.
+</div>
+<div id="ref-MR670072" class="csl-entry" role="listitem">
+Weil, André. 1982. <em>Adeles and Algebraic Groups</em>. Vol. 23. Progress in Mathematics. Mass.: Birkhäuser Boston.
+</div>
+</div>
+<script>
+document.querySelectorAll(".proof > p:first-child > .toggle-proof").forEach(function(caption) {
+  function flip(e) {
+    if (e.target.closest("a")) return;  // a link in the caption is only a link
+    if (e.type === "keydown" && e.key !== "Enter" && e.key !== " ") return;
+    e.preventDefault();
+    const folded = caption.closest(".proof").classList.toggle("folded");
+    caption.setAttribute("aria-expanded", String(!folded));
+  }
+  caption.addEventListener("click", flip);
+  caption.addEventListener("keydown", flip);
+});
+</script>
+<script>
+const toggleAll = document.querySelector("#toggle-all-proofs");
+if (toggleAll) toggleAll.addEventListener("click", function(e) {
+  e.preventDefault();
+  const captions = document.querySelectorAll(".proof > p:first-child > .toggle-proof");
+  const fold = [...captions].some(function(c) { return !c.closest(".proof").classList.contains("folded"); });
+  captions.forEach(function(c) {
+    c.closest(".proof").classList.toggle("folded", fold);
+    c.setAttribute("aria-expanded", String(!fold));
+  });
+});
+</script>
+
+<script src="https://giscus.app/client.js"
+        data-repo="Ultronozm/math"
+        data-repo-id="R_kgDOJlhjqQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJlhjqc4CWo21"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
